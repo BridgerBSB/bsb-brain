@@ -1,0 +1,12 @@
+# --- Per-user Obsidian UI state (don't sync between people) ---
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+
+# --- NEVER SHARE: personal / former-company / pre-Astros material ---
+projects/private-archive/
+
+# --- OS / misc ---
+.DS_Store
+Thumbs.db

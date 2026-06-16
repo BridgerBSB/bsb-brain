@@ -1,0 +1,31 @@
+# BLOCKING Rules — ALWAYS APPLY
+
+The 17 non-negotiable rules across the whole BSB Resources codebase.
+Each rule points to a deeper `rules/*.md` file with the full context,
+bug history, and reference implementation. **Read the linked rule
+before working in that domain.**
+
+Extracted from `CLAUDE.md` on 2026-05-19 to keep the parent file lean
+and the rules auto-loading universally. Add a new rule by editing this
+file + cross-referencing it from the relevant domain rule.
+
+---
+
+1. **NEVER guess DB column names.** Check `.claude/rules/db-columns.md`, grep existing queries, or verify with INFORMATION_SCHEMA first. No exceptions.
+2. **NEVER write lazy queries.** Look up `groundcontrol_id` from `pd-goals/data/slack_channels.csv`. Use concrete IDs.
+3. **Dual query path rule.** When modifying ANY pitch query, check if a parallel app/CLI query exists and update both. See `.claude/rules/dual-query-path.md`.
+4. **is_whiff MUST be gated by did_swing.** `is_whiff = (did_swing == 1) & pitch_result_id.isin(WHIFF_CODES)`. Without the gate, Ctct% + Whf% > 100%.
+5. **SQL Server BIT columns cannot be SUM'd.** Always `SUM(CAST(col AS int))`. See `.claude/rules/pitfalls.md`.
+6. **DSL/FCL: use gc2_level_code, NOT sv.league.** See `.claude/rules/level-codes.md`.
+7. **Safe level queries: whitelist competitive levels** or use `_build_level_filter()`. `sched_type='R'` alone does NOT protect against junk codes.
+8. **Full schema prefixes required.** `MLB_eBis.PP_MASTER`, `Guts.woba_lwts`, etc.
+9. **Age: NEVER rounds up, ALWAYS one decimal** (e.g., 23.4 not 24).
+10. **NEVER push to main for testing.** Everything goes to the feature branch.
+11. **App ↔ Report parity.** Every report has a paired Streamlit app page. When changing ANY filter, tier gate, metric, column, or rendering logic on one, **ALWAYS update the other**. Even if the user only mentions "report" or "app", both must match. The app's PDF download calls the report generator with the same data — filters must produce identical results. See KPI file map in app-specific rules.
+12. **NEVER use `competitive_play=1` as a tracking metric gate.** The ONLY gate for fielding tracking metrics is **Tier 1: `DCBP.out_made + DCBP.CP + DCBP.CT + TDM.CP + TDM.CT + (arm >= floor) > 0`** — checks BOTH tables for BOTH flags (CP and CT) because DCBP and TDM can disagree (GC2 only checks DCBP and misses valid plays). CP count is display-only. See `.claude/rules/fielding.md`.
+13. **Verify imports before editing any module.** Before changing ANY `src/*.py` file, grep the live entry points (`pages/`, `scripts/`) for imports of that module. If zero hits, it's dead code — don't edit it. Pattern-matching on filenames ("IF tracker → `if_tracker_*.py`") fails when refactors leave old files behind. **Intangibles specifically**: the unified `fielding_tracker_page.py` + `fielding_tracker_data.py` power BOTH `2_Outfield.py` and `3_Infield.py` via `render("OF")` / `render("IF")`. The per-domain files `of_tracker_page.py`, `of_tracker_data.py`, `if_tracker_page.py`, `if_tracker_data.py` are **DEAD** (marked for deletion in `intangibles/FIELDING_TRACKER_SPEC.md`). See live-file map in `.claude/rules/intangibles.md`.
+14. **Org-code canon on cross-source JOINs.** Whenever a query JOINs `MLB_eBis.PP_MASTER` / `GBL_CLUB_LKUP` / `R4_Draft_Query` against `MLBAM.Teams` on an org code, apply the 4-org CASE remap (CHI↔CHC, LA↔LAD, NY↔NYM, OAK↔ATH) on BOTH sides. Without it the Cubs, Dodgers, Mets, and Athletics silently drop from per-org results (29 orgs instead of 30, broken Lg/Lvl ranks). See `.claude/rules/org-codes.md` for the canonical SQL templates.
+15. **PDF generation goes LAST in any Streamlit page.** The `with st.spinner("Generating PDF...")` + `generate_*_report(...)` + `st.download_button(...)` block MUST sit AFTER all `st.plotly_chart` / `st.dataframe` / `st.tabs` calls in the same scope. Streamlit runs scripts top-to-bottom — a spinner mid-script blocks the entire page paint until PDF render completes (5–30s of blank screen on player switch). Reference impl: `barrelsville/pages/5_KPI_Report.py:437` ("charts first, PDF last — user sees data immediately"). See `.claude/rules/pdf-last-in-script.md` for the antipattern signature, audit recipe, and fix recipe.
+16. **All percentile metrics (P*) MUST use raw-obs pooling.** Any per-player percentile metric (P01, P10, P25, P75, P95, P99, etc.) in ANY affiliate tracker — current OR future — uses raw-observation pin + Python `np.percentile` over the user-selected scope. Weighted-mean-of-per-slice-percentiles is forbidden (silently biases the value, typically by 1-3% on multi-level players). Canonical reference impl: `intangibles/src/fielding_tracker_data.py` raw_obs path (`_RAW_TDM_QUERY` + `_compute_pooled_from_raw_obs` + parity diag). Catcher + BR ports pending. See `.claude/rules/pooled-percentile-pattern.md` for the 5-piece implementation pattern, hand-dependence decision branch, and full migration playbook.
+
+17. **Org attribution is PER-PA, never majority-org.** Any per-player surface that attaches an org to a player and then groups/filters/displays by org MUST attribute each observation (PA/pitch/play/throw) to the org that actually had the player at that game, with row identity `(player_id, org)`. NEVER collapse to a single "primary" org via `ROW_NUMBER() OVER (PARTITION BY <id> ORDER BY n_* DESC)` + `WHERE rn = 1` (or Python `drop_duplicates(id)`) — that merges a mid-season-traded player's two-org stats into one row and makes him flicker between orgs by window (Moss vanished from KPI weekly Season but showed in L2W). Use the canonical `mlbam.teams` JOIN via `top_of_inning` + `GROUP BY id, org`. See `.claude/rules/org-attribution-per-pa.md` for the fix, the full ~14-site inventory, and the per-shape playbook.
