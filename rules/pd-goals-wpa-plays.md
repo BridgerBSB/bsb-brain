@@ -67,38 +67,56 @@ WP chart = HOU WP timeline with 5 green dots (top-5 non-K) + 5 red dots (bottom-
 
 **CLI:** `python pd-goals/scripts/generate_wpa_plays.py --date YYYY-MM-DD [--deliver] [--affiliate-only aaa] [--dry-run]`
 
-## WPA Plays — `--2-week` Whole-League Leaderboard (one-off, Jun 17 2026)
+## WPA Plays — `--2-week` Leaderboard (one-off, Jun 17 2026)
 
-Separate CLI mode on the SAME script. Instead of per-game HOU PDFs, it
-pools **every team** at a level over a trailing window and emits **ONE
-2-page PDF**: page 1 = top-N offensive plays, page 2 = top-N defensive
-plays. **No WP timeline chart.**
+Separate CLI mode on the SAME script. Instead of per-game PDFs, it pools
+a trailing window and emits **ONE 2-page PDF**: page 1 = top-N offensive
+plays, page 2 = top-N defensive plays. **No WP timeline chart.**
 
 ```bash
 python pd-goals/scripts/generate_wpa_plays.py --level mlb --date 2026-06-16 --2-week
-#   --days 14   trailing window, inclusive of --date (default 14)
-#   --top-n 10  plays per side (default 10)
-#   --level     any level, default mlb (whole-league pool, NOT HOU-only)
+#   --days 14        trailing window, inclusive of --date (default 14)
+#   --top-n 10       plays per side (default 10)
+#   --level          any level, default mlb
+#   --whole-league   pool ALL teams (DEFAULT is HOU-only — Sam, Jun 17)
 #   --deliver [--channel C…]   optional; defaults to mlb-reports/overflow
-# Output: pd-goals/reports/wpa_plays/window_<end>/<level>_wpa_top<N>_<start>_to_<end>.pdf
+# Output: .../window_<end>/<level>_<hou|league>_wpa_top<N>_<start>_to_<end>.pdf
 ```
 
-**What's different from daily mode (3 new pieces, all in the existing files):**
-- `get_mlb_window_plays(level, start, end)` — date-range query, **no HOU
-  filter** (whole-league pool), score returned per batting/fielding-team
-  perspective (`bat_team_score_before` / `fld_team_score_before`). Same
-  per-event `top_of_inning` WPA sign-flip as daily.
-- `rank_window_plays(df, top_n)` — top-N by `bat_wpa` (offense) / `fld_wpa`
-  (defense). No bottom/Ks buckets in this mode.
-- `render_mlb_window_pdf(...)` — full-width landscape tables with **Date /
-  Team / Opp** columns added (cross-game view). Reuses `_fmt_inning` /
-  `_short_name` / `_shorten_desc` / WPA-color + `▶` video-link wiring from
-  daily. Page 1 banner green (offense), page 2 navy (defense).
+**Scope = HOU-only by default** (Sam direction Jun 17 2026). `lvl_games`
+joins `mlbam.teams` + `org_abbrev='HOU'` (the daily `my_games` pattern);
+ranking keeps offense = HOU batting (`org_bat='HOU'`), defense = HOU
+fielding (`org_fld='HOU'`). `--whole-league` removes both filters for the
+pooled version.
 
-**Notes / open tweaks (awaiting boss feedback):** defense page credits the
-**pitcher** of record (description carries the fielding play); score reads
-play-team-first. Commit `3aec5999` on `feature/pd-goals`. Synthetic render
-verified (2 pages, 10 rows/side, video links survive PDF merge).
+**Video = M (Main CF) angle ONLY** (Sam, Jun 17). The `Video_Network`
+OUTER APPLY forces `vn.angle = 'M'` (no fallback). Plays without an M clip
+show no ▶ link. This is a coach-facing reel, so device-safety (the
+player-facing 3-tier `Astros.Video` chain in `video-angles.md`) does NOT
+apply here — Sam wants the broadcast CF view.
+
+**Strikeouts excluded from both top tables.** A K *recorded* is a big
+positive fielding-team WPA, so it would otherwise rank into the defensive
+top plays (this surprised us on the first HOU run — it's correct, just
+not wanted here). `rank_window_plays` filters `is_strikeout == 0`.
+
+**The 3 pieces (all in the existing files):**
+- `get_mlb_window_plays(level, start, end, hou_only=True)` — date-range
+  query, optional HOU filter, score per batting/fielding-team perspective
+  (`bat_team_score_before` / `fld_team_score_before`), forced M-angle
+  video. Same `top_of_inning` WPA sign-flip as daily.
+- `rank_window_plays(df, top_n, hou_only=True)` — non-K top-N by `bat_wpa`
+  (offense) / `fld_wpa` (defense).
+- `render_mlb_window_pdf(..., pool_label)` — full-width landscape tables
+  with **Date / Team / Opp** columns. Page 1 banner green, page 2 navy.
+
+**TODO (deferred, Sam wants it):** add separate **offensive Ks suffered**
++ **defensive Ks recorded** tables (mirror daily `off_ks`/`def_ks`). Data
+is already in the frame (`is_strikeout`); needs a 2nd table per page or a
+page 3/4. Other open polish: defense page credits the **pitcher** of
+record; score reads play-team-first; Team column is constant "HOU" in
+HOU-only mode (could drop). Commits `3aec5999` (initial) + this refine on
+`feature/pd-goals`.
 
 ## WPA Plays — Card 3 (LIVE Apr 25, 2026)
 
