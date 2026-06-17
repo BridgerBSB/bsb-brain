@@ -1,3 +1,7 @@
+---
+paths:
+  - "pd-goals/**"
+---
 # PD Goals — WPA Plays (Card 3 + CLI)
 
 > **Extracted from `pd-goals.md` 2026-05-19** to keep the parent rule under
@@ -62,6 +66,39 @@ WP chart = HOU WP timeline with 5 green dots (top-5 non-K) + 5 red dots (bottom-
 **Video link pattern:** AB-ending pitch via `cur_event_id = ev.event_id` OUTER APPLY + Video_Network angle fallback `M → V → A → I`. `cell.text.set_url()` on the plottable triangle cell, color `#1565C0`.
 
 **CLI:** `python pd-goals/scripts/generate_wpa_plays.py --date YYYY-MM-DD [--deliver] [--affiliate-only aaa] [--dry-run]`
+
+## WPA Plays — `--2-week` Whole-League Leaderboard (one-off, Jun 17 2026)
+
+Separate CLI mode on the SAME script. Instead of per-game HOU PDFs, it
+pools **every team** at a level over a trailing window and emits **ONE
+2-page PDF**: page 1 = top-N offensive plays, page 2 = top-N defensive
+plays. **No WP timeline chart.**
+
+```bash
+python pd-goals/scripts/generate_wpa_plays.py --level mlb --date 2026-06-16 --2-week
+#   --days 14   trailing window, inclusive of --date (default 14)
+#   --top-n 10  plays per side (default 10)
+#   --level     any level, default mlb (whole-league pool, NOT HOU-only)
+#   --deliver [--channel C…]   optional; defaults to mlb-reports/overflow
+# Output: pd-goals/reports/wpa_plays/window_<end>/<level>_wpa_top<N>_<start>_to_<end>.pdf
+```
+
+**What's different from daily mode (3 new pieces, all in the existing files):**
+- `get_mlb_window_plays(level, start, end)` — date-range query, **no HOU
+  filter** (whole-league pool), score returned per batting/fielding-team
+  perspective (`bat_team_score_before` / `fld_team_score_before`). Same
+  per-event `top_of_inning` WPA sign-flip as daily.
+- `rank_window_plays(df, top_n)` — top-N by `bat_wpa` (offense) / `fld_wpa`
+  (defense). No bottom/Ks buckets in this mode.
+- `render_mlb_window_pdf(...)` — full-width landscape tables with **Date /
+  Team / Opp** columns added (cross-game view). Reuses `_fmt_inning` /
+  `_short_name` / `_shorten_desc` / WPA-color + `▶` video-link wiring from
+  daily. Page 1 banner green (offense), page 2 navy (defense).
+
+**Notes / open tweaks (awaiting boss feedback):** defense page credits the
+**pitcher** of record (description carries the fielding play); score reads
+play-team-first. Commit `3aec5999` on `feature/pd-goals`. Synthetic render
+verified (2 pages, 10 rows/side, video links survive PDF merge).
 
 ## WPA Plays — Card 3 (LIVE Apr 25, 2026)
 
