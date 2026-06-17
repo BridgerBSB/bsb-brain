@@ -89,11 +89,19 @@ ranking keeps offense = HOU batting (`org_bat='HOU'`), defense = HOU
 fielding (`org_fld='HOU'`). `--whole-league` removes both filters for the
 pooled version.
 
-**Video = M (Main CF) angle ONLY** (Sam, Jun 17). The `Video_Network`
-OUTER APPLY forces `vn.angle = 'M'` (no fallback). Plays without an M clip
-show no ▶ link. This is a coach-facing reel, so device-safety (the
-player-facing 3-tier `Astros.Video` chain in `video-angles.md`) does NOT
-apply here — Sam wants the broadcast CF view.
+**Video = M preferred, then fallback so EVERY play has a clip** (Sam,
+Jun 17 — first wanted M-only, then "not all have M, need all to have
+video"). The window query's video OUTER APPLY picks the first non-null of:
+`Video_Network 'M'` (Sam's pick) → `Astros.Video angle_id=1` (sporty-clips
+CF, **always populated for MLB games** per `video-angles.md`) →
+`Video_Network 'a'` → `'v'`. Coach-facing reel, so device-safety isn't the
+driver — M is just the preferred view; the av1 tier guarantees MLB coverage.
+
+**Companion diagnostic** (`sql-queries/wpa-window-video-angles.sql`): the
+SAME top-N HOU plays with EVERY camera angle as its own URL column (M /
+sporty CF1+CF2 / VN a,v,H,F,7,5,6) — copy-paste to hunt a working clip
+when the auto-resolved link isn't the angle you want. HOU MLB only; edit
+`@end` / `@top`.
 
 **Strikeouts excluded from both top tables.** A K *recorded* is a big
 positive fielding-team WPA, so it would otherwise rank into the defensive
