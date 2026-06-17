@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*video*.py"
+  - "**/*postgame*.py"
+---
 # Video Angles — Two Tables + the V Column Standard (BLOCKING)
 
 ## Two video tables — what they are and when each populates
@@ -68,6 +73,27 @@ viewing where all angles are available. `Astros.Video` only has angles 1 and
 
 Intangibles BR's 8 pre-computed chains (`_MLB_MAIN_1B`, `_MILB_SIDE_2B`, etc.)
 are untouched. Same for OF/IF position-aware chains.
+
+## MLB away-game coverage — M is often home-only; 'B' → 'X' fill it (Jun 17 2026)
+
+Observed building the PD-Goals WPA `--2-week` MLB leaderboard
+(`pd-goals/src/wpa_plays_data.py`): for **MLB away games**, the
+`Video_Network 'M'` (Main CF) angle is frequently **missing**, so a
+link chain that prefers M alone left away-game plays with no video.
+The `'B'` and `'X'` Video_Network angles ARE present on those away
+games and play — adding them as the first fallbacks after M fixed
+away-game coverage.
+
+**So for any MLB-facing single-link chain that prefers M, fall back
+`M → B → X` before the CF tiers.** The canonical WPA chain is
+`M → B → X → Astros.Video angle_id=1 (sporty-clips CF) → VN 'a' → VN 'v'`
+(the av1 sporty tier is the coverage backstop; B/X are the preferred
+broadcast-quality away-game angles).
+
+This is the empirical observation, not a verified mechanism — `B`/`X`
+just consistently resolve where `M` doesn't on away MLB games. The
+player-facing **V-column** chain above is unchanged (it targets
+device-safe CF clips, a different goal than "best watchable angle").
 
 ## Reference implementations (canonical, keep in sync)
 
