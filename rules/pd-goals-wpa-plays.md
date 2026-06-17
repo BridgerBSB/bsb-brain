@@ -91,11 +91,12 @@ pooled version.
 
 **Video = M preferred, then fallback so EVERY play has a clip** (Sam,
 Jun 17 — first wanted M-only, then "not all have M, need all to have
-video"). The window query's video OUTER APPLY picks the first non-null of:
-`Video_Network 'M'` (Sam's pick) → `Astros.Video angle_id=1` (sporty-clips
-CF, **always populated for MLB games** per `video-angles.md`) →
-`Video_Network 'a'` → `'v'`. Coach-facing reel, so device-safety isn't the
-driver — M is just the preferred view; the av1 tier guarantees MLB coverage.
+video", then "B then X first after M"). The window query's video OUTER
+APPLY picks the first non-null of: `Video_Network 'M'` (Sam's pick) →
+`VN 'B'` → `VN 'X'` → `Astros.Video angle_id=1` (sporty-clips CF, **always
+populated for MLB games** per `video-angles.md`) → `VN 'a'` → `'v'`.
+Coach-facing reel, so device-safety isn't the driver — M is the preferred
+view, B/X are Sam's next-best MLB angles, the av1 tier guarantees coverage.
 
 **Companion diagnostic** (`sql-queries/wpa-window-video-angles.sql`): the
 SAME top-N HOU plays with EVERY camera angle as its own URL column (M /
