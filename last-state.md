@@ -1,3 +1,23 @@
+# Last session state — 2026-07-24 (Intangibles Individual position radio + two org/position bug sweeps)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` · branch `feature/astros-intangibles` (rules on `bsb-resources/feature/pd-goals`)
+- **What we were doing:** Added the OF/IF Individual position radio Zac asked for, which surfaced two latent bugs — both fixed and swept everywhere.
+
+- **Shipped this session (all committed, pushed, and DEPLOYED by Zac):**
+  - **OF/IF Individual position radio** (All/LF/CF/RF, All/3B/SS/2B/1B) + events-frame caching + on-demand "Build Report" PDF + 6h per-position percentile pools (pinned tracking + live PAA/value). `cd15a670`→`c769a325`.
+  - **Range & Difficulty page removed** from weekly OF + IF PDFs. `48d517f7`, `c3d83639`.
+  - **Players_Games position fan-out fix** — `fielding_base.drop_phantom_pos_rows()` (keyed on player+sched+event), applied in of/if_weekly_data + of/if_postgame_data. Cam Smith 169165, 2026-07-12 CF+RF: 33 rows→26. `47122c7a`, `df1cc558`, `40796c0d`. New rule `players-games-position-fanout.md` (`8d134e12`,`55cc1167`).
+  - **Trends-tab mid-season acquisition fix (rule #17)** on **all 5 affiliate trackers** via `_names_hou_pref`: Arm Farm `3a4bedf4`, Barrelsville `b2352c2f`, Catcher/Fielder/BR `647591c1`. Rule #17 updated with the player-identity-vs-org-identity distinction. `31d59604`. Jack Dashwood 73573.
+  - Both rules propagated byte-identical to all 4 worktrees.
+
+- **EXACT next step:** Nothing blocking — session is closed. If resuming optional cleanup, start with the 3 unguarded diagnostic scripts (`error_diagnostic.py:63`, `diag_dsl_if_scope.py:43`, `diagnose_tier1_gate.py:121`) — apply `drop_phantom_pos_rows` or gate them.
+- **Blockers / waiting on:** none. All deployed.
+- **Uncommitted work:** intangibles src/pages clean (0); only synced `.claude/rules/*.md` copies + pre-existing unrelated user WIP in bsb-resources.
+
+---
+
+## ALSO OPEN — EOY P13 Fielding (bsb-resources/feature/pd-goals, from 2026-07-21, preserved)
+
 # Last session state - 2026-07-21 (EOY P13 "Fielding Season Review": page + backend)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` * branch `feature/pd-goals`
