@@ -1,39 +1,18 @@
-# Last session state — 2026-07-28 11:45 (R&D heavy-compute inventory — SENT, awaiting reply)
+# Last session state — 2026-07-29 10:20 (EOY position report + coordinator-notes app)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` · branch `feature/pd-goals`
-- **What we were doing:** Compiling a complete, ranked inventory of every pinned / precomputed / cached heavy computation across all 4 worktrees, as a document to send Astros R&D for the Connect-offload effort. **Doc is finished and sent. Zac is pivoting to a new project.**
-- **Shipped this session (all pushed, HEAD `3edbb62b`):**
-  - **`pd-goals/docs/plans/2026-07-28-rd-heavy-compute-inventory.md`** — `13e4f06b` → `70560e66` → `05118aca`; `8161cccd` added a "Who owns what" section, **`3edbb62b` reverted it** (Zac didn't like it). Built from a 4-agent parallel worktree sweep; ~978K subagent tokens stayed out of main context.
-  - **Cadence corrected org-wide, ~12 sites, all 4 worktrees** (`ff4922e7` + `0438efa1` bullpen / `eb6efd07` hitting / `db2b5ccb` intangibles). ALL Connect pin jobs run **every 12 h (twice daily)**, not 6h — trackers, fielding combos, compliance, Defense Matrix. Rules synced, 0 checksum mismatches, HEAD==remote on all 4.
-  - **`LINEAGE.md`** entry for the invalidated 6h claim + the superseded June preface §2 diagnosis.
-- **Findings worth keeping:** `batter_ev_p95` is a **3-app** problem — Barrelsville has 10 heavy-CTE call sites left, **PD Engine never got the fix at all** (`org_kpi_data.py:640`, `eoy_hitting_percentiles.py:47`). Fielding combos = heaviest job (3,600 DataFrames/domain-year, ~132 min daily, but pure-pandas → CPU on a viz server; real DB cost is the 8 base slices, `monthly_fielders` MEASURED at 8,203 s). Fielding job carries a **live race condition** (two Connect contents read-modify-writing one pin). **Big insight:** compliance + trackers + rolling chart + drift report are all "aggregate one player over an arbitrary date range" → **ONE daily per-player per-metric fact table** serves all four; leads the suggested sequence at #4.
-- **Zac editorial rule for any external/R&D doc:** do NOT disclose our internal inconsistencies — that's a "me thing." Cut the 25-vs-50-PA gate mismatch, "three other modules rebuild separately", the DuckDB dead-code confession, "Open items on our side", and "one definition, four implementations" (→ "no shared home today").
-- **EXACT next step:** **Ask Zac what the new project is**, then `/load-rules <domain>` for whatever it touches. Do NOT carry the pd-goals / tracker-pin / PRP rule context forward — it auto-injected from file paths and is dead weight on a different domain. R&D doc needs nothing further unless they reply.
-- **Blockers / waiting on:** R&D response to the inventory. Optional work-laptop item: pull the Connect job-history + schedule table per content item — every runtime is still tagged DOCUMENTED (script headers) rather than MEASURED, and row counts/sizes are UNKNOWN.
-- **Uncommitted work:** all session work committed + pushed on all 4 worktrees. Pre-existing untracked/modified files in the worktrees are NOT mine.
+- **What we were doing:** Wired the position-player EOY into the PD Engine app as a coordinator-notes in-app submission, then refined the EOY P13 fielding page per Zac's feedback (rose pool + column headers).
+- **Shipped this session (all pushed, HEAD `935b7dde`, render/compile-verified locally, ALL UNVERIFIED vs DB/Connect):**
+  - **`f79d1c70`** — position EOY in-app submission WIRED (was a stub scaffold). `src/eoy_notes.py` real `save_eoy_note`/`mark_sent`/`deliver_eoy_report`/`pin_write_notes` with PRP anti-wipe (strict board check + `_pin_write_notes` anti-shrink). **2 boxes only** (Hitting + Fielding/BR — Zac confirmed, no 3rd box), auto heading. `pages/14_EOY_Reports.py`: prefill (deferred-load) + PDF preview + Send (PDF-last, fp-cached) reusing `build_position_payload` + `build_position_eoy_pdf`. Pitcher/ODP tabs = not-wired placeholder (Camden). pin `zbridger/eoy_notes_<season>`.
+  - **`66e4e736`** — P13 OF/IF direction roses colored **vs MLB pool** (was highest level). `eoy_fielding_data.py:580` `_DIR_POOL_QUERY` level_filter `hi_level`→`"mlb"`; caption "vs MLB" (EN+ES). Catcher NetK quad untouched.
+  - **`935b7dde`** — **`%Hi` header → actual level** (`%A/%AA/%AAA/%A+/%Rok/%DSL/%MLB`) report-wide via `_hi_pct_label(payload)` threaded through P13 (2 tables)/P18/P19/P20/P21; caption `.replace`; P22 glossary `%Hi`→`%Level`. `%MLB` unchanged → reads `%AAA | %MLB`.
+- **EXACT next step:** Zac's words — "continue on the next steps of editing the report and the coordinator notes in the actual app." Keep iterating `eoy_position_report.py`/`eoy_fielding_data.py` AND the notes flow (`pages/14_EOY_Reports.py` + `src/eoy_notes.py`). FIRST on work laptop: `git pull` + redeploy pd-goals app (GUID `79f52369-8244-46da-a4d6-95df956bacad`) `rsconnect deploy manifest .` + confirm `CONNECT_API_KEY` + `LOGIC_APP_URL` in Vars, then 1 real position test send → `#pd-automation-test`. **No re-pin.**
+- **Blockers / waiting on:** Everything this session UNVERIFIED vs DB/Connect (personal laptop has neither). P18/19/20/21 header-swap not render-verified (only P13 has a synthetic harness; identical-slot swap into existing `%MLB` width, low risk). Pitcher EOY + ODP still stubbed (Camden).
+- **Uncommitted work:** my work all pushed (HEAD==remote `935b7dde`); the ~84 `git status` entries are the pre-existing untracked scratch pile that predates this session.
 
----
+## ALSO OPEN — R&D heavy-compute inventory (2026-07-28, awaiting R&D reply)
 
-## ALSO OPEN — Barrelsville hitter_analysis Page A/B (bsb-wt-hitting/feature/barrelsville, from 2026-07-28 00:40, preserved)
-
-- **What:** Per-player hitter PDF (`barrelsville/scripts/hitter_analysis.py`). Page A dropped Whiff% → added ZCon%/OCtct% (canonical CSC-weighted parens in ALL block only) + Dmg% row (`bd0f8f73`, `3e6256ae`). Page C prototyped twice (`50da3d79`, `3628721a`) then **pulled** (`17d712d1`) — structurally identical to Page A once region was dropped. Pages A/B moved to positions 4/5 (`34840730`). HEAD `34840730`, pushed, synthetic-render-verified, UNRUN vs DB.
-- **EXACT next step:** work-laptop DB validation — `cd C:\Users\zbridger\bsb-wt-hitting; git pull; python barrelsville\scripts\hitter_analysis.py --season 2026 --no-heatmaps` → confirm page order (A=4/B=5), real league colors on a live hitter, watch `[SWING-ZONE POOLS]` timing.
-- **Zac to remember:** "this PDF isn't really ever finished — I edit it for analysis." Living doc, expect more ad-hoc edits. Page C parked ("different routes later"; most-distinct option = FB region×count).
-
-## ALSO OPEN — EOY P20 throwing density + P21 base-running (bsb-resources/feature/pd-goals, from 2026-07-27, preserved)
-
-- **Shipped (4 commits, `9ac5c677` → `27787d09`, pushed, synthetic, UNRUN vs DB):** P20 Throwing → DENSITY (throw-arrival 2D KDE white→navy). P21 Base Running (SB count graded w/ %Hi chip + BR 30-on-base gate; per-base lead panels PL vs LHP/RHP + dashed league-avg). Zac: "looks fantastic."
-- **EXACT next step:** ASK Zac for the "decently hefty" EOY report changes he mentioned. Also open: offer to flip P20 density to `contourf`. Work laptop: `python pd-goals/scripts/generate_eoy_position.py --gcid <base-stealer> --season 2026` (P21) + `--gcid 218498` (P20).
-- **Dead code:** `_LEAD_SAMPLES_QUERY` (`eoy_br_data.py:122`) — delete next cleanup.
-- **Note:** a separate EOY in-app-submission spec landed this session as `4582ee2b` (not from this thread).
-
-## ALSO OPEN — Opportunities bot: golden gates + bat-speed P90 (bsb-resources/feature/pd-goals, from 2026-07-26, preserved)
-
-- **What:** Pitcher HB anchors, percentile golden gates (`percentile-golden-gates.md` ×4 worktrees + `/percentile` skill), `run_opportunities.ps1` `-PitcherGcids`/`-PitcherGcidFile`, bat-speed ceiling `max_bs`→`bs_p90`.
-- **EXACT next step:** work laptop `git pull` (bullpen + hitting + bsb-resources) → `powershell -ExecutionPolicy Bypass -File opportunities\run_opportunities.ps1 -Season 2026 -PitcherGcidFile .\opportunities\pitcher_gcids.txt` for corrected `bs_p90` values, then Zac updates goals CSV.
-- **Open:** quadrant-NetK 300-vs-500 gate, per-PT pitcher shape gate 30-vs-300 units, Lucas Spence dropped from ranked output.
-
-## ALSO OPEN — EOY IF/OF/C fielding tools (bsb-resources/feature/pd-goals, from 2026-07-21, preserved)
-
-- **What:** P13 "Fielding Season Review" shipped; P18-P21 catching/BR pages built. IF/OF/Catcher 1-2-page detail tools still to design.
-- **EXACT next step:** **ASK Zac for his 1-2-page-per-tool concept for IF/OF/Catcher FIRST, then mock** (his words). Resolve PARKED: multi-position-family player → pages per family, cloned block, or primary only?
+- **Doc SENT:** `pd-goals/docs/plans/2026-07-28-rd-heavy-compute-inventory.md` (HEAD was `3edbb62b`). Cadence corrected org-wide to **every 12h** across all 4 worktrees. `LINEAGE.md` entry written.
+- **Findings worth keeping:** `batter_ev_p95` is a 3-app problem (PD Engine never got the fix — `org_kpi_data.py:640`, `eoy_hitting_percentiles.py:47`). Fielding combos heaviest + a live race condition (2 Connect contents RMW one pin). Insight: compliance + trackers + rolling chart + drift = "aggregate one player over a date range" → ONE daily per-player-per-metric fact table.
+- **Zac rule:** external/R&D docs must NOT disclose our internal inconsistencies.
+- **Next:** waiting on R&D response; optional work-laptop pull of Connect job-history/schedule to turn DOCUMENTED runtimes into MEASURED.
