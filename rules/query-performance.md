@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*.sql"
+  - "**/src/*.py"
+---
 # Query Performance — Multi-Column-OR Scans + Diagnostic Playbook
 
 When a SQL query feels slow, **before** considering caching, pinning, or
@@ -262,3 +267,15 @@ they're the reference impl for this query class.
 - **Don't** assume a query is fast just because it has `@lru_cache`. The
   cache hides cold-load cost — first hit per unique key still pays it.
   Optimize the SQL first; cache is a multiplier, not a substitute.
+
+---
+
+## When the heavy thing is re-run across MANY queries → precompute once
+
+If the same EXPENSIVE sub-CTE (e.g. a `PERCENTILE_CONT` window sort) is embedded
+in a dozen query strings and re-run per query in a daily pin — and its result is
+**scope-independent** (depends only on `season`, not the calling query's
+level/hand/date) — the fix is not caching, it is computing it ONCE and inlining
+the result as a constant `VALUES` lookup. This is the `cxconsumer` daily-pin
+strain class. Full pattern + the BLOCKING diff-harness gate:
+`compute-once-cte-precompute.md`.

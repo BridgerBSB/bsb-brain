@@ -1,3 +1,7 @@
+---
+paths:
+  - "pd-goals/**"
+---
 # In-App Submission Pattern — Form → Pin → PDF → Slack
 
 Reusable architecture for Streamlit apps that accept user input and deliver

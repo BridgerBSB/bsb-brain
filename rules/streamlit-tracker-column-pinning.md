@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*tracker*.py"
+  - "**/pages/*.py"
+---
 # Streamlit Tracker Column Pinning — Pixel-Int Width Pattern (BLOCKING)
 
 LIVE on `feature/barrelsville` since May 8 2026 (commit `18f6303`).

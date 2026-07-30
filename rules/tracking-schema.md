@@ -277,6 +277,36 @@ fielders. Verify before using.
 
 ---
 
+## 5b. Biomechanics_Tracking + Measurements (characterized Jun 16 2026)
+
+Two big EAV stores, fully documented in
+`barrelsville/docs/plans/2026-06-16-biomech-measurements-schema-reference.md`.
+
+- **`Biomechanics_Tracking`** — EAV `(sched_id, pitch_id, metric_id, groundcontrol_id, value)`,
+  joins `Pitches_View` on **`(sched_id, pitch_id)`** (NOT tracking_play_id), **two
+  rows/metric (batter+pitcher) → filter `groundcontrol_id = batter_id`**. 564
+  metrics via `LK_Biomechanics_Metrics_Types` (contact bat geometry, 3D arm joints,
+  PC swing plane, full hip/torso/elbow/wrist kinematics at swing stations). One
+  value per swing (contact + summary, NOT per-frame). **BLOCKING coverage caveat:
+  the 3D `wrist`/`elbow` joints + `pc1/2/3` swing-plane are POSE-tracked = MLB-only
+  (NULL for MiLB prospects). Bat-tracking metrics (bat_ss/bat_head/angles) are
+  affiliate-wide but DUPLICATE `Swing_Contact_Values`.**
+- **Per-frame batter SKELETON is NOT in SQL — it's a Hawkeye BLOB.** `Blob_Upload_Log`
+  shows tracking uploaded as blobs typed `ball`/`bat`/`player`/`biomech` (skeletal
+  config `body29` = 29 joints). The raw per-frame pose lives in those blob files;
+  relational tables only carry derived summaries (sparse/NULL for our hitters) + the
+  ball's per-frame `Hit Trajectory` (Measurements id 109). Drawing GC2's full
+  skeleton needs blob/object-store access, not a query. (Confirmed Jun 16 2026 —
+  swing-path data-ref §K.)
+- **`Measurements`** — per-play EAV `(sched_id, tracking_play_id, timecode,
+  measurement_id, target_id, target_gc_id, value, value_numeric, …)`; joins via
+  `Plays`. `measurement_id` → **`LK_Measurement_Types`** (996 metrics). `target_id`:
+  0=play, 1=P, 2=C, 3-9=fielders(1B..RF), **10=batter**, 11+=runners. Holds the
+  Statcast batting cherries (EV=11, Attack Angle=942, Bat Speed=943, Swing Length=974,
+  **Percent Squared Up=984**, Distance from Sweet Spot=963, Barreled Ball=108, Hit
+  Trajectory JSON=109). **No raw per-frame skeleton is exposed** — only derived
+  metrics + JSON arrays + completeness % (ids 969/973).
+
 ## 6. Standard join chain — Astros side ↔ Tracking side
 
 ```

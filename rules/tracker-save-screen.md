@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*tracker*.py"
+  - "**/pages/*.py"
+---
 # Tracker Save Screen — Browser Print is the Only Working PDF Approach (BLOCKING)
 
 LIVE on all 5 affiliate trackers as of 2026-05-21. The "💾 Save Screen"

@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*tracker*.py"
+  - "**/pin_*.py"
+---
 # Tracker Parquet Pins — Sparse-Pin Recovery (parent section 10)
 
 > **Extracted from `tracker-parquet-pins.md` 2026-05-19** to keep the

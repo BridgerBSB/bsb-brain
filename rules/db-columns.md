@@ -36,6 +36,35 @@ paths:
 ### Why this trips people up
 Most apps' K%/BB% use `SUM(ev.pa) + SUM(ev.ibb)` as denominator — "total PA." Developers reach for the same pattern for wOBA denom and it silently drifts by the SH count. Always use the explicit `AB + BB - IBB + HBP + SF` formula for wOBA to avoid the trap.
 
+### Official PA TOTALS — use Gamelog_Batting, NOT pitch-derived (BLOCKING)
+The event-anchored PA count (`Events_View ⋈ Pitches_View ON cur_event_id`)
+**UNDERCOUNTS** any season/career PA total wherever pitch-by-pitch tracking
+is incomplete — i.e. older / lower-minors (pre-~2021 A-ball, DSL, FCL). PAs in
+games with no pitch rows are silently dropped (the terminal-pitch join finds
+nothing). MLB is complete, so MLB totals are fine; **MiLB totals are not.**
+
+When you need a PA **total that must match an official stat line** (a player's
+A-ball PA, DSL PA, career-by-level PA, "how many PA at level X" asks), sum the
+official gamelog instead:
+
+```sql
+SUM(CAST(glb.pa AS int)) AS pa
+FROM MLBAM.Gamelog_Batting glb
+JOIN Astros.Players p        ON p.mlbam_id = glb.player_id
+JOIN Astros.Schedule_View sv ON sv.mlbam_game_pk = glb.game_pk
+WHERE sv.gc2_level_code = 'afx'   -- level via Astros side (avoids MLBAM level/gm_type literals)
+  AND sv.sched_type = 'R'
+GROUP BY ...
+```
+
+Verified cases: Heliot Ramos 2018 Low-A = **535** official vs **444** pitch-derived;
+Yordan 2016 DSL = 57 official vs 19 pitch-derived. Reference impl:
+`pd-goals/src/promotion_velocity_data.py` (`SUM(Gamelog_Batting.pa)` per game).
+Fallback when `mlbam_id` is NULL: join `ebis_id → MLBAM.Players`. Pitch-derived
+PA is fine ONLY for MLB-scoped work or pitch-level rate metrics (Whiff%/Ctct%/
+xwOBAcon), never for a MiLB PA total. Pitching sibling: `ip-calculation.md`
+(`Gamelog_Pitching.outs` is gold standard for the same reason).
+
 ## Baserunning Tables — SB/SBA Gates (BLOCKING)
 
 ### Astros.Pitches_Baserunner_Leads (PBL)
@@ -206,7 +235,8 @@ which IS the last pitch of the PA. No fix needed.
 | Steal pitch lookup | Events_View PA | `sched_id + groundcontrol_id + runner_going=1` within PA via `ab_event_id` | For video |
 
 ## Astros Table Columns
-- **Astros.Hits:** `hit_bearing` (NOT hit_spray_angle), `hit_exit_speed`, `hit_vertical_angle`. NO `hit_trajectory_id` (that's in Events_View/Events)
+- **Astros.Hits:** `hit_bearing` (NOT hit_spray_angle), `hit_exit_speed`, `hit_vertical_angle`, **`hit_initial_contact_point_x` / `hit_initial_contact_point_y`** (Point-of-Contact source — see PoC note below). NO `hit_trajectory_id` (that's in Events_View/Events)
+- **Point of Contact (PoC) — BLOCKING source rule.** The tracker PoC family comes from **`Astros.Hits.hit_initial_contact_point_x/_y`**, NOT from `swing_contact_values.bally_con` (SCV bally_con is raw plate-apex distance, ALWAYS positive — the wrong metric). **PoC** = `hit_initial_contact_point_y * 12.0 - 17.0` (inches from plate FRONT edge; **positive = out front, negative = behind/over the plate**), BIP-only, `BETWEEN -24 AND 48`. PoCRelY/PoCRelX subtract body-center from `player_tracking_bypos` (HawkEye-only). Canonical impl: `barrelsville/src/tracker_data.py` `_POC_QUERY` + `_POC_REL_QUERY`. See `reference-impl-index.md`.
 - **Astros.Events_View / Events:** HAS `hit_trajectory_id` (bunt filter: NOT IN 2,3,4)
 - **Astros.Pitches_View:** Zone confidence column is `called_strike_chance_mlb` (NOT `csc` — that's only a Python alias)
 - **Astros.Video_Network:** Join on `sched_id` + `pitch_id`. Column is `angle` (NOT `camera_angle`). Values: `'M'`=Main CF, `'a'`=alt CF, `'v'`=alt2 CF, `'H'`=high home, `'F'`=1B high, `'7'`=3B high, `'5'`=side mid 1B, `'6'`=side mid 3B, `'s'`=RHH high speed, `'t'`=LHH high speed. URL column is `video_url`.

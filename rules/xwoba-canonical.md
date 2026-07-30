@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/src/*.py"
+  - "**/scripts/*.py"
+---
 # xwOBA Canonical — BLOCKING (READ THIS BEFORE TOUCHING ANY HITTING METRIC)
 
 ## The non-negotiable

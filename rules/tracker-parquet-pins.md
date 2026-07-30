@@ -1,3 +1,9 @@
+---
+paths:
+  - "**/*tracker*.py"
+  - "**/pin_*.py"
+  - "**/connect_pins*/**"
+---
 # Tracker Parquet Pins — Pattern, Playbook, and BLOCKING Rules
 
 Pre-aggregated tracker data pinned as joblib bundles on Posit Connect for

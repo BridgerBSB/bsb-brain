@@ -1,3 +1,7 @@
+---
+paths:
+  - "pd-goals/**"
+---
 # PD Goals — Rolling Value Chart — 6 Week Per-Goal Time Series
 
 > **Extracted from `pd-goals.md` 2026-05-19** to keep the parent rule under

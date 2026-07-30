@@ -1,3 +1,7 @@
+---
+paths:
+  - "pd-goals/**"
+---
 # PD Goals — Transition Report (Card 2, LIVE Apr 24 2026)
 
 > **Extracted from `pd-goals.md` 2026-05-19** to keep the parent rule under

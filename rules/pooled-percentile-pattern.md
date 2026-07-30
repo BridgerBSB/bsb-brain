@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*tracker*.py"
+  - "**/fielding*.py"
+---
 # Pooled-Percentile Pattern — Universal (BLOCKING)
 
 Every per-player percentile metric in every affiliate tracker MUST use

@@ -49,6 +49,7 @@ The parquet-pin caching layer, its refresh cadence, and the Connect deploy bundl
 - [[tracker-stat-rank-display]]
 - [[tracker-aggrid-stat-rank]]
 - [[database-tcp-retry]]
+- [[datacenter-ip-waf-block]] — external scrapers blocked on Connect's datacenter IP → residential-IP→pin fix (project: [[indyball-tracker]])
 
 ## KPI weekly
 - [[kpi-weekly-charts]]
@@ -122,3 +123,22 @@ The non-negotiable BLOCKING list and the behavioral corrections.
 - [[never-defer-to-tomorrow]]
 - [[graduation-log]]
 - [[graduation-log-archive-2026-04-thru-05-10]]
+
+## Standalone apps (personal GitHub + Railway)
+Separate from the four bsb-resources analytics apps. Own repos, own Supabase, Railway-hosted.
+
+- [[coordinator-notes-app]] (hub) · [[coordinator-notes-questionnaire]] · [[coordinator-notes-rag]]
+- [[astroworld-status]] (hub) · [[astro-world-storage]] · [[astro-world-hitting-structure]]
+
+## Auth & Supabase (apps)
+Supabase Auth gotchas from the app side ([[astroworld-status]], [[coordinator-notes-app]]).
+
+- [[supabase-manual-user-insert-null-tokens]]
+- [[supabase-bcrypt-passwords]]
+
+## Astro World (app)
+The PD onboarding/learning platform — engineering cluster. Hub: [[astro-world]].
+
+- [[astro-world]] · [[astroworld-status]] · [[astro-world-storage]]
+- [[microsoft-safe-links-breaks-email-auth]] · [[prisma-supabase-migration-workflow]]
+- [[supabase-raw-table-needs-grant]] · [[nextjs-db-safe-build-force-dynamic]]

@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*tracker*.py"
+  - "**/pin_*.py"
+---
 # Tracker New Metric — Checklist (BLOCKING)
 
 **Non-percentile metrics: 5 places. Percentile metrics (P01, P10, P25,

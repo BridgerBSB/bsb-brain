@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*tracker*.py"
+  - "**/pages/*.py"
+---
 # Tracker "Stat (Rank)" Display Mode
 
 LIVE on all 5 affiliate trackers as of 2026-05-25. Combined display

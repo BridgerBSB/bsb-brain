@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*tracker*.py"
+  - "**/pin_*.py"
+---
 # Tracker Parquet Pins — Daily Refresh Strategy for Current Season (parent section 11)
 
 > **Extracted from `tracker-parquet-pins.md` 2026-05-19** to keep the

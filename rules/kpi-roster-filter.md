@@ -1,3 +1,7 @@
+---
+paths:
+  - "**/*kpi*.py"
+---
 # KPI Weekly — Active-Roster Season Table Filter (BLOCKING)
 
 ## What this rule covers

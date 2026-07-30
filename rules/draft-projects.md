@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*draft*.py"
+  - "**/*amateur*.py"
+---
 # Draft / College / Amateur Project Patterns
 
 Guide for any project involving drafted players, amateur-signed (UDFA)

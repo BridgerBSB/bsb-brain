@@ -1,6 +1,6 @@
 ---
 name: analysis-scripts-session-2026-06-10
-description: "Jun 10 2026 hitter_analysis.py overhaul (acquisition mode, DSL fix, zone-page redesign, GC2 heatmaps, Age/Ht/Wt header) + pitcher header parity. SHIPPED, untested on live DB."
+description: "hitter_analysis.py overhaul: Jun 10 (acquisition mode, DSL fix, zone redesign, GC2 heatmaps, Age/Ht/Wt) + Jun 17-18 (Ball Flight page = PoC+spray, no-heatmaps dual-season, prior-season gating unified, page-1 zone font -1). SHIPPED, untested on live DB."
 metadata: 
   node_type: memory
   type: project
@@ -45,7 +45,7 @@ Dual-season = 6 pages, single-season = 5:
 - Pg2: Attack Angle + Launch Angle + xwOBAcon zones — ALL pitches (no FB/OS/BRK split), metric=columns / season=rows.
 - Pg3: Avg EV + Whiff% zones — same transposed all-pitches layout.
 - Pg4/5: Swing Location / Contact Location (KDE, STILL split FB/OS/BRK).
-- Pg6: Contact-point page.
+- Pg6: **Ball Flight** — rows=season(s) × cols=[Point of Contact frequency | weekly Spray + EV colorbar]. (Jun 17-18 redesign; EV/Damage density dropped. See dated section below.)
 Single-season collapses Swing+Contact to one page.
 Helpers added: `_draw_metric_zone_page` (R×C zone grid), `_zone_cell` closure (kinds aa/la/ev/whiff/xwc), `_filter_pitch_group("ALL")`, `_compute_zone_xwoba(hand=None)`.
 
@@ -78,6 +78,38 @@ python scripts\pitcher_analysis.py --season 2026 --levels dsl
 Acquisition gc_ids = Hendrie 110466, Cartaya 93490, Thompson 162667, Figueroa 176436,
 Lege 139152, Vargas 94392, Lugo 94535, G.Collins 66559, Munoz 155852, Rushford 197816,
 Redfield 218594. NO gc_id yet: Michael Soper (Pioneer Lg link), Paul DeJong (no link).
+
+## Jun 17-18 2026 additions (feature/barrelsville, all UNTESTED on live DB)
+Page 6 redesigned from the old Contact-Point 2×2 (Frequency + EV/Damage) into a
+**Ball Flight** page: rows = season(s), columns = [Point of Contact FREQUENCY
+density | Spray chart]. EV-weighted "Damage" chart DROPPED (still in
+`_draw_contact_point_heatmap` as `mode="damage"`, just not drawn). Spray = the
+EXACT weekly chart — `from src.weekly_hitter_report import _draw_spray_chart`
+(Minute Maid field, EV-colored dots, EV colorbar), reused verbatim. New helper
+`_spray_df_from_pitches(pitch_df)` builds x/y from `hit_bearing`+`hit_distance`
+(BIPs, bearing not null, traj 2/3/4 excluded, dist NaN→200ft) — pitch_df already
+carries those via `_query_timeframe` (postgame_data), so NO SQL change. Spray
+title seated in a tan box ABOVE the field with `ax.set_ylim(-50,500)` headroom so
+it clears centerfield + fence isn't clipped. Commits `acb6807e` (page) +
+`0ac6816b` (title/headroom).
+
+Same-session fixes:
+- `--no-heatmaps` condensed page now shows BOTH seasons (was current-only). `307fb2bb`.
+- **Prior-season gating UNIFIED** (`efbff3ce`): page count + ALL zone/KDE/contact-point
+  surfaces + page-1 xwOBA hand-split zones gate on `has_prev_zones` (= `pitch_df_prev`
+  non-empty — what the zones/spray actually draw from). Results + KPI stat tables keep
+  `has_prev` (= `level_rows_prev`, they need per-level rows). Kills the page-count↔render
+  divergence ("Page X of Y" can't drift) and guarantees 2025 zone data shows whenever it exists.
+- Page-1 xwOBAcon hand-split zone VALUE text shrunk 1pt (crowding on the small 4-across
+  charts): `_draw_zone_heatmap(value_fontsize_delta=-1.0)` → inner 7.5→6.5, corner 6.5→5.5.
+  Other pages keep canonical sizes. `aeecaccd`.
+
+**Run Frey + Brutcher as ONE combined PDF** (multiple `--batter-ids` → one file; do NOT
+pass `--no-heatmaps` or the Ball Flight page is skipped):
+`python scripts\hitter_analysis.py --season 2026 --batter-ids 174203 130666`
+Frey = 174203, Brutcher = 130666 → `reports/Hitter_Analysis_2026_<date>_ACQ.pdf`.
+All Jun 17-18 visuals verified by SYNTHETIC render-and-look only (see new BLOCKING rule
+`render-and-look.md` #18) — live-DB eyeball still pending.
 
 ## Open follow-ups
 1. **Verify weight populates** on work laptop. If header shows `— lb`, the real mlbam.players

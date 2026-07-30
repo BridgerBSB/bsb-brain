@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/connect_pins*/**"
+  - "**/pin_*.py"
+---
 # Tracker Parquet Pins — Connect-Scheduled Daily Refresh + Future Expansions (parent section 12)
 
 > **Extracted from `tracker-parquet-pins.md` 2026-05-19** to keep the

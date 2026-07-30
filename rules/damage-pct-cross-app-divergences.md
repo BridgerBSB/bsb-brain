@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/src/*.py"
+  - "**/scripts/*.py"
+---
 # Damage% — Cross-App Rounding Standard + Known Filter Divergences
 
 ## Rounding standard — BLOCKING (Apr 25 2026)

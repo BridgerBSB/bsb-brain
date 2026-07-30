@@ -1,3 +1,7 @@
+---
+paths:
+  - "pd-goals/**"
+---
 # PD Goals — PD Flag Tracker — CLI Sibling
 
 > **Extracted from `pd-goals.md` 2026-05-19** to keep the parent rule under

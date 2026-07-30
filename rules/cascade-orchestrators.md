@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/run_*.ps1"
+  - "**/run_*.py"
+---
 # Cascade Orchestrators — run_daily.ps1 + run_monday.ps1 (Parallel)
 
 Two PowerShell orchestrators in `pd-goals/scripts/` drive the recurring

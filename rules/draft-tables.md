@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*draft*.py"
+  - "**/*amateur*.py"
+---
 # Draft / UDFA / Amateur Tables Reference
 
 How to query players who entered the org via the draft or as undrafted free

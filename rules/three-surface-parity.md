@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/src/*.py"
+  - "**/scripts/*.py"
+---
 # Three-Surface Parity — BLOCKING
 
 For each domain (Hitting, Pitching, Catcher, OF, IF, BR), the **same metric is computed in three places**. Any change to ONE of these surfaces MUST be propagated to the other TWO before the commit ships. Single-surface fixes silently drift the values across views and break user trust.
@@ -12,6 +17,8 @@ For each domain (Hitting, Pitching, Catcher, OF, IF, BR), the **same metric is c
 | **Outfield** | `intangibles/src/fielding_tracker_data.py` + `fielding_tracker_page.py` via `render("OF")` | `intangibles/src/of_kpi_data.py` (uses shared `fielding_tracker_data.py`) | `pd-goals/src/org_kpi_data.py` (OF section) |
 | **Infield** | `intangibles/src/fielding_tracker_data.py` + `fielding_tracker_page.py` via `render("IF")` | `intangibles/src/if_kpi_data.py` (uses shared `fielding_tracker_data.py`) | `pd-goals/src/org_kpi_data.py` (IF section) |
 | **Baserunning** | `intangibles/src/br_tracker_data.py` + `br_tracker_page.py` | `intangibles/src/br_kpi_data.py` | `pd-goals/src/org_kpi_data.py` (BR section) |
+
+> **Also consumes IF PAA/EO (4th surface, reuse not redefinition):** the daily IF report's "Team PAA/EO" box (`intangibles/src/if_postgame_data.py::get_team_paa_eo`) reuses the canonical `fielding_tracker_data._DCBP_QUERY` calibration math — `SUM(paa_cal)/SUM(expected_outs)` over the level's HOU IF. Any PAA/EO calibration change must keep it in sync. See `if-team-paa-eo-box-status` memory.
 
 ## What Counts as a Change Requiring Propagation
 

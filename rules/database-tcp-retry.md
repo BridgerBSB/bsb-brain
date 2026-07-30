@@ -1,3 +1,9 @@
+---
+paths:
+  - "**/database.py"
+  - "**/pin_*.py"
+  - "**/*tracker*.py"
+---
 # Database TCP-Retry + Pool Pre-Ping (BLOCKING)
 
 LIVE on `feature/barrelsville` since May 8 2026 (commit `e3c218c`).

@@ -316,6 +316,35 @@ All KPI metrics verified to match tracker/postgame formulas:
 - **FPinZ%, InZ%, 2K Proj, gcPerf, pBarrel:** All match tracker/postgame exactly.
 - **gcERA:** PA-weighted everywhere (matches GC2). Global MLB HR rate with before-May fallback. See gc2-metrics.md.
 
+## Affiliate Tracker — Pitch-Efficiency Metrics (P/Out, P/PA, P/K, P/BB) — Jun 23 2026
+
+Four count-derived efficiency columns on the tracker — selectable in the
+"Metric Columns" picker, OFF by default (opt-in, like GB%/BABIP/Kill%; NOT in
+`_DEFAULT_METRICS` per Zac Jun 23). All `f1` (one decimal). Shipped Jun 23 2026
+(commits `aa6bff96` add, `7b194c25`
+K/BB-PA fix). Available in every grain — season leaderboard, org rankings, and
+the MoM/WoW/YoY trend pickers (player + org), DSL split — because the derivation
+lives in shared functions (`_add_pitch_efficiency_metrics()` per-pitcher +
+`_merge_org_pa_metrics()` org).
+
+| Metric | Formula | Direction | Notes |
+|---|---|---|---|
+| **P/Out** | total pitches / outs | lower = better | outs = gamelog gold w/ PA-outs fallback |
+| **P/PA** | total pitches / BF | lower = better | every pitch belongs to a PA |
+| **P/K** | **pitches in K-ending PAs** / strikeouts | lower = better (quick putaways) | NOT total pitches / K |
+| **P/BB** | **pitches in BB-ending PAs** / walks | HIGHER = better (no cheap 4-pitch walks) | NOT total pitches / BB |
+
+**BLOCKING — P/K and P/BB count only the pitches in the specific K/BB PAs** (Sean
+Buchanan, Jun 23 2026): "average pitches per strikeout PA" / "per walk PA", NOT
+`total_pitches / K`. Numerators `n_pitch_k_pa` / `n_pitch_bb_pa` =
+`SUM(CASE WHEN ev.so/bb=1 THEN pv.ab_pitch_number END)` on the PA-final pitch
+(`cur_event_id` join; `ab_pitch_number` 1-indexed = that PA's pitch count). Added
+to all 4 base PA queries (`_PA_LEVEL_QUERY`, `_ORG_PA_QUERY`, `_ORG_MONTHLY_PA_QUERY`,
+`_MONTHLY_PA_QUERY`); weekly inherits via `_monthly_to_weekly_sql`. Carried through
+col_order + 7 stale-pin shims + org rollup + page `_combine_multi_level`. Re-pin
+required for deployed values (stale-pin shim NaNs the columns until then). Standalone
+one-off: `sql-queries/hou-current-pitchers-efficiency-2026.sql`.
+
 ## Affiliate Tracker — Org Rankings Must Match Individual
 **BLOCKING RULE:** Any metric/formula used in the per-pitcher leaderboard MUST also be used in the org rankings tab. They share `_merge_org_pa_metrics()` but have separate SQL queries — check BOTH when changing formulas.
 

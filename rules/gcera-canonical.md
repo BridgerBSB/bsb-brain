@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/src/*.py"
+  - "**/scripts/*.py"
+---
 # gcERA Canonical — BLOCKING
 
 Every gcERA value across every surface MUST match GC2 within ±0.005

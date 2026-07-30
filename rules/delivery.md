@@ -119,18 +119,47 @@ IF/OF daily and KPI reports deliver to **team-level channels** (not per-player),
 | rok | fcl_intangibles | `C0AKG8WA267` | FCL/ACL games |
 | dsl | dsl_intangibles | `C0AK777QM47` | DSL games |
 
+### Weekly OF/IF Delivery — No-Play Gate (Jun 22 2026)
+
+The OF/IF **weekly** batch scripts (`generate_of_weekly_batch.py` /
+`generate_if_weekly_batch.py`) gate **delivery** on whether the player
+actually made a play that week — but keep **generation** multipurpose.
+
+- **Two distinct filters, don't conflate them:**
+  1. **Played the position?** The player-finder + games query require
+     `pg.pos_id IN (7,8,9)` (OF) / infield positions (IF). A pure DH who
+     never took the field never enters the batch at all — not generated,
+     not delivered.
+  2. **Had a play happen to him?** NEW gate: each generated report carries
+     `n_plays = len(plays_df)`. At the delivery step, `deliver_reports`
+     keeps only `n_plays > 0`; `n_plays == 0` (appeared at the position but
+     no ball/play) is skipped and printed. Applies to **all three** modes
+     (`--deliver`, `--deliver-z`, `--deliver-level`). If nobody made a
+     play, nothing is delivered and the script exits cleanly.
+- **No new CLI flag** — the gate is automatic on the existing deliver
+  flags, so the weekly cascade command is unchanged. (A future
+  `--deliver-empty` opt-out would be the place to re-enable no-play
+  delivery if ever wanted.)
+- **Gate metric is `plays_df` (any play), NOT `n_comp_plays`** (Tier-1
+  competitive plays). If a stricter "no competitive play" gate is ever
+  wanted, swap the `n_plays` source — one-line change in both scripts.
+- **Latent bug fixed same change:** OF stored `"level": level` (a stale
+  loop leftover = last player's level) in the generated dict, mis-routing
+  every OF `--deliver-level` post to one channel. Now `roster_level`,
+  matching IF. Commit `f43b0db1` on `feature/astros-intangibles`.
+
 ### Barrelsville + Arm Farm Fixed Channels
 
 | Channel | Channel ID | Used By |
 |---------|------------|---------|
 | milb_boxscores | `C0APYUYFYMP` | All boxscore PDFs (Barrelsville, single channel, all levels) |
-| daily-player-updates | `C0AVBKPEG8H` | Org-wide analysis + KPI snapshot PDFs (Zac + Sam). See "Analysis + Snapshot Delivery" below. |
+| weekly-player-updates | `C0AVBKPEG8H` | Org-wide analysis + KPI snapshot PDFs (Zac + Sam). See "Analysis + Snapshot Delivery" below. |
 
 ## Analysis + Snapshot Delivery (Org-Wide, Single Channel)
 
 Org-wide PDFs (one PDF per run, not per-player) ship via `send_to_channel()`
 with the channel ID hardcoded in the script. Currently routed to
-**daily-player-updates** (`C0AVBKPEG8H`). All scripts use the same
+**weekly-player-updates** (`C0AVBKPEG8H`). All scripts use the same
 `--deliver` + `--logic-app-url` CLI pattern.
 
 ### Wired (Apr 24-25, 2026)
@@ -194,17 +223,83 @@ hitter ever 413s (e.g. roster grows, pages get heavier), copy the
 auto-split block from `pitcher_analysis.py` — same shape applies. Note
 left at the deliver block in `hitter_analysis.py` for future agents.
 
+### Advance Batches — Auto-Chunk the Series ZIP (HTTP 413 Mitigation)
+
+**Different delivery shape, different fix.** The org-wide analysis scripts
+above POST ONE big PDF and split it 50/50 via `--split`. The **advance
+batch** scripts instead build **per-pitcher PDFs → one ZIP per upcoming
+series → POST the ZIP**. When a series has enough heavy PDFs, that single
+ZIP crosses the Logic App ~100 MB base64 cap → `HTTP 413 Request Entity
+Too Large` → **0 ZIPs delivered** (reports generate fine; only the POST is
+rejected).
+
+**Fix: auto-chunk the ZIP** (NO flag — automatic, scales with the roster).
+Any batch script that ZIPs PDFs and POSTs must split a too-big series into
+`_part1ofN` ZIPs, each kept under a base64 budget:
+
+```python
+MAX_PAYLOAD_B64_BYTES = 40 * 1024 * 1024  # 40 MB base64 (proven-safe; cap is ~100 MB)
+
+def _b64_len(raw: bytes) -> int:
+    return ((len(raw) + 2) // 3) * 4   # base64 length without allocating the string
+
+def _build_series_zip_chunks(pdf_paths, series_folder_name) -> list:
+    """Greedily pack PDFs into ZIPs, each under the payload budget.
+    Returns [(zip_bytes, n_pdfs), ...] -- one chunk if it fits, _partNofM otherwise."""
+    chunks, current = [], []
+    for p in pdf_paths:
+        trial = current + [p]
+        if _b64_len(_build_series_zip(trial, series_folder_name)) > MAX_PAYLOAD_B64_BYTES and current:
+            chunks.append((_build_series_zip(current, series_folder_name), len(current)))
+            current = [p]
+        else:
+            current = trial
+    if current:
+        chunks.append((_build_series_zip(current, series_folder_name), len(current)))
+    return chunks
+```
+
+Filename: single chunk keeps `<aff>_<series>.zip`; multi-chunk becomes
+`<aff>_<series>_part{ci}of{n}.zip`. The existing per-level delivery loop
+POSTs each chunk unchanged. PDFs are already-compressed, so `ZIP_DEFLATED`
+barely shrinks them — rebuild-and-measure per PDF is fine (n is small, ~21).
+
+| Script | Worktree | Delivery shape | 413 fix |
+|---|---|---|---|
+| `bullpen-report/scripts/generate_advance_pitching_batch.py` | `feature/bullpen-reports` | per-pitcher PDFs → ZIP/series | **auto-chunk** (Jun 2026) |
+| `barrelsville/scripts/generate_advance_batch.py` (hitting advance) | `feature/barrelsville` | per-opposing-pitcher PDFs → ZIP/series | **auto-chunk** (Jun 2026, mirrored) |
+| `intangibles/scripts/generate_hitter_advance.py` (fielding advance) | `feature/astros-intangibles` | **individual PDFs** via `send_to_channel` | none needed — no ZIP, each PDF is small |
+
+**`--series` default = 1 (upcoming series only)** on all three advance
+scripts (Jun 2026 user direction). Each series is its own ZIP/post anyway;
+the default just stops building the series-after. `--series 2` is the
+opt-in CLI override (hitting advance: `--series 0` falls back to the
+`--days` window). The Monday cascade passes `--series 1` explicitly too
+(redundant with the default, kept self-documenting).
+
+**Pitfall:** raising `MAX_PAYLOAD_B64_BYTES` toward 100 MB cuts the number
+of parts but flirts with the 413 line — the exact cap is unknown (the
+original failing single ZIP 413'd at a size below ~100 MB). 40 MB is
+proven-safe. Don't bump it without a known-good MB reading from a real run.
+
+**Bug history (Jun 16 2026):** AAA pitching advance (`--level aaa`, 21
+Sugar Land pitchers × 14-page heatmap PDFs) 413'd on the Monday run →
+exit 90 in the cascade summary (delivery-failure sentinel) → 0 ZIPs
+delivered. Fixed with auto-chunking on the pitching batch (`b660b082`),
+mirrored to hitting (`de0cb0f8`); `--series 1` made the default across all
+three (`986e2cd6` / `f99ac7b5` / `5ece2c90`) + cascade (`63533df2`).
+
 ### TBD — needs same `--deliver` wiring + audit
 
 | Script | Notes |
 |---|---|
-| `intangibles/scripts/generate_kpi_snapshot.py` | Fielding (OF/IF/BR/C) KPI snapshot. Same shape as Barrelsville/Arm Farm snapshots — needs `--deliver` flag added + metric-audit run before shipping. Will be replicated to daily-player-updates next. |
+| `intangibles/scripts/generate_kpi_snapshot.py` | Fielding (OF/IF/BR/C) KPI snapshot. Same shape as Barrelsville/Arm Farm snapshots — needs `--deliver` flag added + metric-audit run before shipping. Will be replicated to weekly-player-updates next. |
 
 ### Single-player analysis to per-player Slack channels — pending
 
 User-prompted future work: replicate the analysis-script pattern but route
 **per-player PDFs to each player's own zzz_/z_ Slack channel** (not the
-org-wide daily-player-updates channel). Will use `send_reports_via_logic_app()`
+org-wide weekly-player-updates channel). Will use `send_reports_via_logic_app()`
 instead of `send_to_channel()` because filenames will encode `groundcontrol_id`.
 See "send_reports_via_logic_app()" section above for the routing logic.
 

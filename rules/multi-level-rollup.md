@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/src/*.py"
+  - "**/scripts/*.py"
+---
 # Multi-Level Org Rollup — Weight Column Rule (BLOCKING)
 
 > **For all percentile (P*) metrics, the implementation pattern lives in

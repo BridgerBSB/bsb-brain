@@ -30,3 +30,5 @@ bsb-brain/
 - 70 rule notes
 - 124 memory notes
 - = 194-note starting graph (before personal/ChatGPT content)
+
+- [[claude-session-skill-sequence]] — cheatsheet: what each session skill does (/brief /wrap /research /document /ingest /deep-research /explain + GSD /spec /plan /implement /reviewloop /orchestrate) and the canonical order they run in. (added 2026-07-06)

@@ -1,3 +1,7 @@
+---
+paths:
+  - "**/*kpi*.py"
+---
 # KPI Weekly Charts — Pool-Then-Aggregate Pattern (BLOCKING)
 
 ## What this rule covers

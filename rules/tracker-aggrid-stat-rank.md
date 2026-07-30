@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*tracker*.py"
+  - "**/pages/*.py"
+---
 # Tracker "Stat (Rank)" → AgGrid Numeric Sort + DSL Label Fix (PORTING SPEC)
 
 Two fixes shipped together on the **Barrelsville hitter** affiliate tracker

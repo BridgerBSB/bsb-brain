@@ -16,6 +16,51 @@ paths:
 | rok | Rookie (FCL/DSL/ACL) | All rookie ball — use `gc2_level_code` to distinguish DSL/FCL/ACL |
 | int | Internal/Private | NOT real games — NULL teams, off-season dates. See exceptions below |
 
+## MiLB 2021 Restructuring — Pre-2021 Level Codes Differ (ASK before any historical sample)
+
+**BLOCKING planning-prompt.** MLB contracted the minors from 160 → 120
+affiliated teams **before the 2021 season** and eliminated whole
+classifications. So a level-scoped sample is **not comparable across the
+2020/2021 boundary**, and a modern level-code filter silently drops
+players whose pre-2021 development happened at a now-abolished level.
+
+### What changed (verified Jun 20 2026)
+
+| Level | Code | Status | Notes |
+|---|---|---|---|
+| **Class A Short-Season ("A-")** | **`asx`** | **ABOLISHED before 2021** (existed 1965–2020) | New York–Penn League **disbanded**; Northwest League converted to **full-season Low-A**. Last actual games **2019** (2020 MiLB canceled, COVID). |
+| **Rookie-Advanced** | **`app`** (Appalachian) + Pioneer | **ABOLISHED before 2021** | Appalachian → collegiate summer wood-bat league; Pioneer → MLB Partner (independent) league. |
+| Low-A / Single-A | `afx` | Current entry full-season level | Post-2021 this is the lowest full-season affiliated level. |
+
+`asx` = Class A Short-Season is **inferred** from the per-level PA columns in
+`MLBAM.YTD_Player_Batting_Stats_MLE_Weighted` (`...afx_pa, asx_pa, app_pa...`).
+**Confirm the literal `level` value** via `SELECT DISTINCT level FROM
+mlbam.ytd_player_pitching_stats` (or the Hunter Brown diagnostic below) before
+relying on it in a filter.
+
+### The rule — ASK whenever the sample window reaches ≤ 2020
+
+When a query is **level-scoped** (especially A-ball / lower minors) AND its
+season window includes **2020 or earlier**, you MUST ask the user:
+
+> "This sample predates the 2021 MiLB restructuring. Short-Season A (`asx`)
+> and Rookie-Advanced (`app`) were abolished after 2020. Should I include
+> those levels, or treat them as out of scope? A modern `afx`-only ('Low-A')
+> filter will silently exclude players whose lowest full-season stop back then
+> was Short-Season A."
+
+**Canonical example (Hunter Brown, gc 95843):** threw Short-Season A (`asx`,
+2019) → High-A, and **never** Low-A (`afx`). An `afx`-only "Low-A" sample
+correctly but invisibly excludes him. See
+`sql-queries/hunter-brown-lowA-diagnosis.sql` and the FF/2-seam usage query
+`sql-queries/mlb-sp-2plus-war-aball-ff-2seam-usage.sql`.
+
+**For now (Jun 20 2026): do NOT auto-expand to `asx`/`app`.** Current asks are
+modern-structure only (`afx` = Low-A). This is a FUTURE consideration to raise
+the moment a sample reaches back before the restructuring. Source:
+[Baseball America](https://www.baseballamerica.com/stories/short-season-minor-league-baseball-will-disappear-in-2021/),
+[Class A Short Season — Wikipedia](https://en.wikipedia.org/wiki/Class_A_Short_Season).
+
 ## DSL vs FCL — `--level rok` = FCL-only, `--level dsl` = DSL-only (BLOCKING, May 27 2026)
 
 `sv.level_code='rok'` covers BOTH FCL and DSL games. `sv.gc2_level_code`

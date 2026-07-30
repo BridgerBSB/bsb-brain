@@ -1,3 +1,7 @@
+---
+paths:
+  - "pd-goals/**"
+---
 # PD Goals — Subjective & Unmeasurable Goals Reference
 
 Goals fall into 3 categories:

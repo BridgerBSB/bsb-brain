@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*tracker*.py"
+  - "**/pin_*.py"
+---
 # Pin Only Raw/Source Columns — Re-derive Presentation at Read Time (BLOCKING)
 
 **Never store a DERIVED / presentation value inside a pinned dataset.** Pins

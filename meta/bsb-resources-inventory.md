@@ -66,6 +66,6 @@ it's Zac's research platform, so "former-company" ≠ obviously these. **Needs Z
 call.**
 
 ## Open action
-- [ ] Zac: tag which rows are **pre-Astros / former-company** (never to the org repo).
-- [ ] Add confirmed-sensitive folders to a DO-NOT-MIGRATE guardrail + the new repo's `.gitignore`.
-- [ ] Migration only ever COPIES the CORE rows (`pd-goals` first) → `player-development`. Personal rows stay in `bsb-resources` on the laptop, never copied.
+- [x] Zac: tag which rows are **pre-Astros / former-company** (never to the org repo).
+- [x] Add confirmed-sensitive folders to a DO-NOT-MIGRATE guardrail + the new repo's `.gitignore`.
+- [x] Migration only ever COPIES the CORE rows (`pd-goals` first) → `player-development`. Personal rows stay in `bsb-resources` on the laptop, never copied.

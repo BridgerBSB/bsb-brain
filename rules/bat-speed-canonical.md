@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/src/*.py"
+  - "**/scripts/*.py"
+---
 # Bat Speed at Contact — Canonical Cleaning (BLOCKING)
 
 ONE filter. ONE helper. Every surface that aggregates per-batter bat

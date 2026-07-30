@@ -1,3 +1,7 @@
+---
+paths:
+  - "**/*kpi*.py"
+---
 # Combined Weekly KPI Stapler — Cross-Worktree PDF Merge Pattern (BLOCKING)
 
 ## What this rule covers

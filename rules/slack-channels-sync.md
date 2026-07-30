@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/slack_channels.csv"
+  - "**/deliver*.py"
+---
 # Slack Channels CSV — Cross-Worktree Sync (BLOCKING)
 
 When adding, editing, or removing rows in `slack_channels.csv`, you

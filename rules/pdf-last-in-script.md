@@ -1,3 +1,7 @@
+---
+paths:
+  - "**/pages/*.py"
+---
 # PDF Generation Goes LAST in Streamlit Page Script (BLOCKING)
 
 In any Streamlit page that builds a PDF, the **PDF-generation block

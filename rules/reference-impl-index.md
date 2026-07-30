@@ -27,6 +27,7 @@ paths:
 | **Avg EV / Max EV** | `barrelsville/src/postgame_data.py::EV_MISREAD_CTE` | Misread filter: `pitch_result_id IN (12,13,14)` + `hit_exit_speed > 0 AND < 125`. Max EV = true `MAX()` after cleaning, never P99 |
 | **InZ% (pitcher view)** | `barrelsville/src/tracker_data.py` (pitcher-side) + `bullpen-report/src/tracker_data.py` | `AVG(called_strike_chance_mlb)` — NOT binary `CSC > 0.5` (Pre2K IZ% fix Apr) |
 | **zxwOBA** | `barrelsville/src/postgame_data.py` | Per-pitch delta scaled by wOBA_scale. Norm constant `_ZXWOBA_NORM_RANGE = 0.015` |
+| **PoC / PoCRelY / PoCRelX** | `barrelsville/src/tracker_data.py::_POC_QUERY` + `_POC_REL_QUERY` | **Source = `Astros.Hits.hit_initial_contact_point_x/_y`, NOT SCV `bally_con`.** PoC = `hit_initial_contact_point_y*12-17` (in from plate FRONT edge; +=out front, −=behind/over plate), BIP-only, `BETWEEN -24 AND 48`. RelY/RelX subtract `player_tracking_bypos` body-center (HawkEye-only); RelX pull-side-positive both hands. f1 display, no percentile color. See `db-columns.md` PoC note. |
 
 ## Pitching metrics
 

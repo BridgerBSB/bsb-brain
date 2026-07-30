@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/src/*.py"
+  - "**/scripts/*.py"
+---
 # Org Attribution — Per-PA, Never Majority-Org (BLOCKING)
 
 Any per-player surface that attaches an **org** to a player and then groups,

@@ -1,3 +1,7 @@
+---
+paths:
+  - "pd-goals/**"
+---
 # Org Dash + Transition Reports — Architecture (BLOCKING)
 
 LIVE on `feature/pd-goals` since May 6 2026. Two new pages on PD Engine

@@ -181,6 +181,26 @@ Same pattern applies to IF (`if_weekly_report.py` ↔ `if_individual_page.py`).
 ## Daily Postgame Play Table — Display Tier Filtered
 OF daily uses 6-condition `_display_tier_filter()`, IF daily uses 4-condition version. Same filters as weekly individual reports. Defined in `of_postgame_report.py` and `if_postgame_report.py`.
 
+### IF daily — non-fielding outs excluded (DSL only, Jun 2026)
+`get_daily_if_plays` row-inclusion gate:
+`DCBP NOT NULL OR TDM NOT NULL OR (first_defender = player AND (pv.pitch_id IS NOT NULL OR gc2_level_code <> 'dsl'))`.
+**DSL only**: the first-defender branch requires a batted ball (`pv.pitch_id IS
+NOT NULL` = a BIP-ending pitch, `pitch_result_id IN (12,13,14)`), which drops
+**strikeouts** where the 1B is tagged `first_defender` but no ball was put in
+play — they carried no tracking, no PAA, no video and just produced blank rows.
+Routine + near-impossible plays still qualify (they have a BIP pitch);
+dropped-third-strike putouts that GC2 records in DCBP still qualify via DCBP.
+**All other levels keep the original open gate** (the `<> 'dsl'` clause preserves
+it) — zero change outside DSL. Single data path, so the CLI and the Infield app
+page both get the filtered rows.
+
+**OF daily got the SAME DSL-only gate (Jun 2026).** `get_daily_of_plays`
+first-defender branch is now
+`(ev.first_defender_id = pg.groundcontrol_id AND (pv.pitch_id IS NOT NULL OR
+gc2_level_code <> 'dsl'))`. OF's bearing-zone fallback branch already requires
+`ev.fo = 1` (a batted fly ball) so it needs no DSL change. The DCBP/TDM branches
+are unchanged. Other levels unchanged.
+
 ## Batch CLI Rule — BLOCKING
 When writing ANY batch CLI script (`scripts/generate_*.py`), MUST verify:
 1. Every import name exists in the target module
@@ -191,7 +211,7 @@ Read the target function signature before writing the call.
 
 ## Scripts — KPI Snapshot & Analysis
 - `scripts/generate_kpi_snapshot.py` — Position player **KPI snapshot** PDF (OF/IF/BR/C). Args: `--position`, `--season`, `--level`, `--spring`
-  - **TBD (Apr 25, 2026):** needs `--deliver` + `--logic-app-url` CLI flags wired to route to **daily-player-updates** (`C0AVBKPEG8H`, Zac + Sam) — same pattern shipped on Barrelsville `kpi_snapshot_3.py` (commit `cac02cb`) and Arm Farm `pitcher_kpi_snapshot.py` (commit `329d229`). Run a metric-audit pass first (diff vs `c_kpi_data.py` / `of_kpi_data.py` / `if_kpi_data.py` / `br_kpi_data.py` and the canonical `pitch-codes.md`) before shipping. See `delivery.md` "Analysis + Snapshot Delivery" section for the pattern.
+  - **TBD (Apr 25, 2026):** needs `--deliver` + `--logic-app-url` CLI flags wired to route to **weekly-player-updates** (`C0AVBKPEG8H`, Zac + Sam) — same pattern shipped on Barrelsville `kpi_snapshot_3.py` (commit `cac02cb`) and Arm Farm `pitcher_kpi_snapshot.py` (commit `329d229`). Run a metric-audit pass first (diff vs `c_kpi_data.py` / `of_kpi_data.py` / `if_kpi_data.py` / `br_kpi_data.py` and the canonical `pitch-codes.md`) before shipping. See `delivery.md` "Analysis + Snapshot Delivery" section for the pattern.
 - `scripts/generate_pickoff_report.py` — Pickoff outs report (video analysis)
 - `scripts/tagup_2to3_analysis.py` — Tag-up 2nd-to-3rd multi-page analysis
 - `scripts/build_guide_pdf.py` — OF/IF fielding report technical guide
@@ -477,9 +497,75 @@ All 6 affiliate trackers have H/A filter. `_build_ha_filter(ha_split)` → `{ha_
 `of_tracker_page.py`, `if_tracker_page.py`, `of_tracker_data.py`, `if_tracker_data.py` — NOT used at runtime.
 
 ## Video Fallback Order (OF/IF/BR)
-- **MLB Main:** M → V → B → X (V second in all OF main)
-- **MiLB Main:** M → V → A (V second)
+- **OF/BR MLB Main:** M → V → B → X (V second in all OF main)
+- **OF/BR MiLB Main:** M → V → A (V second)
 - Side chains: position-specific (LF/CF/RF)
+- **IF daily report (`if_postgame_data.py`) — DSL leads with angle `D`, not CF** (Jun 2026).
+  The CF broadcast angle does not show the infielders. The DSL feed's
+  overhead-infield camera is angle **`D`** (verified by eye across multiple DSL
+  games — `'H'`/high-home and `'F'`/`'7'` corner-high were all wrong for DSL).
+  **`D` is UNIVERSAL across the whole DSL league (verified Jun 2026):** a
+  league-wide angle audit across every DSL field — every team's home park,
+  i.e. what HOU plays at on the road — confirmed `D` is the overhead-infield
+  angle at ALL of them, so it's correct for HOU **away** games too. The side
+  `B`/`C` angles are also universal in meaning but PRESENT only at a few parks
+  (HOU + Brewers + Cleveland in the audit) — elsewhere the side falls back to
+  CF `A`. Audit query: `sql-queries/dsl-high-home-angle-audit.sql`.
+  DSL also records neither `M` nor `V`, so the old `M → V → A` chain always
+  resolved to the CF `A` angle — the wrong video that was showing. DSL now uses
+  its own branch `_DSL_MAIN = D → M → V → A` (falls back to old behavior if `D`
+  is missing). DSL detected via `sv.gc2_level_code = 'dsl'`. **All other levels
+  (MLB + AAA/AA/A+/A/FCL) keep their ORIGINAL chains unchanged** — their correct
+  infield angle is unverified, so do NOT touch them. To identify the right angle
+  for another level, run `sql-queries/dsl-if-one-play-all-angles.sql` (per-play
+  angle dump) at that level and confirm by clicking each URL.
+  - **DSL SIDE video is position-dependent** (user request Jun 2026): left side
+    3B (pos 5) / SS (pos 6) → angle `C`; right side 1B (pos 3) / 2B (pos 4) →
+    angle `B`. Both fall back to CF `A` → `M`/`V` so a link is never lost. Keyed
+    on `pg.pos_id` in the side `CASE`. Note `B`/`C` only exist in ~10 of 18 DSL
+    games, so the side falls back to CF `A` on the rest.
+  - **Dead-link handling** (Jun 2026): a row can exist in `Video_Network` with a
+    `video_url` whose FILE is missing (HTTP 404). SQL's `ISNULL` picks that
+    non-null url and shows a dead link — SQL can't detect a missing file. The
+    CLI path (`get_daily_if_plays(..., validate_side_urls=True)`) HEAD-checks the
+    angle the DSL side actually **resolved to** (B/C *or* the CF `A` fallback)
+    via `_validate_dsl_side_urls`, and on a definitive 4xx **swaps to CF `A` if
+    that's live, else BLANKS the link** (no link beats a 404). This covers the
+    doubleheader case where game 1 ran a minimal 2-camera setup (D + A only) and
+    fell to CF `A`, but the CF feed itself is dead → side blanks instead of
+    404'ing. FAIL-OPEN: timeouts / connection errors / non-4xx leave the link
+    unchanged, so a slow/down video host is never worse than today. DSL rows only
+    (gated on `gc2_level_code`). The live app (`if_postgame_page`) skips
+    validation to stay fast — minor app/PDF divergence on dead links only.
+- **OF daily report (`of_postgame_data.py`) — SAME DSL fix as IF** (user
+  direction Jun 2026). The OF main had the identical problem: the old
+  `M → V → A` chain resolved to CF `A` on DSL, which doesn't show the play.
+  DSL now leads with the high-home/overhead angle `D` (the SAME angle the IF
+  DSL report uses): `_DSL_OF_MAIN = D → M → V → A`. MLB + other MiLB main
+  chains unchanged.
+  - **DSL OF SIDE is a SINGLE chain for all OF positions** (user direction —
+    NOT position-split like IF): `_DSL_OF_SIDE = C → B → A → M → V` (corner
+    cameras DSL records, then CF `A`, then `M`/`V` so a link is never lost).
+    Keyed on `sv.gc2_level_code = 'dsl'` in the side `CASE`, ahead of the
+    per-position MiLB branches.
+  - **Dead-link handling — validates BOTH Main and Side** (`of_postgame_data.py`,
+    `_validate_dsl_video_urls`). A dead 404 on the Main `D` link or the Side
+    `B`/`C` link is swapped to its CF `A` fallback (`dsl_main_fallback_url` /
+    `dsl_side_fallback_url`) when that's live, else BLANKED. Fixes the "Main
+    only opens when a Side exists" symptom — a no-upload DSL game leaves both
+    `D` (main) and `B`/`C` (side) files missing, so without main validation the
+    Main rendered a clickable `▶` that 404'd while the side correctly blanked.
+    CLI passes `get_daily_of_plays(..., validate_side_urls=True)`; live app
+    (`of_postgame_page`) keeps the default `False`. Fail-open; DSL rows only.
+    **OF validates the Main; IF's `_validate_dsl_side_urls` still validates
+    the Side only** — port the Main check to IF if the same dead-Main symptom
+    shows there.
+  - **DSL EV/Dist/Hang left as-is** (user direction Jun 2026). Those come from
+    `Astros.Hits` and are unreliable at non-HawkEye DSL venues (internally
+    inconsistent hang-vs-distance, templated duplicate values) — a source-data
+    limitation, NOT a code bug. Coaches read DSL EV with a grain of salt; no
+    suppression applied.
+  - Report structure unchanged — angle wiring only. `_ALL_ANGLES` gains `'D'`.
 
 ## Known Gaps — Weekly OF/IF Reports
 1. No `_shorten_desc()` — play descriptions unabbreviated in table

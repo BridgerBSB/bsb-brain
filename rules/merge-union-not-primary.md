@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/src/*.py"
+  - "**/scripts/*.py"
+---
 # Merge Union Pattern — Never `df = primary.copy()` then Left-Join (BLOCKING)
 
 When aggregating Python DataFrames from multiple parallel SQL queries

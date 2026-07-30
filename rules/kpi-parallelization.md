@@ -1,3 +1,7 @@
+---
+paths:
+  - "**/*kpi*.py"
+---
 # KPI Report Parallelization Pattern
 
 Applied Apr 12, 2026. Barrelsville gets all 3 tiers. Arm Farm + Intangibles get P2+P4 only (monolithic CTE queries, no sub-queries to parallelize). PD Goals TBD.

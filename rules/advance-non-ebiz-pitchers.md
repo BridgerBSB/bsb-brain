@@ -105,7 +105,7 @@ run regenerates his report.
 | `--max-ip` | 30.0 | The recency window walks back from today until cum IP ≥ this |
 | `--season` | current year | Which season's percentile distributions to load |
 | `--bat-side` | both | `R` / `L` / `both` |
-| `--deliver` | off | Posts to `daily-player-updates` (`C0AVBKPEG8H`) via the standard Logic App |
+| `--deliver` | off | Posts to `weekly-player-updates` (`C0AVBKPEG8H`) via the standard Logic App |
 | `--logic-app-url` | `LOGIC_APP_URL` env | Same env var as boxscore / postgame delivery |
 
 ## How the script differs from `generate_advance.py`
@@ -147,7 +147,7 @@ companion using the same architecture:
 - Synthetic player Series with manual metadata from CLI flags
 - Same `--max-ip` / `--max-pa` / `--max-plays` recency walk
 - Same permissive level filter (see `advance-levels.md`)
-- Same delivery path to `daily-player-updates`
+- Same delivery path to `weekly-player-updates`
 
 Don't re-derive this from scratch. Copy `generate_advance_oneoff.py`,
 swap the SQL targets, and adjust the synthetic Series schema.
