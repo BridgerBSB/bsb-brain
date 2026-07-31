@@ -1,3 +1,16 @@
+# Last session state - 2026-07-31 16:06 (OF/IF Directional Progression Report - built)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles`
+- **What we were doing:** Designed (mockups) then BUILT a new per-player OF/IF Directional Progression Report. P1 = 8 directional roses (dual level+MLB %ile) + overall trend strip + movement table; P2 = 8x8 monthly sparkline matrix.
+- **Shipped this session (committed + pushed):** `09e05b10` build (report+data+CLI+test+design); `33fd5bb6` SQL fix (PERCENTILE_CONT needs SELECT DISTINCT + COUNT OVER, err 8120); `73b20321` display (3-decimal React/PAA-EO/ReactRad/ReAccRad/UseReact, WoW removed, every sparkline point value-labeled); `b04e7529` backlog. Files: intangibles/src/directional_progression_{report,data}.py + scripts/generate_directional_progression.py + shape test.
+- **EXACT next step:** WORK LAPTOP: cd to intangibles worktree, git pull, run `python scripts\generate_directional_progression.py --gcid 244959 283966 168757 212518 1263308 283424 1263410 1263300 --season 2026`, then compare a player PAA/EO rose %iles vs his EOY P13 rose (parity check, feedback #4).
+- **Blockers / waiting on:** Data layer WORK-LAPTOP-UNVERIFIED vs GC2 (no DB here). First real render + EOY percentile parity are the open checks. Confirm 'Nic O' gcid (no Ortiz in CSV; Nico Zeglin 282253?).
+- **Uncommitted work:** clean (1 unrelated untracked catcher doc only).
+
+---
+
+## ALSO OPEN - Onboarding report / 2026 draft class (bsb-resources/feature/pd-goals, from 2026-07-31 06:38, preserved)
+
 # Last session state - 2026-07-31 06:38 (Onboarding report -> player-facing, 2026 draft class)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
