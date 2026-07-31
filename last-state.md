@@ -1,4 +1,22 @@
-# Last session state — 2026-07-30 17:18 (PD Goals dashboard — DONE, bow on it)
+# Last session state - 2026-07-31 06:38 (Onboarding report -> player-facing, 2026 draft class)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
+- **What we were doing:** Took Camden's onboarding-meeting report (merged from `origin/cq/onboarding-report`) and finished it for the 2026 draft class. Real headshots out of the recruiting deck, page 1 filled from the department Slack threads, page 2 filled from the PD Handoff deck.
+- **The pivotal fact:** Zac + Sam confirmed the report is **ATHLETE-FACING**. The source material is staff notes written ABOUT the player, so this was never a transcription job. Every note is second person, and staff-evaluation language was reframed or pulled (Galloway's "concerning/disordered eating habits", Nowak's "poor understanding of body awareness", buy-in skepticism, "extreme loner", agent criticism, a body-fat position-viability judgement, third-party family medical detail).
+- **Shipped this session:** `9f9f2add` merge - `b54f2aa3` headshots + rectangular frame (border OUTSIDE the image, per Zac) - `3492cd7d` `extract_headshots_from_deck.py` - `9cf90d3c` staff-to-box map - `f8d0a529` page 1 for 19 players, player-facing - `27ae8256` page 2 for 22 of 23 + page 1 forced to ONE page - `cd31016d` Durnin rewrite + OUTSTANDING banner - lineage entry + `parse_pd_handoff_deck.py`. All pushed, HEAD == origin.
+- **Also fixed along the way:** `_wrap_note_lines` preserves pasted Slack line breaks (the shared `_wrap_lines` was reflowing every note into one run-on paragraph); page 1 shrinks type to a 7pt floor instead of spilling a lone box; `_hard_break` stops an unbroken token running off the box; long names shrink to fit.
+- **Verified:** 23 reports, 0 failed, **every one exactly 2 pages**. Voice audit returns zero third-person references to the player.
+- **EXACT next step:** On the **work laptop**, pull `gc_id` / bats / throws / age / school for **John Carver, Carson Estridge and Drew Wyers** from `MLB_eBis.PP_MASTER` + `Astros.Players` **by name** - do NOT wait on `build_onboarding_scaffold.py`, the two UDFAs have no `R4_Draft_Query` row so it will never build them. Type them into the TODO markers in `pd-goals/data/onboarding_notes.yaml`, re-run `scripts/extract_headshots_from_deck.py`, then `generate_onboarding_report.py --all`.
+- **Blockers / waiting on:** **Sam's review is the gate** - he said "I will need to make some edits to make sure it is all kosher." Nothing reaches a player before that. Also waiting on Butler's page-1 notes (he was absent from the Slack threads) and on Wyers, who has nothing: no headshot, no page 2, no bio.
+- **Open decisions for Zac/Sam:** does Galloway's brother-with-autism detail go back in? Where do Sam Niedorf's own notes belong (currently in DEFENSE with Mazzo's)? Should notes carry the staff member's name?
+- **Uncommitted work:** ~85 paths, but all pre-existing untracked clutter from earlier sessions (`.agents/`, `.codex/`, `awesome-claude-skills/`, `design-system/`, `gcpy/`, `pd-goals/output/`, loose `sql-queries/*.sql`). **Nothing from this session is uncommitted.**
+
+---
+
+## ALSO OPEN - PD Goals cockpit (2026-07-30, DONE + PARKED)
+> Kept from the previous wrap. Same repo/branch, different thread. Its one
+> loose end is the Connect **redeploy** - the live app still serves the old
+> build, so the deleted Goal Compliance tab is still visible until it ships.
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` · branch `feature/pd-goals`
 - **What we were doing:** Putting a bow on the PD Goals org cockpit. Zac had already set + staggered the 12h pin schedules on both Connect pin contents, which made the "↻ Recompute current phase (live)" button redundant — so the whole **Goal Compliance view got deleted** rather than ported. Its one genuinely unique bit (the goal window) moved onto the cockpit.
