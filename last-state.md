@@ -1,4 +1,23 @@
-# Last session state - 2026-07-31 16:45 (Gyro SL + cutter starter screen, MLB 2026)
+# Last session state - 2026-08-01 10:45 (Non-roster pitcher: Jona Widmann one-off + the crash it exposed)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` - branch `feature/bullpen-reports` (rule also on `bsb-resources` / `feature/pd-goals`)
+- **What we were doing:** Zac asked why sessions tagged `INT R` show up in Arm Farm runs (they are DSL Live AB scrimmages, working as designed) and why a signed pitcher, gcid 252980, throws in our data but appears nowhere under HOU. Then ran a one-off postgame for him, which crashed.
+- **The answer:** **Jona Widmann, LHP, DOB 2007-05-14, has NO eBIS record at all** - `ebis_id` AND `mlbam_id` both NULL on `Astros.Players`, so there is no key to join `MLB_eBis.PP_MASTER` on. Not a wrong-org or wrong-level filing; there is no row to evaluate. Roster surfaces INNER JOIN PP_MASTER, `Pitches_View` gates on nothing (`pitcher_id` IS `groundcontrol_id`), hence fully present in the data and invisible everywhere a human looks. 2026 sessions: 04-16 `V`, 07-25 `B`, 07-31 `int`+`R` Live AB, all `is_int_level=1`.
+- **Shipped this session:** `937c32a5` reusable diagnostic `sql-queries/gcid-252980-roster-vs-pitchdata-diagnostic.sql` (set `@gcid`; Q2 tests each roster clause independently) - `f21c8a7b` fix the `'NoneType' has no attribute 'upper'` crash - `fd8f4b59` narrow that fix - `7340b555` + `b7bae15f` new rule `non-roster-player-reports.md`, synced + committed on all 4 worktree branches. All pushed, HEAD == origin everywhere.
+- **The crash:** `roster.py::_get_player_direct` sets `level_code=None`, and `player.get('level_code','')` returns **None, not `''`** - a dict default fires only on a MISSING key, never on a present-but-None value. Two sites exposed: `_draw_percentile_key` `.upper()` (hit) and `_report_title` `.lower()` (latent, masked because `is_live_ab` returns early above it).
+- **The narrowing, which matters:** my first fix forced `level_code='dsl'` for Live AB, but `level_code` feeds THREE renderers - title, percentile subtitle, and the pitch-log card header. That would have relabeled the card INT->DSL, asserting a level the game was not played at. Split into a separate `pool_level_code` local passed ONLY to the subtitle.
+- **Parity bug found en route (real, now fixed):** `pages/2_Postgame.py` overrides `player['level_code']` with the game level, so the **app** printed "Percentiles based on 2026 INT" for Live AB games while pulling from the DSL pool (`p_pool_lc='dsl'`, `2_Postgame.py:2146`). The CLI printed DSL. App and CLI disagreed on the same game (blocking rule #11). **This is the ONLY change to any existing report's output** - Zac checked a pre-change report and confirmed it still renders fine.
+- **EXACT next step:** WORK LAPTOP: `cd C:\Users\zbridger\bsb-wt-bullpen ; git pull ; cd bullpen-report ; python scripts\generate_postgame.py --date 2026-07-31 --pitcher 252980 --output reports\oneoff` then **hand-post the PDF - never pass `--deliver`**, he has no `slack_channels.csv` row. No re-pin (rendering only). Arm Farm app redeploy optional, only for the INT->DSL subtitle on Connect.
+- **UNVERIFIED - do not claim otherwise:** the POST-fix CLI run has never touched a database. No DB access on the personal laptop. Zac ran the pre-fix build; the fixed one is unrun.
+- **The real fix is not code:** Widmann needs an eBIS record under HOU (Josefy / eBIS side). Until then he is invisible to the daily cascade, trackers, KPI and every dropdown, and every report on him is a hand-run.
+- **Flagged, not acted on:** only Arm Farm has the `_get_player_direct` fallback. Barrelsville, Intangibles and PD Goals `get_player_by_id` return `None`, so a non-roster player **silently skips** there ("not found in roster, skipping") rather than crashing - quieter and worse. Also: `postgame_report.py::generate_reports_for_date` (line 2733) is dead code (the live one is in `src/report.py`), and the bullpen worktree has no `LINEAGE.md` to record that in.
+- **Skill bug worth fixing:** `document-pattern` Step 4 copies the intangibles rule to `bsb-wt-intangibles/.claude/rules`, which is OUTSIDE that git repo. Tracked path is `bsb-wt-intangibles/astros-intangibles/.claude/rules`. Both dirs exist, so it silently succeeds untracked. Corrected by hand this session, not in the skill.
+- **Uncommitted work:** bullpen 14 paths, bsb-resources 85 paths - all pre-existing clutter from earlier sessions. Nothing of this session's.
+
+---
+
+## ALSO OPEN - Gyro SL + cutter starter screen (bsb-resources/feature/pd-goals, from 2026-07-31 16:45, preserved)
+
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
 - **What we were doing:** Built a one-off SQL screen for MLB starters who throw BOTH a gyro-shaped slider and a cutter that still carries. Zac gave the movement thresholds verbally, then added a 10+ GS starter gate, then asked what share of all 10+ GS starters that is.
@@ -14,6 +33,7 @@
 - **Not mine, same branch:** `b4c31051` `563366ec` `1bcbff51` (Addari pitching-box style rewrites + a revert) belong to a concurrent thread.
 
 ---
+
 
 ## ALSO OPEN - OF/IF Directional Progression Report (`bsb-wt-intangibles` / `feature/astros-intangibles`, from 2026-07-31 16:06, preserved)
 
