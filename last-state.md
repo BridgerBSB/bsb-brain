@@ -1,4 +1,24 @@
-# Last session state - 2026-08-01 10:45 (Non-roster pitcher: Jona Widmann one-off + the crash it exposed)
+# Last session state - 2026-08-02 00:35 (Decision Outcomes ledger + dashboard, promo-engine page 2)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-modeling` - branch `feature/promotion-models` (spec + mockups on `bsb-resources` / `feature/pd-goals`)
+- **What we were doing:** Built the Decision Outcomes feature: every 2026 promote and release, where the released guys went, how they performed, measured against the grade the model had on them that day. Spec + mockups first, then 7 modules, then three rounds of review.
+- **Shipped:** `429171ed` schema contract, `ad3db6bc` 5 modules repaired, `f72eed56` query perf, `b5488de3` org-initiated releases, `561ad09d` `diag_txn_codes.py`, `b04da28a` UNCRL, plus a LINEAGE.md entry. All pushed. Spec + both mockups on bsb-resources.
+- **VERIFIED ON THE WORK LAPTOP:** 2025 boards written to `data/board_2025_{promote,release}.parquet` with NO pin touched. `get_decisions(2026)` = **61 promote / 53 release**. Dawil Almonte lands 2026-03-13 afa exactly as designed; Wes Clarke correctly excluded.
+- **EXACT next step:** Fix the FOUR code-review findings that share one root cause. "He signed nowhere" and "we could not resolve this" are currently the SAME empty `next_stop_kind`, so a dropped DB connection renders as "Never resurfaced 100%" and scores CONFIRMED for every release, then an unguarded full rebuild writes it to the pin. Split those states in `decision_schema`, make the resolver REFUSE a full rebuild when its landing queries failed, and stop the page counting blank as `none`. Kills findings 1, 2, 6, 8 together. **Do this by hand, NOT a fan-out** - it touches schema + resolver + page together and two of three agent rounds produced defects from parallel agents not sharing state.
+- **THEN:** the 3 wrong-row findings in the resolver, the 3 smaller ones, then `app.py` radio wiring + the 5 new modules in `promo-engine/manifest.json` **in ONE commit** or the app dies at import on Connect.
+- **BACKFILL LANDMINE:** `PIN_NAME` is a hardcoded constant in BOTH scorers. `--year 2025` WITHOUT `--no-write` overwrites the LIVE 2026 board and appends 2025 grades to `promo_v3_score_history` stamped today. The board self-heals on the next daily run; the history does NOT. Always `--year YYYY --no-write --output <file>`.
+- **CORRECTION that cost a round-trip:** the RELEASE grade is MULTI-LEVEL POOLED (`_pooled_no_future`, Phase 1a Jul 4 2026, blends across every gated cross-org level-row by SAMPLE SIZE). PROMOTE is current-level-only. The asymmetry is deliberate. `CUR_BUMP` was sweep-retired to 1.0 on Jul 5 2026; do not re-open.
+- **The fallback trap (why `asof_roster.py` exists):** `_pooled_no_future` returns None when `cur_level` is absent, and `cur_level` comes from the CURRENT roster, which a released player is not on. CONFIRMED live: the scorer runs list Justin Trimble and Dawil Almonte under "not on the eBis roster map", ~80 per side.
+- **THE PATTERN, worth carrying forward:** every bug found this session failed in the direction of making the release model look MORE accurate. Retirees scoring CONFIRMED (a retiree never resurfaces), a dropped connection scoring everyone CONFIRMED, never-resurfaced players relabelled TOO EARLY. On a page whose only job is grading our own decisions, that is the bias to keep hunting.
+- **UNVERIFIED - do not claim otherwise:** only `decision_detect` has touched a DB. `asof_roster`, `decision_outcomes_resolve`, `decision_pins` and the page are static-verified only (pyflakes clean, 0 py3.11-illegal f-strings, 0 dashes, contract subset checked). Nothing has run end to end.
+- **WATCH:** tempdb on GCSQL02 was full at 23:48. My query triggered it, but if PRIMARY is genuinely full the nightly Connect2 pin jobs may be failing quietly. Check whether today's tracker pins refreshed; escalate to Josefy if it recurs.
+- **Process notes:** 3 quoting failures from `python -c` one-liners in PowerShell (it strips commas and single quotes) - commit a script instead. Local Python is 3.12, Connect pins 3.11, so `py_compile` passing locally proves nothing about a backslash inside an f-string expression.
+- **Uncommitted:** 65 paths in bsb-wt-modeling, all pre-existing clutter, none of this session's.
+
+---
+
+## ALSO OPEN - Non-roster pitcher / Jona Widmann (bsb-wt-bullpen, from 2026-08-01 10:45, preserved)
+
 
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` - branch `feature/bullpen-reports` (rule also on `bsb-resources` / `feature/pd-goals`)
 - **What we were doing:** Zac asked why sessions tagged `INT R` show up in Arm Farm runs (they are DSL Live AB scrimmages, working as designed) and why a signed pitcher, gcid 252980, throws in our data but appears nowhere under HOU. Then ran a one-off postgame for him, which crashed.
