@@ -1,4 +1,22 @@
-# Last session state - 2026-08-02 00:35 (Decision Outcomes ledger + dashboard, promo-engine page 2)
+# Last session state - 2026-08-02 15:25 (OF/IF Directional Progression - shipped + tempdb incident fixed)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (Monday wiring lives on `bsb-resources` / `feature/pd-goals`)
+- **What we were doing:** Finished the OF/IF Directional Progression Report after a machine crash mid-session (all pre-crash work had survived and was pushed). Then its FIRST live run took out GCSQL02's tempdb, and most of the session was diagnosing and fixing that.
+- **Shipped this session (all pushed):** `a0763d0f` refreshed sample renders - `ed85b890` sparkline draws THROUGH a no-data month (was severing at the `NaN`) - `223e16f2` colour rule documented on the page + single-month cells grey not red - `7ab3c483` dot colour **YTD -> MONTH OVER MONTH** - `88094c83` per-direction **Val + Lvl/MLB %ile** (6 cols per metric) - `869eacd3` pool memoisation - `073b715a` **the real fix**. Pre-crash: `c211537d` (8-metric p1 table + weekly OF/IF batch). Monday step is `8c37b6ea` on bsb-resources. LINEAGE.md entry written.
+- **EXACT next step:** the **EOY P13 rose parity check** - the only remaining numbers-correct gate. Take one player, compare his PAA/EO rose percentile on the directional report against his **EOY P13 rose** (same engine underneath, so they must agree). The diff harness proved the rewrite did not CHANGE the numbers; it did NOT prove they were right to begin with. Do this **before** it reaches `org_pd_reports` on a Monday - that channel has an audience.
+- **THEN:** `python scripts\generate_directional_progression_batch.py --family OF IF --test` (never run live). Watch runtime and confirm **ONE** `[pool] building` line per `(kind, scope)` for the whole run, not one per player - that is the memoisation working, and it is what stops a full roster re-spilling tempdb. Then swap `--test` for `--deliver`; Monday needs nothing further.
+- **THE INCIDENT, worth carrying forward:** the league-wide TDM pool was `SELECT DISTINCT` over **seven** `PERCENTILE_CONT` window functions, rebuilt **once per player**. Its **first ever live run** succeeded on 8 players and in doing so **exhausted tempdb**; every run after failed err 1101. **The tell was "it worked once, then never again"** - that shape means WE consumed a shared server resource, not that the server broke. I called it server-side for three round-trips and was wrong. Zac pushed back with "it's never been an issue before" and was right.
+- **The trap inside the trap:** the first fix (`869eacd3`) memoised the pools, 16 executions -> 5. It could not possibly help - the failure is **per-execution** and it died on execution #1. **Fixing frequency when the cost is per-call.**
+- **The actual fix (`073b715a`):** pull raw rows (one calendar month per statement, **months 1..12 NOT the Apr-Sep `_MONTHS` list**, or March/October games silently drop) and compute percentiles in pandas. **Proven output-neutral on REAL data**, not asserted: `scripts/diff_directional_pool.py --scope afa` -> 6,832 rows both paths, identical row universe, 0 `n_plays` mismatches, **6/7 metrics exact**, `top_speed` `1.07e-14` (FP only - it is the one metric with a `CASE` cap). New path is ~4.3x slower (16.1s vs 3.7s); accepted, the old path cannot run at MLB scope at all.
+- **Decisions Zac made this session:** (1) **YTD stays exactly as it is everywhere** - first-month-to-now, incl. the p1 YTD column and the fielder progression YTD Gain; only the sparkline DOT became month-over-month. (2) Bottom tables carry **both** Lvl and MLB %ile and **keep all five** columns (densest option, 24 numeric cols across). (3) Skip the shape test - I had oversold it, the rendered Val column already proves it.
+- **PARKED (Zac):** *"maybe similarly built into a dashboard in the future, but for now these reports are great."*
+- **Blockers / waiting on:** nothing blocking. tempdb had room again as of the diff run (the old query ran in 3.7s, impossible the day before) - unconfirmed whether IT reclaimed it or it recovered.
+- **Flagged, not written:** a rule for the incident class - "a brand-new heavy query's FIRST live run can exhaust a shared server resource; the tell is worked-once-then-never-again." Offered to add to `.claude/rules/` + sync; Zac has not said go.
+- **Uncommitted work:** 17 paths in intangibles, all pre-existing clutter (synced skills, `.claude/rules` copies, `output/`, `.planning/`). Nothing of this session's.
+
+---
+
+## ALSO OPEN - Decision Outcomes ledger + dashboard, promo-engine page 2 (`bsb-wt-modeling` / `feature/promotion-models`, from 2026-08-02 00:35, preserved)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-modeling` - branch `feature/promotion-models` (spec + mockups on `bsb-resources` / `feature/pd-goals`)
 - **What we were doing:** Built the Decision Outcomes feature: every 2026 promote and release, where the released guys went, how they performed, measured against the grade the model had on them that day. Spec + mockups first, then 7 modules, then three rounds of review.
@@ -11,9 +29,9 @@
 - **The fallback trap (why `asof_roster.py` exists):** `_pooled_no_future` returns None when `cur_level` is absent, and `cur_level` comes from the CURRENT roster, which a released player is not on. CONFIRMED live: the scorer runs list Justin Trimble and Dawil Almonte under "not on the eBis roster map", ~80 per side.
 - **THE PATTERN, worth carrying forward:** every bug found this session failed in the direction of making the release model look MORE accurate. Retirees scoring CONFIRMED (a retiree never resurfaces), a dropped connection scoring everyone CONFIRMED, never-resurfaced players relabelled TOO EARLY. On a page whose only job is grading our own decisions, that is the bias to keep hunting.
 - **UNVERIFIED - do not claim otherwise:** only `decision_detect` has touched a DB. `asof_roster`, `decision_outcomes_resolve`, `decision_pins` and the page are static-verified only (pyflakes clean, 0 py3.11-illegal f-strings, 0 dashes, contract subset checked). Nothing has run end to end.
-- **WATCH:** tempdb on GCSQL02 was full at 23:48. My query triggered it, but if PRIMARY is genuinely full the nightly Connect2 pin jobs may be failing quietly. Check whether today's tracker pins refreshed; escalate to Josefy if it recurs.
+- **WATCH (now explained):** tempdb on GCSQL02 was full at 23:48 and this wrap noted "my query triggered it." The 2026-08-02 directional session found the fuller story - the directional pool's first live run is what filled it. Worth still checking whether the nightly Connect2 pin jobs failed quietly during the outage.
 - **Process notes:** 3 quoting failures from `python -c` one-liners in PowerShell (it strips commas and single quotes) - commit a script instead. Local Python is 3.12, Connect pins 3.11, so `py_compile` passing locally proves nothing about a backslash inside an f-string expression.
-- **Uncommitted:** 65 paths in bsb-wt-modeling, all pre-existing clutter, none of this session's.
+- **Uncommitted:** 65 paths in bsb-wt-modeling, all pre-existing clutter, none of that session's.
 
 ---
 
@@ -51,18 +69,6 @@
 - **Worth asking when he's back:** what the screen is FOR (acquisition list? pitch-design comp set for one of ours? a Sam/DJ ask?) - it shapes whatever the output becomes.
 - **Uncommitted work:** 85 paths, all pre-existing untracked clutter from earlier sessions (`.agents/`, `.codex/`, `awesome-claude-skills/`, `design-system/`, `gcpy/`, `pd-goals/output/`, loose `sql-queries/*.sql`). Nothing of this session's.
 - **Not mine, same branch:** `b4c31051` `563366ec` `1bcbff51` (Addari pitching-box style rewrites + a revert) belong to a concurrent thread.
-
----
-
-
-## ALSO OPEN - OF/IF Directional Progression Report (`bsb-wt-intangibles` / `feature/astros-intangibles`, from 2026-07-31 16:06, preserved)
-
-- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles`
-- **What we were doing:** Designed (mockups) then BUILT a new per-player OF/IF Directional Progression Report. P1 = 8 directional roses (dual level+MLB %ile) + overall trend strip + movement table; P2 = 8x8 monthly sparkline matrix.
-- **Shipped:** `09e05b10` build (report+data+CLI+test+design); `33fd5bb6` SQL fix (PERCENTILE_CONT needs SELECT DISTINCT + COUNT OVER, err 8120); `73b20321` display (3-decimal React/PAA-EO/ReactRad/ReAccRad/UseReact, WoW removed, every sparkline point value-labeled); `b04e7529` backlog. Files: intangibles/src/directional_progression_{report,data}.py + scripts/generate_directional_progression.py + shape test.
-- **EXACT next step:** WORK LAPTOP: cd to intangibles worktree, git pull, run `python scripts\generate_directional_progression.py --gcid 244959 283966 168757 212518 1263308 283424 1263410 1263300 --season 2026`, then compare a player PAA/EO rose %iles vs his EOY P13 rose (parity check, feedback #4).
-- **Blockers / waiting on:** Data layer WORK-LAPTOP-UNVERIFIED vs GC2 (no DB here). First real render + EOY percentile parity are the open checks. Confirm 'Nic O' gcid (no Ortiz in CSV; Nico Zeglin 282253?).
-- **Uncommitted work:** clean (1 unrelated untracked catcher doc only).
 
 ---
 
