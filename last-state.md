@@ -1,4 +1,32 @@
-# Last session state - 2026-08-03 15:40 (draft-class handoff + Slack channels + acq-target scaffold)
+# Last session state - 2026-08-03 16:05 (PD Goals double-send fixed + Monday routing split)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
+- **What we were doing:** Kevin Alvarez got the same PD Goals PDF twice in his coach channel from one Monday run. Fixed that, gated goals delivery on recent game activity, split the Monday per-player routing, and deleted the 5th `slack_channels.csv`. Zac closed: *"sounds great hoping this works next week - ill let you know if any issues arise."*
+- **Shipped this session (6 commits on pd-goals, all pushed; siblings in 3 worktrees):**
+  - `095b6c3d` **activity gate** - `--played-within N` (default 7), anchored on `--end` not today so re-running an old Monday reproduces that Monday. DELIVERY-gated per Zac: every PDF still builds, only the send is filtered. `roster.get_last_game_dates` reads `Astros.Players_Games` with **no `pos_id` filter** (catches pitchers / DH / glove-only subs), gated by `sched_type_filter()`, `MAX(sched_date)` only so the Players_Games position fan-out cannot distort it. Lookup failure `exit(1)` BEFORE delivering rather than silently suppressing everyone.
+  - `472c3875` **THE REAL DOUBLE-SEND FIX.** The goals store holds one row per **PHASE**, not per player (a PRP send end-dates the open row and APPENDS a new one; old rows retained on purpose). `generate_goals_batch` looped ROWS, so a 2-phase player rendered 2 PDFs to the SAME filename and appended that ONE path to the delivery list twice. Fixed with `select_current_phase()` + a loud `dedupe_generated()` backstop.
+  - `e70adea7` `allow_fallback` on `send_reports_via_logic_app` (siblings `71df5906` intangibles, `e88bba55` barrelsville).
+  - `9a747b96` **routing split** - `$z='--deliver-z'` vs `$dz`; only goals keeps both.
+  - `5222c615` regression test + Radel's coach channel. `eeed253a` rules 5->4. `2eaaa183` 5th-CSV deletion (intangibles).
+- **I WAS WRONG ONCE, LOUDLY - carry this forward:** I first blamed the `deliver.py` zzz-fallback on the two-pass send and claimed all four Monday scripts were affected. **Zac disproved it with a Slack screenshot** - OF Weekly posted ONCE in the same channel on the same run, and Alvarez HAS a `z_channel_id` so that fallback could never fire for him. I had derived it from code + CSV and never checked it against an observed duplicate. **A duplicate POST has two sources: a duplicated INPUT list or a duplicated ROUTE. Check the input list first - it is one `len(set())` away.** Now written into `delivery.md` as a triage order.
+- **VERIFIED ON THE WORK LAPTOP:** `python scripts/test_goals_delivery_dedupe.py` -> **all 21 checks PASS** on real Python 3.14 + pandas. DB-free, network-free, ~1s. Includes a check that the regression **reproduces when the guard is removed**, so it cannot silently stop testing. Writing it corrected me again: leaving the fallback on yields **TWO** duplicates per run, not one (zzz fallback AND overflow) - now asserted.
+- **Zac's routing decision:** only `goals` -> zzz_ + z_. `weekly-of` / `weekly-if` / `weekly-hitter` are player-facing -> **z_ only, with the automatic zzz_ fallback**. Needed no new delivery code (`allow_fallback=not args.deliver` is True when `--deliver` is absent). Measured on the live CSV: goals 634 posts / 0 dupes; weekly 358 posts / 0 dupes = **276 athlete, 75 coach-fallback, 7 overflow**.
+- **5th CSV eliminated (Zac):** deleted `intangibles/data/slack_channels.csv` + its fallback. Absent from `manifest.json` so never deployed, and delivery only runs from the work laptop where `pd-goals/` is a sibling - the branch **never executed**, which is exactly why it rotted 7 rows behind unnoticed. Now 4 copies, all 360 lines, verified intangibles still resolves the canonical file. `slack-channels-sync.md` corrected FIVE->FOUR incl. both live bash blocks that still targeted the deleted path.
+- **EXACT next step:** nothing queued - Zac closed the session. The one human action: **`cd C:/Users/zbridger/bsb-wt-hitting ; git push origin feature/barrelsville`** (**ahead 2**: `ab8c08be` Radel CSV + `8b7f8e74` rules sync, after **three** consecutive SSH `kex_exchange_identification` aborts - network, not the command). Until it lands that worktree's CSV is one row behind the other three.
+- **NEXT MONDAY'S PROOF:** in the goals step log look for `Collapsed N phase row(s) -> M player(s)`. **N-M is exactly how many duplicate posts went out the prior Monday.** If the line is absent, every player is single-phase (also fine) - then check Alvarez 213722's post count directly.
+- **Blockers / open:**
+  - **80 players have NO z_ athlete channel.** Under the new athlete-only routing their weekly fielding/hitting reports fall back to the COACH channel every Monday and the player never sees them. **Slack-admin task, not code:** create the channel, then put its id in the `z_channel_id` **column** of that player's existing `zzz_` row - never a new standalone row. Offered to dump the 80 names; Zac did not take it up.
+  - Nothing is proven against the **live goals pin** - the personal laptop cannot reach Connect (DNS). "Alvarez has 2 rows" is inferred from the 2 posts + the delivered PDF showing a 07/07 phase while the stale local CSV shows 4/1.
+  - Corrected a stale rule claim: the CSV has **3** standalone z_ rows, not "~29" - 0 stranded ids, 0 duplicate gc_ids. Dunford 198153 + Diaz 67182 still have no zzz_ row, so coach-targeted sends for them land in their athlete channel. Fine under athlete-only routing; not raised with Zac.
+  - **DEFERRED by Zac, do not start unasked:** hitter BB% missing its percentile (*"we have struggled with that in the past"*).
+- **Rules:** 100 files md5-identical across all 4 worktrees (synced + verified twice).
+- **Uncommitted work:** pre-existing clutter only, none of this session's.
+
+---
+
+## ALSO OPEN - draft-class handoff + Slack channels + acq-target scaffold (bsb-resources / feature/pd-goals, from 2026-08-03 15:40, preserved -- SAME branch as today's wrap but a DIFFERENT live thread: find_acq_targets.py is still UNRUN)
+
+### Last session state - 2026-08-03 15:40 (draft-class handoff + Slack channels + acq-target scaffold)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
 - **What we were doing:** Packaged the 2026 draft-class onboarding reports for Camden, wired the Slack channels those reports need, then scaffolded an acquisition-target finder for the trade-deadline channel. Zac closed with *"ill test this a different day this is not really important at the moment."*
@@ -17,7 +45,6 @@
   - Zac must add the **Astros File Uploader** app to the 4 new channels or the POST 200s and the file never appears.
 - **Concurrent session on this SAME branch today (not mine, not wrapped here):** goals double-send fix `095b6c3d` / `e70adea7` / `472c3875` / `9a747b96` / `5222c615`, plus org SB leaderboard `da959d5c`..`0d5426aa`.
 - **Uncommitted work:** 86 paths in bsb-resources, pre-existing clutter, none of this session's.
-
 ---
 
 ## ALSO OPEN - Decision Outcomes ledger + dashboard (bsb-wt-modeling / feature/promotion-models, from 2026-08-02 22:30, preserved)
