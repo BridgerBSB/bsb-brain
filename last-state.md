@@ -1,4 +1,28 @@
-# Last session state - 2026-08-02 22:30 (Decision Outcomes LIVE on Connect)
+# Last session state - 2026-08-03 15:40 (draft-class handoff + Slack channels + acq-target scaffold)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
+- **What we were doing:** Packaged the 2026 draft-class onboarding reports for Camden, wired the Slack channels those reports need, then scaffolded an acquisition-target finder for the trade-deadline channel. Zac closed with *"ill test this a different day this is not really important at the moment."*
+- **Shipped this session (3 commits, all pushed):**
+  - `3ad5758f` z_ athlete channels onto the EXISTING zzz_ rows - Wesneski 75059, Teng 81041, Abreu 69773, Hader 3989. Column on the zzz row, never a standalone z_ row: `deliver.py` looks up by gc_id and reads a COLUMN, so a second row routes nothing and can hijack coach routing.
+  - `315a31a4` John Carver 1291664 - his single row was named `z_carver_john_1291664` with an **EMPTY channel_id**, so coach delivery had been silently landing in overflow. Renamed to zzz_, filled coach `C0BLXF73NG5`, athlete `C0BM2NASZ6D` untouched.
+  - `51ef6c37` NEW `pd-goals/scripts/find_acq_targets.py` + `sql-queries/acq-org-prospect-targets.sql`.
+  - Both CSV changes synced byte-identical across all 5 copies / 4 worktrees, md5-verified. Deliverable: `pd-goals/reports/onboarding_2026_draft_class.zip` (23 PDFs + combined), handed to Camden.
+- **KEY FINDING (saved building the wrong thing):** acquisition mode **already exists** in both analysis scripts - `--batter-ids` / `--pitcher-ids` bypass the HOU roster gate, tag the file ACQ, refuse `--deliver`, and auto-scope the percentile pools. The only missing piece was the id lookup, so the new script is just org+tier -> gc_ids.
+- **EXACT next step:** work laptop - `git pull` then `python pd-goals\scriptsind_acq_targets.py --org BAL --tier t30 --emit-cmd`. It is **UNRUN**. Three joins came from Zac's pasted GC2 query rather than a schema check: `ProspectLists.Prospect_Lists_Max_Year`, the `BP/BA/MLB/FG/ESPN/Athletic` columns on `Prospect_Lists_In_Org_View`, and `Astros.Players.npb_id`. **npb_id is the likeliest to fail** - it only feeds `sign_market`, drop it and nothing else breaks. Expect a slightly HIGHER count than GC2 for the same org: deliberate, GC2's bare CAST on MJSERVYR/MJSERVDAYS evaluates UNKNOWN on NULL and silently drops players with no service record.
+- **Blockers / waiting on Zac:**
+  - **Throw-In tiers blocked** - TI-I/R/D/B are GC2 tags, table never located. `--tier ti-*` exits with that message rather than returning a wrong population.
+  - **Onboarding page 2 is wrong in Camden's hands.** Butler shipped as `1. 100th` / `2. CB Quality Spin Execution` / `3. Percentile` - fused headlines, orphan fragments, whiff+K numbers gone. Estridge's ordinal `90th` migrated onto the wrong strength. **Only 2 of 23 audited.** Fix + full sweep offered, not ruled on. LINEAGE entry written.
+  - **The real writeups are .docx, not the deck** - `Pitcher Development Handoff` files in `Downloads`, ~10 sections each, uncommitted and unbacked-up. Butler's docx has FOUR goals; the PDF shows three and reworded the grip instruction away. **HARD GATE on any docx-ingest fix: the `Personal Background` sections are candid internal scouting language and this report is PLAYER-FACING.**
+  - **Slack CSV audit, ids not yet supplied:** 11 zzz_ rows with empty channel_id all routing to overflow (Aparicio 224973, Walter 107333, Boettcher 235223, Vogel 211942, Jimenez 1301978, Geraldo 171631, Pratt 177606, Herrera 1302334, Hernandez 282777, Smith 219805, Dagnino 1299142); 3 orphan z_ rows with no coach routing (Dunford 198153, Diaz 67182, **Radel 210062 - in the class just sent**); 2 junk rows 247291 + 282250 awaiting a delete go-ahead.
+  - Zac must add the **Astros File Uploader** app to the 4 new channels or the POST 200s and the file never appears.
+- **Concurrent session on this SAME branch today (not mine, not wrapped here):** goals double-send fix `095b6c3d` / `e70adea7` / `472c3875` / `9a747b96` / `5222c615`, plus org SB leaderboard `da959d5c`..`0d5426aa`.
+- **Uncommitted work:** 86 paths in bsb-resources, pre-existing clutter, none of this session's.
+
+---
+
+## ALSO OPEN - Decision Outcomes ledger + dashboard (bsb-wt-modeling / feature/promotion-models, from 2026-08-02 22:30, preserved)
+
+### Last session state - 2026-08-02 22:30 (Decision Outcomes LIVE on Connect)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-modeling/pd-goals` - branch `feature/promotion-models`
 - **What we were doing:** Took the Decision Outcomes ledger + dashboard from "nothing has ever run" to live on Posit in one session. It grades our own promote/release calls: every decision, the grade we had that day, where the player went next.
