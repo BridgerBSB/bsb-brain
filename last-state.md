@@ -1,4 +1,22 @@
-# Last session state - 2026-08-04 (Decision Outcomes dashboard LIVE + defects found reading it)
+# Last session state - 2026-08-04 15:03 (EOY report: inline render + payload pin measured)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
+- **Recall checkpoint:** session `90dd`, domain `bsb-resources/feature/pd-goals`. **That is the source of truth**; this file is a rendering of the newest wrap only.
+- **What we were doing:** Made the EOY position report actually visible in the app (it was a build-a-PDF button + download link, so you could not see the deck without leaving), then tried to make it fast by pinning the season data. The pinning attempt is what produced the real finding.
+- **Shipped (all pushed):** `c0aff2a0` inline PDF viewer (pymupdf -> `st.image`) - `49cfc0af` auto-render on player select, preview button deleted, build split at the notes seam - `522c414f` affiliate logos into `manifest.json` + Send above the deck - `5508911d` DSL uses the Astros star like FCL - `89776d56` reverted by `d572a0ac` at Zac's request - `a78cfbdb` the payload pin (`src/eoy_payload_pin.py`, `scripts/pin_eoy_position.py`) + `pins_config` `allow_pickle_read` fix - `d7c31754` first-run message - lineage entry.
+- **The seam worth remembering:** ONLY page 1 reads the coordinator notes, so the ~43 season queries cache on the PLAYER alone. Typing notes never re-queries; layout changes never invalidate; only adding/removing a page does.
+- **MEASURED (Zac ran it, killed at 10/135):** **152s per player, 5.7 HOURS for 135, ~45 MB, ~5,800 queries.** Size is fine. Runtime is the problem.
+- **Root cause:** `eoy_fielding_data.py` 20 `run_query` / ZERO caching, `eoy_catching_data.py` 9/zero, `eoy_br_data.py` 2/zero. Those are league-wide POOL queries and several are hardcoded `_level_filter_sql("mlb")` - ONE pool re-executed 135 times. ~31 league scans per player that should run once.
+- **THE FINDING (verified):** the intangibles fielding tracker pin already holds `raw_tdm` = **one row per TDM event**, Tier-1 gated, with every tracking metric + `pos_id/org/level/season/ha_split`. It has NO direction (`direction` appears ONCE in that module). Adding it is **one join to `Astros.Fielder_Direction` via `cur_event_id` and one column** - it does NOT multiply rows. That makes directional+positional metrics a Python groupby over a pinned frame everywhere, and retires EOY's directional scans.
+- **EXACT next step:** Zac's words - *"we will have to /spec and plan this and then /wrap but i want to /discuss this as well when the context given is more optimal"*. So **next session = `/discuss` then `/spec` the directional architecture with fresh context**, decision being **one column on `raw_tdm` vs a separate directional pin**. Orthogonal quick win still UNDONE first: add `@lru_cache(maxsize=64) def _cached_pool(sql: str)` keyed on the fully-formatted SQL string (every site uses `.format()`, so params are baked in; return `.copy()`) to those three modules, then re-run `python scripts\pin_eoy_position.py --season 2026` **from the `pd-goals` dir** and re-measure the 152s.
+- **Blockers / waiting on:** nothing about the pin has touched Connect - the run was killed at 10/135, so **the pin has NEVER been written**. The joblib write, the read round-trip, and whether the payload is even picklable are all unproven. Nothing is deployed either: `requirements.txt` changed (pymupdf + streamlit floor 1.37) so Connect MUST rebuild the env, and `manifest.json` changed so the affiliate logos only appear after the deploy runs.
+- **Open, unanswered:** pin now vs after the EOY page set is frozen (he is still building pages - new pitch-type page, P2 sparkline - and adding a page invalidates the payload pin) - ~180 pitchers still stubbed, this pin is position-only (135) - college/BBC pools need their own pin, reusable by other projects.
+- **Uncommitted work:** 86 paths, all pre-existing untracked clutter from earlier sessions. Nothing of this session's.
+- **NOT MINE, same branch:** `74500206` `0ce8e8ee` `378ca725` (research estimator), `4d5760fe` `4c923522` `eeed253a` (rules syncs), `4e130235` `472c3875` `e70adea7` `095b6c3d` `9a747b96` `5222c615` (Monday cascade + goals delivery), and the Janek/catcher/org-SB SQL commits.
+
+---
+
+## ALSO OPEN - Decision Outcomes dashboard (`bsb-wt-modeling` / `feature/promotion-models`, preserved)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-modeling` - branch `feature/promotion-models`
 - **Recall checkpoint:** session `183f`, domain `bsb-wt-modeling/feature/promotion-models`. **That is the source of truth**; this file is a rendering of the newest wrap only.
