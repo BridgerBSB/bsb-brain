@@ -1,86 +1,58 @@
-# Last session state - 2026-08-03 16:05 (PD Goals double-send fixed + Monday routing split)
+# Last session state - 2026-08-04 (Decision Outcomes dashboard LIVE + defects found reading it)
 
-- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
-- **What we were doing:** Kevin Alvarez got the same PD Goals PDF twice in his coach channel from one Monday run. Fixed that, gated goals delivery on recent game activity, split the Monday per-player routing, and deleted the 5th `slack_channels.csv`. Zac closed: *"sounds great hoping this works next week - ill let you know if any issues arise."*
-- **Shipped this session (6 commits on pd-goals, all pushed; siblings in 3 worktrees):**
-  - `095b6c3d` **activity gate** - `--played-within N` (default 7), anchored on `--end` not today so re-running an old Monday reproduces that Monday. DELIVERY-gated per Zac: every PDF still builds, only the send is filtered. `roster.get_last_game_dates` reads `Astros.Players_Games` with **no `pos_id` filter** (catches pitchers / DH / glove-only subs), gated by `sched_type_filter()`, `MAX(sched_date)` only so the Players_Games position fan-out cannot distort it. Lookup failure `exit(1)` BEFORE delivering rather than silently suppressing everyone.
-  - `472c3875` **THE REAL DOUBLE-SEND FIX.** The goals store holds one row per **PHASE**, not per player (a PRP send end-dates the open row and APPENDS a new one; old rows retained on purpose). `generate_goals_batch` looped ROWS, so a 2-phase player rendered 2 PDFs to the SAME filename and appended that ONE path to the delivery list twice. Fixed with `select_current_phase()` + a loud `dedupe_generated()` backstop.
-  - `e70adea7` `allow_fallback` on `send_reports_via_logic_app` (siblings `71df5906` intangibles, `e88bba55` barrelsville).
-  - `9a747b96` **routing split** - `$z='--deliver-z'` vs `$dz`; only goals keeps both.
-  - `5222c615` regression test + Radel's coach channel. `eeed253a` rules 5->4. `2eaaa183` 5th-CSV deletion (intangibles).
-- **I WAS WRONG ONCE, LOUDLY - carry this forward:** I first blamed the `deliver.py` zzz-fallback on the two-pass send and claimed all four Monday scripts were affected. **Zac disproved it with a Slack screenshot** - OF Weekly posted ONCE in the same channel on the same run, and Alvarez HAS a `z_channel_id` so that fallback could never fire for him. I had derived it from code + CSV and never checked it against an observed duplicate. **A duplicate POST has two sources: a duplicated INPUT list or a duplicated ROUTE. Check the input list first - it is one `len(set())` away.** Now written into `delivery.md` as a triage order.
-- **VERIFIED ON THE WORK LAPTOP:** `python scripts/test_goals_delivery_dedupe.py` -> **all 21 checks PASS** on real Python 3.14 + pandas. DB-free, network-free, ~1s. Includes a check that the regression **reproduces when the guard is removed**, so it cannot silently stop testing. Writing it corrected me again: leaving the fallback on yields **TWO** duplicates per run, not one (zzz fallback AND overflow) - now asserted.
-- **Zac's routing decision:** only `goals` -> zzz_ + z_. `weekly-of` / `weekly-if` / `weekly-hitter` are player-facing -> **z_ only, with the automatic zzz_ fallback**. Needed no new delivery code (`allow_fallback=not args.deliver` is True when `--deliver` is absent). Measured on the live CSV: goals 634 posts / 0 dupes; weekly 358 posts / 0 dupes = **276 athlete, 75 coach-fallback, 7 overflow**.
-- **5th CSV eliminated (Zac):** deleted `intangibles/data/slack_channels.csv` + its fallback. Absent from `manifest.json` so never deployed, and delivery only runs from the work laptop where `pd-goals/` is a sibling - the branch **never executed**, which is exactly why it rotted 7 rows behind unnoticed. Now 4 copies, all 360 lines, verified intangibles still resolves the canonical file. `slack-channels-sync.md` corrected FIVE->FOUR incl. both live bash blocks that still targeted the deleted path.
-- **EXACT next step:** nothing queued - Zac closed the session. The one human action: **`cd C:/Users/zbridger/bsb-wt-hitting ; git push origin feature/barrelsville`** (**ahead 2**: `ab8c08be` Radel CSV + `8b7f8e74` rules sync, after **three** consecutive SSH `kex_exchange_identification` aborts - network, not the command). Until it lands that worktree's CSV is one row behind the other three.
-- **NEXT MONDAY'S PROOF:** in the goals step log look for `Collapsed N phase row(s) -> M player(s)`. **N-M is exactly how many duplicate posts went out the prior Monday.** If the line is absent, every player is single-phase (also fine) - then check Alvarez 213722's post count directly.
-- **Blockers / open:**
-  - **80 players have NO z_ athlete channel.** Under the new athlete-only routing their weekly fielding/hitting reports fall back to the COACH channel every Monday and the player never sees them. **Slack-admin task, not code:** create the channel, then put its id in the `z_channel_id` **column** of that player's existing `zzz_` row - never a new standalone row. Offered to dump the 80 names; Zac did not take it up.
-  - Nothing is proven against the **live goals pin** - the personal laptop cannot reach Connect (DNS). "Alvarez has 2 rows" is inferred from the 2 posts + the delivered PDF showing a 07/07 phase while the stale local CSV shows 4/1.
-  - Corrected a stale rule claim: the CSV has **3** standalone z_ rows, not "~29" - 0 stranded ids, 0 duplicate gc_ids. Dunford 198153 + Diaz 67182 still have no zzz_ row, so coach-targeted sends for them land in their athlete channel. Fine under athlete-only routing; not raised with Zac.
-  - **DEFERRED by Zac, do not start unasked:** hitter BB% missing its percentile (*"we have struggled with that in the past"*).
-- **Rules:** 100 files md5-identical across all 4 worktrees (synced + verified twice).
-- **Uncommitted work:** pre-existing clutter only, none of this session's.
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-modeling` - branch `feature/promotion-models`
+- **Recall checkpoint:** session `183f`, domain `bsb-wt-modeling/feature/promotion-models`. **That is the source of truth**; this file is a rendering of the newest wrap only.
+- **What we were doing:** Took the Decision Outcomes dashboard (promo-engine page 2) from "ledger pin has never been written" to live and correct. Every fix below came from Zac reading a real number on the deployed page and asking why it said that.
+
+**Shipped (`90467ec0` -> `b75b8a8d`, all pushed):**
+
+- **Promote verdict is now FOUR cells**, split on `grade_pctile` at `PROMOTE_READY=50`. New words `GRADED LOW` + `LOW SAMPLE`; `TOO EARLY` now means only "a release too recent for the silence to mean anything". A player graded BELOW the ready line who did not hold is no longer a MISS - the model called it.
+- **`grade_pctile` was ranked against the wrong pool - my bug, same session.** The first version read the rank off the SCOPED as-of board, which scores ONLY the decided players, so it ranked them against each other (Marrero 27/rok and Saunier 34/afx both landed on exactly 50). Fixed with a separate UNSCOPED pool pass per (kind, season) + `_pctile_in`. **Caught by Zac asking "aren't these grades lower the higher the level tho?"**
+- **Demote detection built.** `get_promotions` is now a wrapper on `_level_transitions(season, direction)`; `get_demotions` flips the rank test. 44 found in 2026, they ride in ungraded and never enter a rate. The page's `Sent back down` tile / `down` bucket / DOWN chip had sat unreachable since day one.
+- **AUC tile DELETED** (it read 1.00 on 14 rows with one miss) and **"Advanced and held" replaced** by "Producing at the new level" 7 of 26 - it read 100% next to 14 MISSes because failing it required a demotion we did not detect.
+- Same-day landing game no longer dropped (`<` promote, `<=` release) - indy name join hardened (the `b collins` Bryce/Brendan collision) - released scatter is two y-bands not four quadrants - scatter plots resolved rows only - `src/database.py` finally got the TCP retry this worktree never had - page error state split into transient / missing / config.
+
+**LIVE STATE:** ledger 159 decisions (61 promote / 54 release / 44 demote), outcomes rebuilt, coverage 89% promote / 76% release. 12h schedule (`promo-models-decision-ledger`) carries it from here. `f7ed5571` + `b75b8a8d` are pushed but NOT yet deployed to the app - pick up on the next deploy, no rush.
+
+- **EXACT next step:** **Wait for Zac** - he is reviewing the live dashboard and coming back with recommendations. Do nothing until he does. When he returns, check the two already-flagged items: (1) `GRADED LOW` came out **0** on the final run after the repair, where a handful was expected, so eyeball the `%Lvl` spread on the promote ledger; (2) release coverage is 76% (13 of 54 cuts ungraded in either season), so release rates run on a subset. Also verify Reylin Perez now shows a DOWN chip and reads FCL rather than A+.
+- **Blockers / waiting on:** Zac's review. Nothing technical is blocked.
+- **Uncommitted work:** 68 paths in `bsb-wt-modeling`, all pre-existing untracked artifacts (`modeling/output/`, research scripts). Nothing of this session's.
+- **DO NOT re-run:** `backfill_grade_pctile.py --repair` is one-time and already done for 2026 (33 values corrected).
+- **Carry forward:** `GRADE_ABS` / `RISK_ABS` are calibrated PROBABILITIES that fall with level (advance-and-hold base rates A .29 / A+ .28 / AA .21 / AAA .10), so **any fixed threshold on them is a threshold on LEVEL**. Memory file `grade-abs-is-a-probability-not-a-rank.md`.
 
 ---
 
-## ALSO OPEN - draft-class handoff + Slack channels + acq-target scaffold (bsb-resources / feature/pd-goals, from 2026-08-03 15:40, preserved -- SAME branch as today's wrap but a DIFFERENT live thread: find_acq_targets.py is still UNRUN)
+## ALSO OPEN - PD Goals double-send fix (`bsb-resources` / `feature/pd-goals`)
 
-### Last session state - 2026-08-03 15:40 (draft-class handoff + Slack channels + acq-target scaffold)
+From 2026-08-03, still live. Kevin Alvarez got the same PD Goals PDF twice from
+one Monday run. Fixed with a `--played-within N` (default 7) **delivery** gate
+anchored on `--end` (so re-running an old Monday reproduces it), plus a Monday
+per-player routing split and deletion of the 5th `slack_channels.csv`. 6 commits
+on `feature/pd-goals`, all pushed, head `095b6c3d`. **Waiting on next Monday's
+cascade to confirm** - Zac: *"sounds great hoping this works next week - ill let
+you know if any issues arise."* Detail in that branch's `git log`.
 
-- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
-- **What we were doing:** Packaged the 2026 draft-class onboarding reports for Camden, wired the Slack channels those reports need, then scaffolded an acquisition-target finder for the trade-deadline channel. Zac closed with *"ill test this a different day this is not really important at the moment."*
-- **Shipped this session (3 commits, all pushed):**
-  - `3ad5758f` z_ athlete channels onto the EXISTING zzz_ rows - Wesneski 75059, Teng 81041, Abreu 69773, Hader 3989. Column on the zzz row, never a standalone z_ row: `deliver.py` looks up by gc_id and reads a COLUMN, so a second row routes nothing and can hijack coach routing.
-  - `315a31a4` John Carver 1291664 - his single row was named `z_carver_john_1291664` with an **EMPTY channel_id**, so coach delivery had been silently landing in overflow. Renamed to zzz_, filled coach `C0BLXF73NG5`, athlete `C0BM2NASZ6D` untouched.
-  - `51ef6c37` NEW `pd-goals/scripts/find_acq_targets.py` + `sql-queries/acq-org-prospect-targets.sql`.
-  - Both CSV changes synced byte-identical across all 5 copies / 4 worktrees, md5-verified. Deliverable: `pd-goals/reports/onboarding_2026_draft_class.zip` (23 PDFs + combined), handed to Camden.
-- **KEY FINDING (saved building the wrong thing):** acquisition mode **already exists** in both analysis scripts - `--batter-ids` / `--pitcher-ids` bypass the HOU roster gate, tag the file ACQ, refuse `--deliver`, and auto-scope the percentile pools. The only missing piece was the id lookup, so the new script is just org+tier -> gc_ids.
-- **EXACT next step:** work laptop - `git pull` then `python pd-goals\scriptsind_acq_targets.py --org BAL --tier t30 --emit-cmd`. It is **UNRUN**. Three joins came from Zac's pasted GC2 query rather than a schema check: `ProspectLists.Prospect_Lists_Max_Year`, the `BP/BA/MLB/FG/ESPN/Athletic` columns on `Prospect_Lists_In_Org_View`, and `Astros.Players.npb_id`. **npb_id is the likeliest to fail** - it only feeds `sign_market`, drop it and nothing else breaks. Expect a slightly HIGHER count than GC2 for the same org: deliberate, GC2's bare CAST on MJSERVYR/MJSERVDAYS evaluates UNKNOWN on NULL and silently drops players with no service record.
-- **Blockers / waiting on Zac:**
-  - **Throw-In tiers blocked** - TI-I/R/D/B are GC2 tags, table never located. `--tier ti-*` exits with that message rather than returning a wrong population.
-  - **Onboarding page 2 is wrong in Camden's hands.** Butler shipped as `1. 100th` / `2. CB Quality Spin Execution` / `3. Percentile` - fused headlines, orphan fragments, whiff+K numbers gone. Estridge's ordinal `90th` migrated onto the wrong strength. **Only 2 of 23 audited.** Fix + full sweep offered, not ruled on. LINEAGE entry written.
-  - **The real writeups are .docx, not the deck** - `Pitcher Development Handoff` files in `Downloads`, ~10 sections each, uncommitted and unbacked-up. Butler's docx has FOUR goals; the PDF shows three and reworded the grip instruction away. **HARD GATE on any docx-ingest fix: the `Personal Background` sections are candid internal scouting language and this report is PLAYER-FACING.**
-  - **Slack CSV audit, ids not yet supplied:** 11 zzz_ rows with empty channel_id all routing to overflow (Aparicio 224973, Walter 107333, Boettcher 235223, Vogel 211942, Jimenez 1301978, Geraldo 171631, Pratt 177606, Herrera 1302334, Hernandez 282777, Smith 219805, Dagnino 1299142); 3 orphan z_ rows with no coach routing (Dunford 198153, Diaz 67182, **Radel 210062 - in the class just sent**); 2 junk rows 247291 + 282250 awaiting a delete go-ahead.
-  - Zac must add the **Astros File Uploader** app to the 4 new channels or the POST 200s and the file never appears.
-- **Concurrent session on this SAME branch today (not mine, not wrapped here):** goals double-send fix `095b6c3d` / `e70adea7` / `472c3875` / `9a747b96` / `5222c615`, plus org SB leaderboard `da959d5c`..`0d5426aa`.
-- **Uncommitted work:** 86 paths in bsb-resources, pre-existing clutter, none of this session's.
----
+## ALSO OPEN - OF/IF Directional Progression (`bsb-wt-intangibles/astros-intangibles`)
 
-## ALSO OPEN - Decision Outcomes ledger + dashboard (bsb-wt-modeling / feature/promotion-models, from 2026-08-02 22:30, preserved)
+From 2026-08-02, shipped but with one gate still open.
 
-### Last session state - 2026-08-02 22:30 (Decision Outcomes LIVE on Connect)
-
-- **Project / cwd:** `C:/Users/Owner/bsb-wt-modeling/pd-goals` - branch `feature/promotion-models`
-- **What we were doing:** Took the Decision Outcomes ledger + dashboard from "nothing has ever run" to live on Posit in one session. It grades our own promote/release calls: every decision, the grade we had that day, where the player went next.
-- **Shipped this session (11 commits, all pushed, `c7859311` -> lineage):** all 10 findings from the 2026-08-01 review - `build_decision_ledger.py`, the driver that did not exist (detect -> as-of levels -> re-score -> append -> resolve -> write, fully season-parameterized so 2027 is the same command) - `--asof-levels` + `--pin-name` on both scorers, which also CLOSES the old landmine where `--year 2025` could overwrite the live board - the wave splitter (a player with two promotes in one season needs two as-of levels; the gcid-keyed map holds one) - **carry-forward** (2nd pass at season-1, `grade_asof_kind='carried'`), which took release coverage **42% -> 75%** and promote **84% -> 89%** - `connect_pins_decisions/` bundle + preflight, deployed as content `27f21fd4` - five fixes off the live page (90-day confirm rule, promote wording, MEX/KBO/NPB as foreign, TRADED chip, AUC explained).
-- **LIVE NOW:** app GUID `fbbb2dd7-076c-46fc-9635-64e6adba55bd` page 2. Pins `zbridger/decision_ledger` (append-only, all seasons) + `zbridger/decision_outcomes_2026`.
-- **EXACT next step:** `decision_detect.py:692-707` - re-anchor `level_from` on the **previous stint's level**, not the trailing-90d MODAL level. Verified by reading live code: AA(148 PA) -> AAA -> MLB cameo -> optioned back to AAA currently emits a **PROMOTION** `aax->aaa`. An option DOWN is booked as a promotion, and it is in the 61 promotions on the page right now. The walk already has `prev_levels` and `dates[i-1]`. **Run it and diff which of the 61 move BEFORE pushing.** This one fix also unblocks demote detection, which the same anchor makes impossible to build as a mirror.
-- **THEN:** demote the indy scraper from DETECTOR to ENRICHER (`decision_outcomes_resolve.py::_match_indy`). No gcid, no dates, normalized-name matching with a fuzzy fallback. **Zac caught a live false positive: Bryce Collins reads "Atlantic League - York Revolution" and is a different pitcher.** Inflates "Signed somewhere", deflates "Never resurfaced". Dates would NOT fix it - a name is not an identity. ~5 lines in the `if not len(nm)` branch.
-- **THEN:** demote detection. `decision_detect` emits only promote+release, so "Sent back down" reads 0, "Advanced and held" reads 100%, and the promote AUC reads NA - three symptoms, one cause. An 8-agent workflow (`wvk6h3two`) built it and it was **REVERTED**: all four adversarial reviewers returned FIX_FIRST (4 blocking, 13 important), and the blocking ones trace back to the modal anchor. Design output reusable at `tasks/wvk6h3two.output`; the code was not.
-- **THE PATTERN, carry it forward:** ~20 defects in this feature and **every single one failed in the direction of making our models look MORE accurate.** Retirees confirming, a dropped DB connection confirming everyone, the 40-man shuffle counted as a cut, two-day-old cuts confirmed, phantom promotions, missing send-downs, name-matched signings. Treat it as the prior on any change here.
-- **Blockers / waiting on (all work laptop):** Vars + 12h schedule NOT yet set on `promo-models-decision-ledger` (stagger AFTER `promo-models-nightly-score`) - the five fixes in `874c0a7c` are pushed but NOT live, needs a re-run + app redeploy, and **Never-resurfaced and the release AUC will DROP**, which is the number getting honest - `--season 2025` backfill not run.
-- **Open, Zac has not ruled:** the promote verdict compares to the MEDIAN at the new level, so 19 of 26 resolved promotes read MISS. "Did he hold" and "was he above average" are different bars; "held" is probably what he actually asked for.
-- **Uncommitted work:** 11 tracked paths in bsb-wt-modeling, all pre-existing clutter, none of this session's.
-
----
-
-## ALSO OPEN - OF/IF Directional Progression (bsb-wt-intangibles / feature/astros-intangibles, from 2026-08-02 15:25, preserved)
-
-### Last session state - 2026-08-02 15:25 (OF/IF Directional Progression - shipped + tempdb incident fixed)
-
-- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (Monday wiring lives on `bsb-resources` / `feature/pd-goals`)
-- **What we were doing:** Finished the OF/IF Directional Progression Report after a machine crash mid-session (all pre-crash work had survived and was pushed). Then its FIRST live run took out GCSQL02's tempdb, and most of the session was diagnosing and fixing that.
-- **Shipped this session (all pushed):** `a0763d0f` refreshed sample renders - `ed85b890` sparkline draws THROUGH a no-data month (was severing at the `NaN`) - `223e16f2` colour rule documented on the page + single-month cells grey not red - `7ab3c483` dot colour **YTD -> MONTH OVER MONTH** - `88094c83` per-direction **Val + Lvl/MLB %ile** (6 cols per metric) - `869eacd3` pool memoisation - `073b715a` **the real fix**. Pre-crash: `c211537d` (8-metric p1 table + weekly OF/IF batch). Monday step is `8c37b6ea` on bsb-resources. LINEAGE.md entry written.
-- **EXACT next step:** the **EOY P13 rose parity check** - the only remaining numbers-correct gate. Take one player, compare his PAA/EO rose percentile on the directional report against his **EOY P13 rose** (same engine underneath, so they must agree). The diff harness proved the rewrite did not CHANGE the numbers; it did NOT prove they were right to begin with. Do this **before** it reaches `org_pd_reports` on a Monday - that channel has an audience.
-- **THEN:** `python scripts\generate_directional_progression_batch.py --family OF IF --test` (never run live). Watch runtime and confirm **ONE** `[pool] building` line per `(kind, scope)` for the whole run, not one per player - that is the memoisation working, and it is what stops a full roster re-spilling tempdb. Then swap `--test` for `--deliver`; Monday needs nothing further.
-- **THE INCIDENT, worth carrying forward:** the league-wide TDM pool was `SELECT DISTINCT` over **seven** `PERCENTILE_CONT` window functions, rebuilt **once per player**. Its **first ever live run** succeeded on 8 players and in doing so **exhausted tempdb**; every run after failed err 1101. **The tell was "it worked once, then never again"** - that shape means WE consumed a shared server resource, not that the server broke. I called it server-side for three round-trips and was wrong. Zac pushed back with "it's never been an issue before" and was right.
-- **The trap inside the trap:** the first fix (`869eacd3`) memoised the pools, 16 executions -> 5. It could not possibly help - the failure is **per-execution** and it died on execution #1. **Fixing frequency when the cost is per-call.**
-- **The actual fix (`073b715a`):** pull raw rows (one calendar month per statement, **months 1..12 NOT the Apr-Sep `_MONTHS` list**, or March/October games silently drop) and compute percentiles in pandas. **Proven output-neutral on REAL data**, not asserted: `scripts/diff_directional_pool.py --scope afa` -> 6,832 rows both paths, identical row universe, 0 `n_plays` mismatches, **6/7 metrics exact**, `top_speed` `1.07e-14` (FP only - it is the one metric with a `CASE` cap). New path is ~4.3x slower (16.1s vs 3.7s); accepted, the old path cannot run at MLB scope at all.
-- **Decisions Zac made this session:** (1) **YTD stays exactly as it is everywhere** - first-month-to-now, incl. the p1 YTD column and the fielder progression YTD Gain; only the sparkline DOT became month-over-month. (2) Bottom tables carry **both** Lvl and MLB %ile and **keep all five** columns (densest option, 24 numeric cols across). (3) Skip the shape test - I had oversold it, the rendered Val column already proves it.
-- **PARKED (Zac):** *"maybe similarly built into a dashboard in the future, but for now these reports are great."*
-- **Blockers / waiting on:** nothing blocking. tempdb had room again as of the diff run (the old query ran in 3.7s, impossible the day before) - unconfirmed whether IT reclaimed it or it recovered.
-- **Flagged, not written:** a rule for the incident class - "a brand-new heavy query's FIRST live run can exhaust a shared server resource; the tell is worked-once-then-never-again." Offered to add to `.claude/rules/` + sync; Zac has not said go.
-- **Uncommitted work:** 17 paths in intangibles, all pre-existing clutter (synced skills, `.claude/rules` copies, `output/`, `.planning/`). Nothing of this session's.
-
----
+- **EXACT next step:** the **EOY P13 rose parity check** - take one player and
+  compare his PAA/EO rose percentile on the directional report against his EOY
+  P13 rose (same engine underneath, so they must agree). The diff harness proved
+  the rewrite did not CHANGE the numbers; it did not prove they were right to
+  begin with. Do this **before** it reaches `org_pd_reports` on a Monday.
+- **Then:** `python scripts\generate_directional_progression_batch.py --family OF IF --test`
+  (never live first). Confirm **ONE** `[pool] building` line per `(kind, scope)`
+  for the whole run - that is the memoisation, and it is what stops a full roster
+  re-spilling tempdb. Then swap `--test` for `--deliver`.
+- **The incident worth carrying forward:** a league-wide TDM pool
+  (`SELECT DISTINCT` over seven `PERCENTILE_CONT` windows, rebuilt once per
+  player) **exhausted GCSQL02 tempdb on its first ever live run**. The tell was
+  **"it worked once, then never again"** - that shape means WE ate a shared
+  resource, not that the server broke. Called it server-side for three
+  round-trips and was wrong; Zac pushed back and was right. The first fix
+  memoised (16 execs -> 5) and could not possibly help: the cost is
+  **per-execution** and it died on #1. Real fix `073b715a` - raw rows (months
+  **1..12**, not the Apr-Sep list, or March/October silently drop) + pandas
+  percentiles, proven output-neutral on real data.
+- **Flagged, never written:** a rule for that incident class. Zac has not said go.
