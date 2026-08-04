@@ -1,4 +1,24 @@
-# Last session state - 2026-08-04 15:03 (EOY report: inline render + payload pin measured)
+# Last session state - 2026-08-04 15:45 (Decision Outcomes: line at 50 + calibration fixed)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-modeling` - branch `feature/promotion-models`
+- **Recall checkpoint:** session `c0d3`, domain `bsb-wt-modeling/feature/promotion-models`. **That is the source of truth**; this file is a rendering of the newest wrap only.
+- **What we were doing:** Reworked the Decision Outcomes promote quadrant at Zac's direction (x axis, verdict words, table columns, GC2 links), then spent the back half chasing a Board-page failure that turned out to be Connect infrastructure, not our code.
+- **Shipped (all pushed, `860ffbb6` -> `d462144e`):** verdict axis moved to the ABSOLUTE grade and then FIXED at 50 - words renamed to OUTPERFORMING / CONFIRMED / UNDER EXPECTATIONS / CONFIRMED LOW - the promote calibration curve stopped measuring roster survival - Grade at Promote + Current Grade columns - Grade Now rename on release - GC2 player links - Side-wrap CSS - board perf (169KB PDF per rerun, history re-parse per click).
+- **The finding worth remembering:** the promote "Were we right?" curve read **100% in every bucket** because it plotted roster survival. `train_promote_held.py` trains on `promote_held = (post_pct - pre_pct) >= -tol` and its docstring says the v2.0 SURVIVAL label was **abandoned** for running ~73% positive. The page had re-introduced that abandoned label at the display layer. **Zac caught it from the picture, not from the code.**
+- **Deploy VERIFIED:** the 17:03 scheduled run printed `promote readiness reference -> 50.0 (FIXED...)` plus the `VERIFIED:` line - proof `connect_pins_decisions` was redeployed and is not reverting the pin.
+
+- **EXACT next step:** Connect -> **Promotion Model** (GUID `fbbb2dd7-076c-46fc-9635-64e6adba55bd`, Content ID 970) -> **Settings -> Runtime** -> set **Min processes = 1, Max processes = 1**, raise **Idle timeout**. That is the fix for the red `Failed to fetch dynamically imported module` boxes AND the repeated "Loading v3 grades". If the fields are capped it is a server-level `Applications.*` setting - email Chris Josefy (cjosefy@astros.com).
+
+- **DO NOT chase the Connect issue in code again.** Ruled out with evidence: `app.py` byte-identical since `c8608490` - Python renders fine (screenshot shows "236 players") - `st.cache_data` has a constant key with no eviction and no `.clear()`, so it cannot miss twice in a live process - Streamlit pinned `>=1.49.0,<1.50.0` since Jun 27, same cached env hash both deploys. The `_w_` token pair **differs on every occurrence** across three screenshots: Connect is reaping the worker.
+- **Blockers / waiting on:** Zac to change the Connect runtime settings (he was going to /clear and take it fresh).
+- **Uncommitted work:** 71 files in bsb-wt-modeling, **all pre-existing untracked artifacts** (projection-anatomy outputs, rules files, explain.html). None of this session's work is uncommitted.
+- **Next real improvement (not started):** store a pre-move percentile on the ledger so the promote calibration curve can use the model's ACTUAL label instead of the `_producing` proxy. Schema + resolver work.
+
+---
+
+## ALSO OPEN - EOY position report (bsb-resources / feature/pd-goals, session `90dd`)
+
+### (previous wrap) 2026-08-04 15:03 (EOY report: inline render + payload pin measured)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
 - **Recall checkpoint:** session `90dd`, domain `bsb-resources/feature/pd-goals`. **That is the source of truth**; this file is a rendering of the newest wrap only.
