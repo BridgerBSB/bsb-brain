@@ -1,4 +1,27 @@
-# Last session state - 2026-08-05 14:48 (Swing shape: coachability answered)
+# Last session state - 2026-08-05 15:44 (BR 1-3 wash: onto the Connect rhythm, verified end to end)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles`
+- **Recall checkpoint:** session `4946`, domain `bsb-wt-intangibles/feature/astros-intangibles`. **That is the source of truth**; this file renders the newest wrap only.
+- **What we were doing:** Resumed after a machine crash. Goal was to get the 1-3 / 2-H 3rd-out-wash correction onto a self-maintaining Connect rhythm. The rhythm was ALREADY coded (`15a8f387`, Jul 30 - the wash refresh rides inside `pin_br_tracker_seasons.py`, which the `connect_pins_br` 12h job already runs). What was broken was everything around it.
+
+- **Shipped (all pushed):** `a9ee56ae` notebook said 6h + named only 1 of its 2 pins - `8bf52445` **pyarrow** - `b07104a0` org canon on the fact side - `cb198bf9` **NaN-set duplicate row, 3 trackers** - `c342b950` `check_wash_org_coverage.py` - `312c89af` rules + precautionary catching dedupe - `4c923522` rules onto `feature/pd-goals`.
+
+- **FOUR DEFECTS, ALL SILENT, ALL DOWNSTREAM OF A CORRECT DETECTOR.** The detector found all 104 on its first scheduled run four days ago; nothing wrong was ever in the baseball. (1) **No pyarrow** - tracker pin is joblib, fact pin is parquet; the job printed its 104 then `pin write failed: ImportError` and **exited 0**. Tracker self-healed via live fallback, but PD-Goals reads that pin and has no detector, so two worktrees silently disagreed. THIRD occurrence (defense May 19, range Jul 30, BR Aug 3). (2) **DSL split REFUSED on all 9 combos** - the row universe is a Python `set`, which does NOT dedupe NaN (boxed `np.float64` nan vs the `np.nan` singleton; `nan != nan`, different hashes, so the set keeps both while pandas calls them one). Reproduced standalone: 3 set entries, 1 pandas duplicate. Same builder copy-pasted into catching + fielding, which have no guard and just rendered the phantom row. (3) **Org canon missing on the fact side** - verified NOT biting (`mlbam.teams` emits ATH for 2026, ATH is in the pin), so insurance not a recovered bug. (4) A one-liner PowerShell could not parse - scripted instead.
+
+- **VERIFIED WITH REAL NUMBERS, not inferred:** clean run, fact pin `20260804T030312Z-3283b`, **no `pin write failed`**, facts at 03:03Z before tracker at 04:07Z, exit 0 in 3889.6s. DSL split now `+18` on all 9 combos and `orgs_dsl_split` **233 -> 232 rows** (exactly the one phantom). MLB restores **+11 not +14**, so sched_type scoping held. pd-goals diff: **29 of 30 orgs moved**, MIA absent. **HOU 213/370 -> 217/372** - and the accounting proves itself: +4 successes, +2 opportunities, because exactly 2 of the 4 HOU washes were LF-fielded (Correa LF, Whitaker LF, Hernandez CF, Moss RF) and the rule is "success +1 always, opp +1 only for LF". All four match per-player on EOY P21 too. **The pin later read 105** - the 12h schedule fired on its own and picked up a new game's wash, which is the first evidence the rhythm is self-maintaining rather than merely configured.
+
+- **Documented into EXISTING rules, no new files** (both classes already had a home, and one had actively WRONG guidance): `tracker-parquet-pins.md` 5.17 - deleted the false "tracker bundles don't include pyarrow" line, since the dependency is a property of the WRITE not the bundle - `merge-union-not-primary.md` - new section on a key member that can legitimately be NaN - `br-advance-3rd-out-wash.md` - bug history + corrected its rollout table, which claimed the DSL split was LIVE. Synced byte-identical to all 4 worktrees, verified with `diff`.
+- **Audit closed:** 11 set-union sites across the 3 trackers - 8 `dropna` both keys (safe), 3 were NaN-exposed (fixed), 1 more found in the sweep. **Unguarded sites remaining: 0.**
+
+- **EXACT next step:** **Nothing on baserunning - 1-3 is done.** The only work left is COSMETIC and unrelated (the phantom DSL row). Two deploys, each its own command. First: `cd C:/Users/zbridger/bsb-wt-intangibles ; git pull` (**pull is mandatory - `312c89af` landed after Zac's last pull**), then `cd intangibles`, set `$env:CONNECT_API_KEY`, then `.\connect_pins_catcher\deploy.ps1` (short). Second: `cd C:/Users/zbridger/bsb-wt-intangibles/intangibles` then `.\connect_pins_fielding\deploy.ps1` (~2 hrs, combo precompute). **GOTCHA:** `deploy.ps1` does `Set-Location $here` and never restores it, so `cd` back explicitly between them. Expect `orgs_dsl_split` to drop one row in each.
+- **Blockers / waiting on:** none. Schedule on `intangibles-pin-tracker-2026-br` confirmed set and unchanged by Zac.
+- **Uncommitted work:** clean in the intangibles worktree apart from pre-existing untracked clutter.
+- **Not observed this session** (wired, same pin, same helper, low risk): BR season percentile pools, KPI weekly table + chart line, snapshot. The KPI ones surface on the next Monday cascade. Postgame is the best-tested (live narrative detection, video-verified July).
+- **SECURITY, raised once, not actioned:** Zac pasted the Connect API key in plaintext, and `docs/ARCHIVED_REFERENCES.md:354` already carries it committed to git. Worth rotating.
+
+---
+
+## ALSO OPEN - 2026-08-05 14:48 (Swing shape: coachability answered)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
 - **Recall checkpoint:** session `110b`, domain `bsb-resources/feature/pd-goals`. **That is the source of truth**; this file renders the newest wrap only.
