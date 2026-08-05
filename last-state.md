@@ -1,4 +1,37 @@
-# Last session state - 2026-08-05 11:35 (Decision Outcomes: the dead-comparison sweep)
+# Last session state - 2026-08-05 14:05 (Postgame V2: spec + card prototype)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` - branch `feature/bullpen-reports`
+- **Recall checkpoint:** session `4089`, domain `bsb-wt-bullpen/feature/bullpen-reports`. **That is the source of truth**; this file renders the newest wrap only.
+- **What we were doing:** Zac sent a Pitch Profiler card screenshot and asked to shift the Arm Farm postgame pitcher report to that shape for 2027 and expand past it. Spec'd it, built the layout prototype, rendered it, and closed every open decision.
+
+- **Shipped (all pushed, all 4 worktrees `unpushed=0`):**
+  - `61a47420` **spec** - `bullpen-report/docs/plans/2026-08-05-postgame-v2-pitcher-card-spec.md`. PDF only in v1 (Zac: *"the sole focus is on the PDF report at the moment - as a postgamev2 concept"*); Streamlit page is a phased follow-up with a deliberate app-report parity gap recorded.
+  - `8c4b48f3` **layout prototype** - `src/postgame_v2_layout.py` + `scripts/render_postgame_v2_mock.py`. SYNTHETIC ONLY, DB-free, **not in manifest, nothing deploys.** 3 renders + 3-page PDF committed at `docs/plans/mocks/postgame-v2/`.
+  - `0fc1c1f3` RV finding + PDF output · `350dde73` gcPerf + 300 gate + LK_Schedule_Types · `563cc273` spec close-out.
+  - Rules: `c8f193a0`/`6496d002` **sched-types.md**, `3676e078`/`3bda605d` **percentile-golden-gates.md** - both synced md5-identical to all 4 worktrees.
+  - `eaa9f7e0` captured GC2 tooltip SQL -> `bsb-resources/sql-queries/gc2-pitch-grades-tooltip-reference.sql`.
+  - Phone-viewable review artifact: https://claude.ai/code/artifact/d48d79a8-6f82-4a37-83af-b889ae150525
+
+- **THE HEADLINE: RV and gcPerf are the same number.** `gcPerf = 50 - 1500*AVG(rv)`, so `RV/100 = (50-gcPerf)/15`. The card was going to ship both as if they were independent evidence. Zac: *"use gcperf in the RV case!!"* - gcPerf everywhere, RV/100 nowhere.
+- **Rendering the prototype earned its keep immediately** - 4 defects `py_compile` is blind to: percentile colors **inverted** (gcERA at the 97th and xwOBA .198 at the 91st both painted RED - the data layer orients low-is-better to goodness and the renderer inverted it *again*); `Overall` printed `10.0` not `100.0` (stripping the leading zero with `.replace("0.",".")` eats the zero *inside* 100.0); label/value collisions; legend over its own title.
+- **Two questions I should NEVER have asked Zac** (he pushed back, correctly): **weight** is `MLBAM.Players.weight` ord 20, two rows below the height columns we already join - it was in a **committed schema snapshot the whole time**. And **Loc was never ambiguous** - the card uses our shipped `loc_grade`; the tooltip's `ProjLoc` is Proj-minus-Stuff, a different quantity that merely has "Loc" in the name.
+- **`sched-types.md` had TWO WRONG entries for months.** `V` is **Live BP** (not "Veloz/bullpen sessions" - `B` is the bullpen type); `I` is **Intersquad** (not "Instrumented"). **15 types exist; the rule listed 5.** That file auto-loads on every `.py`/`.sql` edit. The correct table was committed in the repo the whole time. So the "LiveBP" domain Zac asked about = `sched_type 'V'`, and `_report_title` already handles it - nothing to build.
+- **NEW durable pointer:** memory `gc2-schema-snapshot-location` - full GC2 `columns.csv` + LK lookups are committed at `sql-queries/schema/GroundControl2/` **on branch `cq/pd-goals`** (`467af12e`), NOT on `feature/pd-goals`, so invisible to `find`/`ls`. `git show` it **before** asking for an INFORMATION_SCHEMA run.
+
+- **DECISIONS - all made, nothing blocks the build:** percentiles always full-season + always regular season (a single game can never produce one) · sched_type domain picks the GAMES never the pool · game value left / season bar + percentile circle right · **pitcher percentile gate = 300 IN THE FOCUS** (pitch type, group, hand, count, TTO) · palette stays HOUSE red-bad/green-good, not the mock's Savant red-is-good · renderer never inverts a percentile · **delivery + audience/voice DEFERRED** (Zac: *"delivery is the last of our worries ... we are just focused on report creation"*).
+
+- **EXACT next step:** Zac will `/clear` then `/recall` and asks **which approach one-shots the build**. Answer is in the recall checkpoint's `open_questions` - short version: **do NOT orchestrate the implementation** (all 17 metrics land in ONE new `src/postgame_v2_data.py` and share the same canonical references - parallel writers collide and duplicate reading); a Workflow is only worth it as a **research fan-out** (one agent per canonical reference returning formula + `file:line`). `/goal` fits **Phase 1 only** and MUST end at "code + tests + pushed + runbook", never "verified vs GC2" (work-laptop -> `goal-hook-hygiene.md` Stop-hook loop). Plainest good answer: **`/plan` the metric layer, then execute Phase 1 in one pass.** **Before writing anything, ask Zac about the two-column game-vs-season treatment** - the only part I designed rather than derived, cheap to change now.
+- **Blockers / open:**
+  - **Flip `postgame_percentiles.py:219` `_PITCH_TYPE_QUERY HAVING 30 -> 300`.** Pools WILL shrink; a 4th pitch type at DSL/FCL may drop under the 5-member floor and go uncolored - that is **correct** (honest blank beats a percentile off 4 players). Count them; do not soften the gate.
+  - `_compute_rv` (`postgame_percentiles.py:456`) must be **diffed** against the tooltip's `rv_case` before reuse - written independently, may not match.
+  - **13 players have NO `channel_id` at all** (delivery goes nowhere): Aparicio, Walter, Boettcher, Vogel, J.Jimenez, Geraldo, Pratt, K.Herrera, R.Hernandez, R.Smith, Dagnino, plus **Gantes 247291 / Rivero 282250 who have no channel NAME either**. Separate from the 78 missing `z_channel_id`. Slack-admin, not code.
+  - No DB on the personal laptop - every metric verification is work-laptop work.
+- **Camden:** nothing outstanding; Zac had already pushed the `hq` ones. PR #19 (ToolBox) merged into `feature/bullpen-reports` mid-session and was rebased onto.
+- **Uncommitted work:** `bsb-wt-bullpen` carries a **pre-existing** rules-sync WIP from an earlier session (7 modified `.claude/rules` + untracked skills). **Not mine** - deliberately left alone, stashed/restored around the rebase.
+
+---
+
+## ALSO OPEN - 2026-08-05 11:35 (Decision Outcomes: the dead-comparison sweep)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-modeling` - branch `feature/promotion-models`
 - **Recall checkpoint:** session `97a3`, domain `bsb-wt-modeling/feature/promotion-models`. **That is the source of truth**; this file renders the newest wrap only.
