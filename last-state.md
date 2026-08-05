@@ -1,4 +1,24 @@
-# Last session state - 2026-08-05 14:05 (Postgame V2: spec + card prototype)
+# Last session state - 2026-08-05 14:48 (Swing shape: coachability answered)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
+- **Recall checkpoint:** session `110b`, domain `bsb-resources/feature/pd-goals`. **That is the source of truth**; this file renders the newest wrap only.
+- **What we were doing:** Zac ran `--shift` (the loft-coachability test) and asked what it means plus "the dirty stuff". Interpreted it, fixed the 3 known dirty spots, then ran a 47-agent code review and fixed 9 of its 10 confirmed findings.
+
+- **Shipped (all pushed, unpushed=0):** `378ca725` retire the window metric + land --shift - `0ce8e8ee` shift-estimator honesty - `74500206` UNTAPPED + chase through BH - plus a `LINEAGE.md` entry.
+
+- **THE ANSWER:** within-hitter loft lever = **+1.00 pts top-zone whiff per +1 deg** (SE 0.29, CI +0.43 to +1.58, n=373), **+0.97** on the 325 who never changed level. Cross-hitter tiers recomputed from the frame: **MLB/AAA +1.35, AA/A+/A +1.19, FCL/DSL +1.00** - monotone selection gradient, and the within-hitter number lands on the least-selected tier. Hitters move ~1.4 deg a season, so the ceiling on a loft cue is ~1.4 pts of whiff and it costs hard contact. **Verdict: still no degree targets, ships as a screen.**
+- **I shipped a wrong number and caught it:** said "HALF the 2.0 cross-hitter curve". That `+2.0` was a hardcoded literal orphaned when the survivorship pass was deleted in `8fba831d`. Real inflation is **35%**. Fixed in all four places.
+- **Two metrics retired/rebuilt by MEASURING RELIABILITY first:** contact-depth **window width** split-half **-0.08** (vs +0.99 loft / +0.98 tilt in the same test) because a 5-pt threshold sits at 0.4 of a bin's 12.6-pt SE - **deleted**, replaced by peak contact depth (SB +0.61). **UNTAPPED** was firing by construction; now in-zone + 25 BIP + exact binomial vs his other bands + BH -> **3 of 145 survive** (Pena deck p10, Ferreras p28, Huezo p55).
+- **Four hardcoded copies became one computation:** `shift_analysis` gained `quiet=True` and stashes results on `r.attrs`; the deck formats page-1 findings 4+5 from it.
+
+- **EXACT next step:** Ask Zac his verdict on **page 1 and page 10 (Jeremy Pena)** of the deck he just opened - he wrapped without saying. If he says go, **build the shift page** (~1h; numbers already on `shift_analysis(...).attrs`, exposed in `build_deck` as `_SH`/`_cross`). Rebuild locally, NO DB: `cd pd-goals` then `python scripts/swing_shape_lab.py --parquet "C:/Users/Owner/Downloads/swings_2026 (1).parquet" --deck`
+- **Blockers / waiting on:** Zac's verdict on the deck; his call on whether the shift page goes in before Gavin sees it.
+- **Uncommitted work:** 86 files in bsb-resources, all **pre-existing untracked dirs**, none mine.
+- **Process note:** `--extract` needs the work laptop (DB). Everything downstream runs **locally** off the parquet in Downloads - I wrongly sent Zac to the work laptop and he called it out.
+
+---
+
+## ALSO OPEN - 2026-08-05 14:05 (Postgame V2: spec + card prototype)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` - branch `feature/bullpen-reports`
 - **Recall checkpoint:** session `4089`, domain `bsb-wt-bullpen/feature/bullpen-reports`. **That is the source of truth**; this file renders the newest wrap only.
