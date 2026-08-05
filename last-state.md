@@ -1,18 +1,22 @@
-# Last session state - 2026-08-04 15:45 (Decision Outcomes: line at 50 + calibration fixed)
+# Last session state - 2026-08-05 07:45 (z_ channels for 5 players + skill corrected to 4 copies)
 
-- **Project / cwd:** `C:/Users/Owner/bsb-wt-modeling` - branch `feature/promotion-models`
-- **Recall checkpoint:** session `c0d3`, domain `bsb-wt-modeling/feature/promotion-models`. **That is the source of truth**; this file is a rendering of the newest wrap only.
-- **What we were doing:** Reworked the Decision Outcomes promote quadrant at Zac's direction (x axis, verdict words, table columns, GC2 links), then spent the back half chasing a Board-page failure that turned out to be Connect infrastructure, not our code.
-- **Shipped (all pushed, `860ffbb6` -> `d462144e`):** verdict axis moved to the ABSOLUTE grade and then FIXED at 50 - words renamed to OUTPERFORMING / CONFIRMED / UNDER EXPECTATIONS / CONFIRMED LOW - the promote calibration curve stopped measuring roster survival - Grade at Promote + Current Grade columns - Grade Now rename on release - GC2 player links - Side-wrap CSS - board perf (169KB PDF per rerun, history re-parse per click).
-- **The finding worth remembering:** the promote "Were we right?" curve read **100% in every bucket** because it plotted roster survival. `train_promote_held.py` trains on `promote_held = (post_pct - pre_pct) >= -tol` and its docstring says the v2.0 SURVIVAL label was **abandoned** for running ~73% positive. The page had re-introduced that abandoned label at the display layer. **Zac caught it from the picture, not from the code.**
-- **Deploy VERIFIED:** the 17:03 scheduled run printed `promote readiness reference -> 50.0 (FIXED...)` plus the `VERIFIED:` line - proof `connect_pins_decisions` was redeployed and is not reverting the pin.
-
-- **EXACT next step:** Connect -> **Promotion Model** (GUID `fbbb2dd7-076c-46fc-9635-64e6adba55bd`, Content ID 970) -> **Settings -> Runtime** -> set **Min processes = 1, Max processes = 1**, raise **Idle timeout**. That is the fix for the red `Failed to fetch dynamically imported module` boxes AND the repeated "Loading v3 grades". If the fields are capped it is a server-level `Applications.*` setting - email Chris Josefy (cjosefy@astros.com).
-
-- **DO NOT chase the Connect issue in code again.** Ruled out with evidence: `app.py` byte-identical since `c8608490` - Python renders fine (screenshot shows "236 players") - `st.cache_data` has a constant key with no eviction and no `.clear()`, so it cannot miss twice in a live process - Streamlit pinned `>=1.49.0,<1.50.0` since Jun 27, same cached env hash both deploys. The `_w_` token pair **differs on every occurrence** across three screenshots: Connect is reaping the worker.
-- **Blockers / waiting on:** Zac to change the Connect runtime settings (he was going to /clear and take it fresh).
-- **Uncommitted work:** 71 files in bsb-wt-modeling, **all pre-existing untracked artifacts** (projection-anatomy outputs, rules files, explain.html). None of this session's work is uncommitted.
-- **Next real improvement (not started):** store a pre-move percentile on the ledger so the promote calibration curve can use the model's ACTUAL label instead of the `_producing` proxy. Schema + resolver work.
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
+- **What we were doing:** Short session. Added athlete (`z_`) channels for 5 players, then fixed the `slack-channels-csv` skill which still claimed 5 CSV copies after the 5th was deleted Aug 3. Zac: *"ok good to /wrap here."*
+- **Shipped (all pushed, all 4 worktrees current with origin):**
+  - **5 athlete channels**, set on each player's **existing `zzz_` row** (7th column) - never a standalone `z_` row: 106480 Loperfido `C028Q57E0TF` · 264917 Mendez `C0A9SADTMSR` · 1299133 Rivas `C09L39EJFS5` · 1299134 Colina `C09KNDNFQ9F` · 1329926 Arias `C0A9ZB47GMS`. All five already had a `zzz_` row with an empty `z_channel_id`, so coach routing untouched; 360 lines before and after. **Since Aug 3 the weekly fielding+hitting reports are athlete-only, so these 5 had been landing in coach channels every Monday.** No-athlete-channel count **80 -> 75**.
+  - `610b19b1` **skill corrected 5 -> 4 copies.** It pointed at a file deleted Aug 3 (`2eaaa183`) and demanded a 5-way md5 that could never pass. Kept a historical note on WHY it was deleted so nobody re-creates it "as a fallback." Skill exists **only in bsb-resources** - no sibling copies - and `.claude/skills/` is **not** in `sync-rules.sh`'s copy set (`rules/` + `scripts/` only).
+  - New `windows-toolchain.md` entry, synced md5-identical to all 4 worktrees.
+- **TWO PROCESS LESSONS, both now written down:**
+  - **`grep -c $'\r'` does NOT detect CRLF in Git Bash.** It reported CRLF for all 4 CSV copies while `xxd` showed plain LF. That sent two string-replace passes matching the wrong line ending, each silently finding **zero** matches. Check bytes: `python -c "b=open(f,'rb').read(); print(b.count(b'\r\n'))"`.
+  - **The 4 copies are NOT uniform** - `bsb-wt-bullpen` is CRLF, the other three LF (that clone's autocrlf). Raw `md5sum` legitimately differs while content is identical (`tr -d '\r' | md5sum` = `947a7cf00010` everywhere). The skill's old "md5sum all 5 -> must match" step could never have passed and would have read as real drift. Robust pattern: `splitlines(keepends=True)`, re-attach each line's OWN eol, idempotent (re-run reported `already=5` on the already-edited copy).
+- **Also:** `bsb-wt-bullpen` was **33 commits behind** (someone pushed a whole `toolbox/` module) - pulled + pushed. That round also cleared the barrelsville commit stranded by the Aug 3 SSH aborts. **All four worktrees are now current.**
+- **EXACT next step:** nothing queued. The live item is **next Monday's goals log** - look for `Collapsed N phase row(s) -> M player(s)`; **N-M is exactly how many duplicate posts went out the prior Monday.** If that line is absent, every player is single-phase (also fine) - then check Alvarez 213722's post count directly.
+- **Blockers / open:**
+  - **75 players still have NO z_ athlete channel** (was 80). Their weekly fielding/hitting reports fall back to the COACH channel every Monday and the player never sees them. **Slack-admin task, not code:** create the channel, then set its id in the `z_channel_id` **column** of that player's existing `zzz_` row - never a standalone row - then sync 4 copies. Offered the list twice; Zac has not taken it up.
+  - Dunford 198153 + Diaz 67182 are standalone `z_` rows with **no `zzz_` row at all**, so coach-targeted sends for them land in their athlete channel. Harmless under athlete-only weekly routing, mildly wrong for the goals coach pass. Not raised with Zac.
+  - **DEFERRED by Zac, do not start unasked:** hitter BB% missing its percentile.
+- **Nothing today touched a DB or the live pin** - CSV edits + a doc fix, all verified locally. No work-laptop step pending from this session.
+- **Uncommitted work:** pre-existing clutter only, none of this session's.
 
 ---
 
