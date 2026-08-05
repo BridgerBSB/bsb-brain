@@ -1,4 +1,26 @@
-# Last session state - 2026-08-05 07:45 (z_ channels for 5 players + skill corrected to 4 copies)
+# Last session state - 2026-08-05 11:35 (Decision Outcomes: the dead-comparison sweep)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-modeling` - branch `feature/promotion-models`
+- **Recall checkpoint:** session `97a3`, domain `bsb-wt-modeling/feature/promotion-models`. **That is the source of truth**; this file renders the newest wrap only.
+- **What we were doing:** Zac asked why Lucas Spence's journey strip showed a phantom "AA" between AAA and MLB. One question turned into four instances of the same structurally-dead comparison, plus an anchor replacement, a repair path, two pin guards, and a dry run that was writing.
+
+- **THE HEADLINE:** `next_level >= level_to` **could never come out False**, in FOUR places. `decision_outcomes_resolve` filters promote candidates to `level_to` FIRST (`at_to = mine[mine["level_code"] == to_level]`) then sets `next_level = judged level`, so it compared a value against itself. `next_level` does NOT mean "where he is now" - it means "the stop we JUDGED".
+- **The worst instance was NOT the visible one.** `_promote_bucket` fed the *Sent back down* tile and was DOUBLY dead, so that tile was driven only by an explicitly detected demote - which needs >=10 PA/BF at the lower level. **A player optioned down who then got hurt or took 6 PA was counted as having HELD his promotion.** Tile went 7 -> 8 live after the fix.
+
+- **Shipped (12 commits, all pushed):** `073e3ab7` level_from = previous STINT not trailing-90d modal (+ `repair_decisions`, because `decision_id` does NOT contain `level_from` so a re-run could never reach frozen rows) - `0790a400` `_pin_exists` reads `fs.info`'s exception class, never `board.pin_exists` (fsspec's bare `except: return False` turned a timeout into "definitively absent" and reopened the bootstrap-over-live-data path) - `c1e0afa8` every scatter dot names WHICH move it is - `d93e0c68` + `756df0b9` the four dead comparisons, `_held_level`/`_level_known` DELETED - `7d6c1919` **my bug: `--dry-run --repair` was APPENDING FOR REAL** - `03d31039` a send-down is a red CHIP either way (`DOWN 7/17/26` detected vs `DOWN to AAA` board-only) - `5c70dd27`/`2076811a`/`3aed7e8a`/`ae23d29b`/`b397200f` the diag + `--audit-anchor` - `f8ee2f06` LINEAGE.
+- **Documented:** blocking rule **#19** + new `.claude/rules/tautological-display.md`, and `prp-pin-wipe-recovery.md` **§4b** (4 pin guards). Both byte-identical in **all 5 worktrees** incl. `bsb-wt-modeling`, which the document-pattern skill's list predates.
+- **VERIFIED LIVE by Zac:** app deployed, Connect **Min processes 0 -> 1** (that was the intermittent "could not reach Connect"). `--audit-anchor`: **108 of 109** promote/demote rows carry `prev_stint`. MLB is not in `LV_ALL` so an MLB player **cannot** have a promote grade - Spence's 5 is his real AAA grade; he had been **optioned back**, and the board was the only current thing on the page.
+
+- **EXACT next step:** nothing queued - Zac: *"this has hogged a bunch of time we should be using elsewhere."* When he returns for research, the one item needing HIS decision is **chart-per-decision vs table-per-player** (a two-move player is two dots and one row, which is what cost an hour of "why do the percentiles disagree"). Options: table goes per-decision, expandable row for multi-move players, or leave it and rely on the dot labels shipped this session. **No default - do not pick one for him.** Full ordered backlog is in `pd-goals/modeling/LINEAGE.md` under "Next".
+- **Blockers / open:**
+  - **`--repair` HAS NOT BEEN RUN and may not need to be** - 108/109 already carry `prev_stint`. The 1 holdout is **Reylin Perez 176305, 2026-07-09 demote afa->afx, UNGRADED** (demote detection shipped a day before the stamp existed). No grade, percentile, verdict or rate depends on it.
+  - **DO NOT "fix" `decision_outcomes_page.py:1213`.** `_reached_higher` compares `next_level` on a RELEASE, where the resolver's `at_to` forcing does not apply, so it is a genuine free variable. A blind grep for `next_level` WILL flag it. Recorded in LINEAGE as STILL-WIRED-but-not-dead.
+  - Two-level jumps plot a ONE-level probability against a two-level outcome. Zac reviewed and **ACCEPTED** this 2026-08-05; do not re-open unprompted.
+- **Tests:** 5 new DB-free files (12 + 15 + 36 + 47 + 24 checks). All 10 files in `modeling/tests` green.
+- **Uncommitted work:** 16 tracked + 58 untracked, ALL pre-existing clutter. **None of this session's** - verified by grep against my own filenames.
+- **Honest note:** I was wrong twice this session and stated both confidently - "the board has not caught up with the callup" (he had been optioned DOWN) and "the stale row is probably a phantom promotion" (it is an ungraded demote). Both were the same mistake: explaining what numbers MEANT before checking which ROWS they came from. That is now blocking rule #19's corollary. Zac caught that `diag_current_grade.py` still shipped both disproved theories; fixed in `b397200f`.
+
+---
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
 - **What we were doing:** Short session. Added athlete (`z_`) channels for 5 players, then fixed the `slack-channels-csv` skill which still claimed 5 CSV copies after the 5th was deleted Aug 3. Zac: *"ok good to /wrap here."*
