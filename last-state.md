@@ -1,4 +1,21 @@
-# Last session state - 2026-08-05 15:44 (BR 1-3 wash: onto the Connect rhythm, verified end to end)
+# Last session state - 2026-08-05 20:08 (Postgame V2: built, reviewed, could-not-run bugs fixed)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen/bullpen-report` - branch `feature/bullpen-reports`
+- **Recall checkpoint:** session `10a9`, domain `bsb-wt-bullpen/feature/bullpen-reports`. **That is the source of truth**; this file renders the newest wrap only.
+- **What we were doing:** Built the Postgame V2 pitcher card end to end - metric layer, real-data CLI, Logic App delivery - then ran a high-effort code review that found the build **could not run at all** (3 blockers), fixed all 10 findings, and fixed the visual + pool gaps Zac caught by eye (gcid-named PDFs, non-canonical pitch colors, unfilled pills, 0-0 InZ% that already had a pool).
+- **Shipped this session:** 9 commits, `a7fc57be` -> `e276eebd`, all pushed (local == remote). NEW `src/postgame_v2_data.py`, `src/postgame_v2_queries.py`, `scripts/generate_postgame_v2.py`, 3 test suites. Heavy edits to `src/postgame_percentiles.py`. **Uncolored metrics 16 -> 3.** All three suites PASS on the work laptop.
+- **EXACT next step:** On the work laptop run:
+
+      cd C:\Users\zbridger\bsb-wt-bullpen ; git pull ; cd bullpen-report ; python scripts\generate_postgame_v2.py --date 2026-08-04 --pitcher 214459
+
+  then confirm the file is named `Lastname_Firstname_2026-08-04_214459_PostgameV2.pdf` (NOT gcid-named), that **4-Seam renders BLACK** and every other pitch type matches `bullpen_data.PITCH_TYPE_COLORS`, and that only xBA/xSLG/xwOBA are uncolored. Zac's words: *"making sure all pitch types are the right color - etc... and using a review skill in teh next session"*.
+- **Blockers / waiting on:** **NOTHING here has ever run against a database** - every join key and column name in `postgame_v2_queries.py` is unverified. Zac decisions open: the 30->300 flip's effect on the opportunities-bot pools; the PA family's 50-PA gate; which quantity the bar draws; whether to raise `_MIN_POOL_N`. RV Gain Trend still blocked on his RV-gain query.
+- **Uncommitted work:** 1 path - `bullpen-report/output/` (untracked render artifacts) + pre-existing rules-sync WIP that is not mine.
+
+
+---
+
+## ALSO OPEN - BR 1-3 wash / Connect rhythm (bsb-wt-intangibles, session 4946)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles`
 - **Recall checkpoint:** session `4946`, domain `bsb-wt-intangibles/feature/astros-intangibles`. **That is the source of truth**; this file renders the newest wrap only.
