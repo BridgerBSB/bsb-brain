@@ -1,5 +1,20 @@
-# Last session state - 2026-08-07 14:03 (Postgame V2: full panel-by-panel audit with Zac)
+# Last session state - 2026-08-07 18:47 (EOY: amateur pool fix + Development Goals page)
 
+- **Project / cwd:** `C:/Users/Owner/bsb-resources/pd-goals` - branch `feature/pd-goals`
+- **Recall checkpoint:** session `1a4f`, domain `bsb-resources/feature/pd-goals`. **That is the source of truth**; this file renders the newest wrap only.
+- **What we were doing:** Fixed my own amateur-pool regression that blanked the P13 Arm/Exch %MLB table and the P14-P17 %MLB donut halves, then built the Development Goals page as the deck's second page.
+- **Shipped this session:** 4 commits, all pushed.
+  - `eff568ff` pool LEVEL is `{level_filter}`'s job; `{junk}` stays an EXCLUSION. `_level_scope_pool_sql` added. Two pools ask for `mlb` on every source, so a positive pin emptied them. Affiliate/unofficial byte-identical. **Zac reran: "WE RERAN AND IT ALL LOOKS FANTASTIC HERE"** - DB-verified.
+  - `f6ea685c` Development Goals page. Renders 2nd, **no renumber** (page_num None, existing keys untouched). Affiliate-only, no-goals-no-page, unreadable-pin renders "unavailable" rather than vanishing.
+  - `70c6f46b` full-season + dedupe - **REVERTED, do not resurrect.**
+  - `ea4525fb` the revert (per-phase windows, repeats stay as two cards) + removes four of Zac's WIP files that my `git add -u` swept onto the branch. Content restored on disk, still uncommitted.
+- **EXACT next step:** Ask Zac what page 2 looked like on his dinner run: `python scripts\generate_eoy_position.py --gcid 244959 --season 2026` (Xavier Neyens, single-level A).
+- **Blockers / waiting on:** Zac's eyeball on the rendered goals page. The page is UNRUN vs DB - guards cover shape + gating only.
+- **Uncommitted work:** 86 paths, essentially all pre-existing untracked clutter plus the 4 restored WIP files. Nothing of mine.
+- **Known + accepted:** stolen-bases goals read low (phase window, not season) - Zac's call, deferred.
+
+
+## ALSO OPEN - Postgame V2 panel audit (bsb-wt-bullpen, session 13f1)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen/bullpen-report` - branch `feature/bullpen-reports`
 - **Recall checkpoint:** session `13f1`, domain `bsb-resources/feature/bullpen-reports`. **That is the source of truth**; this file renders the newest wrap only.
 - **What we were doing:** Audited every panel of the Postgame V2 pitcher card with Zac, panel by panel, fixing what the audit surfaced. Contact Quality, Count Battle, Attack Zones, StuffRelVel Distribution, vs-LHH/RHH + Times Through Order, Velo Fatigue, gcPerf Trend. He ran real reports at every level between rounds.
