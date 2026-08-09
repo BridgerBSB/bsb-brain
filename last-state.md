@@ -1,4 +1,22 @@
-# Last session state - 2026-08-07 18:47 (EOY: amateur pool fix + Development Goals page)
+# Last session state - 2026-08-09 22:15 (AstrosEDU quizzes, page sections, batch upload)
+
+- **Project / cwd:** `C:/Users/Owner/astroworld` - remote **`prod`** = `Baseball-Operations/astroworld-dev`, branch `main`
+- **Recall checkpoint:** session `8824`, domain `astroworld/main`. **That is the source of truth**; this file renders the newest wrap only.
+- **What we were doing:** Built AstrosEDU quizzes end to end, then page sections (Our Culture = Mission / Core Pillars / Our Culture Defined), restructured Pitching + Baserunning, and added batch upload with no size limit. Caused and then root-caused a full-site outage in the middle of it.
+- **Shipped this session:** PRs #14-#27, all merged and deployed.
+  - **#16 quizzes** - authoring, server-side grading (answer key never reaches the browser), gating, unlimited retakes with BEST score, results page. **Zac verified live: 2/2 lessons, 100% passed on 2nd try.**
+  - **#19 structure** - Pitching + Baserunning re-taxonomied, Programs buttons Player Plan Process + Our Culture, `RETIRED_SLUGS`.
+  - **#20/#21/#24 page sections** - `Page.sections` + `Video.section`.
+  - **#25/#26 batch upload + no size limit** - `/api/admin/content/chunk`, 4 MB pieces, both screens.
+  - **#27 PagePicker** - Domain then Page, shared component.
+  - **#23 the outage fix** - `src/lib/migration-status.ts` is now the ONLY thing deciding whether a migration is applied.
+- **THE OUTAGE, in one line:** `admin/database/page.tsx` had its own copy of the status logic using `creates.every(...)`; a columns-only migration has `creates: []` and `[].every()` is `true`, so it reported itself applied **on the screen used to apply it**, the button sat disabled, the migration never ran, and the feature that needed those columns took every page read down (Prisma requests every column of a model on every query).
+- **EXACT next step:** Ask Zac which of his two parked items he wants first - (a) a **thumbnail field per row on the batch screen**, or (b) **rebuilding the single upload form in the batch row layout**, which he said he prefers. His words: "let's just keep that in mind for now."
+- **Blockers / waiting on:** Three things I raised that he never answered - do not assume declined. (1) `STORAGE_DRIVER` is still `local` on an ephemeral filesystem while he loads a video library; the Azure Blob adapter from PR #3 has never been switched on and needs a storage account + role assignment from Peter. (2) Course completion has **no finish state** - the last lesson loops you back to lesson 1 silently; I asked whether finishing should be an acknowledgement or a record a coordinator acts on. (3) `BOOTSTRAP_ADMINS` may not be set, which since #18 could lock him out of /admin on a DB blip.
+- **Uncommitted work:** clean except `migrations/content-export-2026-07-15.json` (untracked, pre-existing, not mine).
+- **Working rules learned the hard way:** local `main` tracks `bizops` = the ARCHIVE (use `git checkout -B prod-main prod/main`); **always `git fetch prod` BEFORE branching** (branched off a stale ref and nearly reverted a live hotfix); deploy is ~3 min after the workflow goes green; **a schema change and its migration must ship in separate PRs**; no AI co-author trailer on this repo.
+
+## ALSO OPEN - EOY amateur pool fix + Development Goals page (bsb-resources, session 1a4f)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources/pd-goals` - branch `feature/pd-goals`
 - **Recall checkpoint:** session `1a4f`, domain `bsb-resources/feature/pd-goals`. **That is the source of truth**; this file renders the newest wrap only.
