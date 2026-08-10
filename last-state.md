@@ -1,4 +1,21 @@
-# Last session state - 2026-08-09 22:15 (AstrosEDU quizzes, page sections, batch upload)
+# Last session state - 2026-08-10 12:15 (EOY images -> MLB pool + pitcher handoff)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources/pd-goals` - branch `feature/pd-goals`
+- **Recall checkpoint:** session `64ec`, domain `bsb-resources/feature/pd-goals`. **That is the source of truth**; this file renders the newest wrap only. (Supersedes the `1a4f` pd-goals block from the previous wrap - same repo+branch, newer.)
+- **What we were doing:** Moved every percentile-COLOURED IMAGE in the EOY position deck onto the MLB pool, then wrote Camden a handoff so the pitching side inherits the pro/amateur/unofficial chassis instead of rediscovering it.
+- **Shipped this session:** 3 commits on pd-goals + rule syncs on all 3 sibling branches, all pushed.
+  - `39c76dff` **images rank vs MLB.** P13 catcher NetK quadrants, P15/P17 directional roses, P19 blocking panels moved off hi-level; P13 direction roses were already MLB. **TABLES deliberately keep %Hi + %MLB** - a colour cannot carry a label, a column can. The qualified-catcher gate had to move WITH the pool or the distribution collapses. Guard `test_eoy_pool_gates.py` s13; all 7 defects re-introduced and each proven to turn it red.
+  - `8ceabbcf` pitcher handoff doc + artifact `claude.ai/code/artifact/d23c8983-acab-4f58-aef3-8777be0117b9`.
+  - `9087e1ca` **bullpens stay excluded** on the pitcher report (Zac). My framing was wrong: the exclusion is COMPETITION ONLY (same reason `P` Batting Practice was cut), not "no batter" - so the unofficial tuple is IDENTICAL both sides, `E`/`I`/`V`.
+  - Rules: `percentile-golden-gates.md` gained "POOL LEVEL is a SEPARATE AXIS from the gate"; `amateur-data-guardrails.md` s11 gained the B-stays-out note. Synced byte-identical to all 4 worktrees.
+- **THE THING FOUND, NOT FIXED:** `get_college_pool` AND `get_unofficial_pro_pool` probe `pv.batter_id` only, hardcoded, no role branch. **A drafted PITCHER can only ever be situation 1** - situations 2/3/4 are unreachable, silently. `_gate_affiliate_pool_to_played` (~line 100) already does the bat/pit split and is the pattern. Keep the fail directions split: affiliate fails OPEN, college/unofficial fail CLOSED.
+- **EXACT next step:** **Nothing unprompted - Zac parked it** ("we wait here rn"; he returns with issues or if Camden needs more explanation). When he does: Galloway (gcid 1305697) picks up the MLB pools on the morning re-pin, or force it early with `python scripts\pin_eoy_position.py --season 2026 --gcid 1305697` (scoped, MERGES) then restart the Connect content - `_load_bundle` is lru_cached so a live worker holds the old bundle.
+- **Blockers / waiting on:** All 3 pool changes are DB-bound and UNVERIFIED against real values - local checks were source-level + synthetic renders. `test_eoy_page18_receiving_shape.py` + `test_eoy_page21_shape.py` fail here on `No module named 'pyodbc'` - **pre-existing environmental**, not this change.
+- **Uncommitted work:** 93 paths, essentially all pre-existing untracked scratch/output. Everything this session touched is committed and pushed.
+- **Loose end I raised and Zac has NOT answered:** the EOY **Send handler does not call `save_eoy_note`**. Rewrite a note + Send without Save = the delivered deck has the new text while the pin keeps the old. Offered save-on-send (my rec) vs warn-on-send. Live delivery path, so I left it alone. Also: no recovery CLI for the `eoy_notes` pin (PRP has one); Connect version history covers it meanwhile.
+- **For Camden, when he surfaces:** `postgame_percentiles._PITCH_TYPE_QUERY` still says `HAVING >= 30` (decided Aug 5 to be 300, not flipped) - he must not copy it. And `eoy_pitcher_report.py`'s stub docstring lists Zac's OLD 6-page mock, which will read as a spec now that Camden is building his own layout.
+
+## ALSO OPEN - AstrosEDU quizzes / sections / batch upload (astroworld/main, session 8824)
 
 - **Project / cwd:** `C:/Users/Owner/astroworld` - remote **`prod`** = `Baseball-Operations/astroworld-dev`, branch `main`
 - **Recall checkpoint:** session `8824`, domain `astroworld/main`. **That is the source of truth**; this file renders the newest wrap only.
@@ -16,22 +33,6 @@
 - **Uncommitted work:** clean except `migrations/content-export-2026-07-15.json` (untracked, pre-existing, not mine).
 - **Working rules learned the hard way:** local `main` tracks `bizops` = the ARCHIVE (use `git checkout -B prod-main prod/main`); **always `git fetch prod` BEFORE branching** (branched off a stale ref and nearly reverted a live hotfix); deploy is ~3 min after the workflow goes green; **a schema change and its migration must ship in separate PRs**; no AI co-author trailer on this repo.
 
-## ALSO OPEN - EOY amateur pool fix + Development Goals page (bsb-resources, session 1a4f)
-
-- **Project / cwd:** `C:/Users/Owner/bsb-resources/pd-goals` - branch `feature/pd-goals`
-- **Recall checkpoint:** session `1a4f`, domain `bsb-resources/feature/pd-goals`. **That is the source of truth**; this file renders the newest wrap only.
-- **What we were doing:** Fixed my own amateur-pool regression that blanked the P13 Arm/Exch %MLB table and the P14-P17 %MLB donut halves, then built the Development Goals page as the deck's second page.
-- **Shipped this session:** 4 commits, all pushed.
-  - `eff568ff` pool LEVEL is `{level_filter}`'s job; `{junk}` stays an EXCLUSION. `_level_scope_pool_sql` added. Two pools ask for `mlb` on every source, so a positive pin emptied them. Affiliate/unofficial byte-identical. **Zac reran: "WE RERAN AND IT ALL LOOKS FANTASTIC HERE"** - DB-verified.
-  - `f6ea685c` Development Goals page. Renders 2nd, **no renumber** (page_num None, existing keys untouched). Affiliate-only, no-goals-no-page, unreadable-pin renders "unavailable" rather than vanishing.
-  - `70c6f46b` full-season + dedupe - **REVERTED, do not resurrect.**
-  - `ea4525fb` the revert (per-phase windows, repeats stay as two cards) + removes four of Zac's WIP files that my `git add -u` swept onto the branch. Content restored on disk, still uncommitted.
-- **EXACT next step:** Ask Zac what page 2 looked like on his dinner run: `python scripts\generate_eoy_position.py --gcid 244959 --season 2026` (Xavier Neyens, single-level A).
-- **Blockers / waiting on:** Zac's eyeball on the rendered goals page. The page is UNRUN vs DB - guards cover shape + gating only.
-- **Uncommitted work:** 86 paths, essentially all pre-existing untracked clutter plus the 4 restored WIP files. Nothing of mine.
-- **Known + accepted:** stolen-bases goals read low (phase window, not season) - Zac's call, deferred.
-
-
 ## ALSO OPEN - Postgame V2 panel audit (bsb-wt-bullpen, session 13f1)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen/bullpen-report` - branch `feature/bullpen-reports`
 - **Recall checkpoint:** session `13f1`, domain `bsb-resources/feature/bullpen-reports`. **That is the source of truth**; this file renders the newest wrap only.
@@ -46,7 +47,6 @@
   If code is wanted, the entry point is the two undecided thresholds in `bullpen-report/src/postgame_percentiles.py`: `has_data` (~line 1129) uses `any(...)` so one metric crossing 10 qualifiers drags every pool live; and `_MIN_POOL_N = 5` (line 75) is too low. **V1 and V2 SHARE that constant** - any change moves both plus the Arm Farm app page. Zac said "dynamic!!! want this to match v1". Do not pick the number for him.
 - **Blockers / waiting on:** Zac's decision on those two thresholds. Nothing on this card is deployed - CLI only, not in `manifest.json`, never delivered to Slack.
 - **Uncommitted work:** 11 files in `bsb-wt-bullpen` (`.claude/rules/*.md` + `.claude/scripts/scaffold_pin_deploy.py`) - **pre-existing, not from this session**, left untouched deliberately.
-
 ## Standing rule earned this session
 
 I invented **four** sample floors without asking (25/50 on x-stat pools, 30 on a distribution row, 5 on gcPerf dots, 5 pitch types on the TTO usage bar). Every one hid data Zac wanted to see. Rule: **communicate sample size, never gate on it** - thresholds are his call, default to none, print the `n`. Written to `memory/feedback_never_invent_sample_floors.md` and indexed in MEMORY.md.
