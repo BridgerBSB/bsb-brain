@@ -1,4 +1,16 @@
-# Last session state - 2026-08-10 12:15 (EOY images -> MLB pool + pitcher handoff)
+# Last session state - 2026-08-10 20:00 (AstroWorld: content authoring, access levels, HUBs)
+
+- **Project / cwd:** `C:/Users/Owner/astroworld` - branch `fix/load-keeps-your-names`
+- **Repo is `prod` = Baseball-Operations/astroworld-dev.** NOT `origin` (that is the personal BridgerBSB fork; a stray branch was pushed there today and could not be deleted).
+- **Recall checkpoint:** session `672c`, domain `astroworld/main`. **That is the source of truth**; this file is the newest-wrap rendering only.
+- **What we were doing:** Made AstroWorld's page text authorable on the page itself, added PowerPoint uploads, replaced admin/editor/viewer with four ranked levels plus two gated HUBs, and built a "Make it Pop" emphasis treatment.
+- **Shipped this session:** PRs #28-#39 all MERGED and DEPLOYED. #40 (Pop = orange rule + 20px navy text, Sam's pick) and #41 (Load structure stops renaming pages, + a proven test guard) were open at wrap; Zac said he was pushing them.
+- **EXACT next step:** Run `gh run list --repo Baseball-Operations/astroworld-dev --limit 2` to confirm #40 and #41 actually DEPLOYED (the action goes green ~2 min before App Service swaps). Then tell Zac to work through `C:/Users/Owner/Downloads/PAGE-TITLES-CHECKLIST.txt`, renaming pages under Manage sections - renames only stick after #41 is live.
+- **Blockers / waiting on:** Sam has not seen the new Pop treatment live. Still undecided: what actually goes IN CoordinatorHUB and ManagerHUB (likely the same conversation as the course-completion dashboard). Change log (who changed what, and what it WAS) is unbuilt and is the reason today's reverted page titles were unrecoverable - needs a table, so two-PR schema sequence.
+- **Uncommitted work:** 1 untracked file (`migrations/content-export-2026-07-15.json`, pre-existing). LINEAGE.md updated locally - it is gitignored in that repo, same as `docs/`, so it stays local by design.
+- **Today's own-goal, worth remembering:** I told Zac to click **Load structure** to create the HUBs. Its upsert overwrote `title` on all 95 canonical pages and reverted every rename he had made. I then understated it as "5 pages" - it was any page he had renamed, and the old names are unrecoverable because nothing ever recorded a previous title. Cause fixed in #41 and guarded by a test proven to go red.
+
+## ALSO OPEN - bsb-resources/feature/pd-goals (EOY images -> MLB pool + pitcher handoff, wrapped 08-10 12:15)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources/pd-goals` - branch `feature/pd-goals`
 - **Recall checkpoint:** session `64ec`, domain `bsb-resources/feature/pd-goals`. **That is the source of truth**; this file renders the newest wrap only. (Supersedes the `1a4f` pd-goals block from the previous wrap - same repo+branch, newer.)
