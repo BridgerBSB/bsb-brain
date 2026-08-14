@@ -1,4 +1,39 @@
-# Last session state - 2026-08-13 13:35 (EOY: per-department saves, season picker, athlete-channel delivery)
+# Last session state - 2026-08-14 14:15 (Chuck/Caufield MLB Monday: weekly label overlap + a layout guard)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`; the CODE work was in `C:/Users/Owner/bsb-wt-hitting` - branch `feature/barrelsville`.
+- **Recall checkpoints (SOURCE OF TRUTH):** session `8a8d` - `bsb-resources/feature/barrelsville` id `18dd2e574266245c` (the code) and `bsb-resources/feature/pd-goals` id `b3ea165ac8624fc0` (the Monday cascade + close-out). This file renders the newest wrap only. **Supersedes nothing** - the 08-13 EOY thread below is STILL LIVE and was deliberately kept.
+- **What we were doing:** started as a `/recall` on where the Caufield ("Cau") week-over-week MLB hitter work stood, became a real fix - the weekly date window was rendering underneath the PA value - and then the sweep for every other page that still said the year.
+
+- **CHUCK'S MONDAY IS SETTLED** - channel `C0BHJ9CM2EQ` (ex-#velo-threshold) gets THREE single multi-page PDFs, each gated on the ML roster AS OF THE RUN (`PP_MASTER LEVELOFPLAY_LK='ml'`), not season MLB activity:
+  - phase `velo-thresh` / step `velo-ceiling` -> `Velo_Ceiling_mlb_<seasons>_<date>.pdf`
+  - phase `hit-mlb` / step `hitter-mlb` -> `Hitter_Analysis_2026_<date>_MLB_P1-2.pdf` (year-over-year)
+  - phase `hit-mlb` / step `hitter-mlb-wk` -> `Hitter_Analysis_2026_<date>_MLB_WK<date>_P1-2.pdf` (week-over-week)
+  The `_WK<date>` suffix is what stops the two hitter sends overwriting each other.
+
+- **THE FIND WORTH REMEMBERING:** **neither matplotlib's `ax.table` nor plottable CLIPS an overflowing cell.** No wrap, no shrink, no ellipsis - it draws straight through the divider and over whatever is next door. So a column width is not a layout preference, it is an **unenforced assumption about the longest string that will ever land in it**, and the only symptom is pixels. The KPI row-label column was `0.04` against `0.06` for a data column - narrower than PA - fine for `"2026"`, not for `"Aug 04 - Aug 10"`. Corollary that matters more: **`bbox_inches="tight"` GROWS the canvas around a runaway label**, so the out-of-figure case looks clean in a saved PNG while the fixed-size PDF page is what clips. Looking at a render is *structurally unable* to catch it - you have to measure against `fig.bbox`.
+
+- **Shipped this session:** all pushed, all 4 worktrees in sync with origin (nothing ahead/behind).
+  - `387f895f` (barrelsville) the overlap. `row_label_w = _WEEK_COL_W if _PERIOD_LABELS else 0.04`, `_WEEK_COL_W = 0.12`. Weekly only; year-over-year byte-identical. 0.12 chosen by rendering 0.04/0.08/0.12/0.16 + the yr/yr baseline and looking at all five. Kept the verbose `"Aug 04 - Aug 10"` rather than compacting to `"8/04-8/10"`, because the same string is the page title and that is the part Zac said reads well.
+  - `dc5590d1` (barrelsville) the label sweep - SIX display strings on pages 3+ still hardcoded the season, and **one was on page 1** (the four zone-chart titles), inside `--first-pages 2`, so it was **already shipping wrong to Chuck every Monday**. Pages A/B/C needed more than a swap: their player data is the week but their colouring pool is always the full season, so new `_data_period_label` names both - `"Aug 04 - Aug 10  (colored vs 2026 league)"`. Byte-identical in yr/yr.
+  - `dc5590d1` **the guard** - `barrelsville/scripts/test_weekly_layout.py`, 21 checks, DB-free, ~3s. (a) source regex: no display f-string may hardcode `{season}` where a period label belongs. (b) geometry: render the REAL draw fns at the WORST-CASE label **derived from argparse** (`--baseline last-30` appends `" (30d)"`, so `"Jul 06 - Aug 03 (30d)"`) and assert no two `Text` artists overlap (intersection over the SMALLER box, threshold 0.15) and none leaves `fig.bbox`. Run in weekly-worst AND yr/yr, so it also proves yr/yr did not move.
+  - **Proven RED before shipping** - `_WEEK_COL_W=0.04` -> `'Jul 06 - Aug 03 (30d)' over '25' (100%)`; the two pre-fix f-strings -> names lines 4404 and 4852; an over-wide title -> `off the figure by 50px`.
+  - New rule `.claude/rules/layout-collision-guard.md`, md5-identical `89287eff1c` in all 4 worktrees and committed on each branch; cross-referenced from `render-and-look.md` (`3b99beffd7`) and indexed in CLAUDE.md. Heads: bsb-resources `5372fc9b`, bsb-wt-hitting `5e757f78`, bsb-wt-bullpen `5b8d6fba`, astros-intangibles `7ccca5ab`.
+
+- **EXACT next step:** **Nothing is queued - Zac closed the thread** (*"our work should be done here"*). Do NOT start anything on this unprompted. If he returns to it, the first move is the zero-DB regression check: `cd C:\Users\Owner\bsb-wt-hitting\barrelsville ; python scripts\test_weekly_layout.py` -> expect `21/21 checks passed`.
+
+- **Blockers / waiting on:** **UNRUN vs DB - no weekly PDF has ever been built from real data.** Personal laptop has no DB access; every render this session was synthetic. His work-laptop verification is TWO pulls in TWO worktrees (`hitter_analysis.py` is in bsb-wt-hitting, `run_monday.ps1` is in bsb-resources - pulling one gets a stale half): `git pull` both, then `python scripts\hitter_analysis.py --season 2026 --mlb --weekly --week-ending 2026-08-10 --first-pages 2` and the same without `--weekly` (no `--deliver`; both land in `barrelsville\reports\`), then `.\pd-goals\scripts\run_monday.ps1 -Date 2026-08-17 -DryRun`.
+
+- **Two decisions I made that are HIS to revisit once he sees real output:** `--baseline` is never passed by the Monday step so it defaults to **prior-week** (`std` and `last-30` are built and untested in production) - he was never asked which one Caufield wants. And a 7-day sample colours against the **full-season pool** with **no sample floor** (`feedback_never_invent_sample_floors` - print the `n`, do not hide the row); he has not seen that on a real card.
+
+- **Guard coverage is PARTIAL, stated honestly:** only 4 surfaces are geometry-checked (KPI tables, metric zone page, swing-path metric table at 1+2 panels, page-1 zone titles). Anything needing a real `pitch_df` - the EV/Whiff zone pages, the contact-point page, the Pages A/B/C table BODIES - is covered by the source check only.
+
+- **Housekeeping en route:** bsb-resources and bsb-wt-bullpen were behind origin; rebased with `--autostash` and the unrelated unstaged files came back intact. That push also carried **9 pre-existing unpushed local commits on bullpen** (the 02-09/02-10 Postgame V2 native-chart work from a prior session). None of it mine; it is now on origin.
+
+- **Uncommitted work:** pre-existing clutter only, nothing of mine - bsb-resources 81, bsb-wt-hitting 41, bsb-wt-bullpen 16, astros-intangibles 18.
+
+---
+
+## ALSO OPEN - EOY app: per-department saves, season picker, athlete-channel delivery (2026-08-13 13:35)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
 - **Recall checkpoint:** session `b9a1` - `bsb-resources/feature/pd-goals` id `a32b6f165f07ae5f`. **That is the source of truth**; this file renders the newest wrap only. (Supersedes the 08-13 11:45 pd-goals block - same repo+branch, newer.)
@@ -33,5 +68,7 @@
 - **Zac's standing instruction, still in force:** *"you loading all thr rules railed us here"* - resume **fresh**, do NOT bulk-load rules, use `/load-rules` on demand (`rule-loading-architecture.md`).
 
 - **Uncommitted work:** pre-existing untracked clutter only (`.agents/`, `.codex/`, `awesome-claude-skills/`, `design-system/`, `gcpy/`, `pd-goals/output/`). Nothing of mine.
+
+---
 
 ## ALSO OPEN - AstroWorld content authoring, access levels, HUBs (2026-08-10 20:00)
