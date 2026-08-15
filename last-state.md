@@ -1,4 +1,28 @@
-# Last session state - 2026-08-14 14:15 (Chuck/Caufield MLB Monday: weekly label overlap + a layout guard)
+# Last session state - 2026-08-15 11:59 (EOY: ForceDeck sources + the goals-page batch)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`.
+- **Recall checkpoint (SOURCE OF TRUTH):** session `ba04` - domain `bsb-resources/feature/pd-goals` - id `c95d6bfec48e872e`. This file renders the newest wrap only and **supersedes nothing**; the three threads below are still live.
+- **What we were doing:** while the Player Care page waits on Tina, two things - resolving where the card's six force-plate fill-ins actually live in `SportsMed`, and building a batch that renders EVERY player's Development Goals page (both decks) so they can be flipped through and checked.
+
+- **Shipped:** `29e473b2` guard + batch driver + ForceDeck discovery SQL - `41a799cd` ForceDeck findings resolved from Zac's 5 CSV dumps - `fe652391` fixed my own `no_current` key bug.
+
+- **THE BATCH RAN (work laptop): 114 pages, 0 dropped goals, 0 build failures.** Phase census max = **2 phases** on both sides (pitcher 23x1 + 31x2, position 25x1 + 35x2). That confirms Zac's push-back: the page renders complete at <=2 phases, so the second-goals-page work stays **PARKED** and the guard's tripwire is correctly quiet. `test_eoy_goals_page.py` passed 13/13 on his machine.
+
+- **My bug, corrected same session:** the first run reported 160 pitcher goals with no current value - 54 of 54 players at exactly 100%. That was the SCRIPT, not the decks (`g.get("actual")`; the real key is `current`). Aguilar's page renders FF Velo 89.0 vs 91.0 "Close". The tell was sitting in the CSV - `no_current` equalled `n_gradeable` on every pitcher row, which is blocking rule #19's own shape inside analysis code. Both sides now raise on a missing key instead of fabricating.
+
+- **The one real finding - Drew Brutcher (130666, 2a):** Phase 2 (set 07-07) renders all three goals as "No data" while Phase 1 resolves the SAME metrics. Not a parser miss - no measurable activity in that window. **Open question for Zac:** the page reads "0 of 6 goals met" / "0/3 met" while three of six could not be evaluated. The cards are honest; the denominator is not.
+
+- **ForceDeck resolved:** use the EAV chain (`_Player_Test` -> `_Trial` -> `_Result`, 400 metric names). Brodie's flat table and `ForceDeck_View` both carry only ONE of the card's six. Time to Takeoff = **`Contraction Time`** (283,154) - **inferred, confirm with Alvaro before it ships.** Match EXACT strings; every slot has a `Takeoff `-prefixed sibling at n=75-297. Two of my earlier flags were wrong and are corrected in the file header.
+
+- **EXACT next step:** open with the **Brutcher tally question** - should "0 of 6 goals met" exclude the three goals that had no data ("0 of 3 measured"), keep 6 and add "3 awaiting data", or stay as-is? That is the first of the goals loose ends Zac wants to work through. Then take the 13 query outputs he is bringing.
+
+- **Blockers / waiting on:** Tina on the Player Care page (unregistered, not wired, do not send). Alvaro to confirm `Contraction Time`. Zac's call on the Brutcher tally.
+
+- **Standing constraint:** Zac flagged twice that bulk rules-loading is eating context. Pull only what a specific decision needs.
+
+- **Uncommitted work:** 80 paths, all pre-existing clutter; the one tracked modification (`pd-goals/scripts/sync_eoy_pitcher_port.py`) is NOT mine - do not commit it. Nothing of mine is uncommitted.
+
+## ALSO OPEN - 2026-08-14 14:15 (Chuck/Caufield MLB Monday: weekly label overlap + a layout guard)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`; the CODE work was in `C:/Users/Owner/bsb-wt-hitting` - branch `feature/barrelsville`.
 - **Recall checkpoints (SOURCE OF TRUTH):** session `8a8d` - `bsb-resources/feature/barrelsville` id `18dd2e574266245c` (the code) and `bsb-resources/feature/pd-goals` id `b3ea165ac8624fc0` (the Monday cascade + close-out). This file renders the newest wrap only. **Supersedes nothing** - the 08-13 EOY thread below is STILL LIVE and was deliberately kept.
