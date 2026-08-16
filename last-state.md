@@ -1,4 +1,21 @@
-# Last session state - 2026-08-15 11:59 (EOY: ForceDeck sources + the goals-page batch)
+# Last session state - 2026-08-16 15:18 (EOY goals correctness + two pins nobody read)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen/bullpen-report` (branch `feature/bullpen-reports`) + `C:/Users/Owner/bsb-resources/pd-goals` (branch `feature/pd-goals`).
+- **Recall checkpoint (SOURCE OF TRUTH):** session `610b` - domain `bsb-wt-bullpen/feature/bullpen-reports` - id `318843573cb34420`.
+- **What we were doing:** fixing the EOY goal bugs Zac found (SB/IP carryover, NetK sign, range direction, Perez shorthand), then chasing why pitcher decks load slower than position ones.
+
+- **Shipped:** `f4c27677`+`4aa2fcaa` range goals say "Above Target" when the miss is high and measure from the edge actually missed - `8e220bf7`+`994e135e` both EOY pitcher pages now READ the payload pin (written and never opened since the day it was built) - `5a9d0f0c` `_EOY_LEVELS` derived from `eoy_roster_select.LEVELS` after drifting 3x - `5bef550d` ship `eoy_roster_select.py` in the pin bundle - lineage entry in `bsb-resources/LINEAGE.md`.
+- **Zac confirmed:** goal corrections look right on BOTH pitcher and position decks.
+
+- **EXACT next step:** on the work laptop, from `bullpen-report` (NOT from inside `connect_pins_eoy`): `git pull` then `.\connect_pins_eoy\deploy.ps1`. The last attempt died with `ModuleNotFoundError: src.eoy_roster_select`; `5bef550d` fixes it. Then restart the Connect content, open an MLB pitcher, and confirm the log reads `[POOLS] leaguerow_mlb_rhp_2026_0 from PIN` and `leagueexec_mlb_rhp_2026_0 from PIN` rather than "built live".
+
+- **Blockers / waiting on:** Zac's call on the range progress bar (still reads "58% of target" off the LOW bound under "Above Target") and on the shorthand-direction table (IVB ceiling by pitch type, HB by sign of target, render the RESOLVED text as the card subtitle). Pin scan for other shorthand goals not run. Position-side goals page unchecked.
+- **Biggest structural lesson:** `connect_pins_*` bundles are SEPARATE deploy targets from the apps and ship their own copies of `compliance.py`/`goal_parser.py`. Miss them and the scheduled job reverts your fix on a timer. FOUR targets, not two.
+- **Uncommitted work:** 78 files in bsb-resources, 15 in bsb-wt-bullpen - mostly pre-existing untracked scratch, not this session's.
+
+---
+
+## ALSO OPEN - 2026-08-15 11:59 (EOY: ForceDeck sources + the goals-page batch)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`.
 - **Recall checkpoint (SOURCE OF TRUTH):** session `ba04` - domain `bsb-resources/feature/pd-goals` - id `c95d6bfec48e872e`. This file renders the newest wrap only and **supersedes nothing**; the three threads below are still live.
@@ -96,3 +113,4 @@
 ---
 
 ## ALSO OPEN - AstroWorld content authoring, access levels, HUBs (2026-08-10 20:00)
+
