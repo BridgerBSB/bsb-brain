@@ -1,4 +1,22 @@
-# Last session state - 2026-08-16 15:18 (EOY goals correctness + two pins nobody read)
+# Last session state - 2026-08-17 08:46 (Care page: ForceDeck resolved, Tina's feedback built, waiting on her)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`.
+- **Recall checkpoint (SOURCE OF TRUTH):** session `cb64` - domain `bsb-resources/feature/pd-goals` - id `fb608b06390368d3`. Ring buffer 9/10, so older checkpoints are close to eviction.
+- **What we were doing:** closing out the ForceDeck/CMJ database dependencies for the EOY Player Care page, then turning Tina's 2026-08-17 feedback into a real two-page layout and a doc she can act on.
+
+- **Shipped:** `d1526da6` all 13 discovery results + evidence CSVs - `b4972d7c` `render_care_page_real.py` (renders the page from the real export) - `ee629020` pin-vs-DB spec - `60a31fef` first PCMP one-pager, pin count corrected 8->7 - `3bc31e67` Tina's six wording changes + `render_care_page_v2.py` two-page layout + `test_care_page_layout.py` guard - `b7182939` no Spanish under the page title, page 1 filled, artifact refreshed.
+- **Resolved:** five S&C metrics confirmed by exact `definition_name`, all on the same trials; step 9b returned `5, 272` so every HOU player has all five. P2:P1 is DB, not a pin. Brodie's flat table is out, EAV chain is in.
+- **Two measured findings:** single-test TREND points the wrong way on 21-32% of players (use a windowed mean); MAX is biased by test count (+6.02 at k=3 vs +14.33 at k=30, and HOU counts run 1 to 53), so use mean-of-best-k with k fixed.
+
+- **EXACT next step:** nothing to build until Tina replies - Zac is holding here deliberately. The one thing that can move without her is the work-laptop query confirming NordBord + ForceFrame live in `SportsMed.Metrics`: dump `LK_Metric_Sources.metric_source_name` and `LK_Metric_Types.metric_name/metric_unit`, then distinct `side`/`muscle`/`test` and per-player counts for HOU since 2025. That turns the 10 placeholder rows on page 2 into real ones. When Tina does reply, ASK FOR THE TEMPLATE FIRST - her hierarchy note cannot be acted on without it.
+
+- **Blockers / waiting on:** TINA (the template; is a real reporting bodyweight recorded anywhere; where "what these mean" goes; should the P2:P1 trend sit on the coach's writing screen) - ALVARO (is `Contraction Time` really "Time to Takeoff", it is an inference on a player-facing label) - ZAC (Positional Norm grouping, since 8 of 14 `POSITION_LK` values have under 15 players; plus max-vs-windowed).
+- **Worth remembering:** 21 players carry an impossible Eccentric Braking Impulse or P2:P1 that survives Alvaro's WHERE - four of the five care metrics have no physiological gate anywhere, not even in the org's own exclusions view. Needs a per-metric clamp that NaNs the VALUE and keeps the ROW when this is wired for real.
+- **Uncommitted work:** clean (untracked scratch only). Artifact: https://claude.ai/code/artifact/fb02be00-9c5f-4ceb-8af4-fe14f19240fa
+
+---
+
+## ALSO OPEN - 2026-08-16 15:18 (EOY goals correctness + two pins nobody read)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen/bullpen-report` (branch `feature/bullpen-reports`) + `C:/Users/Owner/bsb-resources/pd-goals` (branch `feature/pd-goals`).
 - **Recall checkpoint (SOURCE OF TRUTH):** session `610b` - domain `bsb-wt-bullpen/feature/bullpen-reports` - id `318843573cb34420`.
@@ -15,7 +33,9 @@
 
 ---
 
-## ALSO OPEN - 2026-08-15 11:59 (EOY: ForceDeck sources + the goals-page batch)
+## RESOLVED 2026-08-17 (was ALSO OPEN 08-15) - EOY ForceDeck sources
+> Superseded by the block at the top of this file. All 13 discovery queries ran;
+> the S&C dependencies are resolved. Kept for the goals-page-batch half only.
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`.
 - **Recall checkpoint (SOURCE OF TRUTH):** session `ba04` - domain `bsb-resources/feature/pd-goals` - id `c95d6bfec48e872e`. This file renders the newest wrap only and **supersedes nothing**; the three threads below are still live.
