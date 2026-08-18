@@ -1,4 +1,23 @@
-# Last session state - 2026-08-18 08:23 (2027 Projection Magnet Board is LIVE on the work laptop)
+# Last session state - 2026-08-18 13:17 (EOY Care & Performance is WIRED; Zac is pinning + testing in-app)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`.
+- **Recall checkpoint (SOURCE OF TRUTH):** session `76c3` - domain `bsb-resources/feature/pd-goals` - id `71c412ff641a7432`. Ring buffer 10/10.
+- **What we were doing:** Two threads. (1) Answered performance science's max-vs-average question on the EOY Care page by running a 6-block discovery query. (2) Discovered the Care page's four testing tables had rendered EMPTY in every EOY deck ever sent, and wired them in.
+- **Shipped this session:** `6b0d7cf8` `c926693b` `97d99620` `aaa67d7a` (sportsmed max-vs-avg) - `4d51d489` `78f5bedf` (care wiring + fix). New: `src/eoy_care_data.py`, `scripts/test_care_wiring.py`, `sql-queries/sportsmed-max-vs-avg-discovery.sql`. Rule `sportsmed-schema.md` updated + synced byte-identical to all 4 worktrees.
+- **EXACT next step:** WAIT for Zac's report - he is pinning EOY then opening the app + in-app PDF to see Care pages 3-4 inside a full deck. If they render, this thread is DONE. If blank in the app but fine standalone, suspect the payload pin was built BEFORE `4d51d489` (re-pin) before suspecting the renderer.
+- **Blockers / waiting on:** Zac's in-app EOY test. Nothing else.
+- **Uncommitted work:** 72 files, almost all pre-existing untracked from other threads. Everything this session is committed and pushed.
+
+### The two findings worth keeping
+1. **Shoulder + groin ARE max; NordBord is the only average.** Established without a vendor export, by reconciling our components against the ratios VALD derives FROM them. The positive control (NordBord's own imbalance) is what makes it mean anything, and it is disambiguated ONLY by the 25 rows where LEFT > RIGHT. Gap priced at **+5.07%**.
+2. **The data corrected me twice.** `trial` was never dead (the rule had said so since 08-17), and my own "output-neutral" claim about the AVG->MAX switch was wrong - 96 player-days carry a second row, spreads to 250.75 N. I also retracted an over-flag of my own after Zac pushed back: independent per-metric MAX is fine, because the care path pulls no imbalance/ratio id at all.
+
+### Pin semantics (Zac asked directly)
+`zbridger/eoy_position_payloads_{season}` - re-pin in the SAME year overwrites that season's pin; 2027 gets its own. Better than plain overwrite: `pin_eoy_position.py` MERGES (a scoped `--gcid` run cannot un-pin anyone) and has an anti-shrink guard, with `--force` as the deliberate-reset hatch.
+
+---
+
+## ALSO OPEN - 2027 Projection Magnet Board (session `96c3`, still live)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`. New app at repo-root `magnet-board/` (SIBLING of pd-goals/, not inside it).
 - **Recall checkpoint (SOURCE OF TRUTH):** session `96c3` - domain `bsb-resources/feature/pd-goals` - id `b59c57b332af3513`. Ring buffer 1/10.
