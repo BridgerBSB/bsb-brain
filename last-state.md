@@ -1,4 +1,28 @@
-# Last session state - 2026-08-17 13:20 (Care page's stand-in rows are wired to the DB)
+# Last session state - 2026-08-18 08:23 (2027 Projection Magnet Board is LIVE on the work laptop)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`. New app at repo-root `magnet-board/` (SIBLING of pd-goals/, not inside it).
+- **Recall checkpoint (SOURCE OF TRUTH):** session `96c3` - domain `bsb-resources/feature/pd-goals` - id `b59c57b332af3513`. Ring buffer 1/10.
+- **What we were doing:** Designed and built the 2027 Projection Magnet Board - a standalone FastAPI + SQLite + vanilla-JS app (deliberately NOT Posit) where Zac + Sam drag ~230 HOU players into a 7-level x 5-group grid to assert where each opens 2027. Got it running on the work laptop for a Peter demo.
+- **Shipped this session:** `b2daeea5` locked CONTRACT.md - `0f8ffeab` v1 app - `1a0920ea` README - `0e700b9d` demo seeder + showcase render - `51ce725e` SP/RP rows. 231 tests pass. Design brief at `pd-goals/docs/plans/2026-08-15-org-magnet-board-design.md`, renders at `pd-goals/docs/plans/mocks/2026-08-15-org-magnet-board/`.
+- **EXACT next step:** On the work laptop, before showing Peter - drag a magnet, hit SAVE BOARD, confirm `POST /api/moves 200` in the terminal, then Ctrl+Shift+R and confirm it stayed. Then fix `magnet-board/README.md`, which tells you to build a venv - that FAILS on the work laptop because `python -m venv` routes through the IT-blocked `uv.exe`. Replace with the no-venv `pip install fastapi uvicorn` path.
+- **Blockers / waiting on:** Sam's feedback on the board (rows + levels are each one constant in `src/groups.py`, cheap to reshape). `scripts/export_roster.py` (real roster) has NEVER been run - do not demo it.
+- **Uncommitted work:** 72 files in the working tree, almost all pre-existing untracked from other threads. magnet-board/ itself is fully committed and pushed.
+
+### Two runbook corrections learned the hard way
+1. `magnet-board/` is at the REPO ROOT. From `pd-goals/` it is `cd ..\magnet-board`.
+2. **`python -m venv` is blocked on the work laptop** - it routes through `uv.exe`, which trips the Astros IT allowlist dialog. Skip the venv: `pip install fastapi uvicorn` installs to user site-packages under Python 3.14 and works. Only those two packages are needed to run (pytest/httpx are test-only).
+
+### Design decisions locked (Zac)
+- Org-wide, not DSL-only. A magnet asserts "where he opens 2027". One board, notes deferred.
+- **NOT Posit** - so SQLite gives real row-level INSERT and the entire pin-clobber class evaporates.
+- Rows are **SP/RP by ROLE** (2026-08-17, reversing an earlier RHP/LHP call). `POSITION_LK` encodes BOTH axes - RHS = right-handed STARTER, RHR = right-handed RELIEVER - so this needed no GS/G query and handedness survives on the card badge.
+- loft/tilt is DEAD as a metric question (2026-08-18). Card metrics are phase 3 and unbuilt.
+
+---
+
+## ALSO OPEN - Care page / sportsmed (wrap of 2026-08-17, session 51ed)
+
+Different work thread on the SAME repo+branch. Kept so this wrap does not flatten it.
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`.
 - **Recall checkpoint (SOURCE OF TRUTH):** session `51ed` - domain `bsb-resources/feature/pd-goals` - id `01b505e9b94d80b2`. **Ring buffer 10/10 - the next checkpoint EVICTS the oldest.** Durable material is in `LINEAGE.md` (`e62e16c2`) and `.claude/rules/sportsmed-schema.md`, not the checkpoint.
