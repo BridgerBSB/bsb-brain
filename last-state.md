@@ -1,4 +1,25 @@
-# Last session state - 2026-08-18 13:17 (EOY Care & Performance is WIRED; Zac is pinning + testing in-app)
+# Last session state - 2026-08-19 16:16 (Injury Tracker: back up + 7-item punch list shipped; PAUSED mid-flow)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`.
+- **Recall checkpoint (SOURCE OF TRUTH):** session `9760` - domain `bsb-resources/feature/pd-goals` - id `e7730794c95a7a8d`. Ring buffer 1/10.
+- **What we were doing:** The Injury Tracker was showing "No IL stints derived for 2026". Root cause turned out to be that **there are TWO Injury Tracker apps in Connect** - `deploy.ps1` deployed by `--title` with no `--app-id`, which does not identify existing content, so a deploy from another clone created a second app with an empty Vars tab. Fixed that, then took Zac's 7-item punch list on the app itself.
+- **Shipped this session:** `e48813b3` (stop swallowing DB errors) - `0bbba2ef` (name the missing Var instead of failing with SSPI) - `cb368aee` (one control row + body-part dropdown + deploy.ps1 requires -AppId) - `3f74e023` (refusal reads as instructions, not a crash) - `21efd04a` (ROK label, sortable dates, timeline fixes, +25% rail, 3 org-scoped panels) - plus a LINEAGE entry.
+- **EXACT next step:** On the work laptop: `git pull` then `.\pd-goals\injury_tracker\deploy.ps1 -AppId 22e58ee0-1470-4555-bb26-6b4b79b15bbb` - **but FIRST confirm that GUID is the app holding the Vars + the Zac/Sam access list, and delete the other one.** Then LOOK at the assembled page; nothing beyond individual plotly figures has been seen.
+- **Blockers / waiting on:** Zac's deploy + eyeball. He said "we have a few things to look at here" - this thread is paused, not done.
+- **Uncommitted work:** 72 paths, all pre-existing untracked clutter from other threads. Everything this session is committed and pushed.
+
+### Worth keeping
+1. **Two scouts corrected me.** I said a zero-duration stint was DROPPED by `px.timeline`; a scout rendered it and the row survives with a 0px bar (name on the axis, no ink). What actually removes a player is a **y-label collision** - the table groups on `(ebis_id, player_name)`, the chart keys `y` on the display STRING, and `barmode="overlay"` paints the duplicate over the original. And the level label had a **second definition** in a SQL CASE (a third existed until `23c39a73`, with an alias line written solely to bridge the two spellings).
+2. **Three of seven guards were GREEN on the first fail-on-purpose run.** Each was a real hole: a sort check that compared the frame to itself re-sorted (the fixture's two orderings are identical), a missing column that CRASHED rather than failed (harness read no-FAIL-lines as green), and no test asserting the level label at all.
+3. **Render-and-look caught what no test could:** the compact monthly y-axis read `0 1 1 2 2 3 3` - `tickformat="d"` rounds a fractional tick's LABEL without moving the tick. Rendering also DISPROVED a scout's prediction that the vertical level bar would break at rail width, so the horizontal variant was deleted instead of shipped.
+4. **`'r'` reads ROK, not FCL.** eBIS `'r'` is rookie/complex for all 30 orgs, so it covers Arizona Complex clubs. This is the eBIS `LEVELOFPLAY_LK` axis where `'r'`/`'ds'` are already distinct - NOT `Schedule_View.gc2_level_code`, so `level-codes.md` does not apply here.
+
+### Flagged, NOT yet durable
+The **rsconnect `--app-id`** lesson lives only in this app's `DEPLOY.md` + `LINEAGE.md`. It belongs in `.claude/rules/` (`new-posit-app.md` or `pin-deploy-runbook.md`) + the 4-worktree sync - any sibling app deploying by title alone can still silently duplicate itself. ~10 min next session.
+
+---
+
+## ALSO OPEN - EOY Care & Performance (EOY Care & Performance is WIRED; Zac is pinning + testing in-app)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`.
 - **Recall checkpoint (SOURCE OF TRUTH):** session `76c3` - domain `bsb-resources/feature/pd-goals` - id `71c412ff641a7432`. Ring buffer 10/10.
@@ -14,6 +35,8 @@
 
 ### Pin semantics (Zac asked directly)
 `zbridger/eoy_position_payloads_{season}` - re-pin in the SAME year overwrites that season's pin; 2027 gets its own. Better than plain overwrite: `pin_eoy_position.py` MERGES (a scoped `--gcid` run cannot un-pin anyone) and has an anti-shrink guard, with `--force` as the deliberate-reset hatch.
+
+---
 
 ---
 
