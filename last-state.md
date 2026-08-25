@@ -1,4 +1,19 @@
-# Last session state - 2026-08-22 18:48 (hiring board goes multiplayer; User Management ships)
+# Last session state - 2026-08-24 21:52 (Neyens Left-on-Left: --hand flag + swing reels)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-hitting` - branch `feature/barrelsville` (also `bsb-resources` / `feature/pd-goals`).
+- **Recall checkpoints (SOURCE OF TRUTH):** session `97c6` - `bsb-wt-hitting/feature/barrelsville` id `11016fc5f4c5f122`, and `bsb-resources/feature/pd-goals` id `5fb2b46515b6bcc7`.
+- **What we were doing:** Building the Left-on-Left case materials for the Director of Hitting deck - Xavier Neyens (gc 244959) vs LHP. Scoped `hitter_analysis.py` to a single handedness faced, wrote the splits/log SQL, and built two-angle swing reels from clips Zac pulled on the work laptop.
+- **Shipped this session:** 8 commits on `feature/barrelsville` (`07397c57`..`4f8a56da`) + 4 on `feature/pd-goals` (`9d20463f`, `788baf5b`, `8a8401ce`, `a49ff57c`). `--hand L|R` scopes the whole hitter report to handedness faced; the Swing Path page's filter bypass fixed; `build_swing_reel.py` built with `--batter` / `--download-only` / `--ev-min` / local-path modes; reels delivered (`neyens_lhp_cf.mp4` 29 clips, `neyens_lhp_side.mp4` 28 clips, + manifest) to `C:/Users/Owner/Downloads`. Two documented facts corrected: video angle `'H'` is the OPEN SIDE VIEW (db-columns.md said "high home", which sent a query to the wrong angle), and a fourth standing IT constraint - unapproved executables are blocked by application whitelisting, **bundled pip binaries included**.
+- **The finding:** vs LHP he is .365 xwOBA / .303 xSLG on 93 PA vs .422 / .447 on 328 vs RHP. The story is the breaking ball: **51.4% whiff on 37 swings**, he offers at only 21.1% of them, and lefties throw it 42% of the time.
+
+- **EXACT next step:** Zac is re-collecting with a wider contact cut on the work laptop - `python scripts/build_swing_reel.py --batter 244959 --out neyens_lhp_ev100 --ev-min 100 --download-only` - and will send back `clips/` + `neyens_lhp_ev100_local.csv`. Unzip into a scratch dir and run the same script WITHOUT `--download-only`, with `--clips-dir` pointed at it, then send the two MP4s.
+
+- **Blockers / waiting on:** Zac's re-collected clips. Also unanswered: whether he wants a single hstacked side-by-side video, because the two reels are index-aligned but NOT time-aligned (277s vs 247s) and will drift if played beside each other on a slide.
+- **Uncommitted work:** 41 files in `bsb-wt-hitting`, 77 in `bsb-resources` - none of them mine.
+
+---
+
+## ALSO OPEN - hiring board (different thread, do not delete)
 
 - **Project / cwd:** `C:/Users/Owner/hiring` - branch `main`.
 - **Recall checkpoint (SOURCE OF TRUTH):** session `2b36` - domain `hiring/main` - id `f1bca9513dc5e3c5`.
