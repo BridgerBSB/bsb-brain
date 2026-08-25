@@ -1,56 +1,40 @@
-# Last session state - 2026-08-25 15:20 (EOY note line breaks + the S&C weight load)
+# Last session state - 2026-08-25 16:45 (the case assessments become a generated deck)
 
-- **Project / cwd:** `C:/Users/Owner/bsb-resources/pd-goals` - branch `feature/pd-goals` (Arm Farm half on `bsb-wt-bullpen` / `feature/bullpen-reports`).
-- **Recall checkpoint (SOURCE OF TRUTH):** session `279b` - domain `bsb-resources/feature/pd-goals` - id `167afc64c676860d`.
-- **What we were doing:** A coordinator typed an off-season goal as two lines and the delivered deck drew it as one. Fixed the renderer, then bulk-loaded 186 players' off-season bodyweights into Goal #1 on page 2 of both EOY decks so nobody had to type them.
-- **SHIPPED AND LIVE.** App redeployed, 154 notes written and verified by re-read, Zac confirmed "it all went thru". EOY is wrapped at his call until more updates come in.
-- **The defect:** `textwrap.wrap` defaults `replace_whitespace=True`, so every newline and tab became a space. The pin and the app text box were correct the whole time - the ONLY surface that showed it was the deck already sent to a player. `aeaf0fcc`.
-- **Shipped:** `src/eoy_text_block.py` is now the single path every note box takes (stdlib-only, so it imports identically in the pd-goals and Arm Farm bundles); it superseded four independent wrap idioms, one of which was already right. Arm Farm half `cd76354f`, port `--check` in sync. Plus `scripts/load_offseason_weights.py` + the committed extract `data/offseason_weights_2026.csv`. Rule `.claude/rules/bulk-load-into-a-pin.md` (`1ca335f6`) synced to all 4 worktrees; LINEAGE `37aee219`.
-- **Deliberately NOT converted:** the pitcher deck's `_draw_commentary_box` took the paragraph half only. Those boxes hold ~2 lines at 9pt, so fitting to the box turned a visible overflow into a SILENT one-line truncation - the render showed it. Overflowing loudly beats disappearing quietly.
+- **Project / cwd:** `C:/Users/Owner/hiring` - work split across `director-deck-philosophy` (the decks) and `main` (the app).
+- **Recall checkpoint (SOURCE OF TRUTH):** session `afa8` - domain `hiring/director-deck-philosophy` - id `0f8b2d09f7227279`.
+- **What we were doing:** Turned the Director of Hitting and Director of Pitching case assessments into a generated deck, page by page with Zac dictating the wording. Fixed three things in the cage-sandbox app on the way through.
 
-- **EXACT next step:** Nothing queued - Zac wrapped EOY. When it resumes: Camden hand-enters the 10 held rows (8 have no 2027 goal weight, Loperfido has no 2026 end, Lambert has neither) and confirms whether the 8 names with no EOY pool row (Aparicio, Burleson, Delgado, MacRae, McPherson, Ramos, Rodriguez L.A., Walter) are legitimately absent or a roster gap.
+- **Shipped:** 11 commits `ab0e474`..`e3300fa` on `director-deck-philosophy`, 4 commits `8fe07a7`..`lineage` on `main`. 301 tests / 7 skipped, up from 280. LINEAGE entry written.
+  - **`hiring/deck/` is new.** `gen.js` (pptxgenjs) reads `content/<role>.json` and emits **Hitting, 14 slides** and **Pitching, 9 slides**. Nobody edits a PPTX. Twelve page kinds. Three guards each proven red, and the house-rule check (em dash / en dash / non-ASCII) failed the very first build on a character I had written myself.
+  - **Everything derivable is derived.** The "1 OF 4" eyebrows, "Section 2 of 3", and each divider's list of its own pages were typed strings; adding a fourth philosophy page would have left a stale count somewhere, silently.
+  - **A clip is a named file now.** `videoBlock` built `${base}_angle${i+1}`, which worked with one player's video and broke when a second arrived as `neyens_lhp_ev100_cf.mp4`. A naming convention had become the thing deciding what a page could show.
+  - **`8fe07a7`** a signed-out browser was shown `{"error":"Not signed in.","status":401}` **as the page**. Fixed by changing how the refusal RENDERS for a browser navigation, never by adding a gate - `require_admin` still decides. `/login` gained `next`, and `safe_next` with it, because a `next` with no guard is an open redirect.
+  - **`51c1eb4` Add Position was never missing.** Settings > Hiring Roles has had a working "+ Add Hiring Role" since release. Sam could not find it because you look for "add another one of these" beside the ones you can already see. Added a dashboard tile calling the same `roleForm(null, null)`.
+  - Read all six HTKCH PDFs (185pp). Hitting Biomechanics is the movement document by far; Swing Flaws is the most operational; Big 3 holds the trainability table. Substance goes in the never-send evaluator kit, never on a slide.
 
-- **Blockers / waiting on:**
-  - ~~`rsconnect.exe` whitelist~~ **RESOLVED 2026-08-25** - IT granted a standing approval, Connect deploys run normally. Worth remembering only for the next unapproved binary: a cancelled whitelist dialog prints `No process is associated with this object`, which names the exe, never mentions a policy, and reads exactly like a broken install.
-  - **The Connect API key was pasted in plaintext** in terminal output and is legible in a screenshot. Flagged twice; rotation not confirmed.
-  - If S&C fills the missing 2027 goals, re-run with `--xlsx` **and** `--save-csv`, or the committed CSV silently falls behind the workbook.
-- **Uncommitted work:** 1 file - `pd-goals/docs/plans/2026-08-20-scheduled-workload-inventory-for-it.pdf`, pre-existing, not mine.
-
----
-
-## ALSO OPEN - Neyens Left-on-Left (another session, 2026-08-24)
-
-- **Project / cwd:** `C:/Users/Owner/bsb-wt-hitting` - branch `feature/barrelsville` (also `bsb-resources` / `feature/pd-goals`).
-- **Recall checkpoints (SOURCE OF TRUTH):** session `97c6` - `bsb-wt-hitting/feature/barrelsville` id `11016fc5f4c5f122`, and `bsb-resources/feature/pd-goals` id `5fb2b46515b6bcc7`.
-- **What we were doing:** Building the Left-on-Left case materials for the Director of Hitting deck - Xavier Neyens (gc 244959) vs LHP. Scoped `hitter_analysis.py` to a single handedness faced, wrote the splits/log SQL, and built two-angle swing reels from clips Zac pulled on the work laptop.
-- **Shipped this session:** 8 commits on `feature/barrelsville` (`07397c57`..`4f8a56da`) + 4 on `feature/pd-goals` (`9d20463f`, `788baf5b`, `8a8401ce`, `a49ff57c`). `--hand L|R` scopes the whole hitter report to handedness faced; the Swing Path page's filter bypass fixed; `build_swing_reel.py` built with `--batter` / `--download-only` / `--ev-min` / local-path modes; reels delivered (`neyens_lhp_cf.mp4` 29 clips, `neyens_lhp_side.mp4` 28 clips, + manifest) to `C:/Users/Owner/Downloads`. Two documented facts corrected: video angle `'H'` is the OPEN SIDE VIEW (db-columns.md said "high home", which sent a query to the wrong angle), and a fourth standing IT constraint - unapproved executables are blocked by application whitelisting, **bundled pip binaries included**.
-- **The finding:** vs LHP he is .365 xwOBA / .303 xSLG on 93 PA vs .422 / .447 on 328 vs RHP. The story is the breaking ball: **51.4% whiff on 37 swings**, he offers at only 21.1% of them, and lefties throw it 42% of the time.
-
-- **EXACT next step:** Zac is re-collecting with a wider contact cut on the work laptop - `python scripts/build_swing_reel.py --batter 244959 --out neyens_lhp_ev100 --ev-min 100 --download-only` - and will send back `clips/` + `neyens_lhp_ev100_local.csv`. Unzip into a scratch dir and run the same script WITHOUT `--download-only`, with `--clips-dir` pointed at it, then send the two MP4s.
-
-- **Blockers / waiting on:** Zac's re-collected clips. Also unanswered: whether he wants a single hstacked side-by-side video, because the two reels are index-aligned but NOT time-aligned (277s vs 247s) and will drift if played beside each other on a slide.
-- **Uncommitted work:** 41 files in `bsb-wt-hitting`, 77 in `bsb-resources` - none of them mine.
-
----
-
-## ALSO OPEN - hiring board (different thread, do not delete)
-
-- **Project / cwd:** `C:/Users/Owner/hiring` - branch `main`.
-- **Recall checkpoint (SOURCE OF TRUTH):** session `2b36` - domain `hiring/main` - id `f1bca9513dc5e3c5`.
-- **What we were doing:** Recovered a session that died to a machine crash mid-morning, then took the Astros Hiring Board from one-browser-only to a live shared backend, built the owner-only User Management page, restructured the admin surface to three areas, turned two labels into real mechanisms, and acted on a code review of the whole day.
-- **Shipped this session:** 16 commits `56f7a18`..`2ff7372`, all pushed to `BridgerBSB/hiring`. 280 tests / 7 skipped (was 210 at session start). **Migration 004 applied to production Supabase** - `board_doc` + `board_blob` created, board confirmed saving live at v6+. Postgres round-trip proven by hand before handing it over. Shipped: shareable URLs + real browser Back; the `renumber` bug that was rewriting every `CAND-000xx` on first save; acting-as leaking one person's identity to everyone; the accounts becoming the single list of people (adding an account now makes somebody an evaluator); `/admin/access` with a mailed first password and a forced change; three areas (Hiring Board / Cage Assessment / User Management); the blind evaluation hold-out made real; private notes made per-person and withheld by the server. Full decision record in `LINEAGE.md` (`2ff7372`).
-
-- **EXACT next step:** Make `board_save` atomic. `app/board_api.py:170` reads head, merges and writes with no transaction and no compare-and-set on `version`, so two saves ~50ms apart both merge against the same head and the second silently drops the first. Fix = conditional insert in `db.board_write` (INSERT only where the current head version still equals the base the caller merged against), returning None on conflict, and `board_save` re-merging once against the new head before giving up. This is the last known data-loss hole and it bites exactly when Zac and Sam are both on the board.
+- **EXACT next step:** Build the PD Calendar per `cage-sandbox/docs/calendar-build-spec.md`. **Open with the one question the spec leaves for Zac: admin, or owner only?** Then `app/private/calendar/index.html` + `app/calendar_api.py` with the guard on the ROUTER + migration 005 `calendar_doc`, and write its save as a **conditional insert** rather than copying `board_save`.
 
 - **Blockers / waiting on:**
-  - **Zac, in the Railway dashboard:** set **Watch Paths** to `cage-sandbox/**`. Root Directory scopes the BUILD only, so a markdown-only commit on `main` likely redeploys the live app. Until then, assessment work belongs on a branch. Region is also still US East vs Supabase us-west-2.
-  - **Never done with two humans:** two browsers editing the live board at once (the merge is heavily unit-tested and has never met a second person), and the User Management password email actually landing in an `@astros.com` inbox - check junk, Defender ate their magic links before.
-  - Smaller, all recorded in LINEAGE OPEN: N+1 queries per access-page render; `navDepth` decrements on Forward as well as Back; `list_accounts` orders a NULL role differently on sqlite vs postgres; two UI strings describing a toggle that was deleted and an export that no longer carries other people's notes.
+  - **DO NOT COPY `board_save`.** `app/board_api.py:170` read-merge-writes with no transaction and no compare-and-set, so two saves ~50ms apart drop one. Still the last known data-loss hole.
+  - **Two assessments now exist.** `assessments/_shared/01-philosophy.md` (4 prompts) and `02-scaling.md` (8 prompts) are unchanged and overlap **nothing** in the deck, and `04-evaluator-scoring.md`'s prompt keys still point at the markdown. Whichever wins, the other goes, and the pitching twin moves with it. Unruled.
+  - **The video deck is 92MB** - 8MB from GitHub's hard limit and too big to email. Measured fix: 854-wide CRF30 halves each clip in ~27s. The better answer is probably to stop embedding and use Drive links; the plumbing already exists (each `videos` entry takes a `link`). **Zac is uploading the 7 clips; the PDFs carry zero links today, verified rather than assumed.**
+  - **The centre-field poster frame shows a scoreboard** - "WIL 0, FAY 1, 5th" - naming the affiliate, opponent, score and inning on a slide whose whole premise is an anonymous hitter. Fixable by picking a frame between pitches.
+  - **Verify "28 of 30 in MiLB average fastball velocity"** on pitching Environment Q5. It is the only externally checkable fact in either deck.
+  - Hitting calls the mind map page "Applying the Standard"; pitching calls it "Scaling Tenets". Same question, two names.
+  - Pitching Breakdowns is absent entirely (3-4 pages, later). Neyens page 13 still needs its data.
+  - **Zac, in Railway:** Watch Paths -> `cage-sandbox/**`. Any commit on `main` redeploys the live app.
+  - The staff-password email fix is still **unverified in production** (Cristian Perez / Camden).
 
-- **Uncommitted work:** clean.
+- **Uncommitted work:** `hiring` clean apart from `?? deck/` on `main` (deck/ lives on the branch). `bsb-resources` untouched this session.
 
 ---
 
-## ALSO OPEN - Director of Hitting technical assessment (another session)
+## ALSO OPEN - EOY note line breaks + the S&C weight load (another session, earlier today)
 
-Planning, not built. Philosophy 25 / Scaling 45 / Mechanical 30, markdown canonical with the deck as a build artifact, built off the June 2026 entry-level Hitting Coach deck in `hiring/reference/hitting-coach-2026/`. First proposed step: audit the three hitting pillar files against the ~144 KB of hitting notes in the vault, because nothing has yet checked that the assessment tests what the org actually believes. Blocked on two real players (~22, on the 2027 clock), video clips, and four of Zac's calls (take-home vs timed, live vs sent-then-discussed, does the walkthrough shrink the 9.5 hours, is it recorded).
+Session `279b` - domain `bsb-resources/feature/pd-goals` - recall id `167afc64c676860d`. **Shipped and live**, Zac confirmed "it all went thru"; EOY wrapped at his call until more updates arrive.
+
+`textwrap.wrap` defaults `replace_whitespace=True`, so every newline became a space and a two-line coordinator note drew as one - on the deck already sent to a player, while the pin and the app text box were correct the whole time (`aeaf0fcc`). `src/eoy_text_block.py` is now the single path every note box takes, superseding four wrap idioms. Arm Farm half `cd76354f`. Plus `scripts/load_offseason_weights.py` + `data/offseason_weights_2026.csv` (186 players, 154 notes written and verified by re-read). Rule `bulk-load-into-a-pin.md` (`1ca335f6`) synced to all 4 worktrees; LINEAGE `37aee219`.
+
+Deliberately not converted: the pitcher deck's `_draw_commentary_box` took the paragraph half only, because those boxes hold ~2 lines at 9pt and fitting to the box turned a visible overflow into a silent truncation.
+
+When it resumes: Camden hand-enters the 10 held rows, and confirms whether the 8 names with no EOY pool row (Aparicio, Burleson, Delgado, MacRae, McPherson, Ramos, Rodriguez L.A., Walter) are legitimately absent or a roster gap. **The Connect API key was pasted in plaintext and is legible in a screenshot - flagged twice, rotation not confirmed.** If S&C fills the missing 2027 goals, re-run with `--xlsx` **and** `--save-csv` or the committed CSV silently falls behind.
