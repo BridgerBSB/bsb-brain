@@ -11,7 +11,7 @@
 - **EXACT next step:** Nothing queued - Zac wrapped EOY. When it resumes: Camden hand-enters the 10 held rows (8 have no 2027 goal weight, Loperfido has no 2026 end, Lambert has neither) and confirms whether the 8 names with no EOY pool row (Aparicio, Burleson, Delgado, MacRae, McPherson, Ramos, Rodriguez L.A., Walter) are legitimately absent or a roster gap.
 
 - **Blockers / waiting on:**
-  - **`rsconnect.exe` needs a STANDING IT approval**, not a per-invocation response code. Application whitelisting refuses to launch it; cancelling that dialog prints `No process is associated with this object`, which reads like a broken install and is not. Every Connect deploy is gated behind it. Logged in `docs/verification-backlog.md`.
+  - ~~`rsconnect.exe` whitelist~~ **RESOLVED 2026-08-25** - IT granted a standing approval, Connect deploys run normally. Worth remembering only for the next unapproved binary: a cancelled whitelist dialog prints `No process is associated with this object`, which names the exe, never mentions a policy, and reads exactly like a broken install.
   - **The Connect API key was pasted in plaintext** in terminal output and is legible in a screenshot. Flagged twice; rotation not confirmed.
   - If S&C fills the missing 2027 goals, re-run with `--xlsx` **and** `--save-csv`, or the committed CSV silently falls behind the workbook.
 - **Uncommitted work:** 1 file - `pd-goals/docs/plans/2026-08-20-scheduled-workload-inventory-for-it.pdf`, pre-existing, not mine.
