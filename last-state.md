@@ -1,4 +1,24 @@
-# Last session state - 2026-08-24 21:52 (Neyens Left-on-Left: --hand flag + swing reels)
+# Last session state - 2026-08-25 15:20 (EOY note line breaks + the S&C weight load)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources/pd-goals` - branch `feature/pd-goals` (Arm Farm half on `bsb-wt-bullpen` / `feature/bullpen-reports`).
+- **Recall checkpoint (SOURCE OF TRUTH):** session `279b` - domain `bsb-resources/feature/pd-goals` - id `167afc64c676860d`.
+- **What we were doing:** A coordinator typed an off-season goal as two lines and the delivered deck drew it as one. Fixed the renderer, then bulk-loaded 186 players' off-season bodyweights into Goal #1 on page 2 of both EOY decks so nobody had to type them.
+- **SHIPPED AND LIVE.** App redeployed, 154 notes written and verified by re-read, Zac confirmed "it all went thru". EOY is wrapped at his call until more updates come in.
+- **The defect:** `textwrap.wrap` defaults `replace_whitespace=True`, so every newline and tab became a space. The pin and the app text box were correct the whole time - the ONLY surface that showed it was the deck already sent to a player. `aeaf0fcc`.
+- **Shipped:** `src/eoy_text_block.py` is now the single path every note box takes (stdlib-only, so it imports identically in the pd-goals and Arm Farm bundles); it superseded four independent wrap idioms, one of which was already right. Arm Farm half `cd76354f`, port `--check` in sync. Plus `scripts/load_offseason_weights.py` + the committed extract `data/offseason_weights_2026.csv`. Rule `.claude/rules/bulk-load-into-a-pin.md` (`1ca335f6`) synced to all 4 worktrees; LINEAGE `37aee219`.
+- **Deliberately NOT converted:** the pitcher deck's `_draw_commentary_box` took the paragraph half only. Those boxes hold ~2 lines at 9pt, so fitting to the box turned a visible overflow into a SILENT one-line truncation - the render showed it. Overflowing loudly beats disappearing quietly.
+
+- **EXACT next step:** Nothing queued - Zac wrapped EOY. When it resumes: Camden hand-enters the 10 held rows (8 have no 2027 goal weight, Loperfido has no 2026 end, Lambert has neither) and confirms whether the 8 names with no EOY pool row (Aparicio, Burleson, Delgado, MacRae, McPherson, Ramos, Rodriguez L.A., Walter) are legitimately absent or a roster gap.
+
+- **Blockers / waiting on:**
+  - **`rsconnect.exe` needs a STANDING IT approval**, not a per-invocation response code. Application whitelisting refuses to launch it; cancelling that dialog prints `No process is associated with this object`, which reads like a broken install and is not. Every Connect deploy is gated behind it. Logged in `docs/verification-backlog.md`.
+  - **The Connect API key was pasted in plaintext** in terminal output and is legible in a screenshot. Flagged twice; rotation not confirmed.
+  - If S&C fills the missing 2027 goals, re-run with `--xlsx` **and** `--save-csv`, or the committed CSV silently falls behind the workbook.
+- **Uncommitted work:** 1 file - `pd-goals/docs/plans/2026-08-20-scheduled-workload-inventory-for-it.pdf`, pre-existing, not mine.
+
+---
+
+## ALSO OPEN - Neyens Left-on-Left (another session, 2026-08-24)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-hitting` - branch `feature/barrelsville` (also `bsb-resources` / `feature/pd-goals`).
 - **Recall checkpoints (SOURCE OF TRUTH):** session `97c6` - `bsb-wt-hitting/feature/barrelsville` id `11016fc5f4c5f122`, and `bsb-resources/feature/pd-goals` id `5fb2b46515b6bcc7`.
