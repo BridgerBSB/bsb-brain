@@ -29,12 +29,16 @@
 
 ---
 
-## ALSO OPEN - EOY note line breaks + the S&C weight load (another session, earlier today)
+## CLOSED - EOY note line breaks + S&C weight load (session `279b`, earlier 2026-08-25)
 
-Session `279b` - domain `bsb-resources/feature/pd-goals` - recall id `167afc64c676860d`. **Shipped and live**, Zac confirmed "it all went thru"; EOY wrapped at his call until more updates arrive.
+**Done and confirmed by Zac.** Shipped, redeployed, 154 notes written and verified;
+EOY wrapped at his call. Detail lives in that session's own recall checkpoint
+(`167afc64c676860d`) and in `bsb-resources` LINEAGE `37aee219`. Nothing here is
+waiting on anyone - do not re-open it from this file.
 
-`textwrap.wrap` defaults `replace_whitespace=True`, so every newline became a space and a two-line coordinator note drew as one - on the deck already sent to a player, while the pin and the app text box were correct the whole time (`aeaf0fcc`). `src/eoy_text_block.py` is now the single path every note box takes, superseding four wrap idioms. Arm Farm half `cd76354f`. Plus `scripts/load_offseason_weights.py` + `data/offseason_weights_2026.csv` (186 players, 154 notes written and verified by re-read). Rule `bulk-load-into-a-pin.md` (`1ca335f6`) synced to all 4 worktrees; LINEAGE `37aee219`.
+## STANDING - not part of any one session
 
-Deliberately not converted: the pitcher deck's `_draw_commentary_box` took the paragraph half only, because those boxes hold ~2 lines at 9pt and fitting to the box turned a visible overflow into a silent truncation.
-
-When it resumes: Camden hand-enters the 10 held rows, and confirms whether the 8 names with no EOY pool row (Aparicio, Burleson, Delgado, MacRae, McPherson, Ramos, Rodriguez L.A., Walter) are legitimately absent or a roster gap. **The Connect API key was pasted in plaintext and is legible in a screenshot - flagged twice, rotation not confirmed.** If S&C fills the missing 2027 goals, re-run with `--xlsx` **and** `--save-csv` or the committed CSV silently falls behind.
+- **The Connect API key was pasted in plaintext** in terminal output and is
+  legible in a screenshot. Flagged twice; rotation still not confirmed. Kept
+  here deliberately because it is a live credential exposure, not a task that
+  finished with the EOY work.
