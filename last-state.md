@@ -1,4 +1,52 @@
-# Last session state - 2026-08-26 19:40 (the case deck becomes two, and the reels get their metrics)
+# Last session state - 2026-08-27 12:48 (the EOY deck stops redrawing itself)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`.
+- **Recall checkpoint (SOURCE OF TRUTH):** session `0fa4` - `bsb-resources/feature/pd-goals` id `a708f7bab1932f11`.
+- **What we were doing:** EOY report fixes. Made the PC&P Strength & Conditioning
+  recommendations box fit real coach text, stopped the Download button 404ing,
+  and - the one Zac asked for four times before I acted - stopped the deck
+  re-rendering all 22 pages on every note he types.
+
+- **Shipped this session** (all pushed on `feature/pd-goals`):
+  - `dece64e0` **the render loop.** Notes text was in the PDF cache key, so every
+    save redrew 22 pages + rasterize (~40s); the 08-27 log shows 5 rebuilds in
+    2.5 min from 3 boxes. Preview now builds from a SNAPSHOT - sim: 6 saves ->
+    2 rebuilds. **Send is deliberately NOT gated** (`live=True`) so a delivered
+    deck can never miss the last note. Stale preview says so + Refresh button.
+  - `b007d75a` **PC&P recs box fits.** Font steps down to the space available,
+    6.0pt floor then warns rather than clipping. Height came from rebalancing
+    h1 0.450->0.385 / h2 0.245->0.310, so the pitcher deck keeps its page bottom.
+    Zac confirmed live. First attempt collided with the P2:P1 archetypes - caught
+    by running `layout_issues`, not by reading the diff.
+  - `91eab3dc` **Download 404.** `st.download_button` DOES use the media endpoint;
+    replaced with a data-URI `<a download>`. Byte-identical round-trip verified on
+    the real 743,537-byte deck. Corrected `streamlit-inline-images.md` sec 4,
+    which claimed download buttons were exempt - a wrong auto-loading rule.
+  - `eb7851ca` "nothing to do" no longer fails the deploy chain.
+  - `c0ead457` + `6e6b7096` MiLB 30-30 query (UNRUN - no DB on this laptop).
+  - LINEAGE entry appended; `pcp_backend_2026-08-27.zip` built in Downloads for Tina.
+
+- **EXACT next step:** work laptop -> `cd C:/Users/zbridger/bsb-resources ; git pull`
+  then `cd pd-goals ; .\scripts\deploy_pd_goals.ps1` (the path is `.\scripts\...`
+  from INSIDE pd-goals, NOT `.\pd-goals\scripts\...`). Then test three things:
+  (1) type in 2-3 note boxes and confirm the deck does NOT rebuild each time, and
+  that the stale-preview message + Refresh button appear; (2) render a deck,
+  **wait 3-5 minutes**, then click Download - an immediate click passes even on
+  the old broken code, so it proves nothing; (3) read the renderer-stamp caption
+  on the EOY page and compare to `38e76c9a`.
+
+- **Blockers / waiting on:** Zac testing the deploy. PoC page (page 15) still
+  renders a third of its density panel off the page IN THE APP while the
+  committed code reproduces correctly locally - evidence says stale Connect
+  bundle; the renderer stamp settles it. PRs #40/#41 still open + unmerged.
+
+- **Uncommitted work:** 77 paths in `git status --short`, all pre-existing
+  untracked scratch from before this session. None of this session's work is
+  uncommitted.
+
+---
+
+## ALSO OPEN - 2026-08-26 19:40 (the case deck becomes two, and the reels get their metrics)
 
 - **Project / cwd:** `C:/Users/Owner/hiring-wt-deck` - branch `director-deck-philosophy` (NEW worktree; the app session lives on `main` in `C:/Users/Owner/hiring`).
 - **Recall checkpoints (SOURCE OF TRUTH):** session `3be9` - `hiring/director-deck-philosophy` id `7ea283a11bfed301`, and `bsb-resources/feature/pd-goals` id `ee33aad66c9add93`.
