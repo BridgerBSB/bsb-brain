@@ -28,11 +28,15 @@
   re-pinning compliance for nothing. Then Zac's two tests: open a player, type,
   Save, switch players, switch back WITHOUT refreshing (note must persist); and
   download Neyens and look at page 1.
-- **Blockers / waiting on:** Page 1 geometry unconfirmed. The Neyens deck from
+- **Blockers / waiting on:** none blocking. Page 1 geometry LOOKS RESOLVED -
+  Zac loaded several decks on the current deploy and page 1 was right on all of
+  them, which is what the stale-bundle theory predicts. Do not reopen it as a
+  code defect. The Neyens deck from
   19:17 UTC has page 1 scaled by exactly 100/72 about the origin (fonts
   unchanged, pages 2-21 fine). HEAD renders it CORRECTLY under matplotlib 3.11.0
   and Connect's exact 3.11.1, under Agg and a bare canvas, and at `eb7851ca` -
   and that deck came from the bundle deployed BEFORE the session's `git pull`.
-  If it is STILL wrong on the current deploy, stop looking at the repo and
-  inspect the deployed bundle on Connect.
+  If it EVER scales again, the tell is the exact 100/72 ratio with fonts
+  unchanged - and the place to look is the DEPLOYED bundle on Connect, not this
+  repo, which was checked five ways.
 - **Uncommitted work:** clean.

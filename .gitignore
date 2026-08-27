@@ -10,3 +10,6 @@ projects/private-archive/
 # --- OS / misc ---
 .DS_Store
 Thumbs.db
+
+# --- NEVER SHARE: personnel / hiring material (candidate data, live searches) ---
+projects/hiring-private/
