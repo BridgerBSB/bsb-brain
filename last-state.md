@@ -1,3 +1,29 @@
+# Last session state - 2026-08-28 09:53 (the magnet board becomes the third area)
+
+- **Project / cwd:** `C:/Users/Owner/hiring` - branch `main`.
+- **Recall checkpoint (SOURCE OF TRUTH):** session `2167` - domain `hiring/main` - id `aa3b8891f3bf9f09`.
+- **What we were doing:** Built the Magnet Board as the hiring app's third area, then corrected it to DSL-AAA (no MLB, no DH) and added the 40-man tag plus a CSV roster import. Earlier the same session: two rounds of PD Calendar fixes.
+
+- **Shipped this session** (all pushed to `hiring/main`):
+  - `e08d868` calendar - multi-day events (start + end, one event not seventeen), and the programs stop being listed twice.
+  - `1b81ba1` calendar - a run is labelled in EVERY square (my once-a-week version read as a broken end date), both month arrows moved left of the title.
+  - `a2dab03` **magnet board** - `/admin/magnets`, `magnet_api.py`, `magnet_merge.py`, migration 007, 27 tests, `tools/drive_magnets.py`.
+  - `f160184` magnets - DSL through AAA, no MLB column, no DH. The MLB 26/28-in-September rule was built and then DELETED with the column rather than left unreachable.
+  - `b27a031` magnets - 40-man gold border + chip, and Import roster (CSV). **UNVERIFIED in a browser.**
+  - bsb-resources `feature/pd-goals`: `sql-queries/magnet-board-roster.sql` - the eBIS extract, DSL-AAA, with `forty_man`. **UNRUN.**
+
+- **EXACT next step:** Drive the CSV import end to end - it has never executed. `cd C:/Users/Owner/hiring/cage-sandbox`, `python tools/dev_seed.py seed`, `python tools/dev_seed.py clear-magnets`, start uvicorn on 8799, `python tools/drive_magnets.py`, then in the headed browser click **Import roster** and pick `C:\\Users\\Owner\\Downloads\\mag board.csv`. Expect ~251 added / ~239 placed / a yellow "no forty_man column" warning (that file predates the column). Screenshot the grid and send it to Zac.
+
+- **Blockers / waiting on:** **Migration 007 is not applied in Supabase** - paste `cage-sandbox/migrations/007_magnet_board.sql` into the SQL editor, same as 005/006, or the live board cannot save. Zac to re-run `magnet-board-roster.sql` on the work laptop for a file WITH `forty_man`, and to send back the org-wide 40-man count from the footer - **that count is the falsification test** for `MJROSTERSTATUS_LK IS NOT NULL`; much over 40 and no gold border ships.
+
+- **Do NOT restyle the grid.** Zac asked, then retracted it in the same message: "DONT CHANGE ANYTHING SORRY FALSE ALARM besides the 40 man tags." The field view is the part he loves.
+
+- **Uncommitted work:** `hiring` clean except untracked `deck/`. `bsb-resources` ~77 pre-existing untracked paths from other threads.
+
+---
+
+## ALSO OPEN - preserved from the previous wrap
+
 # Last session state - 2026-08-27 15:34 (a saved note came back blank)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`.
