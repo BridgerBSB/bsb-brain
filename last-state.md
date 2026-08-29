@@ -1,68 +1,74 @@
-# Last session state - 2026-08-28 09:53 (the magnet board becomes the third area)
+# Last session state - 2026-08-28 22:02 (the magnet board's 11-item spec, shipped)
 
-- **Project / cwd:** `C:/Users/Owner/hiring` - branch `main`.
-- **Recall checkpoint (SOURCE OF TRUTH):** session `2167` - domain `hiring/main` - id `aa3b8891f3bf9f09`.
-- **What we were doing:** Built the Magnet Board as the hiring app's third area, then corrected it to DSL-AAA (no MLB, no DH) and added the 40-man tag plus a CSV roster import. Earlier the same session: two rounds of PD Calendar fixes.
+- **Project / cwd:** `C:/Users/Owner/hiring` - branch `main`. Also
+  `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals` (the query).
+- **Recall checkpoint (SOURCE OF TRUTH):** session `133c` - two domains:
+  `hiring/main` (id `20e0f662b669f9ab`) and `bsb-resources/feature/pd-goals`
+  (id `b2dcf31348d4cecf`). Read those before this file.
+- **Read first on resume:** `cage-sandbox/docs/magnet-board-spec-2026-08-28.md`
+  and the `2026-08-28` entry in `hiring/LINEAGE.md`.
 
-- **Shipped this session** (all pushed to `hiring/main`):
-  - `e08d868` calendar - multi-day events (start + end, one event not seventeen), and the programs stop being listed twice.
-  - `1b81ba1` calendar - a run is labelled in EVERY square (my once-a-week version read as a broken end date), both month arrows moved left of the title.
-  - `a2dab03` **magnet board** - `/admin/magnets`, `magnet_api.py`, `magnet_merge.py`, migration 007, 27 tests, `tools/drive_magnets.py`.
-  - `f160184` magnets - DSL through AAA, no MLB column, no DH. The MLB 26/28-in-September rule was built and then DELETED with the column rather than left unreachable.
-  - `b27a031` magnets - 40-man gold border + chip, and Import roster (CSV). **UNVERIFIED in a browser.**
-  - bsb-resources `feature/pd-goals`: `sql-queries/magnet-board-roster.sql` - the eBIS extract, DSL-AAA, with `forty_man`. **UNRUN.**
+- **What we were doing:** Verified the magnet board's CSV import and 40-man
+  gold border against Zac's real roster, put the MLB level back, then built all
+  11 items of his 2026-08-28 spec: three IL rows, the MiLB 165, the Current vs
+  Project board split, a coordinator access level, and the "Astros
+  Multipurpose" rebrand. Then fixed what he found testing it.
 
-- **EXACT next step:** Drive the CSV import end to end - it has never executed. `cd C:/Users/Owner/hiring/cage-sandbox`, `python tools/dev_seed.py seed`, `python tools/dev_seed.py clear-magnets`, start uvicorn on 8799, `python tools/drive_magnets.py`, then in the headed browser click **Import roster** and pick `C:\\Users\\Owner\\Downloads\\mag board.csv`. Expect ~251 added / ~239 placed / a yellow "no forty_man column" warning (that file predates the column). Screenshot the grid and send it to Zac.
-
-- **Blockers / waiting on:** **Migration 007 is not applied in Supabase** - paste `cage-sandbox/migrations/007_magnet_board.sql` into the SQL editor, same as 005/006, or the live board cannot save. Zac to re-run `magnet-board-roster.sql` on the work laptop for a file WITH `forty_man`, and to send back the org-wide 40-man count from the footer - **that count is the falsification test** for `MJROSTERSTATUS_LK IS NOT NULL`; much over 40 and no gold border ships.
-
-- **Do NOT restyle the grid.** Zac asked, then retracted it in the same message: "DONT CHANGE ANYTHING SORRY FALSE ALARM besides the 40 man tags." The field view is the part he loves.
-
-- **Uncommitted work:** `hiring` clean except untracked `deck/`. `bsb-resources` ~77 pre-existing untracked paths from other threads.
-
----
-
-## ALSO OPEN - preserved from the previous wrap
-
-# Last session state - 2026-08-27 15:34 (a saved note came back blank)
-
-- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`.
-- **Recall checkpoint (SOURCE OF TRUTH):** session `c712` - `bsb-resources/feature/pd-goals` id `ebe8348b8c4eda9a`.
-- **What we were doing:** A PC&P coordinator reported that EOY notes would not
-  save. They always saved. The FORM stopped reading them back, on a return visit
-  to a player, because Streamlit collects the state of widgets it did not render
-  and the "already hydrated" marker is a plain key that survives and blocks the
-  re-read. His own workaround - refresh the whole page - is the bug's only
-  recovery path, which is what confirmed it rather than cleared it.
 - **Shipped this session:**
-  - `568c409c` note mirror + one `_note_area` helper for all 13 position / 18
-    pitcher boxes; unsaved text now survives a player switch too.
-  - `dce62570` Download control back to button width (yesterday's data-URI swap
-    styled it `width:100%`).
-  - `0ee3fac8` SEASON into `_KP` - the key never carried it while the notes pin
-    is one PER season, so reopening a closed year would have written this year's
-    text onto the old row.
-  - Guard `test_eoy_note_key_isolation.py` gained the return-visit lifecycle sim
-    + the SEASON assertion, proven red on the pre-fix page. Two of that file's
-    OWN checks were lying and were repointed.
-  - `.claude/rules/streamlit-conditional-widget-state.md` Failure 1b, synced to
-    all 3 sibling worktrees. LINEAGE entry pushed.
-- **EXACT next step:** when the coordinators are out of the app, from
-  `C:\Users\zbridger\bsb-resources\pd-goals` run the plain
-  `rsconnect deploy manifest . --app-id 79f52369-8244-46da-a4d6-95df956bacad`
-  (~30s). NOT `deploy_pd_goals.ps1` - UI-only change, that burns ~20 min
-  re-pinning compliance for nothing. Then Zac's two tests: open a player, type,
-  Save, switch players, switch back WITHOUT refreshing (note must persist); and
-  download Neyens and look at page 1.
-- **Blockers / waiting on:** none blocking. Page 1 geometry LOOKS RESOLVED -
-  Zac loaded several decks on the current deploy and page 1 was right on all of
-  them, which is what the stale-bundle theory predicts. Do not reopen it as a
-  code defect. The Neyens deck from
-  19:17 UTC has page 1 scaled by exactly 100/72 about the origin (fonts
-  unchanged, pages 2-21 fine). HEAD renders it CORRECTLY under matplotlib 3.11.0
-  and Connect's exact 3.11.1, under Agg and a bare canvas, and at `eb7851ca` -
-  and that deck came from the bundle deployed BEFORE the session's `git pull`.
-  If it EVER scales again, the tell is the exact 100/72 ratio with fonts
-  unchanged - and the place to look is the DEPLOYED bundle on Connect, not this
-  repo, which was checked five ways.
-- **Uncommitted work:** clean.
+  - `hiring/main`: `f96122c` (MLB + DH), `3c3daef` (DSL uncapped, out of the
+    grid), `9ed9f5a` (Tue-Sun), `7f50864` (import removal + sharing picker),
+    `ea581f6` (3 ILs, MiLB 165, week inside Starters, 40-man override, query in
+    the Import dialog), `044d6fd` (coordinator level, rebrand, access boxes),
+    `51e634c` (Current/Project boards + history), `461fa25` (arrows to
+    field-view only, full names, import Current-only), `9ad3b74` (level squares
+    rebuilt), plus a lineage commit.
+  - `bsb-resources/feature/pd-goals`: `0fe81622` ('ml' back in the whitelist),
+    `53ed4ad3` (il_label -> 7DIL/60DIL/FSIL, rehab becomes active), plus a
+    lineage commit.
+  - 503 pytest / 7 skipped, up from 449. ~40 injections proven red.
+
+- **EXACT next step:** Zac opens **Railway > Deployments** and says whether
+  `9ad3b74` built. The fix IS in `origin/main` (verified: 3 matches for
+  `lvlgrid`/`level_choices`, 0 for the broken `access_box`/`level_options`) and
+  `/admin/access` serves `Cache-Control: no-store`, so the server - not a
+  browser cache - is still sending the old User Management page 13+ minutes
+  after the push. If the build failed, get the log. If it never triggered, a
+  manual redeploy unblocks it. THEN import `mag board (2).csv` on the **Current**
+  board so the three IL rows fill from eBIS rather than the legacy bridge.
+
+- **Then, the next feature (Zac's words):** "expand upon what the compare looks
+  like when we compare... and see how the feature differs from the person we
+  allow to share with - on the depth chart and grid - idk how we show it."
+  A COMPARE view between your project board and somebody else's shared one.
+  He does not know how to show it yet, so this starts as a DESIGN conversation,
+  not a build. Pieces that already exist: sharing points only at project boards;
+  `/api/magnets/board?owner=` returns an unlocked board; every placement is
+  `{id, level, row, status, slot, ord}` so a diff is a set comparison per
+  player; `/api/magnets/history` lists every save of either board.
+
+- **Blockers / waiting on:** (1) the `9ad3b74` deploy - only Zac can see
+  Railway. (2) Does "All IL -> FCL" include the big leagues? It does today;
+  asked three times, never answered. (3) `60R` mapped to 60DIL not REHAB -
+  unconfirmed. (4) Zac was mid-sentence about "a couple buttons to the right of
+  Find" on the project board and never finished it.
+
+- **Uncommitted work:** `hiring` clean. `bsb-resources` 77 paths, ALL
+  pre-existing untracked clutter from other threads - nothing from this session.
+
+- **Live state, verified not assumed:** `https://hirehou.up.railway.app`,
+  healthy, backend postgres. Production `magnet_doc` holds `board:current` v84,
+  `board:zbridger@astros.com` v76, `board:saniedorf@astros.com` v66, `roster`
+  v73. `admins.role` is text so `coordinator` needs NO migration; production has
+  2 owners, 1 admin, 2 viewers, and no coordinator yet.
+
+- **The MiLB 165 is 161, not 165.** The pre-split export could not tell a
+  full-season IL from a 7-day one, so four FSIL players were being counted
+  against the domestic limit.
+
+- **What I got wrong, all one shape:** I asserted three times about output I had
+  not looked at. User Management shipped printing raw HTML as text with an empty
+  level picker (Set level could not work); I built chips per row instead of the
+  squares Zac asked for; a coordinator could not be CREATED at all. My tests
+  checked the function that built the HTML, not the rendered page, and I skipped
+  render-and-look on an HTML page. I also told Zac a deploy had landed when I
+  had only confirmed that EARLIER commits were live.
