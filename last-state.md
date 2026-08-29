@@ -1,74 +1,71 @@
-# Last session state - 2026-08-28 22:02 (the magnet board's 11-item spec, shipped)
+# Last State — 2026-08-29
 
-- **Project / cwd:** `C:/Users/Owner/hiring` - branch `main`. Also
-  `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals` (the query).
-- **Recall checkpoint (SOURCE OF TRUTH):** session `133c` - two domains:
-  `hiring/main` (id `20e0f662b669f9ab`) and `bsb-resources/feature/pd-goals`
-  (id `b2dcf31348d4cecf`). Read those before this file.
-- **Read first on resume:** `cage-sandbox/docs/magnet-board-spec-2026-08-28.md`
-  and the `2026-08-28` entry in `hiring/LINEAGE.md`.
+## What happened
 
-- **What we were doing:** Verified the magnet board's CSV import and 40-man
-  gold border against Zac's real roster, put the MLB level back, then built all
-  11 items of his 2026-08-28 spec: three IL rows, the MiLB 165, the Current vs
-  Project board split, a coordinator access level, and the "Astros
-  Multipurpose" rebrand. Then fixed what he found testing it.
+Two separate bugs in `pd-goals`, one day, both mine. The second deleted
+coordinators' End-of-Year notes across the org.
 
-- **Shipped this session:**
-  - `hiring/main`: `f96122c` (MLB + DH), `3c3daef` (DSL uncapped, out of the
-    grid), `9ed9f5a` (Tue-Sun), `7f50864` (import removal + sharing picker),
-    `ea581f6` (3 ILs, MiLB 165, week inside Starters, 40-man override, query in
-    the Import dialog), `044d6fd` (coordinator level, rebrand, access boxes),
-    `51e634c` (Current/Project boards + history), `461fa25` (arrows to
-    field-view only, full names, import Current-only), `9ad3b74` (level squares
-    rebuilt), plus a lineage commit.
-  - `bsb-resources/feature/pd-goals`: `0fe81622` ('ml' back in the whitelist),
-    `53ed4ad3` (il_label -> 7DIL/60DIL/FSIL, rehab becomes active), plus a
-    lineage commit.
-  - 503 pytest / 7 skipped, up from 449. ~40 injections proven red.
+**1. Eight-hour outage.** `pins_config._patch_ssl()` ran on every pin read and
+write, re-wrapping `requests.Session.send` each time. ~975 layers deep, every
+HTTP call died with `RecursionError`. Both surfaced error messages were false
+("CONNECT_API_KEY set in Vars?", "pin pd_goals_data does not exist") — the
+network was never reached. Fixed with an idempotency marker on the patched
+function; all four worktrees. **A poisoned worker stays poisoned until restart.**
 
-- **EXACT next step:** Zac opens **Railway > Deployments** and says whether
-  `9ad3b74` built. The fix IS in `origin/main` (verified: 3 matches for
-  `lvlgrid`/`level_choices`, 0 for the broken `access_box`/`level_options`) and
-  `/admin/access` serves `Cache-Control: no-store`, so the server - not a
-  browser cache - is still sending the old User Management page 13+ minutes
-  after the push. If the build failed, get the log. If it never triggered, a
-  manual redeploy unblocks it. THEN import `mag board (2).csv` on the **Current**
-  board so the three IL rows fill from eBIS rather than the legacy bridge.
+**2. The deletion.** The EOY page saves `st.session_state.get(key, "")` for
+every box in a group, and hydration sets `saved = {}` on any read miss then
+marks the player hydrated. One transient read renders every box blank; the next
+Save persists that over real text. Bug 1 is what put the app in that state.
 
-- **Then, the next feature (Zac's words):** "expand upon what the compare looks
-  like when we compare... and see how the feature differs from the person we
-  allow to share with - on the depth chart and grid - idk how we show it."
-  A COMPARE view between your project board and somebody else's shared one.
-  He does not know how to show it yet, so this starts as a DESIGN conversation,
-  not a build. Pieces that already exist: sharing points only at project boards;
-  `/api/magnets/board?owner=` returns an unlocked board; every placement is
-  `{id, level, row, status, slot, ord}` so a diff is a set comparison per
-  player; `/api/magnets/history` lists every save of either board.
+## Recovery status
 
-- **Blockers / waiting on:** (1) the `9ad3b74` deploy - only Zac can see
-  Railway. (2) Does "All IL -> FCL" include the big leagues? It does today;
-  asked three times, never answered. (3) `60R` mapped to 60DIL not REHAB -
-  unconfirmed. (4) Zac was mid-sentence about "a couple buttons to the right of
-  Find" on the project board and never finished it.
+- **Neyens (244959) — RECOVERED** from saved PDFs. `~/Desktop/eoy_notes_recovered.txt`.
+  Diffing his 2:01pm vs 2:02pm Aug 29 decks dated the loss to the minute
+  (31176 → 30843 chars, exactly the Aug 26 length).
+- **Curry — RECOVERED** from a July deck.
+- **Schiavone — NOT recoverable.** His decks are Jul 19, old 12-page format,
+  page 1 still shows the placeholder. Nothing was in them.
+- **53 surviving boxes**: Nutrition ~42, Fielding 5, goal_3 ×5, one ATC "test".
+  Zero hitting summaries, zero pitcher narrative, zero goals 1–2, zero S&C.
+- **`zbridger/eoy_pitcher_notes` does not exist.** Dead lead.
 
-- **Uncommitted work:** `hiring` clean. `bsb-resources` 77 paths, ALL
-  pre-existing untracked clutter from other threads - nothing from this session.
+## Zac's next steps (he is testing these now)
 
-- **Live state, verified not assumed:** `https://hirehou.up.railway.app`,
-  healthy, backend postgres. Production `magnet_doc` holds `board:current` v84,
-  `board:zbridger@astros.com` v76, `board:saniedorf@astros.com` v66, `roster`
-  v73. `admins.role` is text so `coordinator` needs NO migration; production has
-  2 owners, 1 admin, 2 viewers, and no coordinator yet.
+1. `python scripts\diag_eoy_notes.py --harvest --pin ...` / `recover_pin_bundles.py`
+   — **UNRUN**, the last technical avenue. A pin version IS a Connect bundle and
+   Connect retains those separately; every tool built today asked `pin_versions`,
+   the layer that had already said no.
+2. `diag_eoy_notes.py --seed-history --yes` — freeze the 53 survivors. Pruning
+   is active (13 → 3 versions during the session).
+3. Redeploy PD Engine `79f52369-8244-46da-a4d6-95df956bacad` — the blank-overwrite
+   fix and audit trail do nothing until restart.
+4. **IT**: are `eoy_notes_2026` versions before ~08:00 Aug 29 in server storage
+   or backup? Only route to text in no deck.
+5. **Coordinators**: saved decks in their Downloads, plus whatever they drafted
+   *from*. For Schiavone-shaped cases that is the only copy.
+6. **Arm Farm redeploy** `13482bcb-8ff2-4f20-92c9-5465f49e5846` — same
+   `_patch_ssl` bug, and its EOY page writes the SAME `eoy_notes` pin.
 
-- **The MiLB 165 is 161, not 165.** The pre-split export could not tell a
-  full-season IL from a 7-day one, so four FSIL players were being counted
-  against the domestic limit.
+## Shipped
 
-- **What I got wrong, all one shape:** I asserted three times about output I had
-  not looked at. User Management shipped printing raw HTML as text with an empty
-  level picker (Set level could not work); I built chips per row instead of the
-  squares Zac asked for; a coordinator could not be CREATED at all. My tests
-  checked the function that built the HTML, not the rendered page, and I skipped
-  render-and-look on an HTML page. I also told Zac a deploy had landed when I
-  had only confirmed that EARLIER commits were live.
+Rules: `monkeypatch-idempotency.md` (#21), `blank-must-not-overwrite.md` (#22),
+synced to all four worktrees, routing guard green in each.
+
+Tools in `pd-goals/scripts/`: `diag_eoy_notes.py` (`--list --current --player
+--all --harvest --seed-history`), `recover_notes_from_pdfs.py` (**personal
+laptop** — that is where the decks are), `recover_pin_bundles.py` (work laptop,
+unrun).
+
+Code: blank can no longer overwrite text; all-blank submissions create no row;
+per-column anti-wipe guard; append-only `eoy_notes_history_<season>`.
+
+## The thing to carry forward
+
+Connect keeps a fixed **number** of pin versions, not a span of time. EOY writes
+one per box-group save → hours of history. PRP writes one per section → days.
+PRP was not built more carefully; it writes less often.
+
+Both protections EOY needed already existed: PRP's strict read (`if df is None:
+return False`) and `compliance_history_pin`, in the same file as the notes pin.
+Zac asked three times for durable safeguards before I wrote one — I kept fixing
+the thing in front of me. See `feedback_apply_existing_rules_to_new_surfaces`.
