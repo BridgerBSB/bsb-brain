@@ -1,4 +1,21 @@
-# Last State — 2026-08-29
+# Last session state - 2026-08-30 06:42
+- **Project / cwd:** `C:/Users/Owner/astroworld` (Baseball-Operations/astroworld-dev, remote `prod`) - branch `feat/aerollo-attachments`
+- **What we were doing:** Built **Aerollo**, our Trello, inside Astro World. PR #44 (the Kanban) is MERGED and LIVE - Zac ran the migration. PR #45 is OPEN: rearranged the card back from Zac's recording of a real Trello board (work in the middle, chat on the right) and added real file attachments, including video that plays inline in the chat.
+- **Shipped this session:**
+  - **PR #44 MERGED** - Aerollo Kanban live: boards/lists/cards, hand-written pointer drag with edge auto-scroll, card back, labels, members, Central-time due dates, checklists, comments, activity, filter, archived-items + restore, clear-a-list, copy-a-card, 12s background refresh, 8 generated SVG backgrounds, top bar right of ManagerHUB. **Open to ANY signed-in user** - the gate is `getSessionUser`, deliberately not a role check.
+  - **PR #45 OPEN** (`9f05670`, `c53ab3d`) - two-column card back (action row under the title; description + **Attachments** in the middle; **Comments and activity** on the right, own scroll, one merged feed). Move/Copy/Archive/Delete into the header `...` menu. "Due date" renamed "Dates". New `AeroAttachment` table. Files pinned to a card OR posted in a comment (`commentId` is the only difference). Chunked upload always (the platform silently truncates bodies over 10MiB). Range/206 streaming. New OPTIONAL `VideoStorage.remove()` for local+azureBlob so deleting a file deletes the bytes.
+  - **All green on a production build:** 150 browser checks (files 36 / drive 34 / drag 30 / stress 20 / copy 16 / archive 14) plus unit suites (pos 32, dnd 35, time 30, files 51, migrations 85, migration-status 16, aerollo-db 31), signed in as a **viewer**.
+  - Deliverables on the Desktop: `aerollo-screens/` (screenshots + AEROLLO-RUNBOOK.md).
+- **EXACT next step:** Sam Niedorf asked in Slack for (1) upload video/photo - **done in PR #45** - and (2) **"a time and date stamp to each time a comment is entered so we can track it"** - **NOT done**. Comments show only relative time (`formatWhen` -> "just now"). Edit `src/components/aerollo/CardBack.tsx`, in the `Conversation` feed where it renders `{formatWhen(item.comment.createdAt)}` (and the activity line beside it), to show an **absolute Central date+time** like Trello's "Feb 20, 2020, 4:28 AM". Helpers already exist in `src/lib/aerollo-time.ts` (`formatDue`, `CENTRAL`). Central time is BLOCKING rule #20. Add checks to `scripts/test-aerollo-time.ts` and the `files.mjs` browser suite. Zac has already told Sam it is coming.
+- **Blockers / waiting on:**
+  - PR #45 not merged. After merge, run **Admin > Database > "Aerollo attachments"**.
+  - **STORAGE_DRIVER is `local` in production and the App Service filesystem is EPHEMERAL** - uploaded videos will not survive a deploy (the row survives, the bytes do not). The UI warns before upload; the real fix is `STORAGE_DRIVER=azureBlob`, which needs a storage account + role assignment from Peter/IT. Flag before coaches put real clips on cards.
+  - Sam's Trello board is private (401) and the Chrome extension would not connect - Aerollo copies Trello behaviour, not that board's columns. Closed unless Zac pastes them.
+- **Uncommitted work:** astroworld clean except 1 pre-existing untracked file (`migrations/content-export-2026-07-15.json`, not mine). Local test rig left RUNNING on the personal laptop: postgres 5434 + app 3210 (restart recipe in the runbook).
+
+---
+
+## ALSO OPEN - pd-goals: EOY notes deletion + the 8-hour outage (2026-08-29)
 
 ## What happened
 
