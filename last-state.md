@@ -1,4 +1,29 @@
-# Last session state - 2026-08-30 15:00
+# Last session state - 2026-08-30 (swing angles)
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-hitting` branch `feature/barrelsville` (rules + SQL in `bsb-resources` / `feature/pd-goals`)
+- **What we were doing:** Making HBA legible, then VBA and AA, then measuring them on Christian Walker + Xavier Neyens, then speccing the org-wide "optimal angles on damaged contact" study.
+- **Shipped this session:**
+  - Three DB-free geometry explainers, each drawn in the plane its angle is measured in: `hba_explainer.py` (overhead), `vba_explainer.py` (catcher's view), `aa_explainer.py` (side view, ONE panel - AA has no bat_side term so a mirrored second panel could only repeat the first). PNGs in `barrelsville/docs/plans/mocks/hba/`.
+  - `hba_distribution.py` - 4-row per-player viewer (all swings / contact / whiffs / hard-hit EV 95+), reads the CSV, no DB.
+  - `sql-queries/hba-walker-neyens-per-swing-2026.sql` - Zac ran it, 1,561 rows.
+  - `.claude/rules/swing-characteristics-canon.md` - all eight characteristics; synced to all 4 worktrees.
+  - `barrelsville/docs/plans/2026-08-30-optimal-swing-angles-spec.md` - the study spec.
+- **What the data settled:**
+  - **Whiffs DO have SCV frames** - 486 rows vs 497 BIP. `db-columns.md` said they did not; corrected.
+  - **So do TAKES** - 24 rows with `did_swing = 0`, HBA junk from -80 to +63. `e1x_con IS NOT NULL` is not a swing filter.
+  - HBA: Walker +12.9 / +11.8 contact / +18.7 whiffs; Neyens +7.3 / +8.0 / +9.4. Both POSITIVE-centred. **Whiff IQR is 2.2x contact IQR for both hitters.** Hard-hit HBA is NOT tighter than contact - that hypothesis was measured and died.
+  - VBA never goes positive in practice (max seen -2.3 across 1,537 swings). AA barely differs contact vs all swings, unlike HBA.
+  - **Damage is per-batted-ball already** (`pd-goals/src/metrics.py::calculate_damage_vectorized`); Damage% is just its mean. But Walker's median ball scores 0.0010 - it behaves like a top-third detector.
+- **EXACT next step:** Spec section 6 - **run the CHECK before building anything.** Pull FCL + A hitters' per-BIP EV/LA for 2026, score damage per ball, and see whether the distribution separates at all at those levels. If it is degenerate, damage is out there and LA+top50EV becomes the candidate. Cheap query: driven from `Pitches_View` on indexed `batter_id`, one season, order 20-40k rows, seconds.
+- **Blockers / waiting on:**
+  - Four decisions for Zac in spec section 7 (joint objective with contact rate? show unresolved players? switch hitters? keep wOBAcon?).
+  - **NOT fixed, needs Zac's call:** `tracker_data.py`'s `_HBA_QUERY` / `_VBA_QUERY` / `_AACON_QUERY` / `_BATSPEED_QUERY` have zero `did_swing` references, so shipped HBACon/VBACon/AACon/BatSpdCon include takes (1.5% here, extreme values). Four metrics x three surfaces - needs `metric-audit`.
+- **Rules drift found and fixed:** blocking rule **18b** + `query-cost-before-handoff.md` existed in `bsb-wt-bullpen` ONLY. `sync-rules.sh` would have deleted them. Recovered into canonical, synced; all 114 rule files byte-identical across 4 worktrees, `test_rule_routing.py` PASS.
+- **Uncommitted work:** all session work committed and pushed on 4 branches. Pre-existing untracked: bsb-resources 77, bsb-wt-hitting 41, bullpen 11, intangibles 14 - none from this session.
+
+---
+
+## ALSO OPEN - EOY notes incident (separate thread, do not delete)
+
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` branch `feature/pd-goals` (also `bsb-wt-bullpen` / `feature/bullpen-reports`)
 - **What we were doing:** Day 2 of the EOY notes incident. Everything from day 1 is deployed. Today was proving nothing is still being deleted, and building the report Zac hands colleagues who ask.
 - **Shipped this session:**
