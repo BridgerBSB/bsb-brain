@@ -1,4 +1,26 @@
-# Last session state - 2026-08-30 06:42
+# Last session state - 2026-08-30 12:00
+- **Project / cwd:** `C:/Users/Owner/hiring` (cage-sandbox/, BridgerBSB/hiring) - branch `main`
+- **What we were doing:** Designed and shipped **COMPARE mode** on the Astros Multipurpose **magnet board** - your projection beside other people's, and beside your own past. Then fixed retention + roles, and made sharing send an email. Zac ended the session testing a real share to Sam on the live app.
+- **Shipped this session:** eleven commits, all pushed to `main`.
+  - `42af2ba` **compare built into the real page**, driven in a real browser (19 checks, `tools/drive_compare.py`, 236 seeded players + 3 boards via `tools/dev_seed_compare.py`).
+  - Design + rendered mocks first: `4afe0a9` `1980d01` `60cd682` `920412d` `3a7eab9` `5391f0e`. Renders in `cage-sandbox/docs/renders/magnets-09..14-*.png`.
+  - `c19eb18` **history is INFINITE** (`db.MAGNET_HISTORY` 40 -> 0; the old value PRUNED ON EVERY WRITE in both DB paths, so a debounced afternoon of dragging deleted the morning). `BOARD_HISTORY`/`CALENDAR_HISTORY` untouched.
+  - `c19eb18` also: **coordinators were never blocked** from being shared with - my flaws review said they were, on the strength of a docstring written before the role existed. Prose fixed + regression test.
+  - `2e678e1` **sharing now emails the person.** Fires on the DIFFERENCE in `unlocked_to` across a write, never on "list is non-empty" (the debounce would spam). Revoking silent on purpose.
+  - Security: a historical version read is gated by the **HEAD's** unlock list, never the old document's own. Proven by injection.
+  - **526 pytest passed / 7 skipped.** Flaws review written BEFORE the build: `cage-sandbox/docs/magnet-board-compare-flaws.md`.
+- **EXACT next step:** The **retention conversation Zac deferred** ("we will chat more about history after you do so"). Nothing trims `magnet_doc` now and a board is tens of KB per save. Get ONE number first - how many times a board actually saves in a working day (saves are debounced during dragging) - then choose between (a) keep every save but collapse days older than N to their last, (b) keep everything and move cold rows out, (c) keep everything and watch the size.
+- **Blockers / waiting on:**
+  - Zac was mid-test sharing to Sam on the live app. Nothing blocked pending it; if it failed the useful detail is **which** of the three failed - the email, Sam's picker, or the compare table.
+  - **The Postgres path has never run.** Every test and screenshot was local SQLite and the tests explicitly unset `DATABASE_URL`, so the `store.py` halves of BOTH history changes have literally never executed. Highest-risk untested code.
+  - Compare shows nothing in production until two people have saved project boards and one unlocks to the other.
+  - App moved: **`https://multi-purpose-ston.up.railway.app`** (IT blocked `hirehou`). `DEPLOY.md` repointed, 8 refs.
+- **Uncommitted work:** `hiring` clean except untracked `deck/` (not from this session). Local rig left RUNNING: uvicorn on `127.0.0.1:8799` against the cage-sandbox sqlite.
+
+---
+
+## ALSO OPEN - astroworld: Aerollo attachments (PR #45), from 2026-08-30 06:42
+
 - **Project / cwd:** `C:/Users/Owner/astroworld` (Baseball-Operations/astroworld-dev, remote `prod`) - branch `feat/aerollo-attachments`
 - **What we were doing:** Built **Aerollo**, our Trello, inside Astro World. PR #44 (the Kanban) is MERGED and LIVE - Zac ran the migration. PR #45 is OPEN: rearranged the card back from Zac's recording of a real Trello board (work in the middle, chat on the right) and added real file attachments, including video that plays inline in the chat.
 - **Shipped this session:**
