@@ -1,39 +1,18 @@
-# Last session state - 2026-08-30 12:00
-- **Project / cwd:** `C:/Users/Owner/bsb-resources` branch `feature/pd-goals`, and `C:/Users/Owner/bsb-wt-bullpen` branch `feature/bullpen-reports`
-- **What we were doing:** Closed out the Aug 29 EOY notes deletion. Recovered what could be recovered, then made the deletion mechanism structurally impossible and shipped it to both apps.
+# Last session state - 2026-08-30 15:00
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` branch `feature/pd-goals` (also `bsb-wt-bullpen` / `feature/bullpen-reports`)
+- **What we were doing:** Day 2 of the EOY notes incident. Everything from day 1 is deployed. Today was proving nothing is still being deleted, and building the report Zac hands colleagues who ask.
 - **Shipped this session:**
-  - `40c77bf1` **the merge fix** - a save no longer reverts work that landed after its own read. `_pin_write_notes` was re-reading the pin for its anti-shrink guard and then throwing that fresh copy away; it now rebases, applying only the cells this save changed. Guard: `pd-goals/scripts/test_eoy_note_concurrent_merge.py`, whose section 5 disables the merge and asserts the OLD path still loses the row.
-  - `0313f6fc` blank guard ported to Arm Farm's `eoy_notes.py` (its own pin, `zbridger/eoy_pitcher_notes`, still had the Aug 29 bug).
-  - `57f4192a` the pitcher nightly job pins **payloads**, not just pools - the position side has done both since August. NEVER `--level` on the payloads step: pools MERGE, payloads REPLACE the whole bundle.
-  - `ce5fbefd` the pin bundle ships `pyarrow`. Without it `_attach_goals` would have pinned ~200 payloads with **empty goals**, silently, inside a try/except.
-  - `a9a40af1` verification backlog. `677d81bc` LINEAGE.
-  - **All deployed**: PD Engine bundle 60821, Arm Farm 60822, pin bundle after an rsconnect fight.
-  - **Recovery final:** 242 boxes / 184 players live. 168 of 186 Goal 1 weights restored from the committed CSV. Neyens + Curry from saved PDFs. Schiavone unrecoverable, confirmed.
-- **EXACT next step:** Read the next scheduled run of `arm-farm-pin-eoy-pitcher-pools-2026` in the Connect log for the line `[notebook] STEP 2 -- payloads (full run, all levels, ~40 min)` AND for the ABSENCE of `[EV-P95] pin miss ... ImportError`. Those two prove the new bundle is active and that pyarrow landed. The 04:14 UTC run predated the deploy and had neither.
+  - `6de05226` **`audit_eoy_notes.py`** - one page: current boxes by department and level, every EMPTIED box by name with its old text, and an explicit "WHAT THIS CANNOT TELL YOU".
+  - `5484f71e` prints people AND report rows. 167 vs 184 is one dataset at two grains (17 players hold both a coordinator report and an off-season plan); side by side without the reason it reads as 17 players vanishing.
+  - `5d7bb861` `--since` filters **Central**, not UTC (blocking #20). It had reported 161 creates for "today" that were the weight load at 8-9pm CT the night before.
+  - `ce20eaa3` prints a 5-sentence Slack reply with the numbers, so the answer and its evidence come out together.
+  - Yesterday's work, all live: `40c77bf1` merge fix, `0313f6fc` Arm Farm blank guard, `57f4192a` nightly payloads, `ce5fbefd` pyarrow, `677d81bc` LINEAGE.
+- **State of the data:** **CLEARED 0** on four runs through the afternoon while boxes climbed 242 -> 250. Coordinators saving cleanly (four history-then-notes pairs in the 3-4pm log, no errors). Loss landed on **Coordinator 16 / ATC 5 / Strength 8** vs Goals 179 and Nutrition 42 - the three thin ones are the departments whose text lived only in the pin.
+- **EXACT next step:** Get the S&C coordinator's `s_c_offseason_recommendations` text out of the export, then RENDER the care page at production dpi and look. `[EOY care] S&C offseason recommendations overflows even at 6.0pt -- 4 item(s), budget 0.638` fired at 4:15pm; `eoy_care_page.py:853` sets `y_floor=0.035` (bottom of page) so the overflow runs OFF the page. The code is correct - it shrinks to 6pt then draws and warns rather than clipping silently. Do not guess at the layout (render-and-look.md).
 - **Blockers / waiting on:**
-  - **rsconnect is broken on the work laptop and will recur.** `connect_pins_eoy/deploy.ps1` probes `py -3.11 -m rsconnect`, which can never work (it is a package with no `__main__`), falls through to `Get-Command`, and gets a NON-whitelisted exe that dies with `Program 'rsconnect.exe' failed to run: No process is associated with this object`. Workaround every time, and it must be a REAL PATH because the var is `Test-Path`-ed and a command string both fails and skips the remaining fallbacks:
-    `$env:RSCONNECT_EXE = "C:\Users\zbridger\AppData\Roaming\Python\Python314\Scripts\rsconnect.exe"`
-  - Zac to run: two-browser check of the merge fix (one window CANNOT detect it), the 4 weights by hand (Alvarez / Amador / Borquez / Mancini), IT about pin versions before ~08:00 Aug 29, copy `~/Desktop/eoy_backups/*.txt` off the laptop.
-  - **He told the group everything was lost except the Completion tab, and that it will never happen again.** Both overstate it - 242 boxes ARE in the app and coordinators should look before retyping. Flagged to him; may need walking back.
-- **Uncommitted work:** bsb-resources 77 paths, bsb-wt-bullpen 11 - all pre-existing untracked dirs from before this session.
-
----
-
-# Last session state - 2026-08-30 12:00
-- **Project / cwd:** `C:/Users/Owner/hiring` (cage-sandbox/, BridgerBSB/hiring) - branch `main`
-- **What we were doing:** Designed and shipped **COMPARE mode** on the Astros Multipurpose **magnet board** - your projection beside other people's, and beside your own past. Then fixed retention + roles, and made sharing send an email. Zac ended the session testing a real share to Sam on the live app.
-- **Shipped this session:** eleven commits, all pushed to `main`.
-  - `42af2ba` **compare built into the real page**, driven in a real browser (19 checks, `tools/drive_compare.py`, 236 seeded players + 3 boards via `tools/dev_seed_compare.py`).
-  - Design + rendered mocks first: `4afe0a9` `1980d01` `60cd682` `920412d` `3a7eab9` `5391f0e`. Renders in `cage-sandbox/docs/renders/magnets-09..14-*.png`.
-  - `c19eb18` **history is INFINITE** (`db.MAGNET_HISTORY` 40 -> 0; the old value PRUNED ON EVERY WRITE in both DB paths, so a debounced afternoon of dragging deleted the morning). `BOARD_HISTORY`/`CALENDAR_HISTORY` untouched.
-  - `c19eb18` also: **coordinators were never blocked** from being shared with - my flaws review said they were, on the strength of a docstring written before the role existed. Prose fixed + regression test.
-  - `2e678e1` **sharing now emails the person.** Fires on the DIFFERENCE in `unlocked_to` across a write, never on "list is non-empty" (the debounce would spam). Revoking silent on purpose.
-  - Security: a historical version read is gated by the **HEAD's** unlock list, never the old document's own. Proven by injection.
-  - **526 pytest passed / 7 skipped.** Flaws review written BEFORE the build: `cage-sandbox/docs/magnet-board-compare-flaws.md`.
-- **EXACT next step:** The **retention conversation Zac deferred** ("we will chat more about history after you do so"). Nothing trims `magnet_doc` now and a board is tens of KB per save. Get ONE number first - how many times a board actually saves in a working day (saves are debounced during dragging) - then choose between (a) keep every save but collapse days older than N to their last, (b) keep everything and move cold rows out, (c) keep everything and watch the size.
-- **Blockers / waiting on:**
-  - Zac was mid-test sharing to Sam on the live app. Nothing blocked pending it; if it failed the useful detail is **which** of the three failed - the email, Sam's picker, or the compare table.
-  - **The Postgres path has never run.** Every test and screenshot was local SQLite and the tests explicitly unset `DATABASE_URL`, so the `store.py` halves of BOTH history changes have literally never executed. Highest-risk untested code.
-  - Compare shows nothing in production until two people have saved project boards and one unlocks to the other.
-  - App moved: **`https://multi-purpose-ston.up.railway.app`** (IT blocked `hirehou`). `DEPLOY.md` repointed, 8 refs.
-- **Uncommitted work:** `hiring` clean except untracked `deck/` (not from this session). Local rig left RUNNING: uvicorn on `127.0.0.1:8799` against the cage-sandbox sqlite.
+  - **Slack delivery was never used for EOY decks** (Zac confirmed) - the "pull PDFs from player channels" recovery avenue is DEAD. What is left: someone's downloaded PDF, their own draft, or IT backups.
+  - rsconnect on the work laptop still needs `$env:RSCONNECT_EXE = "C:\Users\zbridger\AppData\Roaming\Python\Python314\Scripts\rsconnect.exe"` or `connect_pins_eoy/deploy.ps1` grabs a non-whitelisted exe. Probe unfixed.
+  - Next Arm Farm scheduled pin run unverified: look for `[notebook] STEP 2 -- payloads` and the ABSENCE of the pyarrow ImportError.
+  - Zac told the group "overwrote old versions of the app with new versions" (not what happened) and offered to "enter the items that were overwritten" (he cannot - only coordinators know what they wrote). Flagged; his call whether to follow up.
+- **Read the action labels carefully:** `create` fires only when a new player ROW appears. Filling an empty box on an existing row logs as `edit`. So "created 0, edited 9" still means real new content.
+- **Uncommitted work:** bsb-resources 77 paths, bsb-wt-bullpen 11 - all pre-existing untracked dirs.
