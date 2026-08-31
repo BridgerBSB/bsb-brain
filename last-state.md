@@ -1,4 +1,27 @@
-# Last session state - 2026-08-30 (swing angles)
+# Last session state - 2026-08-30 20:37 (pitch tempo)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` branch `feature/pd-goals`
+- **What we were doing:** Answering DJ Engle (pitching coordinator): can we pull per-pitch timestamps to see rest time between pitches. Yes - shipped the query.
+- **Shipped this session:**
+  - `sql-queries/pitch-tempo-by-pitcher.sql` (`de5caeb8`) - seconds between pitches, per pitcher, per game, rendered Central. THE deliverable.
+  - `sql-queries/pitch-timestamps-discovery.sql` - the discovery trail, dead ends, and the coverage probes.
+  - `.claude/rules/central-time-not-utc.md` + **blocking rule #20** - every timestamp a human reads is Central. Synced to all 4 worktrees, `test_rule_routing.py` PASS.
+  - `db-columns.md` / `DATABASE_REFERENCE.md` / `tracking-schema.md` corrected; LINEAGE entry appended.
+  - `MEMORY.md` 35.8KB -> 17.5KB (it was past its 24.4KB read limit, trailing sections loading as nothing); 07-24..08-17 split to `memory/session-log-2026-07-08.md`.
+- **The source (canonical, R&D's path):** `Tracking.Plays.pitch_release_tracking_timestamp_id` -> `Tracking.Timestamps.[timestamp]` (datetime2, **UTC**, verified). Bridge `Plays.astros_pitch_id = Pitches_View.pitch_id`. `Statcast_Plays.pitch_release_utc` gives byte-identical coverage but is one ingest partition.
+- **What the data settled:**
+  - MLB game 1298131: **231 pitches, 4 pitchers, ZERO missing.** within-PA median **20s** (IQR 18-24), new batter **36s**, new inning **~9.7 min**. Within-PA p75 (24) sits below the batter-change MIN (27) - that separation is the pitch timer, the only check measured against something OUTSIDE the DB.
+  - Coverage: mlb 99.88 / aaa 99.81 / afx 78.48 / aax 77.94 / afa 76.16 / rok 50.98 / dsl 0. Gap is **whole GAMES, not scattered pitches** -> inside a covered game every interval is real at every level.
+  - **DSL is an INGEST gap, not untracked** (Schedule_Link says Trackman recorded both games). Never say DSL is untracked.
+  - DEAD END: `Pitches_View.tracking_timestamp` exists and is EMPTY (231/231 NULL).
+- **EXACT next step:** **NOTHING TO BUILD - waiting on DJ.** He was sent the tempo output and has not expanded. Do not build a per-pitcher tempo report on spec. When he answers, the fork is: tempo inside a PA (this query, done) vs recovery between innings/outings (needs NO timestamps - `sched_date` deltas, see `sql-queries/acwr-feasibility-pitch-count-density.sql`). If work resumes first, the one cheap open probe is step 11 of `pitch-timestamps-discovery.sql` (what ARE the three `*_Plays` tables) - explanatory only, blocks nothing.
+- **Blockers / waiting on:** DJ Engle's answer on which quantity he wants. Coverage measured on ONE date - want a second before quoting ~77% affiliate to a coordinator.
+- **Uncommitted work:** 77 in `git status --short`, all pre-existing untracked scratch from prior sessions. Nothing from this session uncommitted.
+- **The lesson, written into LINEAGE:** three wrong turns, one shape - **I trusted a NAME over a COUNT.** Said no timestamp column existed (our hand-written docs are incomplete); named `tracking_timestamp` off the SCHEMA without counting a value in it; read three vendor-named tables as three SENSORS and told Zac "Statcast is the only feed" when **Statcast IS Hawkeye**. Brodie's 2023 query had the right join all along.
+
+---
+
+## ALSO OPEN - swing angles (bsb-wt-hitting / feature/barrelsville)
+
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-hitting` branch `feature/barrelsville` (rules + SQL in `bsb-resources` / `feature/pd-goals`)
 - **What we were doing:** Making HBA legible, then VBA and AA, then measuring them on Christian Walker + Xavier Neyens, then speccing the org-wide "optimal angles on damaged contact" study.
 - **Shipped this session:**
