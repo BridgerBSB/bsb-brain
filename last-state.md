@@ -1,4 +1,26 @@
-# Last session state - 2026-08-30 20:37 (pitch tempo)
+# Last session state - 2026-08-31 (two-way pitcher in Advance + NordBord answer)
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-hitting` branch `feature/barrelsville` (+ `bsb-resources` `feature/pd-goals` for rules/SQL)
+- **What we were doing:** Grayson could not find Seong-Jun Kim (two-way, Hickory/TEX) in Barrelsville Advance before facing them next week. Found why, fixed it, Zac deployed and confirmed. Earlier: answered Tina's NordBord max-force question from the live DB.
+- **Shipped this session:**
+  - `cb6be9ca` (bsb-wt-hitting) - Advance pitcher SEARCH qualifies on "eBIS says pitcher OR has thrown a tracked pitch in 12 months", not on `POSITION_LK`.
+  - `9dd072d7` (bsb-wt-hitting) - `_apply_unclassified_fallback`: label NULL `pitch_type` as `UN` **only when nothing in the sample is typed**. `get_scouting_pitches` is now a thin wrapper over `_get_scouting_pitches_impl`.
+  - `27aa7762` - `.claude/rules/advance-non-ebiz-pitchers.md` gains the two-way + unclassified failure modes.
+  - `sql-queries/two-way-pitcher-lookup-kim.sql`, `kim-pitch-classification-check.sql`, `sportsmed-vald-metric-inventory.sql`.
+  - `sportsmed-schema.md` + `sport-science-data-methodology.md` - NordBord re-check, the empty torque types, and the ownership correction.
+  - LINEAGE entry in `bsb-resources/LINEAGE.md` covering both threads.
+- **The finding that mattered:** eBIS stores **ONE primary position**. Kim is `SS` while starting games, so widening the whitelist to include `'TWP'` would NOT have found him. Any gate on an eBIS label keeps missing two-way players - the qualifier has to be behavioural. Second: his `pitch_type` is all NULL, and `dropna(subset=["pitch_type"])` blanked every pitch table while BB%/GB-FB% kept populating off the event path. **That combination is the diagnostic signature.**
+- **Kim's facts:** gc_id `1288000`, ebis 10020324, mlbam 834605, DOB 2007-05-01, throws R. 2026: afx 54 pitches/2 games (8/19-8/26), rok 138/5, min 11/1.
+- **EXACT next step:** **NOTHING - Zac called it done and deployed both fixes.** If it resurfaces, the only unverified thing is the rendered look of the `UN` row in a real report (never rendered locally; his deploy check was the verification). Do NOT "finish the job" by changing `advance_data.py:191` (org roster dropdown) or `:303` (IL query) - those keep the position gate on purpose.
+- **Blockers / waiting on:** none on our side. Tina owes a decision on dominant-shoulder-only vs both (128-day L/R shoulder gap); a call about Claude was requested and not scheduled. **The R&D NordBord ingest ask is performance science's to file - do not re-raise it as Zac's item.**
+- **Uncommitted work:** `bsb-wt-hitting` 41, `bsb-resources` 77 - all pre-existing scratch, nothing from this session.
+- **Heads up:** `bsb-wt-hitting` HEAD has moved past my commits to `30d2957f` (swing-angle work from a concurrent session). `sync-rules.sh` timed out at 2 min, so the 3 sibling worktrees may not have the updated rule files - re-run `/sync-rules`.
+
+---
+
+## ALSO OPEN - pitch tempo for DJ Engle (`bsb-resources` `feature/pd-goals`)
+
+Still live, waiting on DJ. Preserved from the 2026-08-30 wrap:
+
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` branch `feature/pd-goals`
 - **What we were doing:** Answering DJ Engle (pitching coordinator): can we pull per-pitch timestamps to see rest time between pitches. Yes - shipped the query.
 - **Shipped this session:**
