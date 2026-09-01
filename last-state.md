@@ -1,3 +1,27 @@
+# Last session state - 2026-09-01 12:55 (Aerollo: mentions, access model, program sub-pages)
+- **Project / cwd:** `C:/Users/Owner/astroworld` (Baseball-Operations/astroworld-dev, remote `prod`) - branch `fix/em-dash-sweep`
+- **What we were doing:** A long Aerollo/Astro World run. Comment timestamps, the activity rail, comment editing, @mentions, the pre-launch access model, program sub-pages, and a permission bug where setting somebody to Viewer silently reverted.
+- **Shipped this session:** PRs #46-#60 ALL MERGED AND DEPLOYED. #61 (em dash sweep) still OPEN.
+  - **#53 is the important one:** a demotion now sticks. Sign-in was force-promoting anyone holding an Entra `admin` app role, while the Access screen could only see the env allowlist - so the change saved, displayed, and reverted on their next request. Split into provisioning (app role counts) vs pinning (env only) in the new `lib/admin-policy.ts`.
+  - **#49 pre-launch access:** `SITE_LIVE=false`. Content needs coordinator; Aerollo is open to anyone signed in. Closed three holes: domain pages never went through `canOpenPage`, AstrosEDU had no gate at all, and the home page rendered an empty "Position Groups" heading.
+  - **#58 @mentions:** `AeroMention` table (Zac ran the migration), amber for you / blue for others, "N notes mention you" in the rail. `lib/notify.ts` is the seam email drops into.
+  - **#56 program sub-pages:** `GC2 Onboarding ▾`. A child is a top page slugged `parent/child`, no migration. Zac created the Glossary page himself.
+  - **#47 deleted the storage banner** - it claimed uploads die on deploy, which is FALSE here. A 10.5MB mp4 outlived redeploy 33326388698; `LOCAL_STORAGE_DIR` is on the persistent `/home` share.
+  - Also #46 Central timestamps, #48 Aerollo as a program, #50 activity rail + `?card=` deep links, #51 green/grey edit chips, #52 full note text, #54 edit your own comment, #55 build fix, #59/#60 admin findability.
+- **EXACT next step:** Ask Zac which Aerollo edits he wants - his words: *"so we can make some aerollo edits that have been requested here"*. Nothing is half-built. First housekeeping: merge **PR #61**. The footer dash and the six `site-structure` domain blurbs were vetoed and reverted in `73d65e4` - leave them alone.
+- **Blockers / waiting on:**
+  - **Peter/IT: which email route for mentions.** Ask sent via Teams; six options written up in `Desktop/astroworld-email-request-for-IT.md`, nothing ruled out, SMTP-on-one-mailbox included. ~1 hour of work once he answers. If Logic App: Zac creates it, puts the trigger URL in App Service as `MENTION_MAIL_URL`, tells me the name. The SAS-signed URL must NOT come through chat.
+  - **Unverified by Zac:** Camden Quick to Viewer, refresh, stays Viewer. Also ask IT to strip the `admin` app role off his Entra account.
+- **Uncommitted work:** astroworld clean except 1 pre-existing untracked file. Local rig left RUNNING: postgres 5434 + app 3210. **Stop port 3210 before any `npm run build`** or prisma throws EPERM.
+
+### Do not raise again (Zac, explicitly)
+Aerollo card deletion/recovery. The dead `supabaseStorage` videos. And do not put pd-goals/EOY items in an Astro World status list.
+
+### The lesson worth keeping
+Three separate checks of mine passed for the wrong reason: a case-sensitive match against CSS-uppercased text, a `/applied/` match against prose containing that word, and gate assertions routed through a function that says "no" for an unrelated reason. Each hid a real defect. Also: `tsc --noEmit` does NOT cover `scripts/` but `next build` does - a commit touching `scripts/` needs the real build.
+
+---
+
 # Last session state - 2026-09-01 08:49 (magnet board batch + two access fail-opens)
 - **Project / cwd:** `C:/Users/Owner/hiring` branch `main` (+ `bsb-resources` `feature/pd-goals` for the roster SQL)
 - **What we were doing:** Shipping Sam's and Zac's magnet-board list - multiple project boards, SP/RP instead of RHP/LHP, the field reflecting the grid, the release boxes, MNFA/Rule 5 years, board delete, sharing - then chasing why granting a coordinator "was being weird".
