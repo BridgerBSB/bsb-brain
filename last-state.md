@@ -1,3 +1,22 @@
+# Last session state - 2026-09-01 08:49 (magnet board batch + two access fail-opens)
+- **Project / cwd:** `C:/Users/Owner/hiring` branch `main` (+ `bsb-resources` `feature/pd-goals` for the roster SQL)
+- **What we were doing:** Shipping Sam's and Zac's magnet-board list - multiple project boards, SP/RP instead of RHP/LHP, the field reflecting the grid, the release boxes, MNFA/Rule 5 years, board delete, sharing - then chasing why granting a coordinator "was being weird".
+- **Shipped this session:** 13 commits, `24e1da0..d2dcc17` on `hiring/main`, all pushed. Railway auto-deploys every commit on main (Watch Paths unset).
+  - `24e1da0` multiple project boards at `board:<email>:<slug>`; `board:<email>` untouched
+  - `d62c2b8`/`7cfaa49` the drag fix - a fixed dock was painting OVER the magnet being dragged (measured with elementFromPoint); replaced with edge auto-scroll
+  - `15a5034` the importer silently dropped `r5_first_year`/`mnfa_year` - why no chips ever appeared
+  - `d8d8434` SP/RP + field-follows-grid + UTIL + delete + no self-share
+  - `2be5e5b` outbox is not a delivery; `9348527` a coordinator that fails to set is disabled, not left an admin
+  - `d2dcc17` lineage
+- **NOTHING ANYONE SET UP WAS TOUCHED** - verified, not assumed. Only two paths write or delete a board (`magnet_api.py:602`, `:782`) and both build the id from the SESSION (`_board_id(me, slug)`); no parameter can name another person's board. SP/RP migrates ON READ (`ROW_MIGRATE`), zero stored rows rewritten. No existing account's role was changed - `access_add` was only made stricter.
+- **EXACT next step:** open `https://multi-purpose-ston.up.railway.app/admin/access` and look for the red banner naming **RESEND_API_KEY**. If it is there, email is not configured on this deployment and that alone explains the coordinator trouble - the fix is a Railway service variable, not code. Then re-run `sql-queries/magnet-board-roster.sql` on the work laptop and re-import to light up the MNFA/R5 chips.
+- **Blockers / waiting on:** Zac confirming the batch renders live; whether RESEND_API_KEY is set (only Railway can say); the MNFA 18-and-under branch (+7) is fitted to Zac's correction and only Soto is verified against a GC2 card.
+- **Uncommitted work:** clean (untracked `deck/` only, 294MB, deliberately ignored)
+
+---
+
+## ALSO OPEN - Barrelsville advance / two-way pitcher (previous session, different repo)
+
 # Last session state - 2026-08-31 (two-way pitcher in Advance + NordBord answer)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-hitting` branch `feature/barrelsville` (+ `bsb-resources` `feature/pd-goals` for rules/SQL)
 - **What we were doing:** Grayson could not find Seong-Jun Kim (two-way, Hickory/TEX) in Barrelsville Advance before facing them next week. Found why, fixed it, Zac deployed and confirmed. Earlier: answered Tina's NordBord max-force question from the live DB.
