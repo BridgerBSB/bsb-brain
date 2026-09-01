@@ -1,3 +1,45 @@
+# Last session state - 2026-09-01 16:05 (catcher tracker: HOU scope restored, Camden's two PRs merged)
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-cq-catcher` (scratch worktree) - branch `feature/astros-intangibles`, tip `15f64822`
+- **What we were doing:** Unblocking Camden's catcher-dashboard PRs. Resolved the PR #50 merge conflict, reverted the Aug 27 org-scope widening back to HOU-by-default on three tracker surfaces, reviewed and cleared PR #53, then diagnosed why Postgame and catching Org KPI are slow.
+- **Shipped this session:** PR #50 MERGED, PR #53 MERGED (Camden's), LINEAGE pushed.
+  - `4067e96e` **the merge**: PR #50's only conflict was `intangibles/manifest.json` and it was pure FORMAT, not content. The branch had regenerated it as `json.dump(indent=2)` sorted (389 lines) against a one-line-per-entry house style (153). Set-wise a clean union: 7 entries here, 19 `of_routes/*` from PR #51, zero overlap. Resolved to 143, exact superset, all checksums blank. **`diag_manifest.py --fix` still writes the pretty form, so it re-creates that conflict every run - run it to CHECK, never with `--fix`.**
+  - `89d10e8f` **HOU is the default again** on vs Level (rows `full_df` -> `hou_all_df`), the Trends player picker, and Trend Leaderboards (radio 2 options -> 3, "HOU (players)" first). League view is one control away on each. **The percentile POOL did not move and must not be "fixed": still `raw_df`, all 30 orgs. Pool entry and displayed rows are different things.**
+  - Found dead code: `_hou_players_for` was defined, threaded through the trend prelude dict, and NEVER CALLED, while its docstring claimed it drove the default. The real default was the first three names alphabetically across 30 orgs.
+  - `9789097e` both diag scripts hardcoded `src/ac_dashboard/` as the home of every `_dispatch()` literal, so after the PR #51 merge `diag_imports` called three real `of_routes` tabs missing on a clean tree. Now resolves against the dispatching module's own package.
+  - New guard `intangibles/scripts/test_catcher_scope_defaults.py`, 18 AST assertions, DB-free, **proven red on 7 deliberate injections**. AST not grep, because every literal it checks also appears in the comments explaining the fix.
+  - `15f64822` LINEAGE entry covering the widen-then-revert and the pin-then-remove chain.
+- **EXACT next step:** **Nothing in flight.** Zac picks one of three: (a) build the pins for the catcher percentile pools + catching Org KPI, remembering the CLI report generators call the same `get_catcher_percentiles` (`generate_catcher_report.py:393` and `:644`, `snapshot_report.py:337`) so they must read the SAME pin or the app and the nightly PDF diverge; (b) write the 2027 rollover checklist from the scan below; (c) the small cleanup offered and not done: tighten `test_catcher_scope_defaults.py` so the "no width pin" check matches ANY `stSidebar` width, not the literal `190px`, and drop the two leftover 190px-era styling rules in `shell.py`.
+- **Blockers / waiting on:**
+  - **Nothing was rendered or run against a live DB** (none on the personal laptop). The sidebar width change in particular is UNVERIFIED VISUALLY.
+  - **The guard gap is real and unfixed:** a 240px sidebar pin was injected into the always-on CSS and both checks passed, guard exited 0. The criterion regexes the literal `190px`. Mine, not Camden's.
+  - Scratch worktree left on disk at `C:\Users\Owner\bsb-wt-cq-catcher` (detached HEAD). Zac was asked whether to remove it and did not answer: `git worktree remove C:/Users/Owner/bsb-wt-cq-catcher`.
+- **Uncommitted work:** clean in the scratch worktree; `bsb-resources` 78 pre-existing untracked, none from this session.
+
+### Why the two slow surfaces are slow (diagnosed, nothing built)
+- **Postgame is not slow loading the game.** `get_catcher_percentiles(level, season)` fires **41 sequential `_load_dist` calls**, each league-wide over `Pitches_View` + `Events_View` + `Schedule_View` for the whole level-season; ~20 are conditional prior-year re-queries. `@lru_cache(maxsize=32)` at `catcher_percentiles.py:555` makes it once per (level, season) per process, so the first game is slow and the next is fast until the Connect process recycles.
+- **Catching Org KPI is the only KPI at PITCH grain** (`c_kpi_data.py:330` says so): every pitch at the level by all 30 orgs for the season through a 5-table join. OF/IF are play grain, BR is event grain. Its three heavy queries already run in `ThreadPoolExecutor(3)` and are already memoized, so the easy wins are taken and the scan itself is the cost.
+- Both are pure functions of (level, season), which is the textbook pin case, and intangibles already has 5 pin scripts + 5 `connect_pins*` bundles including `connect_pins_catcher`.
+- Cheap win never scoped: parallelize those 41 loads, and fold each metric's current-year and prior-year fetch into one query instead of two round trips. Output-neutral.
+
+### 2027 rollover scan (all 4 apps, AST-verified)
+**Pins are named per year** (`intangibles_of_tracker_2026`), so 2026 is NOT overwritten by 2027 and no freeze is needed. What breaks in January:
+- 3 `PINNED_YEARS` tuples ending at 2026 (`bullpen-report/src/pins_config.py:37`, `barrelsville/src/pins_config.py:29`, `intangibles/src/pins_config.py:52`)
+- 4 season dropdowns hardcoded `[2026, 2025, 2024]` (`bullpen-report/pages/5_Pitcher_KPI.py:343`, `barrelsville/pages/5_KPI_Report.py:343`, `intangibles/src/br_kpi_page.py:426`, `intangibles/src/of_kpi_page.py:350`) - in 2027 the newest pickable season is 2026
+- **93 CLI script files with `--season default=2026`** (pd-goals 32, bullpen 21, barrelsville 11, intangibles 29). These bite silently: nothing errors, they just make last year's report.
+- The `pd.Timestamp(year=2026, month=m).strftime("%b")` sites are HARMLESS - the year never reaches the output.
+
+### The lesson worth keeping
+**A scan that scans nothing reports clean.** My first 2026-literal sweep returned 0 hits in all four apps because `os.walk` was handed Git Bash `/c/Users/...` paths, which Windows Python cannot resolve. I nearly told Zac the codebase was already 2027-ready. The second run asserts `isdir` and prints a scanned-file count before anyone reads the result. Same family as `grep-guard-criteria.md`: a check that cannot fail is not a check.
+
+### Loose ends noticed, not fixed
+- `bullpen-report/pages/1_Postgame_Side_Dash.py:64` pins the sidebar to 270px `!important`, so that page's drag handle is disabled the same way the catcher dashboard's was.
+- `tab_level.py`'s docstring says the shell skips `_sidebar_filters()` in Level mode; `shell.render():566` calls it unconditionally. Stale doc.
+- `_SIDEBAR_PIN_CSS` survives in `shell.py` deliberately unreferenced as the record of what was measured; the guard asserts nothing loads it, so a re-wire goes red rather than quiet.
+
+---
+
+## ALSO OPEN - Aerollo / Astro World (different repo, do not delete)
+
 # Last session state - 2026-09-01 12:55 (Aerollo: mentions, access model, program sub-pages)
 - **Project / cwd:** `C:/Users/Owner/astroworld` (Baseball-Operations/astroworld-dev, remote `prod`) - branch `fix/em-dash-sweep`
 - **What we were doing:** A long Aerollo/Astro World run. Comment timestamps, the activity rail, comment editing, @mentions, the pre-launch access model, program sub-pages, and a permission bug where setting somebody to Viewer silently reverted.
