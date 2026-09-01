@@ -22,7 +22,9 @@ Three separate checks of mine passed for the wrong reason: a case-sensitive matc
 
 ---
 
-# Last session state - 2026-09-01 08:49 (magnet board batch + two access fail-opens)
+## ALSO OPEN - hiring / magnet board (different repo, do not delete)
+
+**Was:** Last session state 2026-09-01 08:49, magnet board batch + two access fail-opens
 - **Project / cwd:** `C:/Users/Owner/hiring` branch `main` (+ `bsb-resources` `feature/pd-goals` for the roster SQL)
 - **What we were doing:** Shipping Sam's and Zac's magnet-board list - multiple project boards, SP/RP instead of RHP/LHP, the field reflecting the grid, the release boxes, MNFA/Rule 5 years, board delete, sharing - then chasing why granting a coordinator "was being weird".
 - **Shipped this session:** 13 commits, `24e1da0..d2dcc17` on `hiring/main`, all pushed. Railway auto-deploys every commit on main (Watch Paths unset).
