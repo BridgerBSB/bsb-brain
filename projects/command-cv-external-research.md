@@ -2,7 +2,8 @@
 type: project
 domain: computer-vision
 created: 2026-08-17
-status: captured - OpenCommand (repo + full source + README + validation artifacts) read end to end
+updated: 2026-09-01
+status: SUPERSEDED IN PART - re-read at v1.2.0 on 2026-09-01. Method sections below describe v1.0.0. Current analysis lives in bsb-resources/command-cv/docs/2026-09-01-opencommand-v12-and-cross-camera-accuracy.md
 tags:
   - project
   - command-cv
@@ -16,6 +17,35 @@ External work on pitcher-command-from-video, captured against our own build
 ([[command-cv-status]], `bsb-resources/command-cv/` on `feature/pd-goals`).
 Captured per the external-resource-capture rule (X -> `api.fxtwitter.com`, then
 GitHub raw + tree API for the source).
+
+---
+
+## READ THIS FIRST - 2026-09-01 re-read at v1.2.0
+
+Everything below was captured against **v1.0.0**. They have shipped v1.1.0
+(Aug 21) and v1.2.0 (Aug 27) since, and two changes matter:
+
+1. **The naive per-pitcher offset is gone**, replaced by a two-level
+   hierarchical empirical-Bayes model with DerSimonian-Laird shrinkage, plus
+   fitted glove-dependence slopes. The old method survives in their validation
+   table as `fixed offset`, alongside the diagnostics that expose its
+   small-sample artifact (bias -2.02 in at n=10, flatness 8.08 vs 10.14 full).
+   **This retires the "their inferred target is a fitting artifact" critique in
+   takeaway list item form below** - they found it and fixed it, and the gain now
+   survives a 50/50 holdout (train 12.89, test 13.20).
+2. **They added the 2024 season**, which gives a second independent broadcast
+   year. Geometry accuracy is identical across the two (X 0.34/0.35, Z 0.40/0.39
+   over 1.27M pitches). That is cross-camera evidence they never label as such.
+
+**New analysis we ran that they do not publish:** `park` is stamped on every pose
+row and never used in a validation. Broken out over 635,925 clips and 30 parks,
+the geometry holds to about half an inch everywhere, only ~30% of the residual is
+park-level (the rest is game to game), and accuracy is **flat with respect to how
+far off-axis the camera is aimed** - which is precisely where our affine cannot
+be. Full write-up and the reproducible script:
+
+- `bsb-resources/command-cv/docs/2026-09-01-opencommand-v12-and-cross-camera-accuracy.md`
+- `bsb-resources/command-cv/scripts/analyze_opencommand_poses.py`
 
 ---
 
