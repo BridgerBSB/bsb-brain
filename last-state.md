@@ -1,4 +1,20 @@
-# Last session state - 2026-09-01 16:05 (catcher tracker: HOU scope restored, Camden's two PRs merged)
+# Last session state - 2026-09-02 10:25 (hiring app: rubric access split, 8 pack inventory, MNFA from eBIS)
+- **Project / cwd:** `C:/Users/Owner/hiring` - branch `main`, tip `5057faf` · also `C:/Users/Owner/bsb-resources` branch `feature/pd-goals`, tip `88b08f17`
+- **What we were doing:** A long day on the multipurpose app - calendar hover, the coordinator level that Postgres had been refusing since it existed, magnet board MLFA/SP-RP, the hiring board activity panel - then the base of Candidate Rubrics and the Pitching Environment inventory.
+- **Shipped this session:**
+  - `migrations/008` - **coordinator was IMPOSSIBLE on Postgres.** `admins_role_check` listed owner/admin/viewer and nothing ever added coordinator, so every Set level raised a check violation that a bare `except` turned into "That action did not complete". Zac ran it; constraint verified.
+  - `ed877df7` (bsb-resources) - **Pot. MNFA was stored the whole time.** We searched the schema for `mnfa`; eBIS spells it `MNLGFA`. Derivation deleted - it was right 79 of 289 times. MLB now carries `mlfa_year` instead.
+  - `040df00` + `ce8f3cd` - Candidate Rubrics **access split only**: `AREA_RUBRIC` / `AREA_RUBRIC_RESULTS`, 41 tests, defect-injection proven. **`ce8f3cd` fixes a tile I shipped in `040df00` that 404'd on every dashboard.**
+  - `040df00` + `cb32dc0` - Pitching Environment: 39 palette items, the 8 pack as ROOM geometry (`lane_label: "Mound"`), two greens disambiguated.
+  - `82db65c` hiring board Recent Activity scrolls · `80c0bdf` host back to `hirehou.up.railway.app` · magnet board MLFA chip, SP/RP labels, drawer.
+- **EXACT next step:** Write `cage-sandbox/migrations/009_rubric_submission.sql` from the DDL in `docs/plans/2026-09-02-candidate-rubrics-design.md` section 5, then build the `/admin/rubrics` entry page with quote-BEFORE-score enforced. **Put the `AREA_RUBRIC` tile back in `app/auth.py::_AREA_TILE` in the SAME commit as the route, never before** - a test now fails on any tile href that 404s.
+- **Blockers / waiting on:** Zac to say what "gadgets" are (no palette entry, named without a spec). Three OPEN items in the design doc, biggest being whether `rubric/README.md` - which says the rubric ships from the coordinator-notes app, not here - is superseded. Pitching brief/roster/constraints are placeholders, NOT sendable.
+- **Uncommitted work:** `hiring` 1 untracked (`deck/`) · `bsb-resources` 88 paths, nearly all pre-existing untracked from before this session
+
+---
+
+## ALSO OPEN - Last session state - 2026-09-01 16:05 (catcher tracker: HOU scope restored, Camden's two PRs merged)
+
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-cq-catcher` (scratch worktree) - branch `feature/astros-intangibles`, tip `15f64822`
 - **What we were doing:** Unblocking Camden's catcher-dashboard PRs. Resolved the PR #50 merge conflict, reverted the Aug 27 org-scope widening back to HOU-by-default on three tracker surfaces, reviewed and cleared PR #53, then diagnosed why Postgame and catching Org KPI are slow.
 - **Shipped this session:** PR #50 MERGED, PR #53 MERGED (Camden's), LINEAGE pushed.
