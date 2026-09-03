@@ -1,69 +1,46 @@
-# Last session state — 2026-09-02 17:42
+# Last session state — 2026-09-03 12:32
 
 - **Project / cwd:** `C:\Users\Owner\hiring` · branch `main`
-  (shell cwd was `bsb-resources`, but **zero edits there** — all work was in `hiring`)
-- **Supersedes** the earlier 2026-09-02 last-state (session `7269`) — same repo,
-  same day, continued thread. Recall checkpoint this session: `126af22ecee274ba`,
-  session id `578f`, domain `hiring/main`.
+  (shell cwd was `bsb-resources`, but **zero edits there** — HEAD still `da67f978`)
+- **Supersedes** the 2026-09-02 17:42 last-state (session `578f`) — same repo,
+  same branch, continued thread. Recall checkpoint this session:
+  `79ee50caf718c189`, session id `fc32`, domain `hiring/main`.
 
-## What we were doing
+- **What we were doing:** closed the four code-review findings deferred on
+  2026-09-02, then took Zac's and Sam's live feedback on the pitching tool —
+  depth-chart controls, UTIL/DEV boxes on the field, naming tags on every
+  placed object, palette and form wording.
 
-Gave the **Pitching Assessment its own permission area** (it had been a scenario
-in a dropdown, then a second dashboard tile — Zac asked three times), rebuilt the
-8 pack as **one physical floor**, fixed the magnet-board depth chart and the
-eligibility chips, reshaped the **PD Calendar** onto a single "Event" concept,
-then ran `/code-review` and acted on it.
+- **Shipped this session:** ten commits, ending `fb44d2d` (lineage).
+  `079e787` pitching equipment uncapped + briefs reworded ·
+  `f940100` the four review findings (scenario-list disclosure, cross-area
+  session leak, unrationed `/sample/open`, evaluator drew no mound) ·
+  `07feb34` lineage · `31fa204` evaluator PDF fits the page ·
+  `a864950` **the Sandbox never applied `unlimited_items` on either track** —
+  it posts an inline scenario and the id is forced to `custom`, which names no
+  file; an operator may name the preset they are previewing now ·
+  `de1ccd8` calendar Location 4th, UTIL onto the grass, dev list, buckets
+  pitchers-first · `09f88f9` arrows were being eaten by a dragstart ·
+  `4be2aa4` DEV under 3B mirroring UTIL under 1B ·
+  `8dd53b5` the drop point decides the rank ·
+  `81c3f67` Misc Equipment off the pitching day, "Candidate name" ·
+  `e7769e3` every object on the floor says what it is (45 items had no name).
+  704 passed / 7 skipped · `node tools/test_depth_order.js` 40 passed ·
+  `node tools/render_placements.js` checks 138 item×rotation combos.
 
-## Shipped this session
+- **EXACT next step:** get a REAL BROWSER onto the deployed app
+  (`hirehou.up.railway.app`) and confirm the four things no test here can
+  prove: (1) UTIL under 1B and DEV under 3B with magnets in them, (2) drag a
+  man to the TOP of a stack — he should land top, (3) click a depth arrow and
+  check it is no longer swallowed, (4) the name tags on a real bullpen.
 
-Seven commits on `hiring/main`, all pushed:
+- **Blockers / waiting on:** the playwright harness is DOWN — admin sign-in
+  401s after repeated driver runs; survived a server restart and two
+  `dev_seed.py` re-seeds, root cause not found (stopped after three attempts).
+  Everything visual this session was verified by extracting functions and
+  running them in node, which is blind to a live session. **Nothing from
+  2026-09-03 has been seen in a real browser** and Zac was told so each time.
 
-| | |
-|---|---|
-| `45e0fb3` | `AREA_PITCH` — own nav item, own `/admin/pitching/*` routes, own invites + submissions. Sample viewers got an exercise picker (`POST /sample/open`). |
-| `0d93d12` | Sandbox link per track. 40-man players show **no R5 chip at all**. MNFA/MLFA/R5 go red + bold + ⚠ the season the year arrives. |
-| `040c130` | Depth chart: pitchers in a left column. The catcher's 4th man was being **clipped away** by `overflow:hidden`; SS covered 3B because boxes are a fixed 156px and centres were 11% apart. |
-| `45f5157`, `836ed7e` | Mound + plate drawn on the ground (rubber was 90° out, plate 180° out). Calendar: one typeable **Event** field, no "what kind of day", no Label. `unlimited_items`. |
-| `d819437` | **The 8 pack is ONE cage**, 76 × 96, with `mounds {count 8, lane_ft 12}` as drawn furniture. Width ceiling 60 → 200 in three places. |
-| `5371df9` | Nine of thirteen code-review findings. |
-| `145e915` | Lineage. |
-
-**677 passed on a clean DB.**
-
-## EXACT next step
-
-Zac: *"if you se these aw valid make note and then after we clear and recalll we
-can see what tehs etake"* — all four deferred findings are judged **valid** and
-are written up. On resume, size them and pick. Start with **#1**:
-
-> `app/main.py:852` — `/api/scenarios` is `Depends(auth.require_access)`, so any
-> candidate holding a live invite can enumerate every exercise id/title/role.
-> The privacy property `whoami`'s `sample_scenarios` gating rests on is not
-> enforced anywhere. Either restrict the **list** route to admin, or correct the
-> claim in the comment at `app/auth.py` ~2348.
-
-Then: (2) `_session_detail` + the invite row actions aren't track-checked, only
-the lists are. (3) `/sample/open` has no rate limit and doesn't revoke the
-session it says it burns. (4) The evaluator's read-only layout draws a bare
-rectangle with ruler numbers and **no mound** — the coach grades on a different
-picture than the candidate built on.
-
-## Blockers / waiting on
-
-- **Zac's call, not a bug:** `hitting-a-plus.json` now has `unlimited_items: ["*"]`
-  (he said don't limit hitting equipment), but its brief still says *"Counts are
-  finite"* and question 4 asks what you chose **not** to do. Reword the brief, or
-  narrow the uncapping?
-- Nothing was driven in a **real signed-in browser** — the Chrome extension isn't
-  connected, so every render was headless Edge against local stubs.
-
-## Two traps for the next session
-
-- **`tests/test_magnet_api.py` fails 5–6 board-unlock tests against a used
-  `data/cage.db` and passes 80/80 against a fresh one.** A red there is not
-  evidence of a regression. Verify with `mv data/cage.db data/cage.db.aside`.
-- **The recall ring buffer is at 10/10** — the next checkpoint evicts the oldest.
-
-## Uncommitted work
-
-Clean on `hiring/main` apart from pre-existing untracked `deck/`.
+- **Uncommitted work:** `hiring` clean apart from pre-existing untracked
+  `deck/`. `bsb-resources` has 86 untracked paths, all pre-existing clutter
+  from other threads — nothing from this session.
