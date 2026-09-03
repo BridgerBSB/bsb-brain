@@ -1,4 +1,13 @@
-# Last session state — 2026-09-03 12:32
+# Last session state — 2026-09-03 14:11
+- **Project / cwd:** `C:/Users/Owner/astroworld` · branch `feat/travel-hub` (shell cwd was `bsb-resources`; only memory files changed there)
+- **Recall checkpoint:** `568d99b9b174e1c9` (session `a3f1`, domain `astroworld/feat-travel-hub`); full build state in `ae34725ae8549e7d`.
+- **What we were doing:** Aerollo labels/backgrounds shipped (#62-#64 merged, live), then ported the colleague's Travel Hub HTML into CoordinatorHUB as PR #65 (open): 7 views, real users from Manage access, admin-only Coverage/Admin, owner-or-admin trips, 5 new tables via Admin > Database.
+- **Shipped this session:** astroworld `c4cf3a1` `b0a5b1c` (#62) · `a0119f0` (#63) · `b168a80` (#64) · `1867030` (#65). Spec `docs/plans/2026-09-03-travel-hub-spec.md`; renders `docs/plans/mocks/travel-hub-{source,port}/`.
+- **EXACT next step:** Zac's six items on #65, verbatim: "1. make sure that the season is the current year - keep histories of former seasons 2. you did not include the images of the logos of each of the affiliates 3. i dont see the actual games populating from the database in master schedule 4. when adding a trip remove functional area, travel in and travel out time 4b. leave the affiliate blank until they fill it in 5. we dont need the add seasons / seasons button in admin - you know the day, we are in CDT 6. all past seasons get kept". Start with (1+5+6): drop the seasons setting + Admin Seasons pane, season = Central year, header picker lists seasons that have data. Then (4/4b) in `src/components/travel/TripModal.tsx`. Then (2): extract the 5 base64 logos from `docs/plans/mocks/travel-hub-source/source-2026-08-24-0820.html` lines 34-40. Then (3) = the feed PR (gc2 | statsapi, Test connection).
+- **Blockers / waiting on:** Zac to merge #65 + run Admin > Database "Travel Hub". Azure->GCSQL02 reachability unknown. No local DB this session - trip/profile writes are test+build verified only.
+- **Uncommitted work:** astroworld clean (LINEAGE.md + docs/ are gitignored there, entry written locally). bsb-resources: only memory files.
+
+## ALSO OPEN - hiring/main (session fc32, 2026-09-03 12:32) — 2026-09-03 12:32
 
 - **Project / cwd:** `C:\Users\Owner\hiring` · branch `main`
   (shell cwd was `bsb-resources`, but **zero edits there** — HEAD still `da67f978`)
@@ -44,3 +53,4 @@
 - **Uncommitted work:** `hiring` clean apart from pre-existing untracked
   `deck/`. `bsb-resources` has 86 untracked paths, all pre-existing clutter
   from other threads — nothing from this session.
+
