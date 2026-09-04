@@ -1,4 +1,13 @@
-# Last session state — 2026-09-03 14:11
+# Last session state - 2026-09-04 13:57
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` (checkout currently on `fix/eoy-sc-card-height`, another thread) - THIS work is on `feature/pd-goals`
+- **Recall checkpoint:** session `f469`, domain `bsb-resources/feature/pd-goals`
+- **What we were doing:** 2026 in-season stuff deterioration case study - FB Velo / StuffRelVel / Loc / Proj by starting level A-MLB, SP vs RP, by pitch type, HOU arms vs their level - plus a one-query level x pitch-type season-vs-August comparison.
+- **Shipped this session:** feature/pd-goals `5093767e` `f5a23e10` `ab873ba9` `5fb5b1a7` `a4708632` `b2fe20f9`. Files: `sql-queries/in-season-stuff-deterioration-2026.sql`, `pd-goals/scripts/generate_stuff_deterioration_2026.py`, `sql-queries/level-pitchtype-stuff-season-vs-aug-2026.sql`, mocks `pd-goals/docs/plans/mocks/stuff-deterioration-2026/`. Gates: pitchers only (eBIS POSITION_LK, dropped arms listed), >=10 R games, first game before Jun 1; cohort = level of first 2026 R game; Loc = both terms from one Pitches_Grades row (GC2 AllLocGrade2080_Avg, NOT ProjLoc).
+- **EXACT next step:** Zac is running on the work laptop: `git checkout feature/pd-goals ; git pull ; python pd-goals\scripts\generate_stuff_deterioration_2026.py --from-db` (check console "population gates: ..." and that the Loc cross-check prints 0; open `pd-goals\output\stuff_deterioration_2026\stuff_deterioration_2026.pdf` + `summary.md`) and the side query in SSMS. Next session: take his results, write the insights, check the dropped-for-position page for a two-way arm to re-admit.
+- **Blockers / waiting on:** work-laptop run (nothing verified on live data yet; all layout synthetic).
+- **Uncommitted work:** bsb-resources 80 paths untracked/modified, none from this session; `pd-goals/output/` untracked by design.
+
+## ALSO OPEN - prior wrap (kept verbatim) — 2026-09-03 14:11
 - **Project / cwd:** `C:/Users/Owner/astroworld` · branch `feat/travel-hub` (shell cwd was `bsb-resources`; only memory files changed there)
 - **Recall checkpoint:** `568d99b9b174e1c9` (session `a3f1`, domain `astroworld/feat-travel-hub`); full build state in `ae34725ae8549e7d`.
 - **What we were doing:** Aerollo labels/backgrounds shipped (#62-#64 merged, live), then ported the colleague's Travel Hub HTML into CoordinatorHUB as PR #65 (open): 7 views, real users from Manage access, admin-only Coverage/Admin, owner-or-admin trips, 5 new tables via Admin > Database.
