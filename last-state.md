@@ -1,4 +1,13 @@
-# Last session state - 2026-09-04 13:57
+# Last session state - 2026-09-04 14:12
+- **Project / cwd:** `C:/Users/Owner/hiring` - branch `main` (shell cwd was `bsb-resources`, zero edits there - HEAD still `da67f978`)
+- **Recall checkpoint:** `2bb105457811216a` (session `168d`, domain `hiring/main`). Supersedes the fc32 hiring section from 2026-09-03.
+- **What we were doing:** the hiring board became Sam's board - his 11 ML staff positions as a POSITION MAP (a second axis, a.pos, default view; clicking a position opens that job's six-step pipeline), Aerollo labels dragging both directions, one Notes box, the year scrubbed from every visible surface, evaluations parked whole behind SHOW_EVAL_TAB (the rubric IS the eval program), Settings 15 -> 9 tabs, the full 10-item usability audit closed.
+- **Shipped this session:** seventeen commits `3b1bc7f`..`fac73d2` on hiring/main (lineage `fac73d2` - read it first). Key: `11e96df` position-map-as-view (supersedes `44fdb19` same day), `35f1969` auto-map for Major League boards, `55504a2` drag-label-onto-card, `2dcb8d4`+`1c25fc8`+`72a2fa7` the trim, `0caa30e` the new-viewer-environment skill, `fd70f4a` docs/tags-vs-labels.md. Verified: drive_board_features 42/42, drive_stages 15/15, Supabase CHECK shows migrations 001-009 all applied - the rubric program is fully live.
+- **EXACT next step:** Zac will /clear + recall, then name the next thing or ask what's on the shelf. THE SHELF: (1) tags/labels maybe-merge - start at `hiring/cage-sandbox/docs/tags-vs-labels.md`, lean option 1 (detected language SUGGESTS the label, human confirms); (2) rubric-based evaluations revamp - un-park via SHOW_EVAL_TAB; (3) next viewer environment for another role - invoke the `new-viewer-environment` skill in the hiring repo; (4) per-position pipeline splits if Advance ever needs a different process.
+- **Blockers / waiting on:** none - everything deployed and verified. Local-harness gotchas: pytest resets data/cage.db and repeated logins trip the rate limiter, both present as `state is not defined` (reseed + restart server).
+- **Uncommitted work:** hiring clean except pre-existing untracked `deck/` and two regenerated render PNGs (cosmetic).
+
+## ALSO OPEN - bsb-resources/feature/pd-goals (session f469) - 2026-09-04 13:57
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` (checkout currently on `fix/eoy-sc-card-height`, another thread) - THIS work is on `feature/pd-goals`
 - **Recall checkpoint:** session `f469`, domain `bsb-resources/feature/pd-goals`
 - **What we were doing:** 2026 in-season stuff deterioration case study - FB Velo / StuffRelVel / Loc / Proj by starting level A-MLB, SP vs RP, by pitch type, HOU arms vs their level - plus a one-query level x pitch-type season-vs-August comparison.
@@ -15,51 +24,3 @@
 - **EXACT next step:** Zac's six items on #65, verbatim: "1. make sure that the season is the current year - keep histories of former seasons 2. you did not include the images of the logos of each of the affiliates 3. i dont see the actual games populating from the database in master schedule 4. when adding a trip remove functional area, travel in and travel out time 4b. leave the affiliate blank until they fill it in 5. we dont need the add seasons / seasons button in admin - you know the day, we are in CDT 6. all past seasons get kept". Start with (1+5+6): drop the seasons setting + Admin Seasons pane, season = Central year, header picker lists seasons that have data. Then (4/4b) in `src/components/travel/TripModal.tsx`. Then (2): extract the 5 base64 logos from `docs/plans/mocks/travel-hub-source/source-2026-08-24-0820.html` lines 34-40. Then (3) = the feed PR (gc2 | statsapi, Test connection).
 - **Blockers / waiting on:** Zac to merge #65 + run Admin > Database "Travel Hub". Azure->GCSQL02 reachability unknown. No local DB this session - trip/profile writes are test+build verified only.
 - **Uncommitted work:** astroworld clean (LINEAGE.md + docs/ are gitignored there, entry written locally). bsb-resources: only memory files.
-
-## ALSO OPEN - hiring/main (session fc32, 2026-09-03 12:32) — 2026-09-03 12:32
-
-- **Project / cwd:** `C:\Users\Owner\hiring` · branch `main`
-  (shell cwd was `bsb-resources`, but **zero edits there** — HEAD still `da67f978`)
-- **Supersedes** the 2026-09-02 17:42 last-state (session `578f`) — same repo,
-  same branch, continued thread. Recall checkpoint this session:
-  `79ee50caf718c189`, session id `fc32`, domain `hiring/main`.
-
-- **What we were doing:** closed the four code-review findings deferred on
-  2026-09-02, then took Zac's and Sam's live feedback on the pitching tool —
-  depth-chart controls, UTIL/DEV boxes on the field, naming tags on every
-  placed object, palette and form wording.
-
-- **Shipped this session:** ten commits, ending `fb44d2d` (lineage).
-  `079e787` pitching equipment uncapped + briefs reworded ·
-  `f940100` the four review findings (scenario-list disclosure, cross-area
-  session leak, unrationed `/sample/open`, evaluator drew no mound) ·
-  `07feb34` lineage · `31fa204` evaluator PDF fits the page ·
-  `a864950` **the Sandbox never applied `unlimited_items` on either track** —
-  it posts an inline scenario and the id is forced to `custom`, which names no
-  file; an operator may name the preset they are previewing now ·
-  `de1ccd8` calendar Location 4th, UTIL onto the grass, dev list, buckets
-  pitchers-first · `09f88f9` arrows were being eaten by a dragstart ·
-  `4be2aa4` DEV under 3B mirroring UTIL under 1B ·
-  `8dd53b5` the drop point decides the rank ·
-  `81c3f67` Misc Equipment off the pitching day, "Candidate name" ·
-  `e7769e3` every object on the floor says what it is (45 items had no name).
-  704 passed / 7 skipped · `node tools/test_depth_order.js` 40 passed ·
-  `node tools/render_placements.js` checks 138 item×rotation combos.
-
-- **EXACT next step:** get a REAL BROWSER onto the deployed app
-  (`hirehou.up.railway.app`) and confirm the four things no test here can
-  prove: (1) UTIL under 1B and DEV under 3B with magnets in them, (2) drag a
-  man to the TOP of a stack — he should land top, (3) click a depth arrow and
-  check it is no longer swallowed, (4) the name tags on a real bullpen.
-
-- **Blockers / waiting on:** the playwright harness is DOWN — admin sign-in
-  401s after repeated driver runs; survived a server restart and two
-  `dev_seed.py` re-seeds, root cause not found (stopped after three attempts).
-  Everything visual this session was verified by extracting functions and
-  running them in node, which is blind to a live session. **Nothing from
-  2026-09-03 has been seen in a real browser** and Zac was told so each time.
-
-- **Uncommitted work:** `hiring` clean apart from pre-existing untracked
-  `deck/`. `bsb-resources` has 86 untracked paths, all pre-existing clutter
-  from other threads — nothing from this session.
-
