@@ -13,3 +13,12 @@ Thumbs.db
 
 # --- NEVER SHARE: personnel / hiring material (candidate data, live searches) ---
 projects/hiring-private/
+
+# --- Training knowledge pipeline (added 2026-09-04) ---
+# Claude session transcripts: 1.4 GB, contain Astros work data. Never push.
+00-inbox/transcripts/
+sources/_raw/**/*.audio.*
+_pipeline/__pycache__/
+_pipeline/**/__pycache__/
+_pipeline/.pytest_cache/
+_pipeline/*.log
