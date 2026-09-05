@@ -51,3 +51,11 @@ Once retrieval proves it cuts the token burn, the options are: (a) keep the
 snapshot + scheduled re-sync, (b) point retrieval at live and use the vault
 only for graph viewing, or (c) symlink. Decide with a measured token number,
 not a vibe. Nothing here forces that decision.
+
+## Git remotes (changed 2026-09-04)
+
+The vault's owner is now the personal account: `origin` =
+`git@github-personal:BridgerBSB/bsb-brain.git`. The Astros account is kept as
+a second remote named `astros` (the old origin) and receives every push as a
+mirror. The pipeline in `_pipeline/` pushes to both. `00-inbox/transcripts/`
+(Claude session logs, 1.4 GB) is gitignored and must never be added.
