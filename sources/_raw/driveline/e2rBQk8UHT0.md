@@ -1,0 +1,34 @@
+---
+type: raw
+source: driveline
+medium: video
+id: e2rBQk8UHT0
+title: "\"You're Not Capable of Getting Drafted\" | Stefan Raeth's Journey to the Fall League"
+url: "https://www.youtube.com/watch?v=e2rBQk8UHT0"
+published: '2025-12-18'
+author: Driveline Baseball
+duration_s: 396
+caption_type: whisper-small
+view_count: 3404
+---
+# "You're Not Capable of Getting Drafted" | Stefan Raeth's Journey to the Fall League
+
+## Description
+
+In 2021, Stefan Raeth threw 86 mph. He was told that he had the strength of a 15 year-old boy and that being drafted was "unrealistic." Four years later, he's been up to 95.8 mph, is closing games for the Seattle Mariners organization, and dominated in the fall league. In this behind-the-scenes look,   Stefan shares how he proved everybody wrong, and why playing in the big leagues is a realistic possibility down the stretch.
+
+## Transcript
+
+[00:02](https://youtu.be/e2rBQk8UHT0?t=2) Can you tell me about that guy? You know, watch that video and what do you see? I see a guy that's 160 pounds soaking wet. Just a lot of heart. I think in that video, I'm throwing 86 miles an hour. Yeah. Is that going to cut it? Nope. Not one bit. Here's the stretch of the pitch. Swing and a miss. Swung on and miss. Swung on and miss. Hits called strike three. Called strike three. And that will do. And the ball game is over. And the ball game is over. My end all be all goal was to get drafted. That was the goal. And I remember having my exit interview with the head coach at Washington. And he was just like, this is a really good goal. But he's like, it's not realistic. He said, you're not capable of getting drafted doing what you're currently doing.
+
+[01:02](https://youtu.be/e2rBQk8UHT0?t=62) It's something where I had to just look at myself in the mirror and go, OK, you're throwing 86. You know that's not going to work. You have to find a way to throw harder to give yourself an opening in the door. I remember my first meeting at Drive Line. I remember them telling me, hey, you have a great opportunity at UW. This is awesome. You have a really good chance of accomplishing your dreams. We have a lot of work to do, though. I remember them pulling up my strength assessment and saying, you have the strength of a 15-year-old boy. And I think I was 20 years old at the time. I remember doing a deadlift, and it was 135. My strength coach came up to me and curled it, dropped it, and said, you should probably lift more weight. And that happened, and it just lit a fire under me. If I saw five sets on there, I was like, let's go. I got five sets. These are going to be the best five sets in my life.
+
+[02:05](https://youtu.be/e2rBQk8UHT0?t=125) It was just one of those things where I just told myself, if you're going to do this, do it with 100% Don't go halfway in. I was pretty much in a strength accumulation phase the entire time. It was like, you just have to get strong. That's at the end of the day, you have to be stronger. I started doing a lot better. I could see the actual progression happening. It wasn't overnight. It definitely took the entire three months. But the biggest change was when I started to see the numbers, see everything trending in the right direction and be like, wow, this is actually working for me. I remember my first strength test. It was bottom of the barrel, horrible. And I remember in six weeks worth of work, it was like, oh my God, he's gained 400 newtons of strength. It was great. We're heading in the right direction. Remember the first one? I was barely touching 88 with the gray ball. And it's like, OK, go through the whole Vivo phase. And it was like, oh my God, I'm hitting 92 with the gray
+
+[03:05](https://youtu.be/e2rBQk8UHT0?t=185) ball today. It's like, wow, something's actually brewing and becoming something. When I left Drive Line in the summer of 2021, I knew I was going to play a pivotal part in our season, but I didn't know to what extent. It turned out to me playing, closing a bunch of games for us and being one of the best pitchers in the Pac-12 at the time. I would go three innings on a Friday night to close out the game. And then I would be back to start for four innings on Sunday. I was, I think, second in innings on the team as a reliever. And that was almost unheard of. I remember they would send out the sheet of the numbers everybody had, like ERA, strikeouts, walks, whip, all that. And it was like, my name was always at the top. It was one of those things where I was like, oh, I'm doing a lot better than I think I'm doing. Maybe there's actually something here. Yeah! Swing and a miss. Impressive comeback victory for the Huskies.
+
+[04:06](https://youtu.be/e2rBQk8UHT0?t=246) Impressive performance for Steph and Ray. By the end of 2022, I was either going to be the Friday night starter or I was getting drafted. It was a full 180 of an athlete trajectory, honestly. It was one of those things where I was not on any major league teams radar before the season, but then I was on major league teams radars after the season ended. I was so good that they couldn't say no to picking me and ultimately giving me a chance in professional baseball. The first couple years you're in professional baseball, you're walking on eggshells, you're trying to just get accustomed to your surroundings and understand who you are, what you're like around different people. And going into my fourth year now, it's one of those things where it's like, OK, like I understand what I do really well and I understand what I don't do well at. I had a really good year. I got a call. I was like, hey, we'd really want you to go represent the Mariners in the fall league.
+
+[05:08](https://youtu.be/e2rBQk8UHT0?t=308) And it was one of those things where I was like, let's go. Like this is an incredible opportunity. And I know that what I've been doing is going to work everywhere I go. And I think a lot of that stemmed from I had trusted all the training that I was doing at DriveLine. And I think when you look back at five years' worth of training data, it's like that's a whole different person in 2021, even in 2022 to now. It's like I see when I've been at my hardest throwing and I've seen when I've been at my slowest throwing. So started at 86 and then I got up to 95. I think 95.8 is my all time max. So it's like, these are the people I want to work with because they know what makes me go too. And I was so grateful for what DriveLine did for me that I was like, they have my loyalty and I'm going to keep coming back no matter what. And goal now is be a big leager and get the last out in the World Series. And I know that that's a very real possibility for me.
+
+[06:09](https://youtu.be/e2rBQk8UHT0?t=369) The plan set out there for me to do it. And it's up to me. I have the ownership to actually accomplish that.

@@ -29,3 +29,8 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-05 13:40 fetch: YouTube throttled captions (IpBlocked); skipping remaining videos this run
 - 2026-09-05 13:40 fetch: 0 ok, 1 failed, videos throttled
 - 2026-09-05 13:41 summarize: 4 ok, 0 failed (queue had room for 11)
+- 2026-09-05 13:41 run: done
+- 2026-09-05 13:46 fetch: YouTube throttled captions; Whisper for the rest of this run
+- 2026-09-05 13:49 fetch: YouTube throttled captions; Whisper for the rest of this run
+- 2026-09-05 15:25 fetch: 49 ok, 19 failed, 36 deferred; whisper 90 min, captions throttled
+- 2026-09-05 15:33 summarize: 7 ok, 0 failed (queue had room for 7)
