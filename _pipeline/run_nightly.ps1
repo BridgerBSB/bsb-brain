@@ -15,7 +15,7 @@ $stamp = Get-Date -Format "yyyy-MM-dd HH:mm"
 Add-Content -Encoding utf8 -Path "$root\nightly.log" -Value "===== $stamp run start ====="
 
 # Pull first so a promote from another machine is not overwritten.
-git -C "$root\.." pull -q --rebase origin master 2>&1 | Add-Content -Encoding utf8 -Path "$root\nightly.log"
+git -C "$root\.." pull -q --rebase --autostash origin master 2>&1 | Add-Content -Encoding utf8 -Path "$root\nightly.log"
 
 & python "$root\kb.py" run 2>&1 | Add-Content -Encoding utf8 -Path "$root\nightly.log"
 
