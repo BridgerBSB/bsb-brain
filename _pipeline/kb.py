@@ -7,7 +7,7 @@
   python kb.py promote   [--no-git]
   python kb.py lint
   python kb.py run       [--no-git]              the nightly sequence
-  python kb.py retry     --id ID                  put a failed item back to `new`
+  python kb.py retry     --id=ID                  failed item -> fetched (raw exists) or new. Use --id= : YouTube ids can start with "-"
   python kb.py status
 
 All verbs are idempotent against _pipeline/state.json. Nothing is deleted.
