@@ -1,0 +1,67 @@
+formulas:
+  value_icon: 'if(value == "high", "🔥 high", if(value == "med", "🟡 med", if(value == "low", "⚪ low", if(value == "skip", "⛔ skip", value))))'
+properties:
+  file.name:
+    displayName: Note
+  status:
+    displayName: Status
+  source:
+    displayName: Source
+  kind:
+    displayName: Kind
+  formula.value_icon:
+    displayName: Value
+  domain:
+    displayName: Domain
+  cues:
+    displayName: Cues
+  published:
+    displayName: Published
+views:
+  - type: table
+    name: To grade
+    filters:
+      and:
+        - 'type == "source"'
+        - 'status == "pending"'
+        - 'file.inFolder("_review")'
+    groupBy:
+      property: source
+      direction: ASC
+    order:
+      - file.name
+      - status
+      - kind
+      - formula.value_icon
+      - domain
+      - cues
+      - published
+  - type: table
+    name: Graded, files tonight
+    filters:
+      and:
+        - 'type == "source"'
+        - 'status != "pending"'
+        - 'file.inFolder("_review")'
+    order:
+      - file.name
+      - status
+      - kind
+      - formula.value_icon
+      - domain
+  - type: table
+    name: Filed
+    filters:
+      and:
+        - 'type == "source"'
+        - 'file.inFolder("sources")'
+    groupBy:
+      property: source
+      direction: ASC
+    order:
+      - file.name
+      - kind
+      - formula.value_icon
+      - domain
+      - cues
+      - published
