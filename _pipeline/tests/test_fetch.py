@@ -76,3 +76,11 @@ def test_best_title_prefers_full_ldjson_headline():
     html = ('<script type="application/ld+json">{"@type":"Article","headline":"Full title that Shopify clipped in og"}</script>')
     assert _best_title("Full title that Shopify clipp", html) == "Full title that Shopify clipped in og"
     assert _best_title("Longer meta title wins here ok", "<html></html>") == "Longer meta title wins here ok"
+
+
+def test_keep_image_url_rejects_gif_and_svg():
+    from kb.fetch_blog import keep_image_url
+    assert keep_image_url("https://x/chart.png?v=1")
+    assert keep_image_url("https://x/photo.webp")
+    assert not keep_image_url("https://x/loop.gif?v=2")
+    assert not keep_image_url("https://x/icon.svg")

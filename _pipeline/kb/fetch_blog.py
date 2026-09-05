@@ -61,16 +61,19 @@ def _ext(url: str) -> str:
     return ".png"
 
 
-def save_images(urls: list[str], dest: Path, skip_first: bool = True, min_bytes: int = 15_000) -> dict[str, Path]:
+def save_images(urls: list[str], dest: Path, skip_first: bool = True, min_bytes: int = 15_000,
+                max_bytes: int = 2_000_000) -> dict[str, Path]:
     """Download body figures. The first image on a Driveline post is the hero;
     tiny files are icons/avatars. Returns {url: local_path} for the kept ones."""
     saved = {}
     for i, u in enumerate(urls):
         if skip_first and i == 0:
             continue
+        if not keep_image_url(u):
+            continue
         try:
             r = requests.get(u, headers={"User-Agent": UA}, timeout=30)
-            if r.status_code != 200 or len(r.content) < min_bytes:
+            if r.status_code != 200 or not (min_bytes <= len(r.content) <= max_bytes):
                 continue
             dest.mkdir(parents=True, exist_ok=True)
             p = dest / f"{i:02d}{_ext(u)}"
@@ -79,6 +82,13 @@ def save_images(urls: list[str], dest: Path, skip_first: bool = True, min_bytes:
         except requests.RequestException:
             continue
     return saved
+
+
+def keep_image_url(url: str) -> bool:
+    """Figures are png/jpg/webp screenshots and charts. Animated GIFs (a 7 MB
+    highlight loop on one Tread post) and SVG icons are never figures."""
+    path = url.split("?")[0].lower()
+    return not path.endswith((".gif", ".svg", ".ico"))
 
 
 def rewrite_image_links(md: str, mapping: dict[str, str]) -> str:
