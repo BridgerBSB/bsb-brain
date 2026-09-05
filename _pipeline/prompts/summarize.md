@@ -2,7 +2,7 @@ You write one Obsidian source note for a baseball training knowledge base. The r
 
 You receive, in order: the taxonomy (definitions and the analyst's past corrections), then the raw transcript or article with its frontmatter. The transcript paragraphs start with a timestamp link like `[12:34](https://youtu.be/ID?t=754)`; reuse those exact links when you cite a claim. For an article, cite the section heading instead.
 
-Output the COMPLETE note and nothing else: YAML frontmatter between `---` lines, then the body. Do not wrap it in a code fence.
+PRINT the complete note as your reply. Never write a file, never use a tool; the pipeline saves your reply itself. Output the COMPLETE note and nothing else: YAML frontmatter between `---` lines, then the body. Do not wrap it in a code fence.
 
 Frontmatter keys, all required:
 type: source

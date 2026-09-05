@@ -198,7 +198,9 @@ def cmd_summarize(paths, state, args):
     pending_now = L.lint_vault(paths, state)["pending"]
     room = max(0, QUEUE_CAP - pending_now)
     todo = state.by_status("fetched", args.source)
-    if args.limit:
+    if args.id:
+        todo = [r for r in todo if r["id"] in args.id.split(",")]
+    elif args.limit:
         todo = todo[: args.limit]
     elif not args.ignore_cap:
         todo = todo[:room]
@@ -256,12 +258,17 @@ def cmd_run(paths, state, args):
 
 
 def cmd_retry(paths, state, args):
-    rec = state.get(args.id)
-    if not rec:
-        sys.exit(f"no item {args.id}")
-    state.set_status(args.id, "new")
+    """A failed item goes back to `fetched` when its raw file exists (re-summarize),
+    else to `new` (re-fetch)."""
+    for iid in args.id.split(","):
+        rec = state.get(iid)
+        if not rec:
+            sys.exit(f"no item {iid}")
+        back = "fetched" if rec.get("raw") and (paths.root / rec["raw"]).exists() else "new"
+        state.set_status(iid, back)
+        rec["retries"] = 0
+        print(f"{iid} -> {back}")
     state.save()
-    print(f"{args.id} -> new")
 
 
 def cmd_status(paths, state, args):
@@ -281,7 +288,7 @@ def main(argv=None):
     ap.add_argument("--whisper", action="store_true", help="transcribe with Whisper when no captions")
     ap.add_argument("--no-git", action="store_true")
     ap.add_argument("--ignore-cap", action="store_true", help="summarize past the review-queue cap")
-    ap.add_argument("--id")
+    ap.add_argument("--id", help="retry: one id; summarize: comma-separated ids to (re)summarize")
     ap.add_argument("--vault", help="vault root (default: parent of _pipeline)")
     args = ap.parse_args(argv)
 

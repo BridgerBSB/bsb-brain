@@ -197,3 +197,22 @@ def test_low_value_note_shape():
     assert meta["value"] == "low" and meta["status"] == "pending" and meta["cues"] == []
     assert body.startswith("# Long toss and velo")  # raw title beats discover-time title
     assert "[[MOC-training-knowledge]]" in body
+
+
+def test_run_claude_command_disables_tools_twice(monkeypatch):
+    import kb.summarize as S
+    seen = {}
+
+    class R:
+        returncode, stdout, stderr = 0, "ok", ""
+
+    def fake_run(cmd, **kw):
+        seen["cmd"] = cmd
+        return R()
+
+    monkeypatch.setattr(S.subprocess, "run", fake_run)
+    S.run_claude("do", "text", "haiku")
+    cmd = seen["cmd"]
+    assert cmd[cmd.index("--tools") + 1] == ""
+    assert "Write" in cmd[cmd.index("--disallowedTools") + 1]
+    assert "--no-session-persistence" in cmd

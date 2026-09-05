@@ -22,3 +22,4 @@ _pipeline/__pycache__/
 _pipeline/**/__pycache__/
 _pipeline/.pytest_cache/
 _pipeline/*.log
+_pipeline/failed_outputs/

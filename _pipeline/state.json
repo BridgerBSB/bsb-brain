@@ -148,18 +148,31 @@
   "CxObu-w6cJw": {
    "added": "2026-09-05T00:34:18Z",
    "duration_s": 3436,
-   "error": "model output had no frontmatter: note has no frontmatter",
+   "error": null,
    "feed": "youtube",
    "id": "CxObu-w6cJw",
    "medium": "video",
-   "note": null,
+   "note": "_review/2026-08-16-long-vs-short-arm-action-what-s-the-difference.md",
+   "proposal": {
+    "cues": [
+     "cue-hold-flexion-longer",
+     "cue-get-it-go-get-it-go",
+     "cue-be-smooth"
+    ],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2026-08-16",
    "raw": "sources/_raw/tread/CxObu-w6cJw.md",
-   "retries": 1,
+   "retries": 0,
    "source": "tread",
-   "status": "failed",
+   "status": "summarized",
    "title": "Long Vs Short Arm Action | What's The Difference?",
-   "updated": "2026-09-05T01:04:58Z",
+   "updated": "2026-09-05T20:20:54Z",
    "url": "https://www.youtube.com/watch?v=CxObu-w6cJw"
   },
   "DRGDN8u1EKA": {
@@ -194,18 +207,26 @@
   "KDkG1se2wHI": {
    "added": "2026-09-05T00:34:18Z",
    "duration_s": 1157,
-   "error": "model output had no frontmatter: note has no frontmatter",
+   "error": null,
    "feed": "youtube",
    "id": "KDkG1se2wHI",
    "medium": "video",
-   "note": null,
+   "note": "_review/2026-09-02-what-your-long-toss-distance-says-about-your-velocity.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2026-09-02",
    "raw": "sources/_raw/tread/KDkG1se2wHI.md",
-   "retries": 1,
+   "retries": 0,
    "source": "tread",
-   "status": "failed",
+   "status": "summarized",
    "title": "What Your Long Toss Distance Says About Your Velocity",
-   "updated": "2026-09-05T01:15:21Z",
+   "updated": "2026-09-05T20:22:13Z",
    "url": "https://www.youtube.com/watch?v=KDkG1se2wHI"
   },
   "LSfh0AZJXVQ": {

@@ -20,13 +20,18 @@ from .slug import note_name
 from .state import State
 
 MODELS = {"triage": "haiku", "full": "sonnet"}
+NO_TOOLS = "Write,Edit,MultiEdit,NotebookEdit,Bash,Agent,Task,WebFetch,WebSearch,Read,Glob,Grep"
 TRIAGE_HEAD_CHARS = 2000
 MAX_RAW_CHARS = 120_000   # ~30k tokens; a 1 h video is ~60k chars
 
 
 def run_claude(instruction: str, stdin_text: str, model: str) -> str:
+    # Both flags on purpose: `--tools ""` is dropped somewhere between Python's
+    # subprocess and the claude launcher on Windows (a Sonnet run WROTE its note
+    # to sources/tread/ instead of printing it, 2026-09-04). A non-empty
+    # --disallowedTools list cannot be dropped.
     cmd = ["claude", "-p", instruction, "--model", model, "--output-format", "text",
-           "--tools", "", "--no-session-persistence"]
+           "--tools", "", "--disallowedTools", NO_TOOLS, "--no-session-persistence"]
     r = subprocess.run(cmd, input=stdin_text, capture_output=True, text=True,
                        encoding="utf-8", errors="replace", timeout=900)
     if r.returncode != 0:
@@ -116,6 +121,12 @@ def low_value_note(item: dict, raw_meta: dict, raw_rel: str, tri: dict) -> tuple
     return meta, body
 
 
+def _save_failed_output(paths: VaultPaths, iid: str, attempt: int, out: str) -> None:
+    d = paths.pipeline / "failed_outputs"
+    d.mkdir(parents=True, exist_ok=True)
+    (d / f"{iid}.{attempt}.txt").write_text(out, encoding="utf-8", newline=chr(10))
+
+
 def _moc(domain: str) -> str | None:
     return {"pitching": "pitching", "hitting": "hitting", "strength": "strength",
             "anatomy-movement": "anatomy"}.get(domain)
@@ -161,6 +172,7 @@ def summarize_item(paths: VaultPaths, state: State, item: dict, run=run_claude,
                 meta, body = parse_note_text(out)
             except ValueError as e:
                 last_err = f"model output had no frontmatter: {e}"
+                _save_failed_output(paths, iid, attempt, out)
                 continue
             probs = validate_source_meta(meta, exclude_domains=exclude_domains)
             if probs:
