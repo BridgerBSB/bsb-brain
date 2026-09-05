@@ -34,6 +34,7 @@ from kb import lint as L                              # noqa: E402
 
 SLEEP = 2.5           # seconds between network calls
 VIDEO_SLEEP = 12      # seconds between caption fetches; ~15 rapid pulls earned an IP block on 2026-09-04
+WHISPER_BUDGET_S = 90 * 60   # per run: Whisper time before remaining videos wait for the next run
 QUEUE_CAP = 40        # never leave more than this many pending for Zac
 NIGHTLY_BATCH = 8     # backfill items per source per night
 
@@ -125,17 +126,20 @@ def cmd_discover(paths, state, args, mode="new"):
 
 # --- fetch ----------------------------------------------------------------------------
 
-def _fetch_one(paths, state, item, whisper: bool, save_images: bool):
+def _fetch_one(paths, state, item, save_images: bool, run_ctx: dict):
+    """run_ctx carries per-run facts: captions_blocked, whisper_s (time spent)."""
     iid = item["id"]
     raw_path = paths.raw_file(item["source"], iid)
     if item["medium"] == "video":
         meta = FV.fetch_video_meta(iid)
-        try:
-            segs, ctype = FV.fetch_captions(iid)
-        except FV.NoCaptions:
-            if not whisper:
-                raise
-            segs, ctype = FV.transcribe_audio(iid, paths.raw / "_tmp"), "whisper"
+        t0 = time.time()
+        segs, ctype, blocked = FV.get_transcript(iid, paths.raw / "_tmp",
+                                                captions_blocked=run_ctx["captions_blocked"])
+        if ctype.startswith("whisper"):
+            run_ctx["whisper_s"] += time.time() - t0
+        if blocked and not run_ctx["captions_blocked"]:
+            run_ctx["captions_blocked"] = True
+            log(paths, "fetch: YouTube throttled captions; Whisper for the rest of this run")
         md = FV.segments_to_markdown(segs, iid)
         if len(md) < FB.MIN_CHARS:
             raise RuntimeError("too-short transcript")
@@ -165,25 +169,26 @@ def cmd_fetch(paths, state, args):
     todo = state.by_status("new", args.source)
     if args.limit:
         todo = todo[: args.limit]
-    ok = bad = 0
-    videos_blocked = False
+    ok = bad = deferred = 0
+    ctx = {"captions_blocked": False, "whisper_s": 0.0}
     for item in todo:
-        if item["medium"] == "video" and videos_blocked:
-            continue                      # leave as `new`; next run retries
+        if item["medium"] == "video" and ctx["whisper_s"] > WHISPER_BUDGET_S:
+            deferred += 1                 # stays `new`; next run continues
+            continue
         try:
-            _fetch_one(paths, state, item, args.whisper, save_images.get(item["source"], False))
+            _fetch_one(paths, state, item, save_images.get(item["source"], False), ctx)
             ok += 1
-        except FV.Throttled as e:
-            videos_blocked = True
-            state.update(item["id"], throttled_at=time.strftime("%Y-%m-%dT%H:%M"))
-            log(paths, f"fetch: YouTube throttled captions ({e}); skipping remaining videos this run")
         except Exception as e:
             state.set_status(item["id"], "failed", error=f"{type(e).__name__}: {str(e)[:200]}")
             bad += 1
             print(f"  fetch {item['id']}: {type(e).__name__}: {str(e)[:120]}")
         state.save()
-        time.sleep(VIDEO_SLEEP if item["medium"] == "video" else SLEEP)
-    log(paths, f"fetch: {ok} ok, {bad} failed" + (", videos throttled" if videos_blocked else ""))
+        if item["medium"] == "video" and not ctx["captions_blocked"]:
+            time.sleep(VIDEO_SLEEP)
+        else:
+            time.sleep(SLEEP)
+    log(paths, f"fetch: {ok} ok, {bad} failed, {deferred} deferred; whisper {ctx['whisper_s']/60:.0f} min"
+              + (", captions throttled" if ctx["captions_blocked"] else ""))
     return ok
 
 
@@ -285,7 +290,7 @@ def main(argv=None):
     ap.add_argument("--source", help="driveline | tread | bpc")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--from", dest="frm", choices=["newest", "oldest"], default="oldest")
-    ap.add_argument("--whisper", action="store_true", help="transcribe with Whisper when no captions")
+    ap.add_argument("--whisper", action="store_true", help="(kept for compatibility; Whisper is automatic now)")
     ap.add_argument("--no-git", action="store_true")
     ap.add_argument("--ignore-cap", action="store_true", help="summarize past the review-queue cap")
     ap.add_argument("--id", help="retry: one id; summarize: comma-separated ids to (re)summarize")

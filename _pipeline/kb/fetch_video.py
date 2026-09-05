@@ -1,12 +1,27 @@
-"""Video -> raw transcript markdown. Captions first (free, fast); Whisper only
-when asked and only when no English track exists."""
+"""Video -> raw transcript markdown.
+
+Order of preference per video:
+  1. YouTube captions (manual English, then auto English) - free, ~1 s.
+  2. Whisper (faster_whisper base, int8, CPU ~19x realtime here) on downloaded
+     audio - used automatically when captions are throttled or absent.
+
+YouTube rate-limits the caption endpoint after a short burst from one IP and
+the block has lasted a day; audio downloads keep working (after a yt-dlp
+update). So a Throttled caption fetch is not a failure: the run stops asking
+for captions and transcribes instead, within a per-run time budget.
+"""
 from __future__ import annotations
 
+import glob
 import json
+import os
 import subprocess
+import time
 from pathlib import Path
 
 from .notes import write_note
+
+WHISPER_MODEL = "base"
 
 
 class NoCaptions(Exception):
@@ -15,7 +30,7 @@ class NoCaptions(Exception):
 
 class Throttled(Exception):
     """YouTube rate-limited the caption endpoint (IpBlocked / HTTP 429).
-    Not the item's fault: the run stops fetching videos and retries next time."""
+    Not the item's fault."""
 
 
 def _is_throttle(exc: Exception) -> bool:
@@ -96,29 +111,66 @@ def fetch_video_meta(video_id: str) -> dict:
     )
 
 
-def transcribe_audio(video_id: str, workdir: Path) -> list:
-    """Whisper fallback. Downloads audio with yt-dlp (ffmpeg from imageio_ffmpeg)
-    and returns segment-like objects. Slow; opt-in via --whisper."""
-    import imageio_ffmpeg
-    from faster_whisper import WhisperModel
+class _Seg:
+    def __init__(self, text, start, end):
+        self.text, self.start, self.duration = text, start, end - start
 
+
+_model = None
+
+
+def _whisper():
+    global _model
+    if _model is None:
+        from faster_whisper import WhisperModel
+        _model = WhisperModel(WHISPER_MODEL, device="cpu", compute_type="int8")
+    return _model
+
+
+def download_audio(video_id: str, workdir: Path) -> Path:
+    import imageio_ffmpeg
     ff = Path(imageio_ffmpeg.get_ffmpeg_exe())
     workdir.mkdir(parents=True, exist_ok=True)
-    out = workdir / f"{video_id}.audio.m4a"
+    for old in glob.glob(str(workdir / f"{video_id}.audio.*")):
+        os.unlink(old)
+    tmpl = str(workdir / f"{video_id}.audio.%(ext)s")
     cmd = ["yt-dlp", "--js-runtimes", "node", "--no-warnings", "-f", "bestaudio[ext=m4a]/bestaudio",
-           "--ffmpeg-location", str(ff.parent), "-o", str(out),
+           "--ffmpeg-location", str(ff.parent), "-o", tmpl,
            f"https://www.youtube.com/watch?v={video_id}"]
-    subprocess.run(cmd, check=True, capture_output=True, timeout=1800)
-    model = WhisperModel("base", device="cpu", compute_type="int8")
-    segs, _ = model.transcribe(str(out), vad_filter=True)
+    r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=1800)
+    files = glob.glob(str(workdir / f"{video_id}.audio.*"))
+    if r.returncode != 0 or not files:
+        raise RuntimeError(f"audio download failed: {r.stderr[-300:]}")
+    return Path(files[0])
 
-    class _S:
-        def __init__(self, s):
-            self.text, self.start, self.duration = s.text, s.start, s.end - s.start
 
-    result = [_S(s) for s in segs]
-    out.unlink(missing_ok=True)
-    return result
+def transcribe_audio(video_id: str, workdir: Path) -> list:
+    """Whisper fallback: download audio, transcribe, delete the audio."""
+    audio = download_audio(video_id, workdir)
+    try:
+        segs, _info = _whisper().transcribe(str(audio), vad_filter=True, beam_size=1)
+        return [_Seg(s.text, s.start, s.end) for s in segs]
+    finally:
+        audio.unlink(missing_ok=True)
+
+
+def get_transcript(video_id: str, workdir: Path, captions_blocked: bool = False,
+                   captions=fetch_captions, whisper=transcribe_audio) -> tuple[list, str, bool]:
+    """-> (segments, caption_type, captions_blocked_now).
+
+    Tries captions unless the run already knows they are blocked; falls to
+    Whisper on Throttled or NoCaptions. caption_type is 'manual' | 'auto' |
+    'whisper-<model>'."""
+    if not captions_blocked:
+        try:
+            segs, ctype = captions(video_id)
+            return segs, ctype, False
+        except Throttled:
+            captions_blocked = True
+        except NoCaptions:
+            pass
+    segs = whisper(video_id, workdir)
+    return segs, f"whisper-{WHISPER_MODEL}", captions_blocked
 
 
 def write_raw_video(path: Path, item: dict, meta: dict, transcript_md: str, caption_type: str) -> None:

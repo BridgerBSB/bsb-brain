@@ -84,3 +84,33 @@ def test_keep_image_url_rejects_gif_and_svg():
     assert keep_image_url("https://x/photo.webp")
     assert not keep_image_url("https://x/loop.gif?v=2")
     assert not keep_image_url("https://x/icon.svg")
+
+
+def test_get_transcript_prefers_captions_then_whisper_on_throttle_and_nocaptions(tmp_path):
+    from kb.fetch_video import get_transcript, Throttled, NoCaptions
+    calls = []
+
+    def caps_ok(vid):
+        calls.append("caps"); return [_Seg("c", 0.0)], "auto"
+
+    def caps_throttled(vid):
+        calls.append("caps"); raise Throttled("IpBlocked")
+
+    def caps_none(vid):
+        calls.append("caps"); raise NoCaptions("x")
+
+    def whisper(vid, workdir):
+        calls.append("whisper"); return [_Seg("w", 0.0)]
+
+    segs, ctype, blocked = get_transcript("v", tmp_path, captions=caps_ok, whisper=whisper)
+    assert ctype == "auto" and not blocked and calls == ["caps"]
+    calls.clear()
+    segs, ctype, blocked = get_transcript("v", tmp_path, captions=caps_throttled, whisper=whisper)
+    assert ctype.startswith("whisper") and blocked and calls == ["caps", "whisper"]
+    calls.clear()
+    segs, ctype, blocked = get_transcript("v", tmp_path, captions=caps_none, whisper=whisper)
+    assert ctype.startswith("whisper") and not blocked
+    calls.clear()
+    # once the run knows captions are blocked it must not keep asking
+    segs, ctype, blocked = get_transcript("v", tmp_path, captions_blocked=True, captions=caps_ok, whisper=whisper)
+    assert calls == ["whisper"] and blocked
