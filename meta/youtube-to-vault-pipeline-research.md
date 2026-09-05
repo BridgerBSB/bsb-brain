@@ -52,6 +52,18 @@ none of this has to be re-fetched.
   returned them in under a second each with no download. Whisper
   (`faster_whisper`, already installed) is the fallback, using the ffmpeg
   binary bundled in `imageio_ffmpeg` (fine on the personal laptop).
+- **The home IP gets rate-limited too, just later.** First calibration run,
+  2026-09-04: about 15 caption pulls in quick succession, then every further
+  request came back `IpBlocked`, and yt-dlp's own subtitle download hit HTTP
+  429 on the same endpoint (video/audio downloads still worked). The block
+  lasted over an hour. The pipeline now treats a block as "throttled, retry
+  next run" rather than a failure, spaces caption fetches 12 s apart, and
+  backfills 8 videos per source per night. Whisper on downloaded audio is the
+  escape hatch if the limit ever tightens further.
+- **Shopify truncates `<title>` and `og:title` at ~70 characters** on the
+  Driveline blog ("...built a modern hitti"); the JSON-LD `headline` is
+  complete. **Tread posts carry animated GIF highlight loops** (7 MB) that a
+  naive figure saver keeps; skip gif/svg and cap at 2 MB.
 - **Cloud IPs are blocked by YouTube** for the transcript API in 2026
   ([issue #593](https://github.com/jdepoix/youtube-transcript-api/issues/593)),
   so the fetch step runs on the home laptop, not in a cloud routine.
