@@ -55,3 +55,15 @@ def test_discover_items_adds_only_unseen(tmp_path):
     assert st.get("a")["source"] == "driveline"
     assert st.get("a")["medium"] == "video"
     assert st.get("a")["feed"] == "youtube"
+
+
+def test_parse_tread_archive_page_real_markup():
+    from kb.discover import parse_tread_archive_page
+    html = (FX / "tread_archive.html").read_text(encoding="utf-8")
+    items = parse_tread_archive_page(html)
+    assert [i["url"] for i in items] == ["https://treadathletics.com/2024-year-in-review",
+                                         "https://treadathletics.com/2024-pro-day"]
+    assert items[0]["title"] == "2024 Year In Review"
+    assert items[0]["published"] == "2024-12-11"
+    assert items[1]["title"] == "Tread HQ: Pro Day ’24 Recap"
+    assert items[1]["id"] == "tread-blog-2024-pro-day"

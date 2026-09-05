@@ -2,8 +2,10 @@
 small functions at the bottom, replaced in tests."""
 from __future__ import annotations
 
+import html as html_mod
 import re
 import subprocess
+from datetime import datetime
 import xml.etree.ElementTree as ET
 from email.utils import parsedate_to_datetime
 from urllib.parse import urljoin, urlsplit, urlunsplit
@@ -90,17 +92,28 @@ def parse_tread_feed(xml_text: str) -> list[dict]:
 
 
 def parse_tread_archive_page(html: str) -> list[dict]:
-    """Post links on treadathletics.com/posts/page/N/ (WordPress list)."""
+    """Post links on treadathletics.com/posts/page/N/ (WordPress + Elementor:
+    <h3 class="elementor-post__title"><a href=...>Title</a></h3> followed by a
+    <span class="elementor-post-date">Month D, YYYY</span>)."""
     items, seen = [], set()
-    for m in re.finditer(r'<h\d[^>]*class="[^"]*entry-title[^"]*"[^>]*>\s*<a[^>]*href="(https://treadathletics\.com/[^"]+)"[^>]*>(.*?)</a>', html, re.S):
+    pat = re.compile(r'<h\d[^>]*class="[^"]*(?:entry-title|post__title)[^"]*"[^>]*>\s*'
+                     r'<a[^>]*href="(https://treadathletics\.com/[^"]+)"[^>]*>(.*?)</a>', re.S)
+    for m in pat.finditer(html):
         url = _clean_url(m.group(1), "https://treadathletics.com")
         if url in seen:
             continue
         seen.add(url)
-        title = re.sub(r"<[^>]+>", "", m.group(2)).strip()
+        title = html_mod.unescape(re.sub(r"<[^>]+>", "", m.group(2))).strip()
+        published = None
+        d = re.search(r'post-date">\s*([A-Za-z]+ \d{1,2}, \d{4})', html[m.end(): m.end() + 800])
+        if d:
+            try:
+                published = datetime.strptime(d.group(1), "%B %d, %Y").strftime("%Y-%m-%d")
+            except ValueError:
+                published = None
         slug = urlsplit(url).path.strip("/").rsplit("/", 1)[-1]
         items.append(dict(id=f"tread-blog-{slug}", title=title, url=url,
-                          published=None, duration_s=None))
+                          published=published, duration_s=None))
     return items
 
 
