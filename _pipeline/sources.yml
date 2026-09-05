@@ -1,0 +1,50 @@
+# Training knowledge sources. One entry per feed the nightly job watches.
+# Adding a source = add a block here. The pipeline never guesses scope; a
+# source with no `scope` block takes everything.
+#
+# kind: youtube | blog-pages | blog-rss
+# scope.exclude_domains: taxonomy domains that get value: skip from this source
+# backfill: cursor state lives in state.json, not here
+
+sources:
+  driveline-yt:
+    source: driveline
+    label: Driveline Baseball (YouTube)
+    kind: youtube
+    url: https://www.youtube.com/@drivelinebaseball/videos
+    channel_id: UC2SXF3PBsnStkiqbtZI0k9w
+
+  tread-yt:
+    source: tread
+    label: Tread Athletics (YouTube)
+    kind: youtube
+    url: https://www.youtube.com/user/treadathletics/videos
+
+  bpc-yt:
+    source: bpc
+    label: Baseball Performance Center (YouTube)
+    kind: youtube
+    url: https://www.youtube.com/@baseballperformancecenter/videos
+    scope:
+      exclude_domains: [hitting]
+
+  driveline-blog:
+    source: driveline
+    label: Driveline Baseball blog
+    kind: blog-pages
+    url: https://drivelinebaseball.com/blogs/blog
+    page_param: page          # ?page=N, 6 posts per page, ~140 pages, oldest last
+    link_pattern: '/blogs/blog/[^"?#]+'
+    save_images: true
+
+  tread-blog:
+    source: tread
+    label: Tread Athletics posts
+    kind: blog-rss
+    url: https://treadathletics.com/feed/
+    archive_url: https://treadathletics.com/posts/page/{n}/   # ~9 pages, for backfill
+    save_images: true
+
+# Future slots (same pipeline, later verbs):
+x_accounts: []          # handles; fetched via api.fxtwitter.com
+context_blogs: []       # e.g. Baseball America; value defaults to low

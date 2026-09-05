@@ -51,6 +51,10 @@ zones are yours to write freely.
 | `personal/` | Non-work notes, reflection, learning | yes |
 | `meta/` | Vault system docs (map, dual-run, MCP setup) | yes |
 | `templates/` | Note templates | yes |
+| `sources/` | Training-knowledge source notes, one per video/post (`_raw/` = immutable transcripts, `_assets/` = article figures) | pipeline + Zac |
+| `cues/` | One note per coaching cue | pipeline + Zac |
+| `_review/` | Pending source notes awaiting Zac's audit | Zac edits, pipeline moves |
+| `_pipeline/` | The nightly job: `kb.py`, `sources.yml`, `taxonomy.md`, examples, state, log | pipeline |
 
 ## The BLOCKING rules (the only thing worth pre-loading)
 
@@ -91,6 +95,28 @@ from the code workspace in `bsb-resources`.
 `/context` + `/today` → `/sunday` closes the week and seeds the next. Writes only
 ever touch write-zones; `rules/` and `memory/` stay read-only (facts are
 *proposed*, never written here).
+
+## Training knowledge (added 2026-09-04)
+
+`sources/`, `cues/`, and the training MOCs are an agent-maintained wiki of
+baseball training philosophy (Driveline, Tread, BPC, more later). Contract:
+
+- `sources/_raw/` is IMMUTABLE. Never edit a transcript or article. Every
+  claim in a source note cites its raw file by timestamp or section.
+- A note in `_review/` is a PROPOSAL. Zac edits frontmatter (`domain`,
+  `kind`, `value`), the cue list, or the `## Zac` section, then sets
+  `status: approved | edited | rejected`. `kb.py promote` files it and
+  appends the correction to `_pipeline/taxonomy.md` as a worked example.
+- Never move a note out of `_review/` by hand; never set `confidence: zac`
+  by hand. Both are the pipeline's job so the correction is recorded.
+- One cue per note in `cues/`. Two sources phrasing one cue differently =
+  one note, both phrasings, both citations. Contradictions are recorded
+  under Open questions, not resolved.
+- Schema: `_pipeline/taxonomy.md`. Design: `projects/training-knowledge/design`.
+
+Git: origin = `BridgerBSB/bsb-brain` (personal, the owner); `astros` = the
+Astros-account mirror. Push both. `00-inbox/transcripts/` is gitignored and
+must stay that way.
 
 ## Linking
 
