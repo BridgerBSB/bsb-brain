@@ -19,7 +19,7 @@ def extract_article(html: str, url: str) -> tuple[dict, str, list[str]]:
                             include_links=True, include_tables=True, favor_recall=True) or ""
     m = trafilatura.extract_metadata(html, default_url=url)
     meta = dict(
-        title=(m.title if m else None) or None,
+        title=_best_title((m.title if m else None), html),
         author=(m.author if m else None) or None,
         published=(m.date if m else None) or None,
         description=(m.description if m else None) or None,
@@ -30,6 +30,27 @@ def extract_article(html: str, url: str) -> tuple[dict, str, list[str]]:
         if src.startswith("http") and src not in images:
             images.append(src)
     return meta, md, images
+
+
+def _ldjson_headline(html: str) -> str | None:
+    """Shopify truncates <title>/og:title at ~70 chars; the JSON-LD headline is full."""
+    import json
+    for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+        try:
+            d = json.loads(m.group(1))
+        except (json.JSONDecodeError, ValueError):
+            continue
+        for node in (d if isinstance(d, list) else [d]):
+            if isinstance(node, dict) and node.get("headline"):
+                return str(node["headline"]).strip()
+    return None
+
+
+def _best_title(meta_title: str | None, html: str) -> str | None:
+    ld = _ldjson_headline(html)
+    if ld and (not meta_title or len(ld) > len(meta_title)):
+        return ld
+    return meta_title or None
 
 
 def _ext(url: str) -> str:

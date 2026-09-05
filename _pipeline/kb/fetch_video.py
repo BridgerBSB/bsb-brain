@@ -13,6 +13,16 @@ class NoCaptions(Exception):
     pass
 
 
+class Throttled(Exception):
+    """YouTube rate-limited the caption endpoint (IpBlocked / HTTP 429).
+    Not the item's fault: the run stops fetching videos and retries next time."""
+
+
+def _is_throttle(exc: Exception) -> bool:
+    s = f"{type(exc).__name__}: {exc}"
+    return any(k in s for k in ("IpBlocked", "RequestBlocked", "429", "Too Many Requests"))
+
+
 def _ts(seconds: float) -> str:
     s = int(seconds)
     h, rem = divmod(s, 3600)
@@ -57,7 +67,14 @@ def pick_transcript(tracks) -> tuple[list, str]:
 def fetch_captions(video_id: str) -> tuple[list, str]:
     from youtube_transcript_api import YouTubeTranscriptApi
     api = YouTubeTranscriptApi()
-    return pick_transcript(api.list(video_id))
+    try:
+        return pick_transcript(api.list(video_id))
+    except NoCaptions:
+        raise
+    except Exception as e:  # the library raises many classes; classify by message
+        if _is_throttle(e):
+            raise Throttled(type(e).__name__) from e
+        raise
 
 
 def fetch_video_meta(video_id: str) -> dict:

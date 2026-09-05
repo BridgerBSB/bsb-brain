@@ -69,3 +69,10 @@ def test_rewrite_image_links_maps_saved_only():
     out = rewrite_image_links(md, {"https://x/2.png?v=1": "sources/_assets/driveline/slug/02.png"})
     assert "![fig](https://x/1.png)" in out
     assert "![](sources/_assets/driveline/slug/02.png)" in out
+
+
+def test_best_title_prefers_full_ldjson_headline():
+    from kb.fetch_blog import _best_title
+    html = ('<script type="application/ld+json">{"@type":"Article","headline":"Full title that Shopify clipped in og"}</script>')
+    assert _best_title("Full title that Shopify clipp", html) == "Full title that Shopify clipped in og"
+    assert _best_title("Longer meta title wins here ok", "<html></html>") == "Longer meta title wins here ok"

@@ -33,6 +33,7 @@ from kb import promote as P                           # noqa: E402
 from kb import lint as L                              # noqa: E402
 
 SLEEP = 2.5           # seconds between network calls
+VIDEO_SLEEP = 12      # seconds between caption fetches; ~15 rapid pulls earned an IP block on 2026-09-04
 QUEUE_CAP = 40        # never leave more than this many pending for Zac
 NIGHTLY_BATCH = 8     # backfill items per source per night
 
@@ -165,17 +166,24 @@ def cmd_fetch(paths, state, args):
     if args.limit:
         todo = todo[: args.limit]
     ok = bad = 0
+    videos_blocked = False
     for item in todo:
+        if item["medium"] == "video" and videos_blocked:
+            continue                      # leave as `new`; next run retries
         try:
             _fetch_one(paths, state, item, args.whisper, save_images.get(item["source"], False))
             ok += 1
+        except FV.Throttled as e:
+            videos_blocked = True
+            state.update(item["id"], throttled_at=time.strftime("%Y-%m-%dT%H:%M"))
+            log(paths, f"fetch: YouTube throttled captions ({e}); skipping remaining videos this run")
         except Exception as e:
             state.set_status(item["id"], "failed", error=f"{type(e).__name__}: {str(e)[:200]}")
             bad += 1
             print(f"  fetch {item['id']}: {type(e).__name__}: {str(e)[:120]}")
         state.save()
-        time.sleep(SLEEP)
-    log(paths, f"fetch: {ok} ok, {bad} failed")
+        time.sleep(VIDEO_SLEEP if item["medium"] == "video" else SLEEP)
+    log(paths, f"fetch: {ok} ok, {bad} failed" + (", videos throttled" if videos_blocked else ""))
     return ok
 
 
