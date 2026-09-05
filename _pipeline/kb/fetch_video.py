@@ -21,7 +21,10 @@ from pathlib import Path
 
 from .notes import write_note
 
-WHISPER_MODEL = "base"
+WHISPER_MODEL = "small"   # base = 19x realtime but garbles domain words ("tone of elows"); small = 7x, cues survive
+WHISPER_PROMPT = ("Baseball pitching and hitting training: velo, velocity, mph, plyo balls, weighted balls, "
+                  "long toss, arm action, hip-shoulder separation, lead leg block, trunk rotation, bat speed, "
+                  "attack angle, Driveline, Tread Athletics, Trackman, Rapsodo, mobility, med ball, deload.")
 
 
 class NoCaptions(Exception):
@@ -148,7 +151,8 @@ def transcribe_audio(video_id: str, workdir: Path) -> list:
     """Whisper fallback: download audio, transcribe, delete the audio."""
     audio = download_audio(video_id, workdir)
     try:
-        segs, _info = _whisper().transcribe(str(audio), vad_filter=True, beam_size=1)
+        segs, _info = _whisper().transcribe(str(audio), vad_filter=True, beam_size=1,
+                                            initial_prompt=WHISPER_PROMPT)
         return [_Seg(s.text, s.start, s.end) for s in segs]
     finally:
         audio.unlink(missing_ok=True)
