@@ -42,3 +42,14 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-06 06:58 discover tread-blog (new): 10 seen, 0 new
 - 2026-09-06 08:14 fetch: 29 ok, 8 failed, 0 deferred; whisper 0 min
 - 2026-09-06 08:14 rejected 2009-10-12-welcome-to-driveline-baseball
+- 2026-09-06 08:14 promote: 0 promoted, 1 rejected, 0 corrections
+- 2026-09-06 08:15 discover driveline-yt: ERROR yt-dlp failed: ERROR: [youtube:tab] @drivelinebaseball/videos: Unable to download API page: <urllib3.connection.HTTPSConnection object at 0x0000019DBA16C920>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x0000019DBA16C920>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed)"))
+
+- 2026-09-06 08:15 discover tread-yt: ERROR yt-dlp failed: ERROR: [youtube:tab] treadathletics/videos: Unable to download API page: <urllib3.connection.HTTPSConnection object at 0x000001616DB9CDD0>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x000001616DB9CDD0>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed)"))
+
+- 2026-09-06 08:15 discover bpc-yt: ERROR yt-dlp failed: ERROR: [youtube:tab] @baseballperformancecenter/videos: Unable to download API page: <urllib3.connection.HTTPSConnection object at 0x00000156F58DCB30>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x00000156F58DCB30>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed)"))
+
+- 2026-09-06 08:15 discover driveline-blog: ERROR HTTPSConnectionPool(host='drivelinebaseball.com', port=443): Max retries exceeded with url: /blogs/blog?page=139 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019E8724A840>: Failed to resolve 'drivelinebaseball.com' ([Errno 11001] getaddrinfo failed)"))
+- 2026-09-06 08:15 discover tread-blog (backfill): 0 seen, 0 new
+- 2026-09-06 08:15 fetch: 0 ok, 0 failed, 0 deferred; whisper 0 min
+- 2026-09-06 08:19 summarize: 0 ok, 1 failed (queue had room for 1)
