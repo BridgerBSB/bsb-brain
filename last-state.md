@@ -1,4 +1,23 @@
-# Last session state - 2026-09-06 12:50
+# Last session state - 2026-09-06 14:52 (V2 Overview tab + multi-outing selector)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` (Arm Farm) - branch `feature/bullpen-reports`
+- **Recall checkpoint (SOURCE OF TRUTH):** session `8d5b` - domain `bsb-wt-bullpen/feature/bullpen-reports` - id `e83411b5e9fd1d1e`
+- **What we were doing:** built the Postgame V2 **Overview tab** to match Zac's Pitch Profiler reference, wired it to a **multi-outing selector that drives both tabs**, and chased the percentile/label confusion it surfaced.
+- **Shipped this session:** 15 commits `7baf614f`..`17d7245b` + a LINEAGE entry, all pushed.
+  - `src/postgame_v2_overview.py` - Release Point (to-scale mound + extension side profile), Movement, usage butterfly, 5 KDE location panels, arsenal table. Built from the Performance tab's OWN primitives so the two cannot drift.
+  - Outing selectbox -> **multiselect + Select All**, driving both tabs. `game_date_predicate` / `latest_game_date` widen every game-scoped query while a plain STRING stays byte-identical - the safety property that keeps the PDF CLI unchanged. `--also-date` for rule #11 parity.
+  - **"Proj" was already taken**: `postgame_data.py:125` binds it to `ppg.fb_grade`. Relabelling stuffrelvelloc would have been two facts under one label. Now the real Proj, inherits the existing pool, no re-pin.
+  - **The flip trap**: `enrich_pitches` puts break/release/plate_x in PITCHER'S view; the season frame is RAW, the game frame is ENRICHED. Switching the tab to the selection inverted the tilt sign (`compute_tilt` wants RAW).
+  - **Select All was the CAREER** - `get_game_sessions` has no season predicate, so 11,036 career pitches were ranked against ONE season's pool. `_season_scoped` fixes it.
+  - Row-1 bar ranks the SEASON value, not the GAME value - now labelled `SEASON %ILE` on app AND PDF.
+  - 3 new guards: `test_v2_multi_date.py` (27 checks, red 4 ways), `test_manifest_covers_imports.py` (the missing-module class that took the whole page down), `test_v2_no_undefined_names.py` (pyflakes, proven red on the exact `row` NameError). **14 guards green.**
+- **EXACT next step:** Zac deployed BEFORE `17d7245b`. Work laptop: `cd C:/Users/zbridger/bsb-wt-bullpen ; git pull`, then `cd bullpen-report ; rsconnect deploy manifest . --app-id 13482bcb-8ff2-4f20-92c9-5465f49e5846`. Then open the **CONTENT** url (NOT `connect/#/apps/...` - that iframes the app and eats the query param): `https://connect2.astros.com/content/13482bcb-8ff2-4f20-92c9-5465f49e5846/?diag=1`, hit Select All, paste the Load-time table. Only SEASON-scoped rows are pin candidates; `overview.loc.*` depends on the SELECTION and can never be pinned.
+- **Blockers / waiting on:** the timing table. **Unresolved:** `Barrel%` on the V2 card is the pBarrel curve (`postgame_v2_card.py:102`) while Zac believes it is standard MLB Barrel% (`eoy_pitcher_data.py:898`) - relabel, or swap the metric (swap = pool rebuild + re-pin). Also unsaid on the card: xBA/xSLG are per-BIP, xwOBA is per-PA. **Nothing in the multi-date path has met a database.** No PDF page for the Overview yet, held until the layout is signed off.
+- **Uncommitted work:** 1 file (`.claude/rules/blank-must-not-overwrite.md`), from the OTHER thread below - left alone.
+
+---
+
+## ALSO OPEN - 2026-09-06 12:50
 - **Project / cwd:** `C:\Users\Owner\bsb-wt-bullpen` (Arm Farm) · branch `feature/bullpen-reports` (shell cwd was `bsb-resources`, which sits on `fix/eoy-sc-card-height` for another thread)
 - **Recall checkpoint:** `64cfc2450ec273fd` (session `54ce`, domain `bsb-wt-bullpen/feature/bullpen-reports`)
 - **What we were doing:** the 2026 in-season stuff deterioration study (FB Velo / StuffRelVel / Loc / Proj by level, SP vs RP, by pitch type, HOU arms vs their level), moved to Arm Farm and rebuilt on cohort rule C2; the AA-vs-AAA deck sent to Sam; then Sam's three follow-ups (HOU vs NYY/TB/LAD, per-level values, FF/FT bucketing).
