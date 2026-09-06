@@ -34,3 +34,11 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-05 13:49 fetch: YouTube throttled captions; Whisper for the rest of this run
 - 2026-09-05 15:25 fetch: 49 ok, 19 failed, 36 deferred; whisper 90 min, captions throttled
 - 2026-09-05 15:33 summarize: 7 ok, 0 failed (queue had room for 7)
+- 2026-09-06 06:57 run: start
+- 2026-09-06 06:58 discover driveline-yt (new): 30 seen, 0 new
+- 2026-09-06 06:58 discover tread-yt (new): 30 seen, 0 new
+- 2026-09-06 06:58 discover bpc-yt (new): 30 seen, 1 new
+- 2026-09-06 06:58 discover driveline-blog (new): 6 seen, 0 new
+- 2026-09-06 06:58 discover tread-blog (new): 10 seen, 0 new
+- 2026-09-06 08:14 fetch: 29 ok, 8 failed, 0 deferred; whisper 0 min
+- 2026-09-06 08:14 rejected 2009-10-12-welcome-to-driveline-baseball
