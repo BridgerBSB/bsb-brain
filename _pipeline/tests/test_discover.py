@@ -67,3 +67,15 @@ def test_parse_tread_archive_page_real_markup():
     assert items[0]["published"] == "2024-12-11"
     assert items[1]["title"] == "Tread HQ: Pro Day ’24 Recap"
     assert items[1]["id"] == "tread-blog-2024-pro-day"
+
+
+def test_discover_marks_same_title_same_source_as_duplicate(tmp_path):
+    st = State.load(tmp_path / "s.json")
+    feed = {"source": "tread", "kind": "blog-rss"}
+    discover_items(st, feed, [dict(id="tread-blog-2025-update", title="2025 Update: 17 picks", url="u1", published="2025-07-20", duration_s=None)])
+    discover_items(st, feed, [dict(id="tread-blog-2025-mid-season", title="2025 Update: 17 Picks!", url="u2", published="2025-09-19", duration_s=None)])
+    assert st.get("tread-blog-2025-mid-season")["status"] == "duplicate"
+    assert st.get("tread-blog-2025-mid-season")["duplicate_of"] == "tread-blog-2025-update"
+    # a different source with the same title is NOT a duplicate
+    discover_items(st, {"source": "driveline", "kind": "blog-pages"}, [dict(id="dl-x", title="2025 Update: 17 picks", url="u3", published=None, duration_s=None)])
+    assert st.get("dl-x")["status"] == "new"

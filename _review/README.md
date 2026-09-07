@@ -31,6 +31,11 @@ and the domain MOC, and appends your correction to `_pipeline/taxonomy.md`
 under Worked examples. After ~30 reviews per source, the summarizer is
 reading your corrections on every run.
 
+Two generated files live here too: `duplicates.md` (every note that covers the
+same video or post, keep one and mark the rest `duplicate`) and `auto-low.md`
+(marketing and low-value items the pipeline filed WITHOUT review, under
+`sources/<source>/_low/`; skim the titles and rescue any that deserve a note).
+
 Do not move files out of here by hand and do not edit `sources/_raw/`.
 Definitions live in `_pipeline/taxonomy.md`; change them there when a
 pattern keeps repeating.

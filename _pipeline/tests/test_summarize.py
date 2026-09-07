@@ -251,3 +251,48 @@ def test_resummarize_overwrites_tracked_note(tmp_path):
     out = summarize_item(p, st, st.get("vid1"), run=fake)
     assert out.name == "2026-08-01-old-slug.md"
     assert len(list(p.review.glob("*.md"))) == 1
+
+
+def test_summarize_marketing_is_auto_filed_low_not_queued(tmp_path):
+    p = _vault(tmp_path)
+    st = State.load(p.state)
+    st.add(dict(id="vid1", source="tread", medium="video", url=RAW_FM["url"], title=RAW_FM["title"],
+                published="2026-08-01", raw=p.rel(p.raw_file("tread", "vid1"))))
+    st.set_status("vid1", "fetched")
+    out = summarize_item(p, st, st.get("vid1"), run=lambda i, s, m: '{"kind":"marketing","domain":["business"]}')
+    assert out.parent == p.low_dir("tread")
+    meta, _ = read_note(out)
+    assert meta["status"] == "auto-low" and meta["value"] == "low"
+    assert st.get("vid1")["status"] == "filed-low"
+    assert not list(p.review.glob("*.md"))
+
+
+def test_rescue_forces_full_note_into_review(tmp_path):
+    p = _vault(tmp_path)
+    st = State.load(p.state)
+    st.add(dict(id="vid1", source="tread", medium="video", url=RAW_FM["url"], title=RAW_FM["title"],
+                published="2026-08-01", raw=p.rel(p.raw_file("tread", "vid1"))))
+    st.set_status("vid1", "fetched")
+    low = summarize_item(p, st, st.get("vid1"), run=lambda i, s, m: '{"kind":"marketing","domain":["business"]}')
+    assert low.exists()
+
+    def fake(instruction, stdin, model):
+        return '{"kind":"marketing","domain":["business"]}' if model == "haiku" else FULL_NOTE
+
+    out = summarize_item(p, st, st.get("vid1"), run=fake, force_full=True)
+    assert out.parent == p.review and not low.exists()
+    assert st.get("vid1")["status"] == "summarized"
+
+
+def test_summarize_skips_when_another_note_already_covers_the_raw(tmp_path):
+    p = _vault(tmp_path)
+    st = State.load(p.state)
+    st.add(dict(id="vid1", source="tread", medium="video", url=RAW_FM["url"], title=RAW_FM["title"],
+                published="2026-08-01", raw=p.rel(p.raw_file("tread", "vid1"))))
+    st.set_status("vid1", "fetched")
+    p.review.mkdir(exist_ok=True)
+    write_note(p.review / "someone-elses-copy.md", dict(type="source", raw="sources/_raw/tread/vid1.md", url="x"), "# c\n")
+    out = summarize_item(p, st, st.get("vid1"), run=lambda i, s, m: "should not be called")
+    assert out is None
+    assert st.get("vid1")["status"] == "duplicate"
+    assert st.get("vid1")["duplicate_of"] == "_review/someone-elses-copy.md"

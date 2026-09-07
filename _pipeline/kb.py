@@ -7,6 +7,7 @@
   python kb.py promote   [--no-git]
   python kb.py lint
   python kb.py run       [--no-git]              the nightly sequence
+  python kb.py rescue    --id=ID                  re-summarize an auto-filed low item as a FULL note into _review
   python kb.py retry     --id=ID                  failed item -> fetched (raw exists) or new. Use --id= : YouTube ids can start with "-"
   python kb.py status
 
@@ -280,6 +281,18 @@ def cmd_retry(paths, state, args):
     state.save()
 
 
+def cmd_rescue(paths, state, args):
+    sources = load_sources(paths)
+    excl = {f["source"]: f["scope"]["exclude_domains"] for f in sources.values() if f.get("scope", {}).get("exclude_domains")}
+    for iid in args.id.split(","):
+        rec = state.get(iid)
+        if not rec or not rec.get("raw"):
+            sys.exit(f"no fetched item {iid}")
+        out = S.summarize_item(paths, state, rec, exclude_domains=excl.get(rec["source"]), force_full=True)
+        print(f"{iid} -> {out}")
+    state.save()
+
+
 def cmd_status(paths, state, args):
     from collections import Counter
     c = Counter((r["source"], r["status"]) for r in state.data["items"].values())
@@ -290,7 +303,7 @@ def cmd_status(paths, state, args):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("verb", choices=["discover", "backfill", "fetch", "summarize", "promote", "lint", "run", "retry", "status"])
+    ap.add_argument("verb", choices=["discover", "backfill", "fetch", "summarize", "promote", "lint", "run", "retry", "rescue", "status"])
     ap.add_argument("--source", help="driveline | tread | bpc")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--from", dest="frm", choices=["newest", "oldest"], default="oldest")
@@ -321,6 +334,8 @@ def main(argv=None):
         cmd_run(paths, state, args)
     elif args.verb == "retry":
         cmd_retry(paths, state, args)
+    elif args.verb == "rescue":
+        cmd_rescue(paths, state, args)
     elif args.verb == "status":
         cmd_status(paths, state, args)
 

@@ -10,7 +10,7 @@ import yaml
 DOMAINS = ("pitching", "hitting", "strength", "anatomy-movement", "mental", "business")
 KINDS = ("instruction", "philosophy", "research", "interview", "athlete-story", "marketing")
 VALUES = ("high", "med", "low", "skip")
-STATUSES = ("pending", "approved", "edited", "rejected", "duplicate")
+STATUSES = ("pending", "approved", "edited", "rejected", "duplicate", "auto-low")
 REQUIRED = ("type", "source", "medium", "title", "url", "published", "domain",
             "kind", "value", "status", "raw", "cues", "concepts", "confidence")
 

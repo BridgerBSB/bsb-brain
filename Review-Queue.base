@@ -1,5 +1,5 @@
 formulas:
-  value_icon: if(value == "high", "🔥 high", if(value == "med", "🟡 med", if(value == "low", "⚪ low", if(value == "skip", "⛔ skip", value))))
+  value_icon: 'if(value == "high", "🔥 high", if(value == "med", "🟡 med", if(value == "low", "⚪ low", if(value == "skip", "⛔ skip", value))))'
 properties:
   file.name:
     displayName: Note
@@ -24,9 +24,9 @@ views:
     name: To grade
     filters:
       and:
-        - type == "source"
-        - status == "pending"
-        - file.inFolder("_review")
+        - 'type == "source"'
+        - 'status == "pending"'
+        - 'file.inFolder("_review")'
     groupBy:
       property: source
       direction: ASC
@@ -43,9 +43,9 @@ views:
     name: Graded, files tonight
     filters:
       and:
-        - type == "source"
-        - status != "pending"
-        - file.inFolder("_review")
+        - 'type == "source"'
+        - 'status != "pending"'
+        - 'file.inFolder("_review")'
     order:
       - file.name
       - status
@@ -56,8 +56,11 @@ views:
     name: Filed
     filters:
       and:
-        - type == "source"
-        - file.inFolder("sources")
+        - 'type == "source"'
+        - 'file.inFolder("sources")'
+        - 'status != "auto-low"'
+        - 'status != "rejected"'
+        - 'status != "duplicate"'
     groupBy:
       property: source
       direction: ASC
@@ -67,4 +70,19 @@ views:
       - formula.value_icon
       - domain
       - cues
+      - drills
+      - published
+  - type: table
+    name: Auto-filed low (unreviewed)
+    filters:
+      and:
+        - 'type == "source"'
+        - 'status == "auto-low"'
+    groupBy:
+      property: source
+      direction: ASC
+    order:
+      - file.name
+      - kind
+      - domain
       - published

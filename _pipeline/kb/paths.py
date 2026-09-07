@@ -25,6 +25,9 @@ class VaultPaths:
         self.drills = self.root / "drills"
         self.concepts = self.root / "concepts"
 
+    def low_dir(self, source: str) -> Path:
+        return self.sources / source / "_low"
+
     def raw_file(self, source: str, item_id: str) -> Path:
         return self.raw / source / f"{item_id}.md"
 

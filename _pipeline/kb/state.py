@@ -13,7 +13,7 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-STATUSES = ("new", "fetched", "summarized", "promoted", "rejected", "skipped", "failed")
+STATUSES = ("new", "fetched", "summarized", "promoted", "rejected", "skipped", "failed", "duplicate", "filed-low")
 
 
 def _now() -> str:

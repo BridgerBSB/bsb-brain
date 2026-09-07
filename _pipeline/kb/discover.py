@@ -119,13 +119,32 @@ def parse_tread_archive_page(html: str) -> list[dict]:
 
 # --- state plumbing ----------------------------------------------------------
 
+def _title_key(title) -> str:
+    import re as _re
+    return _re.sub(r"[^a-z0-9]+", " ", str(title or "").lower()).strip()
+
+
 def discover_items(state: State, feed: dict, found: list[dict]) -> int:
+    """Add unseen items. A second item from the SAME source with the SAME title
+    (Tread republishes a post at a new URL) is recorded as `duplicate` of the
+    first, so it is never fetched or queued."""
     medium = "video" if feed["kind"] == "youtube" else "blog"
+    known = {}
+    for r in state.data["items"].values():
+        if r.get("source") == feed["source"] and r.get("title"):
+            known.setdefault(_title_key(r["title"]), r["id"])
     n = 0
     for it in found:
         rec = dict(it, source=feed["source"], medium=medium, feed=feed["kind"])
+        key = _title_key(it.get("title"))
+        first = known.get(key) if key else None
+        if first and first != it["id"]:
+            rec["status"] = "duplicate"
+            rec["duplicate_of"] = first
         if state.add(rec):
             n += 1
+            if key and not first:
+                known[key] = it["id"]
     return n
 
 

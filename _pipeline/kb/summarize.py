@@ -149,8 +149,23 @@ def _moc(domain: str) -> str | None:
 
 # --- the main entry -----------------------------------------------------------
 
+def existing_note_for(paths: VaultPaths, raw_rel: str, url: str, exclude: Path | None = None) -> Path | None:
+    """A note anywhere in _review/ or sources/ that already covers this raw or url."""
+    cands = list(paths.review.glob("*.md")) + list(paths.sources.glob("*/*.md")) + list(paths.sources.glob("*/_*/*.md"))
+    for f in cands:
+        if exclude and f.resolve() == Path(exclude).resolve():
+            continue
+        try:
+            m, _ = read_note(f)
+        except ValueError:
+            continue
+        if m.get("type") == "source" and (m.get("raw") == raw_rel or (url and m.get("url") == url)):
+            return f
+    return None
+
+
 def summarize_item(paths: VaultPaths, state: State, item: dict, run=run_claude,
-                   exclude_domains: list[str] | None = None) -> Path | None:
+                   exclude_domains: list[str] | None = None, force_full: bool = False) -> Path | None:
     iid = item["id"]
     raw_path = paths.root / item["raw"]
     raw_text = raw_path.read_text(encoding="utf-8")
@@ -158,13 +173,21 @@ def summarize_item(paths: VaultPaths, state: State, item: dict, run=run_claude,
     raw_rel = paths.rel(raw_path)
     title = raw_meta.get("title") or item.get("title") or "untitled"
 
+    prior = item.get("note")
+    prior_path = (paths.root / prior) if prior else None
+    dup = existing_note_for(paths, raw_rel, item.get("url"), exclude=prior_path)
+    if dup is not None and not force_full:
+        state.update(iid, duplicate_of=paths.rel(dup))
+        state.set_status(iid, "duplicate")
+        return None
+
     tri = triage(_prompt(paths, "triage"), item["source"], title, description, raw_body, run=run)
     if tri is None:
         tri = {"kind": "instruction", "domain": ["pitching"]}   # let Sonnet decide; still validated
 
     excluded = exclude_domains and any(d in exclude_domains for d in tri["domain"])
 
-    if tri["kind"] == "marketing" or excluded:
+    if (tri["kind"] == "marketing" and not force_full) or excluded:
         meta, body = low_value_note(item, raw_meta, raw_rel, tri)
         if excluded:
             meta["value"] = "skip"
@@ -216,14 +239,22 @@ def summarize_item(paths: VaultPaths, state: State, item: dict, run=run_claude,
     if excluded:
         meta["value"] = "skip"
 
-    prior = item.get("note")
-    if prior and prior.startswith("_review/") and (paths.root / prior).exists():
+    # low-value notes never enter the queue: Zac rejected essentially all of them
+    # (2026-09-06). They are filed under sources/<source>/_low/ with status auto-low,
+    # listed in _review/auto-low.md by lint, and `kb.py rescue --id=` brings one back.
+    auto_low = meta["value"] == "low" and not force_full
+    if auto_low:
+        meta["status"] = "auto-low"
+    if prior and prior.startswith("_review/") and (paths.root / prior).exists() and not auto_low:
         out_path = paths.root / prior          # re-run: same file, no apostrophe-variant twins
     else:
-        out_path = paths.review / f"{note_name(meta['published'], title)}.md"
+        folder = paths.low_dir(item["source"]) if auto_low else paths.review
+        out_path = folder / f"{note_name(meta['published'], title)}.md"
+        if prior and (paths.root / prior).exists() and (paths.root / prior).resolve() != out_path.resolve():
+            (paths.root / prior).unlink()      # moving from queue to _low on a rescue reversal, or vice versa
     write_note(out_path, meta, body)
     state.update(iid, note=paths.rel(out_path),
                  proposal=dict(domain=list(meta["domain"]), kind=meta["kind"],
                                value=meta["value"], cues=list(meta["cues"]), drills=list(meta["drills"])))
-    state.set_status(iid, "skipped" if meta["value"] == "skip" else "summarized")
+    state.set_status(iid, "skipped" if meta["value"] == "skip" else ("filed-low" if auto_low else "summarized"))
     return out_path
