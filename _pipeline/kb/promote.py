@@ -13,7 +13,7 @@ from .paths import VaultPaths
 from .slug import cue_slug, drill_slug
 from .state import State
 
-REVIEWED = ("approved", "edited", "rejected")
+REVIEWED = ("approved", "edited", "rejected", "duplicate")   # duplicate = rejected, logged as such
 _CUE_LINE = re.compile(r'^\s*-\s*\*\*"(.+?)"\*\*\s*-\s*(.*)$')
 _DRILL_LINE = re.compile(r'^\s*-\s*\*\*([^"*][^*]*?)\*\*\s*-\s*(.*)$')
 _MOC_FOR = {"pitching": "MOC-pitching", "hitting": "MOC-hitting", "strength": "MOC-strength",
@@ -250,7 +250,7 @@ def promote_all(paths: VaultPaths, state: State, git: bool = True) -> dict:
             res["examples"] += 1
 
         meta["confidence"] = "zac"
-        if meta["status"] == "rejected":
+        if meta["status"] in ("rejected", "duplicate"):
             dest = paths.sources / item["source"] / "_rejected" / note.name
             write_note(dest, meta, body)
             note.unlink()
@@ -258,7 +258,7 @@ def promote_all(paths: VaultPaths, state: State, git: bool = True) -> dict:
             state.set_status(item["id"], "rejected")
             res["rejected"] += 1
             touched.append(dest)
-            _log(paths, f"rejected {stem}")
+            _log(paths, f"{meta['status']} {stem}")
             res["touched"] += touched
             continue
 

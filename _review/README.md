@@ -22,6 +22,7 @@ under a minute:
    - `approved` - file it as is
    - `edited` - file it, and record what you changed as a training example
    - `rejected` - file it under `_rejected/`, no cues, no links
+   - `duplicate` - same as rejected, for a second copy of a note you already graded
    Leave `pending` to come back later.
 
 The next nightly run (or `python _pipeline\kb.py promote`) moves the note to

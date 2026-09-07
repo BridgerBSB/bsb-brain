@@ -9,8 +9,11 @@ are overwritten no matter what the model wrote.
 from __future__ import annotations
 
 import json
+import os
 import re
+import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 
 from .notes import (parse_note_text, read_note, validate_source_meta, write_note,
@@ -25,15 +28,27 @@ TRIAGE_HEAD_CHARS = 2000
 MAX_RAW_CHARS = 120_000   # ~30k tokens; a 1 h video is ~60k chars
 
 
+def claude_exe() -> str:
+    """The current claude.exe, not whatever shim a scheduler's PATH finds first."""
+    local = Path.home() / ".local" / "bin" / "claude.exe"
+    return str(local) if local.exists() else (shutil.which("claude") or "claude")
+
+
+_SANDBOX = Path(tempfile.gettempdir()) / "bsb-kb-claude-sandbox"
+
+
 def run_claude(instruction: str, stdin_text: str, model: str) -> str:
     # Both flags on purpose: `--tools ""` is dropped somewhere between Python's
     # subprocess and the claude launcher on Windows (a Sonnet run WROTE its note
     # to sources/tread/ instead of printing it, 2026-09-04). A non-empty
     # --disallowedTools list cannot be dropped.
-    cmd = ["claude", "-p", instruction, "--model", model, "--output-format", "text",
+    cmd = [claude_exe(), "-p", instruction, "--model", model, "--output-format", "text",
            "--tools", "", "--disallowedTools", NO_TOOLS, "--no-session-persistence"]
+    # cwd is a scratch dir OUTSIDE the vault: a model that writes a file anyway
+    # (it happened twice, 2026-09-04 and 09-06) lands there, never in _review/.
+    _SANDBOX.mkdir(parents=True, exist_ok=True)
     r = subprocess.run(cmd, input=stdin_text, capture_output=True, text=True,
-                       encoding="utf-8", errors="replace", timeout=900)
+                       encoding="utf-8", errors="replace", timeout=900, cwd=str(_SANDBOX))
     if r.returncode != 0:
         raise RuntimeError(f"claude -p failed ({r.returncode}): {r.stderr[-400:]}")
     return r.stdout
@@ -201,8 +216,11 @@ def summarize_item(paths: VaultPaths, state: State, item: dict, run=run_claude,
     if excluded:
         meta["value"] = "skip"
 
-    name = note_name(meta["published"], title)
-    out_path = paths.review / f"{name}.md"
+    prior = item.get("note")
+    if prior and prior.startswith("_review/") and (paths.root / prior).exists():
+        out_path = paths.root / prior          # re-run: same file, no apostrophe-variant twins
+    else:
+        out_path = paths.review / f"{note_name(meta['published'], title)}.md"
     write_note(out_path, meta, body)
     state.update(iid, note=paths.rel(out_path),
                  proposal=dict(domain=list(meta["domain"]), kind=meta["kind"],

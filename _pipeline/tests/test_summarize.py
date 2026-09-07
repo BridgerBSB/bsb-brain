@@ -216,3 +216,38 @@ def test_run_claude_command_disables_tools_twice(monkeypatch):
     assert cmd[cmd.index("--tools") + 1] == ""
     assert "Write" in cmd[cmd.index("--disallowedTools") + 1]
     assert "--no-session-persistence" in cmd
+
+
+def test_run_claude_uses_explicit_exe_and_sandbox_cwd(monkeypatch):
+    import kb.summarize as S
+    seen = {}
+
+    class R:
+        returncode, stdout, stderr = 0, "ok", ""
+
+    def fake_run(cmd, **kw):
+        seen["cmd"], seen["kw"] = cmd, kw
+        return R()
+
+    monkeypatch.setattr(S.subprocess, "run", fake_run)
+    S.run_claude("do", "text", "haiku")
+    assert seen["cmd"][0].lower().endswith("claude.exe") or seen["cmd"][0] == "claude"
+    assert "bsb-kb-claude-sandbox" in seen["kw"]["cwd"]
+
+
+def test_resummarize_overwrites_tracked_note(tmp_path):
+    p = _vault(tmp_path)
+    st = State.load(p.state)
+    st.add(dict(id="vid1", source="tread", medium="video", url=RAW_FM["url"], title=RAW_FM["title"],
+                published="2026-08-01", raw=p.rel(p.raw_file("tread", "vid1"))))
+    st.set_status("vid1", "fetched")
+    p.review.mkdir(exist_ok=True)
+    (p.review / "2026-08-01-old-slug.md").write_text("---\ntype: source\n---\n# old\n", encoding="utf-8")
+    st.update("vid1", note="_review/2026-08-01-old-slug.md")
+
+    def fake(instruction, stdin, model):
+        return '{"kind":"instruction","domain":["pitching"]}' if model == "haiku" else FULL_NOTE
+
+    out = summarize_item(p, st, st.get("vid1"), run=fake)
+    assert out.name == "2026-08-01-old-slug.md"
+    assert len(list(p.review.glob("*.md"))) == 1
