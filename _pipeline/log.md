@@ -94,3 +94,6 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-06 17:56 promoted 2026-09-02-what-your-long-toss-distance-says-about-your-velocity (instruction/high, 0 cues, 0 drills)
 - 2026-09-06 17:56 promoted 2026-09-04-how-a-struggling-juco-player-worked-with-driveline-to-reach (athlete-story/med, 0 cues, 0 drills)
 - 2026-09-06 17:56 promoted tread-CxObu-w6cJw (instruction/high, 3 cues, 0 drills, corrected)
+- 2026-09-06 17:56 promote: 21 promoted, 17 rejected, 2 corrections
+- 2026-09-06 18:39 fetch: 5 ok, 13 failed, 0 deferred; whisper 18 min
+- 2026-09-06 19:38 summarize: 39 ok, 1 failed (queue had room for 40)
