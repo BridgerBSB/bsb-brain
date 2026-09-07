@@ -3,17 +3,21 @@ type: source
 source: driveline
 medium: video
 title: Weighted Baseballs, Wrist Weights, and Arm Injuries - Q&A with drivelinebaseball.com (May 1st)
-url: "https://www.youtube.com/watch?v=Uy5i4piUtH0"
-published: '2012-05-01'
+url: https://www.youtube.com/watch?v=Uy5i4piUtH0
+published: 2012-05-01
 author: Driveline Baseball
 duration_s: 699
-domain: [pitching, strength, anatomy-movement]
+domain:
+  - pitching
+  - strength
+  - anatomy-movement
 kind: interview
 value: med
-status: pending
+status: approved
 raw: sources/_raw/driveline/Uy5i4piUtH0.md
 cues: []
-concepts: [armcare-bridger]
+concepts:
+  - armcare-bridger
 confidence: agent
 ---
 # Weighted Baseballs, Wrist Weights, and Arm Injuries - Q&A with drivelinebaseball.com (May 1st)

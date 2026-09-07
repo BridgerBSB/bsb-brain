@@ -3,13 +3,16 @@ type: source
 source: tread
 medium: blog
 title: Gain Muscle to Pitch Harder and Increase Velocity
-url: "https://treadathletics.com/mass-equals-gas-why-muscle-matters-for-pitching-velocity"
-published: '2015-07-30'
+url: https://treadathletics.com/mass-equals-gas-why-muscle-matters-for-pitching-velocity
+published: 2015-07-30
 author: Ben Brewster
-domain: [pitching, strength, anatomy-movement]
+domain:
+  - pitching
+  - strength
+  - anatomy-movement
 kind: philosophy
 value: high
-status: pending
+status: approved
 raw: sources/_raw/tread/tread-blog-mass-equals-gas-why-muscle-matters-for-pitching-velocity.md
 cues: []
 concepts: []

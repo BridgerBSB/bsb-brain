@@ -3,16 +3,19 @@ type: source
 source: bpc
 medium: video
 title: Why Pulling Your Torso K*LLS Your VELO!
-url: "https://www.youtube.com/watch?v=OoTAErolHDM"
-published: '2026-08-26'
+url: https://www.youtube.com/watch?v=OoTAErolHDM
+published: 2026-08-26
 author: Baseball Performance Center
 duration_s: 63
-domain: [pitching, anatomy-movement]
+domain:
+  - pitching
+  - anatomy-movement
 kind: instruction
 value: med
-status: pending
+status: approved
 raw: sources/_raw/bpc/OoTAErolHDM.md
-cues: [cue-turn-through-him]
+cues:
+  - cue-turn-through-him
 concepts: []
 confidence: agent
 ---

@@ -3,14 +3,16 @@ type: source
 source: bpc
 medium: video
 title: Christian Coppola DRAFTED by the Philadelphia Phillies
-url: "https://www.youtube.com/watch?v=9O0uBasyF_0"
-published: '2026-08-06'
+url: https://www.youtube.com/watch?v=9O0uBasyF_0
+published: 2026-08-06
 author: Baseball Performance Center
 duration_s: 100
-domain: [pitching, mental]
+domain:
+  - pitching
+  - mental
 kind: athlete-story
 value: med
-status: pending
+status: rejected
 raw: sources/_raw/bpc/9O0uBasyF_0.md
 cues: []
 concepts: []

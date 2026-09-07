@@ -3,13 +3,14 @@ type: source
 source: bpc
 medium: video
 title: Turn Messy Trackman CSVs Into Stylized Pitching Reports in Seconds
-url: "https://www.youtube.com/watch?v=03bTCf6X4BE"
-published: '2025-09-15'
+url: https://www.youtube.com/watch?v=03bTCf6X4BE
+published: 2025-09-15
 author: Baseball Performance Center
-domain: [pitching]
+domain:
+  - pitching
 kind: marketing
 value: low
-status: pending
+status: rejected
 raw: sources/_raw/bpc/03bTCf6X4BE.md
 cues: []
 concepts: []

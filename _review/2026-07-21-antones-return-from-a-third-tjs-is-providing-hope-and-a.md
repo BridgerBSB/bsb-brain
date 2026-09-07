@@ -3,16 +3,21 @@ type: source
 source: driveline
 medium: blog
 title: Antone’s return from a third TJS is providing hope and a road map for arms
-url: "https://drivelinebaseball.com/blogs/blog/tejay-antone-third-tjs-return"
-published: '2026-07-21'
+url: https://drivelinebaseball.com/blogs/blog/tejay-antone-third-tjs-return
+published: 2026-07-21
 author: Travis Sawchik
-domain: [pitching, anatomy-movement, mental]
+domain:
+  - pitching
+  - anatomy-movement
+  - mental
 kind: athlete-story
 value: med
-status: pending
+status: approved
 raw: sources/_raw/driveline/dl-blog-tejay-antone-third-tjs-return.md
 cues: []
-concepts: [armcare-bridger, pitching-development-philosophy]
+concepts:
+  - armcare-bridger
+  - pitching-development-philosophy
 confidence: agent
 ---
 # Antone's return from a third TJS is providing hope and a road map for arms

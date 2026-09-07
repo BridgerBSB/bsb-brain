@@ -3,16 +3,21 @@ type: source
 source: bpc
 medium: video
 title: 6 Drills To Improve Your Posture! (EASY)
-url: "https://www.youtube.com/watch?v=-zjNdGLVJ7k"
-published: '2026-08-28'
+url: https://www.youtube.com/watch?v=-zjNdGLVJ7k
+published: 2026-08-28
 author: Baseball Performance Center
 duration_s: 230
-domain: [pitching, anatomy-movement]
+domain:
+  - pitching
+  - anatomy-movement
 kind: instruction
 value: high
-status: pending
+status: approved
 raw: sources/_raw/bpc/-zjNdGLVJ7k.md
-cues: [cue-keep-the-ribs-down, cue-stay-stacked, cue-feel-the-toes-lift-off]
+cues:
+  - cue-keep-the-ribs-down
+  - cue-stay-stacked
+  - cue-feel-the-toes-lift-off
 concepts: []
 confidence: agent
 ---

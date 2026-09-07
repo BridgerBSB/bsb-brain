@@ -3,14 +3,15 @@ type: source
 source: tread
 medium: video
 title: Former D3 Outfielder Now Sitting 96 MPH | Will Girardi
-url: "https://www.youtube.com/watch?v=LSfh0AZJXVQ"
-published: '2026-08-20'
+url: https://www.youtube.com/watch?v=LSfh0AZJXVQ
+published: 2026-08-20
 author: Tread Athletics
 duration_s: 528
-domain: [pitching]
+domain:
+  - pitching
 kind: athlete-story
 value: med
-status: pending
+status: approved
 raw: sources/_raw/tread/LSfh0AZJXVQ.md
 cues: []
 concepts: []

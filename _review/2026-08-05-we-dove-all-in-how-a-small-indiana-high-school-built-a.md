@@ -2,14 +2,16 @@
 type: source
 source: driveline
 medium: blog
-title: "\"We dove all in\": How a small Indiana high school built a modern hitting development machine – with a little help from us"
-url: "https://drivelinebaseball.com/blogs/blog/bluffton-high-school-hitting-development"
-published: '2026-08-05'
+title: '"We dove all in": How a small Indiana high school built a modern hitting development machine – with a little help from us'
+url: https://drivelinebaseball.com/blogs/blog/bluffton-high-school-hitting-development
+published: 2026-08-05
 author: Travis Sawchik
-domain: [hitting, business]
+domain:
+  - hitting
+  - business
 kind: marketing
 value: low
-status: pending
+status: rejected
 raw: sources/_raw/driveline/dl-blog-bluffton-high-school-hitting-development.md
 cues: []
 concepts: []

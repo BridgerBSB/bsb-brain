@@ -3,16 +3,19 @@ type: source
 source: driveline
 medium: blog
 title: Is the vertical slider the next big thing in pitch design?
-url: "https://drivelinebaseball.com/blogs/blog/vertical-slider-pitch-design"
-published: '2026-08-21'
+url: https://drivelinebaseball.com/blogs/blog/vertical-slider-pitch-design
+published: 2026-08-21
 author: Travis Sawchik
-domain: [pitching]
+domain:
+  - pitching
 kind: philosophy
 value: high
-status: pending
+status: duplicate
 raw: sources/_raw/driveline/dl-blog-vertical-slider-pitch-design.md
 cues: []
-concepts: [pitch-design-logic, pitching-development-philosophy]
+concepts:
+  - pitch-design-logic
+  - pitching-development-philosophy
 confidence: agent
 ---
 # Is the vertical slider the next big thing in pitch design?

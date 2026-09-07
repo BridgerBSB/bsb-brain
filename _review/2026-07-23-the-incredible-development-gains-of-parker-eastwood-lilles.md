@@ -3,16 +3,21 @@ type: source
 source: driveline
 medium: blog
 title: The incredible development gains of Parker Eastwood Lilles
-url: "https://drivelinebaseball.com/blogs/blog/parker-eastwood-lilles-driveline-bat-speed-gains"
-published: '2026-07-23'
+url: https://drivelinebaseball.com/blogs/blog/parker-eastwood-lilles-driveline-bat-speed-gains
+published: 2026-07-23
 author: Travis Sawchik
-domain: [hitting]
+domain:
+  - hitting
 kind: athlete-story
 value: med
-status: pending
+status: approved
 raw: sources/_raw/driveline/dl-blog-parker-eastwood-lilles-driveline-bat-speed-gains.md
-cues: [cue-move-as-fast-as-you-can]
-concepts: [training-implements, drills-programming, swing-flaws-programming]
+cues:
+  - cue-move-as-fast-as-you-can
+concepts:
+  - training-implements
+  - drills-programming
+  - swing-flaws-programming
 confidence: agent
 ---
 # The incredible development gains of Parker Eastwood Lilles

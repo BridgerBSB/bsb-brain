@@ -3,13 +3,15 @@ type: source
 source: tread
 medium: blog
 title: Simple Hacks to Throw Faster
-url: "https://treadathletics.com/4-mechanical-hacks-i-learned-from-fernando-rodney-that-helped-me-throw-95-mph"
-published: '2015-08-01'
+url: https://treadathletics.com/4-mechanical-hacks-i-learned-from-fernando-rodney-that-helped-me-throw-95-mph
+published: 2015-08-01
 author: Ben Brewster
-domain: [pitching, anatomy-movement]
+domain:
+  - pitching
+  - anatomy-movement
 kind: instruction
 value: high
-status: pending
+status: approved
 raw: sources/_raw/tread/tread-blog-4-mechanical-hacks-i-learned-from-fernando-rodney-that-helped-me-throw-95-mph.md
 cues: []
 concepts: []

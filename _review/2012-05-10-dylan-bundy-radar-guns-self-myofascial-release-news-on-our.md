@@ -3,14 +3,16 @@ type: source
 source: driveline
 medium: video
 title: Dylan Bundy, Radar Guns, Self-Myofascial Release, News on Our Athletes (Q&A - May 10th)
-url: "https://www.youtube.com/watch?v=__Jm15gx30k"
-published: '2012-05-10'
+url: https://www.youtube.com/watch?v=__Jm15gx30k
+published: 2012-05-10
 author: Driveline Baseball
 duration_s: 315
-domain: [pitching, strength]
+domain:
+  - pitching
+  - strength
 kind: interview
 value: med
-status: pending
+status:
 raw: sources/_raw/driveline/__Jm15gx30k.md
 cues: []
 concepts: []

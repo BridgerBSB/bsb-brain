@@ -3,14 +3,15 @@ type: source
 source: tread
 medium: video
 title: What Your Long Toss Distance Says About Your Velocity
-url: "https://www.youtube.com/watch?v=KDkG1se2wHI"
-published: '2026-09-02'
+url: https://www.youtube.com/watch?v=KDkG1se2wHI
+published: 2026-09-02
 author: Tread Athletics
 duration_s: 1157
-domain: [pitching]
+domain:
+  - pitching
 kind: instruction
 value: high
-status: pending
+status: approved
 raw: sources/_raw/tread/KDkG1se2wHI.md
 cues: []
 concepts: []

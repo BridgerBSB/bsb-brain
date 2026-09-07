@@ -2,18 +2,24 @@
 type: source
 source: tread
 medium: video
-title: "Long Vs Short Arm Action | What's The Difference?"
-url: "https://www.youtube.com/watch?v=CxObu-w6cJw"
-published: '2026-08-16'
+title: Long Vs Short Arm Action | What's The Difference?
+url: https://www.youtube.com/watch?v=CxObu-w6cJw
+published: 2026-08-16
 author: Tread Athletics
 duration_s: 3436
-domain: [pitching, anatomy-movement]
+domain:
+  - pitching
+  - anatomy-movement
 kind: instruction
 value: high
-status: pending
+status: duplicate
 raw: sources/_raw/tread/CxObu-w6cJw.md
-cues: [cue-hold-flexion-longer, cue-get-it-go-get-it-go, cue-be-smooth]
-concepts: [pitching-development-philosophy]
+cues:
+  - cue-hold-flexion-longer
+  - cue-get-it-go-get-it-go
+  - cue-be-smooth
+concepts:
+  - pitching-development-philosophy
 confidence: agent
 ---
 # Long Vs Short Arm Action | What's The Difference?

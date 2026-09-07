@@ -3,14 +3,15 @@ type: source
 source: bpc
 medium: video
 title: 95 MPH Tennessee Commit Bullpen
-url: "https://www.youtube.com/watch?v=S5N38Mi7ZqU"
-published: '2026-09-02'
+url: https://www.youtube.com/watch?v=S5N38Mi7ZqU
+published: 2026-09-02
 author: Baseball Performance Center
 duration_s: 134
-domain: [pitching]
+domain:
+  - pitching
 kind: athlete-story
 value: low
-status: pending
+status: rejected
 raw: sources/_raw/bpc/S5N38Mi7ZqU.md
 cues: []
 concepts: []

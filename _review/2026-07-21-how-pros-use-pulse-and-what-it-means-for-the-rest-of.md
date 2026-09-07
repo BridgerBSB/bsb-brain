@@ -3,16 +3,19 @@ type: source
 source: driveline
 medium: blog
 title: How pros use PULSE and what it means for the rest of baseball
-url: "https://drivelinebaseball.com/blogs/blog/how-pros-use-pulse-and-what-it-means-for-baseball"
-published: '2026-07-21'
+url: https://drivelinebaseball.com/blogs/blog/how-pros-use-pulse-and-what-it-means-for-baseball
+published: 2026-07-21
 author: Travis Sawchik
-domain: [pitching]
+domain:
+  - pitching
 kind: philosophy
 value: high
-status: pending
+status: approved
 raw: sources/_raw/driveline/dl-blog-how-pros-use-pulse-and-what-it-means-for-baseball.md
 cues: []
-concepts: [armcare-bridger, pitching-development-philosophy]
+concepts:
+  - armcare-bridger
+  - pitching-development-philosophy
 confidence: agent
 ---
 # How pros use PULSE and what it means for the rest of baseball

@@ -3,16 +3,18 @@ type: source
 source: tread
 medium: blog
 title: Auto-Regulation for Baseball
-url: "https://treadathletics.com/throw-harder-and-recover-quicker-with-auto-regulation"
-published: '2015-08-19'
+url: https://treadathletics.com/throw-harder-and-recover-quicker-with-auto-regulation
+published: 2015-08-19
 author: Ben Brewster
-domain: [pitching]
+domain:
+  - pitching
 kind: instruction
 value: high
-status: pending
+status: approved
 raw: sources/_raw/tread/tread-blog-throw-harder-and-recover-quicker-with-auto-regulation.md
 cues: []
-concepts: [armcare-bridger]
+concepts:
+  - armcare-bridger
 confidence: agent
 ---
 # Auto-Regulation for Baseball

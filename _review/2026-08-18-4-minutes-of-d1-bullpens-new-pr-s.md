@@ -2,15 +2,16 @@
 type: source
 source: bpc
 medium: video
-title: "4 Minutes of D1 Bullpens! (NEW PR'S!)"
-url: "https://www.youtube.com/watch?v=S1X8Gp2s-20"
-published: '2026-08-18'
+title: 4 Minutes of D1 Bullpens! (NEW PR'S!)
+url: https://www.youtube.com/watch?v=S1X8Gp2s-20
+published: 2026-08-18
 author: Baseball Performance Center
 duration_s: 212
-domain: [pitching]
+domain:
+  - pitching
 kind: athlete-story
 value: low
-status: pending
+status: rejected
 raw: sources/_raw/bpc/S1X8Gp2s-20.md
 cues: []
 concepts: []

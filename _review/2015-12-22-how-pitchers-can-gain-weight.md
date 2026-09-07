@@ -3,13 +3,14 @@ type: source
 source: tread
 medium: blog
 title: How Pitchers Can Gain Weight
-url: "https://treadathletics.com/top-6-reasons"
-published: '2015-12-22'
+url: https://treadathletics.com/top-6-reasons
+published: 2015-12-22
 author: Ben Brewster
-domain: [strength]
+domain:
+  - strength
 kind: instruction
 value: high
-status: pending
+status: approved
 raw: sources/_raw/tread/tread-blog-top-6-reasons.md
 cues: []
 concepts: []

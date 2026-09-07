@@ -2,18 +2,22 @@
 type: source
 source: driveline
 medium: video
-title: "What's the Next Sweeper?"
-url: "https://www.youtube.com/watch?v=QPzFR4GNxdk"
-published: '2026-07-28'
+title: What's the Next Sweeper?
+url: https://www.youtube.com/watch?v=QPzFR4GNxdk
+published: 2026-07-28
 author: Driveline Baseball
 duration_s: 1588
-domain: [pitching]
+domain:
+  - pitching
 kind: interview
 value: med
-status: pending
+status: approved
 raw: sources/_raw/driveline/QPzFR4GNxdk.md
 cues: []
-concepts: [stuff-grade, pitch-design-logic, pitching-development-philosophy]
+concepts:
+  - stuff-grade
+  - pitch-design-logic
+  - pitching-development-philosophy
 confidence: agent
 ---
 # What's the Next Sweeper?

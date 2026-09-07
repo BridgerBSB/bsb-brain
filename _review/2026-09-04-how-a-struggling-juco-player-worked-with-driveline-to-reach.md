@@ -3,16 +3,23 @@ type: source
 source: driveline
 medium: blog
 title: How a struggling JUCO player worked with Driveline to reach his dream
-url: "https://drivelinebaseball.com/blogs/blog/michael-clarkson-juco-to-division-1"
-published: '2026-09-04'
+url: https://drivelinebaseball.com/blogs/blog/michael-clarkson-juco-to-division-1
+published: 2026-09-04
 author: Travis Sawchik
-domain: [hitting, anatomy-movement]
+domain:
+  - hitting
+  - anatomy-movement
 kind: athlete-story
 value: med
-status: pending
+status: approved
 raw: sources/_raw/driveline/dl-blog-michael-clarkson-juco-to-division-1.md
 cues: []
-concepts: [anatomy-physiology-kinesiology, blast-metrics, hitting-biomechanics, swing-path-bat-tracking, drills-programming]
+concepts:
+  - anatomy-physiology-kinesiology
+  - blast-metrics
+  - hitting-biomechanics
+  - swing-path-bat-tracking
+  - drills-programming
 confidence: agent
 ---
 # How a struggling JUCO player worked with Driveline to reach his dream

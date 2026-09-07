@@ -3,17 +3,26 @@ type: source
 source: driveline
 medium: video
 title: "Swing Design: Fixing an FSU Infielder's Bat Path"
-url: "https://www.youtube.com/watch?v=DRGDN8u1EKA"
-published: '2026-08-21'
+url: https://www.youtube.com/watch?v=DRGDN8u1EKA
+published: 2026-08-21
 author: Driveline Baseball
 duration_s: 1024
-domain: [hitting]
+domain:
+  - hitting
 kind: instruction
 value: high
-status: pending
+status: approved
 raw: sources/_raw/driveline/DRGDN8u1EKA.md
-cues: [cue-feet-in-cement, cue-back-heel-on-back-of-mat-barrel-to-front, cue-turn-to-inside-part-of-the-ball]
-concepts: [hitting-biomechanics, swing-path-bat-tracking, swing-flaws-programming, drills-programming, training-implements]
+cues:
+  - cue-feet-in-cement
+  - cue-back-heel-on-back-of-mat-barrel-to-front
+  - cue-turn-to-inside-part-of-the-ball
+concepts:
+  - hitting-biomechanics
+  - swing-path-bat-tracking
+  - swing-flaws-programming
+  - drills-programming
+  - training-implements
 confidence: agent
 ---
 # Swing Design: Fixing an FSU Infielder's Bat Path

@@ -12,7 +12,7 @@ domain:
   - anatomy-movement
 kind: instruction
 value: high
-status: pending
+status: approved
 raw: sources/_raw/tread/CxObu-w6cJw.md
 cues:
   - cue-hold-flexion-longer

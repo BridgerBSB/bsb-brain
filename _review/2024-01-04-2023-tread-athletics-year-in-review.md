@@ -3,13 +3,14 @@ type: source
 source: tread
 medium: blog
 title: 2023 Tread Athletics Year in Review
-url: "https://treadathletics.com/2023-year-in-review/?utm_source=rss&utm_medium=rss&utm_campaign=2023-year-in-review"
-published: '2024-01-04'
+url: https://treadathletics.com/2023-year-in-review/?utm_source=rss&utm_medium=rss&utm_campaign=2023-year-in-review
+published: 2024-01-04
 author: Ben Brewster
-domain: [business]
+domain:
+  - business
 kind: marketing
 value: low
-status: pending
+status: rejected
 raw: sources/_raw/tread/tread-blog-2023-year-in-review.md
 cues: []
 concepts: []

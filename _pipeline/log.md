@@ -53,3 +53,6 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-06 08:15 discover tread-blog (backfill): 0 seen, 0 new
 - 2026-09-06 08:15 fetch: 0 ok, 0 failed, 0 deferred; whisper 0 min
 - 2026-09-06 08:19 summarize: 0 ok, 1 failed (queue had room for 1)
+- 2026-09-06 08:19 run: done
+- 2026-09-06 17:38 summarize: 0 ok, 0 failed (queue had room for 22)
+- 2026-09-06 17:40 summarize: 1 ok, 0 failed (queue had room for 23)
