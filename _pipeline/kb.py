@@ -40,12 +40,7 @@ QUEUE_CAP = 40        # never leave more than this many pending for Zac
 NIGHTLY_BATCH = 8     # backfill items per source per night
 
 
-def load_sources(paths: VaultPaths) -> dict:
-    return yaml.safe_load(paths.sources_yml.read_text(encoding="utf-8"))["sources"]
-
-
-def feeds_for(sources: dict, source: str | None):
-    return [(k, f) for k, f in sources.items() if not source or f["source"] == source]
+from kb.sources import load_sources, feeds_for, drop_paused  # noqa: E402
 
 
 def log(paths: VaultPaths, line: str) -> None:
@@ -167,7 +162,9 @@ def _fetch_one(paths, state, item, save_images: bool, run_ctx: dict):
 def cmd_fetch(paths, state, args):
     sources = load_sources(paths)
     save_images = {f["source"]: bool(f.get("save_images")) for f in sources.values() if f["kind"] != "youtube"}
-    todo = state.by_status("new", args.source)
+    todo, paused = drop_paused(state.by_status("new", args.source), sources)
+    if paused:
+        print(f"  fetch: {paused} item(s) left queued, their feed is paused")
     if args.limit:
         todo = todo[: args.limit]
     ok = bad = deferred = 0
@@ -207,7 +204,9 @@ def cmd_summarize(paths, state, args):
             excl[f["source"]] = f["scope"]["exclude_domains"]
     pending_now = L.lint_vault(paths, state)["pending"]
     room = max(0, QUEUE_CAP - pending_now)
-    todo = state.by_status("fetched", args.source)
+    todo, paused = drop_paused(state.by_status("fetched", args.source), sources)
+    if paused:
+        print(f"  summarize: {paused} item(s) left fetched, their feed is paused")
     if args.id:
         todo = [r for r in todo if r["id"] in args.id.split(",")]
     elif args.limit:

@@ -5,6 +5,8 @@
 # kind: youtube | blog-pages | blog-rss
 # scope.exclude_domains: taxonomy domains that get value: skip from this source
 # backfill: cursor state lives in state.json, not here
+# paused: true  -> keep the feed and everything already pulled, but discover
+#                  nothing new and leave its queued items alone (unpause = delete the line)
 
 sources:
   driveline-yt:
@@ -25,6 +27,8 @@ sources:
     label: Baseball Performance Center (YouTube)
     kind: youtube
     url: https://www.youtube.com/@baseballperformancecenter/videos
+    paused: true            # 2026-09-07 Zac: BPC was a wildcard and the material is not great;
+                            # Tread + Driveline only for now. Existing BPC notes stay.
     scope:
       exclude_domains: [hitting]
 
