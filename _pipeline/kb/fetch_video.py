@@ -36,6 +36,16 @@ class Throttled(Exception):
     Not the item's fault."""
 
 
+class Unavailable(Exception):
+    """The video is gone (private, deleted, region-locked). Permanent; the item
+    is marked skipped, never retried."""
+
+
+MIN_TRANSCRIPT_CHARS = 120   # a 40 s Short with one cue is still knowledge; 500 dropped 14 of them
+_UNAVAILABLE = ("not available", "Private video", "has been removed", "Video unavailable", "This video is unavailable")
+_NO_CAPTIONS = ("TranscriptsDisabled", "NoTranscriptFound", "NotTranslatable", "CouldNotRetrieveTranscript")
+
+
 def _is_throttle(exc: Exception) -> bool:
     s = f"{type(exc).__name__}: {exc}"
     return any(k in s for k in ("IpBlocked", "RequestBlocked", "429", "Too Many Requests"))
@@ -92,6 +102,10 @@ def fetch_captions(video_id: str) -> tuple[list, str]:
     except Exception as e:  # the library raises many classes; classify by message
         if _is_throttle(e):
             raise Throttled(type(e).__name__) from e
+        if type(e).__name__ in _NO_CAPTIONS or "Subtitles are disabled" in str(e):
+            raise NoCaptions(type(e).__name__) from e
+        if any(k in str(e) for k in _UNAVAILABLE):
+            raise Unavailable(type(e).__name__) from e
         raise
 
 
@@ -100,6 +114,8 @@ def fetch_video_meta(video_id: str) -> dict:
            f"https://www.youtube.com/watch?v={video_id}"]
     r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=180)
     if r.returncode != 0 or not r.stdout.strip():
+        if any(k in r.stderr for k in _UNAVAILABLE):
+            raise Unavailable(r.stderr.strip().splitlines()[-1][:120] if r.stderr.strip() else "unavailable")
         raise RuntimeError(f"yt-dlp -j failed: {r.stderr[-300:]}")
     d = json.loads(r.stdout.splitlines()[0])
     up = d.get("upload_date")
