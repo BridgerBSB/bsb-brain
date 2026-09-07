@@ -56,3 +56,41 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-06 08:19 run: done
 - 2026-09-06 17:38 summarize: 0 ok, 0 failed (queue had room for 22)
 - 2026-09-06 17:40 summarize: 1 ok, 0 failed (queue had room for 23)
+- 2026-09-06 17:56 promoted 2012-05-01-weighted-baseballs-wrist-weights-and-arm-injuries-q-a-with (interview/med, 0 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2015-07-30-gain-muscle-to-pitch-harder-and-increase-velocity (philosophy/high, 0 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2015-08-01-simple-hacks-to-throw-faster (instruction/high, 0 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2015-08-19-auto-regulation-for-baseball (instruction/high, 0 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2015-12-22-how-pitchers-can-gain-weight (instruction/high, 0 cues, 0 drills)
+- 2026-09-06 17:56 rejected 2023-06-23-tread-amateur-pro-weekend-23-recap
+- 2026-09-06 17:56 rejected 2024-01-04-2023-tread-athletics-year-in-review
+- 2026-09-06 17:56 rejected 2024-01-22-tread-hq-pro-day-24-recap
+- 2026-09-06 17:56 rejected 2024-12-31-2024-year-in-review
+- 2026-09-06 17:56 rejected 2025-07-20-2025-mid-season-update-17-draft-picks-48-signs-2-all-stars
+- 2026-09-06 17:56 rejected 2025-09-15-turn-messy-trackman-csvs-into-stylized-pitching-reports-in
+- 2026-09-06 17:56 rejected 2025-09-19-2025-mid-season-update-17-draft-picks-48-signs-2-all-stars
+- 2026-09-06 17:56 promoted 2025-12-11-how-long-term-pitching-development-beats-program-hopping (philosophy/med, 0 cues, 0 drills)
+- 2026-09-06 17:56 rejected 2026-01-25-tread-athletics-6th-annual-pro-day-recap
+- 2026-09-06 17:56 promoted 2026-02-19-naia-pitcher-gains-9-mph-in-10-months (athlete-story/med, 2 cues, 0 drills)
+- 2026-09-06 17:56 rejected 2026-07-19-2026-mid-season-update-21-draft-picks-50-signs
+- 2026-09-06 17:56 promoted 2026-07-21-antones-return-from-a-third-tjs-is-providing-hope-and-a (athlete-story/med, 0 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2026-07-21-how-pros-use-pulse-and-what-it-means-for-the-rest-of (philosophy/high, 0 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2026-07-23-the-incredible-development-gains-of-parker-eastwood-lilles (athlete-story/med, 1 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2026-07-28-what-s-the-next-sweeper (interview/med, 0 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2026-08-04-the-plyo-routine-that-got-him-to-95-mph-headed-to-ecu-danny (instruction/high, 3 cues, 0 drills)
+- 2026-09-06 17:56 rejected 2026-08-05-we-dove-all-in-how-a-small-indiana-high-school-built-a
+- 2026-09-06 17:56 rejected 2026-08-06-christian-coppola-drafted-by-the-philadelphia-phillies
+- 2026-09-06 17:56 promoted 2026-08-06-the-rotational-cue-that-got-him-to-98-mph-and-signed (instruction/high, 1 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2026-08-07-one-of-the-most-insane-cage-sessions-from-a-college-hitter (instruction/high, 4 cues, 5 drills)
+- 2026-09-06 17:56 rejected 2026-08-15-how-hunter-ray-hit-32-home-runs
+- 2026-09-06 17:56 duplicate 2026-08-16-long-vs-short-arm-action-what-s-the-difference
+- 2026-09-06 17:56 duplicate 2026-08-16-long-vs-short-arm-action-whats-the-difference
+- 2026-09-06 17:56 rejected 2026-08-18-4-minutes-of-d1-bullpens-new-pr-s
+- 2026-09-06 17:56 promoted 2026-08-20-former-d3-outfielder-now-sitting-96-mph-will-girardi (athlete-story/med, 0 cues, 0 drills)
+- 2026-09-06 17:56 duplicate 2026-08-21-is-the-vertical-slider-the-next-big-thing-in-pitch-design
+- 2026-09-06 17:56 promoted 2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path (instruction/high, 3 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2026-08-26-why-pulling-your-torso-k-lls-your-velo (instruction/med, 1 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2026-08-28-6-drills-to-improve-your-posture-easy (instruction/high, 3 cues, 0 drills)
+- 2026-09-06 17:56 rejected 2026-09-02-95-mph-tennessee-commit-bullpen
+- 2026-09-06 17:56 promoted 2026-09-02-what-your-long-toss-distance-says-about-your-velocity (instruction/high, 0 cues, 0 drills)
+- 2026-09-06 17:56 promoted 2026-09-04-how-a-struggling-juco-player-worked-with-driveline-to-reach (athlete-story/med, 0 cues, 0 drills)
+- 2026-09-06 17:56 promoted tread-CxObu-w6cJw (instruction/high, 3 cues, 0 drills, corrected)

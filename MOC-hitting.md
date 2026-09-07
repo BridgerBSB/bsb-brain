@@ -43,12 +43,26 @@ Child of [[MOC-training-knowledge]] and [[MOC-baseball-analytics]]. The taught p
 
 ## From sources
 <!-- appended by the pipeline -->
+- [[2026-08-07-one-of-the-most-insane-cage-sessions-from-a-college-hitter]] - One of The Most Insane Cage Sessions From a College Hitter
+- [[2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path]] - Swing Design: Fixing an FSU Infielder's Bat Path
 
 ## Cues
 <!-- appended by the pipeline -->
+- [[cue-load-your-body-but-save-your-hands-for-the-forward-move]]
+- [[cue-keep-your-center-mass-in-front-of-your-back-foot-never]]
+- [[cue-push-your-back-hip-as-far-back-as-possible]]
+- [[cue-create-a-little-hinge-in-your-load-not-a-massive-one]]
+- [[cue-feet-in-cement]]
+- [[cue-keep-your-back-heel-on-the-back-of-the-mat-and-get-the]]
+- [[cue-turn-to-the-inside-part-of-the-ball]]
 
 ## Drills
 <!-- appended by the pipeline -->
+- [[drill-long-bat-hold-and-turn]]
+- [[drill-underload-bat-back-hip-pull]]
+- [[drill-step-behind-load]]
+- [[drill-step-in-load]]
+- [[drill-pivot-pick-constraint-incl-lower-grip]]
 
 ## Related
 - [[MOC-baseball-analytics]] · [[MOC-astros-engineering]] · [[loop-engineering]]

@@ -1,8 +1,5 @@
 ---
-type: concept
-domain: hitting
-source: Driveline HTKCH — Training Implements PDF
-created: '2026-06-15'
+{type: concept, domain: hitting, source: Driveline HTKCH — Training Implements PDF, created: '2026-06-15'}
 ---
 # Training Implements (Hitting Warm-Up / Routine)
 
@@ -130,3 +127,8 @@ AA + outcome data.
 - [[meta/skill-dev-principles]] (constraints-led approach, differential learning, specificity/transfer)
 - [[swing-path-bat-tracking]] (attack angle / bat path)
 - Astros tie-in: `rules/bat-speed-canonical` (the 90th-pctile + cleaning logic mirrors Driveline's bat-speed measurement).
+
+## From sources
+- [[2026-07-23-the-incredible-development-gains-of-parker-eastwood-lilles]] - The incredible development gains of Parker Eastwood Lilles
+- [[2026-08-07-one-of-the-most-insane-cage-sessions-from-a-college-hitter]] - One of The Most Insane Cage Sessions From a College Hitter
+- [[2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path]] - Swing Design: Fixing an FSU Infielder's Bat Path

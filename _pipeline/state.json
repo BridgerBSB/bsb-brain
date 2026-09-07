@@ -19,18 +19,18 @@
   "-8nypmhYXdE": {
    "added": "2026-09-05T20:39:31Z",
    "duration_s": 9,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "-8nypmhYXdE",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "bpc",
-   "status": "new",
+   "status": "failed",
    "title": "Nunan MSI",
-   "updated": "2026-09-05T20:48:08Z",
+   "updated": "2026-09-07T00:44:35Z",
    "url": "https://www.youtube.com/watch?v=-8nypmhYXdE"
   },
   "-KSOIC0K6oM": {
@@ -58,7 +58,7 @@
    "feed": "youtube",
    "id": "-zjNdGLVJ7k",
    "medium": "video",
-   "note": "_review/2026-08-28-6-drills-to-improve-your-posture-easy.md",
+   "note": "sources/bpc/2026-08-28-6-drills-to-improve-your-posture-easy.md",
    "proposal": {
     "cues": [
      "cue-keep-the-ribs-down",
@@ -76,9 +76,9 @@
    "raw": "sources/_raw/bpc/-zjNdGLVJ7k.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "promoted",
    "title": "6 Drills To Improve Your Posture! (EASY)",
-   "updated": "2026-09-05T01:12:48Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=-zjNdGLVJ7k"
   },
   "03bTCf6X4BE": {
@@ -88,7 +88,7 @@
    "feed": "youtube",
    "id": "03bTCf6X4BE",
    "medium": "video",
-   "note": "_review/2025-09-15-turn-messy-trackman-csvs-into-stylized-pitching-reports-in.md",
+   "note": "sources/bpc/_rejected/2025-09-15-turn-messy-trackman-csvs-into-stylized-pitching-reports-in.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -101,26 +101,26 @@
    "raw": "sources/_raw/bpc/03bTCf6X4BE.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Turn Messy Trackman CSVs Into Stylized Pitching Reports in Seconds",
-   "updated": "2026-09-05T00:45:38Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=03bTCf6X4BE"
   },
   "0K21AJqeaFs": {
    "added": "2026-09-05T20:39:08Z",
    "duration_s": 8,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "0K21AJqeaFs",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "The Road to 90 MPH - Joe Marsh - 3 oz. Crow-Hop 92 MPH (drivelinebaseball.com)",
-   "updated": "2026-09-05T20:46:49Z",
+   "updated": "2026-09-07T00:46:10Z",
    "url": "https://www.youtube.com/watch?v=0K21AJqeaFs"
   },
   "0Q8p_3B7az0": {
@@ -164,7 +164,7 @@
    "feed": "youtube",
    "id": "0pljFGlzUYw",
    "medium": "video",
-   "note": "_review/2026-08-15-how-hunter-ray-hit-32-home-runs.md",
+   "note": "sources/bpc/_rejected/2026-08-15-how-hunter-ray-hit-32-home-runs.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -177,9 +177,9 @@
    "raw": "sources/_raw/bpc/0pljFGlzUYw.md",
    "retries": 0,
    "source": "bpc",
-   "status": "skipped",
+   "status": "rejected",
    "title": "How Hunter Ray Hit 32 HOME RUNS",
-   "updated": "2026-09-05T01:02:01Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=0pljFGlzUYw"
   },
   "1Apgr0f0bgA": {
@@ -189,7 +189,7 @@
    "feed": "youtube",
    "id": "1Apgr0f0bgA",
    "medium": "video",
-   "note": "_review/2026-08-06-the-rotational-cue-that-got-him-to-98-mph-and-signed.md",
+   "note": "sources/tread/2026-08-06-the-rotational-cue-that-got-him-to-98-mph-and-signed.md",
    "proposal": {
     "cues": [
      "cue-just-rotate-a-little-bit",
@@ -206,26 +206,26 @@
    "raw": "sources/_raw/tread/1Apgr0f0bgA.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The Rotational Cue That Got Him To 98 MPH And Signed",
-   "updated": "2026-09-05T00:58:44Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=1Apgr0f0bgA"
   },
   "2V9HWPKMa_A": {
    "added": "2026-09-05T20:39:31Z",
    "duration_s": 46,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "2V9HWPKMa_A",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "bpc",
-   "status": "new",
+   "status": "failed",
    "title": "BPC: Train Better",
-   "updated": "2026-09-05T20:49:59Z",
+   "updated": "2026-09-07T00:49:11Z",
    "url": "https://www.youtube.com/watch?v=2V9HWPKMa_A"
   },
   "2fjpL_BraVU": {
@@ -248,18 +248,18 @@
   "2qMD82rncgQ": {
    "added": "2026-09-05T20:37:41Z",
    "duration_s": 13,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "2qMD82rncgQ",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "bpc",
-   "status": "new",
+   "status": "failed",
    "title": "93 MPH Mechanics from 16 Year old Alabama commit Evan Taylor",
-   "updated": "2026-09-05T20:56:56Z",
+   "updated": "2026-09-07T00:52:11Z",
    "url": "https://www.youtube.com/watch?v=2qMD82rncgQ"
   },
   "39XXnEmO9hE": {
@@ -405,7 +405,7 @@
    "feed": "youtube",
    "id": "9O0uBasyF_0",
    "medium": "video",
-   "note": "_review/2026-08-06-christian-coppola-drafted-by-the-philadelphia-phillies.md",
+   "note": "sources/bpc/_rejected/2026-08-06-christian-coppola-drafted-by-the-philadelphia-phillies.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -419,9 +419,9 @@
    "raw": "sources/_raw/bpc/9O0uBasyF_0.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Christian Coppola DRAFTED by the Philadelphia Phillies",
-   "updated": "2026-09-05T00:59:49Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=9O0uBasyF_0"
   },
   "Av7poAHXs3k": {
@@ -482,7 +482,7 @@
    "feed": "youtube",
    "id": "CxObu-w6cJw",
    "medium": "video",
-   "note": "_review/2026-08-16-long-vs-short-arm-action-what-s-the-difference.md",
+   "note": "sources/tread/tread-CxObu-w6cJw.md",
    "proposal": {
     "cues": [
      "cue-hold-flexion-longer",
@@ -500,9 +500,9 @@
    "raw": "sources/_raw/tread/CxObu-w6cJw.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Long Vs Short Arm Action | What's The Difference?",
-   "updated": "2026-09-05T20:20:54Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=CxObu-w6cJw"
   },
   "CxeP7Hikgks": {
@@ -529,7 +529,7 @@
    "feed": "youtube",
    "id": "DRGDN8u1EKA",
    "medium": "video",
-   "note": "_review/2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path.md",
+   "note": "sources/driveline/2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path.md",
    "proposal": {
     "cues": [
      "cue-feet-in-cement",
@@ -546,9 +546,9 @@
    "raw": "sources/_raw/driveline/DRGDN8u1EKA.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Swing Design: Fixing an FSU Infielder's Bat Path",
-   "updated": "2026-09-05T01:08:57Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=DRGDN8u1EKA"
   },
   "DcoKAAsA64E": {
@@ -745,7 +745,7 @@
    "feed": "youtube",
    "id": "KDkG1se2wHI",
    "medium": "video",
-   "note": "_review/2026-09-02-what-your-long-toss-distance-says-about-your-velocity.md",
+   "note": "sources/tread/2026-09-02-what-your-long-toss-distance-says-about-your-velocity.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -758,9 +758,9 @@
    "raw": "sources/_raw/tread/KDkG1se2wHI.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "What Your Long Toss Distance Says About Your Velocity",
-   "updated": "2026-09-05T20:22:13Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=KDkG1se2wHI"
   },
   "LSfh0AZJXVQ": {
@@ -770,7 +770,7 @@
    "feed": "youtube",
    "id": "LSfh0AZJXVQ",
    "medium": "video",
-   "note": "_review/2026-08-20-former-d3-outfielder-now-sitting-96-mph-will-girardi.md",
+   "note": "sources/tread/2026-08-20-former-d3-outfielder-now-sitting-96-mph-will-girardi.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -783,9 +783,9 @@
    "raw": "sources/_raw/tread/LSfh0AZJXVQ.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Former D3 Outfielder Now Sitting 96 MPH | Will Girardi",
-   "updated": "2026-09-05T01:07:51Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=LSfh0AZJXVQ"
   },
   "NJejEG8CUkE": {
@@ -846,7 +846,7 @@
    "feed": "youtube",
    "id": "OoTAErolHDM",
    "medium": "video",
-   "note": "_review/2026-08-26-why-pulling-your-torso-k-lls-your-velo.md",
+   "note": "sources/bpc/2026-08-26-why-pulling-your-torso-k-lls-your-velo.md",
    "proposal": {
     "cues": [
      "cue-turn-through-him"
@@ -862,9 +862,9 @@
    "raw": "sources/_raw/bpc/OoTAErolHDM.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Why Pulling Your Torso K*LLS Your VELO!",
-   "updated": "2026-09-05T01:11:47Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=OoTAErolHDM"
   },
   "Pjbxp2kwpiU": {
@@ -908,7 +908,7 @@
    "feed": "youtube",
    "id": "QPzFR4GNxdk",
    "medium": "video",
-   "note": "_review/2026-07-28-what-s-the-next-sweeper.md",
+   "note": "sources/driveline/2026-07-28-what-s-the-next-sweeper.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -921,9 +921,9 @@
    "raw": "sources/_raw/driveline/QPzFR4GNxdk.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "What's the Next Sweeper?",
-   "updated": "2026-09-05T00:55:54Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=QPzFR4GNxdk"
   },
   "QznGfiTK1T0": {
@@ -933,7 +933,7 @@
    "feed": "youtube",
    "id": "QznGfiTK1T0",
    "medium": "video",
-   "note": "_review/2026-08-04-the-plyo-routine-that-got-him-to-95-mph-headed-to-ecu-danny.md",
+   "note": "sources/tread/2026-08-04-the-plyo-routine-that-got-him-to-95-mph-headed-to-ecu-danny.md",
    "proposal": {
     "cues": [
      "cue-heel-to-the-sky",
@@ -951,9 +951,9 @@
    "raw": "sources/_raw/tread/QznGfiTK1T0.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The Plyo Routine That Got Him To 95 MPH & Headed To ECU | Danny Cihocki",
-   "updated": "2026-09-05T00:56:55Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=QznGfiTK1T0"
   },
   "RczpZSjZgQA": {
@@ -980,7 +980,7 @@
    "feed": "youtube",
    "id": "S1X8Gp2s-20",
    "medium": "video",
-   "note": "_review/2026-08-18-4-minutes-of-d1-bullpens-new-pr-s.md",
+   "note": "sources/bpc/_rejected/2026-08-18-4-minutes-of-d1-bullpens-new-pr-s.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -993,9 +993,9 @@
    "raw": "sources/_raw/bpc/S1X8Gp2s-20.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "4 Minutes of D1 Bullpens! (NEW PR'S!)",
-   "updated": "2026-09-05T01:05:43Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=S1X8Gp2s-20"
   },
   "S5N38Mi7ZqU": {
@@ -1005,7 +1005,7 @@
    "feed": "youtube",
    "id": "S5N38Mi7ZqU",
    "medium": "video",
-   "note": "_review/2026-09-02-95-mph-tennessee-commit-bullpen.md",
+   "note": "sources/bpc/_rejected/2026-09-02-95-mph-tennessee-commit-bullpen.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1018,9 +1018,9 @@
    "raw": "sources/_raw/bpc/S5N38Mi7ZqU.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "95 MPH Tennessee Commit Bullpen",
-   "updated": "2026-09-05T01:16:12Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=S5N38Mi7ZqU"
   },
   "TCkfOmonu_s": {
@@ -1030,7 +1030,7 @@
    "feed": "youtube",
    "id": "TCkfOmonu_s",
    "medium": "video",
-   "note": "_review/2026-08-07-one-of-the-most-insane-cage-sessions-from-a-college-hitter.md",
+   "note": "sources/driveline/2026-08-07-one-of-the-most-insane-cage-sessions-from-a-college-hitter.md",
    "proposal": {
     "cues": [
      "cue-keep-center-mass-in-front-of-back-foot",
@@ -1055,9 +1055,9 @@
    "raw": "sources/_raw/driveline/TCkfOmonu_s.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "One of The Most Insane Cage Sessions From a College Hitter",
-   "updated": "2026-09-07T00:40:42Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=TCkfOmonu_s"
   },
   "U5Hdv27-_44": {
@@ -1136,7 +1136,7 @@
    "feed": "youtube",
    "id": "Uy5i4piUtH0",
    "medium": "video",
-   "note": "_review/2012-05-01-weighted-baseballs-wrist-weights-and-arm-injuries-q-a-with.md",
+   "note": "sources/driveline/2012-05-01-weighted-baseballs-wrist-weights-and-arm-injuries-q-a-with.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1151,9 +1151,9 @@
    "raw": "sources/_raw/driveline/Uy5i4piUtH0.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Weighted Baseballs, Wrist Weights, and Arm Injuries - Q&A with drivelinebaseball.com (May 1st)",
-   "updated": "2026-09-05T22:26:33Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=Uy5i4piUtH0"
   },
   "VanYIWlAShc": {
@@ -1359,7 +1359,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-bluffton-high-school-hitting-development",
    "medium": "blog",
-   "note": "_review/2026-08-05-we-dove-all-in-how-a-small-indiana-high-school-built-a.md",
+   "note": "sources/driveline/_rejected/2026-08-05-we-dove-all-in-how-a-small-indiana-high-school-built-a.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1373,9 +1373,9 @@
    "raw": "sources/_raw/driveline/dl-blog-bluffton-high-school-hitting-development.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "title": "\"We dove all in\": How a small Indiana high school built a modern hitting development machine – with a little help from us",
-   "updated": "2026-09-05T00:57:20Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/bluffton-high-school-hitting-development"
   },
   "dl-blog-how-pros-use-pulse-and-what-it-means-for-baseball": {
@@ -1385,7 +1385,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-how-pros-use-pulse-and-what-it-means-for-baseball",
    "medium": "blog",
-   "note": "_review/2026-07-21-how-pros-use-pulse-and-what-it-means-for-the-rest-of.md",
+   "note": "sources/driveline/2026-07-21-how-pros-use-pulse-and-what-it-means-for-the-rest-of.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1398,9 +1398,9 @@
    "raw": "sources/_raw/driveline/dl-blog-how-pros-use-pulse-and-what-it-means-for-baseball.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How pros use PULSE and what it means for the rest of baseball",
-   "updated": "2026-09-05T00:51:32Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/how-pros-use-pulse-and-what-it-means-for-baseball"
   },
   "dl-blog-michael-clarkson-juco-to-division-1": {
@@ -1410,7 +1410,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-michael-clarkson-juco-to-division-1",
    "medium": "blog",
-   "note": "_review/2026-09-04-how-a-struggling-juco-player-worked-with-driveline-to-reach.md",
+   "note": "sources/driveline/2026-09-04-how-a-struggling-juco-player-worked-with-driveline-to-reach.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1424,9 +1424,9 @@
    "raw": "sources/_raw/driveline/dl-blog-michael-clarkson-juco-to-division-1.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How a struggling JUCO player worked with Driveline to reach his dream",
-   "updated": "2026-09-05T01:17:50Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/michael-clarkson-juco-to-division-1"
   },
   "dl-blog-parker-eastwood-lilles-driveline-bat-speed-gains": {
@@ -1436,7 +1436,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-parker-eastwood-lilles-driveline-bat-speed-gains",
    "medium": "blog",
-   "note": "_review/2026-07-23-the-incredible-development-gains-of-parker-eastwood-lilles.md",
+   "note": "sources/driveline/2026-07-23-the-incredible-development-gains-of-parker-eastwood-lilles.md",
    "proposal": {
     "cues": [
      "cue-move-as-fast-as-you-can"
@@ -1451,9 +1451,9 @@
    "raw": "sources/_raw/driveline/dl-blog-parker-eastwood-lilles-driveline-bat-speed-gains.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The incredible development gains of Parker Eastwood Lilles",
-   "updated": "2026-09-05T00:54:30Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/parker-eastwood-lilles-driveline-bat-speed-gains"
   },
   "dl-blog-tejay-antone-third-tjs-return": {
@@ -1463,7 +1463,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-tejay-antone-third-tjs-return",
    "medium": "blog",
-   "note": "_review/2026-07-21-antones-return-from-a-third-tjs-is-providing-hope-and-a.md",
+   "note": "sources/driveline/2026-07-21-antones-return-from-a-third-tjs-is-providing-hope-and-a.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1478,9 +1478,9 @@
    "raw": "sources/_raw/driveline/dl-blog-tejay-antone-third-tjs-return.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Antone’s return from a third TJS is providing hope and a road map for arms",
-   "updated": "2026-09-05T00:52:32Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/tejay-antone-third-tjs-return"
   },
   "dl-blog-vertical-slider-pitch-design": {
@@ -1490,7 +1490,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-vertical-slider-pitch-design",
    "medium": "blog",
-   "note": "_review/2026-08-21-is-the-vertical-slider-the-next-big-thing-in-pitch-design.md",
+   "note": "sources/driveline/_rejected/2026-08-21-is-the-vertical-slider-the-next-big-thing-in-pitch-design.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1503,9 +1503,9 @@
    "raw": "sources/_raw/driveline/dl-blog-vertical-slider-pitch-design.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Is the vertical slider the next big thing in pitch design?",
-   "updated": "2026-09-05T01:10:24Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/vertical-slider-pitch-design"
   },
   "dl-blog-welcome-to-driveline-baseball": {
@@ -2053,7 +2053,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-2023-year-in-review",
    "medium": "blog",
-   "note": "_review/2024-01-04-2023-tread-athletics-year-in-review.md",
+   "note": "sources/tread/_rejected/2024-01-04-2023-tread-athletics-year-in-review.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2066,9 +2066,9 @@
    "raw": "sources/_raw/tread/tread-blog-2023-year-in-review.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "2023 Tread Athletics Year in Review",
-   "updated": "2026-09-05T20:41:13Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/2023-year-in-review/?utm_source=rss&utm_medium=rss&utm_campaign=2023-year-in-review"
   },
   "tread-blog-2024-pro-day": {
@@ -2078,7 +2078,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-2024-pro-day",
    "medium": "blog",
-   "note": "_review/2024-01-22-tread-hq-pro-day-24-recap.md",
+   "note": "sources/tread/_rejected/2024-01-22-tread-hq-pro-day-24-recap.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2091,9 +2091,9 @@
    "raw": "sources/_raw/tread/tread-blog-2024-pro-day.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Tread HQ: Pro Day '24 Recap",
-   "updated": "2026-09-05T20:41:35Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/2024-pro-day/?utm_source=rss&utm_medium=rss&utm_campaign=2024-pro-day"
   },
   "tread-blog-2024-year-in-review": {
@@ -2103,7 +2103,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-2024-year-in-review",
    "medium": "blog",
-   "note": "_review/2024-12-31-2024-year-in-review.md",
+   "note": "sources/tread/_rejected/2024-12-31-2024-year-in-review.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2116,9 +2116,9 @@
    "raw": "sources/_raw/tread/tread-blog-2024-year-in-review.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "2024 Year In Review",
-   "updated": "2026-09-05T20:41:47Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/2024-year-in-review/?utm_source=rss&utm_medium=rss&utm_campaign=2024-year-in-review"
   },
   "tread-blog-2025-update": {
@@ -2128,7 +2128,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-2025-update",
    "medium": "blog",
-   "note": "_review/2025-07-20-2025-mid-season-update-17-draft-picks-48-signs-2-all-stars.md",
+   "note": "sources/tread/_rejected/2025-07-20-2025-mid-season-update-17-draft-picks-48-signs-2-all-stars.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2141,9 +2141,9 @@
    "raw": "sources/_raw/tread/tread-blog-2025-update.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "2025 Mid-Season Update - 17 Draft Picks, 48 Signs & 2 All-Stars",
-   "updated": "2026-09-05T00:45:18Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/2025-update"
   },
   "tread-blog-2026-pro-day-recap": {
@@ -2153,7 +2153,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-2026-pro-day-recap",
    "medium": "blog",
-   "note": "_review/2026-01-25-tread-athletics-6th-annual-pro-day-recap.md",
+   "note": "sources/tread/_rejected/2026-01-25-tread-athletics-6th-annual-pro-day-recap.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2166,9 +2166,9 @@
    "raw": "sources/_raw/tread/tread-blog-2026-pro-day-recap.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Tread Athletics 6th Annual Pro Day Recap",
-   "updated": "2026-09-05T00:47:02Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/2026-pro-day-recap"
   },
   "tread-blog-2026-update": {
@@ -2178,7 +2178,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-2026-update",
    "medium": "blog",
-   "note": "_review/2026-07-19-2026-mid-season-update-21-draft-picks-50-signs.md",
+   "note": "sources/tread/_rejected/2026-07-19-2026-mid-season-update-21-draft-picks-50-signs.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2191,9 +2191,9 @@
    "raw": "sources/_raw/tread/tread-blog-2026-update.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "2026 Mid-Season Update: 21 Draft Picks & 50+ Signs",
-   "updated": "2026-09-05T00:49:58Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/2026-update"
   },
   "tread-blog-4-mechanical-hacks-i-learned-from-fernando-rodney-that-helped-me-throw-95-mph": {
@@ -2203,7 +2203,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-4-mechanical-hacks-i-learned-from-fernando-rodney-that-helped-me-throw-95-mph",
    "medium": "blog",
-   "note": "_review/2015-08-01-simple-hacks-to-throw-faster.md",
+   "note": "sources/tread/2015-08-01-simple-hacks-to-throw-faster.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2217,9 +2217,9 @@
    "raw": "sources/_raw/tread/tread-blog-4-mechanical-hacks-i-learned-from-fernando-rodney-that-helped-me-throw-95-mph.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Simple Hacks to Throw Faster",
-   "updated": "2026-09-05T22:30:14Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/4-mechanical-hacks-i-learned-from-fernando-rodney-that-helped-me-throw-95-mph"
   },
   "tread-blog-beware-of-program-hopping": {
@@ -2229,7 +2229,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-beware-of-program-hopping",
    "medium": "blog",
-   "note": "_review/2025-12-11-how-long-term-pitching-development-beats-program-hopping.md",
+   "note": "sources/tread/2025-12-11-how-long-term-pitching-development-beats-program-hopping.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2243,9 +2243,9 @@
    "raw": "sources/_raw/tread/tread-blog-beware-of-program-hopping.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How Long-Term Pitching Development Beats Program Hopping",
-   "updated": "2026-09-05T00:46:46Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/beware-of-program-hopping"
   },
   "tread-blog-celebrating-10-years-of-tread-an-open-letter": {
@@ -2255,7 +2255,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-celebrating-10-years-of-tread-an-open-letter",
    "medium": "blog",
-   "note": "_review/2025-09-19-2025-mid-season-update-17-draft-picks-48-signs-2-all-stars.md",
+   "note": "sources/tread/_rejected/2025-09-19-2025-mid-season-update-17-draft-picks-48-signs-2-all-stars.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2268,9 +2268,9 @@
    "raw": "sources/_raw/tread/tread-blog-celebrating-10-years-of-tread-an-open-letter.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "2025 Mid-Season Update - 17 Draft Picks, 48 Signs & 2 All-Stars",
-   "updated": "2026-09-05T00:45:56Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/celebrating-10-years-of-tread-an-open-letter"
   },
   "tread-blog-home-gym": {
@@ -2297,7 +2297,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-how-this-college-pitcher-went-from-89-to-98-in-less-than-a-year",
    "medium": "blog",
-   "note": "_review/2026-02-19-naia-pitcher-gains-9-mph-in-10-months.md",
+   "note": "sources/tread/2026-02-19-naia-pitcher-gains-9-mph-in-10-months.md",
    "proposal": {
     "cues": [
      "cue-elbow-driven-flip",
@@ -2314,9 +2314,9 @@
    "raw": "sources/_raw/tread/tread-blog-how-this-college-pitcher-went-from-89-to-98-in-less-than-a-year.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "NAIA Pitcher Gains 9 MPH in 10 Months",
-   "updated": "2026-09-05T00:49:33Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/how-this-college-pitcher-went-from-89-to-98-in-less-than-a-year"
   },
   "tread-blog-mass-equals-gas-why-muscle-matters-for-pitching-velocity": {
@@ -2326,7 +2326,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-mass-equals-gas-why-muscle-matters-for-pitching-velocity",
    "medium": "blog",
-   "note": "_review/2015-07-30-gain-muscle-to-pitch-harder-and-increase-velocity.md",
+   "note": "sources/tread/2015-07-30-gain-muscle-to-pitch-harder-and-increase-velocity.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2341,9 +2341,9 @@
    "raw": "sources/_raw/tread/tread-blog-mass-equals-gas-why-muscle-matters-for-pitching-velocity.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Gain Muscle to Pitch Harder and Increase Velocity",
-   "updated": "2026-09-05T22:29:06Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/mass-equals-gas-why-muscle-matters-for-pitching-velocity"
   },
   "tread-blog-throw-harder-and-recover-quicker-with-auto-regulation": {
@@ -2353,7 +2353,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-throw-harder-and-recover-quicker-with-auto-regulation",
    "medium": "blog",
-   "note": "_review/2015-08-19-auto-regulation-for-baseball.md",
+   "note": "sources/tread/2015-08-19-auto-regulation-for-baseball.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2366,9 +2366,9 @@
    "raw": "sources/_raw/tread/tread-blog-throw-harder-and-recover-quicker-with-auto-regulation.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Auto-Regulation for Baseball",
-   "updated": "2026-09-05T22:31:20Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/throw-harder-and-recover-quicker-with-auto-regulation"
   },
   "tread-blog-top-6-reasons": {
@@ -2378,7 +2378,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-top-6-reasons",
    "medium": "blog",
-   "note": "_review/2015-12-22-how-pitchers-can-gain-weight.md",
+   "note": "sources/tread/2015-12-22-how-pitchers-can-gain-weight.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2391,9 +2391,9 @@
    "raw": "sources/_raw/tread/tread-blog-top-6-reasons.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How Pitchers Can Gain Weight",
-   "updated": "2026-09-05T22:33:14Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/top-6-reasons"
   },
   "tread-blog-tread-amateur-pro-weekend-23-recap": {
@@ -2403,7 +2403,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-tread-amateur-pro-weekend-23-recap",
    "medium": "blog",
-   "note": "_review/2023-06-23-tread-amateur-pro-weekend-23-recap.md",
+   "note": "sources/tread/_rejected/2023-06-23-tread-amateur-pro-weekend-23-recap.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2416,9 +2416,9 @@
    "raw": "sources/_raw/tread/tread-blog-tread-amateur-pro-weekend-23-recap.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Tread Amateur Pro Weekend '23 Recap",
-   "updated": "2026-09-05T20:40:51Z",
+   "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/tread-amateur-pro-weekend-23-recap/?utm_source=rss&utm_medium=rss&utm_campaign=tread-amateur-pro-weekend-23-recap"
   },
   "u853OB_DJFo": {

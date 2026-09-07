@@ -1,7 +1,5 @@
 ---
-type: concept
-domain: pitching
-created: '2026-06-15'
+{type: concept, domain: pitching, created: '2026-06-15'}
 ---
 # Pitch design logic
 
@@ -15,3 +13,6 @@ detection (60–87% spin eff), command guardrails, and movement-matched MLB comp
 **Astros tie-in:** Arm Farm pitch shape/usage (`rules/arm-farm`, `rules/pd-goals`
 compound-shape goals). The decision logic could become an internal pitch-design
 module on GroundControl movement data.
+
+## From sources
+- [[2026-07-28-what-s-the-next-sweeper]] - What's the Next Sweeper?

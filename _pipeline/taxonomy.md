@@ -78,3 +78,5 @@ contradicts an approved note on the same concept is written down under
 ## Worked examples
 
 <!-- promote appends one block per Zac correction, newest last -->
+- 2026-09-06 [[2026-08-16-long-vs-short-arm-action-whats-the-difference]]: cues ['cue-hold-flexion-longer', 'cue-get-it-go-get-it-go', 'cue-be-smooth'] -> ['cue-hold-flexion-longer', 'cue-get-it-go-get-it-go', 'cue-stay-stacked-over-the-pelvis']
+- 2026-09-06 [[tread-CxObu-w6cJw]]: cues ['cue-hold-flexion-longer', 'cue-get-it-go-get-it-go', 'cue-be-smooth'] -> ['cue-hold-flexion-longer', 'cue-get-it-go-get-it-go', 'cue-be-smooth', 'cue-stay-stacked-over-the-pelvis']

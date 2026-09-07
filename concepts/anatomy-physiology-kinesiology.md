@@ -1,8 +1,5 @@
 ---
-type: concept
-domain: hitting
-source: 'Driveline HTKCH — Anatomy, Physiology and Kinesiology PDF'
-created: '2026-06-15'
+{type: concept, domain: hitting, source: 'Driveline HTKCH — Anatomy, Physiology and Kinesiology PDF', created: '2026-06-15'}
 ---
 # Anatomy, Physiology & Kinesiology (hitting crash course)
 
@@ -107,3 +104,6 @@ for hip hinge, plyometrics for power, the 20% over/under bat rule for fast-twitc
 - [[hitting-biomechanics]] · [[big-3-hitting]] · [[swing-flaws-programming]] · [[training-implements]]
 - [[meta/skill-dev-principles]] · [[meta/org-training-process]] (SSC/plyometrics → periodization)
 - [[swing-path-bat-tracking]]
+
+## From sources
+- [[2026-09-04-how-a-struggling-juco-player-worked-with-driveline-to-reach]] - How a struggling JUCO player worked with Driveline to reach his dream

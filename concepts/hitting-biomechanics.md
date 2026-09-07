@@ -1,9 +1,5 @@
 ---
-type: concept
-domain: hitting
-source: Driveline HTKCH — Hitting Biomechanics PDF
-created: '2026-06-15'
-updated: '2026-06-15'
+{type: concept, domain: hitting, source: Driveline HTKCH — Hitting Biomechanics PDF, created: '2026-06-15', updated: '2026-06-15'}
 ---
 # Hitting Biomechanics
 
@@ -337,3 +333,8 @@ phases) and the Astros attack-angle / bat-speed / PoC tracking work.
 - [[anatomy-physiology-kinesiology]] (terminology + kinetic link + SSC) · [[meta/skill-dev-principles]]
 - [[swing-path-bat-tracking]] (attack angle / bat path) · [[xwoba]] · [[barrel-pct]]
 - Astros tie-in: `rules/bat-speed-canonical`, hitter-tracker attack-angle/PoC.
+
+## From sources
+- [[2026-08-07-one-of-the-most-insane-cage-sessions-from-a-college-hitter]] - One of The Most Insane Cage Sessions From a College Hitter
+- [[2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path]] - Swing Design: Fixing an FSU Infielder's Bat Path
+- [[2026-09-04-how-a-struggling-juco-player-worked-with-driveline-to-reach]] - How a struggling JUCO player worked with Driveline to reach his dream

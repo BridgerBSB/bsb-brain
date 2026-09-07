@@ -1,7 +1,7 @@
 ---
 type: concept
 domain: pitching
-source: Driveline — 'Why Periodize Arm Care?' (bridger_armcare_1.docx)
+source: "Driveline — 'Why Periodize Arm Care?' (bridger_armcare_1.docx)"
 created: '2026-06-15'
 ---
 # Periodized Arm Care (Driveline)
@@ -70,3 +70,9 @@ and the broader Astros pitcher-workload + injury-tracking work.
 - [[meta/org-training-process]] (periodization theory: SPP-first, successive-contiguous, LTDE)
 - [[meta/skill-dev-principles]] · [[anatomy-physiology-kinesiology]] (SSC / fast-twitch / RTD basis)
 - Astros tie-in: pitcher workload / IP-calc / injury-tracker rules.
+
+## From sources
+- [[2012-05-01-weighted-baseballs-wrist-weights-and-arm-injuries-q-a-with]] - Weighted Baseballs, Wrist Weights, and Arm Injuries - Q&A with drivelinebaseball.com (May 1st)
+- [[2015-08-19-auto-regulation-for-baseball]] - Auto-Regulation for Baseball
+- [[2026-07-21-antones-return-from-a-third-tjs-is-providing-hope-and-a]] - Antone’s return from a third TJS is providing hope and a road map for arms
+- [[2026-07-21-how-pros-use-pulse-and-what-it-means-for-the-rest-of]] - How pros use PULSE and what it means for the rest of baseball

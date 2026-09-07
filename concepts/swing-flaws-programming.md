@@ -1,9 +1,5 @@
 ---
-type: concept
-domain: hitting
-source: Driveline HTKCH — Programming / Swing Flaws PDF
-created: '2026-06-15'
-updated: '2026-06-15'
+{type: concept, domain: hitting, source: Driveline HTKCH — Programming / Swing Flaws PDF, created: '2026-06-15', updated: '2026-06-15'}
 ---
 # Swing Flaws & Drill-Package Programming
 
@@ -144,3 +140,7 @@ changes (control for contact point — see the biomech case study).
 - [[meta/skill-dev-principles]] (constraints-led approach, blocked→random, external cues)
 - [[swing-path-bat-tracking]] (attack angle / bat path) · [[xwoba]] · [[barrel-pct]]
 - Astros tie-in: `rules/bat-speed-canonical`, hitter-tracker AA.
+
+## From sources
+- [[2026-07-23-the-incredible-development-gains-of-parker-eastwood-lilles]] - The incredible development gains of Parker Eastwood Lilles
+- [[2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path]] - Swing Design: Fixing an FSU Infielder's Bat Path

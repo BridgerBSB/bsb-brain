@@ -17,9 +17,15 @@ and Tread both publish heavily here.
 
 ## From sources
 <!-- appended by the pipeline -->
+- [[2015-07-30-gain-muscle-to-pitch-harder-and-increase-velocity]] - Gain Muscle to Pitch Harder and Increase Velocity
+- [[2015-12-22-how-pitchers-can-gain-weight]] - How Pitchers Can Gain Weight
+- [[2026-08-04-the-plyo-routine-that-got-him-to-95-mph-headed-to-ecu-danny]] - The Plyo Routine That Got Him To 95 MPH & Headed To ECU | Danny Cihocki
 
 ## Cues
 <!-- appended by the pipeline -->
+- [[cue-heel-to-the-sky]]
+- [[cue-follow-the-ball-with-your-chest]]
+- [[cue-keep-the-knee-behind-toe-line]]
 
 ## Drills
 <!-- appended by the pipeline -->

@@ -1,7 +1,5 @@
 ---
-type: concept
-domain: hitting
-created: '2026-06-15'
+{type: concept, domain: hitting, created: '2026-06-15'}
 ---
 # Swing path / bat tracking
 
@@ -16,3 +14,7 @@ origin).
 **Astros tie-in:** bat-speed / attack-angle work — see `rules/bat-speed-canonical`
 and the hitter tracker. The Hermite arc + per-batter zone are reusable for
 swing-plane coaching overlays.
+
+## From sources
+- [[2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path]] - Swing Design: Fixing an FSU Infielder's Bat Path
+- [[2026-09-04-how-a-struggling-juco-player-worked-with-driveline-to-reach]] - How a struggling JUCO player worked with Driveline to reach his dream
