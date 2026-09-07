@@ -168,9 +168,8 @@ def summarize_item(paths: VaultPaths, state: State, item: dict, run=run_claude,
         last_err = ""
         for attempt in range(2):
             instr = instruction if attempt == 0 else (
-                instruction + "
-
-YOUR PREVIOUS REPLY HAD NO YAML FRONTMATTER. The very first line of your reply must be --- "
+                instruction + chr(10) + chr(10)
+                + "YOUR PREVIOUS REPLY HAD NO YAML FRONTMATTER. The very first line of your reply must be --- "
                 "followed by the frontmatter keys, then --- again, then the body. No preamble.")
             out = run(instr, stdin, MODELS["full"])
             try:
