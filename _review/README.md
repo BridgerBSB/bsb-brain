@@ -15,6 +15,7 @@ under a minute:
    - `value:` high | med | low | skip
    - the **Cues** bullets: delete a fake one, fix the wording, add one I missed
      (keep the shape `- **"phrase"** - fixes X; for Y`)
+   - the **Drills** bullets, same idea (shape `- **Name** - setup; builds X; for Y`)
    - anything else in the body; it is your note now
 3. Write a line under `## Zac` if you want the tagger to learn WHY.
 4. Set `status:` to one of

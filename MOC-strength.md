@@ -21,5 +21,8 @@ and Tread both publish heavily here.
 ## Cues
 <!-- appended by the pipeline -->
 
+## Drills
+<!-- appended by the pipeline -->
+
 ## Related
 [[MOC-pitching]] · [[MOC-hitting]] · [[MOC-anatomy]]

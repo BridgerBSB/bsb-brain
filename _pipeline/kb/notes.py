@@ -80,7 +80,8 @@ def validate_source_meta(meta: dict, exclude_domains: list[str] | None = None) -
         probs.append(f"bad value {meta.get('value')!r}")
     if meta.get("status") not in STATUSES:
         probs.append(f"bad status {meta.get('status')!r}")
-    for k in ("cues", "concepts"):
+    meta.setdefault("drills", [])
+    for k in ("cues", "concepts", "drills"):
         if k in meta and meta[k] is not None and not isinstance(meta[k], list):
             probs.append(f"{k} must be a list")
     if exclude_domains and any(d in exclude_domains for d in dom):

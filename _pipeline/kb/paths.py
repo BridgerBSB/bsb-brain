@@ -22,6 +22,7 @@ class VaultPaths:
         self.raw = self.sources / "_raw"
         self.assets = self.sources / "_assets"
         self.cues = self.root / "cues"
+        self.drills = self.root / "drills"
         self.concepts = self.root / "concepts"
 
     def raw_file(self, source: str, item_id: str) -> Path:

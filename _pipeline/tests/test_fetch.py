@@ -114,3 +114,27 @@ def test_get_transcript_prefers_captions_then_whisper_on_throttle_and_nocaptions
     # once the run knows captions are blocked it must not keep asking
     segs, ctype, blocked = get_transcript("v", tmp_path, captions_blocked=True, captions=caps_ok, whisper=whisper)
     assert calls == ["whisper"] and blocked
+
+
+def test_fetch_captions_classifies_library_errors(monkeypatch):
+    import kb.fetch_video as FV
+    import youtube_transcript_api as yta
+
+    class FakeApi:
+        def __init__(self, exc):
+            self.exc = exc
+        def list(self, vid):
+            raise self.exc
+
+    class TranscriptsDisabled(Exception):
+        pass
+
+    for exc, expected in [
+        (TranscriptsDisabled("Subtitles are disabled for this video"), FV.NoCaptions),
+        (RuntimeError("IpBlocked: YouTube is blocking requests"), FV.Throttled),
+        (RuntimeError("Video unavailable: This video is not available"), FV.Unavailable),
+    ]:
+        monkeypatch.setattr(yta, "YouTubeTranscriptApi", lambda exc=exc: FakeApi(exc))
+        import pytest
+        with pytest.raises(expected):
+            FV.fetch_captions("v")

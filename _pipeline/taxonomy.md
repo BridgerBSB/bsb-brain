@@ -33,7 +33,7 @@ A pitching video that spends five minutes on the weight room is
 | `philosophy` | teaches WHY: what to believe about development, how to think | high |
 | `research` | data, a study, a method, numbers with a method behind them | high |
 | `interview` | a conversation; grade by what the guest actually teaches | med |
-| `athlete-story` | one player's arc; usually promotional, sometimes carries numbers | med, low if no numbers |
+| `athlete-story` | one player's arc; usually promotional, sometimes carries numbers or shows drills | med; low only if no numbers AND no drills with a purpose |
 | `marketing` | program sales, recruiting pitches, testimonials, announcements | low |
 
 ## value (exactly one)
@@ -55,6 +55,18 @@ two sources phrase differently is one cue note with both phrasings.
 Good: `"Get the ball out of the glove early"` - fixes late arm, for youth arms
 with long arm swings.
 Not a cue: `"He improved his hip-shoulder separation"` - that is a claim.
+
+## drills (the other payoff)
+
+A drill is an exercise with a setup and a purpose: an implement (long bat,
+underload bat, plyo ball), a constraint (step-behind, kneeling, pivot pick),
+or a movement pattern, plus what it builds. Extract only drills the source
+shows or names, with the purpose the source gives. One drill used by two
+sources is one note with both usages. Drills are not cues: a cue is what
+the coach SAYS during the drill.
+
+Good: `**Step-behind long bat** - step-behind into contact with a long bat;
+builds holding space in the load; for hitters who drift`.
 
 ## claims
 

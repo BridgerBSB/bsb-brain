@@ -24,7 +24,7 @@ def _all_note_stems(paths: VaultPaths) -> set[str]:
 
 
 def lint_vault(paths: VaultPaths, state: State) -> dict:
-    rep = dict(orphan_cues=[], sources_without_concepts=[], dangling_links=[], stuck=[],
+    rep = dict(orphan_cues=[], orphan_drills=[], sources_without_concepts=[], dangling_links=[], stuck=[],
                pending=0, heavy_concepts=[])
     stems = _all_note_stems(paths)
 
@@ -35,6 +35,14 @@ def lint_vault(paths: VaultPaths, state: State) -> dict:
             continue
         if not meta.get("sources"):
             rep["orphan_cues"].append(f.stem)
+
+    for f in sorted(paths.drills.glob("*.md")) if paths.drills.exists() else []:
+        try:
+            meta, _ = read_note(f)
+        except ValueError:
+            continue
+        if not meta.get("sources"):
+            rep["orphan_drills"].append(f.stem)
 
     concept_hits: dict[str, int] = {}
     for f in sorted(paths.sources.rglob("*.md")) if paths.sources.exists() else []:
@@ -91,7 +99,7 @@ def _write_failed(paths: VaultPaths, state: State, stuck: list[str]) -> None:
 
 def format_report(rep: dict) -> str:
     out = [f"pending in _review: {rep['pending']}",
-           f"orphan cues: {len(rep['orphan_cues'])}",
+           f"orphan cues: {len(rep['orphan_cues'])}, orphan drills: {len(rep['orphan_drills'])}",
            f"high/med sources with no concept link: {len(rep['sources_without_concepts'])}",
            f"dangling [[links]]: {len(rep['dangling_links'])}",
            f"stuck items (failed {STUCK_RETRIES}+): {len(rep['stuck'])}",

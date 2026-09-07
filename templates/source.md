@@ -13,6 +13,7 @@ value: high
 status: pending
 raw: 
 cues: []
+drills: []
 concepts: []
 confidence: agent
 ---
@@ -26,6 +27,9 @@ confidence: agent
 
 ## Cues
 - **"..."** - fixes ...; for ...
+
+## Drills
+- **Name** - setup; builds ...; for ...
 
 ## Evidence cited
 - 

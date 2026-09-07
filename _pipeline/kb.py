@@ -141,7 +141,7 @@ def _fetch_one(paths, state, item, save_images: bool, run_ctx: dict):
             run_ctx["captions_blocked"] = True
             log(paths, "fetch: YouTube throttled captions; Whisper for the rest of this run")
         md = FV.segments_to_markdown(segs, iid)
-        if len(md) < FB.MIN_CHARS:
+        if len(md) < FV.MIN_TRANSCRIPT_CHARS:
             raise RuntimeError("too-short transcript")
         FV.write_raw_video(raw_path, item, meta, md, ctype)
         title = meta.get("title") or item.get("title")
@@ -178,6 +178,10 @@ def cmd_fetch(paths, state, args):
         try:
             _fetch_one(paths, state, item, save_images.get(item["source"], False), ctx)
             ok += 1
+        except FV.Unavailable as e:
+            state.set_status(item["id"], "skipped")
+            state.update(item["id"], error=f"unavailable: {str(e)[:120]}")
+            print(f"  fetch {item['id']}: unavailable, skipped")
         except Exception as e:
             state.set_status(item["id"], "failed", error=f"{type(e).__name__}: {str(e)[:200]}")
             bad += 1

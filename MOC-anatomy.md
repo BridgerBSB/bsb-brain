@@ -21,5 +21,8 @@ constantly; this is where it lands.
 ## Cues
 <!-- appended by the pipeline -->
 
+## Drills
+<!-- appended by the pipeline -->
+
 ## Related
 [[MOC-pitching]] · [[MOC-hitting]] · [[MOC-strength]]

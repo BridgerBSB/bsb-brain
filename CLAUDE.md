@@ -109,6 +109,7 @@ baseball training philosophy (Driveline, Tread, BPC, more later). Contract:
   appends the correction to `_pipeline/taxonomy.md` as a worked example.
 - Never move a note out of `_review/` by hand; never set `confidence: zac`
   by hand. Both are the pipeline's job so the correction is recorded.
+- One drill per note in `drills/` (setup, what it builds, who for); a drill is not a cue.
 - One cue per note in `cues/`. Two sources phrasing one cue differently =
   one note, both phrasings, both citations. Contradictions are recorded
   under Open questions, not resolved.

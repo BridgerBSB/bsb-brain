@@ -1,5 +1,5 @@
 formulas:
-  value_icon: 'if(value == "high", "🔥 high", if(value == "med", "🟡 med", if(value == "low", "⚪ low", if(value == "skip", "⛔ skip", value))))'
+  value_icon: if(value == "high", "🔥 high", if(value == "med", "🟡 med", if(value == "low", "⚪ low", if(value == "skip", "⛔ skip", value))))
 properties:
   file.name:
     displayName: Note
@@ -15,6 +15,8 @@ properties:
     displayName: Domain
   cues:
     displayName: Cues
+  drills:
+    displayName: Drills
   published:
     displayName: Published
 views:
@@ -22,9 +24,9 @@ views:
     name: To grade
     filters:
       and:
-        - 'type == "source"'
-        - 'status == "pending"'
-        - 'file.inFolder("_review")'
+        - type == "source"
+        - status == "pending"
+        - file.inFolder("_review")
     groupBy:
       property: source
       direction: ASC
@@ -35,14 +37,15 @@ views:
       - formula.value_icon
       - domain
       - cues
+      - drills
       - published
   - type: table
     name: Graded, files tonight
     filters:
       and:
-        - 'type == "source"'
-        - 'status != "pending"'
-        - 'file.inFolder("_review")'
+        - type == "source"
+        - status != "pending"
+        - file.inFolder("_review")
     order:
       - file.name
       - status
@@ -53,8 +56,8 @@ views:
     name: Filed
     filters:
       and:
-        - 'type == "source"'
-        - 'file.inFolder("sources")'
+        - type == "source"
+        - file.inFolder("sources")
     groupBy:
       property: source
       direction: ASC

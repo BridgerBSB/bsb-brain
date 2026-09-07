@@ -10,11 +10,12 @@ from pathlib import Path
 
 from .notes import read_note, write_note
 from .paths import VaultPaths
-from .slug import cue_slug
+from .slug import cue_slug, drill_slug
 from .state import State
 
 REVIEWED = ("approved", "edited", "rejected")
 _CUE_LINE = re.compile(r'^\s*-\s*\*\*"(.+?)"\*\*\s*-\s*(.*)$')
+_DRILL_LINE = re.compile(r'^\s*-\s*\*\*([^"*][^*]*?)\*\*\s*-\s*(.*)$')
 _MOC_FOR = {"pitching": "MOC-pitching", "hitting": "MOC-hitting", "strength": "MOC-strength",
             "anatomy-movement": "MOC-anatomy"}
 
@@ -41,6 +42,27 @@ def parse_cues(body: str) -> list[dict]:
     return out
 
 
+def parse_drills(body: str) -> list[dict]:
+    """Bullets under ## Drills shaped `- **Name** - setup; builds X; for Y`."""
+    sec = re.search(r"## Drills\n(.*?)(?:\n## |\Z)", body, re.S)
+    if not sec:
+        return []
+    out = []
+    for line in sec.group(1).splitlines():
+        m = _DRILL_LINE.match(line)
+        if not m:
+            continue
+        name, rest = m.group(1).strip(), m.group(2).strip()
+        setup, builds, pop = rest, "", ""
+        bm = re.match(r"(.*?)(?:;\s*builds\s+(.*?))?(?:;\s*for\s+(.*))?$", rest)
+        if bm:
+            setup = (bm.group(1) or "").strip().rstrip(".")
+            builds = (bm.group(2) or "").strip().rstrip(".")
+            pop = (bm.group(3) or "").strip().rstrip(".")
+        out.append(dict(name=name, setup=setup, builds=builds, population=pop))
+    return out
+
+
 def zac_section(body: str) -> str:
     m = re.search(r"## Zac\n(.*?)(?:\n## |\Z)", body, re.S)
     return (m.group(1).strip() if m else "")
@@ -48,12 +70,11 @@ def zac_section(body: str) -> str:
 
 def diff_proposal(proposal: dict, now: dict) -> dict:
     d = {}
-    for k in ("domain", "kind", "value", "cues"):
+    for k in ("domain", "kind", "value", "cues", "drills"):
         a, b = proposal.get(k), now.get(k)
-        if isinstance(a, list):
-            a = sorted(map(str, a))
-        if isinstance(b, list):
-            b = sorted(map(str, b))
+        if k in ("domain", "cues", "drills"):        # an absent list field is an empty one (older proposals had no drills)
+            a = sorted(map(str, a or []))
+            b = sorted(map(str, b or []))
         if a != b:
             d[k] = (proposal.get(k), now.get(k))
     return d
@@ -98,6 +119,31 @@ def _upsert_cue(paths: VaultPaths, cue: dict, domain: str, note_stem: str) -> st
     return slug
 
 
+def _upsert_drill(paths: VaultPaths, drill: dict, domain: str, note_stem: str) -> str:
+    slug = drill_slug(drill["name"])
+    p = paths.drills / f"{slug}.md"
+    link = f"[[{note_stem}]]"
+    usage = f'- {drill["setup"] or drill["name"]}' + (f' (builds {drill["builds"]})' if drill["builds"] else "") + f" - {link}"
+    if p.exists():
+        meta, body = read_note(p)
+        srcs = [str(s) for s in (meta.get("sources") or [])]
+        if link not in srcs:
+            srcs.append(link)
+        meta["sources"] = srcs
+        if not meta.get("builds") and drill["builds"]:
+            meta["builds"] = drill["builds"]
+        body = _section_append(body, "Used in", usage)
+    else:
+        meta = dict(type="drill", domain=domain, name=drill["name"], setup=drill["setup"],
+                    builds=drill["builds"], population=drill["population"], sources=[link],
+                    status="pending", created=str(date.today()))
+        body = (f"# {drill['name']}\n\n**Setup:** {drill['setup'] or 'see source'}\n**Builds:** {drill['builds'] or 'not stated'}\n"
+                f"**For:** {drill['population'] or 'not stated'}\n\n## Used in\n{usage}\n\n## Notes\n\n\n## Links\n"
+                f"[[MOC-training-knowledge]] [[{_MOC_FOR.get(domain, 'MOC-training-knowledge')}]]\n")
+    write_note(p, meta, body)
+    return slug
+
+
 def _link_concept(paths: VaultPaths, slug: str, note_stem: str, title: str) -> bool:
     p = paths.concepts / f"{slug}.md"
     if not p.exists():
@@ -108,7 +154,8 @@ def _link_concept(paths: VaultPaths, slug: str, note_stem: str, title: str) -> b
     return True
 
 
-def _link_moc(paths: VaultPaths, domain: str, note_stem: str, title: str, cue_slugs: list[str]) -> None:
+def _link_moc(paths: VaultPaths, domain: str, note_stem: str, title: str, cue_slugs: list[str],
+              drill_slugs: list[str] | None = None) -> None:
     name = _MOC_FOR.get(domain)
     if not name:
         return
@@ -119,6 +166,8 @@ def _link_moc(paths: VaultPaths, domain: str, note_stem: str, title: str, cue_sl
     text = _section_append(text, "From sources", f"- [[{note_stem}]] - {title}")
     for c in cue_slugs:
         text = _section_append(text, "Cues", f"- [[{c}]]")
+    for d in drill_slugs or []:
+        text = _section_append(text, "Drills", f"- [[{d}]]")
     p.write_text(text, encoding="utf-8", newline="\n")
 
 
@@ -192,7 +241,7 @@ def promote_all(paths: VaultPaths, state: State, git: bool = True) -> dict:
 
         # corrections
         now = dict(domain=meta.get("domain"), kind=meta.get("kind"), value=meta.get("value"),
-                   cues=meta.get("cues") or [])
+                   cues=meta.get("cues") or [], drills=meta.get("drills") or [])
         changes = diff_proposal(item.get("proposal") or {}, now)
         zac = zac_section(body)
         if changes or zac:
@@ -215,18 +264,22 @@ def promote_all(paths: VaultPaths, state: State, git: bool = True) -> dict:
 
         # cues + concepts + MOCs
         primary = (meta.get("domain") or ["pitching"])[0]
-        cue_slugs = []
+        cue_slugs, drill_slugs = [], []
         if meta.get("value") in ("high", "med"):
             for cue in parse_cues(body):
                 cue_slugs.append(_upsert_cue(paths, cue, primary, stem))
                 touched.append(paths.cues / f"{cue_slugs[-1]}.md")
             meta["cues"] = cue_slugs
+            for drill in parse_drills(body):
+                drill_slugs.append(_upsert_drill(paths, drill, primary, stem))
+                touched.append(paths.drills / f"{drill_slugs[-1]}.md")
+            meta["drills"] = drill_slugs
             for c in meta.get("concepts") or []:
                 if _link_concept(paths, str(c), stem, meta.get("title", stem)):
                     touched.append(paths.concepts / f"{c}.md")
         if meta.get("value") == "high":
             for d in meta.get("domain") or []:
-                _link_moc(paths, d, stem, meta.get("title", stem), cue_slugs)
+                _link_moc(paths, d, stem, meta.get("title", stem), cue_slugs, drill_slugs)
                 mp = paths.root / f"{_MOC_FOR.get(d, '')}.md"
                 if mp.exists():
                     touched.append(mp)
@@ -238,7 +291,7 @@ def promote_all(paths: VaultPaths, state: State, git: bool = True) -> dict:
         state.set_status(item["id"], "promoted")
         res["promoted"] += 1
         touched.append(dest)
-        _log(paths, f"promoted {stem} ({meta.get('kind')}/{meta.get('value')}, {len(cue_slugs)} cues"
+        _log(paths, f"promoted {stem} ({meta.get('kind')}/{meta.get('value')}, {len(cue_slugs)} cues, {len(drill_slugs)} drills"
                     + (", corrected" if changes or zac else "") + ")")
         res["touched"] += touched
 

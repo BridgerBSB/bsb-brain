@@ -26,3 +26,7 @@ def note_name(published: str | None, title: str) -> str:
 
 def cue_slug(phrase: str) -> str:
     return "cue-" + slugify(phrase, max_len=MAX_LEN - 4)
+
+
+def drill_slug(name: str) -> str:
+    return "drill-" + slugify(name, max_len=MAX_LEN - 6)

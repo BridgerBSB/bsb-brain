@@ -111,7 +111,7 @@ def low_value_note(item: dict, raw_meta: dict, raw_rel: str, tri: dict) -> tuple
         type="source", source=item["source"], medium=item["medium"], title=title,
         url=item["url"], published=raw_meta.get("published") or item.get("published"),
         author=raw_meta.get("author"), domain=tri["domain"], kind=tri["kind"], value="low",
-        status="pending", raw=raw_rel, cues=[], concepts=[], confidence="agent",
+        status="pending", raw=raw_rel, cues=[], drills=[], concepts=[], confidence="agent",
     )
     if item["medium"] == "video":
         meta["duration_s"] = raw_meta.get("duration_s") or item.get("duration_s")
@@ -167,7 +167,12 @@ def summarize_item(paths: VaultPaths, state: State, item: dict, run=run_claude,
         meta = body = None
         last_err = ""
         for attempt in range(2):
-            out = run(instruction, stdin, MODELS["full"])
+            instr = instruction if attempt == 0 else (
+                instruction + "
+
+YOUR PREVIOUS REPLY HAD NO YAML FRONTMATTER. The very first line of your reply must be --- "
+                "followed by the frontmatter keys, then --- again, then the body. No preamble.")
+            out = run(instr, stdin, MODELS["full"])
             try:
                 meta, body = parse_note_text(out)
             except ValueError as e:
@@ -192,7 +197,7 @@ def summarize_item(paths: VaultPaths, state: State, item: dict, run=run_claude,
     meta["author"] = raw_meta.get("author") or meta.get("author")
     if item["medium"] == "video":
         meta["duration_s"] = raw_meta.get("duration_s") or item.get("duration_s")
-    for k in ("cues", "concepts"):
+    for k in ("cues", "drills", "concepts"):
         meta[k] = [str(x) for x in (meta.get(k) or [])]
     if excluded:
         meta["value"] = "skip"
@@ -202,6 +207,6 @@ def summarize_item(paths: VaultPaths, state: State, item: dict, run=run_claude,
     write_note(out_path, meta, body)
     state.update(iid, note=paths.rel(out_path),
                  proposal=dict(domain=list(meta["domain"]), kind=meta["kind"],
-                               value=meta["value"], cues=list(meta["cues"])))
+                               value=meta["value"], cues=list(meta["cues"]), drills=list(meta["drills"])))
     state.set_status(iid, "skipped" if meta["value"] == "skip" else "summarized")
     return out_path

@@ -20,7 +20,8 @@ Design: [[projects/training-knowledge/design]].
 
 ## Layers
 - `sources/<source>/` - one note per video or post, tagged by domain / kind / value
-- `cues/` - one note per coaching cue, linked from every source that uses it
+- `cues/` - one note per coaching cue (what the coach SAYS), linked from every source that uses it
+- `drills/` - one note per drill (setup, what it builds, who for), linked from every source that shows it
 - `concepts/` - the topic layer (definitions), enriched by sources
 - `sources/_raw/` - immutable transcripts and articles, cited by timestamp
 

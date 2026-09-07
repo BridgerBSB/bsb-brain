@@ -41,5 +41,14 @@ Child of [[MOC-training-knowledge]] and [[MOC-baseball-analytics]]. The taught p
 - [[hitting-quiz-bank]] — 6 topic quizzes (~40 Q), the per-module comprehension gate
 - [[hitting-coach-candidate-prompt]] — the interview deck built on the spine
 
+## From sources
+<!-- appended by the pipeline -->
+
+## Cues
+<!-- appended by the pipeline -->
+
+## Drills
+<!-- appended by the pipeline -->
+
 ## Related
 - [[MOC-baseball-analytics]] · [[MOC-astros-engineering]] · [[loop-engineering]]

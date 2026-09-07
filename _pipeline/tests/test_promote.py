@@ -154,3 +154,34 @@ def test_promote_second_source_appends_phrasing_to_existing_cue(tmp_path):
     cm, cb = read_note(p.cues / "cue-get-the-ball-out-early.md")
     assert cm["sources"] == ["[[older-note]]", "[[2026-08-01-long-toss-and-velo]]"]
     assert cb.count("[[older-note]]") == 1
+
+
+def test_parse_drills_reads_setup_builds_population():
+    from kb.promote import parse_drills
+    body = ("# t\n\n## Cues\n- none given\n\n## Drills\n"
+            "- **Step-behind long bat** - step-behind into contact with a long bat; builds holding space in the load; for hitters who drift\n"
+            "- **Pivot picks** - pivot pick off the back foot\n\n## Evidence cited\n- none\n")
+    d = parse_drills(body)
+    assert d[0] == dict(name="Step-behind long bat", setup="step-behind into contact with a long bat",
+                        builds="holding space in the load", population="hitters who drift")
+    assert d[1] == dict(name="Pivot picks", setup="pivot pick off the back foot", builds="", population="")
+
+
+def test_promote_creates_drill_notes_and_links_moc(tmp_path):
+    p = _vault(tmp_path)
+    (p.root / "MOC-hitting.md").write_text("# MOC\n\n## From sources\n\n## Cues\n\n## Drills\n\n## Related\n", encoding="utf-8")
+    body = NOTE_BODY.replace("## Evidence cited", "## Drills\n- **Step-behind long bat** - long bat, step-behind; builds holding space; for drifters\n\n## Evidence cited")
+    meta = dict(NOTE_META, status="approved", domain=["hitting"], drills=["drill-step-behind-long-bat"])
+    note = p.review / "2026-08-01-long-toss-and-velo.md"
+    write_note(note, meta, body)
+    st = _state(p, "_review/2026-08-01-long-toss-and-velo.md")
+    promote_all(p, st, git=False)
+    d = p.drills / "drill-step-behind-long-bat.md"
+    assert d.exists()
+    dm, db = read_note(d)
+    assert dm["name"] == "Step-behind long bat" and dm["builds"] == "holding space" and dm["domain"] == "hitting"
+    assert "[[2026-08-01-long-toss-and-velo]]" in db
+    moc = (p.root / "MOC-hitting.md").read_text(encoding="utf-8")
+    assert "[[drill-step-behind-long-bat]]" in moc
+    fm, _ = read_note(p.sources / "tread" / "2026-08-01-long-toss-and-velo.md")
+    assert fm["drills"] == ["drill-step-behind-long-bat"]

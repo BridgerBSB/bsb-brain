@@ -35,5 +35,8 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 ## Cues
 <!-- the pipeline appends approved pitching cues here -->
 
+## Drills
+<!-- the pipeline appends approved pitching drills here -->
+
 ## Related
 [[MOC-hitting]] · [[MOC-strength]] · [[MOC-anatomy]]
