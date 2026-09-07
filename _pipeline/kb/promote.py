@@ -233,6 +233,11 @@ def promote_all(paths: VaultPaths, state: State, git: bool = True) -> dict:
             continue
         rel = paths.rel(note)
         item = by_note.get(rel)
+        if item is None and meta.get("raw"):
+            # a copy Zac made by hand in Obsidian: adopt it by its raw path
+            item = next((r for r in state.data["items"].values() if r.get("raw") == meta["raw"]), None)
+            if item is not None:
+                state.update(item["id"], note=rel)
         if item is None:
             _log(paths, f"promote: {rel} has no state record, left in place")
             continue

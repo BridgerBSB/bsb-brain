@@ -185,3 +185,14 @@ def test_promote_creates_drill_notes_and_links_moc(tmp_path):
     assert "[[drill-step-behind-long-bat]]" in moc
     fm, _ = read_note(p.sources / "tread" / "2026-08-01-long-toss-and-velo.md")
     assert fm["drills"] == ["drill-step-behind-long-bat"]
+
+
+def test_promote_adopts_hand_copied_note_by_raw_path(tmp_path):
+    p = _vault(tmp_path)
+    note = p.review / "tread-vid1-copy-zac-made.md"
+    write_note(note, dict(NOTE_META, status="approved"), NOTE_BODY)
+    st = _state(p, "_review/2026-08-01-long-toss-and-velo.md")   # state points at a name that no longer exists
+    res = promote_all(p, st, git=False)
+    assert res["promoted"] == 1
+    assert (p.sources / "tread" / "tread-vid1-copy-zac-made.md").exists()
+    assert st.get("vid1")["status"] == "promoted"
