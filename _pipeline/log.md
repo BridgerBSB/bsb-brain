@@ -136,3 +136,9 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-08 04:30 promoted 2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks (instruction/high, 2 cues, 2 drills)
 - 2026-09-08 04:30 promoted 2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball (instruction/high, 4 cues, 2 drills)
 - 2026-09-08 04:30 promoted 2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands (instruction/high, 1 cues, 6 drills)
+- 2026-09-08 04:30 promote: 21 promoted, 12 rejected, 1 corrections
+- 2026-09-08 04:30 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-09-08 04:31 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-09-08 04:31 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-09-08 04:35 fetch: 6 ok, 2 failed, 0 deferred; whisper 3 min
+- 2026-09-08 05:36 summarize: 37 ok, 1 failed (queue had room for 40)
