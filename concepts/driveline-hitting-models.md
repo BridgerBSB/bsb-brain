@@ -1,8 +1,5 @@
 ---
-type: concept
-domain: hitting
-source: personal-bsbres
-created: '2026-06-15'
+{type: concept, domain: hitting, source: personal-bsbres, created: '2026-06-15'}
 ---
 # Driveline Hitting Models (2025)
 
@@ -44,3 +41,6 @@ Example: Rafael Devers grades 70+ power in the heart, 30- contact — these **do
 
 ## Links
 [[MOC-baseball-analytics]] · [[independent-outcome-value]] · [[stuff-plus-4s-pitching]] · [[pitch-design-logic]] · [[lightgbm-baseball-modeling]] · [[driveline]] · [[stuff-plus-deep-learning]] · [[tjstuff-plus]] · [[mix-plus-sync]] · [[big-3-hitting]] · [[xwoba]]
+
+## From sources
+- [[2025-12-09-why-swinging-faster-doesnt-mean-missing-more-how-the-blue]] - Why Swinging Faster Doesn’t Mean Missing More | How The Blue Jays Fixed Their Hitters

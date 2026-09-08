@@ -1,7 +1,5 @@
 ---
-type: concept
-domain: pitching
-source: personal-bsbres/statistical-models
+{type: concept, domain: pitching, source: personal-bsbres/statistical-models}
 ---
 # Independent Value Family (MOC)
 
@@ -34,3 +32,6 @@ All members correlate strongly to public analogs — **FanGraphs Stuff+/Pitching
 - [[MOC-baseball-analytics]]
 - [[independent-pitch-value]], [[independent-stuff-value]], [[independent-location-value]], [[execution-run-value]], [[independent-outcome-value]]
 - [[driveline-hitting-models]], [[mix-plus-sync]], [[stuff-plus-4s-pitching]], [[tjstuff-plus]]
+
+## From sources
+- [[2026-01-19-the-evolution-of-pitch-design-saberseminar-2025-r-d-podcast]] - The Evolution of Pitch Design | Saberseminar 2025 | R&D Podcast EP 111

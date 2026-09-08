@@ -244,7 +244,7 @@
    "feed": "youtube",
    "id": "2fjpL_BraVU",
    "medium": "video",
-   "note": "_review/2026-01-19-the-evolution-of-pitch-design-saberseminar-2025-r-d-podcast.md",
+   "note": "sources/driveline/2026-01-19-the-evolution-of-pitch-design-saberseminar-2025-r-d-podcast.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -258,9 +258,9 @@
    "raw": "sources/_raw/driveline/2fjpL_BraVU.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The Evolution of Pitch Design | Saberseminar 2025 | R&D Podcast EP 111",
-   "updated": "2026-09-07T02:21:05Z",
+   "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=2fjpL_BraVU"
   },
   "2qMD82rncgQ": {
@@ -304,7 +304,7 @@
    "feed": "youtube",
    "id": "4GjWsy7y65I",
    "medium": "video",
-   "note": "_review/2018-02-12-how-i-cue-my-arm-action.md",
+   "note": "sources/tread/2018-02-12-how-i-cue-my-arm-action.md",
    "proposal": {
     "cues": [
      "cue-arm-spiral-spiral-staircase",
@@ -327,9 +327,9 @@
    "raw": "sources/_raw/tread/4GjWsy7y65I.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How I Cue My Arm Action",
-   "updated": "2026-09-07T01:44:13Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=4GjWsy7y65I"
   },
   "4UeoreDGRE8": {
@@ -356,7 +356,7 @@
    "feed": "youtube",
    "id": "4hoEkIcCylg",
    "medium": "video",
-   "note": "_review/2025-12-09-why-swinging-faster-doesnt-mean-missing-more-how-the-blue.md",
+   "note": "sources/driveline/2025-12-09-why-swinging-faster-doesnt-mean-missing-more-how-the-blue.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -370,9 +370,9 @@
    "raw": "sources/_raw/driveline/4hoEkIcCylg.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Why Swinging Faster Doesn’t Mean Missing More | How The Blue Jays Fixed Their Hitters",
-   "updated": "2026-09-07T02:04:35Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=4hoEkIcCylg"
   },
   "5-N9m4A7BWY": {
@@ -433,7 +433,7 @@
    "feed": "youtube",
    "id": "7nvwOFe51c8",
    "medium": "video",
-   "note": "_review/2025-12-21-stop-choosing-between-power-contact-tyler-jones-swing-design.md",
+   "note": "sources/driveline/2025-12-21-stop-choosing-between-power-contact-tyler-jones-swing-design.md",
    "proposal": {
     "cues": [
      "cue-belt-buckle-down",
@@ -461,9 +461,9 @@
    "raw": "sources/_raw/driveline/7nvwOFe51c8.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Stop Choosing Between Power & Contact | Tyler Jones Swing Design",
-   "updated": "2026-09-07T02:12:17Z",
+   "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=7nvwOFe51c8"
   },
   "9O0uBasyF_0": {
@@ -643,7 +643,7 @@
    "feed": "youtube",
    "id": "DpGxwKPhflk",
    "medium": "video",
-   "note": "_review/2024-09-20-the-dome-zone-podcast-presented-by-bpc-ep-1-pilot.md",
+   "note": "sources/bpc/_rejected/2024-09-20-the-dome-zone-podcast-presented-by-bpc-ep-1-pilot.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -657,9 +657,9 @@
    "raw": "sources/_raw/bpc/DpGxwKPhflk.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "THE DOME ZONE PODCAST: Presented by BPC EP#1- Pilot",
-   "updated": "2026-09-07T01:50:30Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=DpGxwKPhflk"
   },
   "EOFwsj3-GEY": {
@@ -686,7 +686,7 @@
    "feed": "youtube",
    "id": "F-od2QhIRGY",
    "medium": "video",
-   "note": "_review/2026-03-21-stop-getting-greedy-on-your-pitch-swing-design.md",
+   "note": "sources/driveline/2026-03-21-stop-getting-greedy-on-your-pitch-swing-design.md",
    "proposal": {
     "cues": [
      "cue-stay-vertical-or-stay-tight",
@@ -711,9 +711,9 @@
    "raw": "sources/_raw/driveline/F-od2QhIRGY.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Stop Getting Greedy on Your Pitch (Swing Design)",
-   "updated": "2026-09-07T02:30:55Z",
+   "updated": "2026-09-08T11:30:39Z",
    "url": "https://www.youtube.com/watch?v=F-od2QhIRGY"
   },
   "FiRtvf0_dnI": {
@@ -740,7 +740,7 @@
    "feed": "youtube",
    "id": "G17s9d9Oj38",
    "medium": "video",
-   "note": "_review/2025-12-02-luis-patino-was-dealing-mic-d-up-live-abs.md",
+   "note": "sources/driveline/_rejected/2025-12-02-luis-patino-was-dealing-mic-d-up-live-abs.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -754,9 +754,9 @@
    "raw": "sources/_raw/driveline/G17s9d9Oj38.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Luis Patiño Was DEALING | Mic'd Up Live ABs",
-   "updated": "2026-09-07T02:03:07Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=G17s9d9Oj38"
   },
   "GQ-v950iAHg": {
@@ -817,7 +817,7 @@
    "feed": "youtube",
    "id": "IOCWJKUNoJk",
    "medium": "video",
-   "note": "_review/2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands.md",
+   "note": "sources/tread/2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands.md",
    "proposal": {
     "cues": [
      "cue-scaps-apart-scaps-together"
@@ -841,9 +841,9 @@
    "raw": "sources/_raw/tread/IOCWJKUNoJk.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The Ultimate Pitcher's Guide To J-Bands",
-   "updated": "2026-09-07T02:38:22Z",
+   "updated": "2026-09-08T11:30:39Z",
    "url": "https://www.youtube.com/watch?v=IOCWJKUNoJk"
   },
   "JibvHbHz3Ak": {
@@ -920,7 +920,7 @@
    "feed": "youtube",
    "id": "NJejEG8CUkE",
    "medium": "video",
-   "note": "_review/2025-12-13-6-drills-to-fix-your-posture-hinge-and-rotation-feat-logan.md",
+   "note": "sources/driveline/2025-12-13-6-drills-to-fix-your-posture-hinge-and-rotation-feat-logan.md",
    "proposal": {
     "cues": [
      "cue-dont-be-afraid",
@@ -948,9 +948,9 @@
    "raw": "sources/_raw/driveline/NJejEG8CUkE.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "6 Drills to Fix Your Posture, Hinge, and Rotation (Feat. Logan O'Hoppe)",
-   "updated": "2026-09-07T02:07:15Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=NJejEG8CUkE"
   },
   "NMd52BXwqYY": {
@@ -987,7 +987,7 @@
    "feed": "youtube",
    "id": "OZpD8SQy0hY",
    "medium": "video",
-   "note": "_review/2018-02-21-throwing-concept-syncing-arms-into-the-plane-of-rotation.md",
+   "note": "sources/tread/2018-02-21-throwing-concept-syncing-arms-into-the-plane-of-rotation.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1002,9 +1002,9 @@
    "raw": "sources/_raw/tread/OZpD8SQy0hY.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Throwing Concept: Syncing Arms Into The Plane Of Rotation",
-   "updated": "2026-09-07T01:45:53Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=OZpD8SQy0hY"
   },
   "OoTAErolHDM": {
@@ -1042,7 +1042,7 @@
    "feed": "youtube",
    "id": "Pjbxp2kwpiU",
    "medium": "video",
-   "note": "_review/2018-03-05-how-to-manage-in-season-lifting.md",
+   "note": "sources/tread/2018-03-05-how-to-manage-in-season-lifting.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1056,9 +1056,9 @@
    "raw": "sources/_raw/tread/Pjbxp2kwpiU.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How To Manage In-Season Lifting",
-   "updated": "2026-09-07T01:46:55Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=Pjbxp2kwpiU"
   },
   "PkFCxMVwYLY": {
@@ -1068,7 +1068,7 @@
    "feed": "youtube",
    "id": "PkFCxMVwYLY",
    "medium": "video",
-   "note": "_review/2024-11-08-the-dome-zone-podcast-ep-4-the-landscape-of-college.md",
+   "note": "sources/bpc/_rejected/2024-11-08-the-dome-zone-podcast-ep-4-the-landscape-of-college.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1082,9 +1082,9 @@
    "raw": "sources/_raw/bpc/PkFCxMVwYLY.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "THE DOME ZONE PODCAST EP#4- The Landscape of College Baseball and the Draft",
-   "updated": "2026-09-07T01:54:55Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=PkFCxMVwYLY"
   },
   "QPzFR4GNxdk": {
@@ -1149,7 +1149,7 @@
    "feed": "youtube",
    "id": "RczpZSjZgQA",
    "medium": "video",
-   "note": "_review/2026-03-28-his-bat-path-is-costing-him.md",
+   "note": "sources/driveline/2026-03-28-his-bat-path-is-costing-him.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1169,9 +1169,9 @@
    "raw": "sources/_raw/driveline/RczpZSjZgQA.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "His bat path is costing him",
-   "updated": "2026-09-07T02:32:21Z",
+   "updated": "2026-09-08T11:30:39Z",
    "url": "https://www.youtube.com/watch?v=RczpZSjZgQA"
   },
   "S1X8Gp2s-20": {
@@ -1285,7 +1285,7 @@
    "feed": "youtube",
    "id": "U7Ah61uhaM8",
    "medium": "video",
-   "note": "_review/2025-05-28-how-we-helped-this-95-mph-big-league-sidearmer-cut-his-era.md",
+   "note": "sources/bpc/_rejected/2025-05-28-how-we-helped-this-95-mph-big-league-sidearmer-cut-his-era.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1300,9 +1300,9 @@
    "raw": "sources/_raw/bpc/U7Ah61uhaM8.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "How We Helped This 95 MPH Big-League Sidearmer CUT HIS ERA IN HALF",
-   "updated": "2026-09-07T02:01:52Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=U7Ah61uhaM8"
   },
   "UIPrH6_f7q4": {
@@ -1312,7 +1312,7 @@
    "feed": "youtube",
    "id": "UIPrH6_f7q4",
    "medium": "video",
-   "note": "_review/2026-01-13-how-long-term-development-built-a-90-mph-arm.md",
+   "note": "sources/driveline/2026-01-13-how-long-term-development-built-a-90-mph-arm.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1327,9 +1327,9 @@
    "raw": "sources/_raw/driveline/UIPrH6_f7q4.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How Long-Term Development Built a 90+ MPH Arm",
-   "updated": "2026-09-07T02:17:01Z",
+   "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=UIPrH6_f7q4"
   },
   "Ury29iTiTxo": {
@@ -1418,7 +1418,7 @@
    "feed": "youtube",
    "id": "WaPqnvfP_PI",
    "medium": "video",
-   "note": "_review/2026-01-09-why-pushing-his-hands-led-to-this-mlb-draft-prospects-power.md",
+   "note": "sources/driveline/2026-01-09-why-pushing-his-hands-led-to-this-mlb-draft-prospects-power.md",
    "proposal": {
     "cues": [
      "cue-pick-it-up-let-it-happen-naturally",
@@ -1442,9 +1442,9 @@
    "raw": "sources/_raw/driveline/WaPqnvfP_PI.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Why 'Pushing' His Hands Led To This MLB Draft Prospects’ Power Leak",
-   "updated": "2026-09-07T02:15:55Z",
+   "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=WaPqnvfP_PI"
   },
   "XiaSpklFIOs": {
@@ -1548,7 +1548,7 @@
    "feed": "youtube",
    "id": "a6Z6vJz0ql0",
    "medium": "video",
-   "note": "_review/2024-10-03-the-dome-zone-podcast-presented-by-bpc-ep-2-analytics-in.md",
+   "note": "sources/bpc/_rejected/2024-10-03-the-dome-zone-podcast-presented-by-bpc-ep-2-analytics-in.md",
    "proposal": {
     "cues": [
      "cue-love-to-walk",
@@ -1567,9 +1567,9 @@
    "raw": "sources/_raw/bpc/a6Z6vJz0ql0.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "THE DOME ZONE PODCAST: Presented by BPC EP#2- Analytics in Baseball W/ MLB Catcher Nick Dini",
-   "updated": "2026-09-07T01:52:38Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=a6Z6vJz0ql0"
   },
   "cGV1WBQKvhk": {
@@ -1797,7 +1797,7 @@
    "feed": "youtube",
    "id": "e2rBQk8UHT0",
    "medium": "video",
-   "note": "_review/2025-12-18-you-re-not-capable-of-getting-drafted-stefan-raeth-s.md",
+   "note": "sources/driveline/_rejected/2025-12-18-you-re-not-capable-of-getting-drafted-stefan-raeth-s.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1813,9 +1813,9 @@
    "raw": "sources/_raw/driveline/e2rBQk8UHT0.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "title": "\"You're Not Capable of Getting Drafted\" | Stefan Raeth's Journey to the Fall League",
-   "updated": "2026-09-07T02:09:19Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=e2rBQk8UHT0"
   },
   "eFzv1Svjizc": {
@@ -1878,6 +1878,23 @@
    "updated": "2026-09-05T22:16:17Z",
    "url": "https://www.youtube.com/watch?v=ebnUZmdfqQI"
   },
+  "fBpo461Q7y8": {
+   "added": "2026-09-08T11:30:12Z",
+   "duration_s": 1155,
+   "error": null,
+   "feed": "youtube",
+   "id": "fBpo461Q7y8",
+   "medium": "video",
+   "note": null,
+   "published": "2026-09-06",
+   "raw": "sources/_raw/tread/fBpo461Q7y8.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Complete Guide To Mastering The Changeup [Grips, Cues, & Sequencing]",
+   "updated": "2026-09-08T11:30:25Z",
+   "url": "https://www.youtube.com/watch?v=fBpo461Q7y8"
+  },
   "gCDudoxKwbI": {
    "added": "2026-09-05T20:37:29Z",
    "duration_s": 434,
@@ -1885,7 +1902,7 @@
    "feed": "youtube",
    "id": "gCDudoxKwbI",
    "medium": "video",
-   "note": "_review/2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball.md",
+   "note": "sources/driveline/2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball.md",
    "proposal": {
     "cues": [
      "cue-keep-hips-level-the-whole-time",
@@ -1908,9 +1925,9 @@
    "raw": "sources/_raw/driveline/gCDudoxKwbI.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Cues & Drills to Let Your Body Deliver the Barrel to the Ball",
-   "updated": "2026-09-07T02:36:30Z",
+   "updated": "2026-09-08T11:30:39Z",
    "url": "https://www.youtube.com/watch?v=gCDudoxKwbI"
   },
   "gLVLdI3YdJ4": {
@@ -1988,7 +2005,7 @@
    "feed": "youtube",
    "id": "isfuQ58avok",
    "medium": "video",
-   "note": "_review/2026-03-02-how-a-pro-hitter-gets-ready-for-mlb-spring-training-seattle.md",
+   "note": "sources/driveline/2026-03-02-how-a-pro-hitter-gets-ready-for-mlb-spring-training-seattle.md",
    "proposal": {
     "cues": [
      "cue-stay-just-over-the-ball",
@@ -2012,9 +2029,9 @@
    "raw": "sources/_raw/driveline/isfuQ58avok.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How A Pro Hitter Gets Ready for MLB Spring Training | Seattle Mariners MiLB Victor Labrada",
-   "updated": "2026-09-07T02:27:12Z",
+   "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=isfuQ58avok"
   },
   "jGwwwoAaRRs": {
@@ -2092,7 +2109,7 @@
    "feed": "youtube",
    "id": "loijBoVRwg8",
    "medium": "video",
-   "note": "_review/2026-01-31-why-this-mlb-player-couldn-t-pull-the-ball-swing-design.md",
+   "note": "sources/driveline/2026-01-31-why-this-mlb-player-couldn-t-pull-the-ball-swing-design.md",
    "proposal": {
     "cues": [
      "cue-turn-your-body-like-youre-going-to-hit-a-ground-ball",
@@ -2118,9 +2135,9 @@
    "raw": "sources/_raw/driveline/loijBoVRwg8.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Why This MLB Player Couldn't Pull the Ball (Swing Design)",
-   "updated": "2026-09-07T02:23:05Z",
+   "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=loijBoVRwg8"
   },
   "mDy4SShheeY": {
@@ -2164,7 +2181,7 @@
    "feed": "youtube",
    "id": "mpmMAMKsQnc",
    "medium": "video",
-   "note": "_review/2025-04-23-elite-velo-isnt-enoughheres-what-youre-missing.md",
+   "note": "sources/bpc/_rejected/2025-04-23-elite-velo-isnt-enoughheres-what-youre-missing.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2178,9 +2195,9 @@
    "raw": "sources/_raw/bpc/mpmMAMKsQnc.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Elite Velo Isn’t Enough—Here’s What You’re Missing",
-   "updated": "2026-09-07T02:00:32Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=mpmMAMKsQnc"
   },
   "nXaUKGHuE7c": {
@@ -2250,7 +2267,7 @@
    "feed": "youtube",
    "id": "pAno1J6U6iM",
    "medium": "video",
-   "note": "_review/2023-10-26-bpc-pro-day-2023.md",
+   "note": "sources/bpc/_rejected/2023-10-26-bpc-pro-day-2023.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2267,9 +2284,9 @@
    "raw": "sources/_raw/bpc/pAno1J6U6iM.md",
    "retries": 0,
    "source": "bpc",
-   "status": "skipped",
+   "status": "rejected",
    "title": "BPC Pro Day 2023",
-   "updated": "2026-09-07T01:47:57Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=pAno1J6U6iM"
   },
   "pwiGO6PbSfE": {
@@ -2296,7 +2313,7 @@
    "feed": "youtube",
    "id": "qtXjHhIDa5A",
    "medium": "video",
-   "note": "_review/2017-12-08-weight-gain-shake-i-drank-this-every-night-for-4-years.md",
+   "note": "sources/tread/2017-12-08-weight-gain-shake-i-drank-this-every-night-for-4-years.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2310,9 +2327,9 @@
    "raw": "sources/_raw/tread/qtXjHhIDa5A.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Weight Gain Shake - I Drank This Every Night for 4 Years",
-   "updated": "2026-09-07T01:41:34Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=qtXjHhIDa5A"
   },
   "r-yW4Fk6hnA": {
@@ -2384,7 +2401,7 @@
    "feed": "youtube",
    "id": "sKTs4WImtp4",
    "medium": "video",
-   "note": "_review/2026-02-07-3-drills-to-improve-rotation-feat-john-rhodes-la-dodgers.md",
+   "note": "sources/driveline/2026-02-07-3-drills-to-improve-rotation-feat-john-rhodes-la-dodgers.md",
    "proposal": {
     "cues": [
      "cue-keep-it-closed-longer",
@@ -2409,9 +2426,9 @@
    "raw": "sources/_raw/driveline/sKTs4WImtp4.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "3 Drills To Improve Rotation (feat. John Rhodes, LA Dodgers)",
-   "updated": "2026-09-07T02:25:20Z",
+   "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=sKTs4WImtp4"
   },
   "sZwlYfLnDWM": {
@@ -2421,7 +2438,7 @@
    "feed": "youtube",
    "id": "sZwlYfLnDWM",
    "medium": "video",
-   "note": "_review/2024-03-20-4-ways-you-can-throw-more-strikes.md",
+   "note": "sources/bpc/_rejected/2024-03-20-4-ways-you-can-throw-more-strikes.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2435,9 +2452,9 @@
    "raw": "sources/_raw/bpc/sZwlYfLnDWM.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "4 Ways you can “Throw more Strikes”",
-   "updated": "2026-09-07T01:49:01Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=sZwlYfLnDWM"
   },
   "tjb9eqleBpc": {
@@ -2447,7 +2464,7 @@
    "feed": "youtube",
    "id": "tjb9eqleBpc",
    "medium": "video",
-   "note": "_review/2026-01-14-can-an-mlb-all-star-break-our-smash-bat-ev-record-ft-brent.md",
+   "note": "sources/driveline/2026-01-14-can-an-mlb-all-star-break-our-smash-bat-ev-record-ft-brent.md",
    "proposal": {
     "cues": [
      "cue-push-the-back-hip-back-first",
@@ -2472,9 +2489,9 @@
    "raw": "sources/_raw/driveline/tjb9eqleBpc.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Can an MLB All-Star Break Our Smash Bat EV Record? (ft. Brent Rooker)",
-   "updated": "2026-09-07T02:19:04Z",
+   "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=tjb9eqleBpc"
   },
   "tread-blog-2023-year-in-review": {
@@ -2711,7 +2728,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-home-gym",
    "medium": "blog",
-   "note": "_review/2016-01-11-baseball-home-gym-to-pitch-harder.md",
+   "note": "sources/tread/_rejected/2016-01-11-baseball-home-gym-to-pitch-harder.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2726,9 +2743,9 @@
    "raw": "sources/_raw/tread/tread-blog-home-gym.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Baseball Home Gym to Pitch Harder",
-   "updated": "2026-09-07T01:40:28Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://treadathletics.com/home-gym"
   },
   "tread-blog-how-this-college-pitcher-went-from-89-to-98-in-less-than-a-year": {
@@ -2903,7 +2920,7 @@
    "feed": "youtube",
    "id": "ufh2XNcw8dA",
    "medium": "video",
-   "note": "_review/2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks.md",
+   "note": "sources/driveline/2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks.md",
    "proposal": {
     "cues": [
      "cue-turn-your-back-shoulder-to-the-baseball",
@@ -2924,9 +2941,9 @@
    "raw": "sources/_raw/driveline/ufh2XNcw8dA.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The Rangers Signed Him After +4 MPH Bat Speed In 6 Weeks",
-   "updated": "2026-09-07T02:34:41Z",
+   "updated": "2026-09-08T11:30:39Z",
    "url": "https://www.youtube.com/watch?v=ufh2XNcw8dA"
   },
   "uyn9iqFavTw": {
@@ -2953,7 +2970,7 @@
    "feed": "youtube",
    "id": "v3IBryZpmjc",
    "medium": "video",
-   "note": "_review/2018-02-02-roll-ins-variations.md",
+   "note": "sources/tread/2018-02-02-roll-ins-variations.md",
    "proposal": {
     "cues": [
      "cue-lock-the-back-hip-forward",
@@ -2979,9 +2996,9 @@
    "raw": "sources/_raw/tread/v3IBryZpmjc.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Roll Ins + Variations",
-   "updated": "2026-09-07T01:42:46Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=v3IBryZpmjc"
   },
   "vOmOY9wJHOY": {
@@ -3102,7 +3119,7 @@
    "feed": "youtube",
    "id": "xK5x85fURl8",
    "medium": "video",
-   "note": "_review/2024-12-12-the-domezone-podcast-ep-5-the-chase-petty-story.md",
+   "note": "sources/bpc/_rejected/2024-12-12-the-domezone-podcast-ep-5-the-chase-petty-story.md",
    "proposal": {
     "cues": [
      "cue-control-what-you-can-control",
@@ -3120,9 +3137,9 @@
    "raw": "sources/_raw/bpc/xK5x85fURl8.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "THE DOMEZONE PODCAST EP #5 - The Chase Petty Story",
-   "updated": "2026-09-07T01:57:52Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=xK5x85fURl8"
   },
   "xMbjlQ2v0vI": {
@@ -3132,7 +3149,7 @@
    "feed": "youtube",
    "id": "xMbjlQ2v0vI",
    "medium": "video",
-   "note": "_review/2026-03-14-cleaner-swing-path-more-barrels-vs-velo-lefties-swing.md",
+   "note": "sources/driveline/2026-03-14-cleaner-swing-path-more-barrels-vs-velo-lefties-swing.md",
    "proposal": {
     "cues": [
      "cue-let-it-get-deep-then-power-through",
@@ -3158,9 +3175,9 @@
    "raw": "sources/_raw/driveline/xMbjlQ2v0vI.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Cleaner Swing Path = More Barrels vs Velo & Lefties (Swing Design ft. ABL MVP)",
-   "updated": "2026-09-07T02:29:15Z",
+   "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=xMbjlQ2v0vI"
   },
   "y1gPpzn5DMw": {
@@ -3204,7 +3221,7 @@
    "feed": "youtube",
    "id": "zT2YttYB5IM",
    "medium": "video",
-   "note": "_review/2025-01-27-1st-round-draft-pick-talks-about-overcoming-early-struggles.md",
+   "note": "sources/bpc/_rejected/2025-01-27-1st-round-draft-pick-talks-about-overcoming-early-struggles.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -3219,9 +3236,9 @@
    "raw": "sources/_raw/bpc/zT2YttYB5IM.md",
    "retries": 0,
    "source": "bpc",
-   "status": "summarized",
+   "status": "rejected",
    "title": "1st Round Draft Pick Talks About OVERCOMING EARLY STRUGGLES In Professional Baseball",
-   "updated": "2026-09-07T01:59:09Z",
+   "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=zT2YttYB5IM"
   },
   "zz7SwZxPQwE": {

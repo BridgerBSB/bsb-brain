@@ -76,3 +76,4 @@ and the broader Astros pitcher-workload + injury-tracking work.
 - [[2015-08-19-auto-regulation-for-baseball]] - Auto-Regulation for Baseball
 - [[2026-07-21-antones-return-from-a-third-tjs-is-providing-hope-and-a]] - Antone’s return from a third TJS is providing hope and a road map for arms
 - [[2026-07-21-how-pros-use-pulse-and-what-it-means-for-the-rest-of]] - How pros use PULSE and what it means for the rest of baseball
+- [[2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands]] - The Ultimate Pitcher's Guide To J-Bands

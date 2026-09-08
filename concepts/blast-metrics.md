@@ -532,3 +532,4 @@ the high-early-connection / low-rotational-accel / high-VBA training prescriptio
 
 ## From sources
 - [[2026-09-04-how-a-struggling-juco-player-worked-with-driveline-to-reach]] - How a struggling JUCO player worked with Driveline to reach his dream
+- [[2026-03-28-his-bat-path-is-costing-him]] - His bat path is costing him

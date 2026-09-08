@@ -97,3 +97,42 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-06 17:56 promote: 21 promoted, 17 rejected, 2 corrections
 - 2026-09-06 18:39 fetch: 5 ok, 13 failed, 0 deferred; whisper 18 min
 - 2026-09-06 19:38 summarize: 39 ok, 1 failed (queue had room for 40)
+- 2026-09-08 04:30 run: start
+- 2026-09-08 04:30 discover driveline-yt (new): 30 seen, 0 new
+- 2026-09-08 04:30 discover tread-yt (new): 30 seen, 1 new
+- 2026-09-08 04:30 discover driveline-blog (new): 6 seen, 0 new
+- 2026-09-08 04:30 discover tread-blog (new): 10 seen, 0 new
+- 2026-09-08 04:30 fetch: 1 ok, 0 failed, 0 deferred; whisper 0 min
+- 2026-09-08 04:30 rejected 2016-01-11-baseball-home-gym-to-pitch-harder
+- 2026-09-08 04:30 promoted 2017-12-08-weight-gain-shake-i-drank-this-every-night-for-4-years (instruction/med, 0 cues, 0 drills)
+- 2026-09-08 04:30 promoted 2018-02-02-roll-ins-variations (instruction/high, 4 cues, 5 drills)
+- 2026-09-08 04:30 promoted 2018-02-12-how-i-cue-my-arm-action (instruction/high, 2 cues, 2 drills)
+- 2026-09-08 04:30 promoted 2018-02-21-throwing-concept-syncing-arms-into-the-plane-of-rotation (instruction/high, 0 cues, 0 drills)
+- 2026-09-08 04:30 promoted 2018-03-05-how-to-manage-in-season-lifting (instruction/high, 0 cues, 0 drills)
+- 2026-09-08 04:30 rejected 2023-10-26-bpc-pro-day-2023
+- 2026-09-08 04:30 rejected 2024-03-20-4-ways-you-can-throw-more-strikes
+- 2026-09-08 04:30 rejected 2024-09-20-the-dome-zone-podcast-presented-by-bpc-ep-1-pilot
+- 2026-09-08 04:30 rejected 2024-10-03-the-dome-zone-podcast-presented-by-bpc-ep-2-analytics-in
+- 2026-09-08 04:30 rejected 2024-11-08-the-dome-zone-podcast-ep-4-the-landscape-of-college
+- 2026-09-08 04:30 rejected 2024-12-12-the-domezone-podcast-ep-5-the-chase-petty-story
+- 2026-09-08 04:30 rejected 2025-01-27-1st-round-draft-pick-talks-about-overcoming-early-struggles
+- 2026-09-08 04:30 rejected 2025-04-23-elite-velo-isnt-enoughheres-what-youre-missing
+- 2026-09-08 04:30 rejected 2025-05-28-how-we-helped-this-95-mph-big-league-sidearmer-cut-his-era
+- 2026-09-08 04:30 rejected 2025-12-02-luis-patino-was-dealing-mic-d-up-live-abs
+- 2026-09-08 04:30 promoted 2025-12-09-why-swinging-faster-doesnt-mean-missing-more-how-the-blue (philosophy/high, 0 cues, 0 drills)
+- 2026-09-08 04:30 promoted 2025-12-13-6-drills-to-fix-your-posture-hinge-and-rotation-feat-logan (instruction/high, 3 cues, 8 drills)
+- 2026-09-08 04:30 rejected 2025-12-18-you-re-not-capable-of-getting-drafted-stefan-raeth-s
+- 2026-09-08 04:30 promoted 2025-12-21-stop-choosing-between-power-contact-tyler-jones-swing-design (instruction/high, 4 cues, 7 drills)
+- 2026-09-08 04:30 promoted 2026-01-09-why-pushing-his-hands-led-to-this-mlb-draft-prospects-power (instruction/high, 2 cues, 5 drills)
+- 2026-09-08 04:30 promoted 2026-01-13-how-long-term-development-built-a-90-mph-arm (athlete-story/med, 0 cues, 0 drills)
+- 2026-09-08 04:30 promoted 2026-01-14-can-an-mlb-all-star-break-our-smash-bat-ev-record-ft-brent (athlete-story/med, 2 cues, 6 drills)
+- 2026-09-08 04:30 promoted 2026-01-19-the-evolution-of-pitch-design-saberseminar-2025-r-d-podcast (research/high, 0 cues, 0 drills)
+- 2026-09-08 04:30 promoted 2026-01-31-why-this-mlb-player-couldn-t-pull-the-ball-swing-design (instruction/high, 4 cues, 5 drills)
+- 2026-09-08 04:30 promoted 2026-02-07-3-drills-to-improve-rotation-feat-john-rhodes-la-dodgers (instruction/high, 3 cues, 3 drills)
+- 2026-09-08 04:30 promoted 2026-03-02-how-a-pro-hitter-gets-ready-for-mlb-spring-training-seattle (instruction/high, 3 cues, 4 drills)
+- 2026-09-08 04:30 promoted 2026-03-14-cleaner-swing-path-more-barrels-vs-velo-lefties-swing (instruction/high, 3 cues, 7 drills)
+- 2026-09-08 04:30 promoted 2026-03-21-stop-getting-greedy-on-your-pitch-swing-design (instruction/high, 3 cues, 5 drills)
+- 2026-09-08 04:30 promoted 2026-03-28-his-bat-path-is-costing-him (instruction/high, 0 cues, 4 drills)
+- 2026-09-08 04:30 promoted 2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks (instruction/high, 2 cues, 2 drills)
+- 2026-09-08 04:30 promoted 2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball (instruction/high, 4 cues, 2 drills)
+- 2026-09-08 04:30 promoted 2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands (instruction/high, 1 cues, 6 drills)

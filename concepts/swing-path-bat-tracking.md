@@ -18,3 +18,9 @@ swing-plane coaching overlays.
 ## From sources
 - [[2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path]] - Swing Design: Fixing an FSU Infielder's Bat Path
 - [[2026-09-04-how-a-struggling-juco-player-worked-with-driveline-to-reach]] - How a struggling JUCO player worked with Driveline to reach his dream
+- [[2025-12-09-why-swinging-faster-doesnt-mean-missing-more-how-the-blue]] - Why Swinging Faster Doesn’t Mean Missing More | How The Blue Jays Fixed Their Hitters
+- [[2026-01-14-can-an-mlb-all-star-break-our-smash-bat-ev-record-ft-brent]] - Can an MLB All-Star Break Our Smash Bat EV Record? (ft. Brent Rooker)
+- [[2026-03-14-cleaner-swing-path-more-barrels-vs-velo-lefties-swing]] - Cleaner Swing Path = More Barrels vs Velo & Lefties (Swing Design ft. ABL MVP)
+- [[2026-03-21-stop-getting-greedy-on-your-pitch-swing-design]] - Stop Getting Greedy on Your Pitch (Swing Design)
+- [[2026-03-28-his-bat-path-is-costing-him]] - His bat path is costing him
+- [[2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball]] - Cues & Drills to Let Your Body Deliver the Barrel to the Ball

@@ -40,6 +40,11 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[2026-08-28-6-drills-to-improve-your-posture-easy]] - 6 Drills To Improve Your Posture! (EASY)
 - [[2026-09-02-what-your-long-toss-distance-says-about-your-velocity]] - What Your Long Toss Distance Says About Your Velocity
 - [[tread-CxObu-w6cJw]] - "Long Vs Short Arm Action | What's The Difference?"
+- [[2018-02-02-roll-ins-variations]] - Roll Ins + Variations
+- [[2018-02-12-how-i-cue-my-arm-action]] - How I Cue My Arm Action
+- [[2018-02-21-throwing-concept-syncing-arms-into-the-plane-of-rotation]] - Throwing Concept: Syncing Arms Into The Plane Of Rotation
+- [[2026-01-19-the-evolution-of-pitch-design-saberseminar-2025-r-d-podcast]] - The Evolution of Pitch Design | Saberseminar 2025 | R&D Podcast EP 111
+- [[2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands]] - The Ultimate Pitcher's Guide To J-Bands
 
 ## Cues
 <!-- the pipeline appends approved pitching cues here -->
@@ -53,9 +58,29 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[cue-hold-flexion-longer]]
 - [[cue-be-smooth]]
 - [[cue-stay-stacked-over-the-pelvis]]
+- [[cue-lock-the-back-hip-forward]]
+- [[cue-keep-the-glove-and-throwing-arm-loose-with-the-elbows]]
+- [[cue-gather-your-weight-and-drive-off-the-back-leg-rather]]
+- [[cue-preset-the-front-shoulder-as-close-as-possible-from-the]]
+- [[cue-arm-spiral-spiral-staircase]]
+- [[cue-tennis-serve]]
+- [[cue-scaps-apart-scaps-together]]
 
 ## Drills
 <!-- the pipeline appends approved pitching drills here -->
+- [[drill-roll-in-abbreviated-arm-high-cock-start]]
+- [[drill-roll-in-abbreviated-arm-flip-up]]
+- [[drill-roll-in-full-arm-action]]
+- [[drill-stationary-roll-in-separation-drill]]
+- [[drill-step-back-roll-in]]
+- [[drill-plyo-ball-weight-progression]]
+- [[drill-pvc-pipe-broomstick-plane-check]]
+- [[drill-j-band-wrist-forearm-sequence]]
+- [[drill-scapular-cars]]
+- [[drill-shoulder-cars]]
+- [[drill-row-fly-press-with-scap-reach-and-squeeze]]
+- [[drill-three-way-shoulder-internal-rotation]]
+- [[drill-y-raise-and-front-raise-with-reach-at-knee-height]]
 
 ## Related
 [[MOC-hitting]] · [[MOC-strength]] · [[MOC-anatomy]]

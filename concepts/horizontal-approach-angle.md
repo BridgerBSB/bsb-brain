@@ -1,8 +1,5 @@
 ---
-type: concept
-domain: pitching
-source: fangraphs-chamberlain-2023
-created: '2026-06-16'
+{type: concept, domain: pitching, source: fangraphs-chamberlain-2023, created: '2026-06-16'}
 ---
 # Horizontal Approach Angle (HAA)
 
@@ -70,3 +67,6 @@ shrink under adjustment).
 [[stuff-plus-4s-pitching]] (maps to **Slot+** = release + **Spot+** = command) ·
 [[statcast-pipeline]] · [[alex-chamberlain]] · Astros: strike-zone edges →
 `[[visual-standards]]`, pitch shape/command → `[[arm-farm]]`.
+
+## From sources
+- [[2026-03-14-cleaner-swing-path-more-barrels-vs-velo-lefties-swing]] - Cleaner Swing Path = More Barrels vs Velo & Lefties (Swing Design ft. ABL MVP)

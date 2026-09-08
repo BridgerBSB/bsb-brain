@@ -377,3 +377,4 @@ player have to grow," LTAD formalizes the question.
 
 ## From sources
 - [[2025-12-11-how-long-term-pitching-development-beats-program-hopping]] - How Long-Term Pitching Development Beats Program Hopping
+- [[2026-01-13-how-long-term-development-built-a-90-mph-arm]] - How Long-Term Development Built a 90+ MPH Arm

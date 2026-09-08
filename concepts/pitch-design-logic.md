@@ -16,3 +16,4 @@ module on GroundControl movement data.
 
 ## From sources
 - [[2026-07-28-what-s-the-next-sweeper]] - What's the Next Sweeper?
+- [[2026-01-19-the-evolution-of-pitch-design-saberseminar-2025-r-d-podcast]] - The Evolution of Pitch Design | Saberseminar 2025 | R&D Podcast EP 111

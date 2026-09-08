@@ -274,3 +274,13 @@ at the end into "Section IV: Hitting Programs" — the program-construction laye
 - [[2026-07-23-the-incredible-development-gains-of-parker-eastwood-lilles]] - The incredible development gains of Parker Eastwood Lilles
 - [[2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path]] - Swing Design: Fixing an FSU Infielder's Bat Path
 - [[2026-09-04-how-a-struggling-juco-player-worked-with-driveline-to-reach]] - How a struggling JUCO player worked with Driveline to reach his dream
+- [[2025-12-13-6-drills-to-fix-your-posture-hinge-and-rotation-feat-logan]] - 6 Drills to Fix Your Posture, Hinge, and Rotation (Feat. Logan O'Hoppe)
+- [[2026-01-09-why-pushing-his-hands-led-to-this-mlb-draft-prospects-power]] - Why 'Pushing' His Hands Led To This MLB Draft Prospects’ Power Leak
+- [[2026-01-14-can-an-mlb-all-star-break-our-smash-bat-ev-record-ft-brent]] - Can an MLB All-Star Break Our Smash Bat EV Record? (ft. Brent Rooker)
+- [[2026-01-31-why-this-mlb-player-couldn-t-pull-the-ball-swing-design]] - Why This MLB Player Couldn't Pull the Ball (Swing Design)
+- [[2026-02-07-3-drills-to-improve-rotation-feat-john-rhodes-la-dodgers]] - 3 Drills To Improve Rotation (feat. John Rhodes, LA Dodgers)
+- [[2026-03-02-how-a-pro-hitter-gets-ready-for-mlb-spring-training-seattle]] - How A Pro Hitter Gets Ready for MLB Spring Training | Seattle Mariners MiLB Victor Labrada
+- [[2026-03-14-cleaner-swing-path-more-barrels-vs-velo-lefties-swing]] - Cleaner Swing Path = More Barrels vs Velo & Lefties (Swing Design ft. ABL MVP)
+- [[2026-03-21-stop-getting-greedy-on-your-pitch-swing-design]] - Stop Getting Greedy on Your Pitch (Swing Design)
+- [[2026-03-28-his-bat-path-is-costing-him]] - His bat path is costing him
+- [[2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks]] - The Rangers Signed Him After +4 MPH Bat Speed In 6 Weeks

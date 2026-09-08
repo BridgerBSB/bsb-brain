@@ -1,7 +1,5 @@
 ---
-type: concept
-domain: pitching
-source: personal-bsbres/statistical-models
+{type: concept, domain: pitching, source: personal-bsbres/statistical-models}
 ---
 # Execution Run Value (IPV Lost)
 
@@ -33,3 +31,6 @@ Output is run value per pitch (a.k.a. *IPV Lost*); together with [[independent-s
 - [[MOC-baseball-analytics]]
 - [[independent-pitch-value]], [[independent-stuff-value]], [[independent-location-value]], [[independent-value-family]]
 - [[stuff-plus-4s-pitching]], [[lightgbm-baseball-modeling]], [[re24-run-expectancy]], [[xwoba]]
+
+## From sources
+- [[2026-01-19-the-evolution-of-pitch-design-saberseminar-2025-r-d-podcast]] - The Evolution of Pitch Design | Saberseminar 2025 | R&D Podcast EP 111

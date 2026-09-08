@@ -107,3 +107,12 @@ for hip hinge, plyometrics for power, the 20% over/under bat rule for fast-twitc
 
 ## From sources
 - [[2026-09-04-how-a-struggling-juco-player-worked-with-driveline-to-reach]] - How a struggling JUCO player worked with Driveline to reach his dream
+- [[2018-02-12-how-i-cue-my-arm-action]] - How I Cue My Arm Action
+- [[2025-12-13-6-drills-to-fix-your-posture-hinge-and-rotation-feat-logan]] - 6 Drills to Fix Your Posture, Hinge, and Rotation (Feat. Logan O'Hoppe)
+- [[2025-12-21-stop-choosing-between-power-contact-tyler-jones-swing-design]] - Stop Choosing Between Power & Contact | Tyler Jones Swing Design
+- [[2026-01-14-can-an-mlb-all-star-break-our-smash-bat-ev-record-ft-brent]] - Can an MLB All-Star Break Our Smash Bat EV Record? (ft. Brent Rooker)
+- [[2026-02-07-3-drills-to-improve-rotation-feat-john-rhodes-la-dodgers]] - 3 Drills To Improve Rotation (feat. John Rhodes, LA Dodgers)
+- [[2026-03-02-how-a-pro-hitter-gets-ready-for-mlb-spring-training-seattle]] - How A Pro Hitter Gets Ready for MLB Spring Training | Seattle Mariners MiLB Victor Labrada
+- [[2026-03-28-his-bat-path-is-costing-him]] - His bat path is costing him
+- [[2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks]] - The Rangers Signed Him After +4 MPH Bat Speed In 6 Weeks
+- [[2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands]] - The Ultimate Pitcher's Guide To J-Bands

@@ -27,3 +27,5 @@ versa). Source of truth is the brain; Astro World renders it. See [[astro-world]
 - [[2026-07-21-antones-return-from-a-third-tjs-is-providing-hope-and-a]] - Antone’s return from a third TJS is providing hope and a road map for arms
 - [[2026-07-21-how-pros-use-pulse-and-what-it-means-for-the-rest-of]] - How pros use PULSE and what it means for the rest of baseball
 - [[2026-07-28-what-s-the-next-sweeper]] - What's the Next Sweeper?
+- [[2026-01-13-how-long-term-development-built-a-90-mph-arm]] - How Long-Term Development Built a 90+ MPH Arm
+- [[2026-01-19-the-evolution-of-pitch-design-saberseminar-2025-r-d-podcast]] - The Evolution of Pitch Design | Saberseminar 2025 | R&D Podcast EP 111
