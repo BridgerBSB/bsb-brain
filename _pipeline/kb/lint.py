@@ -5,7 +5,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-from .notes import read_note
+from .notes import read_note, STATUSES, KINDS
 from .paths import VaultPaths
 from .state import State
 
@@ -26,7 +26,7 @@ def _all_note_stems(paths: VaultPaths) -> set[str]:
 
 def lint_vault(paths: VaultPaths, state: State) -> dict:
     rep = dict(orphan_cues=[], orphan_drills=[], sources_without_concepts=[], dangling_links=[], stuck=[],
-               pending=0, heavy_concepts=[])
+               pending=0, heavy_concepts=[], malformed=[])
     stems = _all_note_stems(paths)
 
     for f in sorted(paths.cues.glob("*.md")) if paths.cues.exists() else []:
@@ -77,8 +77,19 @@ def lint_vault(paths: VaultPaths, state: State) -> dict:
                 meta, _ = read_note(f)
             except ValueError:
                 continue
-            if meta.get("type") == "source" and meta.get("status") == "pending":
+            if meta.get("type") != "source":
+                continue
+            st_ = meta.get("status")
+            if st_ == "pending":
                 rep["pending"] += 1
+            elif st_ not in STATUSES:
+                # A typo'd or blank status is counted as NEITHER pending nor
+                # reviewed, so the note sits in the queue forever and no number
+                # anywhere moves. 2026-09-08: `status: pendin` and a blank
+                # status hid two notes forever. Absence is not zero.
+                rep["malformed"].append(f"{f.stem} (status {st_!r})")
+            if meta.get("kind") not in KINDS:
+                rep["malformed"].append(f"{f.stem} (kind {meta.get('kind')!r})")
 
     _write_failed(paths, state, rep["stuck"])
     rep["duplicates"] = _write_duplicates(paths, state)
@@ -161,7 +172,8 @@ def _write_failed(paths: VaultPaths, state: State, stuck: list[str]) -> None:
 
 
 def format_report(rep: dict) -> str:
-    out = [f"pending in _review: {rep['pending']}",
+    out = [f"pending in _review: {rep['pending']}"
+           + (f"  !! MALFORMED, will never promote: {'; '.join(rep['malformed'])}" if rep.get("malformed") else ""),
            f"orphan cues: {len(rep['orphan_cues'])}, orphan drills: {len(rep['orphan_drills'])}",
            f"high/med sources with no concept link: {len(rep['sources_without_concepts'])}",
            f"dangling [[links]]: {len(rep['dangling_links'])}",

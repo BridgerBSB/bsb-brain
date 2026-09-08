@@ -12,7 +12,7 @@ domain:
   - strength
 kind: interview
 value: med
-status:
+status: pending
 raw: sources/_raw/driveline/__Jm15gx30k.md
 cues: []
 concepts: []

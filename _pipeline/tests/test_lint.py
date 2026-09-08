@@ -60,3 +60,29 @@ def test_lint_writes_duplicates_and_auto_low_digests(tmp_path):
     assert "[[a]]" in dup and "[[b]]" in dup
     low = (p.review / "auto-low.md").read_text(encoding="utf-8")
     assert "Buy now" in low and "id3" in low
+
+
+def test_a_typod_status_is_reported_not_silently_skipped(tmp_path):
+    """2026-09-08: `status: pendin` and a blank status are neither `pending`
+    (so lint's count misses them) nor in REVIEWED (so promote skips them).
+    Two notes sat in the queue with no number anywhere moving."""
+    from kb.lint import lint_vault
+    from kb.notes import write_note
+    from kb.paths import VaultPaths
+    from kb.state import State
+
+    p = VaultPaths(tmp_path)
+    for d in (p.review, p.cues, p.drills, p.concepts, p.pipeline):
+        d.mkdir(parents=True, exist_ok=True)
+    base = dict(type="source", source="tread", medium="video", title="t",
+                url="u", published="2026-01-01", domain=["pitching"],
+                kind="instruction", value="high", raw="r", cues=[], drills=[], concepts=[])
+    write_note(p.review / "good.md", dict(base, status="pending"), "# g\n")
+    write_note(p.review / "typo.md", dict(base, status="pendin"), "# t\n")
+    write_note(p.review / "badkind.md", dict(base, status="pending", kind="gathlete-story"), "# b\n")
+
+    rep = lint_vault(p, State(p.state, {"cursors": {}, "items": {}}))
+    assert rep["pending"] == 2                      # good + badkind
+    joined = "; ".join(rep["malformed"])
+    assert "typo" in joined and "pendin" in joined
+    assert "badkind" in joined and "gathlete-story" in joined
