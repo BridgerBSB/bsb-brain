@@ -86,12 +86,16 @@ def _found_for_feed(key: str, feed: dict, mode: str, state: State, limit: int | 
         if mode == "new":
             return D.parse_tread_feed(D.fetch_text(feed["url"]))
         page = state.cursor(f"{key}:page:{frm}", 9 if frm == "oldest" else 1)
-        try:
-            html = D.fetch_text(feed["archive_url"].format(n=page))
-        except Exception:
+        # A transport error is NOT the end of the archive. Marking done on any
+        # exception let one DNS blip (2026-09-06) retire Tread's backfill for
+        # good, and "0 seen, 0 new" reads exactly like a finished walk. Let it
+        # raise: cmd_discover logs the feed and retries next run. Only an
+        # archive page that parses to nothing means we ran off the end.
+        html = D.fetch_text(feed["archive_url"].format(n=page))
+        items = D.parse_tread_archive_page(html)
+        if not items:
             state.set_cursor(f"{key}:done:{frm}", True)
             return []
-        items = D.parse_tread_archive_page(html)
         if frm == "oldest":
             items = list(reversed(items))
         state.set_cursor(f"{key}:page:{frm}", page - 1 if frm == "oldest" else page + 1)

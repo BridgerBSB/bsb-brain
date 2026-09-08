@@ -79,3 +79,56 @@ def test_discover_marks_same_title_same_source_as_duplicate(tmp_path):
     # a different source with the same title is NOT a duplicate
     discover_items(st, {"source": "driveline", "kind": "blog-pages"}, [dict(id="dl-x", title="2025 Update: 17 picks", url="u3", published=None, duration_s=None)])
     assert st.get("dl-x")["status"] == "new"
+
+
+def test_tread_archive_page_that_parses_empty_is_the_end():
+    """A page with no posts means the walk finished."""
+    from kb.discover import parse_tread_archive_page
+    assert parse_tread_archive_page("<html><body>nothing</body></html>") == []
+
+
+def _kb_script():
+    """kb.py the CLI, not kb/ the package -- `import kb` gets the package."""
+    import importlib.util
+    from pathlib import Path
+    src = Path(__file__).resolve().parents[1] / "kb.py"
+    spec = importlib.util.spec_from_file_location("kb_script", src)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_a_transport_error_does_not_retire_the_backfill(tmp_path, monkeypatch):
+    """2026-09-06: one DNS failure set tread-blog:done:oldest and the walk was
+    over for good, printing '0 seen, 0 new' -- indistinguishable from finished."""
+    from kb import discover
+    from kb.state import State
+
+    KB = _kb_script()
+    st = State(tmp_path / "state.json", {"cursors": {}, "items": {}})
+    feed = {"kind": "blog-rss", "source": "tread",
+            "url": "https://x/feed/", "archive_url": "https://x/posts/page/{n}/"}
+
+    def boom(url, **kw):
+        raise OSError("Failed to resolve 'treadathletics.com'")
+    monkeypatch.setattr(discover, "fetch_text", boom)
+
+    try:
+        KB._found_for_feed("tread-blog", feed, "backfill", st, None, "oldest")
+    except OSError:
+        pass                                   # cmd_discover logs it and retries
+    assert st.cursor("tread-blog:done:oldest") is None, "a network blip retired the backfill"
+
+
+def test_an_empty_archive_page_does_end_the_backfill(tmp_path, monkeypatch):
+    from kb import discover
+    from kb.state import State
+
+    KB = _kb_script()
+    st = State(tmp_path / "state.json", {"cursors": {}, "items": {}})
+    feed = {"kind": "blog-rss", "source": "tread",
+            "url": "https://x/feed/", "archive_url": "https://x/posts/page/{n}/"}
+    monkeypatch.setattr(discover, "fetch_text", lambda url, **kw: "<html></html>")
+
+    assert KB._found_for_feed("tread-blog", feed, "backfill", st, None, "oldest") == []
+    assert st.cursor("tread-blog:done:oldest") is True

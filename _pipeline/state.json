@@ -8,7 +8,6 @@
   "driveline-yt:pos:newest": 10,
   "driveline-yt:pos:oldest": 16,
   "driveline-yt:total": 510,
-  "tread-blog:done:oldest": true,
   "tread-blog:page:newest": 2,
   "tread-blog:page:oldest": 8,
   "tread-yt:pos:newest": 10,
@@ -167,7 +166,7 @@
    "retries": 0,
    "source": "tread",
    "status": "summarized",
-   "title": "Luis Patiño Is Back.",
+   "title": "Luis Pati\u00f1o Is Back.",
    "updated": "2026-09-08T12:04:12Z",
    "url": "https://www.youtube.com/watch?v=0Q8p_3B7az0"
   },
@@ -447,7 +446,7 @@
    "retries": 0,
    "source": "driveline",
    "status": "promoted",
-   "title": "Why Swinging Faster Doesn’t Mean Missing More | How The Blue Jays Fixed Their Hitters",
+   "title": "Why Swinging Faster Doesn\u2019t Mean Missing More | How The Blue Jays Fixed Their Hitters",
    "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=4hoEkIcCylg"
   },
@@ -536,7 +535,7 @@
    "retries": 0,
    "source": "tread",
    "status": "summarized",
-   "title": "From 88 to 96 MPH in 10 Weeks: The Luis Patiño Story",
+   "title": "From 88 to 96 MPH in 10 Weeks: The Luis Pati\u00f1o Story",
    "updated": "2026-09-08T12:19:31Z",
    "url": "https://www.youtube.com/watch?v=69mmb4DadAY"
   },
@@ -1014,7 +1013,7 @@
    "retries": 0,
    "source": "driveline",
    "status": "rejected",
-   "title": "Luis Patiño Was DEALING | Mic'd Up Live ABs",
+   "title": "Luis Pati\u00f1o Was DEALING | Mic'd Up Live ABs",
    "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=G17s9d9Oj38"
   },
@@ -1669,7 +1668,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "fetched",
-   "title": "THE VELO OFF 🚨(Part One)",
+   "title": "THE VELO OFF \ud83d\udea8(Part One)",
    "updated": "2026-09-05T21:58:54Z",
    "url": "https://www.youtube.com/watch?v=U5Hdv27-_44"
   },
@@ -1892,7 +1891,7 @@
    "retries": 0,
    "source": "driveline",
    "status": "promoted",
-   "title": "Why 'Pushing' His Hands Led To This MLB Draft Prospects’ Power Leak",
+   "title": "Why 'Pushing' His Hands Led To This MLB Draft Prospects\u2019 Power Leak",
    "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=WaPqnvfP_PI"
   },
@@ -2082,7 +2081,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "fetched",
-   "title": "THE VELO OFF 🚨 (Part 2)",
+   "title": "THE VELO OFF \ud83d\udea8 (Part 2)",
    "updated": "2026-09-05T22:13:39Z",
    "url": "https://www.youtube.com/watch?v=cGV1WBQKvhk"
   },
@@ -2141,7 +2140,7 @@
    "retries": 0,
    "source": "driveline",
    "status": "rejected",
-   "title": "\"We dove all in\": How a small Indiana high school built a modern hitting development machine – with a little help from us",
+   "title": "\"We dove all in\": How a small Indiana high school built a modern hitting development machine \u2013 with a little help from us",
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/bluffton-high-school-hitting-development"
   },
@@ -2326,7 +2325,7 @@
    "retries": 0,
    "source": "driveline",
    "status": "promoted",
-   "title": "Antone’s return from a third TJS is providing hope and a road map for arms",
+   "title": "Antone\u2019s return from a third TJS is providing hope and a road map for arms",
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/tejay-antone-third-tjs-return"
   },
@@ -2621,7 +2620,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "fetched",
-   "title": "THE VELO OFF🚨(Part 3)",
+   "title": "THE VELO OFF\ud83d\udea8(Part 3)",
    "updated": "2026-09-06T14:00:05Z",
    "url": "https://www.youtube.com/watch?v=hKG_KUpTQYc"
   },
@@ -2919,7 +2918,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "rejected",
-   "title": "Elite Velo Isn’t Enough—Here’s What You’re Missing",
+   "title": "Elite Velo Isn\u2019t Enough\u2014Here\u2019s What You\u2019re Missing",
    "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=mpmMAMKsQnc"
   },
@@ -2979,7 +2978,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "filed-low",
-   "title": "The Lefty Velo-Off  🔥",
+   "title": "The Lefty Velo-Off  \ud83d\udd25",
    "updated": "2026-09-07T02:02:10Z",
    "url": "https://www.youtube.com/watch?v=o3m2JNbG_cw"
   },
@@ -3216,7 +3215,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "rejected",
-   "title": "4 Ways you can “Throw more Strikes”",
+   "title": "4 Ways you can \u201cThrow more Strikes\u201d",
    "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=sZwlYfLnDWM"
   },
@@ -3893,7 +3892,7 @@
   "x3Rno6n_-2c": {
    "added": "2026-09-05T20:39:08Z",
    "duration_s": 187,
-   "error": "RuntimeError: claude -p failed (1): Permission deny rule \"MultiEdit\" matches no known tool — check for typos.\n⚠ claude.ai connectors are disabled because ANTHROPIC_API_KEY or another auth source is set and takes pr",
+   "error": "RuntimeError: claude -p failed (1): Permission deny rule \"MultiEdit\" matches no known tool \u2014 check for typos.\n\u26a0 claude.ai connectors are disabled because ANTHROPIC_API_KEY or another auth source is set and takes pr",
    "feed": "youtube",
    "id": "x3Rno6n_-2c",
    "medium": "video",
