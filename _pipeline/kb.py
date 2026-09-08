@@ -32,6 +32,7 @@ from kb import fetch_blog as FB                       # noqa: E402
 from kb import summarize as S                         # noqa: E402
 from kb import promote as P                           # noqa: E402
 from kb import lint as L                              # noqa: E402
+from kb import faults as FA                           # noqa: E402
 
 SLEEP = 2.5           # seconds between network calls
 VIDEO_SLEEP = 12      # seconds between caption fetches; ~15 rapid pulls earned an IP block on 2026-09-04
@@ -296,6 +297,32 @@ def cmd_rescue(paths, state, args):
     state.save()
 
 
+def cmd_faults(paths, state, args):
+    """Propose a fault taxonomy per domain. READ-ONLY except one proposal file
+    per domain in _review/. Nothing is filed; that step does not exist yet."""
+    groups = FA.collect(paths)
+    if not groups:
+        log(paths, "faults: no cue/drill fault strings found")
+        return 0
+    wanted = [d.strip() for d in args.domain.split(",")] if args.domain else sorted(groups)
+    written = 0
+    for domain in wanted:
+        items = groups.get(domain) or []
+        if not items:
+            print(f"  faults {domain}: nothing to group")
+            continue
+        if domain not in FA.KNOWN_DOMAINS:
+            print(f"  faults {domain!r}: not a taxonomy domain, skipped")
+            continue
+        # ONE domain's strings, one call. A cross-domain merge is not possible
+        # here because the model never sees two domains at once (Zac, Sep 8 2026).
+        body = S.run_claude(S._prompt(paths, "faults"), FA.render_input(items), args.model)
+        out = FA.write_proposal(paths, domain, body, len(items))
+        written += 1
+        log(paths, f"faults {domain}: {len(items)} strings -> {paths.rel(out)}")
+    return written
+
+
 def cmd_status(paths, state, args):
     from collections import Counter
     c = Counter((r["source"], r["status"]) for r in state.data["items"].values())
@@ -306,7 +333,7 @@ def cmd_status(paths, state, args):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("verb", choices=["discover", "backfill", "fetch", "summarize", "promote", "lint", "run", "retry", "rescue", "status"])
+    ap.add_argument("verb", choices=["discover", "backfill", "fetch", "summarize", "promote", "lint", "run", "retry", "rescue", "status", "faults"])
     ap.add_argument("--source", help="driveline | tread | bpc")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--from", dest="frm", choices=["newest", "oldest"], default="oldest")
@@ -315,6 +342,9 @@ def main(argv=None):
     ap.add_argument("--ignore-cap", action="store_true", help="summarize past the review-queue cap")
     ap.add_argument("--id", help="retry: one id; summarize: comma-separated ids to (re)summarize")
     ap.add_argument("--vault", help="vault root (default: parent of _pipeline)")
+    ap.add_argument("--domain", help="faults: comma-separated domains (default: all found). "
+                                     "One model call PER domain, never mixed.")
+    ap.add_argument("--model", default="sonnet", help="faults: model for the grouping pass")
     args = ap.parse_args(argv)
 
     paths = VaultPaths(args.vault)
@@ -341,6 +371,8 @@ def main(argv=None):
         cmd_rescue(paths, state, args)
     elif args.verb == "status":
         cmd_status(paths, state, args)
+    elif args.verb == "faults":
+        cmd_faults(paths, state, args)
 
 
 if __name__ == "__main__":
