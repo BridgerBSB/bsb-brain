@@ -52,8 +52,12 @@ def _state(p, note_rel, proposal=None):
     st.add(dict(id="vid1", source="tread", medium="video", url=NOTE_META["url"], title=NOTE_META["title"],
                 published="2026-08-01", raw="sources/_raw/tread/vid1.md"))
     st.set_status("vid1", "summarized")
-    st.update("vid1", note=note_rel, proposal=proposal or dict(domain=["pitching"], kind="instruction",
-                                                               value="high", cues=list(NOTE_META["cues"])))
+    # body-derived, matching what summarize now stores: the model's frontmatter
+    # list can drift from its own body, and only Zac's edits should read as corrections
+    from kb.slug import cue_slug
+    st.update("vid1", note=note_rel, proposal=proposal or dict(
+        domain=["pitching"], kind="instruction", value="high",
+        cues=[cue_slug(c["phrase"]) for c in parse_cues(NOTE_BODY)]))
     return st
 
 
@@ -196,3 +200,58 @@ def test_promote_adopts_hand_copied_note_by_raw_path(tmp_path):
     assert res["promoted"] == 1
     assert (p.sources / "tread" / "tread-vid1-copy-zac-made.md").exists()
     assert st.get("vid1")["status"] == "promoted"
+
+
+def test_deleting_a_cue_from_the_body_is_recorded_as_a_correction(tmp_path):
+    """2026-09-08: the summarizer extracted two cues the source CRITICISES
+    ("get over the top", "get behind the ball", both named as injury causes).
+    Zac deleted them from the body and marked the note edited. The diff read
+    the stale frontmatter list, saw 4 == 4, and recorded no correction -- so
+    the tagger never learned the single thing most worth learning."""
+    from kb.promote import parse_cues, diff_proposal
+    from kb.slug import cue_slug
+
+    body = (
+        '## Cues\n'
+        '- **"Unravel out"** - fixes disrespecting the plane; for pitchers\n'
+        '- **"Let the pelvis just do the work"** - fixes muscling the arm up; for pitchers\n'
+        '\n## Drills\n'
+    )
+    frontmatter_cues = ["cue-get-over-the-top", "cue-get-behind-the-ball",
+                        "cue-unravel-out", "cue-let-the-pelvis-just-do-the-work"]
+    proposal = {"domain": ["pitching"], "kind": "instruction", "value": "high",
+                "cues": frontmatter_cues, "drills": []}
+
+    from_body = [cue_slug(c["phrase"]) for c in parse_cues(body)]
+    assert len(from_body) == 2, from_body
+
+    # the old way: frontmatter, which nobody hand-syncs -> the deletion vanishes
+    assert "cues" not in diff_proposal(proposal, {**proposal, "cues": frontmatter_cues})
+    # the fixed way: the body, which is what Zac edits and what promote files
+    changes = diff_proposal(proposal, {**proposal, "cues": from_body})
+    assert "cues" in changes and len(changes["cues"][1]) == 2
+
+
+def test_anti_cues_never_become_cue_notes(tmp_path):
+    """2026-09-08: the summarizer put two cues the source CRITICISES under
+    ## Cues, honestly worded ("meant to fix X; causes Y") -- but a cue note is
+    read in cues/ on its own, with a fixes: field, so it reads as advice. They
+    now go under ## Anti-cues, which the pipeline deliberately does not file."""
+    p = _vault(tmp_path)
+    body = NOTE_BODY.replace(
+        "## Evidence cited",
+        '## Anti-cues\n'
+        '- **"Get over the top"** - taught to fix a low slot; actually causes '
+        'shoulder climb and flexion stress; per Tread\n'
+        '\n## Evidence cited', 1)
+    note = p.review / "2026-08-01-long-toss-and-velo.md"
+    write_note(note, dict(NOTE_META, status="approved"), body)
+    promote_all(p, _state(p, "_review/2026-08-01-long-toss-and-velo.md"), git=False)
+
+    assert not (p.cues / "cue-get-over-the-top.md").exists(), "an anti-cue was filed as a cue"
+    assert (p.cues / "cue-get-the-ball-out-early.md").exists(), "real cues must still file"
+    # the knowledge is kept on the source note, where the argument lives
+    _, filed = read_note(p.sources / "tread" / "2026-08-01-long-toss-and-velo.md")
+    assert "Get over the top" in filed and "## Anti-cues" in filed
+    moc = (p.root / "MOC-pitching.md").read_text(encoding="utf-8")
+    assert "[[cue-get-over-the-top]]" not in moc

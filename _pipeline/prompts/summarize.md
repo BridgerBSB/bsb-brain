@@ -34,9 +34,20 @@ Three bullets. What the source teaches, in the analyst's words, with the single 
 One bullet per distinct claim, each starting with the timestamp link or section name. Include any number the source gives (velocities, percentages, reps, weeks). Ten bullets maximum; merge repeats.
 
 ## Cues
-Only cues the source actually gives. Format each as:
+Only cues the source RECOMMENDS. Format each as:
 - **"<phrase as said>"** - fixes <fault>; for <population if stated>
 If the source gives none, write `- none given`.
+
+A cue the source ARGUES AGAINST does not belong here, however clearly you label
+it. Each line in this section becomes a note in `cues/` with a `fixes:` field,
+read on its own without the surrounding argument, so a harmful cue filed here
+reads as advice to give a player. Put it under `## Anti-cues` instead.
+
+## Anti-cues
+Cues the source names in order to criticise: taught commonly, argued to cause a
+fault or an injury. Format each as:
+- **"<phrase as said>"** - taught to fix <intended fault>; actually causes <what the source says it causes>; per <who>
+If the source criticises none, write `- none`.
 
 ## Drills
 Only drills the source actually shows or names. A drill is an exercise with a setup and a purpose (an implement, a constraint, a movement pattern). Format each as:

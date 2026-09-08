@@ -245,8 +245,17 @@ def promote_all(paths: VaultPaths, state: State, git: bool = True) -> dict:
         touched = [note]
 
         # corrections
+        # Cues/drills come from the BODY, which is what Zac edits and what the
+        # promotion below actually files -- NOT the frontmatter list, which the
+        # agent wrote and he has no reason to hand-sync. Reading frontmatter here
+        # made his most valuable correction invisible: on the plane-of-rotation
+        # note (2026-09-08) he deleted two cues the source CRITICISES
+        # ("get over the top", "get behind the ball" -- both named as causes of
+        # injury), the body went 4 -> 2, the stale frontmatter still said 4, and
+        # the diff reported no change. The tagger would never have learned it.
         now = dict(domain=meta.get("domain"), kind=meta.get("kind"), value=meta.get("value"),
-                   cues=meta.get("cues") or [], drills=meta.get("drills") or [])
+                   cues=[cue_slug(c["phrase"]) for c in parse_cues(body)],
+                   drills=[drill_slug(d["name"]) for d in parse_drills(body)])
         changes = diff_proposal(item.get("proposal") or {}, now)
         zac = zac_section(body)
         if changes or zac:

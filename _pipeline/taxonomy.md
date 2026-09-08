@@ -56,6 +56,29 @@ Good: `"Get the ball out of the glove early"` - fixes late arm, for youth arms
 with long arm swings.
 Not a cue: `"He improved his hip-shoulder separation"` - that is a claim.
 
+## anti-cues (a cue the source ARGUES AGAINST)
+
+Sources frequently name a cue in order to criticise it. "Get over the top" and
+"get behind the ball" are both named by Tread as causes of shoulder climb and
+dart/push arm action, linked to labrum and triceps problems.
+
+**These must never appear under `## Cues`.** A cue note reads as something to
+say to a player: it has a `fixes:` field and it is filed in `cues/` beside the
+good ones. Polarity buried in prose ("meant to fix X; causes Y") is not enough,
+because the reader meets the cue in `cues/`, out of its original context.
+
+Put them under `## Anti-cues` instead, one per line:
+
+`- **"phrase"** - taught to fix X; actually causes Y; per <source>`
+
+The pipeline deliberately does NOT create notes from this section. The
+knowledge stays on the source note, where the surrounding claims explain it.
+Knowing which cues a source considers harmful is real knowledge, and often
+higher-value than the good cue -- it just is not a coaching instruction.
+
+The test: would a coach reading this phrase alone, in a folder of cues, say it
+to a player? If no, it is an anti-cue.
+
 ## drills (the other payoff)
 
 A drill is an exercise with a setup and a purpose: an implement (long bat,

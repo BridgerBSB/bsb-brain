@@ -253,8 +253,15 @@ def summarize_item(paths: VaultPaths, state: State, item: dict, run=run_claude,
         if prior and (paths.root / prior).exists() and (paths.root / prior).resolve() != out_path.resolve():
             (paths.root / prior).unlink()      # moving from queue to _low on a rescue reversal, or vice versa
     write_note(out_path, meta, body)
+    # Cues/drills recorded from the BODY, the same extractor promote uses. The
+    # model writes the frontmatter list and the body separately and they can
+    # disagree; comparing Zac's body edit against the model's frontmatter would
+    # log a correction he never made (and miss ones he did).
+    from .promote import parse_cues as _pc, parse_drills as _pd
+    from .slug import cue_slug as _cs, drill_slug as _ds
     state.update(iid, note=paths.rel(out_path),
-                 proposal=dict(domain=list(meta["domain"]), kind=meta["kind"],
-                               value=meta["value"], cues=list(meta["cues"]), drills=list(meta["drills"])))
+                 proposal=dict(domain=list(meta["domain"]), kind=meta["kind"], value=meta["value"],
+                               cues=[_cs(c["phrase"]) for c in _pc(body)],
+                               drills=[_ds(d["name"]) for d in _pd(body)]))
     state.set_status(iid, "skipped" if meta["value"] == "skip" else ("filed-low" if auto_low else "summarized"))
     return out_path

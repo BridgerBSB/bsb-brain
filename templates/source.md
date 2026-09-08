@@ -28,6 +28,9 @@ confidence: agent
 ## Cues
 - **"..."** - fixes ...; for ...
 
+## Anti-cues
+
+
 ## Drills
 - **Name** - setup; builds ...; for ...
 
