@@ -39,7 +39,7 @@
    "feed": "youtube",
    "id": "-KSOIC0K6oM",
    "medium": "video",
-   "note": "_review/2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw.md",
+   "note": "sources/tread/2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw.md",
    "proposal": {
     "cues": [
      "cue-get-over-the-top",
@@ -65,10 +65,10 @@
    "raw": "sources/_raw/tread/-KSOIC0K6oM.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "throttled_at": "2026-09-05T13:40",
    "title": "The Plane of Rotation: How Elite Throwers Use It To Throw Hard",
-   "updated": "2026-09-08T11:59:02Z",
+   "updated": "2026-09-09T11:35:36Z",
    "url": "https://www.youtube.com/watch?v=-KSOIC0K6oM"
   },
   "-zjNdGLVJ7k": {
@@ -150,7 +150,7 @@
    "feed": "youtube",
    "id": "0Q8p_3B7az0",
    "medium": "video",
-   "note": "_review/2026-06-28-luis-patino-is-back.md",
+   "note": "sources/tread/_rejected/2026-06-28-luis-patino-is-back.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -165,9 +165,9 @@
    "raw": "sources/_raw/tread/0Q8p_3B7az0.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
-   "title": "Luis Pati\u00f1o Is Back.",
-   "updated": "2026-09-08T12:04:12Z",
+   "status": "rejected",
+   "title": "Luis Patiño Is Back.",
+   "updated": "2026-09-09T11:35:36Z",
    "url": "https://www.youtube.com/watch?v=0Q8p_3B7az0"
   },
   "0eyxyh7uw94": {
@@ -317,7 +317,7 @@
    "feed": "youtube",
    "id": "39XXnEmO9hE",
    "medium": "video",
-   "note": "_review/2026-06-14-sidearmer-going-for-99-mph.md",
+   "note": "sources/tread/2026-06-14-sidearmer-going-for-99-mph.md",
    "proposal": {
     "cues": [
      "cue-scoop-underneath-it",
@@ -336,9 +336,9 @@
    "raw": "sources/_raw/tread/39XXnEmO9hE.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Sidearmer Going For 99 MPH",
-   "updated": "2026-09-08T11:52:28Z",
+   "updated": "2026-09-09T11:35:35Z",
    "url": "https://www.youtube.com/watch?v=39XXnEmO9hE"
   },
   "4CBdShFhn0Y": {
@@ -348,7 +348,7 @@
    "feed": "youtube",
    "id": "4CBdShFhn0Y",
    "medium": "video",
-   "note": "_review/2019-01-13-upgrading-your-j-band-routine-part-2b-patterning-fixing-a.md",
+   "note": "sources/tread/_rejected/2019-01-13-upgrading-your-j-band-routine-part-2b-patterning-fixing-a.md",
    "proposal": {
     "cues": [
      "cue-pull-dont-push-to-release"
@@ -367,9 +367,9 @@
    "raw": "sources/_raw/tread/4CBdShFhn0Y.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Upgrading Your J-Band Routine Part 2b: Patterning - Fixing a \"Pushing\" Arm Action",
-   "updated": "2026-09-08T11:41:55Z",
+   "updated": "2026-09-09T11:35:35Z",
    "url": "https://www.youtube.com/watch?v=4CBdShFhn0Y"
   },
   "4GjWsy7y65I": {
@@ -446,7 +446,7 @@
    "retries": 0,
    "source": "driveline",
    "status": "promoted",
-   "title": "Why Swinging Faster Doesn\u2019t Mean Missing More | How The Blue Jays Fixed Their Hitters",
+   "title": "Why Swinging Faster Doesn’t Mean Missing More | How The Blue Jays Fixed Their Hitters",
    "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=4hoEkIcCylg"
   },
@@ -511,7 +511,7 @@
    "feed": "youtube",
    "id": "69mmb4DadAY",
    "medium": "video",
-   "note": "_review/2026-07-26-from-88-to-96-mph-in-10-weeks-the-luis-patino-story.md",
+   "note": "sources/tread/2026-07-26-from-88-to-96-mph-in-10-weeks-the-luis-patino-story.md",
    "proposal": {
     "cues": [
      "cue-go-back-to-what-you-used-to-do",
@@ -534,9 +534,9 @@
    "raw": "sources/_raw/tread/69mmb4DadAY.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
-   "title": "From 88 to 96 MPH in 10 Weeks: The Luis Pati\u00f1o Story",
-   "updated": "2026-09-08T12:19:31Z",
+   "status": "promoted",
+   "title": "From 88 to 96 MPH in 10 Weeks: The Luis Patiño Story",
+   "updated": "2026-09-09T11:35:37Z",
    "url": "https://www.youtube.com/watch?v=69mmb4DadAY"
   },
   "6T-D3K784cQ": {
@@ -580,7 +580,7 @@
    "feed": "youtube",
    "id": "7b3kEW78N0s",
    "medium": "video",
-   "note": "_review/2019-01-13-upgrading-your-j-band-routine-part-2a-patterning-front-leg.md",
+   "note": "sources/tread/2019-01-13-upgrading-your-j-band-routine-part-2a-patterning-front-leg.md",
    "proposal": {
     "cues": [
      "cue-cheat-the-front-foot-open",
@@ -605,9 +605,9 @@
    "raw": "sources/_raw/tread/7b3kEW78N0s.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Upgrading Your J-Band Routine Part 2a: Patterning - Front Leg Bracing",
-   "updated": "2026-09-08T11:43:13Z",
+   "updated": "2026-09-09T11:35:35Z",
    "url": "https://www.youtube.com/watch?v=7b3kEW78N0s"
   },
   "7nvwOFe51c8": {
@@ -727,7 +727,7 @@
    "feed": "youtube",
    "id": "BQ75llArinI",
    "medium": "video",
-   "note": "_review/2026-06-18-6-8-hs-vanderbilt-commit-goes-for-96mph-in-pre-draft.md",
+   "note": "sources/tread/2026-06-18-6-8-hs-vanderbilt-commit-goes-for-96mph-in-pre-draft.md",
    "proposal": {
     "cues": [
      "cue-feel-the-chest-over",
@@ -746,9 +746,9 @@
    "raw": "sources/_raw/tread/BQ75llArinI.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "6'8\" HS Vanderbilt Commit Goes For 96MPH In Pre Draft Bullpen | RJ Cope",
-   "updated": "2026-09-08T11:57:20Z",
+   "updated": "2026-09-09T11:35:36Z",
    "url": "https://www.youtube.com/watch?v=BQ75llArinI"
   },
   "CxObu-w6cJw": {
@@ -788,7 +788,7 @@
    "feed": "youtube",
    "id": "CxeP7Hikgks",
    "medium": "video",
-   "note": "_review/2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design.md",
+   "note": "sources/driveline/2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design.md",
    "proposal": {
     "cues": [
      "cue-keep-your-front-foot-down",
@@ -817,9 +817,9 @@
    "raw": "sources/_raw/driveline/CxeP7Hikgks.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Drills to Fix Your Timing and Hinge | Swing Design",
-   "updated": "2026-09-08T11:48:15Z",
+   "updated": "2026-09-09T11:35:35Z",
    "url": "https://www.youtube.com/watch?v=CxeP7Hikgks"
   },
   "DRGDN8u1EKA": {
@@ -901,7 +901,7 @@
    "feed": "youtube",
    "id": "EOFwsj3-GEY",
    "medium": "video",
-   "note": "_review/2026-06-30-how-to-fix-your-pushy-arm-action-pushy-arm-action-part-two.md",
+   "note": "sources/tread/2026-06-30-how-to-fix-your-pushy-arm-action-pushy-arm-action-part-two.md",
    "proposal": {
     "cues": [
      "cue-throw-it-with-your-chest",
@@ -923,9 +923,9 @@
    "raw": "sources/_raw/tread/EOFwsj3-GEY.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How To Fix Your Pushy Arm Action | Pushy Arm Action Part Two",
-   "updated": "2026-09-08T12:05:45Z",
+   "updated": "2026-09-09T11:35:36Z",
    "url": "https://www.youtube.com/watch?v=EOFwsj3-GEY"
   },
   "F-od2QhIRGY": {
@@ -1013,7 +1013,7 @@
    "retries": 0,
    "source": "driveline",
    "status": "rejected",
-   "title": "Luis Pati\u00f1o Was DEALING | Mic'd Up Live ABs",
+   "title": "Luis Patiño Was DEALING | Mic'd Up Live ABs",
    "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=G17s9d9Oj38"
   },
@@ -1024,7 +1024,7 @@
    "feed": "youtube",
    "id": "G3RKCmTEyKs",
    "medium": "video",
-   "note": "_review/2018-05-28-reverse-throw-our-favorite-cues.md",
+   "note": "sources/tread/2018-05-28-reverse-throw-our-favorite-cues.md",
    "proposal": {
     "cues": [
      "cue-drive-front-foot-into-ground-to-drive-knee-out",
@@ -1045,9 +1045,9 @@
    "raw": "sources/_raw/tread/G3RKCmTEyKs.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Reverse Throw: Our Favorite Cues",
-   "updated": "2026-09-08T11:37:57Z",
+   "updated": "2026-09-09T11:35:35Z",
    "url": "https://www.youtube.com/watch?v=G3RKCmTEyKs"
   },
   "GQ-v950iAHg": {
@@ -1057,7 +1057,7 @@
    "feed": "youtube",
    "id": "GQ-v950iAHg",
    "medium": "video",
-   "note": "_review/2026-07-19-which-plyos-should-you-use-with-drills.md",
+   "note": "sources/tread/2026-07-19-which-plyos-should-you-use-with-drills.md",
    "proposal": {
     "cues": [
      "cue-keep-the-arm-loose",
@@ -1083,9 +1083,9 @@
    "raw": "sources/_raw/tread/GQ-v950iAHg.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Which Plyos Should You Use? [With Drills]",
-   "updated": "2026-09-08T12:10:23Z",
+   "updated": "2026-09-09T11:35:37Z",
    "url": "https://www.youtube.com/watch?v=GQ-v950iAHg"
   },
   "HbhABgAA9J4": {
@@ -1266,7 +1266,7 @@
    "feed": "youtube",
    "id": "N4oJj53p4XU",
    "medium": "video",
-   "note": "_review/2019-01-17-barbell-smash-series-trap-tricep-bicep-and-pec.md",
+   "note": "sources/tread/2019-01-17-barbell-smash-series-trap-tricep-bicep-and-pec.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1286,9 +1286,9 @@
    "raw": "sources/_raw/tread/N4oJj53p4XU.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Barbell Smash Series (Trap, Tricep, Bicep, and Pec)",
-   "updated": "2026-09-08T11:44:35Z",
+   "updated": "2026-09-09T11:35:35Z",
    "url": "https://www.youtube.com/watch?v=N4oJj53p4XU"
   },
   "NJejEG8CUkE": {
@@ -1647,12 +1647,13 @@
    "id": "TNOFsucvMlk",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2019-01-13",
+   "raw": "sources/_raw/tread/TNOFsucvMlk.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Upgrading Your J-Band Routine Part 3: Low Load Isometrics",
+   "updated": "2026-09-09T11:30:28Z",
    "url": "https://www.youtube.com/watch?v=TNOFsucvMlk"
   },
   "U5Hdv27-_44": {
@@ -1668,7 +1669,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "fetched",
-   "title": "THE VELO OFF \ud83d\udea8(Part One)",
+   "title": "THE VELO OFF 🚨(Part One)",
    "updated": "2026-09-05T21:58:54Z",
    "url": "https://www.youtube.com/watch?v=U5Hdv27-_44"
   },
@@ -1729,17 +1730,18 @@
   "UPuq4j9unQA": {
    "added": "2026-09-08T11:30:55Z",
    "duration_s": 28,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "UPuq4j9unQA",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Alex M Pitching Mechanics - Cutter/Fastball 210 FPS (drivelinebaseball.com)",
+   "updated": "2026-09-09T11:33:00Z",
    "url": "https://www.youtube.com/watch?v=UPuq4j9unQA"
   },
   "Ury29iTiTxo": {
@@ -1749,7 +1751,7 @@
    "feed": "youtube",
    "id": "Ury29iTiTxo",
    "medium": "video",
-   "note": "_review/2026-07-23-why-you-re-not-hitting-home-runs-athlete-story.md",
+   "note": "sources/driveline/_rejected/2026-07-23-why-you-re-not-hitting-home-runs-athlete-story.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -1763,10 +1765,10 @@
    "raw": "sources/_raw/driveline/Ury29iTiTxo.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "throttled_at": "2026-09-04T17:44",
    "title": "Why You're Not Hitting Home Runs (Athlete Story)",
-   "updated": "2026-09-08T12:17:30Z",
+   "updated": "2026-09-09T11:35:37Z",
    "url": "https://www.youtube.com/watch?v=Ury29iTiTxo"
   },
   "Uy5i4piUtH0": {
@@ -1803,7 +1805,7 @@
    "feed": "youtube",
    "id": "VanYIWlAShc",
    "medium": "video",
-   "note": "_review/2026-08-18-d3-shortstop-became-a-d1-pitcher-after-this-showcase.md",
+   "note": "sources/tread/2026-08-18-d3-shortstop-became-a-d1-pitcher-after-this-showcase.md",
    "proposal": {
     "cues": [
      "cue-dont-control-it-so-much",
@@ -1821,9 +1823,9 @@
    "raw": "sources/_raw/tread/VanYIWlAShc.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "D3 Shortstop Became A D1 Pitcher After This Showcase",
-   "updated": "2026-09-08T12:27:22Z",
+   "updated": "2026-09-09T11:35:37Z",
    "url": "https://www.youtube.com/watch?v=VanYIWlAShc"
   },
   "W84Am7RjvgQ": {
@@ -1834,12 +1836,13 @@
    "id": "W84Am7RjvgQ",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2012-07-30",
+   "raw": "sources/_raw/driveline/W84Am7RjvgQ.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
+   "status": "fetched",
    "title": "Supramaximal Training with Weighted Baseballs (drivelinebaseball.com)",
+   "updated": "2026-09-09T11:33:17Z",
    "url": "https://www.youtube.com/watch?v=W84Am7RjvgQ"
   },
   "WAiPEHi32vM": {
@@ -1891,7 +1894,7 @@
    "retries": 0,
    "source": "driveline",
    "status": "promoted",
-   "title": "Why 'Pushing' His Hands Led To This MLB Draft Prospects\u2019 Power Leak",
+   "title": "Why 'Pushing' His Hands Led To This MLB Draft Prospects’ Power Leak",
    "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=WaPqnvfP_PI"
   },
@@ -1902,7 +1905,7 @@
    "feed": "youtube",
    "id": "XiaSpklFIOs",
    "medium": "video",
-   "note": "_review/2026-07-16-36-year-old-pitching-coach-starts-a-pro-game.md",
+   "note": "sources/tread/2026-07-16-36-year-old-pitching-coach-starts-a-pro-game.md",
    "proposal": {
     "cues": [
      "cue-delay-front-leg-get-it-up",
@@ -1923,9 +1926,9 @@
    "raw": "sources/_raw/tread/XiaSpklFIOs.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "36-Year-Old Pitching Coach Starts A Pro Game",
-   "updated": "2026-09-08T12:08:36Z",
+   "updated": "2026-09-09T11:35:36Z",
    "url": "https://www.youtube.com/watch?v=XiaSpklFIOs"
   },
   "YxBrNjtj-xU": {
@@ -2039,17 +2042,18 @@
   "aNMNC8wc2BM": {
    "added": "2026-09-08T11:30:55Z",
    "duration_s": 10,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "aNMNC8wc2BM",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Shot Put Training - Bench Press 335 lbs (Jack, drivelineathletics.com)",
+   "updated": "2026-09-09T11:33:41Z",
    "url": "https://www.youtube.com/watch?v=aNMNC8wc2BM"
   },
   "bJtcyANLnRA": {
@@ -2060,12 +2064,13 @@
    "id": "bJtcyANLnRA",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2019-01-13",
+   "raw": "sources/_raw/tread/bJtcyANLnRA.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Upgrading Your J-Band Routine Part 1: Overloaded Eccentrics",
+   "updated": "2026-09-09T11:33:57Z",
    "url": "https://www.youtube.com/watch?v=bJtcyANLnRA"
   },
   "cGV1WBQKvhk": {
@@ -2081,7 +2086,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "fetched",
-   "title": "THE VELO OFF \ud83d\udea8 (Part 2)",
+   "title": "THE VELO OFF 🚨 (Part 2)",
    "updated": "2026-09-05T22:13:39Z",
    "url": "https://www.youtube.com/watch?v=cGV1WBQKvhk"
   },
@@ -2110,12 +2115,13 @@
    "id": "dl-blog-basic-supplements-for-baseball",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2009-10-13",
+   "raw": "sources/_raw/driveline/dl-blog-basic-supplements-for-baseball.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "Basic Baseball Supplements",
+   "updated": "2026-09-09T11:34:13Z",
    "url": "https://drivelinebaseball.com/blogs/blog/basic-supplements-for-baseball"
   },
   "dl-blog-bluffton-high-school-hitting-development": {
@@ -2140,7 +2146,7 @@
    "retries": 0,
    "source": "driveline",
    "status": "rejected",
-   "title": "\"We dove all in\": How a small Indiana high school built a modern hitting development machine \u2013 with a little help from us",
+   "title": "\"We dove all in\": How a small Indiana high school built a modern hitting development machine – with a little help from us",
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/bluffton-high-school-hitting-development"
   },
@@ -2152,12 +2158,13 @@
    "id": "dl-blog-free-weight-squats-smith-machine-squats",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2009-12-01",
+   "raw": "sources/_raw/driveline/dl-blog-free-weight-squats-smith-machine-squats.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "Free Weight Squats > Smith Machine Squats",
+   "updated": "2026-09-09T11:34:18Z",
    "url": "https://drivelinebaseball.com/blogs/blog/free-weight-squats-smith-machine-squats"
   },
   "dl-blog-how-pros-use-pulse-and-what-it-means-for-baseball": {
@@ -2188,17 +2195,18 @@
   "dl-blog-measuring-hip-internal-rotation": {
    "added": "2026-09-08T11:31:13Z",
    "duration_s": null,
-   "error": null,
+   "error": "RuntimeError: too-short article",
    "feed": "blog-pages",
    "id": "dl-blog-measuring-hip-internal-rotation",
    "medium": "blog",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": null,
+   "updated": "2026-09-09T11:34:21Z",
    "url": "https://drivelinebaseball.com/blogs/blog/measuring-hip-internal-rotation"
   },
   "dl-blog-michael-clarkson-juco-to-division-1": {
@@ -2230,17 +2238,18 @@
   "dl-blog-new-equipment-at-our-facility": {
    "added": "2026-09-08T11:31:13Z",
    "duration_s": null,
-   "error": null,
+   "error": "RuntimeError: too-short article",
    "feed": "blog-pages",
    "id": "dl-blog-new-equipment-at-our-facility",
    "medium": "blog",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": null,
+   "updated": "2026-09-09T11:34:25Z",
    "url": "https://drivelinebaseball.com/blogs/blog/new-equipment-at-our-facility"
   },
   "dl-blog-parker-eastwood-lilles-driveline-bat-speed-gains": {
@@ -2278,12 +2287,13 @@
    "id": "dl-blog-rate-of-force-development",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2009-11-24",
+   "raw": "sources/_raw/driveline/dl-blog-rate-of-force-development.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "\"Rate of Force Development?\"",
+   "updated": "2026-09-09T11:34:31Z",
    "url": "https://drivelinebaseball.com/blogs/blog/rate-of-force-development"
   },
   "dl-blog-strength-training-for-youth-athletes": {
@@ -2294,12 +2304,13 @@
    "id": "dl-blog-strength-training-for-youth-athletes",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2009-11-08",
+   "raw": "sources/_raw/driveline/dl-blog-strength-training-for-youth-athletes.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "Strength Training for Youth Athletes",
+   "updated": "2026-09-09T11:34:34Z",
    "url": "https://drivelinebaseball.com/blogs/blog/strength-training-for-youth-athletes"
   },
   "dl-blog-tejay-antone-third-tjs-return": {
@@ -2325,7 +2336,7 @@
    "retries": 0,
    "source": "driveline",
    "status": "promoted",
-   "title": "Antone\u2019s return from a third TJS is providing hope and a road map for arms",
+   "title": "Antone’s return from a third TJS is providing hope and a road map for arms",
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/tejay-antone-third-tjs-return"
   },
@@ -2460,7 +2471,7 @@
    "feed": "youtube",
    "id": "ebnUZmdfqQI",
    "medium": "video",
-   "note": "_review/2026-07-19-is-driveline-ruining-baseball.md",
+   "note": "sources/driveline/_rejected/2026-07-19-is-driveline-ruining-baseball.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2474,9 +2485,9 @@
    "raw": "sources/_raw/driveline/ebnUZmdfqQI.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Is Driveline RUINING Baseball?",
-   "updated": "2026-09-08T12:11:42Z",
+   "updated": "2026-09-09T11:35:36Z",
    "url": "https://www.youtube.com/watch?v=ebnUZmdfqQI"
   },
   "fBpo461Q7y8": {
@@ -2486,7 +2497,7 @@
    "feed": "youtube",
    "id": "fBpo461Q7y8",
    "medium": "video",
-   "note": "_review/2026-09-06-complete-guide-to-mastering-the-changeup-grips-cues.md",
+   "note": "sources/tread/2026-09-06-complete-guide-to-mastering-the-changeup-grips-cues.md",
    "proposal": {
     "cues": [
      "cue-turn-the-ball-over-and-pronate-through",
@@ -2506,25 +2517,26 @@
    "raw": "sources/_raw/tread/fBpo461Q7y8.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Complete Guide To Mastering The Changeup [Grips, Cues, & Sequencing]",
-   "updated": "2026-09-08T12:36:29Z",
+   "updated": "2026-09-09T11:35:38Z",
    "url": "https://www.youtube.com/watch?v=fBpo461Q7y8"
   },
   "fxSz1QLzLYs": {
    "added": "2026-09-08T11:30:55Z",
    "duration_s": 26,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "fxSz1QLzLYs",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Post-Throwing Recovery - Shoulder Tube Series",
+   "updated": "2026-09-09T11:34:45Z",
    "url": "https://www.youtube.com/watch?v=fxSz1QLzLYs"
   },
   "gCDudoxKwbI": {
@@ -2586,7 +2598,7 @@
    "feed": "youtube",
    "id": "gTYcNgBpR0U",
    "medium": "video",
-   "note": "_review/2026-08-15-why-1-mph-is-worth-millions-to-mlb-players.md",
+   "note": "sources/driveline/2026-08-15-why-1-mph-is-worth-millions-to-mlb-players.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2602,9 +2614,9 @@
    "raw": "sources/_raw/driveline/gTYcNgBpR0U.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Why 1 MPH Is Worth Millions to MLB Players",
-   "updated": "2026-09-08T12:24:14Z",
+   "updated": "2026-09-09T11:35:37Z",
    "url": "https://www.youtube.com/watch?v=gTYcNgBpR0U"
   },
   "hKG_KUpTQYc": {
@@ -2620,7 +2632,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "fetched",
-   "title": "THE VELO OFF\ud83d\udea8(Part 3)",
+   "title": "THE VELO OFF🚨(Part 3)",
    "updated": "2026-09-06T14:00:05Z",
    "url": "https://www.youtube.com/watch?v=hKG_KUpTQYc"
   },
@@ -2631,7 +2643,7 @@
    "feed": "youtube",
    "id": "irF0epAy26k",
    "medium": "video",
-   "note": "_review/2026-08-29-what-they-don-t-tell-you-about-college-baseball-recruiting.md",
+   "note": "sources/driveline/_rejected/2026-08-29-what-they-don-t-tell-you-about-college-baseball-recruiting.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2645,9 +2657,9 @@
    "raw": "sources/_raw/driveline/irF0epAy26k.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "title": "What They Don't Tell You About College Baseball Recruiting",
-   "updated": "2026-09-08T12:30:38Z",
+   "updated": "2026-09-09T11:35:38Z",
    "url": "https://www.youtube.com/watch?v=irF0epAy26k"
   },
   "isfuQ58avok": {
@@ -2693,7 +2705,7 @@
    "feed": "youtube",
    "id": "jGwwwoAaRRs",
    "medium": "video",
-   "note": "_review/2026-09-05-the-fall-ball-decision-which-of-these-3-pitchers-is-your-kid.md",
+   "note": "sources/driveline/_rejected/2026-09-05-the-fall-ball-decision-which-of-these-3-pitchers-is-your-kid.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -2708,9 +2720,9 @@
    "raw": "sources/_raw/driveline/jGwwwoAaRRs.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "title": "The Fall Ball Decision: Which of These 3 Pitchers Is YOUR Kid?",
-   "updated": "2026-09-08T12:34:43Z",
+   "updated": "2026-09-09T11:35:38Z",
    "url": "https://www.youtube.com/watch?v=jGwwwoAaRRs"
   },
   "kVGXM7z5lZE": {
@@ -2720,7 +2732,7 @@
    "feed": "youtube",
    "id": "kVGXM7z5lZE",
    "medium": "video",
-   "note": "_review/2026-06-27-from-juco-to-d1-how-garrett-west-made-it-as-a-two-way-player.md",
+   "note": "sources/driveline/2026-06-27-from-juco-to-d1-how-garrett-west-made-it-as-a-two-way-player.md",
    "proposal": {
     "cues": [
      "cue-tongue-between-teeth",
@@ -2741,9 +2753,9 @@
    "raw": "sources/_raw/driveline/kVGXM7z5lZE.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "From JUCO to D1: How Garrett West Made It as a Two-Way Player",
-   "updated": "2026-09-08T12:01:59Z",
+   "updated": "2026-09-09T11:35:36Z",
    "url": "https://www.youtube.com/watch?v=kVGXM7z5lZE"
   },
   "kaVQJmDdUGg": {
@@ -2844,12 +2856,13 @@
    "id": "lpv80cCnNLs",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2018-04-02",
+   "raw": "sources/_raw/tread/lpv80cCnNLs.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Finding Consistency: Pre & Post-Pitch Routine",
+   "updated": "2026-09-09T11:35:02Z",
    "url": "https://www.youtube.com/watch?v=lpv80cCnNLs"
   },
   "mDy4SShheeY": {
@@ -2918,7 +2931,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "rejected",
-   "title": "Elite Velo Isn\u2019t Enough\u2014Here\u2019s What You\u2019re Missing",
+   "title": "Elite Velo Isn’t Enough—Here’s What You’re Missing",
    "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=mpmMAMKsQnc"
   },
@@ -2929,7 +2942,7 @@
    "feed": "youtube",
    "id": "nXaUKGHuE7c",
    "medium": "video",
-   "note": "_review/2026-08-23-how-to-throw-hard-as-a-short-pitcher.md",
+   "note": "sources/tread/2026-08-23-how-to-throw-hard-as-a-short-pitcher.md",
    "proposal": {
     "cues": [
      "cue-throw-hard-easy"
@@ -2951,9 +2964,9 @@
    "raw": "sources/_raw/tread/nXaUKGHuE7c.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How To Throw Hard As A Short Pitcher",
-   "updated": "2026-09-08T12:29:06Z",
+   "updated": "2026-09-09T11:35:38Z",
    "url": "https://www.youtube.com/watch?v=nXaUKGHuE7c"
   },
   "o3m2JNbG_cw": {
@@ -2978,7 +2991,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "filed-low",
-   "title": "The Lefty Velo-Off  \ud83d\udd25",
+   "title": "The Lefty Velo-Off  🔥",
    "updated": "2026-09-07T02:02:10Z",
    "url": "https://www.youtube.com/watch?v=o3m2JNbG_cw"
   },
@@ -3106,7 +3119,7 @@
    "feed": "youtube",
    "id": "sBOTw365OIk",
    "medium": "video",
-   "note": "_review/2026-07-29-these-6-lifts-are-non-negotiable-for-pitchers.md",
+   "note": "sources/tread/2026-07-29-these-6-lifts-are-non-negotiable-for-pitchers.md",
    "proposal": {
     "cues": [
      "cue-big-toe",
@@ -3134,9 +3147,9 @@
    "raw": "sources/_raw/tread/sBOTw365OIk.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "These 6 Lifts are Non-Negotiable For Pitchers",
-   "updated": "2026-09-08T12:21:09Z",
+   "updated": "2026-09-09T11:35:37Z",
    "url": "https://www.youtube.com/watch?v=sBOTw365OIk"
   },
   "sH8MQtviN9A": {
@@ -3215,7 +3228,7 @@
    "retries": 0,
    "source": "bpc",
    "status": "rejected",
-   "title": "4 Ways you can \u201cThrow more Strikes\u201d",
+   "title": "4 Ways you can “Throw more Strikes”",
    "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=sZwlYfLnDWM"
   },
@@ -3674,7 +3687,7 @@
    "feed": "youtube",
    "id": "uDb-K_j1W0s",
    "medium": "video",
-   "note": "_review/2026-08-30-6-upper-body-lifts-for-pitchers.md",
+   "note": "sources/tread/2026-08-30-6-upper-body-lifts-for-pitchers.md",
    "proposal": {
     "cues": [
      "cue-help-yourself-up-slow-down",
@@ -3701,9 +3714,9 @@
    "raw": "sources/_raw/tread/uDb-K_j1W0s.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "6 Upper Body Lifts For Pitchers",
-   "updated": "2026-09-08T12:33:02Z",
+   "updated": "2026-09-09T11:35:38Z",
    "url": "https://www.youtube.com/watch?v=uDb-K_j1W0s"
   },
   "ufh2XNcw8dA": {
@@ -3746,7 +3759,7 @@
    "feed": "youtube",
    "id": "uyn9iqFavTw",
    "medium": "video",
-   "note": "_review/2026-07-21-day-in-the-life-of-a-baylor-pitcher-at-tread.md",
+   "note": "sources/tread/_rejected/2026-07-21-day-in-the-life-of-a-baylor-pitcher-at-tread.md",
    "proposal": {
     "cues": [
      "cue-get-back",
@@ -3769,9 +3782,9 @@
    "raw": "sources/_raw/tread/uyn9iqFavTw.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Day In The Life Of A Baylor Pitcher At Tread",
-   "updated": "2026-09-08T12:15:44Z",
+   "updated": "2026-09-09T11:35:37Z",
    "url": "https://www.youtube.com/watch?v=uyn9iqFavTw"
   },
   "v3IBryZpmjc": {
@@ -3892,7 +3905,7 @@
   "x3Rno6n_-2c": {
    "added": "2026-09-05T20:39:08Z",
    "duration_s": 187,
-   "error": "RuntimeError: claude -p failed (1): Permission deny rule \"MultiEdit\" matches no known tool \u2014 check for typos.\n\u26a0 claude.ai connectors are disabled because ANTHROPIC_API_KEY or another auth source is set and takes pr",
+   "error": "RuntimeError: claude -p failed (1): Permission deny rule \"MultiEdit\" matches no known tool — check for typos.\n⚠ claude.ai connectors are disabled because ANTHROPIC_API_KEY or another auth source is set and takes pr",
    "feed": "youtube",
    "id": "x3Rno6n_-2c",
    "medium": "video",
@@ -3913,7 +3926,7 @@
    "feed": "youtube",
    "id": "x94dpqhmJks",
    "medium": "video",
-   "note": "_review/2026-08-02-he-just-skipped-college-to-become-a-pro-keaton-maiorana.md",
+   "note": "sources/tread/2026-08-02-he-just-skipped-college-to-become-a-pro-keaton-maiorana.md",
    "proposal": {
     "cues": [
      "cue-stay-tall-as-you-work-that-direction",
@@ -3932,9 +3945,9 @@
    "raw": "sources/_raw/tread/x94dpqhmJks.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "He Just Skipped College To Become A Pro | Keaton Maiorana",
-   "updated": "2026-09-08T12:22:42Z",
+   "updated": "2026-09-09T11:35:37Z",
    "url": "https://www.youtube.com/watch?v=x94dpqhmJks"
   },
   "xK5x85fURl8": {
@@ -4034,17 +4047,18 @@
   "yQW41XvAStQ": {
    "added": "2026-09-08T11:30:55Z",
    "duration_s": 18,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "yQW41XvAStQ",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Michael Fairchild Overhead High-Speed Pitching Mechanics (MaxVelo)",
+   "updated": "2026-09-09T11:35:22Z",
    "url": "https://www.youtube.com/watch?v=yQW41XvAStQ"
   },
   "yep_HchrEnA": {
@@ -4054,7 +4068,7 @@
    "feed": "youtube",
    "id": "yep_HchrEnA",
    "medium": "video",
-   "note": "_review/2026-06-15-the-royals-just-recalled-this-28-year-old-slugger-john-rave.md",
+   "note": "sources/driveline/2026-06-15-the-royals-just-recalled-this-28-year-old-slugger-john-rave.md",
    "proposal": {
     "cues": [
      "cue-catch-it-as-deep-as-you-can-and-pull-it",
@@ -4079,9 +4093,9 @@
    "raw": "sources/_raw/driveline/yep_HchrEnA.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The Royals Just Recalled This 28-Year-Old Slugger | John Rave Cage Session",
-   "updated": "2026-09-08T11:55:05Z",
+   "updated": "2026-09-09T11:35:36Z",
    "url": "https://www.youtube.com/watch?v=yep_HchrEnA"
   },
   "zT2YttYB5IM": {
@@ -4118,7 +4132,7 @@
    "feed": "youtube",
    "id": "zz7SwZxPQwE",
    "medium": "video",
-   "note": "_review/2026-06-09-throw-harder-by-fixing-your-pushy-arm-action.md",
+   "note": "sources/tread/2026-06-09-throw-harder-by-fixing-your-pushy-arm-action.md",
    "proposal": {
     "cues": [
      "cue-burn-the-ball-through-the-net",
@@ -4141,9 +4155,9 @@
    "raw": "sources/_raw/tread/zz7SwZxPQwE.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Throw Harder By Fixing Your Pushy Arm Action",
-   "updated": "2026-09-08T11:50:56Z",
+   "updated": "2026-09-09T11:35:35Z",
    "url": "https://www.youtube.com/watch?v=zz7SwZxPQwE"
   }
  }

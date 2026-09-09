@@ -10,3 +10,4 @@ Formula: % BBE where `EV ≥ 98.0 + 0.07 * (LA − 28)²`. Predictive of future 
 
 ## From sources
 - [[2025-12-09-why-swinging-faster-doesnt-mean-missing-more-how-the-blue]] - Why Swinging Faster Doesn’t Mean Missing More | How The Blue Jays Fixed Their Hitters
+- [[2026-08-15-why-1-mph-is-worth-millions-to-mlb-players]] - Why 1 MPH Is Worth Millions to MLB Players

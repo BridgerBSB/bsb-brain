@@ -142,3 +142,42 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-08 04:31 discover driveline-blog (backfill): 6 seen, 6 new
 - 2026-09-08 04:35 fetch: 6 ok, 2 failed, 0 deferred; whisper 3 min
 - 2026-09-08 05:36 summarize: 37 ok, 1 failed (queue had room for 40)
+- 2026-09-08 05:36 run: done
+- 2026-09-08 15:09 faults pitching: 33 strings -> _review/faults-proposal-pitching.md
+- 2026-09-08 15:42 faults hitting: 99 strings -> _review/faults-proposal-hitting.md
+- 2026-09-08 16:14 faults pitching: 33 strings -> _review/faults-proposal-pitching.md
+- 2026-09-08 16:20 faults hitting: 99 strings -> _review/faults-proposal-hitting.md
+- 2026-09-09 04:30 run: start
+- 2026-09-09 04:30 discover driveline-yt (new): 30 seen, 0 new
+- 2026-09-09 04:30 discover tread-yt (new): 30 seen, 0 new
+- 2026-09-09 04:30 discover driveline-blog (new): 6 seen, 0 new
+- 2026-09-09 04:30 discover tread-blog (new): 10 seen, 0 new
+- 2026-09-09 04:35 fetch: 8 ok, 6 failed, 0 deferred; whisper 3 min
+- 2026-09-09 04:35 promoted 2018-05-28-reverse-throw-our-favorite-cues (instruction/high, 3 cues, 1 drills, corrected)
+- 2026-09-09 04:35 promoted 2019-01-13-upgrading-your-j-band-routine-part-2a-patterning-front-leg (instruction/high, 3 cues, 4 drills, corrected)
+- 2026-09-09 04:35 duplicate 2019-01-13-upgrading-your-j-band-routine-part-2b-patterning-fixing-a
+- 2026-09-09 04:35 promoted 2019-01-17-barbell-smash-series-trap-tricep-bicep-and-pec (instruction/high, 0 cues, 4 drills)
+- 2026-09-09 04:35 promoted 2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design (instruction/high, 6 cues, 6 drills, corrected)
+- 2026-09-09 04:35 promoted 2026-06-09-throw-harder-by-fixing-your-pushy-arm-action (instruction/high, 2 cues, 3 drills, corrected)
+- 2026-09-09 04:35 promoted 2026-06-14-sidearmer-going-for-99-mph (athlete-story/med, 2 cues, 0 drills, corrected)
+- 2026-09-09 04:35 promoted 2026-06-15-the-royals-just-recalled-this-28-year-old-slugger-john-rave (instruction/high, 3 cues, 6 drills, corrected)
+- 2026-09-09 04:35 promoted 2026-06-18-6-8-hs-vanderbilt-commit-goes-for-96mph-in-pre-draft (athlete-story/med, 4 cues, 0 drills, corrected)
+- 2026-09-09 04:35 promoted 2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw (instruction/high, 2 cues, 5 drills, corrected)
+- 2026-09-09 04:35 promoted 2026-06-27-from-juco-to-d1-how-garrett-west-made-it-as-a-two-way-player (athlete-story/med, 3 cues, 1 drills, corrected)
+- 2026-09-09 04:35 rejected 2026-06-28-luis-patino-is-back
+- 2026-09-09 04:35 promoted 2026-06-30-how-to-fix-your-pushy-arm-action-pushy-arm-action-part-two (instruction/high, 2 cues, 4 drills, corrected)
+- 2026-09-09 04:35 promoted 2026-07-16-36-year-old-pitching-coach-starts-a-pro-game (athlete-story/med, 3 cues, 1 drills, corrected)
+- 2026-09-09 04:35 rejected 2026-07-19-is-driveline-ruining-baseball
+- 2026-09-09 04:35 promoted 2026-07-19-which-plyos-should-you-use-with-drills (instruction/high, 2 cues, 6 drills, corrected)
+- 2026-09-09 04:35 duplicate 2026-07-21-day-in-the-life-of-a-baylor-pitcher-at-tread
+- 2026-09-09 04:35 rejected 2026-07-23-why-you-re-not-hitting-home-runs-athlete-story
+- 2026-09-09 04:35 promoted 2026-07-26-from-88-to-96-mph-in-10-weeks-the-luis-patino-story (athlete-story/med, 1 cues, 3 drills, corrected)
+- 2026-09-09 04:35 promoted 2026-07-29-these-6-lifts-are-non-negotiable-for-pitchers (instruction/high, 3 cues, 8 drills, corrected)
+- 2026-09-09 04:35 promoted 2026-08-02-he-just-skipped-college-to-become-a-pro-keaton-maiorana (instruction/high, 4 cues, 0 drills, corrected)
+- 2026-09-09 04:35 promoted 2026-08-15-why-1-mph-is-worth-millions-to-mlb-players (research/high, 0 cues, 0 drills)
+- 2026-09-09 04:35 promoted 2026-08-18-d3-shortstop-became-a-d1-pitcher-after-this-showcase (athlete-story/med, 3 cues, 0 drills, corrected)
+- 2026-09-09 04:35 promoted 2026-08-23-how-to-throw-hard-as-a-short-pitcher (instruction/high, 1 cues, 3 drills, corrected)
+- 2026-09-09 04:35 rejected 2026-08-29-what-they-don-t-tell-you-about-college-baseball-recruiting
+- 2026-09-09 04:35 promoted 2026-08-30-6-upper-body-lifts-for-pitchers (instruction/high, 3 cues, 7 drills, corrected)
+- 2026-09-09 04:35 rejected 2026-09-05-the-fall-ball-decision-which-of-these-3-pitchers-is-your-kid
+- 2026-09-09 04:35 promoted 2026-09-06-complete-guide-to-mastering-the-changeup-grips-cues (instruction/high, 3 cues, 0 drills, corrected)

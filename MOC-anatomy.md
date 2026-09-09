@@ -36,6 +36,14 @@ constantly; this is where it lands.
 - [[2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks]] - The Rangers Signed Him After +4 MPH Bat Speed In 6 Weeks
 - [[2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball]] - Cues & Drills to Let Your Body Deliver the Barrel to the Ball
 - [[2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands]] - The Ultimate Pitcher's Guide To J-Bands
+- [[2019-01-13-upgrading-your-j-band-routine-part-2a-patterning-front-leg]] - Upgrading Your J-Band Routine Part 2a: Patterning - Front Leg Bracing
+- [[2019-01-17-barbell-smash-series-trap-tricep-bicep-and-pec]] - Barbell Smash Series (Trap, Tricep, Bicep, and Pec)
+- [[2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design]] - Drills to Fix Your Timing and Hinge | Swing Design
+- [[2026-06-09-throw-harder-by-fixing-your-pushy-arm-action]] - Throw Harder By Fixing Your Pushy Arm Action
+- [[2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw]] - The Plane of Rotation: How Elite Throwers Use It To Throw Hard
+- [[2026-07-19-which-plyos-should-you-use-with-drills]] - Which Plyos Should You Use? [With Drills]
+- [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] - How To Throw Hard As A Short Pitcher
+- [[2026-09-06-complete-guide-to-mastering-the-changeup-grips-cues]] - Complete Guide To Mastering The Changeup [Grips, Cues, & Sequencing]
 
 ## Cues
 <!-- appended by the pipeline -->
@@ -80,6 +88,25 @@ constantly; this is where it lands.
 - [[cue-turn-behind-the-plate-catch-it-as-deep-as-possible]]
 - [[cue-leave-your-hands-back-don-t-get-too-handsy]]
 - [[cue-scaps-apart-scaps-together]]
+- [[cue-cheat-the-front-foot-open]]
+- [[cue-step-into-the-movement-like-you-re-stepping-down-a]]
+- [[cue-step-plant-finish]]
+- [[cue-keep-your-front-foot-down]]
+- [[cue-keep-it-the-pelvis-down-as-you-turn]]
+- [[cue-try-to-hold-the-ground-with-that-back-foot]]
+- [[cue-pull-your-back-hip-away-from-home-plate-when-you-stride]]
+- [[cue-catch-it-deep-and-pull-a-homer]]
+- [[cue-hold-hold-hold-and-then-just-let-go]]
+- [[cue-burn-that-ball-through-that-net]]
+- [[cue-hold-the-ball-and-put-a-ton-of-pressure-on-this-ring]]
+- [[cue-unravel-out]]
+- [[cue-let-the-pelvis-just-do-the-work-imagine-your-arm-is]]
+- [[cue-keep-the-arm-loose]]
+- [[cue-let-the-arm-go]]
+- [[cue-throw-hard-easy]]
+- [[cue-throw-it-like-a-fastball]]
+- [[cue-get-that-middle-finger-away-from-the-midline]]
+- [[cue-feel-like-the-palm-of-your-hand-is-facing-directly-at]]
 
 ## Drills
 <!-- appended by the pipeline -->
@@ -137,6 +164,34 @@ constantly; this is where it lands.
 - [[drill-row-fly-press-with-scap-reach-and-squeeze]]
 - [[drill-three-way-shoulder-internal-rotation]]
 - [[drill-y-raise-and-front-raise-with-reach-at-knee-height]]
+- [[drill-j-band-hip-rotation-patterning-1]]
+- [[drill-j-band-hip-rotation-patterning-2]]
+- [[drill-j-band-hip-rotation-patterning-3]]
+- [[drill-j-band-hip-rotation-patterning-4-dynamic-step-in]]
+- [[drill-upper-trap-barbell-smash]]
+- [[drill-tricep-barbell-smash]]
+- [[drill-bicep-barbell-smash]]
+- [[drill-pec-barbell-smash]]
+- [[drill-step-back-offset-open]]
+- [[drill-longer-bat-timing-walk-through]]
+- [[drill-kershaw]]
+- [[drill-redbat-handle-loaded-bat-pull-back-and-release]]
+- [[drill-lasso-drill]]
+- [[drill-pendulum-drill]]
+- [[drill-plyo-wall-with-added-space]]
+- [[drill-mobility-stick-plane-feel]]
+- [[drill-abbreviated-throws]]
+- [[drill-rollings]]
+- [[drill-athletic-off-balance-throws]]
+- [[drill-wall-net-target-throws]]
+- [[drill-tentoe-s-split-stance-heavy-plyo]]
+- [[drill-half-layback-feel-drills-self-toss-dangle-dead-man]]
+- [[drill-figure-eight]]
+- [[drill-one-leg-off-ground-throw]]
+- [[drill-drop-step-quick-pick-throws]]
+- [[drill-long-toss]]
+- [[drill-pull-downs]]
+- [[drill-rotational-med-ball-cable-kaiser-work]]
 
 ## Related
 [[MOC-pitching]] · [[MOC-hitting]] · [[MOC-strength]]

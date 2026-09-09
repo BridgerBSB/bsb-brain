@@ -57,6 +57,9 @@ Child of [[MOC-training-knowledge]] and [[MOC-baseball-analytics]]. The taught p
 - [[2026-03-28-his-bat-path-is-costing-him]] - His bat path is costing him
 - [[2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks]] - The Rangers Signed Him After +4 MPH Bat Speed In 6 Weeks
 - [[2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball]] - Cues & Drills to Let Your Body Deliver the Barrel to the Ball
+- [[2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design]] - Drills to Fix Your Timing and Hinge | Swing Design
+- [[2026-06-15-the-royals-just-recalled-this-28-year-old-slugger-john-rave]] - The Royals Just Recalled This 28-Year-Old Slugger | John Rave Cage Session
+- [[2026-08-15-why-1-mph-is-worth-millions-to-mlb-players]] - Why 1 MPH Is Worth Millions to MLB Players
 
 ## Cues
 <!-- appended by the pipeline -->
@@ -98,6 +101,15 @@ Child of [[MOC-training-knowledge]] and [[MOC-baseball-analytics]]. The taught p
 - [[cue-land-soft-like-you-re-landing-on-an-egg]]
 - [[cue-turn-behind-the-plate-catch-it-as-deep-as-possible]]
 - [[cue-leave-your-hands-back-don-t-get-too-handsy]]
+- [[cue-keep-your-front-foot-down]]
+- [[cue-keep-it-the-pelvis-down-as-you-turn]]
+- [[cue-try-to-hold-the-ground-with-that-back-foot]]
+- [[cue-pull-your-back-hip-away-from-home-plate-when-you-stride]]
+- [[cue-catch-it-deep-and-pull-a-homer]]
+- [[cue-hold-hold-hold-and-then-just-let-go]]
+- [[cue-catch-it-as-deep-as-you-can-and-pull-it]]
+- [[cue-stay-in-the-spot]]
+- [[cue-keep-the-back-shoulder-lower-than-this-front-one]]
 
 ## Drills
 <!-- appended by the pipeline -->
@@ -154,6 +166,14 @@ Child of [[MOC-training-knowledge]] and [[MOC-baseball-analytics]]. The taught p
 - [[drill-pivot-picks]]
 - [[drill-offset-open-step-behind]]
 - [[drill-two-tee-hold-through]]
+- [[drill-step-back-offset-open]]
+- [[drill-longer-bat-timing-walk-through]]
+- [[drill-redbat-handle-loaded-bat-pull-back-and-release]]
+- [[drill-darts]]
+- [[drill-handle-load-barrel-load-open-and-closed]]
+- [[drill-underload-light-bat-vs-left-handed-curveball]]
+- [[drill-rh-cutter-lh-curveball-live-bp]]
+- [[drill-opposite-side-short-round]]
 
 ## Related
 - [[MOC-baseball-analytics]] · [[MOC-astros-engineering]] · [[loop-engineering]]

@@ -143,3 +143,6 @@ AA + outcome data.
 - [[2026-03-21-stop-getting-greedy-on-your-pitch-swing-design]] - Stop Getting Greedy on Your Pitch (Swing Design)
 - [[2026-03-28-his-bat-path-is-costing-him]] - His bat path is costing him
 - [[2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks]] - The Rangers Signed Him After +4 MPH Bat Speed In 6 Weeks
+- [[2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design]] - Drills to Fix Your Timing and Hinge | Swing Design
+- [[2026-06-15-the-royals-just-recalled-this-28-year-old-slugger-john-rave]] - The Royals Just Recalled This 28-Year-Old Slugger | John Rave Cage Session
+- [[2026-08-15-why-1-mph-is-worth-millions-to-mlb-players]] - Why 1 MPH Is Worth Millions to MLB Players

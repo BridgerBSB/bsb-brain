@@ -284,3 +284,4 @@ at the end into "Section IV: Hitting Programs" — the program-construction laye
 - [[2026-03-21-stop-getting-greedy-on-your-pitch-swing-design]] - Stop Getting Greedy on Your Pitch (Swing Design)
 - [[2026-03-28-his-bat-path-is-costing-him]] - His bat path is costing him
 - [[2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks]] - The Rangers Signed Him After +4 MPH Bat Speed In 6 Weeks
+- [[2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design]] - Drills to Fix Your Timing and Hinge | Swing Design

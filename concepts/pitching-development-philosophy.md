@@ -29,3 +29,8 @@ versa). Source of truth is the brain; Astro World renders it. See [[astro-world]
 - [[2026-07-28-what-s-the-next-sweeper]] - What's the Next Sweeper?
 - [[2026-01-13-how-long-term-development-built-a-90-mph-arm]] - How Long-Term Development Built a 90+ MPH Arm
 - [[2026-01-19-the-evolution-of-pitch-design-saberseminar-2025-r-d-podcast]] - The Evolution of Pitch Design | Saberseminar 2025 | R&D Podcast EP 111
+- [[2026-06-09-throw-harder-by-fixing-your-pushy-arm-action]] - Throw Harder By Fixing Your Pushy Arm Action
+- [[2026-06-30-how-to-fix-your-pushy-arm-action-pushy-arm-action-part-two]] - How To Fix Your Pushy Arm Action | Pushy Arm Action Part Two
+- [[2026-07-26-from-88-to-96-mph-in-10-weeks-the-luis-patino-story]] - From 88 to 96 MPH in 10 Weeks: The Luis Patiño Story
+- [[2026-08-15-why-1-mph-is-worth-millions-to-mlb-players]] - Why 1 MPH Is Worth Millions to MLB Players
+- [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] - How To Throw Hard As A Short Pitcher

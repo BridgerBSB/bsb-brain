@@ -378,3 +378,4 @@ player have to grow," LTAD formalizes the question.
 ## From sources
 - [[2025-12-11-how-long-term-pitching-development-beats-program-hopping]] - How Long-Term Pitching Development Beats Program Hopping
 - [[2026-01-13-how-long-term-development-built-a-90-mph-arm]] - How Long-Term Development Built a 90+ MPH Arm
+- [[2026-06-27-from-juco-to-d1-how-garrett-west-made-it-as-a-two-way-player]] - From JUCO to D1: How Garrett West Made It as a Two-Way Player

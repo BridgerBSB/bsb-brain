@@ -153,3 +153,5 @@ changes (control for contact point — see the biomech case study).
 - [[2026-03-21-stop-getting-greedy-on-your-pitch-swing-design]] - Stop Getting Greedy on Your Pitch (Swing Design)
 - [[2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks]] - The Rangers Signed Him After +4 MPH Bat Speed In 6 Weeks
 - [[2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball]] - Cues & Drills to Let Your Body Deliver the Barrel to the Ball
+- [[2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design]] - Drills to Fix Your Timing and Hinge | Swing Design
+- [[2026-06-27-from-juco-to-d1-how-garrett-west-made-it-as-a-two-way-player]] - From JUCO to D1: How Garrett West Made It as a Two-Way Player

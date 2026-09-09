@@ -1,8 +1,5 @@
 ---
-type: concept
-domain: pitching
-source: fangraphs
-created: '2026-06-16'
+{type: concept, domain: pitching, source: fangraphs, created: '2026-06-16'}
 ---
 # Vertical Approach Angle (VAA)
 
@@ -31,3 +28,9 @@ reach **1.5–2.0° excess VAA** (much bigger lever than HAA's ±0.5°).
 [[MOC-baseball-analytics]] · [[horizontal-approach-angle]] · [[pitch-design-logic]]
 (VAA from release height + arm action) · [[stuff-plus-4s-pitching]] (Shape+/Slot+) ·
 [[statcast-pipeline]] · Astros: `[[arm-farm]]`, `[[pd-goals]]` pitch-shape goals.
+
+## From sources
+- [[2026-06-14-sidearmer-going-for-99-mph]] - Sidearmer Going For 99 MPH
+- [[2026-08-18-d3-shortstop-became-a-d1-pitcher-after-this-showcase]] - D3 Shortstop Became A D1 Pitcher After This Showcase
+- [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] - How To Throw Hard As A Short Pitcher
+- [[2026-09-06-complete-guide-to-mastering-the-changeup-grips-cues]] - Complete Guide To Mastering The Changeup [Grips, Cues, & Sequencing]

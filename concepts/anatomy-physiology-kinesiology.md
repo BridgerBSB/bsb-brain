@@ -116,3 +116,4 @@ for hip hinge, plyometrics for power, the 20% over/under bat rule for fast-twitc
 - [[2026-03-28-his-bat-path-is-costing-him]] - His bat path is costing him
 - [[2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks]] - The Rangers Signed Him After +4 MPH Bat Speed In 6 Weeks
 - [[2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands]] - The Ultimate Pitcher's Guide To J-Bands
+- [[2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design]] - Drills to Fix Your Timing and Hinge | Swing Design

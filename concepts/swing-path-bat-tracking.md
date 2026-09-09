@@ -24,3 +24,5 @@ swing-plane coaching overlays.
 - [[2026-03-21-stop-getting-greedy-on-your-pitch-swing-design]] - Stop Getting Greedy on Your Pitch (Swing Design)
 - [[2026-03-28-his-bat-path-is-costing-him]] - His bat path is costing him
 - [[2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball]] - Cues & Drills to Let Your Body Deliver the Barrel to the Ball
+- [[2026-06-15-the-royals-just-recalled-this-28-year-old-slugger-john-rave]] - The Royals Just Recalled This 28-Year-Old Slugger | John Rave Cage Session
+- [[2026-08-15-why-1-mph-is-worth-millions-to-mlb-players]] - Why 1 MPH Is Worth Millions to MLB Players

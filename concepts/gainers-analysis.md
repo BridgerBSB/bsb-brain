@@ -1,8 +1,5 @@
 ---
-type: concept
-domain: hitting
-source: personal-bsbres/notebooks
-created: '2026-06-15'
+{type: concept, domain: hitting, source: personal-bsbres/notebooks, created: '2026-06-15'}
 ---
 # Gainers Analysis
 
@@ -105,3 +102,6 @@ shape, different population.
 - [[swing-path-bat-tracking]] · [[big-3-hitting]] · [[hitting-biomechanics]]
 - [[biomech-scores]] · [[statcast-pipeline]] · [[lightgbm-baseball-modeling]]
 - Astros tie-ins: `rules/pd-goals-flag-tracker` (drift), `rules/draft-projects`
+
+## From sources
+- [[2026-08-15-why-1-mph-is-worth-millions-to-mlb-players]] - Why 1 MPH Is Worth Millions to MLB Players
