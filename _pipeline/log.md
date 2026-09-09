@@ -181,3 +181,10 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-09 04:35 promoted 2026-08-30-6-upper-body-lifts-for-pitchers (instruction/high, 3 cues, 7 drills, corrected)
 - 2026-09-09 04:35 rejected 2026-09-05-the-fall-ball-decision-which-of-these-3-pitchers-is-your-kid
 - 2026-09-09 04:35 promoted 2026-09-06-complete-guide-to-mastering-the-changeup-grips-cues (instruction/high, 3 cues, 0 drills, corrected)
+- 2026-09-09 04:35 promote: 21 promoted, 7 rejected, 21 corrections
+- 2026-09-09 04:36 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-09-09 04:36 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-09-09 04:36 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-09-09 04:36 discover tread-blog (backfill): 6 seen, 6 new
+- 2026-09-09 04:39 fetch: 3 ok, 5 failed, 0 deferred; whisper 1 min
+- 2026-09-09 04:57 summarize: 11 ok, 0 failed (queue had room for 38)
