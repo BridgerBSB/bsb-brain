@@ -1,4 +1,23 @@
-# Last session state - 2026-09-08 15:54 (Sam's stolen-base components study)
+# Last session state - 2026-09-09 04:05 (MiLB salary: what we paid released in-season signings)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
+- **Recall checkpoint (SOURCE OF TRUTH):** session `6ef0` - domain `bsb-resources/feature/pd-goals` - id `bf679082e9b70af6`
+- **What we were doing:** Sam asked how much money we spent on minor leaguers signed after Mar 28 whom we have since released. Nothing in `.claude/rules/` covered MiLB pay at all, so this was a discovery run into the eBIS contract tables, then the answer, then the rule so it never has to be rediscovered.
+- **Shipped this session:** 4 commits `65d13471` / `2f41068a` / `d63e50e9` / `a313be8b`, all pushed, 0 unpushed.
+  - **THE ANSWER: ~$186,954** salary, **10 released players**, 619 service days, **zero signing bonuses**. Artifact for Sam (private): https://claude.ai/code/artifact/bfb33faf-edbb-40b1-aac0-523c8b40c19b
+  - Finding: the cost is veteran AAA depth, not churn volume. Thaiss / Yajure / D.Johnson = **$102,720, 55% of the spend on 18% of the days**; the other 7 cost $84,234 over 510 days.
+  - `.claude/rules/milb-salary-and-contracts.md` - NEW. Where MiLB pay lives (`MN_CONTRACT` / `MN_ADDENDUM_C` / `MN_ADDENDUM_CSAL`, clocks `PP_MNSERVICE` / `Rosters_Daily`), and that `Astros.Contract_Data` is the MAJOR league surface and the wrong place to look.
+  - `sql-queries/milb-salary-discovery.sql` (the 6-grid probe) + `milb-released-in-season-signings-2026.sql` (pool + release shape) + `...-2026-ANSWER.sql` (reproduces the figure, unit test appended).
+  - **`MONTHLYSALARY` holds a WEEKLY rate.** Confirmed against full-season single-level players: A+ weekly = $27,537/yr vs CBA min ~$27,300 (within 1%); monthly = $6,332, impossible. Zac independently confirmed ~$20k for a non-40-man AAA guy - same order as weekly, 4x off monthly.
+  - **Two bugs caught before they shipped.** (1) $20,098 double count - Daniel Johnson signed twice, `PP_MNSERVICE` is per PLAYER while CSAL is per CONTRACT, so one 18-day stint billed against both; naive sum was $207,053 and the tell was on screen (59 contracts vs 58 players). (2) `Rosters_Daily.parent_team_name` holds the ORG CODE, not a club name, so `LIKE '%Astro%'` matched nothing and the LEFT JOIN returned NULL dates that read as missing data rather than a broken filter.
+  - Also: `feature/pd-goals` is **push-protected** (needs a PR), and `fix/eoy-sc-card-height` - a topic branch that had absorbed 21 unrelated commits - is now merged into it, both remote branches identical.
+- **EXACT next step:** nothing to build. Zac: *"he might ask us some shit in the morning, so be ready for it. We don't need to make any plans or guesstimation."* If Sam follows up, every likely question is a rerun of `sql-queries/milb-released-in-season-signings-2026-ANSWER.sql`: who cost most (Thaiss $46,800 / 39 d) - is that everyone (10 of 58, other 48 still here) - guys signed BEFORE Mar 28 (one filter change) - same for 2025 (swap the year).
+- **Blockers / waiting on:** nothing blocking. One loose end that is finance's, not ours: a single payroll record for a full-season A+ player moves the weekly rate from inferred to confirmed permanently (~$27,000 = weekly, ~$4,700 = monthly). Zac said he can fact-check with other employees. Also `CONTRACTSTATUS_LK` codes are undecoded - 9 of the 11 released contracts read `TM`, do not read that as "terminated" without a lookup.
+- **Uncommitted work:** 78 paths in bsb-resources, nearly all pre-existing untracked from before this session (`.agents/`, `design-system/`, `gcpy/`, assorted `sql-queries/`, `pd-goals/output/`). Nothing from this session is uncommitted.
+
+---
+
+## ALSO OPEN - Last session state - 2026-09-08 15:54 (Sam's stolen-base components study)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles`
 - **Recall checkpoint (SOURCE OF TRUTH):** session `b8e8` - domain `bsb-wt-intangibles/feature/astros-intangibles` - id `177c7c79883232c2`
