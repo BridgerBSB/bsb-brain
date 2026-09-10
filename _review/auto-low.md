@@ -1,6 +1,6 @@
 # Auto-filed as low value (not reviewed)
 
-Written by `kb.py lint` 2026-09-09 04:58. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
+Written by `kb.py lint` 2026-09-10 06:36. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
 
 - 2026-08-26 tread marketing: Is Tread's Remote Coaching Worth It? A Parent Perspective. - https://www.youtube.com/watch?v=y1gPpzn5DMw - id `y1gPpzn5DMw`
 - 2026-07-23 tread marketing: He Went D1 After Throwing 97 MPH In This Showcase - https://www.youtube.com/watch?v=5-N9m4A7BWY - id `5-N9m4A7BWY`
@@ -15,4 +15,7 @@ Written by `kb.py lint` 2026-09-09 04:58. Marketing and low-value items skip the
 - 2025-07-27 bpc marketing: The Lefty Velo-Off  🔥 - https://www.youtube.com/watch?v=o3m2JNbG_cw - id `o3m2JNbG_cw`
 - 2024-03-06 bpc marketing: BPC Remote Training - https://www.youtube.com/watch?v=r-yW4Fk6hnA - id `r-yW4Fk6hnA`
 - 2021-03-17 bpc athlete-story: A Day in the Life: BPC Offseason 2021 - https://www.youtube.com/watch?v=NMd52BXwqYY - id `NMd52BXwqYY`
+- 2013-03-17 driveline instruction: Speed Training for Baseball - Prowler Pushes - https://www.youtube.com/watch?v=Yg3YznNU1yY - id `Yg3YznNU1yY`
 - 2013-01-06 driveline instruction: Pitching Arm Care: Heavy Deceleration Throws (drivelinebaseball.com) - https://www.youtube.com/watch?v=5rkW2BF8Ahs - id `5rkW2BF8Ahs`
+- 2009-12-25 driveline philosophy: Keeping Strength in the Strength Program - https://drivelinebaseball.com/blogs/blog/keeping-strength-in-the-strength-program - id `dl-blog-keeping-strength-in-the-strength-program`
+- 2009-12-10 driveline philosophy: Misconceptions About Training Youth - https://drivelinebaseball.com/blogs/blog/misconceptions-about-training-youth - id `dl-blog-misconceptions-about-training-youth`

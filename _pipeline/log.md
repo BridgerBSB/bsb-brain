@@ -198,3 +198,10 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-10 04:37 promoted 2009-10-13-basic-baseball-supplements (philosophy/high, 0 cues, 0 drills)
 - 2026-09-10 04:37 rejected 2009-11-08-strength-training-for-youth-athletes
 - 2026-09-10 04:37 rejected 2021-03-16-live-abs-2021-week-1
+- 2026-09-10 04:37 promote: 1 promoted, 2 rejected, 0 corrections
+- 2026-09-10 04:37 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-09-10 04:37 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-09-10 04:37 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-09-10 04:37 discover tread-blog (backfill): 6 seen, 6 new
+- 2026-09-10 04:40 fetch: 5 ok, 3 failed, 0 deferred; whisper 0 min
+- 2026-09-10 06:36 summarize: 20 ok, 3 failed (queue had room for 30)
