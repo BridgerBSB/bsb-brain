@@ -188,3 +188,13 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-09 04:36 discover tread-blog (backfill): 6 seen, 6 new
 - 2026-09-09 04:39 fetch: 3 ok, 5 failed, 0 deferred; whisper 1 min
 - 2026-09-09 04:57 summarize: 11 ok, 0 failed (queue had room for 38)
+- 2026-09-09 04:58 run: done
+- 2026-09-10 04:30 run: start
+- 2026-09-10 04:30 discover driveline-yt (new): 30 seen, 0 new
+- 2026-09-10 04:30 discover tread-yt (new): 30 seen, 1 new
+- 2026-09-10 04:30 discover driveline-blog (new): 6 seen, 0 new
+- 2026-09-10 04:30 discover tread-blog (new): 10 seen, 0 new
+- 2026-09-10 04:37 fetch: 18 ok, 3 failed, 0 deferred; whisper 3 min
+- 2026-09-10 04:37 promoted 2009-10-13-basic-baseball-supplements (philosophy/high, 0 cues, 0 drills)
+- 2026-09-10 04:37 rejected 2009-11-08-strength-training-for-youth-athletes
+- 2026-09-10 04:37 rejected 2021-03-16-live-abs-2021-week-1

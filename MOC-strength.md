@@ -28,6 +28,7 @@ and Tread both publish heavily here.
 - [[2026-07-29-these-6-lifts-are-non-negotiable-for-pitchers]] - These 6 Lifts are Non-Negotiable For Pitchers
 - [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] - How To Throw Hard As A Short Pitcher
 - [[2026-08-30-6-upper-body-lifts-for-pitchers]] - 6 Upper Body Lifts For Pitchers
+- [[2009-10-13-basic-baseball-supplements]] - Basic Baseball Supplements
 
 ## Cues
 <!-- appended by the pipeline -->
