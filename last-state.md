@@ -1,3 +1,24 @@
+# Last session state - 2026-09-10 16:04 (Internal Staff Board + the resume reader)
+
+- **Project / cwd:** `C:/Users/Owner/hiring` - branch `main`
+- **Recall checkpoint (SOURCE OF TRUTH):** session `bb99` - domain `hiring/main` - id `3a8f26a8ac6e17d7`
+- **What we were doing:** built Sam's Internal Staff Board end to end (owner-only org chart in the hiring app), then root-caused why a real resume read as empty on the hiring board.
+- **Shipped this session:** 9 commits `14dbf11`..`39bbbd8`, all pushed to `hiring/main`. Railway auto-deploys. NO migration.
+  - **Internal Board**, owner-only at `/admin/internal`, with its OWN `staff_api.py` router carrying `require_owner`. The magnet board's router is admin-gated, so adding this as a `which=staff` parameter there would have handed every admin and coordinator the staff plan. Six tests prove an admin is refused the API, the page and the tile.
+  - **Layout is a SIDEWAYS indented outline.** Top-down centring was wrong twice over: it spent width the org does not have, and once children stacked they sat left-aligned under a centred parent so the connectors wandered.
+  - **Multi-boss:** a box is DRAWN ONCE under its FIRST parent; further parents are dashed orange with "also reports to X" on the card. `childrenOf` is primary-children-only, which is what keeps head counts right.
+  - Autosave (500ms debounce, `dirtyAtStart` so work typed mid-save is not silently cleared), positions limited to created roles, compare against another board, arrows removed from boxes, FCL relabelled **Complex** (key still `fcl`).
+  - **THE RESUME:** the reader was never failing to decode. It returned 9,914 correct characters shaped one letter per line. Word kerns with a horizontal `Td` between glyphs and writes each run in its own `BT` block, and all 849 blocks carry an identical `Tm` plus the same opening `0 -24.140625 Td`. Final model: `Tm` sets the pen, `Td` offsets it, no positioning operator ends a line, and the break is decided WHERE TEXT IS WRITTEN by comparing the pen to the last baseline written. Real file went from 1,433 lines averaging 4.6 characters to 69 averaging 76.6, with email AND phone now detected. `test_pdf_text.js` 6 -> 14 checks.
+  - `cage-sandbox/docs/pd-staff-2026.txt` - the 2026 PD names, ready for the new **Add staff > Paste a list**.
+- **EXACT next step:** open `hirehou.up.railway.app/admin/internal`, paste the block in `cage-sandbox/docs/pd-staff-2026.txt` into **Add staff > Paste a list**, then place people and build the tree.
+- **Blockers / waiting on:** Zac to say (a) whether S&C / ATC / Nutrition / Video / Minor League Ops belong in that name list - deliberately excluded and named at the top of the file, and (b) whether to strip Position and Where from the person card. He raised that redundancy himself and his video showed the contradiction it causes; I recommended dropping both and he has not answered.
+- **Uncommitted work:** `hiring` clean on every tracked path; 6 untracked/derived paths there, pre-existing.
+- **NOT verified in a browser:** the quick-add resume field, and the dashed second reporting line - the demo org has nobody with two bosses.
+
+---
+
+## ALSO OPEN - Last session state - 2026-09-10 10:40 (IF positioning + direction %ages one-pager)
+
 # Last session state - 2026-09-10 10:40 (IF positioning + direction %ages one-pager)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
@@ -92,3 +113,4 @@
 - **Blockers / waiting on:** Zac's pick between two routes for "the most compelling and most significant case, easily understandable to an athlete": **(1)** convert the +6.0 points into RUNS, the GM-legible currency, cheap and honest; **(2)** run the between-season test on **MiLB** - the backlog population, 5-10x the season-pairs, the only thing that turns this from an association into something you can put in a player's ear. **I pushed for (2).** For (2): `sb-components-mlb-2023-2026.sql` hardcodes `sv.level_code = 'mlb'` in all 6 result sets, so it needs the MiLB whitelist plus a level column carried through - and note the 1B/2B lead cleaning bounds were written FROM MiLB HawkEye evidence, so they will bite far harder than the 0.6% they bite at MLB.
 - **Uncommitted work:** intangibles 4 modified `.claude/rules/*` (synced copies from other threads, pre-existing, left alone) + 13 untracked. bsb-resources sits on `fix/eoy-sc-card-height` from an unrelated EOY thread and carries the `db-columns.md` rule edit + `.gitignore` + 2 pre-existing binary diffs.
 - **Also live, deliberately not carried here** (Zac: wraps are session-specific): the Arm Farm Postgame V2 Overview thread from 09-06 lives in the recall brain at session `8d5b`, domain `bsb-wt-bullpen/feature/bullpen-reports`, checkpoint `e83411b5e9fd1d1e`.
+
