@@ -1,4 +1,23 @@
-# Last session state - 2026-09-09 19:26 (hiring app: magnet notes + polls, resume upload cured)
+# Last session state - 2026-09-09 19:45 (Powell winter-ball case + /player-comparison skill)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
+- **Recall checkpoint (SOURCE OF TRUTH):** session `9658` - domain `bsb-resources/feature/pd-goals` - id `6adaf540aafdb60a`
+- **What we were doing:** building the case for Caden Powell (283965) as a winter-ball outfield add against four comps, then turning the process into a reusable skill.
+- **Shipped this session:** 9 commits `b93aaa5e`..`5e6ec583`, all pushed.
+  - **THE DISCOVERY (Zac caught it):** the league-wide percentile pools are ALREADY PINNED for 2026 - `barrelsville_tracker_2026` `batters_all_all` (12h), `intangibles_of/if/br_tracker_2026` (6h), all 30 orgs, permissive gate. I had started a league-wide SQL scan. **`barrelsville/scripts/pin_tracker_seasons.py`'s docstring still says "2026 runs live (never pinned)" and is STALE** - that caused the wrong turn.
+  - `pd-goals/scripts/winterball_comp_pools.py` - reads the 4 pins, per-domain CSVs with `*_pctile`. Golden gates (50 PA / 10 comp plays / 30 on-base); percentile = `bisect_left/len` within own level.
+  - `pd-goals/scripts/build_winterball_onepager.py` - landscape PNG. `Desktop/powell_winterball.png`, mock at `pd-goals/docs/plans/mocks/winterball/`.
+  - `sql-queries/powell-winterball-comp-5players-2026.sql` - pool half SUPERSEDED by the pin reader; STILL-WIRED for the position matrix + SB/CS.
+  - `.claude/skills/player-comparison/SKILL.md` = **`/player-comparison`**, 10 sections written from 5 real failures this session.
+  - **READ:** Powell 94th pctile bat speed / 93rd Hard% / 89th Avg EV at A+, but 13th Ctct%. Defense HURTS the case - PAA/EO 28th (rate), OAA 2nd (cumulative, inflated by his 97th-pctile opportunity count); Diaz is the better OF. Season SB: Gourson 37, Powell 30, Youngblood 29, Diaz 19. Gourson + Ortega are INFIELDERS.
+- **EXACT next step:** GREEN-test section 1 of the skill - it shipped WITHOUT a test and is the only untested part. Give a fresh agent a vague comp-set ask and verify it STOPS and asks the 3 blocking questions (decision+audience, comp-set role, position needed) instead of diving into SQL.
+- **Blockers / waiting on:** Zac's call on three - (1) propagate the skill to the 3 sibling worktrees? `sync-rules.sh` copies `rules/` + `scripts/` only, NOT `skills/`; (2) blank percentile shading below the 10-play pool gate (Ortega is shaded off 1 competitive play); (3) multi-level pooled fielding via the pin's `indiv_pooled_2026_<levels>_all` combos. BR pin never ran - `--domains br` if sprint-speed percentiles are wanted.
+- **Uncommitted work:** 78 paths in bsb-resources, all pre-existing untracked from before this session. Nothing from this session is uncommitted.
+- **NOTE:** commits `a4bc0827` / `e9956859` / `7c3a064d` on this same branch are **if-positioning work from a different thread**, not this session.
+
+---
+
+## ALSO OPEN - Last session state - 2026-09-09 19:26 (hiring app: magnet notes + polls, resume upload cured)
 
 - **Project / cwd:** `C:/Users/Owner/hiring` (cage-sandbox on Railway, hirehou.up.railway.app) - branch `main` @ `4573b34`
 - **Recall checkpoint (SOURCE OF TRUTH):** session `92be` - domain `hiring/main` - id `e1986a237fc99192`
