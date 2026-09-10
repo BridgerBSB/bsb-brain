@@ -1,4 +1,20 @@
-# Last session state - 2026-09-09 04:05 (MiLB salary: what we paid released in-season signings)
+# Last session state - 2026-09-09 19:26 (hiring app: magnet notes + polls, resume upload cured)
+
+- **Project / cwd:** `C:/Users/Owner/hiring` (cage-sandbox on Railway, hirehou.up.railway.app) - branch `main` @ `4573b34`
+- **Recall checkpoint (SOURCE OF TRUTH):** session `92be` - domain `hiring/main` - id `e1986a237fc99192`
+- **What we were doing:** Sam's magnet-board asks (notes in the card as bubbles, an ESPN-strip ticker of everyone's notes, a news marker on noted magnets, an owner/admin poll board) and the hiring board's resume upload, which turned out to be FOUR stacked defects under one symptom.
+- **Shipped this session:** all pushed to `BridgerBSB/hiring` main, Railway auto-deploys, no migrations.
+  - 09-07: `fc3b033` bare URL -> /dashboard for admins - `aed7c85` magnet NOTES (per-person doc, never on Current, own share list) - `1ec4944` deck/ ignored.
+  - 09-09 resume: `6e63073` PDF hex-Tj parser + unreadable-file attach - `c756949` DOM-attached picker (Chrome GC'd the detached one) - `b8b4e50` findConflicts null-csvJob guard. Jim Miksis's PDF verified stored on live (board v266, 247,957 bytes).
+  - 09-09 magnets: `bd78508` news marker + All-notes ticker + compose box - `bff776b` POLL board (owner/admin, private to author) - `4573b34` marker svg un-pinned from `.field svg{position:absolute}` + notes-only click.
+  - Suites: hiring 750 pass; `tools/drive_notes.py` 42/42. Renders: `Desktop/magnet-notes-mocks/`, `Desktop/hiring-resume-fix/`.
+- **EXACT next step:** Zac hard-refreshes the magnet board and confirms (1) the marker sits beside the name in a diamond slot and its click opens the notes alone, (2) Poll shows left of Add player and a poll saves. Then answer one question: may resume text leave Railway to the Claude API? If yes, build the model call in the existing `analyzeResumeWithAI` slot (`cage-sandbox/app/private/hiring/index.html`, search for that name) plus a GC2 org gazetteer, and clear org "MAKING" off CAND-00106.
+- **Blockers / waiting on:** Sam's feedback on the poll (votes by others / visibility / live results deferred by design). Zac's call on the drawer overlaying the right third of the diamond, and on dropping "Open full card" from the notes-only box. `winterball_hitting_2026.csv` in Downloads never explained. Astro World viewer onboarding (sec_app_astroworld group + SITE_LIVE flag) parked for its own session. Recall `answer` tool is broken (no Azure endpoint) - use raw `recall`.
+- **Uncommitted work:** hiring 6 paths (re-rendered PNGs from the last drive, nothing code). bsb-resources untouched by this session.
+
+---
+
+## ALSO OPEN - Last session state - 2026-09-09 04:05 (MiLB salary: what we paid released in-season signings)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
 - **Recall checkpoint (SOURCE OF TRUTH):** session `6ef0` - domain `bsb-resources/feature/pd-goals` - id `bf679082e9b70af6`
