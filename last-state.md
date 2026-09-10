@@ -1,4 +1,26 @@
-# Last session state - 2026-09-09 19:45 (Powell winter-ball case + /player-comparison skill)
+# Last session state - 2026-09-10 10:40 (IF positioning + direction %ages one-pager)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
+- **Recall checkpoint (SOURCE OF TRUTH):** session `7643` - domain `bsb-resources/feature/pd-goals` - id `92d9bd20c9b73559`
+- **What we were doing:** a one-page MLB visual, 2023-2026, showing where each infield position stands on average and what share of the balls it fields come to its left vs its right. Then writing the process down so the next positioning question does not re-learn it.
+- **Shipped this session:** 10 commits `ea9814b6`..`69231c71`, all pushed. **Pushing to `feature/pd-goals` WORKS** - protection bypasses with a warning; the memory saying it needed a PR was wrong and is corrected.
+  - `pd-goals/scripts/generate_if_positioning_onepager.py` - the deliverable. Zac's title: **"Avg MLB Positioning + Direction %ages"**. Defaults: LA < 10, `first_defender_id`, `DCBP.out_prob > 0`, fielder started within 2.5 deg of his position's average angle, all base-out states, gap measured from the league-average X.
+  - `.claude/rules/tracking-position-exploration.md` - NEW, byte-identical in all 4 worktrees (`7c3a064d` / `00115544` / `d8dce576` / `fd58f34d`), CLAUDE.md pointer added.
+  - `sql-queries/if-positioning-spray-probe-mlb.sql` (the calibration probe) + `if-positioning-vs-spray-player.sql` (Blocks 0+A good, **Block C superseded and banner-stamped**). LINEAGE entry `69231c71`.
+  - **THE FINDING:** `shift_type_id` is unusable - **77% of 2026 MLB balls in play carry "Not Quite Ted Williams Shift", which is illegal post-ban**, and `count_as_shift = 0` still contains Infield Up / Corners Up / No Doubles / DP Depth. Alignment comes off the tracking coordinates instead.
+  - **Coordinates settled:** feet, origin home plate, +x toward 1B/RF, +y toward CF. Confirmed twice for free - each position's average standing angle matches the average angle of the balls it fields within a degree, and 1B sits 118 ft bases-empty vs **93.6 ft on DP depth**, which is him holding a bag 90 ft away.
+  - **2026 bases-empty averages:** 1B +63.5/+90.7 (111 ft, +35.0 deg) - 2B +31.4/+143.9 (147 ft, +12.3) - 3B -61.2/+99.4 (117 ft, -31.6) - SS -29.7/+144.2 (147 ft, -11.6). Coverage 99.7% of MLB BIP with all four infielders.
+  - **First real run** (LA<10, before the out_prob + 2.5 deg gates): 1B 29/71, 2B 44/56, 3B 73/27, SS 61/39 left/right. All four lean toward the MIDDLE of the diamond; the corners lean hardest because the foul line pins them.
+  - **Four things I got wrong, each caught by Zac:** a +/-20 deg reach wedge extrapolated from ONE player (moved 1B from 41/59 to 24/76 across plausible widths); a bases-empty filter throwing away 44% of BIP; the X drawn at the league average while the gap was measured per-play (two reference points, and per-play ABSORBS the shading being studied); and a trajectory+distance ball filter instead of launch angle. All four are in the rule.
+  - Plus one SQL defect worth remembering: a repeated named parameter inside a GROUP BY expression. SQLAlchemy expands each `:b3` into its own `?`, so the SELECT and GROUP BY copies became different expressions and SQL Server blamed an innocent column (`e9956859`).
+- **EXACT next step:** run it with the current defaults - `cd C:/Users/zbridger/bsb-resources ; git pull ; python pd-goals/scripts/generate_if_positioning_onepager.py` (backslashes on the real command line). **Read the gate table first** (`all / no outprob / off spot / kept / kept%`). Zac's only real run predates the out_prob and 2.5 deg gates, so their cost is unmeasured - if the start gate eats most of the sample, revisit the tolerance before anyone reads the percentages.
+- **Blockers / waiting on:** nothing blocking. One thing to carry with the artifact: this measures a position's **workload**, not the raw spray - a fielder who ranges better to one side reaches more balls on that side. Zac has the forwardable wording for Sam. Also note the start gate is ANGULAR, so it does not catch infield-in (that changes depth, not bearing); `--base-state in` isolates it.
+- **Uncommitted work:** 78 paths in bsb-resources, all pre-existing untracked from before this session. Nothing from this session is uncommitted.
+- **NOTE:** two other threads are live on this same branch - the Powell winter-ball / `/player-comparison` work (session `9658`) and the hiring app (`92be`). Their commits interleave with mine in `git log`. Both preserved below.
+
+---
+
+## ALSO OPEN - Last session state - 2026-09-09 19:45 (Powell winter-ball case + /player-comparison skill)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
 - **Recall checkpoint (SOURCE OF TRUTH):** session `9658` - domain `bsb-resources/feature/pd-goals` - id `6adaf540aafdb60a`
