@@ -1,25 +1,25 @@
-# Last session state - 2026-09-10 16:04 (Internal Staff Board + the resume reader)
+# Last session state - 2026-09-12 08:40 (Internal Board drag + per-board people + MAGNET chip; rubric revamp next)
 
-- **Project / cwd:** `C:/Users/Owner/hiring` - branch `main`
-- **Recall checkpoint (SOURCE OF TRUTH):** session `bb99` - domain `hiring/main` - id `3a8f26a8ac6e17d7`
-- **What we were doing:** built Sam's Internal Staff Board end to end (owner-only org chart in the hiring app), then root-caused why a real resume read as empty on the hiring board.
-- **Shipped this session:** 9 commits `14dbf11`..`39bbbd8`, all pushed to `hiring/main`. Railway auto-deploys. NO migration.
-  - **Internal Board**, owner-only at `/admin/internal`, with its OWN `staff_api.py` router carrying `require_owner`. The magnet board's router is admin-gated, so adding this as a `which=staff` parameter there would have handed every admin and coordinator the staff plan. Six tests prove an admin is refused the API, the page and the tile.
-  - **Layout is a SIDEWAYS indented outline.** Top-down centring was wrong twice over: it spent width the org does not have, and once children stacked they sat left-aligned under a centred parent so the connectors wandered.
-  - **Multi-boss:** a box is DRAWN ONCE under its FIRST parent; further parents are dashed orange with "also reports to X" on the card. `childrenOf` is primary-children-only, which is what keeps head counts right.
-  - Autosave (500ms debounce, `dirtyAtStart` so work typed mid-save is not silently cleared), positions limited to created roles, compare against another board, arrows removed from boxes, FCL relabelled **Complex** (key still `fcl`).
-  - **THE RESUME:** the reader was never failing to decode. It returned 9,914 correct characters shaped one letter per line. Word kerns with a horizontal `Td` between glyphs and writes each run in its own `BT` block, and all 849 blocks carry an identical `Tm` plus the same opening `0 -24.140625 Td`. Final model: `Tm` sets the pen, `Td` offsets it, no positioning operator ends a line, and the break is decided WHERE TEXT IS WRITTEN by comparing the pen to the last baseline written. Real file went from 1,433 lines averaging 4.6 characters to 69 averaging 76.6, with email AND phone now detected. `test_pdf_text.js` 6 -> 14 checks.
-  - `cage-sandbox/docs/pd-staff-2026.txt` - the 2026 PD names, ready for the new **Add staff > Paste a list**.
-- **EXACT next step:** open `hirehou.up.railway.app/admin/internal`, paste the block in `cage-sandbox/docs/pd-staff-2026.txt` into **Add staff > Paste a list**, then place people and build the tree.
-- **Blockers / waiting on:** Zac to say (a) whether S&C / ATC / Nutrition / Video / Minor League Ops belong in that name list - deliberately excluded and named at the top of the file, and (b) whether to strip Position and Where from the person card. He raised that redundancy himself and his video showed the contradiction it causes; I recommended dropping both and he has not answered.
-- **Uncommitted work:** `hiring` clean on every tracked path; 6 untracked/derived paths there, pre-existing.
-- **NOT verified in a browser:** the quick-add resume field, and the dashed second reporting line - the demo org has nobody with two bosses.
+- **Project / cwd:** `C:/Users/Owner/hiring` - branch `main` @ `72b692d`
+- **Recall checkpoint (SOURCE OF TRUTH):** session `30b3` - domain `hiring/main` - id `ab0e73186781d355`
+- **What we were doing:** the multipurpose hiring app. Started with the Internal Staff Board's dragging and scrolling, ended up rebuilding what a board OWNS (people as well as boxes), turned a person into a name card, merged a resume fix, added the MAGNET chip that sends a hire from the hiring board to the Internal Board, and closed by designing the Candidate Rubric revamp.
+- **Shipped this session:** 6 commits pushed to `hiring/main`, Railway auto-deploys, NO migrations.
+  - `82a2a5b` - a drop KEEPS the scroll (both boards rebuild their scroller, and a new one starts at 0, so every drop past the first screen snapped back: tree 579 -> 0, grid 144 -> 0), edge drag-scroll gained a SIDEWAYS half on the internal tree and the player magnet grid, section reads **Coordinator**, and the late-save reply is MERGED (`mergeKeyed`, a port of `magnet_merge._merge_key`) - a person deleted while their add was still saving used to come back.
+  - `96c2474` - Headcount on the bar, and a box created on Current now reaches every saved project, EMPTY and under the SAME BOSS, tracked by `current_seen`.
+  - `ba41f1d` - **PEOPLE ARE PER BOARD.** A project carries its own `staff` + `staff_seen`; planned hires never reach Current, and a delete on one board never crosses. Bar became **Headcount + Positions** (distinct role names, level ignored - Zac's call).
+  - `787ee94` (merge of `ceb02b9`) - a resume on **+ Candidate** now gets the same Candidate Detected review a profile upload gets, and career history reads BLOCK layouts (Company - League / Title / April 2024 - Present / bullets). Real PDF: 10 jobs.
+  - `ef92e74` - **a person is a NAME CARD.** No Position or Where on the card, the Add staff form, the magnet, or a pasted line. The box holds role, level and bosses.
+  - `72b692d` - **MAGNET chip** on a Hired card, owners only, writes `/api/staff/roster` (name-deduped, unplaced) and marks the candidate with `internalStaffId`. `/auth/whoami` now returns `role`, because `is_admin` is true for an owner AND an admin.
+  - Guards: `drive_internal.py` 89/89, new `drive_magnet_chip.py` 13/13, new `drive_magnet_scroll.py` 10/10, `test_whoami_role.py` 3/3, full suite **797 pass / 7 skip**. Every new check was proven RED against the pre-change file first.
+- **EXACT next step:** step 1 of Zac's three, in his words - *"we design and format what this will look like on the microsoft form front and back end so i can assign camden this task"*. Write the Microsoft Form spec for the Candidate Rubric: one page per criterion (title carries the weight, anchors 0-4 in the description), the QUOTE box required ABOVE the score, prefilled candidate + search + set from a link our app generates, grader from their org sign-in. Then the CSV column contract we import by hand: `submitted_at, grader_email, candidate, search, instance, set_id, <criterion>_quote, <criterion>_score, overall_notes`, keyed so a re-import double-counts nobody. THEN step 2 (Rubrics tabs + kanban) and step 3 (the owner-facing screens).
+- **Blockers / waiting on:** the rubric QUESTIONS are TBD until Zac talks to Sam - the criteria and weights are a data file (`cage-sandbox/data/rubric_criteria.json`), so nothing blocks the layout. Zac's unanswered question from earlier: keep the MAGNET chip on hover, or always show the full label and let the MLB/REF badges be covered. He is checking the chip and the resume review on the live site.
+- **Uncommitted work:** `hiring` 7 paths, all re-rendered PNGs from earlier drivers, no code. `bsb-resources` 78 pre-existing untracked paths, untouched by this session (its `72f22ba3` command-cv commit belongs to another thread).
+- **Rubric, as it stands TODAY (so the revamp does not re-learn it):** the instrument is DATA (`director-written-2026`, `scale_max` 4, weights forced to sum to 100, 0-4 anchors). The app computes the weighted score, rounds ONCE at two decimals with the band read off the DISPLAYED value, applies hard floors that force do-not-advance, and REFUSES a score with no quote. `/admin/rubrics` (fill) is owner+admin+coordinator; `/admin/rubrics/results` is owner+admin and invisible to a coordinator. **Zac's change: Candidate Rubrics becomes OWNERS-ONLY**, since all other use happens outside the app. New shape: MULTIPLE graders per candidate, and a candidate can interview for MULTIPLE positions and instances, so a row is per candidate x position/search x instance x grader.
+- **Measured facts worth keeping:** a magnet card in a column is **146px** wide, so a labelled chip at `right:21px` sits exactly on the MLB badge (chip 1382-1435, badge 1382-1406), and `padding-right` on `.mag-ind` does nothing because badges are left-aligned. The hiring page is **CRLF** while the internal board page is **LF**. Printing a badge glyph (U+2197) crashes this cp1252 console. A Playwright wait on `boardKind` returns BEFORE the board loads, so two checks read Current's boxes and passed on nothing - wait on the `#hint` text instead.
 
 ---
 
 ## ALSO OPEN - Last session state - 2026-09-10 10:40 (IF positioning + direction %ages one-pager)
-
-# Last session state - 2026-09-10 10:40 (IF positioning + direction %ages one-pager)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
 - **Recall checkpoint (SOURCE OF TRUTH):** session `7643` - domain `bsb-resources/feature/pd-goals` - id `92d9bd20c9b73559`
@@ -37,7 +37,6 @@
 - **EXACT next step:** run it with the current defaults - `cd C:/Users/zbridger/bsb-resources ; git pull ; python pd-goals/scripts/generate_if_positioning_onepager.py` (backslashes on the real command line). **Read the gate table first** (`all / no outprob / off spot / kept / kept%`). Zac's only real run predates the out_prob and 2.5 deg gates, so their cost is unmeasured - if the start gate eats most of the sample, revisit the tolerance before anyone reads the percentages.
 - **Blockers / waiting on:** nothing blocking. One thing to carry with the artifact: this measures a position's **workload**, not the raw spray - a fielder who ranges better to one side reaches more balls on that side. Zac has the forwardable wording for Sam. Also note the start gate is ANGULAR, so it does not catch infield-in (that changes depth, not bearing); `--base-state in` isolates it.
 - **Uncommitted work:** 78 paths in bsb-resources, all pre-existing untracked from before this session. Nothing from this session is uncommitted.
-- **NOTE:** two other threads are live on this same branch - the Powell winter-ball / `/player-comparison` work (session `9658`) and the hiring app (`92be`). Their commits interleave with mine in `git log`. Both preserved below.
 
 ---
 
@@ -56,23 +55,6 @@
 - **EXACT next step:** GREEN-test section 1 of the skill - it shipped WITHOUT a test and is the only untested part. Give a fresh agent a vague comp-set ask and verify it STOPS and asks the 3 blocking questions (decision+audience, comp-set role, position needed) instead of diving into SQL.
 - **Blockers / waiting on:** Zac's call on three - (1) propagate the skill to the 3 sibling worktrees? `sync-rules.sh` copies `rules/` + `scripts/` only, NOT `skills/`; (2) blank percentile shading below the 10-play pool gate (Ortega is shaded off 1 competitive play); (3) multi-level pooled fielding via the pin's `indiv_pooled_2026_<levels>_all` combos. BR pin never ran - `--domains br` if sprint-speed percentiles are wanted.
 - **Uncommitted work:** 78 paths in bsb-resources, all pre-existing untracked from before this session. Nothing from this session is uncommitted.
-- **NOTE:** commits `a4bc0827` / `e9956859` / `7c3a064d` on this same branch are **if-positioning work from a different thread**, not this session.
-
----
-
-## ALSO OPEN - Last session state - 2026-09-09 19:26 (hiring app: magnet notes + polls, resume upload cured)
-
-- **Project / cwd:** `C:/Users/Owner/hiring` (cage-sandbox on Railway, hirehou.up.railway.app) - branch `main` @ `4573b34`
-- **Recall checkpoint (SOURCE OF TRUTH):** session `92be` - domain `hiring/main` - id `e1986a237fc99192`
-- **What we were doing:** Sam's magnet-board asks (notes in the card as bubbles, an ESPN-strip ticker of everyone's notes, a news marker on noted magnets, an owner/admin poll board) and the hiring board's resume upload, which turned out to be FOUR stacked defects under one symptom.
-- **Shipped this session:** all pushed to `BridgerBSB/hiring` main, Railway auto-deploys, no migrations.
-  - 09-07: `fc3b033` bare URL -> /dashboard for admins - `aed7c85` magnet NOTES (per-person doc, never on Current, own share list) - `1ec4944` deck/ ignored.
-  - 09-09 resume: `6e63073` PDF hex-Tj parser + unreadable-file attach - `c756949` DOM-attached picker (Chrome GC'd the detached one) - `b8b4e50` findConflicts null-csvJob guard. Jim Miksis's PDF verified stored on live (board v266, 247,957 bytes).
-  - 09-09 magnets: `bd78508` news marker + All-notes ticker + compose box - `bff776b` POLL board (owner/admin, private to author) - `4573b34` marker svg un-pinned from `.field svg{position:absolute}` + notes-only click.
-  - Suites: hiring 750 pass; `tools/drive_notes.py` 42/42. Renders: `Desktop/magnet-notes-mocks/`, `Desktop/hiring-resume-fix/`.
-- **EXACT next step:** Zac hard-refreshes the magnet board and confirms (1) the marker sits beside the name in a diamond slot and its click opens the notes alone, (2) Poll shows left of Add player and a poll saves. Then answer one question: may resume text leave Railway to the Claude API? If yes, build the model call in the existing `analyzeResumeWithAI` slot (`cage-sandbox/app/private/hiring/index.html`, search for that name) plus a GC2 org gazetteer, and clear org "MAKING" off CAND-00106.
-- **Blockers / waiting on:** Sam's feedback on the poll (votes by others / visibility / live results deferred by design). Zac's call on the drawer overlaying the right third of the diamond, and on dropping "Open full card" from the notes-only box. `winterball_hitting_2026.csv` in Downloads never explained. Astro World viewer onboarding (sec_app_astroworld group + SITE_LIVE flag) parked for its own session. Recall `answer` tool is broken (no Azure endpoint) - use raw `recall`.
-- **Uncommitted work:** hiring 6 paths (re-rendered PNGs from the last drive, nothing code). bsb-resources untouched by this session.
 
 ---
 
@@ -113,4 +95,3 @@
 - **Blockers / waiting on:** Zac's pick between two routes for "the most compelling and most significant case, easily understandable to an athlete": **(1)** convert the +6.0 points into RUNS, the GM-legible currency, cheap and honest; **(2)** run the between-season test on **MiLB** - the backlog population, 5-10x the season-pairs, the only thing that turns this from an association into something you can put in a player's ear. **I pushed for (2).** For (2): `sb-components-mlb-2023-2026.sql` hardcodes `sv.level_code = 'mlb'` in all 6 result sets, so it needs the MiLB whitelist plus a level column carried through - and note the 1B/2B lead cleaning bounds were written FROM MiLB HawkEye evidence, so they will bite far harder than the 0.6% they bite at MLB.
 - **Uncommitted work:** intangibles 4 modified `.claude/rules/*` (synced copies from other threads, pre-existing, left alone) + 13 untracked. bsb-resources sits on `fix/eoy-sc-card-height` from an unrelated EOY thread and carries the `db-columns.md` rule edit + `.gitignore` + 2 pre-existing binary diffs.
 - **Also live, deliberately not carried here** (Zac: wraps are session-specific): the Arm Farm Postgame V2 Overview thread from 09-06 lives in the recall brain at session `8d5b`, domain `bsb-wt-bullpen/feature/bullpen-reports`, checkpoint `e83411b5e9fd1d1e`.
-
