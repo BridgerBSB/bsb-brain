@@ -1,3 +1,40 @@
+# Last session state - 2026-09-12 09:58 (Command CV: pinhole camera replaces the drawn zone box)
+
+- **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` - branch `feature/pd-goals`
+- **Recall checkpoint (SOURCE OF TRUTH):** session `91bd` - domain `bsb-resources/feature/pd-goals` - id `196b48839f41f1ba`
+- **What we were doing:** audited step 1, proved our pinhole camera solve matches OpenCommand's
+  exactly, then proved the drawn strike-zone box can be dropped - which is what unblocks A+, since
+  no A+ broadcast draws one. Then started a ball detector on labels generated from geometry.
+- **Shipped this session:** 15 commits `1b2dbc5d`..`c9080b56`, all pushed.
+  - **Step 1 audit:** 12 of 55 labels had been ingested from same-named zip clips. Re-run on the
+    43 verified labels holds: A+ camera static in flight (max 1.62 px), no zone box in 7 parks.
+  - **Step 2a:** `src/pinhole.py` reproduces OpenCommand's published poses on game 824821 - camera
+    position to 4 dp, angles to 1e-11, ball-at-plate 0.404/0.395 in on BOTH sides, 280/280 clips.
+  - **Step 2b:** the ball is findable with NO detector by sliding the known path's clock offset
+    (17x over baseline; beats mirrored 40/40 and time-reversed 39/39 scored). Yields FREE labels.
+  - **Step 2c (the big one):** the box CAN be dropped. One shared camera position fitted jointly
+    across clips from ball runs alone -> 0.34/0.59 ft from the box-assisted solve, 0.67 in on
+    held-out box corners, 1.08 in at the glove plane. The old affine carries 3.9 in.
+  - **MLB needs no token:** Savant's public clip is byte-identical (same md5). A+ still needs one.
+  - **Banked labels:** Camden 5,540/277 - Detroit 5,200/260 - Colorado 5,160/258 = 15,900 over 795
+    clips, 3 parks, each gated on its own game's median plate frame.
+- **EXACT next step:** Zac decides - (a) free ~2-3 GB RAM then finish Miami 823850 + Anaheim 824018
+  labels, or (b) proceed on the 3 banked parks. Then run the UNVERIFIED multi-game build:
+  `python scripts/build_ball_dataset.py --labels output/ball_labels_824821.csv --clips data/clips/mlb_824821 --labels output/ball_labels_824259.csv --clips data/clips/mlb_824259 --labels output/ball_labels_824341.csv --clips data/clips/mlb_824341 --out data/yolo_ball5`
+  then `train_ball_detector.py`, then the REAL gate: feed our detections into `ablate_no_box.py`
+  and check the camera still lands near the box-assisted answer.
+- **Blockers / waiting on:** machine memory - 4.1 GB free of 17, watchdog killed 3 background jobs
+  (the label job itself peaks at only 268 MB/clip, so it is collateral). Training is CPU-only
+  single-thread, ~3.5 h for 20 epochs, most exposed. A+ clips need one token paste per game.
+- **Uncommitted work:** command-cv clean; pre-existing untracked paths elsewhere in the repo.
+- **Closed question:** no MLB feed we can obtain draws a K-zone box (BROADCAST / CENTERFIELD /
+  HIGH_HOME / PITCHCAST all checked end to end; Savant == ours). OpenCommand's yellow box is THEIR
+  overlay on a broadcast source MLB's API does not serve. Zac never saw one because we cannot get one.
+
+---
+
+## ALSO OPEN - earlier wraps (preserved)
+
 # Last session state - 2026-09-12 08:40 (Internal Board drag + per-board people + MAGNET chip; rubric revamp next)
 
 - **Project / cwd:** `C:/Users/Owner/hiring` - branch `main` @ `72b692d`
