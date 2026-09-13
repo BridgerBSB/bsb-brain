@@ -1,6 +1,6 @@
 # Duplicates
 
-Written by `kb.py lint` 2026-09-10 06:36. Notes that cover the same raw file, url, or the same title from one source. Keep ONE (grade it), set the rest to `duplicate`.
+Written by `kb.py lint` 2026-09-13 04:54. Notes that cover the same raw file, url, or the same title from one source. Keep ONE (grade it), set the rest to `duplicate`.
 
 - **raw** `sources/_raw/tread/CxObu-w6cJw.md`
   - [[tread-CxObu-w6cJw]] (`sources/tread/tread-CxObu-w6cJw.md`)
@@ -10,6 +10,6 @@ Written by `kb.py lint` 2026-09-10 06:36. Notes that cover the same raw file, ur
   - [[2025-07-20-2025-mid-season-update-17-draft-picks-48-signs-2-all-stars]] (`sources/tread/_rejected/2025-07-20-2025-mid-season-update-17-draft-picks-48-signs-2-all-stars.md`)
   - [[2025-09-19-2025-mid-season-update-17-draft-picks-48-signs-2-all-stars]] (`sources/tread/_rejected/2025-09-19-2025-mid-season-update-17-draft-picks-48-signs-2-all-stars.md`)
 
-## Caught before fetch (0)
+## Caught before fetch (1)
 
-- none
+- `tread-blog-the-drift` The “Drift” – How to Shift Your Weight Like a Pro - duplicate of `NHt_fvKcXJ8`
