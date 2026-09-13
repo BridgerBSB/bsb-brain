@@ -1,35 +1,43 @@
-# Last session state - 2026-09-12 09:58 (Command CV: pinhole camera replaces the drawn zone box)
+# Last session state - 2026-09-13 16:10 (Command CV: the zone graphic IS in our clips, at all five parks)
 
 - **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` - branch `feature/pd-goals`
-- **Recall checkpoint (SOURCE OF TRUTH):** session `91bd` - domain `bsb-resources/feature/pd-goals` - id `196b48839f41f1ba`
-- **What we were doing:** audited step 1, proved our pinhole camera solve matches OpenCommand's
-  exactly, then proved the drawn strike-zone box can be dropped - which is what unblocks A+, since
-  no A+ broadcast draws one. Then started a ball detector on labels generated from geometry.
-- **Shipped this session:** 15 commits `1b2dbc5d`..`c9080b56`, all pushed.
-  - **Step 1 audit:** 12 of 55 labels had been ingested from same-named zip clips. Re-run on the
-    43 verified labels holds: A+ camera static in flight (max 1.62 px), no zone box in 7 parks.
-  - **Step 2a:** `src/pinhole.py` reproduces OpenCommand's published poses on game 824821 - camera
-    position to 4 dp, angles to 1e-11, ball-at-plate 0.404/0.395 in on BOTH sides, 280/280 clips.
-  - **Step 2b:** the ball is findable with NO detector by sliding the known path's clock offset
-    (17x over baseline; beats mirrored 40/40 and time-reversed 39/39 scored). Yields FREE labels.
-  - **Step 2c (the big one):** the box CAN be dropped. One shared camera position fitted jointly
-    across clips from ball runs alone -> 0.34/0.59 ft from the box-assisted solve, 0.67 in on
-    held-out box corners, 1.08 in at the glove plane. The old affine carries 3.9 in.
-  - **MLB needs no token:** Savant's public clip is byte-identical (same md5). A+ still needs one.
-  - **Banked labels:** Camden 5,540/277 - Detroit 5,200/260 - Colorado 5,160/258 = 15,900 over 795
-    clips, 3 parks, each gated on its own game's median plate frame.
-- **EXACT next step:** Zac decides - (a) free ~2-3 GB RAM then finish Miami 823850 + Anaheim 824018
-  labels, or (b) proceed on the 3 banked parks. Then run the UNVERIFIED multi-game build:
-  `python scripts/build_ball_dataset.py --labels output/ball_labels_824821.csv --clips data/clips/mlb_824821 --labels output/ball_labels_824259.csv --clips data/clips/mlb_824259 --labels output/ball_labels_824341.csv --clips data/clips/mlb_824341 --out data/yolo_ball5`
-  then `train_ball_detector.py`, then the REAL gate: feed our detections into `ablate_no_box.py`
-  and check the camera still lands near the box-assisted answer.
-- **Blockers / waiting on:** machine memory - 4.1 GB free of 17, watchdog killed 3 background jobs
-  (the label job itself peaks at only 268 MB/clip, so it is collateral). Training is CPU-only
-  single-thread, ~3.5 h for 20 epochs, most exposed. A+ clips need one token paste per game.
-- **Uncommitted work:** command-cv clean; pre-existing untracked paths elsewhere in the repo.
-- **Closed question:** no MLB feed we can obtain draws a K-zone box (BROADCAST / CENTERFIELD /
-  HIGH_HOME / PITCHCAST all checked end to end; Savant == ours). OpenCommand's yellow box is THEIR
-  overlay on a broadcast source MLB's API does not serve. Zac never saw one because we cannot get one.
+- **Recall checkpoint (SOURCE OF TRUTH):** session `8d5d` - domain `bsb-resources/feature/pd-goals` - id `19ca4520af299bfd`
+- **What we were doing:** Zac asked to SEE the strike-zone box. That question overturned a written
+  finding, and the session became: prove the graphic is really there, prove our camera can draw the
+  zone blind, then try to replace OpenCommand's ball detections with our own.
+- **Shipped:** 15 commits `1929e62e`..`1a887b48`, every one SHA-verified local==remote.
+  - **THE CORRECTION (supersedes the block this replaced).** `docs/2026-09-11-step2-pinhole-parity.md`
+    said "our copy of the video does not have it" and "no angle MLB serves us carries the graphic",
+    citing frames 0-240 of play `c4958213`. **Wrong on its own test case** - `c4958213` frame 0
+    scores 15.1 with the box plainly visible. A per-frame sweep now covers **five parks**: BAL 37-51,
+    DET 47-66, COL 51-55, MIA 59-63, LAA 52-60. Every clip carries it; the four new parks score equal
+    to or higher than Camden. hi% varies but tracks INVERSELY with clip length (1602/1678-frame clips
+    ~21%, 396-456-frame clips 100%) = replay footage, self-consistent. **Verified by eye** at a Coors
+    day game and a loanDepot night game (`output/zone_zoom_COL.png`, `zone_zoom_MIA.png`).
+  - **The blind camera holds.** `ablate_no_box.fit_joint`, 59 clips, 297 params, **ball pixels only,
+    no box in the fit**: camera `Cx -13.697 Cz 33.138` vs box-assisted `-14.040/32.552` (off
+    0.34/0.59 ft, reproducing Sep 11 exactly), drawn zone reproduced to **0.84 in median**. It came
+    back WORSE than the box-assisted render (0.5-6.5 px vs 0.1-0.3) - that is the evidence it is real.
+  - **Detector:** dataset `yolo_ball5` verified two ways (800-sample contrast +21.7 at the label vs
+    +2.0 at a deliberately-offset control; 6x zoom on 12 crops). Gate at epoch 13: top-1 **167 px ->
+    44 px**, tile found% **29% -> 61.9%**, med rank 1.0. Epochs worked - but `mAP50` sat flat
+    0.08-0.12 the whole time, because mAP at fixed IoU is a poor proxy for pixel distance to a ~16 px
+    ball. 44 px is ~13 in vs OpenCommand's 0.4 in, so the real gate stays UNRUNNABLE.
+  - **Two aggregates misled us in one day** (top-1 hid a ranking problem; mAP hid pixel progress) ->
+    `.claude/rules/metric-must-separate-failure-modes.md`, byte-identical in all 4 worktrees.
+- **EXACT next step:** training is stopped ON PURPOSE - do NOT fire another cycle on this box. Either
+  free real RAM (10 claude processes ~2.8 GB is the cheapest win) then
+  `cd C:\Users\Owner\bsb-resources\command-cv ; python scripts/train_ball_detector.py --data data/yolo_ball5/data.yaml --epochs 30 --batch 8 --device 0 --name ball_3park_b8 --resume`
+  (picks up at epoch 17; resume is verified working, boundaries at 5 and 9), or move training to a
+  machine that can hold a 335 s epoch, or park the detector.
+- **Blockers / waiting on:** **the paced resume cycle was SPINNING** - cycles 5/6/7 each ran 23-84 s,
+  died, and added ZERO epochs against a ~335 s epoch; `results.csv` sat at 16 for 2+ hours while the
+  loop looked healthy from outside. 16 GB with ~13 GB held by Chrome/VS Code/Slack/claude cannot hold
+  an epoch. Arithmetic, not tuning. Weights safe at epoch 16 in `data/yolo_ball_runs/ball_3park_b8/weights`.
+- **Uncommitted work:** 78 paths in bsb-resources, ALL pre-existing untracked from before this session.
+- **Still open, NOT refuted:** only BROADCAST clips are on disk, so the Sep 11 claim about CENTERFIELD
+  / HIGH_HOME / PITCHCAST is untested. The detector blocks **A+ only** - MLB never needed it, because
+  `ball_clock_align.py` finds the ball with no detector at 17x over baseline.
 
 ---
 
