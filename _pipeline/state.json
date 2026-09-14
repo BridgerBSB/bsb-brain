@@ -4,14 +4,14 @@
   "bpc-yt:pos:oldest": 8,
   "bpc-yt:total": 42,
   "driveline-blog:page:newest": 2,
-  "driveline-blog:page:oldest": 135,
+  "driveline-blog:page:oldest": 134,
   "driveline-yt:pos:newest": 10,
-  "driveline-yt:pos:oldest": 40,
+  "driveline-yt:pos:oldest": 48,
   "driveline-yt:total": 510,
   "tread-blog:page:newest": 2,
-  "tread-blog:page:oldest": 5,
+  "tread-blog:page:oldest": 4,
   "tread-yt:pos:newest": 10,
-  "tread-yt:pos:oldest": 40,
+  "tread-yt:pos:oldest": 48,
   "tread-yt:total": 755
  },
  "items": {
@@ -31,6 +31,23 @@
    "title": "Nunan MSI",
    "updated": "2026-09-07T00:44:35Z",
    "url": "https://www.youtube.com/watch?v=-8nypmhYXdE"
+  },
+  "-FIM13IkkJw": {
+   "added": "2026-09-14T11:37:06Z",
+   "duration_s": 661,
+   "error": null,
+   "feed": "youtube",
+   "id": "-FIM13IkkJw",
+   "medium": "video",
+   "note": null,
+   "published": "2020-10-15",
+   "raw": "sources/_raw/tread/-FIM13IkkJw.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Pitching Drills To Throw Harder | The Lasso Drill",
+   "updated": "2026-09-14T11:37:18Z",
+   "url": "https://www.youtube.com/watch?v=-FIM13IkkJw"
   },
   "-KSOIC0K6oM": {
    "added": "2026-09-05T20:37:36Z",
@@ -329,6 +346,23 @@
    "title": "How Hunter Ray Hit 32 HOME RUNS",
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=0pljFGlzUYw"
+  },
+  "17n2I0Fgj-A": {
+   "added": "2026-09-14T11:36:53Z",
+   "duration_s": 36,
+   "error": null,
+   "feed": "youtube",
+   "id": "17n2I0Fgj-A",
+   "medium": "video",
+   "note": null,
+   "published": "2014-05-02",
+   "raw": "sources/_raw/driveline/17n2I0Fgj-A.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "Glove Side Elevation Drill w/ Overload",
+   "updated": "2026-09-14T11:37:42Z",
+   "url": "https://www.youtube.com/watch?v=17n2I0Fgj-A"
   },
   "1AUF2tKP6wo": {
    "added": "2026-09-10T11:37:30Z",
@@ -865,6 +899,23 @@
    "updated": "2026-09-09T11:35:37Z",
    "url": "https://www.youtube.com/watch?v=69mmb4DadAY"
   },
+  "6HalpY3JXlM": {
+   "added": "2026-09-14T11:37:06Z",
+   "duration_s": 919,
+   "error": null,
+   "feed": "youtube",
+   "id": "6HalpY3JXlM",
+   "medium": "video",
+   "note": null,
+   "published": "2020-10-21",
+   "raw": "sources/_raw/tread/6HalpY3JXlM.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "How does Walker Buehler throw 100 MPH? | Mechanics Breakdown",
+   "updated": "2026-09-14T11:37:57Z",
+   "url": "https://www.youtube.com/watch?v=6HalpY3JXlM"
+  },
   "6T-D3K784cQ": {
    "added": "2026-09-08T11:30:55Z",
    "duration_s": 27,
@@ -1080,6 +1131,23 @@
    "updated": "2026-09-08T11:45:08Z",
    "url": "https://www.youtube.com/watch?v=BCVQ71xElVk"
   },
+  "BL7PXRZwbas": {
+   "added": "2026-09-14T11:30:12Z",
+   "duration_s": 486,
+   "error": null,
+   "feed": "youtube",
+   "id": "BL7PXRZwbas",
+   "medium": "video",
+   "note": null,
+   "published": "2026-09-13",
+   "raw": "sources/_raw/tread/BL7PXRZwbas.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Two-Way Went D1 After This Performance | Reese Guertin",
+   "updated": "2026-09-14T11:30:25Z",
+   "url": "https://www.youtube.com/watch?v=BL7PXRZwbas"
+  },
   "BQ75llArinI": {
    "added": "2026-09-05T20:37:36Z",
    "duration_s": 391,
@@ -1198,6 +1266,23 @@
    "title": "Drills to Fix Your Timing and Hinge | Swing Design",
    "updated": "2026-09-09T11:35:35Z",
    "url": "https://www.youtube.com/watch?v=CxeP7Hikgks"
+  },
+  "CxxIo5gMXjw": {
+   "added": "2026-09-14T11:36:53Z",
+   "duration_s": 51,
+   "error": "RuntimeError: too-short transcript",
+   "feed": "youtube",
+   "id": "CxxIo5gMXjw",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Casey Weathers - Live Hitters Session",
+   "updated": "2026-09-14T11:38:17Z",
+   "url": "https://www.youtube.com/watch?v=CxxIo5gMXjw"
   },
   "D3cuBmwuDxs": {
    "added": "2026-09-13T11:36:04Z",
@@ -1361,6 +1446,23 @@
    "updated": "2026-09-09T11:35:36Z",
    "url": "https://www.youtube.com/watch?v=EOFwsj3-GEY"
   },
+  "EVp8gbkwFT8": {
+   "added": "2026-09-14T11:36:53Z",
+   "duration_s": 310,
+   "error": null,
+   "feed": "youtube",
+   "id": "EVp8gbkwFT8",
+   "medium": "video",
+   "note": null,
+   "published": "2014-03-07",
+   "raw": "sources/_raw/driveline/EVp8gbkwFT8.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "Voodoo Flossing the Elbow for Baseball Pitchers | Driveline Baseball",
+   "updated": "2026-09-14T11:38:33Z",
+   "url": "https://www.youtube.com/watch?v=EVp8gbkwFT8"
+  },
   "F-od2QhIRGY": {
    "added": "2026-09-05T20:37:29Z",
    "duration_s": 805,
@@ -1397,6 +1499,23 @@
    "title": "Stop Getting Greedy on Your Pitch (Swing Design)",
    "updated": "2026-09-08T11:30:39Z",
    "url": "https://www.youtube.com/watch?v=F-od2QhIRGY"
+  },
+  "FNq_6uBOeMI": {
+   "added": "2026-09-14T11:36:53Z",
+   "duration_s": 11,
+   "error": "RuntimeError: too-short transcript",
+   "feed": "youtube",
+   "id": "FNq_6uBOeMI",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Force Acceptance Rebounders w/ PlyoCare Balls | Driveline Baseball",
+   "updated": "2026-09-14T11:38:53Z",
+   "url": "https://www.youtube.com/watch?v=FNq_6uBOeMI"
   },
   "FiRtvf0_dnI": {
    "added": "2026-09-05T20:37:36Z",
@@ -1572,6 +1691,23 @@
    "updated": "2026-09-07T02:14:34Z",
    "url": "https://www.youtube.com/watch?v=HeBvjYrU_vk"
   },
+  "HiJFPA7JgSo": {
+   "added": "2026-09-14T11:37:06Z",
+   "duration_s": 464,
+   "error": null,
+   "feed": "youtube",
+   "id": "HiJFPA7JgSo",
+   "medium": "video",
+   "note": null,
+   "published": "2020-11-04",
+   "raw": "sources/_raw/tread/HiJFPA7JgSo.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "How to Feel the \"Hinge\" | Pitching Drills",
+   "updated": "2026-09-14T11:39:09Z",
+   "url": "https://www.youtube.com/watch?v=HiJFPA7JgSo"
+  },
   "IF8xlsmSB-A": {
    "added": "2026-09-13T11:30:10Z",
    "duration_s": 252,
@@ -1742,6 +1878,23 @@
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=LSfh0AZJXVQ"
   },
+  "M8dblYo2u2c": {
+   "added": "2026-09-14T11:36:53Z",
+   "duration_s": 19,
+   "error": "RuntimeError: too-short transcript",
+   "feed": "youtube",
+   "id": "M8dblYo2u2c",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Marc Pro Demo - First Use at Driveline Baseball",
+   "updated": "2026-09-14T11:39:29Z",
+   "url": "https://www.youtube.com/watch?v=M8dblYo2u2c"
+  },
   "MILC819lDZg": {
    "added": "2026-09-08T11:30:55Z",
    "duration_s": 12,
@@ -1758,6 +1911,22 @@
    "title": "Michael Fairchild - Trap-Bar Deadlift 425x3 (MaxVelo Workout)",
    "updated": "2026-09-08T11:35:29Z",
    "url": "https://www.youtube.com/watch?v=MILC819lDZg"
+  },
+  "MRTSaYjcbiA": {
+   "added": "2026-09-14T11:36:53Z",
+   "duration_s": 21,
+   "error": null,
+   "feed": "youtube",
+   "id": "MRTSaYjcbiA",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Overloaded Glove Side Drill @ 180 FPS Overhead View | Driveline Baseball",
+   "url": "https://www.youtube.com/watch?v=MRTSaYjcbiA"
   },
   "Me-X6lUsYFU": {
    "added": "2026-09-09T11:36:03Z",
@@ -1996,6 +2165,22 @@
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=OoTAErolHDM"
   },
+  "PFLcwx5Pj9Q": {
+   "added": "2026-09-14T11:36:53Z",
+   "duration_s": 73,
+   "error": null,
+   "feed": "youtube",
+   "id": "PFLcwx5Pj9Q",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Casey Weathers - May 2nd Session w/ Radar Gun",
+   "url": "https://www.youtube.com/watch?v=PFLcwx5Pj9Q"
+  },
   "Pjbxp2kwpiU": {
    "added": "2026-09-05T20:39:26Z",
    "duration_s": 569,
@@ -2089,6 +2274,22 @@
    "title": "James Karinchak | What Makes Him So Unhittable? | Mechanical Breakdown",
    "updated": "2026-09-13T11:38:07Z",
    "url": "https://www.youtube.com/watch?v=QRlWLPORH30"
+  },
+  "QrjBZdwFFbI": {
+   "added": "2026-09-14T11:37:06Z",
+   "duration_s": 1349,
+   "error": null,
+   "feed": "youtube",
+   "id": "QrjBZdwFFbI",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "How to Fix a Tense or \"Stiff\" Arm Action | Pitching Q&A",
+   "url": "https://www.youtube.com/watch?v=QrjBZdwFFbI"
   },
   "QznGfiTK1T0": {
    "added": "2026-09-05T00:34:18Z",
@@ -2452,6 +2653,22 @@
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=Uy5i4piUtH0"
   },
+  "V0TsXflOFd8": {
+   "added": "2026-09-14T11:37:06Z",
+   "duration_s": 1654,
+   "error": null,
+   "feed": "youtube",
+   "id": "V0TsXflOFd8",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Diego Castillo Mechanics | How Does He Throw 100 mph?",
+   "url": "https://www.youtube.com/watch?v=V0TsXflOFd8"
+  },
   "VanYIWlAShc": {
    "added": "2026-09-05T00:34:18Z",
    "duration_s": 578,
@@ -2622,12 +2839,13 @@
    "id": "XSWNr5BgTzk",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2020-10-08",
+   "raw": "sources/_raw/tread/XSWNr5BgTzk.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Struggling to Feel Your Lower Half When Pitching? Try This! | TRX Drift Drill",
+   "updated": "2026-09-14T11:31:37Z",
    "url": "https://www.youtube.com/watch?v=XSWNr5BgTzk"
   },
   "XiaSpklFIOs": {
@@ -2732,12 +2950,13 @@
    "id": "ZUqO_Xqr4rc",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2020-10-06",
+   "raw": "sources/_raw/tread/ZUqO_Xqr4rc.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "How Does Sixto Sanchez Throw 100 MPH? A Closer Look",
+   "updated": "2026-09-14T11:31:53Z",
    "url": "https://www.youtube.com/watch?v=ZUqO_Xqr4rc"
   },
   "_7DtDIibxUQ": {
@@ -2976,6 +3195,22 @@
    "updated": "2026-09-07T01:11:17Z",
    "url": "https://www.youtube.com/watch?v=cu-lLhkhuS4"
   },
+  "dFoqfDEpkio": {
+   "added": "2026-09-14T11:36:53Z",
+   "duration_s": 141,
+   "error": null,
+   "feed": "youtube",
+   "id": "dFoqfDEpkio",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Driveline Baseball Facility Tour - March 2014",
+   "url": "https://www.youtube.com/watch?v=dFoqfDEpkio"
+  },
   "dl-blog-a-few-pictures-of-the-facility": {
    "added": "2026-09-10T11:37:47Z",
    "duration_s": null,
@@ -3009,6 +3244,34 @@
    "feed": "blog-pages",
    "id": "dl-blog-a-few-scapular-exercises-for-pitchers",
    "medium": "blog",
+   "note": "sources/driveline/_low/2010-01-26-a-few-scapular-exercises-for-pitchers.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "strength",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "instruction",
+    "value": "low"
+   },
+   "published": "2010-01-26",
+   "raw": "sources/_raw/driveline/dl-blog-a-few-scapular-exercises-for-pitchers.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "filed-low",
+   "title": "A Few Scapular Exercises for Pitchers",
+   "updated": "2026-09-14T11:40:42Z",
+   "url": "https://drivelinebaseball.com/blogs/blog/a-few-scapular-exercises-for-pitchers"
+  },
+  "dl-blog-appropriate-energy-system-development": {
+   "added": "2026-09-14T11:37:09Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-appropriate-energy-system-development",
+   "medium": "blog",
    "note": null,
    "published": null,
    "raw": null,
@@ -3016,7 +3279,7 @@
    "source": "driveline",
    "status": "new",
    "title": null,
-   "url": "https://drivelinebaseball.com/blogs/blog/a-few-scapular-exercises-for-pitchers"
+   "url": "https://drivelinebaseball.com/blogs/blog/appropriate-energy-system-development"
   },
   "dl-blog-are-all-novices-the-same": {
    "added": "2026-09-09T11:36:21Z",
@@ -3229,12 +3492,12 @@
    "updated": "2026-09-13T11:44:52Z",
    "url": "https://drivelinebaseball.com/blogs/blog/kinematic-analysis-wrist-to-elbow-relationship"
   },
-  "dl-blog-link-unstable-surface-training": {
-   "added": "2026-09-13T11:36:20Z",
+  "dl-blog-link-should-pitchers-bench-press": {
+   "added": "2026-09-14T11:37:09Z",
    "duration_s": null,
    "error": null,
    "feed": "blog-pages",
-   "id": "dl-blog-link-unstable-surface-training",
+   "id": "dl-blog-link-should-pitchers-bench-press",
    "medium": "blog",
    "note": null,
    "published": null,
@@ -3243,6 +3506,32 @@
    "source": "driveline",
    "status": "new",
    "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/link-should-pitchers-bench-press"
+  },
+  "dl-blog-link-unstable-surface-training": {
+   "added": "2026-09-13T11:36:20Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-link-unstable-surface-training",
+   "medium": "blog",
+   "note": "sources/driveline/_low/2010-01-27-link-unstable-surface-training.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "low"
+   },
+   "published": "2010-01-27",
+   "raw": "sources/_raw/driveline/dl-blog-link-unstable-surface-training.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "filed-low",
+   "title": "Link: Unstable Surface Training",
+   "updated": "2026-09-14T11:41:37Z",
    "url": "https://drivelinebaseball.com/blogs/blog/link-unstable-surface-training"
   },
   "dl-blog-measuring-hip-internal-rotation": {
@@ -3323,12 +3612,13 @@
    "id": "dl-blog-my-recent-reading-list",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2010-02-01",
+   "raw": "sources/_raw/driveline/dl-blog-my-recent-reading-list.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "My Recent Reading List",
+   "updated": "2026-09-14T11:32:15Z",
    "url": "https://drivelinebaseball.com/blogs/blog/my-recent-reading-list"
   },
   "dl-blog-new-equipment-at-our-facility": {
@@ -3355,13 +3645,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-news-our-new-coaching-facility",
    "medium": "blog",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "sources/driveline/_low/2010-01-21-news-our-new-coaching-facility.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2010-01-21",
+   "raw": "sources/_raw/driveline/dl-blog-news-our-new-coaching-facility.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "filed-low",
+   "title": "News: Our New Coaching Facility",
+   "updated": "2026-09-14T11:40:04Z",
    "url": "https://drivelinebaseball.com/blogs/blog/news-our-new-coaching-facility"
   },
   "dl-blog-news-products-page-completed": {
@@ -3371,13 +3671,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-news-products-page-completed",
    "medium": "blog",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "sources/driveline/_low/2010-01-26-news-products-page-completed.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2010-01-26",
+   "raw": "sources/_raw/driveline/dl-blog-news-products-page-completed.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "filed-low",
+   "title": "News: Products Page Completed",
+   "updated": "2026-09-14T11:40:59Z",
    "url": "https://drivelinebaseball.com/blogs/blog/news-products-page-completed"
   },
   "dl-blog-news-wptouch-theme-installed": {
@@ -3388,12 +3698,13 @@
    "id": "dl-blog-news-wptouch-theme-installed",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2010-01-28",
+   "raw": "sources/_raw/driveline/dl-blog-news-wptouch-theme-installed.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "News: WPtouch Theme Installed",
+   "updated": "2026-09-14T11:32:26Z",
    "url": "https://drivelinebaseball.com/blogs/blog/news-wptouch-theme-installed"
   },
   "dl-blog-our-influences-pitching": {
@@ -3449,6 +3760,22 @@
    "updated": "2026-09-10T11:47:09Z",
    "url": "https://drivelinebaseball.com/blogs/blog/overtraining-a-serious-problem"
   },
+  "dl-blog-p90x-for-baseball": {
+   "added": "2026-09-14T11:37:09Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-p90x-for-baseball",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/p90x-for-baseball"
+  },
   "dl-blog-parker-eastwood-lilles-driveline-bat-speed-gains": {
    "added": "2026-09-05T00:34:45Z",
    "duration_s": null,
@@ -3475,6 +3802,22 @@
    "title": "The incredible development gains of Parker Eastwood Lilles",
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/parker-eastwood-lilles-driveline-bat-speed-gains"
+  },
+  "dl-blog-proper-warmups-for-weight-training": {
+   "added": "2026-09-14T11:37:09Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-proper-warmups-for-weight-training",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/proper-warmups-for-weight-training"
   },
   "dl-blog-rate-of-force-development": {
    "added": "2026-09-08T11:31:13Z",
@@ -3665,6 +4008,38 @@
    "updated": "2026-09-13T11:45:32Z",
    "url": "https://drivelinebaseball.com/blogs/blog/video-ankle-mobility-work"
   },
+  "dl-blog-video-fun-with-a-new-training-toy": {
+   "added": "2026-09-14T11:37:09Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-video-fun-with-a-new-training-toy",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/video-fun-with-a-new-training-toy"
+  },
+  "dl-blog-video-should-pitchers-overhead-press": {
+   "added": "2026-09-14T11:37:09Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-video-should-pitchers-overhead-press",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/video-should-pitchers-overhead-press"
+  },
   "dl-blog-welcome-to-driveline-baseball": {
    "added": "2026-09-05T20:39:35Z",
    "duration_s": null,
@@ -3837,17 +4212,18 @@
   "espdyF-BEUU": {
    "added": "2026-09-13T11:36:04Z",
    "duration_s": 64,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "espdyF-BEUU",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Pivot Pickoff Throws - Slow Motion / High-Speed",
+   "updated": "2026-09-14T11:34:36Z",
    "url": "https://www.youtube.com/watch?v=espdyF-BEUU"
   },
   "fBpo461Q7y8": {
@@ -3881,6 +4257,22 @@
    "title": "Complete Guide To Mastering The Changeup [Grips, Cues, & Sequencing]",
    "updated": "2026-09-09T11:35:38Z",
    "url": "https://www.youtube.com/watch?v=fBpo461Q7y8"
+  },
+  "fPXBDaavfUA": {
+   "added": "2026-09-14T11:37:06Z",
+   "duration_s": 1770,
+   "error": null,
+   "feed": "youtube",
+   "id": "fPXBDaavfUA",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Tyler Glasnow Mechanics | How He Went From 94 to 100+ mph",
+   "url": "https://www.youtube.com/watch?v=fPXBDaavfUA"
   },
   "fxSz1QLzLYs": {
    "added": "2026-09-08T11:30:55Z",
@@ -3987,12 +4379,13 @@
    "id": "gmK0tbTCC8E",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2013-10-05",
+   "raw": "sources/_raw/driveline/gmK0tbTCC8E.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
+   "status": "fetched",
    "title": "EMG Sensor Testing at Driveline Baseball",
+   "updated": "2026-09-14T11:34:51Z",
    "url": "https://www.youtube.com/watch?v=gmK0tbTCC8E"
   },
   "hKG_KUpTQYc": {
@@ -4109,13 +4502,30 @@
    "id": "jzKZQ0uVO1c",
    "medium": "video",
    "note": null,
+   "published": "2013-12-31",
+   "raw": "sources/_raw/driveline/jzKZQ0uVO1c.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "Driveline Baseball Facility Tour - December 2013",
+   "updated": "2026-09-14T11:35:07Z",
+   "url": "https://www.youtube.com/watch?v=jzKZQ0uVO1c"
+  },
+  "kTvGFMGufPY": {
+   "added": "2026-09-14T11:37:06Z",
+   "duration_s": 59,
+   "error": null,
+   "feed": "youtube",
+   "id": "kTvGFMGufPY",
+   "medium": "video",
+   "note": null,
    "published": null,
    "raw": null,
    "retries": 0,
-   "source": "driveline",
+   "source": "tread",
    "status": "new",
-   "title": "Driveline Baseball Facility Tour - December 2013",
-   "url": "https://www.youtube.com/watch?v=jzKZQ0uVO1c"
+   "title": "From 88 to 98 MPH and 2nd Round Draft Pick | Antoine Kelly",
+   "url": "https://www.youtube.com/watch?v=kTvGFMGufPY"
   },
   "kVGXM7z5lZE": {
    "added": "2026-09-05T00:34:42Z",
@@ -4313,6 +4723,22 @@
    "updated": "2026-09-06T14:07:15Z",
    "url": "https://www.youtube.com/watch?v=mJj_3uZd7cA"
   },
+  "mg6wIW8ITh4": {
+   "added": "2026-09-14T11:37:06Z",
+   "duration_s": 80,
+   "error": null,
+   "feed": "youtube",
+   "id": "mg6wIW8ITh4",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "From 87-90 to 91-95 MPH and Pro Ball | Carter Loewen",
+   "url": "https://www.youtube.com/watch?v=mg6wIW8ITh4"
+  },
   "mpmMAMKsQnc": {
    "added": "2026-09-05T20:37:41Z",
    "duration_s": 444,
@@ -4381,12 +4807,13 @@
    "id": "nbpYLSnf0rs",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2020-10-14",
+   "raw": "sources/_raw/tread/nbpYLSnf0rs.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "PitchingNinja | How His Son Went From 76 to 95 MPH | The Jack Friedman Story",
+   "updated": "2026-09-14T11:35:23Z",
    "url": "https://www.youtube.com/watch?v=nbpYLSnf0rs"
   },
   "o3m2JNbG_cw": {
@@ -4694,12 +5121,13 @@
    "id": "sqqb_Tkyk80",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2020-10-09",
+   "raw": "sources/_raw/tread/sqqb_Tkyk80.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "How I went from 89 to 95 MPH with Remote Training | MLB Draft Story",
+   "updated": "2026-09-14T11:35:39Z",
    "url": "https://www.youtube.com/watch?v=sqqb_Tkyk80"
   },
   "tG_ZX9xemAM": {
@@ -4941,12 +5369,29 @@
    "medium": "blog",
    "note": null,
    "published": "2019-01-17",
+   "raw": "sources/_raw/tread/tread-blog-7-causes-of-pushing.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "How to Fix a Pushing Arm Action - 7 Causes and Solutions",
+   "updated": "2026-09-14T11:36:26Z",
+   "url": "https://treadathletics.com/7-causes-of-pushing"
+  },
+  "tread-blog-arm-slot-differences": {
+   "added": "2026-09-14T11:37:13Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-rss",
+   "id": "tread-blog-arm-slot-differences",
+   "medium": "blog",
+   "note": null,
+   "published": "2019-02-26",
    "raw": null,
    "retries": 0,
    "source": "tread",
    "status": "new",
-   "title": "How to Fix a Pushing Arm Action – 7 Causes and Solutions",
-   "url": "https://treadathletics.com/7-causes-of-pushing"
+   "title": "Do Different Arm Slots = Different Mechanics?",
+   "url": "https://treadathletics.com/arm-slot-differences"
   },
   "tread-blog-back-leg-mechanics": {
    "added": "2026-09-10T11:37:51Z",
@@ -5255,11 +5700,12 @@
    "medium": "blog",
    "note": null,
    "published": "2019-01-30",
-   "raw": null,
+   "raw": "sources/_raw/tread/tread-blog-how-does-hip-anatomy-affect-your-ideal-mechanics.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
-   "title": "How Does Hip Anatomy Affect Your Ideal Mechanics?",
+   "status": "fetched",
+   "title": "How Does Hip Anatomy Affect Your Mechanics?",
+   "updated": "2026-09-14T11:36:37Z",
    "url": "https://treadathletics.com/how-does-hip-anatomy-affect-your-ideal-mechanics"
   },
   "tread-blog-how-this-college-pitcher-went-from-89-to-98-in-less-than-a-year": {
@@ -5291,6 +5737,22 @@
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://treadathletics.com/how-this-college-pitcher-went-from-89-to-98-in-less-than-a-year"
   },
+  "tread-blog-is-playing-video-games-linked-to-arm-pain": {
+   "added": "2026-09-14T11:37:13Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-rss",
+   "id": "tread-blog-is-playing-video-games-linked-to-arm-pain",
+   "medium": "blog",
+   "note": null,
+   "published": "2019-03-13",
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Is Playing Video Games Linked to Arm Pain?",
+   "url": "https://treadathletics.com/is-playing-video-games-linked-to-arm-pain"
+  },
   "tread-blog-j-band-exercises": {
    "added": "2026-09-13T11:36:23Z",
    "duration_s": null,
@@ -5300,11 +5762,12 @@
    "medium": "blog",
    "note": null,
    "published": "2019-01-09",
-   "raw": null,
+   "raw": "sources/_raw/tread/tread-blog-j-band-exercises.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "3 New Ways to Use J-Bands for Arm Health and Velocity",
+   "updated": "2026-09-14T11:36:14Z",
    "url": "https://treadathletics.com/j-band-exercises"
   },
   "tread-blog-mass-equals-gas-why-muscle-matters-for-pitching-velocity": {
@@ -5343,12 +5806,45 @@
    "medium": "blog",
    "note": null,
    "published": "2019-01-23",
+   "raw": "sources/_raw/tread/tread-blog-muscling-up.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "The 3 Types of \"Muscling Up\" and How it's Hurting Your Velocity",
+   "updated": "2026-09-14T11:36:29Z",
+   "url": "https://treadathletics.com/muscling-up"
+  },
+  "tread-blog-plane-of-rotation": {
+   "added": "2026-09-14T11:37:13Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-rss",
+   "id": "tread-blog-plane-of-rotation",
+   "medium": "blog",
+   "note": null,
+   "published": "2019-03-07",
    "raw": null,
    "retries": 0,
    "source": "tread",
    "status": "new",
-   "title": "The 3 Types of “Muscling Up” and How it’s Hurting Your Velocity",
-   "url": "https://treadathletics.com/muscling-up"
+   "title": "How to Sync the Arm into the Plane of Shoulder Rotation",
+   "url": "https://treadathletics.com/plane-of-rotation"
+  },
+  "tread-blog-recovery-top-10": {
+   "added": "2026-09-14T11:37:13Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-rss",
+   "id": "tread-blog-recovery-top-10",
+   "medium": "blog",
+   "note": null,
+   "published": "2019-02-19",
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "The Top 10 Do’s and Don’ts for Optimal Recovery",
+   "url": "https://treadathletics.com/recovery-top-10"
   },
   "tread-blog-rethinking-periodization": {
    "added": "2026-09-13T11:36:23Z",
@@ -5359,11 +5855,12 @@
    "medium": "blog",
    "note": null,
    "published": "2018-12-28",
-   "raw": null,
+   "raw": "sources/_raw/tread/tread-blog-rethinking-periodization.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Rethinking Periodization: Principles of Energy in Training Organization",
+   "updated": "2026-09-14T11:36:10Z",
    "url": "https://treadathletics.com/rethinking-periodization"
   },
   "tread-blog-strength-training-baseball-isolation-exercises": {
@@ -5422,6 +5919,22 @@
    "title": "Should I Play Summer Ball? Weighing the Pros and Cons",
    "updated": "2026-09-10T11:59:09Z",
    "url": "https://treadathletics.com/summer-ball"
+  },
+  "tread-blog-tempo": {
+   "added": "2026-09-14T11:37:13Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-rss",
+   "id": "tread-blog-tempo",
+   "medium": "blog",
+   "note": null,
+   "published": "2019-02-20",
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "All About Tempo: Is It A Key To Unlocking Velocity?",
+   "url": "https://treadathletics.com/tempo"
   },
   "tread-blog-the-drift": {
    "added": "2026-09-13T11:36:23Z",
@@ -5548,6 +6061,22 @@
    "title": "The Top 12 Reasons For Velocity Fluctuations (part 2)",
    "updated": "2026-09-13T11:35:45Z",
    "url": "https://treadathletics.com/velocity-fluctuation-pt2"
+  },
+  "tread-blog-yips": {
+   "added": "2026-09-14T11:37:13Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-rss",
+   "id": "tread-blog-yips",
+   "medium": "blog",
+   "note": null,
+   "published": "2019-03-14",
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "The Theory Behind the Yips in Baseball",
+   "url": "https://treadathletics.com/yips"
   },
   "u853OB_DJFo": {
    "added": "2026-09-05T20:37:36Z",
@@ -5998,12 +6527,13 @@
    "id": "xsV_4qvUcY4",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2020-10-12",
+   "raw": "sources/_raw/tread/xsV_4qvUcY4.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Brusdar Graterol Pitching Mechanics | 100 MPH Sinker",
+   "updated": "2026-09-14T11:35:55Z",
    "url": "https://www.youtube.com/watch?v=xsV_4qvUcY4"
   },
   "y1gPpzn5DMw": {

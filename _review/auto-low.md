@@ -1,6 +1,6 @@
 # Auto-filed as low value (not reviewed)
 
-Written by `kb.py lint` 2026-09-13 04:54. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
+Written by `kb.py lint` 2026-09-14 04:41. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
 
 - 2026-08-26 tread marketing: Is Tread's Remote Coaching Worth It? A Parent Perspective. - https://www.youtube.com/watch?v=y1gPpzn5DMw - id `y1gPpzn5DMw`
 - 2026-07-23 tread marketing: He Went D1 After Throwing 97 MPH In This Showcase - https://www.youtube.com/watch?v=5-N9m4A7BWY - id `5-N9m4A7BWY`
@@ -19,6 +19,10 @@ Written by `kb.py lint` 2026-09-13 04:54. Marketing and low-value items skip the
 - 2013-10-16 driveline marketing: Quick Tour of the Driveline Baseball Facility - October 2013 - https://www.youtube.com/watch?v=04DVpGkDXNw - id `04DVpGkDXNw`
 - 2013-03-17 driveline instruction: Speed Training for Baseball - Prowler Pushes - https://www.youtube.com/watch?v=Yg3YznNU1yY - id `Yg3YznNU1yY`
 - 2013-01-06 driveline instruction: Pitching Arm Care: Heavy Deceleration Throws (drivelinebaseball.com) - https://www.youtube.com/watch?v=5rkW2BF8Ahs - id `5rkW2BF8Ahs`
+- 2010-01-27 driveline philosophy: Link: Unstable Surface Training - https://drivelinebaseball.com/blogs/blog/link-unstable-surface-training - id `dl-blog-link-unstable-surface-training`
+- 2010-01-26 driveline marketing: News: Products Page Completed - https://drivelinebaseball.com/blogs/blog/news-products-page-completed - id `dl-blog-news-products-page-completed`
+- 2010-01-26 driveline instruction: A Few Scapular Exercises for Pitchers - https://drivelinebaseball.com/blogs/blog/a-few-scapular-exercises-for-pitchers - id `dl-blog-a-few-scapular-exercises-for-pitchers`
+- 2010-01-21 driveline marketing: News: Our New Coaching Facility - https://drivelinebaseball.com/blogs/blog/news-our-new-coaching-facility - id `dl-blog-news-our-new-coaching-facility`
 - 2010-01-18 driveline instruction: Video: Ankle Mobility Work - https://drivelinebaseball.com/blogs/blog/video-ankle-mobility-work - id `dl-blog-video-ankle-mobility-work`
 - 2010-01-09 driveline marketing: A few pictures of the facility... - https://drivelinebaseball.com/blogs/blog/a-few-pictures-of-the-facility - id `dl-blog-a-few-pictures-of-the-facility`
 - 2009-12-25 driveline philosophy: Keeping Strength in the Strength Program - https://drivelinebaseball.com/blogs/blog/keeping-strength-in-the-strength-program - id `dl-blog-keeping-strength-in-the-strength-program`
