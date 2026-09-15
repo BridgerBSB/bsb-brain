@@ -241,3 +241,10 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-15 04:30 discover tread-blog (new): 10 seen, 0 new
 - 2026-09-15 04:36 fetch: 20 ok, 1 failed, 0 deferred; whisper 3 min
 - 2026-09-15 04:36 promoted 2009-11-24-rate-of-force-development (philosophy/med, 0 cues, 1 drills)
+- 2026-09-15 04:37 promote: 1 promoted, 0 rejected, 0 corrections
+- 2026-09-15 04:37 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-09-15 04:38 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-09-15 04:38 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-09-15 04:38 discover tread-blog (backfill): 6 seen, 6 new
+- 2026-09-15 04:40 fetch: 7 ok, 1 failed, 0 deferred; whisper 0 min
+- 2026-09-15 04:44 summarize: 5 ok, 0 failed (queue had room for 5)
