@@ -1,6 +1,6 @@
 # Auto-filed as low value (not reviewed)
 
-Written by `kb.py lint` 2026-09-15 04:44. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
+Written by `kb.py lint` 2026-09-16 04:43. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
 
 - 2026-08-26 tread marketing: Is Tread's Remote Coaching Worth It? A Parent Perspective. - https://www.youtube.com/watch?v=y1gPpzn5DMw - id `y1gPpzn5DMw`
 - 2026-07-23 tread marketing: He Went D1 After Throwing 97 MPH In This Showcase - https://www.youtube.com/watch?v=5-N9m4A7BWY - id `5-N9m4A7BWY`
@@ -19,6 +19,7 @@ Written by `kb.py lint` 2026-09-15 04:44. Marketing and low-value items skip the
 - 2013-10-16 driveline marketing: Quick Tour of the Driveline Baseball Facility - October 2013 - https://www.youtube.com/watch?v=04DVpGkDXNw - id `04DVpGkDXNw`
 - 2013-03-17 driveline instruction: Speed Training for Baseball - Prowler Pushes - https://www.youtube.com/watch?v=Yg3YznNU1yY - id `Yg3YznNU1yY`
 - 2013-01-06 driveline instruction: Pitching Arm Care: Heavy Deceleration Throws (drivelinebaseball.com) - https://www.youtube.com/watch?v=5rkW2BF8Ahs - id `5rkW2BF8Ahs`
+- 2010-02-23 driveline philosophy: Video: Should Pitchers Overhead Press? - https://drivelinebaseball.com/blogs/blog/video-should-pitchers-overhead-press - id `dl-blog-video-should-pitchers-overhead-press`
 - 2010-02-21 driveline marketing: Video: Fun with a New Training Toy - https://drivelinebaseball.com/blogs/blog/video-fun-with-a-new-training-toy - id `dl-blog-video-fun-with-a-new-training-toy`
 - 2010-02-01 driveline research: My Recent Reading List - https://drivelinebaseball.com/blogs/blog/my-recent-reading-list - id `dl-blog-my-recent-reading-list`
 - 2010-01-28 driveline marketing: News: WPtouch Theme Installed - https://drivelinebaseball.com/blogs/blog/news-wptouch-theme-installed - id `dl-blog-news-wptouch-theme-installed`
