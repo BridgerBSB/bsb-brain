@@ -262,3 +262,17 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-16 04:36 discover tread-blog (backfill): 6 seen, 6 new
 - 2026-09-16 04:38 fetch: 7 ok, 1 failed, 0 deferred; whisper 0 min
 - 2026-09-16 04:43 summarize: 3 ok, 0 failed (queue had room for 3)
+- 2026-09-16 04:44 run: done
+- 2026-09-17 04:30 run: start
+- 2026-09-17 04:30 discover driveline-yt (new): 30 seen, 0 new
+- 2026-09-17 04:30 discover tread-yt (new): 30 seen, 0 new
+- 2026-09-17 04:30 discover driveline-blog (new): 6 seen, 0 new
+- 2026-09-17 04:30 discover tread-blog (new): 10 seen, 0 new
+- 2026-09-17 04:36 fetch: 19 ok, 1 failed, 0 deferred; whisper 3 min
+- 2026-09-17 04:36 promote: 0 promoted, 0 rejected, 0 corrections
+- 2026-09-17 04:36 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-09-17 04:36 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-09-17 04:37 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-09-17 04:37 discover tread-blog (backfill): 6 seen, 2 new
+- 2026-09-17 04:40 fetch: 6 ok, 2 failed, 0 deferred; whisper 1 min
+- 2026-09-17 04:42 summarize: 1 ok, 0 failed (queue had room for 1)
