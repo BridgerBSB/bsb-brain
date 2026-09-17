@@ -2,7 +2,7 @@
 
 - **Project / cwd:** `C:/Users/Owner/hiring` - branch `main`
 - **Recall checkpoint (SOURCE OF TRUTH):** session `30b3` - domain `hiring/main`
-  - id `a12e6a5ec2672e22`
+  - id `14b654bdadd96fae` (supersedes `a12e6a5ec2672e22` - the 165 fix landed after the wrap)
 - **What we were doing:** shipped the Candidate Rubrics board and its CSV import,
   then built magnet-board-style notes with a timeline on the Internal Board.
   Zac tested the notes and likes them ("looks phenomenal", confirmed they carry over).
@@ -43,6 +43,25 @@
 - **Verified:** full suite 899 pass / 7 skip (was 798 at session start).
   `drive_internal.py` 121 pass / 0 fail (was 105). ~20 defect injections proven RED,
   including four of my OWN guards that came back green and were fixed, not loosened.
+- **Landed AFTER the wrap (`60aef6e`): the dev list now counts toward the MiLB 165.**
+  Zac: "i meant and dev list ... add dev list to this rule". The Aug 28 rule was
+  recorded as "only active and 7Day IL" and dev was left out because that wording
+  never named it. Board goes 145/165 -> 149/165. The tooltip had listed only the IL
+  exclusions and never mentioned dev, which is why it read as a bug rather than a rule.
+  **The full rule now:** counts at FCL/A/A+/AA/AAA when status is active, injured
+  (day-to-day, hand-set only, ~0 in production), 7-day IL, or dev. Out: 60-day IL,
+  full-season IL, DSL, MLB. `COUNTS_TOWARD_LIMIT` is a separate rule and still
+  excludes dev on purpose.
+- **OPEN, FLAGGED TWICE, UNANSWERED: do Suspended and Leave count toward the 165?**
+  They are out by silence right now - the same way the dev list was out for three
+  weeks. 6 of the board's 8 statuses are decided; those 2 are not, and the guard
+  passes either way. My read is both should count, but that is reading shorthand
+  again, which is what got dev wrong, so it is deliberately NOT encoded.
+- **The guard lesson, hit twice in one day:** `test_the_milb_165_counts_the_right_people`
+  passed the whole three weeks dev was missing, because it asserted `il7` IN and
+  `il60`/`ilfs` OUT and said nothing either way about `dev`. A guard that enumerates
+  only some of the options silently blesses the ones it skips. It now names every
+  status in or out and cross-checks against `STATUSES`.
 - **Uncommitted work:** hiring ~10 magnet-board render PNGs (`demo-field`, `notes-*`)
   pre-existing from other threads. bsb-resources 78 paths, all pre-existing, ZERO
   from this session.
