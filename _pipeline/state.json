@@ -3760,6 +3760,23 @@
    "updated": "2026-09-17T11:40:34Z",
    "url": "https://www.youtube.com/watch?v=dS-sz2qRg4U"
   },
+  "dXr7jj9ai4A": {
+   "added": "2026-09-19T13:42:28Z",
+   "duration_s": 935,
+   "error": null,
+   "feed": "youtube",
+   "id": "dXr7jj9ai4A",
+   "medium": "video",
+   "note": null,
+   "published": "2026-09-19",
+   "raw": "sources/_raw/driveline/dXr7jj9ai4A.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "The 2 Skills That Actually Make Up Pitching Command",
+   "updated": "2026-09-19T13:42:46Z",
+   "url": "https://www.youtube.com/watch?v=dXr7jj9ai4A"
+  },
   "dl-blog-a-few-pictures-of-the-facility": {
    "added": "2026-09-10T11:37:47Z",
    "duration_s": null,
