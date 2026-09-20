@@ -1,34 +1,26 @@
-# Last session state — 2026-09-18 09:20
+# Last session state — 2026-09-19 17:31
 - **Project / cwd:** `C:\Users\Owner\bsb-resources\command-cv` · branch `feature/pd-goals`
-- **What we were doing:** Command CV miss-distance. Built the first MiLB ball training set,
-  trained a detector on it, and replaced the frame-differencing pipeline with detector-based
-  tracks. Retracted two inherited blockers that had been shaping plans for six days.
-- **Shipped this session:** 18 commits, `af26dcee` → `4c084179`, all pushed.
-  - `data/yolo_milb` — 2,484 images / 2,136 labelled / 348 neg / 0 skipped, 4 parks, 3 levels,
-    split BY PARK (leakage-checked). First MiLB training set in the project.
-  - **Detector trained: 30 epochs in 33.4 min on the laptop GPU.** Held-out park: top-1
-    **2.15 px** median, 96% within 8 px, med rank 1.0. MLB detector is 3.77-4.49 px.
-    Works on full 1280x720 frames → replaces the seeder AND the harvest, needs no pose.
-  - **BLOCKER RETRACTED #1:** "this box cannot train" was wrong for six days — RTX 3050 Ti +
-    torch cu128 were installed all along; `train_ball_detector.py` defaults to `--device cpu`.
-    The memory file had escalated to "buy a PC with an NVIDIA card". New rule
-    `.claude/rules/probe-capability-before-accepting-a-blocker.md`, synced to all 4 worktrees.
-  - **BLOCKER RETRACTED #2:** "MiLB inches need a landmark" — OpenCommand pins Cy=400 on all
-    499,800 rows (30 parks, ALL MLB, zero MiLB) and still gets 0.04-0.13 in. Ours measure
-    Isotopes +0.21 in / Frawley +0.22 in. Already metric to ~half an inch.
-  - **Durham recovered:** size ratio 1.37 → **0.98**, camera `f/Cy` 29.4 → **39.4**.
-  - New scripts: `audit_seed_tracks`, `verify_ball_dataset`, `snap_harvest_labels`,
-    `detect_ball_tracks`, `eval_ball_detector`, `plate_scale_check`.
-  - Clips expanded with no browser step: Isotopes 50→327, Frawley 50→276.
-- **EXACT next step:** Run iteration 2 — rebuild the dataset from DETECTOR labels on the
-  expanded clip sets and retrain (33 min):
-  `cd C:\Users\Owner\bsb-resources\command-cv`
-  `python scripts/detect_ball_tracks.py --dir data/clips/aaa_815419 --game 815419 --weights data/yolo_ball_runs/milb4park/weights/best.pt --lo 178 --hi 232`
-  then the same for `aplus_821819`, then `audit_seed_tracks --seeds detect_tracks_<g>.csv --write-labels`,
-  then `build_ball_dataset`, then `train_ball_detector --device 0 --epochs 30`.
-- **Blockers / waiting on:** Zac owes two calls — (1) more games via his browser pull (AA is
-  effectively empty; the browser-side snippet is NOT committed and died with the 09-17
-  scratchpad, so paste it or say where it lives), (2) Astros affiliates vs camera variety.
-  Open technical: Riders' pose failure unexplained (2 hypotheses dead), Hops unsolved.
-- **Uncommitted work:** `command-cv` clean; ~80 pre-existing untracked paths repo-wide from
-  before this session.
+- **What we were doing:** Command CV. Scaled the ball-detector dataset from 4 ballparks to
+  13 by building the whole pull pipeline: enumerate venues off the public schedule endpoint,
+  harvest clip URLs with Zac's Okta token, then download/detect/label/cut-crops/prune
+  unattended. Found five silent defects along the way, four of them mine.
+- **Shipped this session:** 25 commits, `6e3215c5` → `00652795`, all pushed.
+  **19 park-games, 13 venues, 2,983 clips, 31,699 labelled points** (v1 had 2,136).
+  New: `affiliate_schedule.py` (700 games / 63 level-venues / 348 away),
+  `harvest_pull_csvs.py` (4,813 clips banked in `output/cvpull/`),
+  `rolling_pull.py`, `labels_from_detector.py`, `park_scoreboard.py`,
+  `browser/cv_pull.js`, rule `long-jobs-on-this-laptop.md` (synced to 4 worktrees).
+  Corrections: the POSE was vetoing good tracks (81 of 212 Isotopes clips);
+  the SCAN WINDOW was truncating flights (Greensboro's plate is f277 vs a f250 window;
+  Constellation 31%→47%); my `--angle` default was CENTERFIELD; a documented cv2 seek
+  bug reappeared and made 9 parks' labels look wrong; the loop deleted video before
+  cutting crops. Retracted "low-yield parks share tight framing" — corr is +0.52, opposite.
+- **EXACT next step:** `cd C:\Users\Owner\bsb-resources\command-cv` then
+  `python scripts/rolling_pull.py --weights data/yolo_ball_runs/milb4park/weights/best.pt --games 827291,827289,821925,821924,817525,817522,816448,816447,814875,814874 --labels-only --min-free-gb 6`
+  (crop recovery, was at 5,451 of ~31,700; resumes from disk). Then build the val split
+  for Asheville 822515 separately, then train 12 epochs `--device 0` and read the
+  held-out Asheville pixel error against v1's **2.15 px**. Never read mAP.
+- **Blockers / waiting on:** Nothing blocking. Would help: launch Claude Code with
+  `CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP=1` (7 reaps today); a fresh Okta token for
+  more venues (only 8 of 63 banked); a decision on the Colab notebook (not written).
+- **Uncommitted work:** 81 untracked paths, ALL pre-existing from before this session.
