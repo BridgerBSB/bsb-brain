@@ -7535,6 +7535,23 @@
    "updated": "2026-09-09T11:35:38Z",
    "url": "https://www.youtube.com/watch?v=uDb-K_j1W0s"
   },
+  "uaAKACSULcg": {
+   "added": "2026-09-21T12:46:41Z",
+   "duration_s": 494,
+   "error": null,
+   "feed": "youtube",
+   "id": "uaAKACSULcg",
+   "medium": "video",
+   "note": null,
+   "published": "2026-09-20",
+   "raw": "sources/_raw/tread/uaAKACSULcg.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "D3 Sidearmer Throws Low 90s",
+   "updated": "2026-09-21T12:47:01Z",
+   "url": "https://www.youtube.com/watch?v=uaAKACSULcg"
+  },
   "ufh2XNcw8dA": {
    "added": "2026-09-05T20:37:29Z",
    "duration_s": 294,
