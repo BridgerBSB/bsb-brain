@@ -6181,6 +6181,23 @@
    "updated": "2026-09-09T11:35:37Z",
    "url": "https://www.youtube.com/watch?v=sBOTw365OIk"
   },
+  "sDb54frV0QA": {
+   "added": "2026-09-23T11:30:28Z",
+   "duration_s": 234,
+   "error": null,
+   "feed": "youtube",
+   "id": "sDb54frV0QA",
+   "medium": "video",
+   "note": null,
+   "published": "2026-09-23",
+   "raw": "sources/_raw/driveline/sDb54frV0QA.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "From Off the 40-Man Roster to Triple-A MVP: The Trey Lipscomb Story",
+   "updated": "2026-09-23T11:30:57Z",
+   "url": "https://www.youtube.com/watch?v=sDb54frV0QA"
+  },
   "sH8MQtviN9A": {
    "added": "2026-09-05T20:39:26Z",
    "duration_s": 21,
