@@ -3422,6 +3422,23 @@
    "updated": "2026-09-05T22:11:17Z",
    "url": "https://www.youtube.com/watch?v=_7DtDIibxUQ"
   },
+  "_EilR25ydwY": {
+   "added": "2026-09-25T13:48:16Z",
+   "duration_s": 2245,
+   "error": null,
+   "feed": "youtube",
+   "id": "_EilR25ydwY",
+   "medium": "video",
+   "note": null,
+   "published": "2026-09-24",
+   "raw": "sources/_raw/tread/_EilR25ydwY.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Throw Harder By Changing Your Pitching Mechanics [The Right Way]",
+   "updated": "2026-09-25T13:49:11Z",
+   "url": "https://www.youtube.com/watch?v=_EilR25ydwY"
+  },
   "_LNxbiyPA3U": {
    "added": "2026-09-16T11:36:15Z",
    "duration_s": 171,
@@ -5043,6 +5060,23 @@
    "updated": "2026-09-06T15:14:46Z",
    "url": "https://drivelinebaseball.com/blogs/blog/welcome-to-driveline-baseball"
   },
+  "dl-blog-what-does-a-pitchers-body-actually-look-like": {
+   "added": "2026-09-25T13:48:27Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-what-does-a-pitchers-body-actually-look-like",
+   "medium": "blog",
+   "note": null,
+   "published": "2026-09-25",
+   "raw": "sources/_raw/driveline/dl-blog-what-does-a-pitchers-body-actually-look-like.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "What Does a Pitcher's Body Actually Look Like?",
+   "updated": "2026-09-25T13:49:28Z",
+   "url": "https://drivelinebaseball.com/blogs/blog/what-does-a-pitchers-body-actually-look-like"
+  },
   "dl-blog-whats-a-good-workout-kyle": {
    "added": "2026-09-10T11:37:47Z",
    "duration_s": null,
@@ -6123,6 +6157,23 @@
    "title": "BPC Remote Training",
    "updated": "2026-09-07T01:48:12Z",
    "url": "https://www.youtube.com/watch?v=r-yW4Fk6hnA"
+  },
+  "rTmVaILxNDs": {
+   "added": "2026-09-25T13:47:52Z",
+   "duration_s": 401,
+   "error": null,
+   "feed": "youtube",
+   "id": "rTmVaILxNDs",
+   "medium": "video",
+   "note": null,
+   "published": "2026-09-24",
+   "raw": "sources/_raw/driveline/rTmVaILxNDs.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "75 MPH vs. 59 MPH: Same Arm, Same Size. 16 MPH Apart.",
+   "updated": "2026-09-25T13:49:50Z",
+   "url": "https://www.youtube.com/watch?v=rTmVaILxNDs"
   },
   "rlsbKyE3Xns": {
    "added": "2026-09-17T11:36:59Z",
