@@ -56,6 +56,24 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[2026-08-15-why-1-mph-is-worth-millions-to-mlb-players]] - Why 1 MPH Is Worth Millions to MLB Players
 - [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] - How To Throw Hard As A Short Pitcher
 - [[2026-09-06-complete-guide-to-mastering-the-changeup-grips-cues]] - Complete Guide To Mastering The Changeup [Grips, Cues, & Sequencing]
+- [[2010-03-04-appropriate-energy-system-development-why-running-poles-is]] - Appropriate Energy System Development - Why Running Poles is a Bad Idea
+- [[2010-03-07-mechanics-the-effects-of-loading-rate]] - Mechanics: The Effects of Loading Rate
+- [[2012-07-30-supramaximal-training-with-weighted-baseballs]] - Supramaximal Training with Weighted Baseballs (drivelinebaseball.com)
+- [[2013-12-14-advanced-pitching-mechanics-pronation-in-the-delivery]] - Advanced Pitching Mechanics: Pronation in the Delivery
+- [[2016-01-17-grunting-to-improve-throwing-velociy]] - Grunting to Improve Throwing Velociy
+- [[2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation]] - Throw Harder Fastballs By Improving Your External Rotation
+- [[2016-11-10-customized-mechanics-lateral-power]] - Customized Mechanics: Lateral Power
+- [[2018-02-08-the-case-for-lifting-weights-a-declaration-for-the-youth]] - The Case for Lifting Weights, A Declaration for The Youth Pitcher
+- [[2018-04-02-finding-consistency-pre-post-pitch-routine]] - Finding Consistency: Pre & Post-Pitch Routine
+- [[2019-01-13-upgrading-your-j-band-routine-part-1-overloaded-eccentrics]] - Upgrading Your J-Band Routine Part 1: Overloaded Eccentrics
+- [[2019-01-13-upgrading-your-j-band-routine-part-3-low-load-isometrics]] - Upgrading Your J-Band Routine Part 3: Low Load Isometrics
+- [[2019-01-28-the-3-types-of-muscling-up-how-it-s-hurting-your-pitching]] - The 3 Types of "Muscling Up" | How it's Hurting Your Pitching Velocity
+- [[2019-02-11-the-drift-how-to-shift-your-weight-like-a-pro]] - The "Drift" - How to Shift Your Weight Like a Pro
+- [[2019-08-15-tread-athletics-q-a-episode-1]] - Tread Athletics - Q&A Episode 1
+- [[2020-05-27-how-to-improve-sequencing-with-the-rhythm-rocker]] - How to Improve Sequencing with the Rhythm Rocker
+- [[2020-06-11-jordan-hicks-pre-vs-post-surgery-mechanical-breakdown]] - Jordan Hicks: Pre vs Post Surgery Mechanical Breakdown
+- [[2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown]] - How Does Dustin May Throw 100 MPH? A Breakdown
+- [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]] - The Best And Worst Lower Half Pitching Drills [Ranked]
 
 ## Cues
 <!-- the pipeline appends approved pitching cues here -->
@@ -101,6 +119,28 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[cue-throw-it-like-a-fastball]]
 - [[cue-get-that-middle-finger-away-from-the-midline]]
 - [[cue-feel-like-the-palm-of-your-hand-is-facing-directly-at]]
+- [[cue-driving-the-hand-over-the-elbow]]
+- [[cue-driving-the-back-of-the-hand-to-the-plate]]
+- [[cue-do-it-on-every-pitch-so-you-don-t-tip-off-when-you-re]]
+- [[cue-keep-yourself-honest-and-stay-in-good-positions]]
+- [[cue-feel-it-in-the-right-spots-scapula-posterior-cuff]]
+- [[cue-back-up-until-you-get-a-20-percent-contraction-and-hold]]
+- [[cue-feel-like-a-tornado-a-wave-of-energy]]
+- [[cue-throw-loose-and-quick]]
+- [[cue-lean-into-your-leg-lift]]
+- [[cue-come-to-your-balance-point-4-to-6-inches-away-from-the]]
+- [[cue-point-that-palm-to-the-sky]]
+- [[cue-driving-downhill-through-the-ball-rather-than-pushing]]
+- [[cue-smooth-controlled-fluid-through-these-patterns-it-s-not]]
+- [[cue-letting-the-hips-and-that-front-heel-free-up-a-little]]
+- [[cue-keep-that-weight-over-the-heel-a-tad-longer]]
+- [[cue-float-the-arm-into-position]]
+- [[cue-relax-release]]
+- [[cue-hold-tension-hold-tension]]
+- [[cue-go-home-with-my-butt-leading-the-way]]
+- [[cue-press-the-gas-pedal-late]]
+- [[cue-fight-it-fight-it-fight-it-fight-it]]
+- [[cue-use-the-towel-as-a-whip-to-unravel-out]]
 
 ## Drills
 <!-- the pipeline appends approved pitching drills here -->
@@ -151,6 +191,40 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[drill-long-toss]]
 - [[drill-pull-downs]]
 - [[drill-rotational-med-ball-cable-kaiser-work]]
+- [[drill-step-behind-weighted-ball-throws]]
+- [[drill-wrist-weight-pronation-drill]]
+- [[drill-overload-underload-plyo-ball-throws]]
+- [[drill-front-rack-reverse-lunge]]
+- [[drill-pallof-press-variations]]
+- [[drill-pec-barbell-smash]]
+- [[drill-full-range-dumbbell-bench-press]]
+- [[drill-overload-implement-throws]]
+- [[drill-underload-implement-throws]]
+- [[drill-pre-pitch-dry-rep-routine]]
+- [[drill-j-band-eccentric-only-er-t-y-reverse-throw]]
+- [[drill-j-band-assisted-concentric-er-t-y-reverse-throw]]
+- [[drill-j-band-low-load-isometric-external-rotation-at-90]]
+- [[drill-j-band-low-load-isometric-t-position]]
+- [[drill-j-band-low-load-isometric-y-position]]
+- [[drill-j-band-low-load-isometric-reverse-directions]]
+- [[drill-step-back-windup]]
+- [[drill-two-knee-long-toss]]
+- [[drill-pivot-pick-10-toes-drill]]
+- [[drill-rolling-torque-drill-texas-baseball-ranch]]
+- [[drill-serratus-wall-slides]]
+- [[drill-landmine-press]]
+- [[drill-rhythm-rocker-level-1-open-hip]]
+- [[drill-rhythm-rocker-level-2-closed-hip]]
+- [[drill-rhythm-rocker-level-3-figure-8]]
+- [[drill-long-toss-with-delayed-arm-entry]]
+- [[drill-figure-eight-rocker]]
+- [[drill-towel-drill]]
+- [[drill-hershiser-wall-drill]]
+- [[drill-janitor-throw]]
+- [[drill-pulldowns-turn-and-burn]]
+- [[drill-balance-point-drill]]
+- [[drill-walking-windup]]
+- [[drill-core-velocity-belt-band]]
 
 ## Related
 [[MOC-hitting]] · [[MOC-strength]] · [[MOC-anatomy]]

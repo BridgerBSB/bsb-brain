@@ -348,3 +348,50 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-25 06:50 fetch: 3 ok, 0 failed, 0 deferred; whisper 0 min
 - 2026-09-25 06:50 promote: 0 promoted, 0 rejected, 0 corrections
 - 2026-09-25 06:51 summarize: 0 ok, 0 failed (queue had room for 0)
+- 2026-09-25 06:51 run: done
+- 2026-09-26 04:30 run: start
+- 2026-09-26 04:30 discover driveline-yt (new): 30 seen, 0 new
+- 2026-09-26 04:30 discover tread-yt (new): 30 seen, 0 new
+- 2026-09-26 04:30 discover driveline-blog (new): 6 seen, 0 new
+- 2026-09-26 04:30 discover tread-blog (new): 10 seen, 0 new
+- 2026-09-26 04:30 fetch: 0 ok, 0 failed, 0 deferred; whisper 0 min
+- 2026-09-26 04:30 promoted 2009-12-01-free-weight-squats-smith-machine-squats (research/med, 0 cues, 0 drills)
+- 2026-09-26 04:30 rejected 2009-12-02-should-you-wear-a-weight-belt
+- 2026-09-26 04:30 promoted 2009-12-07-are-all-novices-the-same (philosophy/high, 0 cues, 1 drills)
+- 2026-09-26 04:30 promoted 2009-12-14-thomas-test-applications-in-baseball (instruction/med, 0 cues, 1 drills)
+- 2026-09-26 04:30 promoted 2009-12-15-overtraining-a-serious-problem (philosophy/high, 0 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2010-01-09-what-s-a-good-workout-kyle (philosophy/med, 0 cues, 0 drills)
+- 2026-09-26 04:30 rejected 2010-01-10-our-influences-pitching
+- 2026-09-26 04:30 promoted 2010-01-15-compound-movements-use-them (instruction/high, 0 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2010-01-17-kinematic-analysis-wrist-to-elbow-relationship (research/med, 0 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2010-02-08-proper-warmups-for-weight-training (instruction/med, 0 cues, 5 drills)
+- 2026-09-26 04:30 promoted 2010-02-11-link-should-pitchers-bench-press (philosophy/med, 0 cues, 4 drills)
+- 2026-09-26 04:30 promoted 2010-03-02-p90x-for-baseball (philosophy/high, 0 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2010-03-04-appropriate-energy-system-development-why-running-poles-is (philosophy/high, 0 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2010-03-07-mechanics-the-effects-of-loading-rate (philosophy/high, 0 cues, 0 drills)
+- 2026-09-26 04:30 rejected 2012-05-10-dylan-bundy-radar-guns-self-myofascial-release-news-on-our
+- 2026-09-26 04:30 promoted 2012-07-30-supramaximal-training-with-weighted-baseballs (philosophy/high, 0 cues, 1 drills)
+- 2026-09-26 04:30 rejected 2013-04-25-janson-junk-decatur-hs-vs-auburn-mountainview
+- 2026-09-26 04:30 promoted 2013-12-14-advanced-pitching-mechanics-pronation-in-the-delivery (instruction/high, 2 cues, 2 drills)
+- 2026-09-26 04:30 promoted 2016-01-17-grunting-to-improve-throwing-velociy (instruction/high, 1 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2016-02-12-strength-training-for-baseball-and-isolation-exercises (instruction/high, 0 cues, 2 drills)
+- 2026-09-26 04:30 promoted 2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation (instruction/high, 0 cues, 6 drills)
+- 2026-09-26 04:30 promoted 2016-09-20-the-definitive-guide-to-belt-squatting-without-a-machine (instruction/high, 3 cues, 1 drills)
+- 2026-09-26 04:30 promoted 2016-11-10-customized-mechanics-lateral-power (philosophy/high, 0 cues, 0 drills)
+- 2026-09-26 04:30 rejected 2017-01-19-should-i-play-summer-ball-weighing-the-pros-and-cons
+- 2026-09-26 04:30 promoted 2017-04-06-why-dominicans-are-dominating-baseball (philosophy/high, 0 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2017-12-23-bulking-on-a-budget (instruction/high, 0 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2018-02-08-the-case-for-lifting-weights-a-declaration-for-the-youth (philosophy/high, 0 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2018-04-02-finding-consistency-pre-post-pitch-routine (instruction/high, 0 cues, 1 drills)
+- 2026-09-26 04:30 promoted 2019-01-13-upgrading-your-j-band-routine-part-1-overloaded-eccentrics (instruction/high, 0 cues, 2 drills)
+- 2026-09-26 04:30 promoted 2019-01-13-upgrading-your-j-band-routine-part-3-low-load-isometrics (instruction/high, 3 cues, 4 drills)
+- 2026-09-26 04:30 promoted 2019-01-28-the-3-types-of-muscling-up-how-it-s-hurting-your-pitching (instruction/high, 2 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2019-02-11-the-drift-how-to-shift-your-weight-like-a-pro (instruction/high, 2 cues, 1 drills)
+- 2026-09-26 04:30 promoted 2019-07-02-daniel-espino-pitching-mechanics-a-breakdown (athlete-story/med, 0 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2019-08-15-tread-athletics-q-a-episode-1 (interview/high, 1 cues, 6 drills)
+- 2026-09-26 04:30 promoted 2019-12-22-q-a-episode-4 (interview/med, 0 cues, 5 drills)
+- 2026-09-26 04:30 promoted 2020-03-18-how-to-train-without-a-gym-for-pitchers (instruction/high, 2 cues, 10 drills)
+- 2026-09-26 04:30 promoted 2020-05-27-how-to-improve-sequencing-with-the-rhythm-rocker (instruction/high, 3 cues, 3 drills)
+- 2026-09-26 04:30 promoted 2020-06-11-jordan-hicks-pre-vs-post-surgery-mechanical-breakdown (instruction/high, 1 cues, 0 drills)
+- 2026-09-26 04:30 promoted 2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown (instruction/high, 3 cues, 1 drills)
+- 2026-09-26 04:30 promoted 2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked (instruction/high, 5 cues, 9 drills)

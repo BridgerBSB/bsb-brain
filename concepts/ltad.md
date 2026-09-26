@@ -379,3 +379,7 @@ player have to grow," LTAD formalizes the question.
 - [[2025-12-11-how-long-term-pitching-development-beats-program-hopping]] - How Long-Term Pitching Development Beats Program Hopping
 - [[2026-01-13-how-long-term-development-built-a-90-mph-arm]] - How Long-Term Development Built a 90+ MPH Arm
 - [[2026-06-27-from-juco-to-d1-how-garrett-west-made-it-as-a-two-way-player]] - From JUCO to D1: How Garrett West Made It as a Two-Way Player
+- [[2009-12-15-overtraining-a-serious-problem]] - Overtraining: A Serious Problem
+- [[2018-02-08-the-case-for-lifting-weights-a-declaration-for-the-youth]] - The Case for Lifting Weights, A Declaration for The Youth Pitcher
+- [[2019-08-15-tread-athletics-q-a-episode-1]] - Tread Athletics - Q&A Episode 1
+- [[2019-12-22-q-a-episode-4]] - Q & A Episode 4

@@ -112,7 +112,7 @@
    "feed": "youtube",
    "id": "-RgicqHSr7I",
    "medium": "video",
-   "note": "_review/2020-03-18-how-to-train-without-a-gym-for-pitchers.md",
+   "note": "sources/tread/2020-03-18-how-to-train-without-a-gym-for-pitchers.md",
    "proposal": {
     "cues": [
      "cue-pull-yourself-down-into-the-hole-and-then-explode-as",
@@ -140,9 +140,9 @@
    "raw": "sources/_raw/tread/-RgicqHSr7I.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How to Train Without a Gym for Pitchers",
-   "updated": "2026-09-10T13:27:16Z",
+   "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=-RgicqHSr7I"
   },
   "-Ri-PVv4Urk": {
@@ -250,7 +250,7 @@
    "feed": "youtube",
    "id": "0IOtRAI-8qk",
    "medium": "video",
-   "note": "_review/2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked.md",
+   "note": "sources/tread/2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked.md",
    "proposal": {
     "cues": [
      "cue-hold-tension-hold-tension",
@@ -281,9 +281,9 @@
    "raw": "sources/_raw/tread/0IOtRAI-8qk.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The Best And Worst Lower Half Pitching Drills [Ranked]",
-   "updated": "2026-09-10T13:36:24Z",
+   "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=0IOtRAI-8qk"
   },
   "0K21AJqeaFs": {
@@ -485,7 +485,7 @@
    "feed": "youtube",
    "id": "1nMbr9IoQrg",
    "medium": "video",
-   "note": "_review/2019-12-22-q-a-episode-4.md",
+   "note": "sources/tread/2019-12-22-q-a-episode-4.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -508,9 +508,9 @@
    "raw": "sources/_raw/tread/1nMbr9IoQrg.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Q & A Episode 4",
-   "updated": "2026-09-10T13:24:50Z",
+   "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=1nMbr9IoQrg"
   },
   "28k_vFAHfMI": {
@@ -713,7 +713,7 @@
    "feed": "youtube",
    "id": "3uEkjxYrRgY",
    "medium": "video",
-   "note": "_review/2019-08-15-tread-athletics-q-a-episode-1.md",
+   "note": "sources/tread/2019-08-15-tread-athletics-q-a-episode-1.md",
    "proposal": {
     "cues": [
      "cue-point-that-palm-to-the-sky"
@@ -738,9 +738,9 @@
    "raw": "sources/_raw/tread/3uEkjxYrRgY.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Tread Athletics - Q&A Episode 1",
-   "updated": "2026-09-09T11:57:58Z",
+   "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=3uEkjxYrRgY"
   },
   "4CBdShFhn0Y": {
@@ -833,7 +833,7 @@
    "feed": "youtube",
    "id": "4V8ghKiNDy0",
    "medium": "video",
-   "note": "_review/2019-07-02-daniel-espino-pitching-mechanics-a-breakdown.md",
+   "note": "sources/tread/2019-07-02-daniel-espino-pitching-mechanics-a-breakdown.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -848,9 +848,9 @@
    "raw": "sources/_raw/tread/4V8ghKiNDy0.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Daniel Espino Pitching Mechanics | A Breakdown",
-   "updated": "2026-09-09T11:55:37Z",
+   "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=4V8ghKiNDy0"
   },
   "4hoEkIcCylg": {
@@ -991,7 +991,7 @@
    "feed": "youtube",
    "id": "5vo0SRBxjd0",
    "medium": "video",
-   "note": "_review/2013-12-14-advanced-pitching-mechanics-pronation-in-the-delivery.md",
+   "note": "sources/driveline/2013-12-14-advanced-pitching-mechanics-pronation-in-the-delivery.md",
    "proposal": {
     "cues": [
      "cue-driving-the-hand-over-the-elbow",
@@ -1012,9 +1012,9 @@
    "raw": "sources/_raw/driveline/5vo0SRBxjd0.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Advanced Pitching Mechanics: Pronation in the Delivery",
-   "updated": "2026-09-13T11:49:28Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://www.youtube.com/watch?v=5vo0SRBxjd0"
   },
   "68Jbpp43mCs": {
@@ -1636,7 +1636,7 @@
    "feed": "youtube",
    "id": "DnezZtFTKY8",
    "medium": "video",
-   "note": "_review/2020-06-11-jordan-hicks-pre-vs-post-surgery-mechanical-breakdown.md",
+   "note": "sources/tread/2020-06-11-jordan-hicks-pre-vs-post-surgery-mechanical-breakdown.md",
    "proposal": {
     "cues": [
      "cue-keep-that-weight-over-the-heel-a-tad-longer"
@@ -1653,9 +1653,9 @@
    "raw": "sources/_raw/tread/DnezZtFTKY8.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Jordan Hicks: Pre vs Post Surgery Mechanical Breakdown",
-   "updated": "2026-09-10T13:30:46Z",
+   "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=DnezZtFTKY8"
   },
   "DpGxwKPhflk": {
@@ -2125,7 +2125,7 @@
    "feed": "youtube",
    "id": "JsfstesnEZ0",
    "medium": "video",
-   "note": "_review/2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown.md",
+   "note": "sources/tread/2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown.md",
    "proposal": {
     "cues": [
      "cue-float-the-arm-into-position",
@@ -2146,9 +2146,9 @@
    "raw": "sources/_raw/tread/JsfstesnEZ0.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How Does Dustin May Throw 100 MPH? A Breakdown",
-   "updated": "2026-09-10T13:32:40Z",
+   "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=JsfstesnEZ0"
   },
   "KDkG1se2wHI": {
@@ -2376,7 +2376,7 @@
    "feed": "youtube",
    "id": "NHt_fvKcXJ8",
    "medium": "video",
-   "note": "_review/2019-02-11-the-drift-how-to-shift-your-weight-like-a-pro.md",
+   "note": "sources/tread/2019-02-11-the-drift-how-to-shift-your-weight-like-a-pro.md",
    "proposal": {
     "cues": [
      "cue-lean-into-your-leg-lift",
@@ -2396,9 +2396,9 @@
    "raw": "sources/_raw/tread/NHt_fvKcXJ8.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The \"Drift\" - How to Shift Your Weight Like a Pro",
-   "updated": "2026-09-09T11:52:45Z",
+   "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=NHt_fvKcXJ8"
   },
   "NJejEG8CUkE": {
@@ -2875,7 +2875,7 @@
    "feed": "youtube",
    "id": "TNOFsucvMlk",
    "medium": "video",
-   "note": "_review/2019-01-13-upgrading-your-j-band-routine-part-3-low-load-isometrics.md",
+   "note": "sources/tread/2019-01-13-upgrading-your-j-band-routine-part-3-low-load-isometrics.md",
    "proposal": {
     "cues": [
      "cue-keep-yourself-honest-and-stay-in-good-positions",
@@ -2899,9 +2899,9 @@
    "raw": "sources/_raw/tread/TNOFsucvMlk.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Upgrading Your J-Band Routine Part 3: Low Load Isometrics",
-   "updated": "2026-09-09T11:49:32Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://www.youtube.com/watch?v=TNOFsucvMlk"
   },
   "U5Hdv27-_44": {
@@ -2999,7 +2999,7 @@
    "feed": "youtube",
    "id": "U__OwPjuKMQ",
    "medium": "video",
-   "note": "_review/2020-05-27-how-to-improve-sequencing-with-the-rhythm-rocker.md",
+   "note": "sources/tread/2020-05-27-how-to-improve-sequencing-with-the-rhythm-rocker.md",
    "proposal": {
     "cues": [
      "cue-driving-downhill-through-the-ball-rather-than-pushing",
@@ -3022,9 +3022,9 @@
    "raw": "sources/_raw/tread/U__OwPjuKMQ.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "How to Improve Sequencing with the Rhythm Rocker",
-   "updated": "2026-09-10T13:29:01Z",
+   "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=U__OwPjuKMQ"
   },
   "Ury29iTiTxo": {
@@ -3152,7 +3152,7 @@
    "feed": "youtube",
    "id": "W84Am7RjvgQ",
    "medium": "video",
-   "note": "_review/2012-07-30-supramaximal-training-with-weighted-baseballs.md",
+   "note": "sources/driveline/2012-07-30-supramaximal-training-with-weighted-baseballs.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -3168,9 +3168,9 @@
    "raw": "sources/_raw/driveline/W84Am7RjvgQ.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Supramaximal Training with Weighted Baseballs (drivelinebaseball.com)",
-   "updated": "2026-09-09T11:46:13Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://www.youtube.com/watch?v=W84Am7RjvgQ"
   },
   "WAiPEHi32vM": {
@@ -3480,7 +3480,7 @@
    "feed": "youtube",
    "id": "__Jm15gx30k",
    "medium": "video",
-   "note": "_review/2012-05-10-dylan-bundy-radar-guns-self-myofascial-release-news-on-our.md",
+   "note": "sources/driveline/_rejected/2012-05-10-dylan-bundy-radar-guns-self-myofascial-release-news-on-our.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -3494,9 +3494,9 @@
    "raw": "sources/_raw/driveline/__Jm15gx30k.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Dylan Bundy, Radar Guns, Self-Myofascial Release, News on Our Athletes (Q&A - May 10th)",
-   "updated": "2026-09-05T22:27:51Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://www.youtube.com/watch?v=__Jm15gx30k"
   },
   "_n53mDdAV2c": {
@@ -3622,7 +3622,7 @@
    "feed": "youtube",
    "id": "bJtcyANLnRA",
    "medium": "video",
-   "note": "_review/2019-01-13-upgrading-your-j-band-routine-part-1-overloaded-eccentrics.md",
+   "note": "sources/tread/2019-01-13-upgrading-your-j-band-routine-part-1-overloaded-eccentrics.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -3640,9 +3640,9 @@
    "raw": "sources/_raw/tread/bJtcyANLnRA.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Upgrading Your J-Band Routine Part 1: Overloaded Eccentrics",
-   "updated": "2026-09-09T11:51:08Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://www.youtube.com/watch?v=bJtcyANLnRA"
   },
   "c5ANKyaw6hI": {
@@ -3652,7 +3652,7 @@
    "feed": "youtube",
    "id": "c5ANKyaw6hI",
    "medium": "video",
-   "note": "_review/2019-01-28-the-3-types-of-muscling-up-how-it-s-hurting-your-pitching.md",
+   "note": "sources/tread/2019-01-28-the-3-types-of-muscling-up-how-it-s-hurting-your-pitching.md",
    "proposal": {
     "cues": [
      "cue-feel-like-a-tornado-a-wave-of-energy",
@@ -3670,9 +3670,9 @@
    "raw": "sources/_raw/tread/c5ANKyaw6hI.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The 3 Types of \"Muscling Up\" | How it's Hurting Your Pitching Velocity",
-   "updated": "2026-09-10T12:00:48Z",
+   "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=c5ANKyaw6hI"
   },
   "cDEYVs_wLAw": {
@@ -3872,7 +3872,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-appropriate-energy-system-development",
    "medium": "blog",
-   "note": "_review/2010-03-04-appropriate-energy-system-development-why-running-poles-is.md",
+   "note": "sources/driveline/2010-03-04-appropriate-energy-system-development-why-running-poles-is.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -3887,9 +3887,9 @@
    "raw": "sources/_raw/driveline/dl-blog-appropriate-energy-system-development.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Appropriate Energy System Development - Why Running Poles is a Bad Idea",
-   "updated": "2026-09-16T11:43:48Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/appropriate-energy-system-development"
   },
   "dl-blog-are-all-novices-the-same": {
@@ -3899,7 +3899,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-are-all-novices-the-same",
    "medium": "blog",
-   "note": "_review/2009-12-07-are-all-novices-the-same.md",
+   "note": "sources/driveline/2009-12-07-are-all-novices-the-same.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -3915,9 +3915,9 @@
    "raw": "sources/_raw/driveline/dl-blog-are-all-novices-the-same.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Are all novices the same?",
-   "updated": "2026-09-10T11:43:00Z",
+   "updated": "2026-09-26T11:30:22Z",
    "url": "https://drivelinebaseball.com/blogs/blog/are-all-novices-the-same"
   },
   "dl-blog-basic-supplements-for-baseball": {
@@ -3979,7 +3979,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-compound-movements-use-them",
    "medium": "blog",
-   "note": "_review/2010-01-15-compound-movements-use-them.md",
+   "note": "sources/driveline/2010-01-15-compound-movements-use-them.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -3993,9 +3993,9 @@
    "raw": "sources/_raw/driveline/dl-blog-compound-movements-use-them.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Compound Movements: Use Them!",
-   "updated": "2026-09-13T11:43:46Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/compound-movements-use-them"
   },
   "dl-blog-free-weight-squats-smith-machine-squats": {
@@ -4005,7 +4005,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-free-weight-squats-smith-machine-squats",
    "medium": "blog",
-   "note": "_review/2009-12-01-free-weight-squats-smith-machine-squats.md",
+   "note": "sources/driveline/2009-12-01-free-weight-squats-smith-machine-squats.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -4020,9 +4020,9 @@
    "raw": "sources/_raw/driveline/dl-blog-free-weight-squats-smith-machine-squats.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Free Weight Squats > Smith Machine Squats",
-   "updated": "2026-09-09T11:45:00Z",
+   "updated": "2026-09-26T11:30:22Z",
    "url": "https://drivelinebaseball.com/blogs/blog/free-weight-squats-smith-machine-squats"
   },
   "dl-blog-how-pros-use-pulse-and-what-it-means-for-baseball": {
@@ -4134,7 +4134,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-kinematic-analysis-wrist-to-elbow-relationship",
    "medium": "blog",
-   "note": "_review/2010-01-17-kinematic-analysis-wrist-to-elbow-relationship.md",
+   "note": "sources/driveline/2010-01-17-kinematic-analysis-wrist-to-elbow-relationship.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -4149,9 +4149,9 @@
    "raw": "sources/_raw/driveline/dl-blog-kinematic-analysis-wrist-to-elbow-relationship.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Kinematic Analysis: Wrist to Elbow Relationship",
-   "updated": "2026-09-13T11:44:52Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/kinematic-analysis-wrist-to-elbow-relationship"
   },
   "dl-blog-link-college-pitching-injuries": {
@@ -4178,7 +4178,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-link-should-pitchers-bench-press",
    "medium": "blog",
-   "note": "_review/2010-02-11-link-should-pitchers-bench-press.md",
+   "note": "sources/driveline/2010-02-11-link-should-pitchers-bench-press.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -4197,9 +4197,9 @@
    "raw": "sources/_raw/driveline/dl-blog-link-should-pitchers-bench-press.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Link: Should Pitchers Bench Press?",
-   "updated": "2026-09-15T11:44:37Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/link-should-pitchers-bench-press"
   },
   "dl-blog-link-unstable-surface-training": {
@@ -4269,7 +4269,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-mechanics-the-effects-of-loading-rate",
    "medium": "blog",
-   "note": "_review/2010-03-07-mechanics-the-effects-of-loading-rate.md",
+   "note": "sources/driveline/2010-03-07-mechanics-the-effects-of-loading-rate.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -4284,9 +4284,9 @@
    "raw": "sources/_raw/driveline/dl-blog-mechanics-the-effects-of-loading-rate.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Mechanics: The Effects of Loading Rate",
-   "updated": "2026-09-17T11:42:19Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/mechanics-the-effects-of-loading-rate"
   },
   "dl-blog-michael-clarkson-juco-to-division-1": {
@@ -4556,7 +4556,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-our-influences-pitching",
    "medium": "blog",
-   "note": "_review/2010-01-10-our-influences-pitching.md",
+   "note": "sources/driveline/_rejected/2010-01-10-our-influences-pitching.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -4570,9 +4570,9 @@
    "raw": "sources/_raw/driveline/dl-blog-our-influences-pitching.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Our Influences - Pitching",
-   "updated": "2026-09-13T11:41:57Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/our-influences-pitching"
   },
   "dl-blog-our-stance-on-nutrition": {
@@ -4599,7 +4599,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-overtraining-a-serious-problem",
    "medium": "blog",
-   "note": "_review/2009-12-15-overtraining-a-serious-problem.md",
+   "note": "sources/driveline/2009-12-15-overtraining-a-serious-problem.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -4614,9 +4614,9 @@
    "raw": "sources/_raw/driveline/dl-blog-overtraining-a-serious-problem.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Overtraining: A Serious Problem",
-   "updated": "2026-09-10T11:47:09Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/overtraining-a-serious-problem"
   },
   "dl-blog-p90x-for-baseball": {
@@ -4626,7 +4626,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-p90x-for-baseball",
    "medium": "blog",
-   "note": "_review/2010-03-02-p90x-for-baseball.md",
+   "note": "sources/driveline/2010-03-02-p90x-for-baseball.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -4640,9 +4640,9 @@
    "raw": "sources/_raw/driveline/dl-blog-p90x-for-baseball.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "P90x for Baseball?",
-   "updated": "2026-09-16T11:42:27Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/p90x-for-baseball"
   },
   "dl-blog-parker-eastwood-lilles-driveline-bat-speed-gains": {
@@ -4730,7 +4730,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-proper-warmups-for-weight-training",
    "medium": "blog",
-   "note": "_review/2010-02-08-proper-warmups-for-weight-training.md",
+   "note": "sources/driveline/2010-02-08-proper-warmups-for-weight-training.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -4751,9 +4751,9 @@
    "raw": "sources/_raw/driveline/dl-blog-proper-warmups-for-weight-training.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Proper Warmups For Weight Training",
-   "updated": "2026-09-15T11:43:06Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/proper-warmups-for-weight-training"
   },
   "dl-blog-random-monday-thoughts": {
@@ -4808,7 +4808,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-should-you-wear-a-weight-belt",
    "medium": "blog",
-   "note": "_review/2009-12-02-should-you-wear-a-weight-belt.md",
+   "note": "sources/driveline/_rejected/2009-12-02-should-you-wear-a-weight-belt.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -4823,9 +4823,9 @@
    "raw": "sources/_raw/driveline/dl-blog-should-you-wear-a-weight-belt.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Should you wear a weight belt?",
-   "updated": "2026-09-10T11:41:34Z",
+   "updated": "2026-09-26T11:30:22Z",
    "url": "https://drivelinebaseball.com/blogs/blog/should-you-wear-a-weight-belt"
   },
   "dl-blog-strength-training-for-youth-athletes": {
@@ -4889,7 +4889,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-thomas-test-applications-in-baseball",
    "medium": "blog",
-   "note": "_review/2009-12-14-thomas-test-applications-in-baseball.md",
+   "note": "sources/driveline/2009-12-14-thomas-test-applications-in-baseball.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -4906,9 +4906,9 @@
    "raw": "sources/_raw/driveline/dl-blog-thomas-test-applications-in-baseball.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Thomas Test - Applications in Baseball",
-   "updated": "2026-09-10T11:45:25Z",
+   "updated": "2026-09-26T11:30:22Z",
    "url": "https://drivelinebaseball.com/blogs/blog/thomas-test-applications-in-baseball"
   },
   "dl-blog-vertical-slider-pitch-design": {
@@ -5084,7 +5084,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-whats-a-good-workout-kyle",
    "medium": "blog",
-   "note": "_review/2010-01-09-what-s-a-good-workout-kyle.md",
+   "note": "sources/driveline/2010-01-09-what-s-a-good-workout-kyle.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -5099,9 +5099,9 @@
    "raw": "sources/_raw/driveline/dl-blog-whats-a-good-workout-kyle.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "\"What's a good workout, Kyle?\"",
-   "updated": "2026-09-13T11:40:00Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/whats-a-good-workout-kyle"
   },
   "e2rBQk8UHT0": {
@@ -5736,7 +5736,7 @@
    "feed": "youtube",
    "id": "lpv80cCnNLs",
    "medium": "video",
-   "note": "_review/2018-04-02-finding-consistency-pre-post-pitch-routine.md",
+   "note": "sources/tread/2018-04-02-finding-consistency-pre-post-pitch-routine.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -5753,9 +5753,9 @@
    "raw": "sources/_raw/tread/lpv80cCnNLs.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Finding Consistency: Pre & Post-Pitch Routine",
-   "updated": "2026-09-09T11:48:06Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://www.youtube.com/watch?v=lpv80cCnNLs"
   },
   "mBlogIlktXY": {
@@ -6736,7 +6736,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-belt-squat-to-throw-harder",
    "medium": "blog",
-   "note": "_review/2016-09-20-the-definitive-guide-to-belt-squatting-without-a-machine.md",
+   "note": "sources/tread/2016-09-20-the-definitive-guide-to-belt-squatting-without-a-machine.md",
    "proposal": {
     "cues": [
      "cue-sit-back-deep-into-the-squat-driving-your-hips-back-and",
@@ -6757,9 +6757,9 @@
    "raw": "sources/_raw/tread/tread-blog-belt-squat-to-throw-harder.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The Definitive Guide to Belt Squatting (without a machine)",
-   "updated": "2026-09-10T11:56:41Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://treadathletics.com/belt-squat-to-throw-harder"
   },
   "tread-blog-beware-of-program-hopping": {
@@ -6795,7 +6795,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-budget-bulking",
    "medium": "blog",
-   "note": "_review/2017-12-23-bulking-on-a-budget.md",
+   "note": "sources/tread/2017-12-23-bulking-on-a-budget.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -6809,9 +6809,9 @@
    "raw": "sources/_raw/tread/tread-blog-budget-bulking.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Bulking on a Budget",
-   "updated": "2026-09-13T11:53:00Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://treadathletics.com/budget-bulking"
   },
   "tread-blog-case-for-lifting-weights": {
@@ -6821,7 +6821,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-case-for-lifting-weights",
    "medium": "blog",
-   "note": "_review/2018-02-08-the-case-for-lifting-weights-a-declaration-for-the-youth.md",
+   "note": "sources/tread/2018-02-08-the-case-for-lifting-weights-a-declaration-for-the-youth.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -6836,9 +6836,9 @@
    "raw": "sources/_raw/tread/tread-blog-case-for-lifting-weights.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The Case for Lifting Weights, A Declaration for The Youth Pitcher",
-   "updated": "2026-09-13T11:54:19Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://treadathletics.com/case-for-lifting-weights"
   },
   "tread-blog-celebrating-10-years-of-tread-an-open-letter": {
@@ -6873,7 +6873,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-customized-mechanics-lateral-power",
    "medium": "blog",
-   "note": "_review/2016-11-10-customized-mechanics-lateral-power.md",
+   "note": "sources/tread/2016-11-10-customized-mechanics-lateral-power.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -6888,9 +6888,9 @@
    "raw": "sources/_raw/tread/tread-blog-customized-mechanics-lateral-power.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Customized Mechanics: Lateral Power",
-   "updated": "2026-09-10T11:57:54Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://treadathletics.com/customized-mechanics-lateral-power"
   },
   "tread-blog-dominican-domination": {
@@ -6900,7 +6900,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-dominican-domination",
    "medium": "blog",
-   "note": "_review/2017-04-06-why-dominicans-are-dominating-baseball.md",
+   "note": "sources/tread/2017-04-06-why-dominicans-are-dominating-baseball.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -6915,9 +6915,9 @@
    "raw": "sources/_raw/tread/tread-blog-dominican-domination.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Why Dominicans Are Dominating Baseball",
-   "updated": "2026-09-13T11:51:31Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://treadathletics.com/dominican-domination"
   },
   "tread-blog-energy-flow": {
@@ -6944,7 +6944,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-external-rotation-throw-harder",
    "medium": "blog",
-   "note": "_review/2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation.md",
+   "note": "sources/tread/2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -6966,9 +6966,9 @@
    "raw": "sources/_raw/tread/tread-blog-external-rotation-throw-harder.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Throw Harder Fastballs By Improving Your External Rotation",
-   "updated": "2026-09-10T11:54:15Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://treadathletics.com/external-rotation-throw-harder"
   },
   "tread-blog-grunting-increases-velocity-by-5": {
@@ -6978,7 +6978,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-grunting-increases-velocity-by-5",
    "medium": "blog",
-   "note": "_review/2016-01-17-grunting-to-improve-throwing-velociy.md",
+   "note": "sources/tread/2016-01-17-grunting-to-improve-throwing-velociy.md",
    "proposal": {
     "cues": [
      "cue-do-it-on-every-pitch-so-you-don-t-tip-off-when-you-re"
@@ -6995,9 +6995,9 @@
    "raw": "sources/_raw/tread/tread-blog-grunting-increases-velocity-by-5.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Grunting to Improve Throwing Velociy",
-   "updated": "2026-09-10T11:50:57Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://treadathletics.com/grunting-increases-velocity-by-5"
   },
   "tread-blog-high-velocity-training": {
@@ -7328,7 +7328,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-strength-training-baseball-isolation-exercises",
    "medium": "blog",
-   "note": "_review/2016-02-12-strength-training-for-baseball-and-isolation-exercises.md",
+   "note": "sources/tread/2016-02-12-strength-training-for-baseball-and-isolation-exercises.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -7346,9 +7346,9 @@
    "raw": "sources/_raw/tread/tread-blog-strength-training-baseball-isolation-exercises.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Strength Training for Baseball and Isolation Exercises",
-   "updated": "2026-09-10T11:52:48Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://treadathletics.com/strength-training-baseball-isolation-exercises"
   },
   "tread-blog-summer-ball": {
@@ -7358,7 +7358,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-summer-ball",
    "medium": "blog",
-   "note": "_review/2017-01-19-should-i-play-summer-ball-weighing-the-pros-and-cons.md",
+   "note": "sources/tread/_rejected/2017-01-19-should-i-play-summer-ball-weighing-the-pros-and-cons.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -7373,9 +7373,9 @@
    "raw": "sources/_raw/tread/tread-blog-summer-ball.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Should I Play Summer Ball? Weighing the Pros and Cons",
-   "updated": "2026-09-10T11:59:09Z",
+   "updated": "2026-09-26T11:30:24Z",
    "url": "https://treadathletics.com/summer-ball"
   },
   "tread-blog-tempo": {
@@ -7878,7 +7878,7 @@
    "feed": "youtube",
    "id": "wMIx9AAfLOo",
    "medium": "video",
-   "note": "_review/2013-04-25-janson-junk-decatur-hs-vs-auburn-mountainview.md",
+   "note": "sources/driveline/_rejected/2013-04-25-janson-junk-decatur-hs-vs-auburn-mountainview.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -7892,9 +7892,9 @@
    "raw": "sources/_raw/driveline/wMIx9AAfLOo.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "rejected",
    "title": "Janson Junk - Decatur HS vs. Auburn Mountainview",
-   "updated": "2026-09-13T11:46:38Z",
+   "updated": "2026-09-26T11:30:23Z",
    "url": "https://www.youtube.com/watch?v=wMIx9AAfLOo"
   },
   "wNoYLNe5VCg": {

@@ -34,3 +34,11 @@ versa). Source of truth is the brain; Astro World renders it. See [[astro-world]
 - [[2026-07-26-from-88-to-96-mph-in-10-weeks-the-luis-patino-story]] - From 88 to 96 MPH in 10 Weeks: The Luis Patiño Story
 - [[2026-08-15-why-1-mph-is-worth-millions-to-mlb-players]] - Why 1 MPH Is Worth Millions to MLB Players
 - [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] - How To Throw Hard As A Short Pitcher
+- [[2010-03-04-appropriate-energy-system-development-why-running-poles-is]] - Appropriate Energy System Development - Why Running Poles is a Bad Idea
+- [[2013-12-14-advanced-pitching-mechanics-pronation-in-the-delivery]] - Advanced Pitching Mechanics: Pronation in the Delivery
+- [[2016-11-10-customized-mechanics-lateral-power]] - Customized Mechanics: Lateral Power
+- [[2018-02-08-the-case-for-lifting-weights-a-declaration-for-the-youth]] - The Case for Lifting Weights, A Declaration for The Youth Pitcher
+- [[2019-02-11-the-drift-how-to-shift-your-weight-like-a-pro]] - The "Drift" - How to Shift Your Weight Like a Pro
+- [[2019-08-15-tread-athletics-q-a-episode-1]] - Tread Athletics - Q&A Episode 1
+- [[2019-12-22-q-a-episode-4]] - Q & A Episode 4
+- [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]] - The Best And Worst Lower Half Pitching Drills [Ranked]

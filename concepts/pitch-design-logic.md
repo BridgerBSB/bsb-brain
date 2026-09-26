@@ -22,3 +22,4 @@ module on GroundControl movement data.
 - [[2026-07-16-36-year-old-pitching-coach-starts-a-pro-game]] - 36-Year-Old Pitching Coach Starts A Pro Game
 - [[2026-08-02-he-just-skipped-college-to-become-a-pro-keaton-maiorana]] - He Just Skipped College To Become A Pro | Keaton Maiorana
 - [[2026-09-06-complete-guide-to-mastering-the-changeup-grips-cues]] - Complete Guide To Mastering The Changeup [Grips, Cues, & Sequencing]
+- [[2013-12-14-advanced-pitching-mechanics-pronation-in-the-delivery]] - Advanced Pitching Mechanics: Pronation in the Delivery
