@@ -1,4 +1,12 @@
-# Last state - 2026-09-23 (hiring app session)
+# Last session state - 2026-09-25 (canonical pitcher pools)
+- **Project / cwd:** bsb-resources (feature/pd-goals) + bsb-wt-bullpen (feature/bullpen-reports) + bsb-wt-hitting (feature/barrelsville)
+- **What we were doing:** wired the canonical pitcher percentile rule (overall 300 / hand 300 / pitch type 100 / type x hand 50, 5+ pitchers, fallback last season -> next level up, fallback named on page) into every pitcher surface; fixed EOY decks going illegible on Posit, the never-SENT Delivered column, intrasquad pools using the schedule level, and moved Toolbox pins off Camden's account.
+- **Shipped this session:** Arm Farm 9327bc7a/87ee495e..ad6fa44f/01c7ae49/9670d1d1/f6436c56/a6e086ff/90fc98ef; PD Engine 8a810e5e/4f1e25f7/2a00f599/6535da1d; Barrelsville ec7e5fe5/90d73352; rules blocking #24 + percentile-golden-gates PITCHER POOLS -- CANONICAL (WIRED). Zac rebuilt every pin and redeployed all 3 apps + pin jobs.
+- **EXACT next step:** run the verification test table (recall checkpoint 5f39b86f / image 1242), first `py -3.11 scripts\generate_postgame.py --date 2026-09-21 --pitcher 1273220 --sched-type intrasquad` in C:\Users\zbridger\bsb-wt-bullpen\bullpen-report -> slider cells colored, no blue.
+- **Blockers / waiting on:** Posit UI schedules + Vars (Zac key) on toolbox / v2_pools / eoy / tracker jobs; unschedule Camden's old toolbox job; ROTATE the two API keys pasted in chat; Arm Farm connect_pins deploy notebook was still running.
+- **Uncommitted work:** only pre-existing untracked scratch in bsb-resources; everything this session pushed.
+
+## ALSO OPEN - hiring app (2026-09-23)
 
 ## Where things stand
 All work is COMMITTED + PUSHED to `BridgerBSB/hiring` `main` (head `af2f833`).
