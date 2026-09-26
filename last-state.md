@@ -1,26 +1,48 @@
-# Last session state — 2026-09-19 17:31
-- **Project / cwd:** `C:\Users\Owner\bsb-resources\command-cv` · branch `feature/pd-goals`
-- **What we were doing:** Command CV. Scaled the ball-detector dataset from 4 ballparks to
-  13 by building the whole pull pipeline: enumerate venues off the public schedule endpoint,
-  harvest clip URLs with Zac's Okta token, then download/detect/label/cut-crops/prune
-  unattended. Found five silent defects along the way, four of them mine.
-- **Shipped this session:** 25 commits, `6e3215c5` → `00652795`, all pushed.
-  **19 park-games, 13 venues, 2,983 clips, 31,699 labelled points** (v1 had 2,136).
-  New: `affiliate_schedule.py` (700 games / 63 level-venues / 348 away),
-  `harvest_pull_csvs.py` (4,813 clips banked in `output/cvpull/`),
-  `rolling_pull.py`, `labels_from_detector.py`, `park_scoreboard.py`,
-  `browser/cv_pull.js`, rule `long-jobs-on-this-laptop.md` (synced to 4 worktrees).
-  Corrections: the POSE was vetoing good tracks (81 of 212 Isotopes clips);
-  the SCAN WINDOW was truncating flights (Greensboro's plate is f277 vs a f250 window;
-  Constellation 31%→47%); my `--angle` default was CENTERFIELD; a documented cv2 seek
-  bug reappeared and made 9 parks' labels look wrong; the loop deleted video before
-  cutting crops. Retracted "low-yield parks share tight framing" — corr is +0.52, opposite.
-- **EXACT next step:** `cd C:\Users\Owner\bsb-resources\command-cv` then
-  `python scripts/rolling_pull.py --weights data/yolo_ball_runs/milb4park/weights/best.pt --games 827291,827289,821925,821924,817525,817522,816448,816447,814875,814874 --labels-only --min-free-gb 6`
-  (crop recovery, was at 5,451 of ~31,700; resumes from disk). Then build the val split
-  for Asheville 822515 separately, then train 12 epochs `--device 0` and read the
-  held-out Asheville pixel error against v1's **2.15 px**. Never read mAP.
-- **Blockers / waiting on:** Nothing blocking. Would help: launch Claude Code with
-  `CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP=1` (7 reaps today); a fresh Okta token for
-  more venues (only 8 of 63 banked); a decision on the Colab notebook (not written).
-- **Uncommitted work:** 81 untracked paths, ALL pre-existing from before this session.
+# Last state - 2026-09-23 (hiring app session)
+
+## Where things stand
+All work is COMMITTED + PUSHED to `BridgerBSB/hiring` `main` (head `af2f833`).
+Railway redeploys from main. **Zac has NOT yet confirmed the live site picked up
+the new code** - he reported Resources looking empty, which points at the deploy,
+not the data (prod DB verified to hold everything).
+
+## Shipped today (hiring repo, cage-sandbox)
+1. **Alt view** on the hiring board (`39ea098`, `b8f9108`) - read-only, all names on
+   one screen; Non-Renews gets its own row. "Astros Multipurpose" renamed "Astros".
+2. **Hiring Processes + `lim` level** (`ee50b2b`, `f044f31`, `7e97136`, `5114453`) -
+   committee sees only shared searches (default Director of Hitting/Pitching),
+   allowlisted fields, resume on top (PDF inline), ONE named notes thread shared
+   with the Hiring Board drawer, owner share/hide switches, MS Forms link per search.
+   Board intake notes (`notesShared`, may hold salary) deliberately NOT crossed over.
+3. **Resources** (`a836d0e`, `af2f833`) - owner-only page, links + file uploads
+   (64 MB), now with FOLDERS (nest, breadcrumbs, drag-to-move, rename, search,
+   same-name replaces, removing a folder lifts its contents).
+   PROD holds 3 folders (Hitting / Pitching / Manager-Dev-Field) + 11 real documents
+   (92 MB, verified byte-for-byte vs SharePoint) + 6 MS Forms links + SharePoint link.
+4. **Internal board** (`4bba913`, `3bfa1d3`, `a2dbc0f`) - "Clear names" (project
+   boards only, keeps structure, people to Not Placed) and MULTIPLE named project
+   boards (+ New / Rename / Delete, new `/api/staff/board/delete`). Autosaves.
+5. **Security (pre-existing holes closed)** (`dc3271a`, `95abade`) - the cage/pitching
+   JSON API and `/api/admin/*` invite codes were open to ANY staff level; assessments
+   are now OWNER-ONLY (admin lost AREA_CAGE/AREA_PITCH at Zac's instruction).
+6. **Coordinator notes app** (separate repo) - Aaron Westlake fully locked out
+   (`aa8cb52`), notes kept; reusable `scripts/offboard_user.py EMAIL --apply`.
+
+## Migrations APPLIED to prod Supabase from this laptop
+011 (lim role), 012 (process_note/process_setting), 013 (value_text),
+014 (resource_item/resource_blob), 015 (folders + process_setting kind 'form_url').
+
+## Open items for Zac
+- **Confirm the Railway deploy** and walk the 3 pages (Resources / Hiring Processes /
+  internal board project boards).
+- Sam to decide who sees which questionnaire links (per-search link exists; not
+  per-person).
+- Office files download rather than preview (PDF preview possible if wanted).
+- Hiring Board stays reachable by the one admin account (Zac's call, revisit later).
+- Committee notes/uploads spec: `hiring/docs/plans/2026-09-21-candidate-review-committee-spec.md`.
+
+## Lesson worth keeping (already in the commit message)
+SQLite tests cannot see a Postgres CHECK constraint. 968 green tests hid a prod bug
+where `process_setting` refused `kind='form_url'` and the route blamed an applied
+migration. Third occurrence (008, 011, now 015) - any value the app hands out must be
+legal in the hosted schema, and that pairing needs a test that greps migrations.
