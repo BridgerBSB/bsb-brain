@@ -1,6 +1,6 @@
 # Auto-filed as low value (not reviewed)
 
-Written by `kb.py lint` 2026-09-25 06:51. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
+Written by `kb.py lint` 2026-09-26 05:18. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
 
 - 2026-08-26 tread marketing: Is Tread's Remote Coaching Worth It? A Parent Perspective. - https://www.youtube.com/watch?v=y1gPpzn5DMw - id `y1gPpzn5DMw`
 - 2026-07-23 tread marketing: He Went D1 After Throwing 97 MPH In This Showcase - https://www.youtube.com/watch?v=5-N9m4A7BWY - id `5-N9m4A7BWY`
@@ -15,10 +15,35 @@ Written by `kb.py lint` 2026-09-25 06:51. Marketing and low-value items skip the
 - 2025-07-27 bpc marketing: The Lefty Velo-Off  🔥 - https://www.youtube.com/watch?v=o3m2JNbG_cw - id `o3m2JNbG_cw`
 - 2024-03-06 bpc marketing: BPC Remote Training - https://www.youtube.com/watch?v=r-yW4Fk6hnA - id `r-yW4Fk6hnA`
 - 2021-03-17 bpc athlete-story: A Day in the Life: BPC Offseason 2021 - https://www.youtube.com/watch?v=NMd52BXwqYY - id `NMd52BXwqYY`
+- 2016-06-17 driveline athlete-story: Herbie Good: The Good Project - https://www.youtube.com/watch?v=EPvZVAcGExQ - id `EPvZVAcGExQ`
+- 2016-04-09 driveline marketing: Marc Pro - General Info/Pad Placement - https://www.youtube.com/watch?v=EssPpQY4oow - id `EssPpQY4oow`
+- 2015-10-31 driveline marketing: Jabroni Baseball Training #3 | Driveline Baseball - https://www.youtube.com/watch?v=z1-e5aW5NE8 - id `z1-e5aW5NE8`
+- 2015-05-21 driveline instruction: Pitcher Shoulder Corrective Exercises | Driveline Baseball - https://www.youtube.com/watch?v=a5t-sCWz61Q - id `a5t-sCWz61Q`
+- 2015-03-31 driveline instruction: A Day of Tommy John Rehab | Driveline Baseball - https://www.youtube.com/watch?v=dS-sz2qRg4U - id `dS-sz2qRg4U`
+- 2014-10-22 driveline marketing: Jabroni Pitching Program - Mound Work | Driveline Baseball - https://www.youtube.com/watch?v=_LNxbiyPA3U - id `_LNxbiyPA3U`
+- 2014-09-30 driveline marketing: Velocity Development - 100 MPH Run and Guns w/ Vandy Boys | Driveline Baseball - https://www.youtube.com/watch?v=xOUfL_dVJvo - id `xOUfL_dVJvo`
+- 2014-09-11 driveline marketing: Driveline Baseball Facility Tour - September 2014 - https://www.youtube.com/watch?v=jv4Th_kWDo8 - id `jv4Th_kWDo8`
+- 2014-06-13 driveline marketing: Velocity-Building Day | Driveline Baseball - https://www.youtube.com/watch?v=qZ_6hHfdVYI - id `qZ_6hHfdVYI`
+- 2014-03-14 driveline marketing: Driveline Baseball Facility Tour - March 2014 - https://www.youtube.com/watch?v=dFoqfDEpkio - id `dFoqfDEpkio`
+- 2013-12-31 driveline marketing: Driveline Baseball Facility Tour - December 2013 - https://www.youtube.com/watch?v=jzKZQ0uVO1c - id `jzKZQ0uVO1c`
 - 2013-11-20 driveline marketing: Driveline Baseball Facility Tour: Mid-November 2013! - https://www.youtube.com/watch?v=D3cuBmwuDxs - id `D3cuBmwuDxs`
 - 2013-10-16 driveline marketing: Quick Tour of the Driveline Baseball Facility - October 2013 - https://www.youtube.com/watch?v=04DVpGkDXNw - id `04DVpGkDXNw`
+- 2013-10-05 driveline marketing: EMG Sensor Testing at Driveline Baseball - https://www.youtube.com/watch?v=gmK0tbTCC8E - id `gmK0tbTCC8E`
 - 2013-03-17 driveline instruction: Speed Training for Baseball - Prowler Pushes - https://www.youtube.com/watch?v=Yg3YznNU1yY - id `Yg3YznNU1yY`
 - 2013-01-06 driveline instruction: Pitching Arm Care: Heavy Deceleration Throws (drivelinebaseball.com) - https://www.youtube.com/watch?v=5rkW2BF8Ahs - id `5rkW2BF8Ahs`
+- 2010-07-12 driveline instruction: Programming Mistake Numero Uno - https://drivelinebaseball.com/blogs/blog/programming-mistake-numero-uno - id `dl-blog-programming-mistake-numero-uno`
+- 2010-06-08 driveline philosophy: Obligatory Post About Stephen Strasburg - https://drivelinebaseball.com/blogs/blog/obligatory-post-about-stephen-strasburg - id `dl-blog-obligatory-post-about-stephen-strasburg`
+- 2010-06-07 driveline marketing: MLB Draft! - https://drivelinebaseball.com/blogs/blog/mlb-draft - id `dl-blog-mlb-draft`
+- 2010-05-17 driveline marketing: Random Monday Thoughts - https://drivelinebaseball.com/blogs/blog/random-monday-thoughts - id `dl-blog-random-monday-thoughts`
+- 2010-05-06 driveline instruction: Video: How to Shoulder Rehab - https://drivelinebaseball.com/blogs/blog/video-how-to-shoulder-rehab - id `dl-blog-video-how-to-shoulder-rehab`
+- 2010-05-02 driveline marketing: Humor: The State of High School Strength Programs - https://drivelinebaseball.com/blogs/blog/humor-the-state-of-high-school-strength-programs - id `dl-blog-humor-the-state-of-high-school-strength-programs`
+- 2010-04-22 driveline instruction: Adjusting Stance on the Rubber Based on Batter's Handedness - https://drivelinebaseball.com/blogs/blog/adjusting-stance-on-the-rubber-based-on-batters-handedness - id `dl-blog-adjusting-stance-on-the-rubber-based-on-batters-handedness`
+- 2010-04-18 driveline marketing: News: Strength and Conditioning Coming to NSBA Facility! - https://drivelinebaseball.com/blogs/blog/news-strength-and-conditioning-coming-to-nsba-facility - id `dl-blog-news-strength-and-conditioning-coming-to-nsba-facility`
+- 2010-04-17 driveline marketing: Humor: Post-Workout Nutrition - https://drivelinebaseball.com/blogs/blog/humor-post-workout-nutrition - id `dl-blog-humor-post-workout-nutrition`
+- 2010-04-11 driveline marketing: More Pictures of Our S&C Facility - https://drivelinebaseball.com/blogs/blog/more-pictures-of-our-sc-facility - id `dl-blog-more-pictures-of-our-sc-facility`
+- 2010-04-04 driveline marketing: Optimal Shoulder Performance - https://drivelinebaseball.com/blogs/blog/optimal-shoulder-performance - id `dl-blog-optimal-shoulder-performance`
+- 2010-03-18 driveline marketing: Link/Video: Mariners Strength Program - https://drivelinebaseball.com/blogs/blog/linkvideo-mariners-strength-program - id `dl-blog-linkvideo-mariners-strength-program`
+- 2010-03-16 driveline interview: Link: College Pitching Injuries - https://drivelinebaseball.com/blogs/blog/link-college-pitching-injuries - id `dl-blog-link-college-pitching-injuries`
 - 2010-02-23 driveline philosophy: Video: Should Pitchers Overhead Press? - https://drivelinebaseball.com/blogs/blog/video-should-pitchers-overhead-press - id `dl-blog-video-should-pitchers-overhead-press`
 - 2010-02-21 driveline marketing: Video: Fun with a New Training Toy - https://drivelinebaseball.com/blogs/blog/video-fun-with-a-new-training-toy - id `dl-blog-video-fun-with-a-new-training-toy`
 - 2010-02-01 driveline research: My Recent Reading List - https://drivelinebaseball.com/blogs/blog/my-recent-reading-list - id `dl-blog-my-recent-reading-list`

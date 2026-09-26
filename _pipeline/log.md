@@ -395,3 +395,10 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-26 04:30 promoted 2020-06-11-jordan-hicks-pre-vs-post-surgery-mechanical-breakdown (instruction/high, 1 cues, 0 drills)
 - 2026-09-26 04:30 promoted 2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown (instruction/high, 3 cues, 1 drills)
 - 2026-09-26 04:30 promoted 2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked (instruction/high, 5 cues, 9 drills)
+- 2026-09-26 04:30 promote: 35 promoted, 5 rejected, 0 corrections
+- 2026-09-26 04:30 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-09-26 04:31 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-09-26 04:31 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-09-26 04:31 discover tread-blog (backfill): 6 seen, 0 new
+- 2026-09-26 04:35 fetch: 5 ok, 3 failed, 0 deferred; whisper 2 min
+- 2026-09-26 05:18 summarize: 39 ok, 1 failed (queue had room for 40)
