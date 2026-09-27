@@ -1,6 +1,6 @@
 # Auto-filed as low value (not reviewed)
 
-Written by `kb.py lint` 2026-09-26 05:18. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
+Written by `kb.py lint` 2026-09-27 05:19. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
 
 - 2026-08-26 tread marketing: Is Tread's Remote Coaching Worth It? A Parent Perspective. - https://www.youtube.com/watch?v=y1gPpzn5DMw - id `y1gPpzn5DMw`
 - 2026-07-23 tread marketing: He Went D1 After Throwing 97 MPH In This Showcase - https://www.youtube.com/watch?v=5-N9m4A7BWY - id `5-N9m4A7BWY`
@@ -15,8 +15,13 @@ Written by `kb.py lint` 2026-09-26 05:18. Marketing and low-value items skip the
 - 2025-07-27 bpc marketing: The Lefty Velo-Off  🔥 - https://www.youtube.com/watch?v=o3m2JNbG_cw - id `o3m2JNbG_cw`
 - 2024-03-06 bpc marketing: BPC Remote Training - https://www.youtube.com/watch?v=r-yW4Fk6hnA - id `r-yW4Fk6hnA`
 - 2021-03-17 bpc athlete-story: A Day in the Life: BPC Offseason 2021 - https://www.youtube.com/watch?v=NMd52BXwqYY - id `NMd52BXwqYY`
+- 2020-01-01 tread marketing: Tread Athletics 2019 Year in Review - https://treadathletics.com/2019-year-in-review - id `tread-blog-2019-year-in-review`
+- 2016-07-25 driveline marketing: Driveline | Australia - https://www.youtube.com/watch?v=8Sem7c9t400 - id `8Sem7c9t400`
 - 2016-06-17 driveline athlete-story: Herbie Good: The Good Project - https://www.youtube.com/watch?v=EPvZVAcGExQ - id `EPvZVAcGExQ`
+- 2016-06-08 driveline athlete-story: Herbie Good 6'8" RHP | 91-94 MPH, Seattle Studs 6/7/2016 - https://www.youtube.com/watch?v=sqNKp9n6fNA - id `sqNKp9n6fNA`
 - 2016-04-09 driveline marketing: Marc Pro - General Info/Pad Placement - https://www.youtube.com/watch?v=EssPpQY4oow - id `EssPpQY4oow`
+- 2016-03-25 driveline interview: Casey Weathers | Driveline Baseball - https://www.youtube.com/watch?v=VNCAuOra85Y - id `VNCAuOra85Y`
+- 2016-03-21 driveline marketing: What is Driveline Baseball All About? - https://www.youtube.com/watch?v=th0hp7yS2pk - id `th0hp7yS2pk`
 - 2015-10-31 driveline marketing: Jabroni Baseball Training #3 | Driveline Baseball - https://www.youtube.com/watch?v=z1-e5aW5NE8 - id `z1-e5aW5NE8`
 - 2015-05-21 driveline instruction: Pitcher Shoulder Corrective Exercises | Driveline Baseball - https://www.youtube.com/watch?v=a5t-sCWz61Q - id `a5t-sCWz61Q`
 - 2015-03-31 driveline instruction: A Day of Tommy John Rehab | Driveline Baseball - https://www.youtube.com/watch?v=dS-sz2qRg4U - id `dS-sz2qRg4U`
@@ -31,6 +36,8 @@ Written by `kb.py lint` 2026-09-26 05:18. Marketing and low-value items skip the
 - 2013-10-05 driveline marketing: EMG Sensor Testing at Driveline Baseball - https://www.youtube.com/watch?v=gmK0tbTCC8E - id `gmK0tbTCC8E`
 - 2013-03-17 driveline instruction: Speed Training for Baseball - Prowler Pushes - https://www.youtube.com/watch?v=Yg3YznNU1yY - id `Yg3YznNU1yY`
 - 2013-01-06 driveline instruction: Pitching Arm Care: Heavy Deceleration Throws (drivelinebaseball.com) - https://www.youtube.com/watch?v=5rkW2BF8Ahs - id `5rkW2BF8Ahs`
+- 2010-08-24 driveline philosophy: Rob Dibble's Comments on Stephen Strasburg - https://drivelinebaseball.com/blogs/blog/rob-dibbles-comments-on-stephen-strasburg - id `dl-blog-rob-dibbles-comments-on-stephen-strasburg`
+- 2010-08-20 driveline marketing: Fall Baseball Training - https://drivelinebaseball.com/blogs/blog/fall-baseball-training - id `dl-blog-fall-baseball-training`
 - 2010-07-12 driveline instruction: Programming Mistake Numero Uno - https://drivelinebaseball.com/blogs/blog/programming-mistake-numero-uno - id `dl-blog-programming-mistake-numero-uno`
 - 2010-06-08 driveline philosophy: Obligatory Post About Stephen Strasburg - https://drivelinebaseball.com/blogs/blog/obligatory-post-about-stephen-strasburg - id `dl-blog-obligatory-post-about-stephen-strasburg`
 - 2010-06-07 driveline marketing: MLB Draft! - https://drivelinebaseball.com/blogs/blog/mlb-draft - id `dl-blog-mlb-draft`

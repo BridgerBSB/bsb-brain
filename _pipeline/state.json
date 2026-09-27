@@ -4,14 +4,14 @@
   "bpc-yt:pos:oldest": 8,
   "bpc-yt:total": 42,
   "driveline-blog:page:newest": 2,
-  "driveline-blog:page:oldest": 130,
+  "driveline-blog:page:oldest": 129,
   "driveline-yt:pos:newest": 10,
-  "driveline-yt:pos:oldest": 80,
+  "driveline-yt:pos:oldest": 88,
   "driveline-yt:total": 510,
   "tread-blog:page:newest": 2,
-  "tread-blog:page:oldest": 0,
+  "tread-blog:page:oldest": -1,
   "tread-yt:pos:newest": 10,
-  "tread-yt:pos:oldest": 80,
+  "tread-yt:pos:oldest": 88,
   "tread-yt:total": 755
  },
  "items": {
@@ -1182,6 +1182,23 @@
    "updated": "2026-09-05T21:05:03Z",
    "url": "https://www.youtube.com/watch?v=7TfkmadZ9P8"
   },
+  "7YhnfOy0h44": {
+   "added": "2026-09-27T11:36:22Z",
+   "duration_s": 31,
+   "error": "RuntimeError: too-short transcript",
+   "feed": "youtube",
+   "id": "7YhnfOy0h44",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "tread",
+   "status": "failed",
+   "title": "6'9\" College Pitcher Throws 95-97 MPH | RJ Petit",
+   "updated": "2026-09-27T11:36:35Z",
+   "url": "https://www.youtube.com/watch?v=7YhnfOy0h44"
+  },
   "7b3kEW78N0s": {
    "added": "2026-09-08T11:31:09Z",
    "duration_s": 399,
@@ -1275,6 +1292,66 @@
    "title": "Stop Choosing Between Power & Contact | Tyler Jones Swing Design",
    "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=7nvwOFe51c8"
+  },
+  "7zzg83ksGcc": {
+   "added": "2026-09-27T11:36:09Z",
+   "duration_s": 102,
+   "error": "RuntimeError: too-short transcript",
+   "feed": "youtube",
+   "id": "7zzg83ksGcc",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "How To Train at the Park | Driveline Baseball",
+   "updated": "2026-09-27T11:36:55Z",
+   "url": "https://www.youtube.com/watch?v=7zzg83ksGcc"
+  },
+  "8Sem7c9t400": {
+   "added": "2026-09-27T11:36:09Z",
+   "duration_s": 207,
+   "error": null,
+   "feed": "youtube",
+   "id": "8Sem7c9t400",
+   "medium": "video",
+   "note": "sources/driveline/_low/2016-07-25-driveline-australia.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2016-07-25",
+   "raw": "sources/_raw/driveline/8Sem7c9t400.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "filed-low",
+   "title": "Driveline | Australia",
+   "updated": "2026-09-27T11:47:24Z",
+   "url": "https://www.youtube.com/watch?v=8Sem7c9t400"
+  },
+  "94f6dw77LW4": {
+   "added": "2026-09-27T11:36:22Z",
+   "duration_s": 151,
+   "error": null,
+   "feed": "youtube",
+   "id": "94f6dw77LW4",
+   "medium": "video",
+   "note": null,
+   "published": "2021-07-16",
+   "raw": "sources/_raw/tread/94f6dw77LW4.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "From mid 80's to 97+ mph & 5th Round Draft Pick | Rohan Handa",
+   "updated": "2026-09-27T11:37:57Z",
+   "url": "https://www.youtube.com/watch?v=94f6dw77LW4"
   },
   "9O0uBasyF_0": {
    "added": "2026-09-05T00:34:56Z",
@@ -2892,6 +2969,23 @@
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=QznGfiTK1T0"
   },
+  "RLGSEg0xEeI": {
+   "added": "2026-09-27T11:36:22Z",
+   "duration_s": 861,
+   "error": null,
+   "feed": "youtube",
+   "id": "RLGSEg0xEeI",
+   "medium": "video",
+   "note": null,
+   "published": "2021-07-01",
+   "raw": "sources/_raw/tread/RLGSEg0xEeI.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Identifying ER vs IR Dominance in Pitchers",
+   "updated": "2026-09-27T11:38:13Z",
+   "url": "https://www.youtube.com/watch?v=RLGSEg0xEeI"
+  },
   "RczpZSjZgQA": {
    "added": "2026-09-05T20:37:29Z",
    "duration_s": 254,
@@ -3333,13 +3427,23 @@
    "feed": "youtube",
    "id": "VNCAuOra85Y",
    "medium": "video",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "sources/driveline/_low/2016-03-25-casey-weathers-driveline-baseball.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [],
+    "kind": "interview",
+    "value": "low"
+   },
+   "published": "2016-03-25",
+   "raw": "sources/_raw/driveline/VNCAuOra85Y.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
+   "status": "filed-low",
    "title": "Casey Weathers | Driveline Baseball",
+   "updated": "2026-09-27T11:46:17Z",
    "url": "https://www.youtube.com/watch?v=VNCAuOra85Y"
   },
   "VanYIWlAShc": {
@@ -3437,17 +3541,18 @@
   "WVNvwDJC5YA": {
    "added": "2026-09-26T11:30:51Z",
    "duration_s": 86,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "WVNvwDJC5YA",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Driveline Baseball in the 2016 Draft",
+   "updated": "2026-09-27T11:33:30Z",
    "url": "https://www.youtube.com/watch?v=WVNvwDJC5YA"
   },
   "WaPqnvfP_PI": {
@@ -3486,6 +3591,23 @@
    "updated": "2026-09-08T11:30:38Z",
    "url": "https://www.youtube.com/watch?v=WaPqnvfP_PI"
   },
+  "WeyyIc2Kn8Q": {
+   "added": "2026-09-27T11:36:22Z",
+   "duration_s": 2264,
+   "error": null,
+   "feed": "youtube",
+   "id": "WeyyIc2Kn8Q",
+   "medium": "video",
+   "note": null,
+   "published": "2021-07-08",
+   "raw": "sources/_raw/tread/WeyyIc2Kn8Q.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Shohei \"Showtime\" Ohtani | Mechanical Breakdown",
+   "updated": "2026-09-27T11:38:29Z",
+   "url": "https://www.youtube.com/watch?v=WeyyIc2Kn8Q"
+  },
   "XEMqA0BTuzo": {
    "added": "2026-09-10T11:37:44Z",
    "duration_s": 774,
@@ -3493,14 +3615,31 @@
    "feed": "youtube",
    "id": "XEMqA0BTuzo",
    "medium": "video",
-   "note": null,
+   "note": "_review/2020-01-23-the-tennis-racket-drill-a-simple-arm-action-fix.md",
+   "proposal": {
+    "cues": [
+     "cue-step-and-throw-hands-together-imagine-you-got-to-hit-a",
+     "cue-close-the-figure-8-open-the-figure-8"
+    ],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [
+     "drill-tennis-racket-step-and-throw",
+     "drill-rhythm-rocker-with-tennis-racket-and-figure-8",
+     "drill-tennis-racket-full-delivery-step-back-step-in"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2020-01-23",
    "raw": "sources/_raw/tread/XEMqA0BTuzo.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "The Tennis Racket Drill | A Simple Arm Action Fix?",
-   "updated": "2026-09-13T11:30:42Z",
+   "updated": "2026-09-27T12:17:38Z",
    "url": "https://www.youtube.com/watch?v=XEMqA0BTuzo"
   },
   "XOiyDpx2rv8": {
@@ -3685,12 +3824,13 @@
    "id": "ZuzX87h6K6A",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2021-05-13",
+   "raw": "sources/_raw/tread/ZuzX87h6K6A.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "How To Improve Consistency For Pitchers | Mechanical Anchors",
+   "updated": "2026-09-27T11:33:47Z",
    "url": "https://www.youtube.com/watch?v=ZuzX87h6K6A"
   },
   "_7DtDIibxUQ": {
@@ -3906,6 +4046,23 @@
    "updated": "2026-09-09T11:33:41Z",
    "url": "https://www.youtube.com/watch?v=aNMNC8wc2BM"
   },
+  "aoqWZBkS4qw": {
+   "added": "2026-09-27T11:36:22Z",
+   "duration_s": 1234,
+   "error": null,
+   "feed": "youtube",
+   "id": "aoqWZBkS4qw",
+   "medium": "video",
+   "note": null,
+   "published": "2021-06-24",
+   "raw": "sources/_raw/tread/aoqWZBkS4qw.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Understanding The \"Second\" Arm Spiral",
+   "updated": "2026-09-27T11:38:45Z",
+   "url": "https://www.youtube.com/watch?v=aoqWZBkS4qw"
+  },
   "b8Ru4Qrmhig": {
    "added": "2026-09-09T11:36:17Z",
    "duration_s": 2143,
@@ -4016,6 +4173,23 @@
    "title": "THE VELO OFF 🚨 (Part 2)",
    "updated": "2026-09-05T22:13:39Z",
    "url": "https://www.youtube.com/watch?v=cGV1WBQKvhk"
+  },
+  "cmPcohE0Ze0": {
+   "added": "2026-09-27T11:36:09Z",
+   "duration_s": 61,
+   "error": "RuntimeError: too-short transcript",
+   "feed": "youtube",
+   "id": "cmPcohE0Ze0",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Jack Scheideman vs Tim Tebow - MLB \"Workouts\"",
+   "updated": "2026-09-27T11:39:00Z",
+   "url": "https://www.youtube.com/watch?v=cmPcohE0Ze0"
   },
   "cu-lLhkhuS4": {
    "added": "2026-09-05T20:37:41Z",
@@ -4327,13 +4501,28 @@
    "feed": "blog-pages",
    "id": "dl-blog-closed-chain-vs-open-chain-motion",
    "medium": "blog",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "_review/2010-08-09-closed-chain-vs-open-chain-motion.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength",
+     "anatomy-movement"
+    ],
+    "drills": [
+     "drill-squat-and-deadlift",
+     "drill-chin-up-pull-up-and-explosive-push-up-variants",
+     "drill-dumbbell-bench-press-dumbbell-row-and-band-work"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
+   "published": "2010-08-09",
+   "raw": "sources/_raw/driveline/dl-blog-closed-chain-vs-open-chain-motion.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "summarized",
+   "title": "Closed-Chain vs. Open-Chain Motion",
+   "updated": "2026-09-27T11:41:22Z",
    "url": "https://drivelinebaseball.com/blogs/blog/closed-chain-vs-open-chain-motion"
   },
   "dl-blog-compound-movements-use-them": {
@@ -4362,12 +4551,12 @@
    "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/compound-movements-use-them"
   },
-  "dl-blog-elbow-injuries-and-what-causes-tommy-john-surgery": {
-   "added": "2026-09-26T11:31:09Z",
+  "dl-blog-curtis-grandersons-experience-with-531": {
+   "added": "2026-09-27T11:36:25Z",
    "duration_s": null,
    "error": null,
    "feed": "blog-pages",
-   "id": "dl-blog-elbow-injuries-and-what-causes-tommy-john-surgery",
+   "id": "dl-blog-curtis-grandersons-experience-with-531",
    "medium": "blog",
    "note": null,
    "published": null,
@@ -4376,6 +4565,33 @@
    "source": "driveline",
    "status": "new",
    "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/curtis-grandersons-experience-with-531"
+  },
+  "dl-blog-elbow-injuries-and-what-causes-tommy-john-surgery": {
+   "added": "2026-09-26T11:31:09Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-elbow-injuries-and-what-causes-tommy-john-surgery",
+   "medium": "blog",
+   "note": "_review/2010-08-27-elbow-injuries-and-what-causes-tommy-john-surgery.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "research",
+    "value": "high"
+   },
+   "published": "2010-08-27",
+   "raw": "sources/_raw/driveline/dl-blog-elbow-injuries-and-what-causes-tommy-john-surgery.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "summarized",
+   "title": "Elbow Injuries and What Causes Tommy John Surgery",
+   "updated": "2026-09-27T11:45:11Z",
    "url": "https://drivelinebaseball.com/blogs/blog/elbow-injuries-and-what-causes-tommy-john-surgery"
   },
   "dl-blog-fall-baseball-training": {
@@ -4385,13 +4601,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-fall-baseball-training",
    "medium": "blog",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "sources/driveline/_low/2010-08-20-fall-baseball-training.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2010-08-20",
+   "raw": "sources/_raw/driveline/dl-blog-fall-baseball-training.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "filed-low",
+   "title": "Fall Baseball Training",
+   "updated": "2026-09-27T11:41:41Z",
    "url": "https://drivelinebaseball.com/blogs/blog/fall-baseball-training"
   },
   "dl-blog-free-weight-squats-smith-machine-squats": {
@@ -4420,6 +4646,22 @@
    "title": "Free Weight Squats > Smith Machine Squats",
    "updated": "2026-09-26T11:30:22Z",
    "url": "https://drivelinebaseball.com/blogs/blog/free-weight-squats-smith-machine-squats"
+  },
+  "dl-blog-hiring-biomechanics-kinesiology-interns": {
+   "added": "2026-09-27T11:36:25Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-hiring-biomechanics-kinesiology-interns",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/hiring-biomechanics-kinesiology-interns"
   },
   "dl-blog-how-pros-use-pulse-and-what-it-means-for-baseball": {
    "added": "2026-09-05T00:34:45Z",
@@ -4584,17 +4826,18 @@
   "dl-blog-link-absolute-strength-vs-absolute-speed": {
    "added": "2026-09-26T11:31:09Z",
    "duration_s": null,
-   "error": null,
+   "error": "RuntimeError: too-short article",
    "feed": "blog-pages",
    "id": "dl-blog-link-absolute-strength-vs-absolute-speed",
    "medium": "blog",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": null,
+   "updated": "2026-09-27T11:34:13Z",
    "url": "https://drivelinebaseball.com/blogs/blog/link-absolute-strength-vs-absolute-speed"
   },
   "dl-blog-link-college-pitching-injuries": {
@@ -5372,13 +5615,25 @@
    "feed": "blog-pages",
    "id": "dl-blog-rob-dibbles-comments-on-stephen-strasburg",
    "medium": "blog",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "sources/driveline/_low/2010-08-24-rob-dibble-s-comments-on-stephen-strasburg.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "mental",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "low"
+   },
+   "published": "2010-08-24",
+   "raw": "sources/_raw/driveline/dl-blog-rob-dibbles-comments-on-stephen-strasburg.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "filed-low",
+   "title": "Rob Dibble's Comments on Stephen Strasburg",
+   "updated": "2026-09-27T11:42:31Z",
    "url": "https://drivelinebaseball.com/blogs/blog/rob-dibbles-comments-on-stephen-strasburg"
   },
   "dl-blog-should-you-wear-a-weight-belt": {
@@ -5407,6 +5662,38 @@
    "title": "Should you wear a weight belt?",
    "updated": "2026-09-26T11:30:22Z",
    "url": "https://drivelinebaseball.com/blogs/blog/should-you-wear-a-weight-belt"
+  },
+  "dl-blog-soliciting-feedback-from-you": {
+   "added": "2026-09-27T11:36:25Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-soliciting-feedback-from-you",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/soliciting-feedback-from-you"
+  },
+  "dl-blog-strasburg-the-inverted-w-and-pitching-mechanics": {
+   "added": "2026-09-27T11:36:25Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-strasburg-the-inverted-w-and-pitching-mechanics",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/strasburg-the-inverted-w-and-pitching-mechanics"
   },
   "dl-blog-strength-training-for-youth-athletes": {
    "added": "2026-09-08T11:31:13Z",
@@ -5442,13 +5729,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-supplements-for-baseball-part-two",
    "medium": "blog",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "_review/2010-08-26-supplements-for-baseball-part-two.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [],
+    "kind": "research",
+    "value": "med"
+   },
+   "published": "2010-08-26",
+   "raw": "sources/_raw/driveline/dl-blog-supplements-for-baseball-part-two.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "summarized",
+   "title": "Supplements for Baseball: Part Two",
+   "updated": "2026-09-27T11:43:44Z",
    "url": "https://drivelinebaseball.com/blogs/blog/supplements-for-baseball-part-two"
   },
   "dl-blog-tejay-antone-third-tjs-return": {
@@ -5478,6 +5775,22 @@
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/tejay-antone-third-tjs-return"
   },
+  "dl-blog-the-difference-between-working-out-and-training": {
+   "added": "2026-09-27T11:36:25Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-the-difference-between-working-out-and-training",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/the-difference-between-working-out-and-training"
+  },
   "dl-blog-thomas-test-applications-in-baseball": {
    "added": "2026-09-09T11:36:21Z",
    "duration_s": null,
@@ -5506,6 +5819,22 @@
    "title": "Thomas Test - Applications in Baseball",
    "updated": "2026-09-26T11:30:22Z",
    "url": "https://drivelinebaseball.com/blogs/blog/thomas-test-applications-in-baseball"
+  },
+  "dl-blog-tim-lincecum-what-changed": {
+   "added": "2026-09-27T11:36:25Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-tim-lincecum-what-changed",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/tim-lincecum-what-changed"
   },
   "dl-blog-vertical-slider-pitch-design": {
    "added": "2026-09-05T00:34:45Z",
@@ -5763,6 +6092,22 @@
    "updated": "2026-09-10T11:37:08Z",
    "url": "https://www.youtube.com/watch?v=eFzv1Svjizc"
   },
+  "eGLzbEMe4qo": {
+   "added": "2026-09-27T11:36:22Z",
+   "duration_s": 608,
+   "error": null,
+   "feed": "youtube",
+   "id": "eGLzbEMe4qo",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Is the \"Daddy Hack\" Drill a Pitching Velocity Unlock?",
+   "url": "https://www.youtube.com/watch?v=eGLzbEMe4qo"
+  },
   "eO1fIQk4zlc": {
    "added": "2026-09-05T20:39:08Z",
    "duration_s": 45,
@@ -5823,6 +6168,22 @@
    "updated": "2026-09-09T11:35:36Z",
    "url": "https://www.youtube.com/watch?v=ebnUZmdfqQI"
   },
+  "ekozXUQuebI": {
+   "added": "2026-09-27T11:36:09Z",
+   "duration_s": 112,
+   "error": null,
+   "feed": "youtube",
+   "id": "ekozXUQuebI",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "The Westmont Project - The Alternative to College Summer Ball | Driveline Baseball",
+   "url": "https://www.youtube.com/watch?v=ekozXUQuebI"
+  },
   "espdyF-BEUU": {
    "added": "2026-09-13T11:36:04Z",
    "duration_s": 64,
@@ -5871,6 +6232,22 @@
    "title": "Complete Guide To Mastering The Changeup [Grips, Cues, & Sequencing]",
    "updated": "2026-09-09T11:35:38Z",
    "url": "https://www.youtube.com/watch?v=fBpo461Q7y8"
+  },
+  "fDQUSCygwqU": {
+   "added": "2026-09-27T11:36:22Z",
+   "duration_s": 2351,
+   "error": null,
+   "feed": "youtube",
+   "id": "fDQUSCygwqU",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Designing a Throwing Program | Pitching Development",
+   "url": "https://www.youtube.com/watch?v=fDQUSCygwqU"
   },
   "fFxpHv2LxEo": {
    "added": "2026-09-16T11:36:15Z",
@@ -6038,12 +6415,13 @@
    "id": "h79SiJTILqM",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2021-04-05",
+   "raw": "sources/_raw/tread/h79SiJTILqM.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "How Does Chase Petty Throw 100 MPH? | A Breakdown",
+   "updated": "2026-09-27T11:34:27Z",
    "url": "https://www.youtube.com/watch?v=h79SiJTILqM"
   },
   "hKG_KUpTQYc": {
@@ -6207,12 +6585,13 @@
    "id": "jx6EI93RflQ",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2021-04-20",
+   "raw": "sources/_raw/tread/jx6EI93RflQ.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "The \"Clevinger\" Kettlebell Drill | Pitching Drills",
+   "updated": "2026-09-27T11:34:46Z",
    "url": "https://www.youtube.com/watch?v=jx6EI93RflQ"
   },
   "jzKZQ0uVO1c": {
@@ -6360,6 +6739,22 @@
    "updated": "2026-09-08T11:59:25Z",
    "url": "https://www.youtube.com/watch?v=knFOYwxhM6k"
   },
+  "lI8cUdTKTy4": {
+   "added": "2026-09-27T11:36:09Z",
+   "duration_s": 146,
+   "error": null,
+   "feed": "youtube",
+   "id": "lI8cUdTKTy4",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Building Elite Hitters | Driveline Baseball",
+   "url": "https://www.youtube.com/watch?v=lI8cUdTKTy4"
+  },
   "lSnOakm2-Zk": {
    "added": "2026-09-26T11:31:05Z",
    "duration_s": 1927,
@@ -6368,12 +6763,13 @@
    "id": "lSnOakm2-Zk",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2021-03-16",
+   "raw": "sources/_raw/tread/lSnOakm2-Zk.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "The Cuban Missile: Exploring the Dominance, Pitching Mechanics, and Training of Aroldis Chapman",
+   "updated": "2026-09-27T11:35:02Z",
    "url": "https://www.youtube.com/watch?v=lSnOakm2-Zk"
   },
   "loijBoVRwg8": {
@@ -6685,6 +7081,22 @@
    "updated": "2026-09-07T01:23:52Z",
    "url": "https://www.youtube.com/watch?v=oReGvYrrvNk"
   },
+  "oiK-Kpw7Beo": {
+   "added": "2026-09-27T11:36:22Z",
+   "duration_s": 2134,
+   "error": null,
+   "feed": "youtube",
+   "id": "oiK-Kpw7Beo",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "What Makes Jack Leiter So Dominant? | Mechanical Breakdown",
+   "url": "https://www.youtube.com/watch?v=oiK-Kpw7Beo"
+  },
   "oiKXfjN1hD0": {
    "added": "2026-09-10T11:37:30Z",
    "duration_s": 15,
@@ -6701,6 +7113,22 @@
    "title": "Weighted Baseball Training for 2 year Olds",
    "updated": "2026-09-13T11:33:42Z",
    "url": "https://www.youtube.com/watch?v=oiKXfjN1hD0"
+  },
+  "p5D1kmLgPQw": {
+   "added": "2026-09-27T11:36:09Z",
+   "duration_s": 178,
+   "error": null,
+   "feed": "youtube",
+   "id": "p5D1kmLgPQw",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "The Truth Behind Pitching Mechanics | Driveline Baseball",
+   "url": "https://www.youtube.com/watch?v=p5D1kmLgPQw"
   },
   "pAno1J6U6iM": {
    "added": "2026-09-05T20:37:41Z",
@@ -6896,6 +7324,22 @@
    "updated": "2026-09-18T11:36:23Z",
    "url": "https://www.youtube.com/watch?v=rlsbKyE3Xns"
   },
+  "rroYrqBO1MQ": {
+   "added": "2026-09-27T11:36:09Z",
+   "duration_s": 72,
+   "error": null,
+   "feed": "youtube",
+   "id": "rroYrqBO1MQ",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Wrist Weight Drills",
+   "url": "https://www.youtube.com/watch?v=rroYrqBO1MQ"
+  },
   "sBOTw365OIk": {
    "added": "2026-09-05T20:37:36Z",
    "duration_s": 1010,
@@ -7040,13 +7484,23 @@
    "feed": "youtube",
    "id": "sqNKp9n6fNA",
    "medium": "video",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "sources/driveline/_low/2016-06-08-herbie-good-6-8-rhp-91-94-mph-seattle-studs-6-7-2016.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [],
+    "kind": "athlete-story",
+    "value": "low"
+   },
+   "published": "2016-06-08",
+   "raw": "sources/_raw/driveline/sqNKp9n6fNA.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
+   "status": "filed-low",
    "title": "Herbie Good 6'8\" RHP | 91-94 MPH, Seattle Studs 6/7/2016",
+   "updated": "2026-09-27T11:47:01Z",
    "url": "https://www.youtube.com/watch?v=sqNKp9n6fNA"
   },
   "sqqb_Tkyk80": {
@@ -7090,13 +7544,24 @@
    "feed": "youtube",
    "id": "th0hp7yS2pk",
    "medium": "video",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "sources/driveline/_low/2016-03-21-what-is-driveline-baseball-all-about.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "hitting"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2016-03-21",
+   "raw": "sources/_raw/driveline/th0hp7yS2pk.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
+   "status": "filed-low",
    "title": "What is Driveline Baseball All About?",
+   "updated": "2026-09-27T11:45:26Z",
    "url": "https://www.youtube.com/watch?v=th0hp7yS2pk"
   },
   "tjb9eqleBpc": {
@@ -7160,14 +7625,23 @@
    "feed": "blog-rss",
    "id": "tread-blog-2019-year-in-review",
    "medium": "blog",
-   "note": null,
+   "note": "sources/tread/_low/2020-01-01-tread-athletics-2019-year-in-review.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2020-01-01",
    "raw": "sources/_raw/tread/tread-blog-2019-year-in-review.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Tread Athletics 2019 Year in Review",
-   "updated": "2026-09-16T11:35:23Z",
+   "updated": "2026-09-27T12:14:36Z",
    "url": "https://treadathletics.com/2019-year-in-review"
   },
   "tread-blog-2020-year-in-review": {
@@ -7421,14 +7895,31 @@
    "feed": "blog-rss",
    "id": "tread-blog-7-causes-of-pushing",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2019-01-17-how-to-fix-a-pushing-arm-action-7-causes-and-solutions.md",
+   "proposal": {
+    "cues": [
+     "cue-think-about-rotating-your-back-shoulder-through-the"
+    ],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [
+     "drill-plyo-wall-target-tape-drill",
+     "drill-long-toss",
+     "drill-roll-in",
+     "drill-barbell-pec-minor-release"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2019-01-17",
    "raw": "sources/_raw/tread/tread-blog-7-causes-of-pushing.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "How to Fix a Pushing Arm Action - 7 Causes and Solutions",
-   "updated": "2026-09-14T11:36:26Z",
+   "updated": "2026-09-27T12:00:56Z",
    "url": "https://treadathletics.com/7-causes-of-pushing"
   },
   "tread-blog-arm-slot-differences": {
@@ -7438,14 +7929,24 @@
    "feed": "blog-rss",
    "id": "tread-blog-arm-slot-differences",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2019-02-26-do-different-arm-slots-different-mechanics.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "research",
+    "value": "high"
+   },
    "published": "2019-02-26",
    "raw": "sources/_raw/tread/tread-blog-arm-slot-differences.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "Do Different Arm Slots = Different Mechanics?",
-   "updated": "2026-09-15T11:36:11Z",
+   "updated": "2026-09-27T12:08:24Z",
    "url": "https://treadathletics.com/arm-slot-differences"
   },
   "tread-blog-back-leg-mechanics": {
@@ -7455,14 +7956,31 @@
    "feed": "blog-rss",
    "id": "tread-blog-back-leg-mechanics",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2018-05-10-problem-solving-your-lower-half-pitching-mechanics-to-throw.md",
+   "proposal": {
+    "cues": [
+     "cue-the-ball-is-throwing-itself-the-arm-is-along-for-the",
+     "cue-try-to-feel-smooth-and-fluid-going-through-these-drills"
+    ],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [
+     "drill-step-back-roll-ins",
+     "drill-properly-done-rocker-drills",
+     "drill-step-back-wind-ups"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2018-05-10",
    "raw": "sources/_raw/tread/tread-blog-back-leg-mechanics.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "Problem Solving Your Lower Half Pitching Mechanics to Throw Harder",
-   "updated": "2026-09-13T11:35:48Z",
+   "updated": "2026-09-27T11:52:37Z",
    "url": "https://treadathletics.com/back-leg-mechanics"
   },
   "tread-blog-belt-squat-to-throw-harder": {
@@ -7787,14 +8305,28 @@
    "feed": "blog-rss",
    "id": "tread-blog-how-does-hip-anatomy-affect-your-ideal-mechanics",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2019-01-30-how-does-hip-anatomy-affect-your-mechanics.md",
+   "proposal": {
+    "cues": [
+     "cue-feel-the-rear-hip-holding-external-rotation-as-he-moves"
+    ],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [
+     "drill-roll-ins"
+    ],
+    "kind": "philosophy",
+    "value": "high"
+   },
    "published": "2019-01-30",
    "raw": "sources/_raw/tread/tread-blog-how-does-hip-anatomy-affect-your-ideal-mechanics.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "How Does Hip Anatomy Affect Your Mechanics?",
-   "updated": "2026-09-14T11:36:37Z",
+   "updated": "2026-09-27T12:04:31Z",
    "url": "https://treadathletics.com/how-does-hip-anatomy-affect-your-ideal-mechanics"
   },
   "tread-blog-how-this-college-pitcher-went-from-89-to-98-in-less-than-a-year": {
@@ -7833,14 +8365,24 @@
    "feed": "blog-rss",
    "id": "tread-blog-is-playing-video-games-linked-to-arm-pain",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2019-03-13-is-playing-video-games-linked-to-arm-pain.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "research",
+    "value": "med"
+   },
    "published": "2019-03-13",
    "raw": "sources/_raw/tread/tread-blog-is-playing-video-games-linked-to-arm-pain.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "Is Playing Video Games Linked to Arm Pain?",
-   "updated": "2026-09-15T11:36:23Z",
+   "updated": "2026-09-27T12:12:22Z",
    "url": "https://treadathletics.com/is-playing-video-games-linked-to-arm-pain"
   },
   "tread-blog-j-band-exercises": {
@@ -7850,14 +8392,33 @@
    "feed": "blog-rss",
    "id": "tread-blog-j-band-exercises",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2019-01-09-3-new-ways-to-use-j-bands-for-arm-health-and-velocity.md",
+   "proposal": {
+    "cues": [
+     "cue-take-the-tricep-out-of-it-and-pull-into-release-via"
+    ],
+    "domain": [
+     "pitching",
+     "strength",
+     "anatomy-movement"
+    ],
+    "drills": [
+     "drill-j-band-assisted-concentric-ys-ts-external-rotations",
+     "drill-j-band-eccentric-only-ys-ts-face-pull-w-external",
+     "drill-j-band-hip-rotation-patterning-4-progressions",
+     "drill-band-throws-pulling-into-release",
+     "drill-j-band-low-load-isometrics-4-positions-er-90-t-90-y"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2019-01-09",
    "raw": "sources/_raw/tread/tread-blog-j-band-exercises.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "3 New Ways to Use J-Bands for Arm Health and Velocity",
-   "updated": "2026-09-14T11:36:14Z",
+   "updated": "2026-09-27T11:59:37Z",
    "url": "https://treadathletics.com/j-band-exercises"
   },
   "tread-blog-korean-baseball": {
@@ -7867,14 +8428,24 @@
    "feed": "blog-rss",
    "id": "tread-blog-korean-baseball",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2020-05-26-us-vs-korean-baseball-are-there-mechanical-differences.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "research",
+    "value": "high"
+   },
    "published": "2020-05-26",
    "raw": "sources/_raw/tread/tread-blog-korean-baseball.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "US vs. Korean Baseball - Are There Mechanical Differences?",
-   "updated": "2026-09-16T11:35:33Z",
+   "updated": "2026-09-27T12:19:09Z",
    "url": "https://treadathletics.com/korean-baseball"
   },
   "tread-blog-mass-equals-gas-why-muscle-matters-for-pitching-velocity": {
@@ -7911,14 +8482,33 @@
    "feed": "blog-rss",
    "id": "tread-blog-muscling-up",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2019-01-23-the-3-types-of-muscling-up-and-how-it-s-hurting-your.md",
+   "proposal": {
+    "cues": [
+     "cue-relax-the-back-hip-into-landing",
+     "cue-hang-the-back-knee-down-and-in-to-landing",
+     "cue-throw-loose-and-quick",
+     "cue-imagine-the-ball-is-on-a-string-and-that-string-is-your"
+    ],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [
+     "drill-pulldowns-turn-and-burn-footwork",
+     "drill-javelin-rocker-drill",
+     "drill-med-ball-hip-pop-throw"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2019-01-23",
    "raw": "sources/_raw/tread/tread-blog-muscling-up.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "The 3 Types of \"Muscling Up\" and How it's Hurting Your Velocity",
-   "updated": "2026-09-14T11:36:29Z",
+   "updated": "2026-09-27T12:02:41Z",
    "url": "https://treadathletics.com/muscling-up"
   },
   "tread-blog-nate-pearson-1": {
@@ -7979,14 +8569,31 @@
    "feed": "blog-rss",
    "id": "tread-blog-plane-of-rotation",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2019-03-07-how-to-sync-the-arm-into-the-plane-of-shoulder-rotation.md",
+   "proposal": {
+    "cues": [
+     "cue-let-the-arm-spiral-its-way-up-before-beginning-to-yank",
+     "cue-wait-until-the-arm-gets-to-the-top-of-the-staircase-and",
+     "cue-throw-through-the-center-of-the-catcher"
+    ],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [
+     "drill-long-toss-on-a-line",
+     "drill-intent-bullpens-with-stand-in-hitters"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2019-03-07",
    "raw": "sources/_raw/tread/tread-blog-plane-of-rotation.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "How to Sync the Arm into the Plane of Shoulder Rotation",
-   "updated": "2026-09-15T11:36:19Z",
+   "updated": "2026-09-27T12:11:01Z",
    "url": "https://treadathletics.com/plane-of-rotation"
   },
   "tread-blog-recovery-top-10": {
@@ -7996,14 +8603,26 @@
    "feed": "blog-rss",
    "id": "tread-blog-recovery-top-10",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2019-02-19-the-top-10-do-s-and-don-ts-for-optimal-recovery.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength",
+     "anatomy-movement"
+    ],
+    "drills": [
+     "drill-active-recovery-interval-protocol"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2019-02-19",
    "raw": "sources/_raw/tread/tread-blog-recovery-top-10.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "The Top 10 Do's and Don'ts for Optimal Recovery",
-   "updated": "2026-09-15T11:35:47Z",
+   "updated": "2026-09-27T12:05:55Z",
    "url": "https://treadathletics.com/recovery-top-10"
   },
   "tread-blog-rethinking-periodization": {
@@ -8013,14 +8632,28 @@
    "feed": "blog-rss",
    "id": "tread-blog-rethinking-periodization",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2018-12-28-rethinking-periodization-principles-of-energy-in-training.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [
+     "drill-duck-walks",
+     "drill-spinal-waves",
+     "drill-dead-arm-circles",
+     "drill-crawling-exercises"
+    ],
+    "kind": "philosophy",
+    "value": "high"
+   },
    "published": "2018-12-28",
    "raw": "sources/_raw/tread/tread-blog-rethinking-periodization.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "Rethinking Periodization: Principles of Energy in Training Organization",
-   "updated": "2026-09-14T11:36:10Z",
+   "updated": "2026-09-27T11:55:23Z",
    "url": "https://treadathletics.com/rethinking-periodization"
   },
   "tread-blog-rj-petit": {
@@ -8121,14 +8754,26 @@
    "feed": "blog-rss",
    "id": "tread-blog-tempo",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2019-02-20-all-about-tempo-is-it-a-key-to-unlocking-velocity.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [
+     "drill-walking-wind-up-throws"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2019-02-20",
    "raw": "sources/_raw/tread/tread-blog-tempo.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "All About Tempo: Is It A Key To Unlocking Velocity?",
-   "updated": "2026-09-15T11:35:52Z",
+   "updated": "2026-09-27T12:07:14Z",
    "url": "https://treadathletics.com/tempo"
   },
   "tread-blog-the-drift": {
@@ -8230,14 +8875,24 @@
    "feed": "blog-rss",
    "id": "tread-blog-velocity-fluctuation-pt1",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2018-02-28-the-top-12-reasons-for-velocity-fluctuations-part-1.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "strength"
+    ],
+    "drills": [],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2018-02-28",
    "raw": "sources/_raw/tread/tread-blog-velocity-fluctuation-pt1.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "The Top 12 Reasons For Velocity Fluctuations (part 1)",
-   "updated": "2026-09-13T11:35:39Z",
+   "updated": "2026-09-27T11:48:38Z",
    "url": "https://treadathletics.com/velocity-fluctuation-pt1"
   },
   "tread-blog-velocity-fluctuation-pt2": {
@@ -8247,14 +8902,27 @@
    "feed": "blog-rss",
    "id": "tread-blog-velocity-fluctuation-pt2",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "anatomy-movement",
+     "mental"
+    ],
+    "drills": [
+     "drill-pre-pitch-routine-rehearsal"
+    ],
+    "kind": "philosophy",
+    "value": "high"
+   },
    "published": "2018-03-07",
    "raw": "sources/_raw/tread/tread-blog-velocity-fluctuation-pt2.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "The Top 12 Reasons For Velocity Fluctuations (part 2)",
-   "updated": "2026-09-13T11:35:45Z",
+   "updated": "2026-09-27T11:50:14Z",
    "url": "https://treadathletics.com/velocity-fluctuation-pt2"
   },
   "tread-blog-yips": {
@@ -8264,15 +8932,47 @@
    "feed": "blog-rss",
    "id": "tread-blog-yips",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2019-03-14-the-theory-behind-the-yips-in-baseball.md",
+   "proposal": {
+    "cues": [
+     "cue-throw-the-pitch-with-conviction-and-intensity",
+     "cue-don-t-focus-on-the-exact-spot-you-want-to-hit",
+     "cue-flush-the-result-of-the-pitch-good-or-bad-and-repeat"
+    ],
+    "domain": [
+     "pitching",
+     "mental"
+    ],
+    "drills": [
+     "drill-sharpie-spin-line-marked-ball"
+    ],
+    "kind": "research",
+    "value": "high"
+   },
    "published": "2019-03-14",
    "raw": "sources/_raw/tread/tread-blog-yips.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "summarized",
    "title": "The Theory Behind the Yips in Baseball",
-   "updated": "2026-09-15T11:36:42Z",
+   "updated": "2026-09-27T12:14:26Z",
    "url": "https://treadathletics.com/yips"
+  },
+  "twcWnmsKqNY": {
+   "added": "2026-09-27T11:36:09Z",
+   "duration_s": 99,
+   "error": null,
+   "feed": "youtube",
+   "id": "twcWnmsKqNY",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Trey McNutt: The Road to 99 MPH",
+   "url": "https://www.youtube.com/watch?v=twcWnmsKqNY"
   },
   "u853OB_DJFo": {
    "added": "2026-09-05T20:37:36Z",
