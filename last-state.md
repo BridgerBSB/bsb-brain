@@ -1,4 +1,12 @@
-# Last session state - 2026-09-27 (Postgame V2 tabs 4-6)
+# Last session state - 2026-09-27 (pitcher pools verified + EOY speed)
+- **Project / cwd:** bsb-resources (feature/pd-goals) + bsb-wt-bullpen (feature/bullpen-reports)
+- **What we were doing:** Zac ran the 10-row verification of the canonical pitcher pools (all passed live), then fixed what testing surfaced: Toolbox now colours every pitch, V2 Stuff cold load trimmed, EOY pitcher decks finally read their nightly payload pin, EOY note boxes no longer cut off.
+- **Shipped this session:** bullpen 81bef7745 (V2 fallback reads last season's pools only), 1bf4e6250 (Toolbox subject no longer gated; n= shown), 1b3a71714 (EOY pin-miss + [EOY-RENDER] timing logs), 4b28c2cdc + 76f20905a (text fit, wrap 65). PD Engine dc9b76d13, 91bb6e122 + 80e468f07 (payload pin read: was keyed _affiliate vs _pro, never hit; goals re-resolved live), 30a8aaa44, a40731c3f, lineage df335ef31. Verified on Connect: '69773 served from the pin (mlb)', data build ~14s -> ~3s.
+- **EXACT next step:** nothing active (Zac parked EOY drawing speed). If resumed: add `compliance_pin` to `bsb-wt-bullpen/bullpen-report/src/pins_config.py` (mirror `pd-goals/src/pins_config.py`) so CLI EOY decks + nightly payloads stop showing 'No Data' on compliance goals.
+- **Blockers / waiting on:** Zac redeploys Arm Farm (check Toolbox colouring + V2 log shows 3 pin hits not 4) and PD Engine (65-wrap boxes); confirm Toolbox nightly pin fires; Min processes = 1 recommended on both apps.
+- **Uncommitted work:** bsb-resources 81 pre-existing entries, none from this session; all my work pushed.
+
+## ALSO OPEN - Postgame V2 tabs 4-6 (2026-09-27)
 - **Project / cwd:** bsb-wt-bullpen (feature/bullpen-reports); rules synced to all 4 worktrees
 - **What we were doing:** built + corrected V2 Postgame tabs 4-6 (Location, Pitching, Glossary), took pBarrel off the card, moved the Pitching surface to the season while the dots stay the selection, and wrote the lot up.
 - **Shipped this session:** 56e2995c (Location+Pitching were MIRRORED - both re-negated an already-enriched plate_x, and BOTH test suites certified it), 007220c8 (empty cell draws no panel, V1 parity), 3d88fef0 + c27ff4a8 (Glossary, derived from the shipped column constants; deduped on the PRINTED LABEL after the key-based version printed Whiff%/Z-Whiff%/CSW%/Barrel% twice), acd3133b (pBarrel off the card + its own barrel_mlb_pct pool, fingerprint -> e51e4430; season surfaces; blank-panels expander removed), 5832a1c71 (LINEAGE + docs/DASHBOARD_ISSUES.md + 2 rules synced to 4 worktrees). Guards 13+8 checks / 8+7 injections, all proven red.
@@ -6,13 +14,6 @@
 - **Blockers / waiting on:** Zac has not yet deployed the last two commits (`git pull` + `rsconnect deploy manifest . --app-id 13482bcb-8ff2-4f20-92c9-5465f49e5846`); the pool re-pin already ran (his log shows `mlb_2026_e51e4430 from PIN`). A CONCURRENT SESSION is editing V2 pool behaviour in the same worktree (HEAD moved to 76f20905a, incl. `81bef7745 v2 stuff: fallback reads last season's pools pin only`) - re-verify any pool conclusion against current HEAD.
 - **Uncommitted work:** 24 entries in bsb-wt-bullpen, NONE mine (verified 0 matching postgame_v2/test_v2/render_v2/DASHBOARD); everything of mine is pushed.
 
-## ALSO OPEN - canonical pitcher pools (2026-09-25)
-- **Project / cwd:** bsb-resources (feature/pd-goals) + bsb-wt-bullpen (feature/bullpen-reports) + bsb-wt-hitting (feature/barrelsville)
-- **What we were doing:** wired the canonical pitcher percentile rule (overall 300 / hand 300 / pitch type 100 / type x hand 50, 5+ pitchers, fallback last season -> next level up, fallback named on page) into every pitcher surface; fixed EOY decks going illegible on Posit, the never-SENT Delivered column, intrasquad pools using the schedule level, and moved Toolbox pins off Camden's account.
-- **Shipped this session:** Arm Farm 9327bc7a/87ee495e..ad6fa44f/01c7ae49/9670d1d1/f6436c56/a6e086ff/90fc98ef; PD Engine 8a810e5e/4f1e25f7/2a00f599/6535da1d; Barrelsville ec7e5fe5/90d73352; rules blocking #24 + percentile-golden-gates PITCHER POOLS -- CANONICAL (WIRED). Zac rebuilt every pin and redeployed all 3 apps + pin jobs.
-- **EXACT next step:** run the verification test table (recall checkpoint 5f39b86f / image 1242), first `py -3.11 scripts\generate_postgame.py --date 2026-09-21 --pitcher 1273220 --sched-type intrasquad` in C:\Users\zbridger\bsb-wt-bullpen\bullpen-report -> slider cells colored, no blue.
-- **Blockers / waiting on:** Posit UI schedules + Vars (Zac key) on toolbox / v2_pools / eoy / tracker jobs; unschedule Camden's old toolbox job; ROTATE the two API keys pasted in chat; Arm Farm connect_pins deploy notebook was still running.
-- **Uncommitted work:** only pre-existing untracked scratch in bsb-resources; everything this session pushed.
 
 ## ALSO OPEN - hiring app (2026-09-23)
 
