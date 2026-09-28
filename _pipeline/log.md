@@ -416,3 +416,18 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-09-27 04:36 discover tread-blog (backfill): 6 seen, 0 new
 - 2026-09-27 04:39 fetch: 5 ok, 3 failed, 0 deferred; whisper 1 min
 - 2026-09-27 05:19 summarize: 26 ok, 0 failed (queue had room for 26)
+- 2026-09-27 05:19 run: done
+- 2026-09-28 04:30 run: start
+- 2026-09-28 04:30 discover driveline-yt (new): 30 seen, 0 new
+- 2026-09-28 04:30 discover tread-yt (new): 30 seen, 1 new
+- 2026-09-28 04:30 discover driveline-blog (new): 6 seen, 0 new
+- 2026-09-28 04:30 discover tread-blog (new): 10 seen, 0 new
+- 2026-09-28 04:39 fetch: YouTube throttled captions; Whisper for the rest of this run
+- 2026-09-28 05:06 fetch: 13 ok, 2 failed, 0 deferred; whisper 34 min, captions throttled
+- 2026-09-28 05:06 promote: 0 promoted, 0 rejected, 0 corrections
+- 2026-09-28 05:07 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-09-28 05:07 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-09-28 05:07 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-09-28 05:07 discover tread-blog: ERROR 404 Client Error: Not Found for url: https://treadathletics.com/posts/page/-1/
+- 2026-09-28 05:10 fetch: 6 ok, 2 failed, 0 deferred; whisper 1 min
+- 2026-09-28 05:24 summarize: 7 ok, 0 failed (queue had room for 7)
