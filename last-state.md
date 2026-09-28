@@ -1,4 +1,12 @@
-# Last session state - 2026-09-28 07:20 (hiring app + coordinator notes app)
+# Last session state - 2026-09-28 13:45 (Command CV)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` · branch `feature/pd-goals`
+- **What we were doing:** Command CV (pitch command from broadcast video). Found the per-clip camera correction was matching the scorebug; fixed it and re-cameraed all 4 parks (6 games) - video vs tracking now 0.29-0.40 in on held-out pitches, including a second Frawley game the camera never saw. Retrained the detector on camera-projected labels (815443 usable 11 -> 31 of 37). Two-model command boards + a 6-slide status deck for Zac's boss.
+- **Shipped this session:** af6fdc03e..b3759ee38 (PROGRESS-LOG rows 88-103), lineage 8dd9cbb73, write-up `command-cv/docs/2026-09-28-the-scorebug-was-the-stabilizer.md`, boards on Desktop `command-cv-progress/`, deck https://claude.ai/artifact/RgB8gC5Qsexb3siWHsSi4E (private).
+- **EXACT next step:** Next steps: (1) Ogando - fit cameras for games 822246 (33 clips) + 821922 (23 clips); (2) Raimy Rodriguez - Zac pulls season clip list via browser/Okta; (3) Zac decision on track_px<=5 gate; (4) run v5 detector across all 6 games + regenerate boards; (5) share deck https://claude.ai/artifact/RgB8gC5Qsexb3siWHsSi4E with boss. Start (1) with: `python command-cv/scripts/stabilize_park.py --game 822246 --dir data/clips/ogando_2026 --tracks output/detect_tracks_822246_v4.csv --chain --tag c` after adding `overlay_boxes` to `data/landmarks/822246.json` (and check the v4 tracks exist first).
+- **Blockers / waiting on:** Zac: track_px gate decision; Raimy Rodriguez clip pull (zero clips on disk); share the deck. Laptop memory ~1-2 GB free - long jobs must run detached (nohup), the harness reaps its own background waiters.
+- **Uncommitted work:** bsb-resources 81 pre-existing entries, none from this session; all mine pushed.
+
+## ALSO OPEN - hiring app + coordinator notes app (2026-09-28 07:20)
 - **Project / cwd:** `C:/Users/Owner/hiring` (main, Railway) + `C:/Users/Owner/coordinator-app` (master, Railway); session started in bsb-resources
 - **What we were doing:** coordinator notes app - offboarded DJ Engle, Owners/Users + User Management, full X/Facebook-style overhaul with code-review fixes. Hiring app - new assessment equipment, Departures box, resume no longer auto-assigns roles, duplicate-name pop-up, Alt search, owner Delete candidate.
 - **Shipped this session:** coordinator-app a077fb3, 785c114, 922ad51, 1eb5a6a, 0e0e0d5, lineage 35d07ad. hiring b8d8eca, bc16bae, 9031833, b7d7016, 4fcef35, lineage c1be3f1. Browser drivers: drive_hiring_dup_search.py 22/22, drive_internal.py 128/128.
