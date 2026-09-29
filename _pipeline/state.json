@@ -4,14 +4,14 @@
   "bpc-yt:pos:oldest": 8,
   "bpc-yt:total": 42,
   "driveline-blog:page:newest": 2,
-  "driveline-blog:page:oldest": 128,
+  "driveline-blog:page:oldest": 127,
   "driveline-yt:pos:newest": 10,
-  "driveline-yt:pos:oldest": 96,
+  "driveline-yt:pos:oldest": 104,
   "driveline-yt:total": 510,
   "tread-blog:page:newest": 2,
   "tread-blog:page:oldest": -1,
   "tread-yt:pos:newest": 10,
-  "tread-yt:pos:oldest": 96,
+  "tread-yt:pos:oldest": 104,
   "tread-yt:total": 755
  },
  "items": {
@@ -489,6 +489,23 @@
    "updated": "2026-09-26T11:33:26Z",
    "url": "https://www.youtube.com/watch?v=1BUPPuw_ozk"
   },
+  "1Mr1bPdgyqs": {
+   "added": "2026-09-29T11:36:48Z",
+   "duration_s": 345,
+   "error": null,
+   "feed": "youtube",
+   "id": "1Mr1bPdgyqs",
+   "medium": "video",
+   "note": null,
+   "published": "2021-10-20",
+   "raw": "sources/_raw/tread/1Mr1bPdgyqs.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "What is Vertical Approach Angle For Pitchers? | Advanced Pitching Concepts",
+   "updated": "2026-09-29T11:36:59Z",
+   "url": "https://www.youtube.com/watch?v=1Mr1bPdgyqs"
+  },
   "1S0nHHnIv_I": {
    "added": "2026-09-28T12:07:30Z",
    "duration_s": 222,
@@ -801,6 +818,23 @@
    "title": "Sidearmer Going For 99 MPH",
    "updated": "2026-09-09T11:35:35Z",
    "url": "https://www.youtube.com/watch?v=39XXnEmO9hE"
+  },
+  "3BUrMWU_Md0": {
+   "added": "2026-09-29T11:36:37Z",
+   "duration_s": 70,
+   "error": null,
+   "feed": "youtube",
+   "id": "3BUrMWU_Md0",
+   "medium": "video",
+   "note": null,
+   "published": "2017-02-12",
+   "raw": "sources/_raw/driveline/3BUrMWU_Md0.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "Driveline Baseball: Leather Wrist Weights",
+   "updated": "2026-09-29T11:37:14Z",
+   "url": "https://www.youtube.com/watch?v=3BUrMWU_Md0"
   },
   "3E1_7fnhc2E": {
    "added": "2026-09-28T12:07:30Z",
@@ -1267,6 +1301,23 @@
    "updated": "2026-09-28T12:09:26Z",
    "url": "https://www.youtube.com/watch?v=6pBgDAy3Hqc"
   },
+  "74WMYAWNFm8": {
+   "added": "2026-09-29T11:36:48Z",
+   "duration_s": 1956,
+   "error": null,
+   "feed": "youtube",
+   "id": "74WMYAWNFm8",
+   "medium": "video",
+   "note": null,
+   "published": "2021-11-05",
+   "raw": "sources/_raw/tread/74WMYAWNFm8.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Is All Layback Is Created Equal? | Pitching Tips",
+   "updated": "2026-09-29T11:37:29Z",
+   "url": "https://www.youtube.com/watch?v=74WMYAWNFm8"
+  },
   "7TfkmadZ9P8": {
    "added": "2026-09-05T20:39:31Z",
    "duration_s": 60,
@@ -1471,6 +1522,23 @@
    "title": "From mid 80's to 97+ mph & 5th Round Draft Pick | Rohan Handa",
    "updated": "2026-09-27T11:37:57Z",
    "url": "https://www.youtube.com/watch?v=94f6dw77LW4"
+  },
+  "9GtHSr7qZLM": {
+   "added": "2026-09-29T11:36:37Z",
+   "duration_s": 184,
+   "error": null,
+   "feed": "youtube",
+   "id": "9GtHSr7qZLM",
+   "medium": "video",
+   "note": null,
+   "published": "2017-02-12",
+   "raw": "sources/_raw/driveline/9GtHSr7qZLM.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "Driveline Games: Live At Bats Pt. 14 | Gunner Goes Deep (Driveline Baseball)",
+   "updated": "2026-09-29T11:37:45Z",
+   "url": "https://www.youtube.com/watch?v=9GtHSr7qZLM"
   },
   "9O0uBasyF_0": {
    "added": "2026-09-05T00:34:56Z",
@@ -1804,6 +1872,23 @@
    "title": "Driveline Baseball Facility Tour: Mid-November 2013!",
    "updated": "2026-09-13T11:47:30Z",
    "url": "https://www.youtube.com/watch?v=D3cuBmwuDxs"
+  },
+  "D8A699syjJo": {
+   "added": "2026-09-29T11:36:48Z",
+   "duration_s": 306,
+   "error": null,
+   "feed": "youtube",
+   "id": "D8A699syjJo",
+   "medium": "video",
+   "note": null,
+   "published": "2021-11-08",
+   "raw": "sources/_raw/tread/D8A699syjJo.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "How To Throw An Efficient Bullpen | Advanced Pitching Concepts",
+   "updated": "2026-09-29T11:38:01Z",
+   "url": "https://www.youtube.com/watch?v=D8A699syjJo"
   },
   "DRGDN8u1EKA": {
    "added": "2026-09-05T00:34:42Z",
@@ -2300,6 +2385,23 @@
    "updated": "2026-09-15T11:40:35Z",
    "url": "https://www.youtube.com/watch?v=Gu689qkuOfE"
   },
+  "HHmAAm3WkEw": {
+   "added": "2026-09-29T11:36:48Z",
+   "duration_s": 632,
+   "error": null,
+   "feed": "youtube",
+   "id": "HHmAAm3WkEw",
+   "medium": "video",
+   "note": null,
+   "published": "2021-10-22",
+   "raw": "sources/_raw/tread/HHmAAm3WkEw.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "What is \"Staying Stacked\"? | Pitching Mechanics",
+   "updated": "2026-09-29T11:38:16Z",
+   "url": "https://www.youtube.com/watch?v=HHmAAm3WkEw"
+  },
   "HbhABgAA9J4": {
    "added": "2026-09-05T20:39:08Z",
    "duration_s": 36,
@@ -2581,6 +2683,40 @@
    "title": "Former D3 Outfielder Now Sitting 96 MPH | Will Girardi",
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=LSfh0AZJXVQ"
+  },
+  "LZUhHd-dPZk": {
+   "added": "2026-09-29T11:36:48Z",
+   "duration_s": 518,
+   "error": null,
+   "feed": "youtube",
+   "id": "LZUhHd-dPZk",
+   "medium": "video",
+   "note": null,
+   "published": "2021-10-28",
+   "raw": "sources/_raw/tread/LZUhHd-dPZk.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Earned Run Average is OVERRATED. Here's Why! | Advanced Pitching Concepts",
+   "updated": "2026-09-29T11:38:35Z",
+   "url": "https://www.youtube.com/watch?v=LZUhHd-dPZk"
+  },
+  "Lc_eyerk_hA": {
+   "added": "2026-09-29T11:36:48Z",
+   "duration_s": 527,
+   "error": null,
+   "feed": "youtube",
+   "id": "Lc_eyerk_hA",
+   "medium": "video",
+   "note": null,
+   "published": "2021-11-02",
+   "raw": "sources/_raw/tread/Lc_eyerk_hA.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Is Pitch Usage A Performance Unlock? | Advanced Pitching Concepts",
+   "updated": "2026-09-29T11:38:50Z",
+   "url": "https://www.youtube.com/watch?v=Lc_eyerk_hA"
   },
   "M8dblYo2u2c": {
    "added": "2026-09-14T11:36:53Z",
@@ -2938,6 +3074,22 @@
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://www.youtube.com/watch?v=OoTAErolHDM"
   },
+  "PEytbVSmP7g": {
+   "added": "2026-09-29T11:36:37Z",
+   "duration_s": 208,
+   "error": null,
+   "feed": "youtube",
+   "id": "PEytbVSmP7g",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Driveline Games: Live At Bats Pt. 12 | Brandon Mann (Athletics) vs. Driveline Pro Hitters",
+   "url": "https://www.youtube.com/watch?v=PEytbVSmP7g"
+  },
   "PFLcwx5Pj9Q": {
    "added": "2026-09-14T11:36:53Z",
    "duration_s": 73,
@@ -3015,6 +3167,22 @@
    "title": "THE DOME ZONE PODCAST EP#4- The Landscape of College Baseball and the Draft",
    "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=PkFCxMVwYLY"
+  },
+  "Pp06KJyMivk": {
+   "added": "2026-09-29T11:36:37Z",
+   "duration_s": 37,
+   "error": null,
+   "feed": "youtube",
+   "id": "Pp06KJyMivk",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Sam Tolleson 2017 Scout Day (Signed by Angels)",
+   "url": "https://www.youtube.com/watch?v=Pp06KJyMivk"
   },
   "QPzFR4GNxdk": {
    "added": "2026-09-05T00:34:42Z",
@@ -3258,17 +3426,18 @@
   "SkYP5l3lhuI": {
    "added": "2026-09-28T12:07:16Z",
    "duration_s": 81,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "SkYP5l3lhuI",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Driveline Games: Live At Bats Pt. 3 | College Vs. Pros",
+   "updated": "2026-09-29T11:30:31Z",
    "url": "https://www.youtube.com/watch?v=SkYP5l3lhuI"
   },
   "T0rA602xvsc": {
@@ -3588,6 +3757,22 @@
    "title": "Diego Castillo Mechanics | How Does He Throw 100 mph?",
    "updated": "2026-09-15T11:33:51Z",
    "url": "https://www.youtube.com/watch?v=V0TsXflOFd8"
+  },
+  "VM58p42LfJw": {
+   "added": "2026-09-29T11:36:37Z",
+   "duration_s": 28,
+   "error": null,
+   "feed": "youtube",
+   "id": "VM58p42LfJw",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Casey Weathers 2017 Driveline Pro Day",
+   "url": "https://www.youtube.com/watch?v=VM58p42LfJw"
   },
   "VNCAuOra85Y": {
    "added": "2026-09-26T11:30:51Z",
@@ -3951,6 +4136,22 @@
    "updated": "2026-09-10T11:48:54Z",
    "url": "https://www.youtube.com/watch?v=Yg3YznNU1yY"
   },
+  "YtszhxbT04g": {
+   "added": "2026-09-29T11:36:37Z",
+   "duration_s": 195,
+   "error": null,
+   "feed": "youtube",
+   "id": "YtszhxbT04g",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Driveline Games: Live At Bat Pt. 13 | Buckel, Hackimer, Mann vs. Driveline Pro Hitters",
+   "url": "https://www.youtube.com/watch?v=YtszhxbT04g"
+  },
   "YxBrNjtj-xU": {
    "added": "2026-09-05T20:39:31Z",
    "duration_s": 3448,
@@ -3993,12 +4194,13 @@
    "id": "ZuFNGolhdyk",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2017-01-24",
+   "raw": "sources/_raw/driveline/ZuFNGolhdyk.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
+   "status": "fetched",
    "title": "Driveline Games: Live At Bats Pt. 8 | Buckel/Stirewalt Vs. Driveline Pro Hitters",
+   "updated": "2026-09-29T11:30:46Z",
    "url": "https://www.youtube.com/watch?v=ZuFNGolhdyk"
   },
   "ZuzX87h6K6A": {
@@ -4086,12 +4288,13 @@
    "id": "_PfJaQJKHvU",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2017-01-29",
+   "raw": "sources/_raw/driveline/_PfJaQJKHvU.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
+   "status": "fetched",
    "title": "Driveline Games: Live At Bats Pt. 10 | Buckel/Mann/Stirewalt vs. Lucas Erceg and the Pro Hitters",
+   "updated": "2026-09-29T11:31:02Z",
    "url": "https://www.youtube.com/watch?v=_PfJaQJKHvU"
   },
   "_WA3j3laSoo": {
@@ -4213,6 +4416,22 @@
    "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=a6Z6vJz0ql0"
   },
+  "a8WzM9Tk8Kc": {
+   "added": "2026-09-29T11:36:37Z",
+   "duration_s": 50,
+   "error": null,
+   "feed": "youtube",
+   "id": "a8WzM9Tk8Kc",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Driveline Games Special Edition: HS Senior Vs. Pro Hitter",
+   "url": "https://www.youtube.com/watch?v=a8WzM9Tk8Kc"
+  },
   "aLDeqmvnqMg": {
    "added": "2026-09-09T11:36:17Z",
    "duration_s": 4945,
@@ -4310,6 +4529,22 @@
    "title": "Upgrading Your J-Band Routine Part 1: Overloaded Eccentrics",
    "updated": "2026-09-26T11:30:24Z",
    "url": "https://www.youtube.com/watch?v=bJtcyANLnRA"
+  },
+  "bOeHtf6103w": {
+   "added": "2026-09-29T11:36:48Z",
+   "duration_s": 1100,
+   "error": null,
+   "feed": "youtube",
+   "id": "bOeHtf6103w",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "What is The Ideal Stride Length? | Pitching Tips",
+   "url": "https://www.youtube.com/watch?v=bOeHtf6103w"
   },
   "c5ANKyaw6hI": {
    "added": "2026-09-09T11:36:17Z",
@@ -5176,6 +5411,22 @@
    "updated": "2026-09-26T11:38:22Z",
    "url": "https://drivelinebaseball.com/blogs/blog/linkvideo-mariners-strength-program"
   },
+  "dl-blog-matt-antonelli-theres-no-magic-potion": {
+   "added": "2026-09-29T11:36:52Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-matt-antonelli-theres-no-magic-potion",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/matt-antonelli-theres-no-magic-potion"
+  },
   "dl-blog-measuring-hip-internal-rotation": {
    "added": "2026-09-08T11:31:13Z",
    "duration_s": null,
@@ -5307,12 +5558,13 @@
    "id": "dl-blog-mlb-training-vs-the-rest-of-us",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2010-09-27",
+   "raw": "sources/_raw/driveline/dl-blog-mlb-training-vs-the-rest-of-us.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "MLB Training vs. The Rest of Us",
+   "updated": "2026-09-29T11:31:15Z",
    "url": "https://drivelinebaseball.com/blogs/blog/mlb-training-vs-the-rest-of-us"
   },
   "dl-blog-more-pictures-of-our-sc-facility": {
@@ -5375,13 +5627,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-myth-strength-training-is-not-specific-to-baseball-pitching",
    "medium": "blog",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "_review/2010-09-15-myth-strength-training-is-not-specific-to-baseball-pitching.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "strength"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "med"
+   },
+   "published": "2010-09-15",
+   "raw": "sources/_raw/driveline/dl-blog-myth-strength-training-is-not-specific-to-baseball-pitching.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "summarized",
+   "title": "Myth: Strength Training is Not Specific to Baseball Pitching",
+   "updated": "2026-09-29T11:39:51Z",
    "url": "https://drivelinebaseball.com/blogs/blog/myth-strength-training-is-not-specific-to-baseball-pitching"
   },
   "dl-blog-new-equipment-at-our-facility": {
@@ -5461,12 +5724,13 @@
    "id": "dl-blog-news-semi-private-training-added-facility-deal-finalized",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2010-09-19",
+   "raw": "sources/_raw/driveline/dl-blog-news-semi-private-training-added-facility-deal-finalized.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "News: Semi-Private Training Added, Facility Deal Finalized",
+   "updated": "2026-09-29T11:31:21Z",
    "url": "https://drivelinebaseball.com/blogs/blog/news-semi-private-training-added-facility-deal-finalized"
   },
   "dl-blog-news-strength-and-conditioning-coming-to-nsba-facility": {
@@ -5520,6 +5784,22 @@
    "title": "News: WPtouch Theme Installed",
    "updated": "2026-09-15T11:41:08Z",
    "url": "https://drivelinebaseball.com/blogs/blog/news-wptouch-theme-installed"
+  },
+  "dl-blog-nutrition-prepost-workout-guidelines-alan-aragon": {
+   "added": "2026-09-29T11:36:52Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-nutrition-prepost-workout-guidelines-alan-aragon",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/nutrition-prepost-workout-guidelines-alan-aragon"
   },
   "dl-blog-obligatory-post-about-stephen-strasburg": {
    "added": "2026-09-17T11:37:03Z",
@@ -5739,12 +6019,12 @@
    "updated": "2026-09-26T11:41:28Z",
    "url": "https://drivelinebaseball.com/blogs/blog/pitching-decelerator-exercises"
   },
-  "dl-blog-programming-mistake-doing-too-much": {
-   "added": "2026-09-28T12:07:34Z",
+  "dl-blog-pitching-mechanics-whats-the-one-thing-i-need-to-do-to-throw-harder": {
+   "added": "2026-09-29T11:36:52Z",
    "duration_s": null,
    "error": null,
    "feed": "blog-pages",
-   "id": "dl-blog-programming-mistake-doing-too-much",
+   "id": "dl-blog-pitching-mechanics-whats-the-one-thing-i-need-to-do-to-throw-harder",
    "medium": "blog",
    "note": null,
    "published": null,
@@ -5753,6 +6033,32 @@
    "source": "driveline",
    "status": "new",
    "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/pitching-mechanics-whats-the-one-thing-i-need-to-do-to-throw-harder"
+  },
+  "dl-blog-programming-mistake-doing-too-much": {
+   "added": "2026-09-28T12:07:34Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-programming-mistake-doing-too-much",
+   "medium": "blog",
+   "note": "sources/driveline/_low/2010-09-17-programming-mistake-doing-too-much.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "low"
+   },
+   "published": "2010-09-17",
+   "raw": "sources/_raw/driveline/dl-blog-programming-mistake-doing-too-much.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "filed-low",
+   "title": "Programming Mistake: Doing Too Much",
+   "updated": "2026-09-29T11:40:26Z",
    "url": "https://drivelinebaseball.com/blogs/blog/programming-mistake-doing-too-much"
   },
   "dl-blog-programming-mistake-numero-uno": {
@@ -5868,6 +6174,22 @@
    "title": "Random Monday Thoughts",
    "updated": "2026-09-26T11:44:11Z",
    "url": "https://drivelinebaseball.com/blogs/blog/random-monday-thoughts"
+  },
+  "dl-blog-rant-why-i-cant-stand-doctors": {
+   "added": "2026-09-29T11:36:52Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-rant-why-i-cant-stand-doctors",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/rant-why-i-cant-stand-doctors"
   },
   "dl-blog-rate-of-force-development": {
    "added": "2026-09-08T11:31:13Z",
@@ -6045,12 +6367,13 @@
    "id": "dl-blog-stuff-to-read-92110",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2010-09-21",
+   "raw": "sources/_raw/driveline/dl-blog-stuff-to-read-92110.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "Stuff to Read: 9/21/10",
+   "updated": "2026-09-29T11:31:28Z",
    "url": "https://drivelinebaseball.com/blogs/blog/stuff-to-read-92110"
   },
   "dl-blog-supplements-for-baseball-part-two": {
@@ -6132,6 +6455,22 @@
    "title": "The Difference Between \"Working Out\" and Training",
    "updated": "2026-09-28T12:22:25Z",
    "url": "https://drivelinebaseball.com/blogs/blog/the-difference-between-working-out-and-training"
+  },
+  "dl-blog-this-week-in-workouts-9-2": {
+   "added": "2026-09-29T11:36:52Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-this-week-in-workouts-9-2",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/this-week-in-workouts-9-2"
   },
   "dl-blog-thomas-test-applications-in-baseball": {
    "added": "2026-09-09T11:36:21Z",
@@ -6292,6 +6631,22 @@
    "updated": "2026-09-26T11:43:58Z",
    "url": "https://drivelinebaseball.com/blogs/blog/video-how-to-shoulder-rehab"
   },
+  "dl-blog-video-purpose-of-the-stride-dr-yeager": {
+   "added": "2026-09-29T11:36:52Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-video-purpose-of-the-stride-dr-yeager",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/video-purpose-of-the-stride-dr-yeager"
+  },
   "dl-blog-video-should-pitchers-overhead-press": {
    "added": "2026-09-14T11:37:09Z",
    "duration_s": null,
@@ -6327,12 +6682,13 @@
    "id": "dl-blog-welcome-matthew-wagshol",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2010-09-23",
+   "raw": "sources/_raw/driveline/dl-blog-welcome-matthew-wagshol.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "Welcome Matthew Wagshol!",
+   "updated": "2026-09-29T11:31:31Z",
    "url": "https://drivelinebaseball.com/blogs/blog/welcome-matthew-wagshol"
   },
   "dl-blog-welcome-to-driveline-baseball": {
@@ -6922,17 +7278,18 @@
   "jkzslM3e1G4": {
    "added": "2026-09-28T12:07:16Z",
    "duration_s": 151,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "jkzslM3e1G4",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "First High-Intensity Throwing Day for the Pros | Driveline Baseball",
+   "updated": "2026-09-29T11:34:54Z",
    "url": "https://www.youtube.com/watch?v=jkzslM3e1G4"
   },
   "jv4Th_kWDo8": {
@@ -7228,6 +7585,22 @@
    "updated": "2026-09-26T11:30:24Z",
    "url": "https://www.youtube.com/watch?v=lpv80cCnNLs"
   },
+  "lrOsExxJ1Nc": {
+   "added": "2026-09-29T11:36:48Z",
+   "duration_s": 693,
+   "error": null,
+   "feed": "youtube",
+   "id": "lrOsExxJ1Nc",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Is Your Warm-Up Hurting Your Velocity? | Pitching Tips",
+   "url": "https://www.youtube.com/watch?v=lrOsExxJ1Nc"
+  },
   "mBlogIlktXY": {
    "added": "2026-09-15T11:38:06Z",
    "duration_s": 1987,
@@ -7340,12 +7713,13 @@
    "id": "n2UD6sX2tpo",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2016-11-28",
+   "raw": "sources/_raw/driveline/n2UD6sX2tpo.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
+   "status": "fetched",
    "title": "Casey Weathers Velocity Work (Driveline Baseball)",
+   "updated": "2026-09-29T11:35:23Z",
    "url": "https://www.youtube.com/watch?v=n2UD6sX2tpo"
   },
   "nXaUKGHuE7c": {
@@ -7381,6 +7755,22 @@
    "title": "How To Throw Hard As A Short Pitcher",
    "updated": "2026-09-09T11:35:38Z",
    "url": "https://www.youtube.com/watch?v=nXaUKGHuE7c"
+  },
+  "naJH7ZrvJns": {
+   "added": "2026-09-29T11:36:37Z",
+   "duration_s": 59,
+   "error": null,
+   "feed": "youtube",
+   "id": "naJH7ZrvJns",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Seth Rosin 2017 Driveline Pro Day (Signed by Twins)",
+   "url": "https://www.youtube.com/watch?v=naJH7ZrvJns"
   },
   "nbpYLSnf0rs": {
    "added": "2026-09-13T11:36:16Z",
@@ -7434,12 +7824,13 @@
    "id": "o3SqB6symC0",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2021-09-17",
+   "raw": "sources/_raw/tread/o3SqB6symC0.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Fixing Your Lead Leg Block: Hip Rotation w/ Strap",
+   "updated": "2026-09-29T11:35:39Z",
    "url": "https://www.youtube.com/watch?v=o3SqB6symC0"
   },
   "o3m2JNbG_cw": {
@@ -9734,12 +10125,13 @@
    "id": "w2hU2n_I-0o",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2021-10-14",
+   "raw": "sources/_raw/tread/w2hU2n_I-0o.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "What is Getting Stuck Over the Rubber? | Pitching Q&A",
+   "updated": "2026-09-29T11:35:56Z",
    "url": "https://www.youtube.com/watch?v=w2hU2n_I-0o"
   },
   "wIlC8VViTEk": {
@@ -10179,12 +10571,13 @@
    "id": "zeguxAGWODw",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2021-10-08",
+   "raw": "sources/_raw/tread/zeguxAGWODw.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "My Top 3 Upper Body Lifting Mistakes for Pitchers",
+   "updated": "2026-09-29T11:36:12Z",
    "url": "https://www.youtube.com/watch?v=zeguxAGWODw"
   },
   "zz7SwZxPQwE": {

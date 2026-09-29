@@ -1,0 +1,64 @@
+---
+type: raw
+source: driveline
+medium: video
+id: n2UD6sX2tpo
+title: Casey Weathers Velocity Work (Driveline Baseball)
+url: "https://www.youtube.com/watch?v=n2UD6sX2tpo"
+published: '2016-11-28'
+author: Driveline Baseball
+duration_s: 147
+caption_type: whisper-small
+view_count: 146079
+---
+# Casey Weathers Velocity Work (Driveline Baseball)
+
+## Description
+
+This is pretty fast. (We aren't counting the 109 MPH 6 oz throw.)
+
+*this video was taken in the 2015-2016 offseason*
+
+
+►Click Here to subscribe to Driveline Baseball: http://bit.ly/SubDrivelineBaseball
+
+
+►Twitter: https://twitter.com/drivelinebb
+►Instagram: https://www.instagram.com/drivelinebaseball/
+►Facebook: https://www.facebook.com/drivelinebaseball
+►Snapchat: https://www.snapchat.com/add/drivelinebases
+
+Want to train with us?
+►Pitching Program information: http://bit.ly/DrivelinePitchingProgram
+►Hitting Program information: http://bit.ly/DrivelineHittingProgram
+
+
+
+Baseball Questions Answered Within 24 Hours: support@drivelinebaseball.com
+
+
+Train with Driveline at Home
+
+►Shop Training Gear and Programs here: http://bit.ly/DrivelineProducts
+►Free 8-Week Throwing Program here: http://bit.ly/FreeWeightedBaseballProgram
+►Remote Pitching Training: http://bit.ly/DrivelineU
+►Our Weighted Axe Bat Training Bats + Hitting Program: http://bit.ly/AxeBats 
+►Driveline Pitching Manual: 40+ Programs and the Why behind them: http://bit.ly/HackingTheKineticChain 
+
+Company Information:
+Address: 19612 70th Avenue South Unit #2-4
+Phone Number: (425)-523-4030
+
+Why Driveline? 
+We are a data-driven baseball performance facility. With an in-house biomechanics lab, we focus on testing and retesting baseball drills and programs to develop the best pitching and hitting training. We have consulted with 5 MLB teams, 100s of Pro Players and Colleges of all sizes. 
+
+
+See the full story here http://bit.ly/Drivelinebaseball
+
+## Transcript
+
+[00:08](https://youtu.be/n2UD6sX2tpo?t=8) Yeah, sure.
+
+[01:11](https://youtu.be/n2UD6sX2tpo?t=71) Yeah! Yeah! Good! That was 100%. Oh! I like it. I had a f***ing idea. And if you watch,
+
+[02:16](https://youtu.be/n2UD6sX2tpo?t=136) that's the seat belt. Yeah! Yeah!
