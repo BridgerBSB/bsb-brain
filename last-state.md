@@ -1,10 +1,10 @@
-# Last session state - 2026-09-30 08:12 (Astro World: Pitch Grips)
-- **Project / cwd:** `C:/Users/Owner/astroworld-grips-full` (astroworld-dev) · branch `fix/pitch-grips-review`; session started in bsb-resources (memory edits only)
-- **What we were doing:** Put the pitch grip database into Astro World at Pitching > Pitch Grips: full-page, Astro World fonts/colors, admin editing (card buttons + Manage content), then two code-review passes and fixes.
-- **Shipped this session:** astroworld-dev #79 (c2f9367), #80 (04e1303), #81 (b036250 editing, 6978d47 Astro World look) MERGED + deployed green. #84 (23b29c4, 76551ac) OPEN = review fixes. Recall checkpoint 2675c388 (astroworld/fix/pitch-grips-review). LINEAGE.md entry in C:/Users/Owner/astroworld.
-- **EXACT next step:** Zac merges https://github.com/Baseball-Operations/astroworld-dev/pull/84 (no migration). If not already done, Admin > Database > "Pitch grip edits" > Run. Then test live: edit a grip + refresh, hide + Preview as viewer + show, add a grip with MP4/GIF, reorder in Manage content, restore from History. Zac: "this can be played with later".
-- **Blockers / waiting on:** Zac's merge + live test. Hard Delete for admin-added grips offered, not built. Retro strings C:\TOOLS / ASTROS.EXE may need Sam's call.
-- **Uncommitted work:** astroworld-grips-full clean (all pushed).
+# Last session state - 2026-09-30 09:20 (Command CV - SHELVED for hardware)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` · branch `feature/pd-goals`
+- **What we were doing:** Extended Ogando's miss to 128/149 clips (AdventHealth solved at 0.15 in, Greensboro weak, Asheville's other games + Frawley via camera reuse), switched set-up targets to OpenCommand's glove model, built streaming training (`stream_games.py`) and tested v5 on 3 new parks - v5 is WORSE than v4, v4 stays. Zac shelved the project until he buys a new machine; hardware research written.
+- **Shipped this session:** 11602a7d0 (OC glove default), db3f5d877 (AdventHealth), 05404f392 (Greensboro), 8b92df0e6 (reel), 2dae4cad3 + 3cd85f188 (streaming + v5_run), ced861212 (v5 verdict), lineage c5e8fe2ec. Vault: `projects/command-cv-hardware-research-2026-09-30.md`. Reel: Desktop `reel_ogando_2026_all(_small).mp4`.
+- **EXACT next step:** When the new machine arrives: ask DESKTOP vs LAPTOP (he said "laptop" at wrap - laptop GPUs are much weaker than desktop), install NVIDIA driver + CUDA PyTorch, run `python -c "import torch;print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"`, copy command-cv/data (gitignored) over, then train on camera-projected labels (`scripts/project_labels.py`) at the solved parks.
+- **Blockers / waiting on:** new hardware (purchase this weekend). track_px gate still Zac's call.
+- **Uncommitted work:** bsb-resources 81 pre-existing entries, none from this session; all mine pushed.
 
 ## ALSO OPEN - Hiring app (2026-09-29 11:37)
 - **Project / cwd:** `C:/Users/Owner/hiring` (main, Railway hirehou.up.railway.app); session started in bsb-resources (no edits there)
