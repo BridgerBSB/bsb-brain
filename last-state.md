@@ -1,4 +1,12 @@
-# Last session state - 2026-09-29 11:37 (Hiring app)
+# Last session state - 2026-09-30 08:12 (Astro World: Pitch Grips)
+- **Project / cwd:** `C:/Users/Owner/astroworld-grips-full` (astroworld-dev) · branch `fix/pitch-grips-review`; session started in bsb-resources (memory edits only)
+- **What we were doing:** Put the pitch grip database into Astro World at Pitching > Pitch Grips: full-page, Astro World fonts/colors, admin editing (card buttons + Manage content), then two code-review passes and fixes.
+- **Shipped this session:** astroworld-dev #79 (c2f9367), #80 (04e1303), #81 (b036250 editing, 6978d47 Astro World look) MERGED + deployed green. #84 (23b29c4, 76551ac) OPEN = review fixes. Recall checkpoint 2675c388 (astroworld/fix/pitch-grips-review). LINEAGE.md entry in C:/Users/Owner/astroworld.
+- **EXACT next step:** Zac merges https://github.com/Baseball-Operations/astroworld-dev/pull/84 (no migration). If not already done, Admin > Database > "Pitch grip edits" > Run. Then test live: edit a grip + refresh, hide + Preview as viewer + show, add a grip with MP4/GIF, reorder in Manage content, restore from History. Zac: "this can be played with later".
+- **Blockers / waiting on:** Zac's merge + live test. Hard Delete for admin-added grips offered, not built. Retro strings C:\TOOLS / ASTROS.EXE may need Sam's call.
+- **Uncommitted work:** astroworld-grips-full clean (all pushed).
+
+## ALSO OPEN - Hiring app (2026-09-29 11:37)
 - **Project / cwd:** `C:/Users/Owner/hiring` (main, Railway hirehou.up.railway.app); session started in bsb-resources (no edits there)
 - **What we were doing:** Hiring Processes + Hiring Board: documents/links/surveys stacked above columns, director questionnaires + case decks built into the app, Lim assessment sandbox, Panel Summary v2 (one paragraph, final once all panels in), Post Panel Rankings, and labels replacing tags (resume-suggested, unticked).
 - **Shipped this session:** hiring 8622187, ca9d83f, 340ac2a, acec05d, 37bea65, ddfe606, f15bab0, da400ad, 0e1164c, aee7bef (LINEAGE (a)-(f)). Full suite 1042 pass. Recall checkpoint e06297ac (hiring/main).
