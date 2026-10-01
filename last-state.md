@@ -1,10 +1,10 @@
-# Last session state - 2026-09-30 10:06 (Hiring app - security fixes next)
+# Last session state - 2026-10-01 (Hiring app - 3-prompt assessment live, Zac testing)
 - **Project / cwd:** `C:/Users/Owner/hiring` (main, Railway hirehou.up.railway.app); session opened in bsb-resources (no edits there)
-- **What we were doing:** Followed through on panel summary / rankings / labels (review found + fixed bugs), then built draft-saving everywhere, per-user extra pages (Lim + e.g. Candidate Rubrics), Zac's tile text, and ran a two-reviewer security review. Internal leaks from extra pages fixed; external findings discussed, Zac picked 3 to fix next.
-- **Shipped this session:** hiring 85ca49f, c52911d, bb8590a, e6f6b3d, 4098779, 4a04da9, c165d78, 591d87e, d3831ba, 74bb5c9, b2d692f (LINEAGE (g)-(o)). Migration 017 (admins.extra_areas) APPLIED by Zac. ANTHROPIC_API_KEY set on Railway. All tests pass. Recall checkpoint 203ed02b (hiring/main).
-- **EXACT next step:** Zac: "at the moment and then I'll clear and we will get back at those!!" -> fix, in order: (1) insider XSS - esc() calendar `e.id`/`a.color` (private/calendar/index.html ~1759,1898,1923,2232,2239-2240) + magnets `color` (~1889,2817) + server-side id/hex validation; (2) login - `auth.client_ip` (auth.py:589) trusts the first X-Forwarded-For hop (use Railway's hop), limit per (email, real IP), separate password vs emailed-code budgets; (3) sessions - per-account session_epoch bumped on logout/password change (migration 018), and must_change_password must block /api/* (main.py:213). ASK FIRST: OK that signing out on one computer signs out everywhere?
-- **Blockers / waiting on:** Zac decisions: any Admin-level users besides owners? should non-owner Rubrics extra holders see other graders' names? Unverified live: first real Claude summary, first ranking email, Postgres delete paths.
-- **Uncommitted work:** hiring 28 pre-existing render/scratch paths, none from this session; all code pushed.
+- **What we were doing:** Fixed the security findings Zac picked (calendar planted code, sign-in limits/lockout, sessions that don't end, browser headers, login timing), sped up Hiring Processes, then built the standard 3-prompt in-person assessment (hitting: Bat Speed, Swing Decisions, Blank; pitching: Velocity, Command, Throwing Program on a football field).
+- **Shipped this session:** hiring 282c5b7, a47b875, 841d42e, c16a031, 97e5374, 5bf27c3, c441e55, 01beff8, 11bc4c7, lineage (p)(q) 22f9572. Migration 018 APPLIED by Zac. Recall checkpoint hiring/main.
+- **EXACT next step:** Zac is testing live: send from https://hirehou.up.railway.app/admin/invites (or /admin/pitching/invites) with times 5/5/5 to a personal email, open in incognito, Start -> place -> I'm done, check Submissions (prompt lines, PDF, End current prompt). Fix whatever his screenshots show, then he runs Sam through it.
+- **Blockers / waiting on:** Zac's live test feedback; confirm pitching brief goal wording; Railway region to US West (his setting).
+- **Uncommitted work:** hiring clean apart from pre-existing render PNGs; all code pushed.
 
 ## ALSO OPEN - Command CV (2026-09-30 09:20, SHELVED for hardware)
 - **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` · branch `feature/pd-goals`
