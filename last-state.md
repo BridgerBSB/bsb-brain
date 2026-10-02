@@ -1,4 +1,14 @@
-# Last session state - 2026-10-01 12:05 (Pin freshness + hung jobs)
+# Last session state - 2026-10-01 16:40 (Hiring app: assessment + rankings)
+- **Project / cwd:** `C:/Users/Owner/hiring` (cage-sandbox) - branch `main` (Railway deploys main)
+- **What we were doing:** Fixing what Zac found testing the hiring app live: the 3-prompt candidate assessment, the Sandbox practice runs for owners/Lim, a Lim sign-in bug, and the Post Panel Rankings.
+- **Shipped this session:** b3a86ec, 670f6a9, 812372c, 263fbb9, 54a1d7e (assessment: 24h to open, clock at sign-in, lost-answer fix, loading screen, auto-close, cage picker), 6e1b118 (Sandbox practice runs), d2eec82 (emailed code lands on /dashboard; lockout message + reset clears it), 847e243 / 0557f1a / a2f2ef6 (rankings: owner preview, everyone in the process live, explicit "which rankings" picker), faea312 (panel members see the questionnaire; Lim once per candidate). LINEAGE (r) d441490, (s) bd01dd9. STATUS.md 7a61d0e.
+- **EXACT next step:** Get Zac's answer: should Lim users be limited to ONE ranking? If yes, edit `cage-sandbox/app/panel_api.py` rankings_submit to 409 a second Lim submission and drop removed people from a locked ranking instead of asking to re-rank.
+- **Blockers / waiting on:** Zac testing live after Railway redeploys; Zac deletes his test questionnaire on Candidate Rubrics (no live DB from this laptop).
+- **Uncommitted work:** hiring 31 paths, pre-existing render PNGs/scratch (none from this session).
+
+---
+
+## ALSO OPEN - 2026-10-01 12:05 (Pin freshness + hung jobs)
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals` (also committed to all 3 sibling branches)
 - **What we were doing:** Started on making the daily cascade cheaper; it turned into pin health across all four apps. Found that ONE hung job was freezing the whole Connect scheduler.
 - **Shipped this session:** BR percentile pool pin `930eaadb` (398.2s -> 3.6s, CONFIRMED `from PIN` in a cascade log). `diag_pin_schedule_audit.py` rebuilt into a job-health audit - OVERLAP/HUNG/FAILED/NO RUNS/ORPHANED, 24h SLA, copy-pasteable CANCEL per hung job (`26d982aff`, `6d9a7158c`, `2e6de73dc`, `382f0ce3b`) + guard `test_pin_audit.py` (21 checks, 5 injections red). Rule `.claude/rules/pin-freshness-and-hung-jobs.md`. `audit_app_manifest.py` on all 4 branches. `sync-rules.sh` now syncs `.claude/scripts/` too (`776e0b0a4`). manifest fix `48cf1e966` (Baserunning ImportError). LINEAGE `89708051a`. RETRACTED: BR per-game leads hoist `96c732585` -> reverted `c777dd772` (made MLB 10x slower; the parity harness caught it).
