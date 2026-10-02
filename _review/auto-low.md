@@ -1,6 +1,6 @@
 # Auto-filed as low value (not reviewed)
 
-Written by `kb.py lint` 2026-10-01 04:38. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
+Written by `kb.py lint` 2026-10-02 04:54. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
 
 - 2026-08-26 tread marketing: Is Tread's Remote Coaching Worth It? A Parent Perspective. - https://www.youtube.com/watch?v=y1gPpzn5DMw - id `y1gPpzn5DMw`
 - 2026-07-23 tread marketing: He Went D1 After Throwing 97 MPH In This Showcase - https://www.youtube.com/watch?v=5-N9m4A7BWY - id `5-N9m4A7BWY`
@@ -36,6 +36,7 @@ Written by `kb.py lint` 2026-10-01 04:38. Marketing and low-value items skip the
 - 2013-10-05 driveline marketing: EMG Sensor Testing at Driveline Baseball - https://www.youtube.com/watch?v=gmK0tbTCC8E - id `gmK0tbTCC8E`
 - 2013-03-17 driveline instruction: Speed Training for Baseball - Prowler Pushes - https://www.youtube.com/watch?v=Yg3YznNU1yY - id `Yg3YznNU1yY`
 - 2013-01-06 driveline instruction: Pitching Arm Care: Heavy Deceleration Throws (drivelinebaseball.com) - https://www.youtube.com/watch?v=5rkW2BF8Ahs - id `5rkW2BF8Ahs`
+- 2010-09-21 driveline philosophy: Stuff to Read: 9/21/10 - https://drivelinebaseball.com/blogs/blog/stuff-to-read-92110 - id `dl-blog-stuff-to-read-92110`
 - 2010-09-19 driveline marketing: News: Semi-Private Training Added, Facility Deal Finalized - https://drivelinebaseball.com/blogs/blog/news-semi-private-training-added-facility-deal-finalized - id `dl-blog-news-semi-private-training-added-facility-deal-finalized`
 - 2010-09-17 driveline philosophy: Programming Mistake: Doing Too Much - https://drivelinebaseball.com/blogs/blog/programming-mistake-doing-too-much - id `dl-blog-programming-mistake-doing-too-much`
 - 2010-09-01 driveline marketing: Soliciting Feedback from You! - https://drivelinebaseball.com/blogs/blog/soliciting-feedback-from-you - id `dl-blog-soliciting-feedback-from-you`
