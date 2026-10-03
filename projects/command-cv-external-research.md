@@ -2,7 +2,7 @@
 type: project
 domain: computer-vision
 created: 2026-08-17
-updated: 2026-09-01
+updated: 2026-09-25
 status: SUPERSEDED IN PART - re-read at v1.2.0 on 2026-09-01. Method sections below describe v1.0.0. Current analysis lives in bsb-resources/command-cv/docs/2026-09-01-opencommand-v12-and-cross-camera-accuracy.md
 tags:
   - project
@@ -17,6 +17,51 @@ External work on pitcher-command-from-video, captured against our own build
 ([[command-cv-status]], `bsb-resources/command-cv/` on `feature/pd-goals`).
 Captured per the external-resource-capture rule (X -> `api.fxtwitter.com`, then
 GitHub raw + tree API for the source).
+
+---
+
+## 2026-09-25 - new links Zac fed + README re-read
+
+**Links (Zac, Sep 25):**
+- The Athletic explainer, Sep 4 2026: <https://www.nytimes.com/athletic/7563128/2026/09/04/mlb-new-command-metric-open-command-explainer/>
+  - NOT FETCHED: nytimes.com blocks automated fetch. Needs a paste to capture the body.
+  - Framing: mainstream coverage of OpenCommand as "MLB's new command metric".
+- Project X account: <https://x.com/open_command> (profile, not a post; fxtwitter's
+  post endpoint does not serve profiles - 404). Watch it for version announcements.
+- Repo README (re-read today): <https://github.com/tomdoyo/open-command>
+
+**README facts new since the 09-01 capture (quoted from the README):**
+- Seasons now **2024-2026**.
+- Coverage 2025: "90.00 / 93.17% possible"; losses led by undetected strikezones
+  (4.21%) and late camera cuts (2.52%).
+- "Inferred miss stabilizes 10x faster than Location+" and "predicts rest-of-season
+  BB% better than BB% itself until about 600 pitches".
+- "True median miss for **fastballs** is probably 7 to 10 inches"; season-level
+  estimates likely within ~1 inch, pitch level uncertain.
+- "Going from worst to best command is worth 1 ERA" at MLB (vs 3 ERA for stuff).
+- 2025 inferred median miss: FF 9.50 in, CU 11.05 in; pitcher range 7.59-14.87 in.
+- Target unchanged in spirit: highest `glove_xz` in `[release-2.0s, release-0.3s]`,
+  discounted by how early it is, then the hierarchical Bayes refinement. Actual =
+  Statcast 9-param trajectory at the plate. Miss = actual to target.
+
+**How our work maps onto theirs, as of 09-25 (answering "are we still using this?"):**
+- YES, still the reference. Their MLB camera poses + ball/glove detections are the
+  oracle every MLB number of ours was validated against (our labels match their
+  independent detections to 2.15 px; our camera solve reproduces their poses).
+- Same two halves: TARGET = catcher's glove before release; ACTUAL = where the ball
+  arrives. Their actual is Statcast data. Ours has two roots: Root A = tracking data
+  (built, 3.9 in LOO), Root B = the ball from VIDEO (the current work).
+- What we are building that they cannot: **MiLB**. They have zero MiLB coverage and
+  need a drawn strikezone box that no MiLB broadcast draws. Our ball detector +
+  box-free camera solve is the MiLB path.
+- 09-24/25 status: 3 detector versions graded in INCHES against the tracking system at
+  3 held-out/steady parks. The clean-label model (v3) is best all-round; junk labels
+  (a fielder's cleats, logo graphics) gave v2 1-3 ft misses. The 119-image pixel exam
+  was retired as a model selector - it rewarded agreement with the labelling method.
+- Next to steal from them for the TARGET half: their glove window
+  (`[release-2.0s, release-0.3s]`, highest glove z, stability gate) A/B'd against our
+  longest-low-motion-run definition on the 49 hand-labelled clips (item 6 below,
+  still not done).
 
 ---
 

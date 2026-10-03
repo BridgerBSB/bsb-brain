@@ -1,4 +1,24 @@
-# Last session state - 2026-10-02 08:05 (Astro World: offboarding + A-Z)
+# Last session state - 2026-10-02 (Pitch Similarity comp-pool pin)
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` - branch `feature/bullpen-reports` (+ bsb-resources `feature/pd-goals` for the pin map)
+- **What we were doing:** Making Arm Farm Pitch Similarity fast. Every search re-scanned Pitches_View 2018->now and every new pitch-type combo / filter was a fresh scan.
+- **Shipped this session:** per-season comp-pool pin `zbridger/arm_farm_similarity_pool_{year}` + `zbridger/arm_farm_similarity_career_war`; page reads pin-first with live fallback; ranking vectorized (~28x); DSL no longer labelled FCL; season widgets follow the clock (`8f968417`, empty-new-season fix `24c729fb`, schedule text `4c0d9625`). DB parity VERIFIED (6 combos, live 4-101s vs pin 0.02s). History 2018-2026 pinned 10/10 (1,164s). New Connect job `arm-farm-similarity-pool-pin` (GUID d9d2884a-1c9f-450b-953f-9135226c9273), daily 8:30 AM Central, Vars set. App redeployed; Camden confirmed it is fast. Pin map + rollover plan updated (`0b34f033`, `0e6c2613`).
+- **EXACT next step:** CHECK the first scheduled 8:30 AM run of `arm-farm-similarity-pool-pin` in Connect Logs: `DB creds set = True`, `pinned : 2/2`, `Exit code: 0`. Put the server run time into `docs/pin-system-map-observed.md` (Run size row). Then smoke Pitch Similarity once more. Verification backlog row #25.
+- **Blockers / waiting on:** the first scheduled run (deploy-time render skipped because Vars were not set yet, so no server run has been seen). Zac moving to a new computer.
+- **Uncommitted work:** none of this session's (bsb-wt-bullpen rules edits belong to another session).
+
+---
+
+## ALSO OPEN - 2026-10-02 08:42 (AFL advance report - Scorpions)
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-hitting` - branch `feature/barrelsville` (+ bsb-resources `feature/pd-goals` for the Monday cascade)
+- **What we were doing:** Building the AFL (Arizona Fall League - never "AZFL") condensed advance report for Kyle Brennan / the Scottsdale Scorpions: Advance tab + weekly Slack send, AA-pool colouring, then moving advance pitcher pools onto the existing pool pin.
+- **Shipped this session:** AFL tab + `src/afl_report.py` + `src/afl_data.py` + `scripts/generate_afl_weekly.py` (--team, --deliver -> C0C5V1S3DS4). Colouring = ML advance report vs 2026 AA; VAA/HAA plain. Advance pools pinned as `advpit_*` in `barrelsville_postgame_pools_2026` (`6965db72`, seeded + --check ok). Deploy from `f399055a` (parent `4fa4ffe1` is a broken half-commit). Cascade step `advance-afl` (`6133f843`). Rule pin-deploy-runbook: a bundle deploy RUNS the job (`30300865`, all 4 worktrees). LINEAGE `9db08c55`. Recall checkpoint `0538cab70967b593`, session `eadb`.
+- **EXACT next step:** Wait for Kyle Brennan's next AFL feedback. If not done yet on the work laptop: `cd C:/Users/zbridger/bsb-wt-hitting/barrelsville; git pull; rsconnect deploy manifest . --app-id bbb53548-a7c5-4a03-9146-44647e7c88c0`, then `cd C:/Users/zbridger/bsb-resources; git pull`.
+- **Blockers / waiting on:** Kyle feedback. Unverified: AFL tab caption "Colours vs 2026 AA pitchers (N pools)" on Connect after redeploy; whether the barrelsville-pin-tracker-2026 bundle deploy finished (Zac's pasted log was the Defense Matrix job).
+- **Uncommitted work:** bsb-wt-hitting / bsb-resources: only pre-existing untracked scratch; nothing of this session's. bsb-brain vault is MID-REBASE (pre-existing) - last-state not committed.
+
+---
+
+## ALSO OPEN - 2026-10-02 08:05 (Astro World: offboarding + A-Z)
 - **Project / cwd:** `C:/Users/Owner/astroworld` - branch `main` (remote `prod` = Baseball-Operations/astroworld-dev; bare `git push`)
 - **What we were doing:** Making "I removed them in Azure" actually remove somebody from Astro World - account, card assignments, watches and labels - then fixing a new card not filing itself alphabetically.
 - **Shipped this session:** SEVEN PRs merged and deployed: #82 (deactivating clears AeroCardMember + AeroWatch), #83 (`src/lib/mail/` transport seam, inert), #85 (`AeroLabel.email` migration, RUN in prod by Zac), #86 (label<->person UI + offboard deletes linked labels), #88 (roster sync from the Entra group export), #89 (Access button affordance + "USER ASSIGNMENT"/"NA"), #90 (A-Z always on + `planBoardHeal`). LINEAGE entry written (file is gitignored in that repo, on disk only). Recall checkpoint `c277eacd254a2e28`, session `86e1`, domain `astroworld/main`.

@@ -486,3 +486,4 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-02 04:51 discover tread-blog: ERROR 404 Client Error: Not Found for url: https://treadathletics.com/posts/page/-1/
 - 2026-10-02 04:53 fetch: 6 ok, 2 failed, 0 deferred; whisper 0 min
 - 2026-10-02 04:54 summarize: 1 ok, 0 failed (queue had room for 1)
+- 2026-10-02 04:54 run: done

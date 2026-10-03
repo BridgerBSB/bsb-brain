@@ -1,0 +1,53 @@
+formulas:
+  effort_icon: 'if(effort == "S", "🟢 S", if(effort == "M", "🟡 M", if(effort == "L", "🔴 L", effort)))'
+properties:
+  file.name:
+    displayName: Idea
+  status:
+    displayName: Status
+  domain:
+    displayName: Domain
+  tier:
+    displayName: Tier
+  formula.effort_icon:
+    displayName: Effort
+  lens:
+    displayName: Lens
+views:
+  - type: table
+    name: By Status
+    filters:
+      and:
+        - 'type == "idea"'
+    groupBy:
+      property: status
+      direction: ASC
+    order:
+      - file.name
+      - domain
+      - tier
+      - formula.effort_icon
+      - lens
+  - type: table
+    name: By Domain
+    filters:
+      and:
+        - 'type == "idea"'
+    groupBy:
+      property: domain
+      direction: ASC
+    order:
+      - file.name
+      - status
+      - tier
+      - formula.effort_icon
+  - type: cards
+    name: Board
+    filters:
+      and:
+        - 'type == "idea"'
+    order:
+      - file.name
+      - domain
+      - status
+      - formula.effort_icon
