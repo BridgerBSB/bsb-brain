@@ -4,14 +4,14 @@
   "bpc-yt:pos:oldest": 8,
   "bpc-yt:total": 42,
   "driveline-blog:page:newest": 2,
-  "driveline-blog:page:oldest": 124,
+  "driveline-blog:page:oldest": 123,
   "driveline-yt:pos:newest": 10,
-  "driveline-yt:pos:oldest": 128,
+  "driveline-yt:pos:oldest": 136,
   "driveline-yt:total": 510,
   "tread-blog:page:newest": 2,
   "tread-blog:page:oldest": -1,
   "tread-yt:pos:newest": 10,
-  "tread-yt:pos:oldest": 128,
+  "tread-yt:pos:oldest": 136,
   "tread-yt:total": 755
  },
  "items": {
@@ -745,6 +745,23 @@
    "updated": "2026-09-10T11:38:50Z",
    "url": "https://www.youtube.com/watch?v=2_lyvModZYA"
   },
+  "2agC6NeYNUM": {
+   "added": "2026-10-03T14:33:39Z",
+   "duration_s": 111,
+   "error": null,
+   "feed": "youtube",
+   "id": "2agC6NeYNUM",
+   "medium": "video",
+   "note": null,
+   "published": "2017-10-11",
+   "raw": "sources/_raw/driveline/2agC6NeYNUM.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "What are Pulldowns/Run and Guns? | Facets of Driveline Baseball",
+   "updated": "2026-10-03T14:34:26Z",
+   "url": "https://www.youtube.com/watch?v=2agC6NeYNUM"
+  },
   "2fjpL_BraVU": {
    "added": "2026-09-05T20:37:29Z",
    "duration_s": 2606,
@@ -804,6 +821,23 @@
    "title": "93 MPH Mechanics from 16 Year old Alabama commit Evan Taylor",
    "updated": "2026-09-07T00:52:11Z",
    "url": "https://www.youtube.com/watch?v=2qMD82rncgQ"
+  },
+  "306t3m6hXC4": {
+   "added": "2026-10-03T14:34:07Z",
+   "duration_s": 550,
+   "error": null,
+   "feed": "youtube",
+   "id": "306t3m6hXC4",
+   "medium": "video",
+   "note": null,
+   "published": "2022-04-01",
+   "raw": "sources/_raw/tread/306t3m6hXC4.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Are Flat Grounds Ruining Your Pitching Mechanics?",
+   "updated": "2026-10-03T14:34:49Z",
+   "url": "https://www.youtube.com/watch?v=306t3m6hXC4"
   },
   "39XXnEmO9hE": {
    "added": "2026-09-05T20:37:36Z",
@@ -923,6 +957,23 @@
    "title": "Tread Athletics - Q&A Episode 1",
    "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=3uEkjxYrRgY"
+  },
+  "3v0kbMMrKFY": {
+   "added": "2026-10-03T14:34:07Z",
+   "duration_s": 254,
+   "error": null,
+   "feed": "youtube",
+   "id": "3v0kbMMrKFY",
+   "medium": "video",
+   "note": null,
+   "published": "2022-04-11",
+   "raw": "sources/_raw/tread/3v0kbMMrKFY.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "How To Make Your Slider Elite By Using Data",
+   "updated": "2026-10-03T14:35:12Z",
+   "url": "https://www.youtube.com/watch?v=3v0kbMMrKFY"
   },
   "4CBdShFhn0Y": {
    "added": "2026-09-08T11:31:09Z",
@@ -1301,6 +1352,23 @@
    "updated": "2026-09-14T11:37:57Z",
    "url": "https://www.youtube.com/watch?v=6HalpY3JXlM"
   },
+  "6Nm6I9Cf-No": {
+   "added": "2026-10-03T14:34:07Z",
+   "duration_s": 330,
+   "error": null,
+   "feed": "youtube",
+   "id": "6Nm6I9Cf-No",
+   "medium": "video",
+   "note": null,
+   "published": "2022-04-21",
+   "raw": "sources/_raw/tread/6Nm6I9Cf-No.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Are You Maximizing Your Arm Slot?",
+   "updated": "2026-10-03T14:35:32Z",
+   "url": "https://www.youtube.com/watch?v=6Nm6I9Cf-No"
+  },
   "6T-D3K784cQ": {
    "added": "2026-09-08T11:30:55Z",
    "duration_s": 27,
@@ -1556,6 +1624,23 @@
    "title": "Driveline | Australia",
    "updated": "2026-09-27T11:47:24Z",
    "url": "https://www.youtube.com/watch?v=8Sem7c9t400"
+  },
+  "8zT1HXt5fOI": {
+   "added": "2026-10-03T14:34:07Z",
+   "duration_s": 283,
+   "error": null,
+   "feed": "youtube",
+   "id": "8zT1HXt5fOI",
+   "medium": "video",
+   "note": null,
+   "published": "2022-04-05",
+   "raw": "sources/_raw/tread/8zT1HXt5fOI.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Here's What Your Changeup NEEDS To Look Like",
+   "updated": "2026-10-03T14:35:51Z",
+   "url": "https://www.youtube.com/watch?v=8zT1HXt5fOI"
   },
   "94f6dw77LW4": {
    "added": "2026-09-27T11:36:22Z",
@@ -1842,6 +1927,23 @@
    "title": "Brady Aiken's Elbow, Change-Up Grips, Youth Pitching | Q&A w/ Driveline Baseball",
    "updated": "2026-09-26T12:01:37Z",
    "url": "https://www.youtube.com/watch?v=Bb0dUGj-wWU"
+  },
+  "BeGOGmILw-s": {
+   "added": "2026-10-03T14:34:07Z",
+   "duration_s": 3881,
+   "error": null,
+   "feed": "youtube",
+   "id": "BeGOGmILw-s",
+   "medium": "video",
+   "note": null,
+   "published": "2022-04-14",
+   "raw": "sources/_raw/tread/BeGOGmILw-s.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Q&A #4: Pushing arm action, flexor strains, early extension, high elbows & more.",
+   "updated": "2026-10-03T14:36:11Z",
+   "url": "https://www.youtube.com/watch?v=BeGOGmILw-s"
   },
   "C1DJgpjLqhQ": {
    "added": "2026-10-02T11:51:06Z",
@@ -3407,6 +3509,23 @@
    "updated": "2026-10-01T11:37:19Z",
    "url": "https://www.youtube.com/watch?v=Pwri6YwIvRA"
   },
+  "Q3FCZDszVis": {
+   "added": "2026-10-03T14:33:39Z",
+   "duration_s": 350,
+   "error": null,
+   "feed": "youtube",
+   "id": "Q3FCZDszVis",
+   "medium": "video",
+   "note": null,
+   "published": "2017-08-17",
+   "raw": "sources/_raw/driveline/Q3FCZDszVis.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "Day in the Life of a Driveline Baseball Athlete",
+   "updated": "2026-10-03T14:36:36Z",
+   "url": "https://www.youtube.com/watch?v=Q3FCZDszVis"
+  },
   "QPzFR4GNxdk": {
    "added": "2026-09-05T00:34:42Z",
    "duration_s": 1589,
@@ -3561,6 +3680,23 @@
    "title": "His bat path is costing him",
    "updated": "2026-09-08T11:30:39Z",
    "url": "https://www.youtube.com/watch?v=RczpZSjZgQA"
+  },
+  "RmrBMjpFATo": {
+   "added": "2026-10-03T14:33:39Z",
+   "duration_s": 103,
+   "error": "RuntimeError: too-short transcript",
+   "feed": "youtube",
+   "id": "RmrBMjpFATo",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Driveline Baseball in the 2017 MLB Draft",
+   "updated": "2026-10-03T14:37:06Z",
+   "url": "https://www.youtube.com/watch?v=RmrBMjpFATo"
   },
   "S1X8Gp2s-20": {
    "added": "2026-09-05T00:34:56Z",
@@ -4271,6 +4407,22 @@
    "updated": "2026-09-27T11:38:29Z",
    "url": "https://www.youtube.com/watch?v=WeyyIc2Kn8Q"
   },
+  "WhpMiZ79Ov4": {
+   "added": "2026-10-03T14:33:39Z",
+   "duration_s": 251,
+   "error": null,
+   "feed": "youtube",
+   "id": "WhpMiZ79Ov4",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Resiliency | A Day in the Life with a Driveline Hitter",
+   "url": "https://www.youtube.com/watch?v=WhpMiZ79Ov4"
+  },
   "WmVhWhNAA4M": {
    "added": "2026-10-01T11:36:01Z",
    "duration_s": 240,
@@ -4451,6 +4603,22 @@
    "title": "Finding the Back Leg \"Hinge\" for Pitchers",
    "updated": "2026-09-10T13:22:32Z",
    "url": "https://www.youtube.com/watch?v=YHwGgLnsanA"
+  },
+  "YWbd-HSNqNM": {
+   "added": "2026-10-03T14:34:07Z",
+   "duration_s": 54,
+   "error": null,
+   "feed": "youtube",
+   "id": "YWbd-HSNqNM",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "MLB Pitcher Austin Brice Throwing 94 MPH Sidearm",
+   "url": "https://www.youtube.com/watch?v=YWbd-HSNqNM"
   },
   "Yg3YznNU1yY": {
    "added": "2026-09-09T11:36:03Z",
@@ -5041,6 +5209,22 @@
    "updated": "2026-09-07T01:11:17Z",
    "url": "https://www.youtube.com/watch?v=cu-lLhkhuS4"
   },
+  "cxqSrPwdsSk": {
+   "added": "2026-10-03T14:33:39Z",
+   "duration_s": 173,
+   "error": null,
+   "feed": "youtube",
+   "id": "cxqSrPwdsSk",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Youth Training At Driveline Baseball",
+   "url": "https://www.youtube.com/watch?v=cxqSrPwdsSk"
+  },
   "d-a0CKlF8sQ": {
    "added": "2026-09-16T11:36:15Z",
    "duration_s": 65,
@@ -5568,12 +5752,13 @@
    "id": "dl-blog-happy-holidays-and-new-year",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2010-12-30",
+   "raw": "sources/_raw/driveline/dl-blog-happy-holidays-and-new-year.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "Happy Holidays and New Year!",
+   "updated": "2026-10-03T14:23:38Z",
    "url": "https://drivelinebaseball.com/blogs/blog/happy-holidays-and-new-year"
   },
   "dl-blog-happy-thanksgiving": {
@@ -6142,6 +6327,22 @@
    "title": "More Pictures of Our S&C Facility",
    "updated": "2026-09-26T11:41:41Z",
    "url": "https://drivelinebaseball.com/blogs/blog/more-pictures-of-our-sc-facility"
+  },
+  "dl-blog-my-beef-with-select-team-training": {
+   "added": "2026-10-03T14:34:12Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-my-beef-with-select-team-training",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/my-beef-with-select-team-training"
   },
   "dl-blog-my-recent-reading-list": {
    "added": "2026-09-13T11:36:20Z",
@@ -6789,6 +6990,22 @@
    "updated": "2026-09-26T11:44:11Z",
    "url": "https://drivelinebaseball.com/blogs/blog/random-monday-thoughts"
   },
+  "dl-blog-random-stuff-131": {
+   "added": "2026-10-03T14:34:12Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-random-stuff-131",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/random-stuff-131"
+  },
   "dl-blog-rant-why-i-cant-stand-doctors": {
    "added": "2026-09-29T11:36:52Z",
    "duration_s": null,
@@ -6842,12 +7059,13 @@
    "id": "dl-blog-recovery-from-training-part-one",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2010-11-29",
+   "raw": "sources/_raw/driveline/dl-blog-recovery-from-training-part-one.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "Recovery From Training: Part One",
+   "updated": "2026-10-03T14:23:43Z",
    "url": "https://drivelinebaseball.com/blogs/blog/recovery-from-training-part-one"
   },
   "dl-blog-recovery-from-training-part-two": {
@@ -6858,12 +7076,13 @@
    "id": "dl-blog-recovery-from-training-part-two",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2011-01-19",
+   "raw": "sources/_raw/driveline/dl-blog-recovery-from-training-part-two.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "Recovery From Training: Part Two",
+   "updated": "2026-10-03T14:23:47Z",
    "url": "https://drivelinebaseball.com/blogs/blog/recovery-from-training-part-two"
   },
   "dl-blog-rob-dibbles-comments-on-stephen-strasburg": {
@@ -6921,6 +7140,22 @@
    "updated": "2026-09-26T11:30:22Z",
    "url": "https://drivelinebaseball.com/blogs/blog/should-you-wear-a-weight-belt"
   },
+  "dl-blog-smart-readership-of-driveline-baseball": {
+   "added": "2026-10-03T14:34:12Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-smart-readership-of-driveline-baseball",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/smart-readership-of-driveline-baseball"
+  },
   "dl-blog-soliciting-feedback-from-you": {
    "added": "2026-09-27T11:36:25Z",
    "duration_s": null,
@@ -6955,13 +7190,30 @@
    "id": "dl-blog-some-new-testimonials-driveline-baseball",
    "medium": "blog",
    "note": null,
+   "published": "2011-01-24",
+   "raw": "sources/_raw/driveline/dl-blog-some-new-testimonials-driveline-baseball.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "Some New Testimonials for Driveline Baseball",
+   "updated": "2026-10-03T14:23:52Z",
+   "url": "https://drivelinebaseball.com/blogs/blog/some-new-testimonials-driveline-baseball"
+  },
+  "dl-blog-some-results-from-the-velocity-development-program": {
+   "added": "2026-10-03T14:34:12Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-some-results-from-the-velocity-development-program",
+   "medium": "blog",
+   "note": null,
    "published": null,
    "raw": null,
    "retries": 0,
    "source": "driveline",
    "status": "new",
    "title": null,
-   "url": "https://drivelinebaseball.com/blogs/blog/some-new-testimonials-driveline-baseball"
+   "url": "https://drivelinebaseball.com/blogs/blog/some-results-from-the-velocity-development-program"
   },
   "dl-blog-strasburg-the-inverted-w-and-pitching-mechanics": {
    "added": "2026-09-27T11:36:25Z",
@@ -7047,12 +7299,13 @@
    "id": "dl-blog-strength-training-make-you-a-better-baseball-player-really",
    "medium": "blog",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2011-01-28",
+   "raw": "sources/_raw/driveline/dl-blog-strength-training-make-you-a-better-baseball-player-really.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "fetched",
+   "title": "Study: Strength Training Make You a Better Baseball Player (really?)",
+   "updated": "2026-10-03T14:23:57Z",
    "url": "https://drivelinebaseball.com/blogs/blog/strength-training-make-you-a-better-baseball-player-really"
   },
   "dl-blog-stuff-to-read-92110": {
@@ -7178,6 +7431,22 @@
    "updated": "2026-10-02T11:30:36Z",
    "url": "https://drivelinebaseball.com/blogs/blog/the-dreaded-radar-gun"
   },
+  "dl-blog-things-to-read-2911": {
+   "added": "2026-10-03T14:34:12Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-things-to-read-2911",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/things-to-read-2911"
+  },
   "dl-blog-this-week-in-workouts-9-2": {
    "added": "2026-09-29T11:36:52Z",
    "duration_s": null,
@@ -7251,12 +7520,12 @@
    "updated": "2026-09-28T12:13:31Z",
    "url": "https://drivelinebaseball.com/blogs/blog/tim-lincecum-what-changed"
   },
-  "dl-blog-velocity-development-program-throwing-related-work": {
-   "added": "2026-10-02T11:51:19Z",
+  "dl-blog-velocity-development-program-strength-and-power": {
+   "added": "2026-10-03T14:34:12Z",
    "duration_s": null,
    "error": null,
    "feed": "blog-pages",
-   "id": "dl-blog-velocity-development-program-throwing-related-work",
+   "id": "dl-blog-velocity-development-program-strength-and-power",
    "medium": "blog",
    "note": null,
    "published": null,
@@ -7265,6 +7534,23 @@
    "source": "driveline",
    "status": "new",
    "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/velocity-development-program-strength-and-power"
+  },
+  "dl-blog-velocity-development-program-throwing-related-work": {
+   "added": "2026-10-02T11:51:19Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-velocity-development-program-throwing-related-work",
+   "medium": "blog",
+   "note": null,
+   "published": "2011-01-21",
+   "raw": "sources/_raw/driveline/dl-blog-velocity-development-program-throwing-related-work.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "Velocity Program: Throwing-Related Work",
+   "updated": "2026-10-03T14:24:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/velocity-development-program-throwing-related-work"
   },
   "dl-blog-vertical-slider-pitch-design": {
@@ -7438,14 +7724,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-welcome-matthew-wagshol",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2010-09-23-welcome-matthew-wagshol.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "anatomy-movement",
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2010-09-23",
    "raw": "sources/_raw/driveline/dl-blog-welcome-matthew-wagshol.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Welcome Matthew Wagshol!",
-   "updated": "2026-09-29T11:31:31Z",
+   "updated": "2026-10-03T14:37:53Z",
    "url": "https://drivelinebaseball.com/blogs/blog/welcome-matthew-wagshol"
   },
   "dl-blog-welcome-to-driveline-baseball": {
@@ -7785,6 +8081,22 @@
    "updated": "2026-09-15T11:34:45Z",
    "url": "https://www.youtube.com/watch?v=fPXBDaavfUA"
   },
+  "fnF82xblbuA": {
+   "added": "2026-10-03T14:34:07Z",
+   "duration_s": 2598,
+   "error": null,
+   "feed": "youtube",
+   "id": "fnF82xblbuA",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Q&A #3: Playing summer ball, Velo fluctuations, Drag line, Heel vs toe landing & more",
+   "url": "https://www.youtube.com/watch?v=fnF82xblbuA"
+  },
   "fxSz1QLzLYs": {
    "added": "2026-09-08T11:30:55Z",
    "duration_s": 26,
@@ -7853,6 +8165,22 @@
    "title": "The Road to 90 MPH - Joe Marsh - 11 oz. Step Behinds (drivelinebaseball.com)",
    "updated": "2026-09-07T01:20:52Z",
    "url": "https://www.youtube.com/watch?v=gLVLdI3YdJ4"
+  },
+  "gSnIpUImotU": {
+   "added": "2026-10-03T14:33:39Z",
+   "duration_s": 346,
+   "error": null,
+   "feed": "youtube",
+   "id": "gSnIpUImotU",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "WA State High School Baseball Homerun Derby | Presented by Axe Bat/WIAA",
+   "url": "https://www.youtube.com/watch?v=gSnIpUImotU"
   },
   "gTYcNgBpR0U": {
    "added": "2026-09-05T00:34:42Z",
@@ -7985,12 +8313,13 @@
    "id": "i-kKr5fla5g",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2022-03-22",
+   "raw": "sources/_raw/tread/i-kKr5fla5g.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "What Makes a Plus Cutter? | Pitch Design for Dummies Ep. 3",
+   "updated": "2026-10-03T14:24:17Z",
    "url": "https://www.youtube.com/watch?v=i-kKr5fla5g"
   },
   "ijWv1e7W4E4": {
@@ -8325,6 +8654,22 @@
    "updated": "2026-09-08T11:59:25Z",
    "url": "https://www.youtube.com/watch?v=knFOYwxhM6k"
   },
+  "lHLhotMPhTg": {
+   "added": "2026-10-03T14:33:39Z",
+   "duration_s": 113,
+   "error": null,
+   "feed": "youtube",
+   "id": "lHLhotMPhTg",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Gap Year Training At Driveline Baseball",
+   "url": "https://www.youtube.com/watch?v=lHLhotMPhTg"
+  },
   "lI8cUdTKTy4": {
    "added": "2026-09-27T11:36:09Z",
    "duration_s": 146,
@@ -8468,12 +8813,13 @@
    "id": "m-1ORcjJyPs",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2022-03-20",
+   "raw": "sources/_raw/tread/m-1ORcjJyPs.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Is This The Best Pitching Drill Ever?",
+   "updated": "2026-10-03T14:24:37Z",
    "url": "https://www.youtube.com/watch?v=m-1ORcjJyPs"
   },
   "mBlogIlktXY": {
@@ -8557,17 +8903,18 @@
   "mMemzIvQOOA": {
    "added": "2026-10-02T11:51:06Z",
    "duration_s": 141,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "mMemzIvQOOA",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "First Week at Driveline Baseball",
+   "updated": "2026-10-03T14:30:29Z",
    "url": "https://www.youtube.com/watch?v=mMemzIvQOOA"
   },
   "mg6wIW8ITh4": {
@@ -8638,12 +8985,13 @@
    "id": "n5BhLTd-gFY",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2022-03-25",
+   "raw": "sources/_raw/tread/n5BhLTd-gFY.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Why You Tried (And Failed) To Throw Like Tim Lincecum",
+   "updated": "2026-10-03T14:31:01Z",
    "url": "https://www.youtube.com/watch?v=n5BhLTd-gFY"
   },
   "nXaUKGHuE7c": {
@@ -8774,6 +9122,22 @@
    "title": "Initial Treatise on Injuries | Driveline Baseball",
    "updated": "2026-09-26T11:54:58Z",
    "url": "https://www.youtube.com/watch?v=nzNZXSuBSuM"
+  },
+  "o0Lr53lZYXk": {
+   "added": "2026-10-03T14:34:07Z",
+   "duration_s": 1016,
+   "error": null,
+   "feed": "youtube",
+   "id": "o0Lr53lZYXk",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "How To Train Youth Pitching Mechanics",
+   "url": "https://www.youtube.com/watch?v=o0Lr53lZYXk"
   },
   "o3SqB6symC0": {
    "added": "2026-09-28T12:07:30Z",
@@ -8923,17 +9287,18 @@
   "p2wOXA9FQaE": {
    "added": "2026-10-02T11:51:06Z",
    "duration_s": 210,
-   "error": null,
+   "error": "RuntimeError: too-short transcript",
    "feed": "youtube",
    "id": "p2wOXA9FQaE",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Mortal 'K'ombat | Driveline Games: Live At Bats Pt. 19",
+   "updated": "2026-10-03T14:31:39Z",
    "url": "https://www.youtube.com/watch?v=p2wOXA9FQaE"
   },
   "p5D1kmLgPQw": {
@@ -9200,12 +9565,13 @@
    "id": "rxixi6FYz8w",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2017-04-10",
+   "raw": "sources/_raw/driveline/rxixi6FYz8w.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
+   "status": "fetched",
    "title": "2 Dingers | Driveline Games: Live At Bats Pt. 18 (Driveline Baseball)",
+   "updated": "2026-10-03T14:31:58Z",
    "url": "https://www.youtube.com/watch?v=rxixi6FYz8w"
   },
   "sBOTw365OIk": {
@@ -9353,12 +9719,13 @@
    "id": "scH2hdFhOTM",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2022-03-24",
+   "raw": "sources/_raw/tread/scH2hdFhOTM.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Q&A #1: Biomechanics on a budget, Gaining velo in-season, Flexor issues, Fixing command + more",
+   "updated": "2026-10-03T14:32:23Z",
    "url": "https://www.youtube.com/watch?v=scH2hdFhOTM"
   },
   "sqNKp9n6fNA": {
@@ -9429,12 +9796,13 @@
    "id": "tXKjS3iKgAk",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2017-05-14",
+   "raw": "sources/_raw/driveline/tXKjS3iKgAk.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
+   "status": "fetched",
    "title": "How To Coach Hitting Mechanics Pt. 1 | Driveline Baseball",
+   "updated": "2026-10-03T14:32:45Z",
    "url": "https://www.youtube.com/watch?v=tXKjS3iKgAk"
   },
   "th0hp7yS2pk": {
@@ -11344,6 +11712,22 @@
    "title": "MLB Pitcher Throwing 100+ MPH In A Bullpen",
    "updated": "2026-10-01T11:34:56Z",
    "url": "https://www.youtube.com/watch?v=ws5PSKsRgBk"
+  },
+  "wxLGnVhzCh4": {
+   "added": "2026-10-03T14:33:39Z",
+   "duration_s": 114,
+   "error": null,
+   "feed": "youtube",
+   "id": "wxLGnVhzCh4",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Driveline Plyocare Balls | Facets of Driveline Baseball",
+   "url": "https://www.youtube.com/watch?v=wxLGnVhzCh4"
   },
   "x3Rno6n_-2c": {
    "added": "2026-09-05T20:39:08Z",
