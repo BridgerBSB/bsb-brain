@@ -500,3 +500,21 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-03 07:34 discover tread-blog: ERROR 404 Client Error: Not Found for url: https://treadathletics.com/posts/page/-1/
 - 2026-10-03 07:37 fetch: 7 ok, 1 failed, 0 deferred; whisper 0 min
 - 2026-10-03 07:37 summarize: 1 ok, 0 failed (queue had room for 1)
+- 2026-10-03 07:38 run: done
+- 2026-10-04 04:30 run: start
+- 2026-10-04 04:30 discover driveline-yt: ERROR yt-dlp failed: ERROR: [youtube:tab] @drivelinebaseball/videos: Unable to download API page: <urllib3.connection.HTTPSConnection object at 0x0000012C9572CA40>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x0000012C9572CA40>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed)"))
+
+- 2026-10-04 04:30 discover tread-yt: ERROR yt-dlp failed: ERROR: [youtube:tab] treadathletics/videos: Unable to download API page: <urllib3.connection.HTTPSConnection object at 0x000001D3C621CBF0>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x000001D3C621CBF0>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed)"))
+
+- 2026-10-04 04:30 discover driveline-blog: ERROR HTTPSConnectionPool(host='drivelinebaseball.com', port=443): Max retries exceeded with url: /blogs/blog?page=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000272B7EFB740>: Failed to resolve 'drivelinebaseball.com' ([Errno 11001] getaddrinfo failed)"))
+- 2026-10-04 04:30 discover tread-blog: ERROR HTTPSConnectionPool(host='treadathletics.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000272BBDB0680>: Failed to resolve 'treadathletics.com' ([Errno 11001] getaddrinfo failed)"))
+- 2026-10-04 04:32 fetch: 0 ok, 14 failed, 0 deferred; whisper 0 min
+- 2026-10-04 04:32 promote: 0 promoted, 0 rejected, 0 corrections
+- 2026-10-04 04:32 discover driveline-yt: ERROR yt-dlp failed: ERROR: [youtube:tab] @drivelinebaseball/videos: Unable to download API page: <urllib3.connection.HTTPSConnection object at 0x000001E4D972D040>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x000001E4D972D040>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed)"))
+
+- 2026-10-04 04:32 discover tread-yt: ERROR yt-dlp failed: ERROR: [youtube:tab] treadathletics/videos: Unable to download API page: <urllib3.connection.HTTPSConnection object at 0x000001C66F26D700>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x000001C66F26D700>: Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed)"))
+
+- 2026-10-04 04:32 discover driveline-blog: ERROR HTTPSConnectionPool(host='drivelinebaseball.com', port=443): Max retries exceeded with url: /blogs/blog?page=123 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000272BBDB10D0>: Failed to resolve 'drivelinebaseball.com' ([Errno 11001] getaddrinfo failed)"))
+- 2026-10-04 04:32 discover tread-blog: ERROR HTTPSConnectionPool(host='treadathletics.com', port=443): Max retries exceeded with url: /posts/page/-1/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000272BBDB2ED0>: Failed to resolve 'treadathletics.com' ([Errno 11001] getaddrinfo failed)"))
+- 2026-10-04 04:32 fetch: 0 ok, 0 failed, 0 deferred; whisper 0 min
+- 2026-10-04 04:35 summarize: 0 ok, 1 failed (queue had room for 1)
