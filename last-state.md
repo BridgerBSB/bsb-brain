@@ -1,4 +1,14 @@
-# Last session state - 2026-10-02 (Pitch Similarity comp-pool pin)
+# Last session state - 2026-10-05 10:13 (Winter ball daily reports)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` + `bsb-wt-hitting` (feature/barrelsville), `bsb-wt-bullpen` (feature/bullpen-reports), `bsb-wt-intangibles` (feature/astros-intangibles)
+- **What we were doing:** Making the daily per-player postgames send for winter-ball games (level_code 'win': AFL, LIDOM, LVBP, LMP, ABL) for our HOU guys, plus a Scorpions run that sends every Scorpions hitter (any org) to the AFL channel.
+- **Shipped this session:** hitting `c69e9ecb`, pitching `5350b06f`, BR runner + catcher `7c62323c` + `b4efa648`, cascade step `hit-pg-afl` `db4f6144`, probe `sql-queries/winter-postgame-readiness-probe.sql`, rule `.claude/rules/winter-ball-reports.md` in all 4 worktrees. Ran live in the daily Oct 5 - Zac: "worked pretty well". Recall checkpoint `cb49957599094c98`, session `350c`.
+- **EXACT next step:** PARKED by Zac "until further ado". On resume read `.claude/rules/winter-ball-reports.md` section 4 (NOT built) and ask which he wants: app pages, Scorpions pitcher/BR/catcher run, or Scorpions KPI reports.
+- **Blockers / waiting on:** Zac's call. Unverified: sv.year for January winter games, MLBAM.Teams org_abbrev for winter clubs, tracking coverage in LIDOM/LVBP/LMP/ABL.
+- **Uncommitted work:** none of this session's (pre-existing scratch only).
+
+---
+
+## ALSO OPEN - 2026-10-02 (Pitch Similarity comp-pool pin)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` - branch `feature/bullpen-reports` (+ bsb-resources `feature/pd-goals` for the pin map)
 - **What we were doing:** Making Arm Farm Pitch Similarity fast. Every search re-scanned Pitches_View 2018->now and every new pitch-type combo / filter was a fresh scan.
 - **Shipped this session:** per-season comp-pool pin `zbridger/arm_farm_similarity_pool_{year}` + `zbridger/arm_farm_similarity_career_war`; page reads pin-first with live fallback; ranking vectorized (~28x); DSL no longer labelled FCL; season widgets follow the clock (`8f968417`, empty-new-season fix `24c729fb`, schedule text `4c0d9625`). DB parity VERIFIED (6 combos, live 4-101s vs pin 0.02s). History 2018-2026 pinned 10/10 (1,164s). New Connect job `arm-farm-similarity-pool-pin` (GUID d9d2884a-1c9f-450b-953f-9135226c9273), daily 8:30 AM Central, Vars set. App redeployed; Camden confirmed it is fast. Pin map + rollover plan updated (`0b34f033`, `0e6c2613`).
