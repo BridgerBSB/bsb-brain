@@ -518,3 +518,17 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-04 04:32 discover tread-blog: ERROR HTTPSConnectionPool(host='treadathletics.com', port=443): Max retries exceeded with url: /posts/page/-1/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000272BBDB2ED0>: Failed to resolve 'treadathletics.com' ([Errno 11001] getaddrinfo failed)"))
 - 2026-10-04 04:32 fetch: 0 ok, 0 failed, 0 deferred; whisper 0 min
 - 2026-10-04 04:35 summarize: 0 ok, 1 failed (queue had room for 1)
+- 2026-10-04 04:35 run: done
+- 2026-10-05 06:27 run: start
+- 2026-10-05 06:27 discover driveline-yt (new): 30 seen, 0 new
+- 2026-10-05 06:27 discover tread-yt (new): 30 seen, 0 new
+- 2026-10-05 06:27 discover driveline-blog (new): 6 seen, 0 new
+- 2026-10-05 06:27 discover tread-blog (new): 10 seen, 0 new
+- 2026-10-05 06:27 fetch: 0 ok, 0 failed, 0 deferred; whisper 0 min
+- 2026-10-05 06:27 promote: 0 promoted, 0 rejected, 0 corrections
+- 2026-10-05 06:28 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-10-05 06:28 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-10-05 06:28 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-10-05 06:28 discover tread-blog: ERROR 404 Client Error: Not Found for url: https://treadathletics.com/posts/page/-1/
+- 2026-10-05 06:34 fetch: 5 ok, 3 failed, 0 deferred; whisper 4 min
+- 2026-10-05 06:35 summarize: 1 ok, 0 failed (queue had room for 1)

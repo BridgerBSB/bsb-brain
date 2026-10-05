@@ -4,14 +4,14 @@
   "bpc-yt:pos:oldest": 8,
   "bpc-yt:total": 42,
   "driveline-blog:page:newest": 2,
-  "driveline-blog:page:oldest": 123,
+  "driveline-blog:page:oldest": 122,
   "driveline-yt:pos:newest": 10,
-  "driveline-yt:pos:oldest": 136,
+  "driveline-yt:pos:oldest": 144,
   "driveline-yt:total": 510,
   "tread-blog:page:newest": 2,
   "tread-blog:page:oldest": -1,
   "tread-yt:pos:newest": 10,
-  "tread-yt:pos:oldest": 136,
+  "tread-yt:pos:oldest": 144,
   "tread-yt:total": 755
  },
  "items": {
@@ -121,6 +121,23 @@
    "title": "Happy Gilmore with Axe Bat Speed Trainers | Driveline Baseball",
    "updated": "2026-10-01T11:36:13Z",
    "url": "https://www.youtube.com/watch?v=-LRcQhTa7TU"
+  },
+  "-MCz-3VMHwA": {
+   "added": "2026-10-05T13:28:18Z",
+   "duration_s": 124,
+   "error": null,
+   "feed": "youtube",
+   "id": "-MCz-3VMHwA",
+   "medium": "video",
+   "note": null,
+   "published": "2017-11-18",
+   "raw": "sources/_raw/driveline/-MCz-3VMHwA.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "Evolution of Research at Driveline Baseball",
+   "updated": "2026-10-05T13:28:56Z",
+   "url": "https://www.youtube.com/watch?v=-MCz-3VMHwA"
   },
   "-RgicqHSr7I": {
    "added": "2026-09-10T11:37:44Z",
@@ -364,6 +381,23 @@
    "updated": "2026-09-15T11:38:36Z",
    "url": "https://www.youtube.com/watch?v=0bMk0-Qb3aY"
   },
+  "0bVsYrzknTA": {
+   "added": "2026-10-05T13:28:18Z",
+   "duration_s": 257,
+   "error": null,
+   "feed": "youtube",
+   "id": "0bVsYrzknTA",
+   "medium": "video",
+   "note": null,
+   "published": "2017-12-06",
+   "raw": "sources/_raw/driveline/0bVsYrzknTA.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "Keeping Tradition | Evolution of Training At Driveline Baseball",
+   "updated": "2026-10-05T13:32:25Z",
+   "url": "https://www.youtube.com/watch?v=0bVsYrzknTA"
+  },
   "0eyxyh7uw94": {
    "added": "2026-09-05T20:37:29Z",
    "duration_s": 140,
@@ -389,6 +423,23 @@
    "title": "Driveline Roadmap: Your Development. Your Data. Your Path.",
    "updated": "2026-09-07T02:32:41Z",
    "url": "https://www.youtube.com/watch?v=0eyxyh7uw94"
+  },
+  "0gjIIJuoA-Y": {
+   "added": "2026-10-05T13:28:18Z",
+   "duration_s": 48,
+   "error": "RuntimeError: too-short transcript",
+   "feed": "youtube",
+   "id": "0gjIIJuoA-Y",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Herbie Good 5",
+   "updated": "2026-10-05T13:32:48Z",
+   "url": "https://www.youtube.com/watch?v=0gjIIJuoA-Y"
   },
   "0pljFGlzUYw": {
    "added": "2026-09-05T00:34:56Z",
@@ -822,6 +873,23 @@
    "updated": "2026-09-07T00:52:11Z",
    "url": "https://www.youtube.com/watch?v=2qMD82rncgQ"
   },
+  "2zRzWIduRzc": {
+   "added": "2026-10-05T13:28:18Z",
+   "duration_s": 26,
+   "error": "RuntimeError: too-short transcript",
+   "feed": "youtube",
+   "id": "2zRzWIduRzc",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Christian Meister 1",
+   "updated": "2026-10-05T13:33:12Z",
+   "url": "https://www.youtube.com/watch?v=2zRzWIduRzc"
+  },
   "306t3m6hXC4": {
    "added": "2026-10-03T14:34:07Z",
    "duration_s": 550,
@@ -1188,6 +1256,23 @@
    "title": "Q & A Episode 5 : How Do I Not Feel Unathletic & Robotic When I Throw?",
    "updated": "2026-09-13T11:36:44Z",
    "url": "https://www.youtube.com/watch?v=54NQPVz1Vf8"
+  },
+  "5kMGSdUuJ2w": {
+   "added": "2026-10-05T13:28:40Z",
+   "duration_s": 518,
+   "error": null,
+   "feed": "youtube",
+   "id": "5kMGSdUuJ2w",
+   "medium": "video",
+   "note": null,
+   "published": "2022-05-05",
+   "raw": "sources/_raw/tread/5kMGSdUuJ2w.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Ben Joyce Explains How it Feels to Throw 105 MPH",
+   "updated": "2026-10-05T13:33:28Z",
+   "url": "https://www.youtube.com/watch?v=5kMGSdUuJ2w"
   },
   "5qJB9tIWXIw": {
    "added": "2026-09-17T11:36:59Z",
@@ -2263,6 +2348,40 @@
    "updated": "2026-09-28T12:10:15Z",
    "url": "https://www.youtube.com/watch?v=Dxe9Gej95yg"
   },
+  "E3K7sTrZiX4": {
+   "added": "2026-10-05T13:28:18Z",
+   "duration_s": 98,
+   "error": null,
+   "feed": "youtube",
+   "id": "E3K7sTrZiX4",
+   "medium": "video",
+   "note": null,
+   "published": "2017-11-21",
+   "raw": "sources/_raw/driveline/E3K7sTrZiX4.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "How to Implement a Driveline Program at Your School",
+   "updated": "2026-10-05T13:33:45Z",
+   "url": "https://www.youtube.com/watch?v=E3K7sTrZiX4"
+  },
+  "ECEiqTEJFqk": {
+   "added": "2026-10-05T13:28:40Z",
+   "duration_s": 103,
+   "error": "RuntimeError: too-short transcript",
+   "feed": "youtube",
+   "id": "ECEiqTEJFqk",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "tread",
+   "status": "failed",
+   "title": "Here's What Happens When Pitchers Try To Hit 95 MPH...",
+   "updated": "2026-10-05T13:34:07Z",
+   "url": "https://www.youtube.com/watch?v=ECEiqTEJFqk"
+  },
   "EJjTapd9Uro": {
    "added": "2026-09-16T11:36:29Z",
    "duration_s": 1406,
@@ -2474,6 +2593,23 @@
    "title": "Miami Commit Goes For 94 MPH In Bullpen | Dylan Mulcahy",
    "updated": "2026-09-08T12:06:14Z",
    "url": "https://www.youtube.com/watch?v=FiRtvf0_dnI"
+  },
+  "Fv-AnF-wfH4": {
+   "added": "2026-10-05T13:28:18Z",
+   "duration_s": 70,
+   "error": null,
+   "feed": "youtube",
+   "id": "Fv-AnF-wfH4",
+   "medium": "video",
+   "note": null,
+   "published": "2017-11-21",
+   "raw": "sources/_raw/driveline/Fv-AnF-wfH4.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "fetched",
+   "title": "How To Fix Throwing Mechanics",
+   "updated": "2026-10-05T13:34:23Z",
+   "url": "https://www.youtube.com/watch?v=Fv-AnF-wfH4"
   },
   "G17s9d9Oj38": {
    "added": "2026-09-05T20:37:29Z",
@@ -3406,6 +3542,22 @@
    "updated": "2026-09-26T11:52:11Z",
    "url": "https://www.youtube.com/watch?v=PFLcwx5Pj9Q"
   },
+  "PXNV1ilKxzQ": {
+   "added": "2026-10-05T13:28:40Z",
+   "duration_s": 1066,
+   "error": null,
+   "feed": "youtube",
+   "id": "PXNV1ilKxzQ",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "The Importance Of Grip Strength For Pitchers",
+   "url": "https://www.youtube.com/watch?v=PXNV1ilKxzQ"
+  },
   "Pg5i8A5SinQ": {
    "added": "2026-10-01T11:36:01Z",
    "duration_s": 212,
@@ -3957,6 +4109,22 @@
    "updated": "2026-09-05T21:58:54Z",
    "url": "https://www.youtube.com/watch?v=U5Hdv27-_44"
   },
+  "U6B85Ni3tXc": {
+   "added": "2026-10-05T13:28:18Z",
+   "duration_s": 117,
+   "error": null,
+   "feed": "youtube",
+   "id": "U6B85Ni3tXc",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Driveline Baseball Remote Hitting Program",
+   "url": "https://www.youtube.com/watch?v=U6B85Ni3tXc"
+  },
   "U7Ah61uhaM8": {
    "added": "2026-09-05T20:37:41Z",
    "duration_s": 238,
@@ -4096,6 +4264,22 @@
    "title": "How to Improve Sequencing with the Rhythm Rocker",
    "updated": "2026-09-26T11:30:25Z",
    "url": "https://www.youtube.com/watch?v=U__OwPjuKMQ"
+  },
+  "Ugb6jcmQZPY": {
+   "added": "2026-10-05T13:28:40Z",
+   "duration_s": 3467,
+   "error": null,
+   "feed": "youtube",
+   "id": "Ugb6jcmQZPY",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Ben Joyce Breaks Down His 105 MPH Mechanics",
+   "url": "https://www.youtube.com/watch?v=Ugb6jcmQZPY"
   },
   "Ury29iTiTxo": {
    "added": "2026-09-05T00:34:42Z",
@@ -4682,6 +4866,22 @@
    "title": "BPC Podcast Episode 4: Mike Marron Old Dominion Pitching Coach",
    "updated": "2026-09-05T22:11:11Z",
    "url": "https://www.youtube.com/watch?v=YxBrNjtj-xU"
+  },
+  "Z5bMIZEHXIM": {
+   "added": "2026-10-05T13:28:40Z",
+   "duration_s": 5652,
+   "error": null,
+   "feed": "youtube",
+   "id": "Z5bMIZEHXIM",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Kevin Foster: What Can Javelin Teach Us About Pitching?",
+   "url": "https://www.youtube.com/watch?v=Z5bMIZEHXIM"
   },
   "ZKpq4mrQ5_s": {
    "added": "2026-09-30T11:43:58Z",
@@ -5415,6 +5615,22 @@
    "updated": "2026-09-14T11:40:42Z",
    "url": "https://drivelinebaseball.com/blogs/blog/a-few-scapular-exercises-for-pitchers"
   },
+  "dl-blog-a-hypothetical-training-question": {
+   "added": "2026-10-05T13:28:44Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-a-hypothetical-training-question",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/a-hypothetical-training-question"
+  },
   "dl-blog-adjusting-stance-on-the-rubber-based-on-batters-handedness": {
    "added": "2026-09-16T11:36:32Z",
    "duration_s": null,
@@ -5440,6 +5656,22 @@
    "title": "Adjusting Stance on the Rubber Based on Batter's Handedness",
    "updated": "2026-09-26T11:43:10Z",
    "url": "https://drivelinebaseball.com/blogs/blog/adjusting-stance-on-the-rubber-based-on-batters-handedness"
+  },
+  "dl-blog-advanced-injury-database": {
+   "added": "2026-10-05T13:28:44Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-advanced-injury-database",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/advanced-injury-database"
   },
   "dl-blog-appropriate-energy-system-development": {
    "added": "2026-09-14T11:37:09Z",
@@ -5933,6 +6165,22 @@
    "updated": "2026-09-26T11:37:15Z",
    "url": "https://drivelinebaseball.com/blogs/blog/in-season-training-a-difficult-task"
   },
+  "dl-blog-interview-at-texasleaguers-com": {
+   "added": "2026-10-05T13:28:44Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-interview-at-texasleaguers-com",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/interview-at-texasleaguers-com"
+  },
   "dl-blog-keeping-strength-in-the-strength-program": {
    "added": "2026-09-09T11:36:21Z",
    "duration_s": null,
@@ -6155,14 +6403,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-matt-antonelli-theres-no-magic-potion",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2010-09-29-matt-antonelli-there-s-no-magic-potion.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "mental"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "low"
+   },
    "published": "2010-09-29",
    "raw": "sources/_raw/driveline/dl-blog-matt-antonelli-theres-no-magic-potion.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Matt Antonelli: There's No Magic Potion",
-   "updated": "2026-09-30T11:37:42Z",
+   "updated": "2026-10-05T13:35:04Z",
    "url": "https://drivelinebaseball.com/blogs/blog/matt-antonelli-theres-no-magic-potion"
   },
   "dl-blog-measuring-hip-internal-rotation": {
@@ -6419,6 +6676,22 @@
    "updated": "2026-09-09T11:34:25Z",
    "url": "https://drivelinebaseball.com/blogs/blog/new-equipment-at-our-facility"
   },
+  "dl-blog-new-hitting-testimonial": {
+   "added": "2026-10-05T13:28:44Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-new-hitting-testimonial",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/new-hitting-testimonial"
+  },
   "dl-blog-news-driveline-baseball-101510": {
    "added": "2026-09-30T11:44:01Z",
    "duration_s": null,
@@ -6644,6 +6917,22 @@
    "title": "Obligatory Post About Stephen Strasburg",
    "updated": "2026-09-26T11:46:03Z",
    "url": "https://drivelinebaseball.com/blogs/blog/obligatory-post-about-stephen-strasburg"
+  },
+  "dl-blog-open-workouts-for-the-puget-sound-senior-baseball-league": {
+   "added": "2026-10-05T13:28:44Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-open-workouts-for-the-puget-sound-senior-baseball-league",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/open-workouts-for-the-puget-sound-senior-baseball-league"
   },
   "dl-blog-optimal-shoulder-performance": {
    "added": "2026-09-15T11:38:09Z",
@@ -7708,6 +7997,22 @@
    "title": "Video: Should Pitchers Overhead Press?",
    "updated": "2026-09-16T11:40:03Z",
    "url": "https://drivelinebaseball.com/blogs/blog/video-should-pitchers-overhead-press"
+  },
+  "dl-blog-video-tethered-resistance-band-cycle": {
+   "added": "2026-10-05T13:28:44Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-video-tethered-resistance-band-cycle",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/video-tethered-resistance-band-cycle"
   },
   "dl-blog-weighted-baseball-training-a-get-started-guide": {
    "added": "2026-09-30T11:44:01Z",
@@ -9436,6 +9741,22 @@
    "title": "Velocity-Building Day | Driveline Baseball",
    "updated": "2026-09-26T11:52:44Z",
    "url": "https://www.youtube.com/watch?v=qZ_6hHfdVYI"
+  },
+  "q_BLGv74bPk": {
+   "added": "2026-10-05T13:28:40Z",
+   "duration_s": 321,
+   "error": null,
+   "feed": "youtube",
+   "id": "q_BLGv74bPk",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Are You Throwing the Wrong Sinker?",
+   "url": "https://www.youtube.com/watch?v=q_BLGv74bPk"
   },
   "qtXjHhIDa5A": {
    "added": "2026-09-05T20:39:26Z",
@@ -11692,6 +12013,22 @@
    "updated": "2026-09-07T01:37:29Z",
    "url": "https://www.youtube.com/watch?v=wNoYLNe5VCg"
   },
+  "wg5YQZq84Os": {
+   "added": "2026-10-05T13:28:40Z",
+   "duration_s": 338,
+   "error": null,
+   "feed": "youtube",
+   "id": "wg5YQZq84Os",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "How To Fix Your Flat Fastball",
+   "url": "https://www.youtube.com/watch?v=wg5YQZq84Os"
+  },
   "wi6H5WdLjUY": {
    "added": "2026-09-10T11:37:44Z",
    "duration_s": 1156,
@@ -11759,6 +12096,22 @@
    "title": "Deceleration Training for the Shoulder - Hidden Key to a Big Fastball (drivelinebaseball.com)",
    "updated": "2026-09-06T15:19:03Z",
    "url": "https://www.youtube.com/watch?v=x3Rno6n_-2c"
+  },
+  "x93-8obEIJA": {
+   "added": "2026-10-05T13:28:18Z",
+   "duration_s": 188,
+   "error": null,
+   "feed": "youtube",
+   "id": "x93-8obEIJA",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "On Site Implementation | Driveline Baseball",
+   "url": "https://www.youtube.com/watch?v=x93-8obEIJA"
   },
   "x94dpqhmJks": {
    "added": "2026-09-05T00:34:18Z",
@@ -11944,6 +12297,22 @@
    "title": "Is Tread's Remote Coaching Worth It? A Parent Perspective.",
    "updated": "2026-09-08T12:29:20Z",
    "url": "https://www.youtube.com/watch?v=y1gPpzn5DMw"
+  },
+  "yHc37Vguuz0": {
+   "added": "2026-10-05T13:28:40Z",
+   "duration_s": 1542,
+   "error": null,
+   "feed": "youtube",
+   "id": "yHc37Vguuz0",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Avoid These Common Pitching Cues!",
+   "url": "https://www.youtube.com/watch?v=yHc37Vguuz0"
   },
   "yQW41XvAStQ": {
    "added": "2026-09-08T11:30:55Z",
