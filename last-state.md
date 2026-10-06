@@ -1,4 +1,14 @@
-# Last session state - 2026-10-06 13:45 (AFL Side Report, LIVE)
+# Last session state - 2026-10-06 13:47 (Goals map step 1: Opportunities bot)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` · branch `feature/pd-goals`
+- **What we were doing:** Step 1 (Goal Establishment) of the Goals/Flagging map (`C:\Users\Owner\Downloads\goals-flagging-tree.png`) = run the Opportunities bot to find next year's goals. Made it one command with a `-Levels` flag. Zac is moving to a new laptop.
+- **Shipped this session:** `a8498bce7` `-Levels fcl,a,a+,aa,aaa,dsl` on `opportunities/run_opportunities.ps1` (dry-run verified). Gate audit: hitter/pitcher/catcher NetK+Framing/IF-OF match golden gates; baserunning (sprint 5 / SB 50 TOB / leads 10) and catcher quadrant NetK (300 vs 500) do not. Recall `d8f26ceb21956d27`, session `f0a4`.
+- **EXACT next step:** On the work laptop: `git pull` in bsb-wt-hitting, bsb-wt-bullpen, bsb-resources, then `.\opportunities\run_opportunities.ps1 -Season 2026 -Levels fcl,a,a+,aa -IncludePitchers`. Bring the table from `opportunities\output\` back and turn it into the step-1 goal list.
+- **Blockers / waiting on:** Zac call on aligning BR + quadrant NetK gates first; defense exports never run on live DB; runtime unmeasured. New laptop: confirm paths exist.
+- **Uncommitted work:** bsb-resources 81 pre-existing paths (none from this session).
+
+---
+
+## ALSO OPEN - 2026-10-06 13:45 (AFL Side Report, LIVE)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` · branch `feature/bullpen-reports` (+ one SQL in bsb-resources `feature/pd-goals`)
 - **What we were doing:** Built and automated the AFL Side Report: the Giants coach's TrackMan CSVs (shared Drive folder, synced via Drive for Desktop) rendered in the Side report layout and posted to our pitchers' z_ channels. Runs on the personal laptop, no DB, no Connect.
 - **Shipped this session:** `27f02c218` build, `0f1ddc209` DB-free + MLBAM headshot, `8285f13ea` runner on G:\.shortcut-targets-by-id, `0a3ded1b6` HAA unflipped (confirmed); bsb-resources `fc8d784df` sign-check SQL. First 5 reports sent (202). Windows task "AFL Side Report" daily 7:00 AM PT = 9:00 CT through Nov 30. Recall `1947526d702b0c44`, session `4cf8`.
