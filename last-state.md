@@ -1,4 +1,14 @@
-# Last session state - 2026-10-06 08:05 (HireHou hiring app: panels, rankings, itinerary, Panel Matrix)
+# Last session state - 2026-10-06 13:45 (AFL Side Report, LIVE)
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` · branch `feature/bullpen-reports` (+ one SQL in bsb-resources `feature/pd-goals`)
+- **What we were doing:** Built and automated the AFL Side Report: the Giants coach's TrackMan CSVs (shared Drive folder, synced via Drive for Desktop) rendered in the Side report layout and posted to our pitchers' z_ channels. Runs on the personal laptop, no DB, no Connect.
+- **Shipped this session:** `27f02c218` build, `0f1ddc209` DB-free + MLBAM headshot, `8285f13ea` runner on G:\.shortcut-targets-by-id, `0a3ded1b6` HAA unflipped (confirmed); bsb-resources `fc8d784df` sign-check SQL. First 5 reports sent (202). Windows task "AFL Side Report" daily 7:00 AM PT = 9:00 CT through Nov 30. Recall `1947526d702b0c44`, session `4cf8`.
+- **EXACT next step:** After 7:00 AM PT Oct 7, read `C:\Users\Owner\.afl_side\run.log` and confirm the first unattended run ended `exit 0`.
+- **Blockers / waiting on:** none. Laptop must be awake + online with Google Drive running at 7:00 AM PT.
+- **Uncommitted work:** bsb-wt-bullpen 26 pre-existing paths (none from this session).
+
+---
+
+## ALSO OPEN - 2026-10-06 08:05 (HireHou hiring app: panels, rankings, itinerary, Panel Matrix)
 - **Project / cwd:** `C:/Users/Owner/hiring` (BridgerBSB/hiring, branch `main`, Railway deploys `cage-sandbox/`)
 - **What we were doing:** Building the Director of Pitching / Hitting process tools in HireHou for Sam: live panel names, DoP Questionnaire Review, Ranking round 2, DoP deck slides 5 + 14, In-Person Itinerary, and the Panel Matrix (scheduling the Teams Panel calls).
 - **Shipped this session:** panel names `d483386`; DoP questionnaire + Ranking round 2 `cf2cb53`, re-send = reminder `4307bcb`, Ranking 2 over In Person Presentation `5dcf8b1`, "Questionnaire Review" `8f9a230`; deck slide 14 Velocity Scalability `5e04f62`; Itinerary `c66ea1e`; Panel Matrix `584d865` -> named chips `ab81a7b` -> candidate blocks + Randomize `f3327fb` -> panel availability `482a6b2` -> rows at bottom + schedule PDFs `b814eed` -> day/time bar `373d40c`. LINEAGE (t)-(y). Recall checkpoint `a713fb0aad4bbea2`, session `1136`.
