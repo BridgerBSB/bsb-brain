@@ -1,6 +1,6 @@
 # Auto-filed as low value (not reviewed)
 
-Written by `kb.py lint` 2026-10-05 06:35. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
+Written by `kb.py lint` 2026-10-06 04:39. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
 
 - 2026-08-26 tread marketing: Is Tread's Remote Coaching Worth It? A Parent Perspective. - https://www.youtube.com/watch?v=y1gPpzn5DMw - id `y1gPpzn5DMw`
 - 2026-07-23 tread marketing: He Went D1 After Throwing 97 MPH In This Showcase - https://www.youtube.com/watch?v=5-N9m4A7BWY - id `5-N9m4A7BWY`
@@ -36,6 +36,7 @@ Written by `kb.py lint` 2026-10-05 06:35. Marketing and low-value items skip the
 - 2013-10-05 driveline marketing: EMG Sensor Testing at Driveline Baseball - https://www.youtube.com/watch?v=gmK0tbTCC8E - id `gmK0tbTCC8E`
 - 2013-03-17 driveline instruction: Speed Training for Baseball - Prowler Pushes - https://www.youtube.com/watch?v=Yg3YznNU1yY - id `Yg3YznNU1yY`
 - 2013-01-06 driveline instruction: Pitching Arm Care: Heavy Deceleration Throws (drivelinebaseball.com) - https://www.youtube.com/watch?v=5rkW2BF8Ahs - id `5rkW2BF8Ahs`
+- 2010-09-30 driveline marketing: This Week in Workouts: 9/26/10 - https://drivelinebaseball.com/blogs/blog/this-week-in-workouts-9-2 - id `dl-blog-this-week-in-workouts-9-2`
 - 2010-09-29 driveline philosophy: Matt Antonelli: There's No Magic Potion - https://drivelinebaseball.com/blogs/blog/matt-antonelli-theres-no-magic-potion - id `dl-blog-matt-antonelli-theres-no-magic-potion`
 - 2010-09-23 driveline marketing: Welcome Matthew Wagshol! - https://drivelinebaseball.com/blogs/blog/welcome-matthew-wagshol - id `dl-blog-welcome-matthew-wagshol`
 - 2010-09-21 driveline philosophy: Stuff to Read: 9/21/10 - https://drivelinebaseball.com/blogs/blog/stuff-to-read-92110 - id `dl-blog-stuff-to-read-92110`
