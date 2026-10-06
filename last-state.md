@@ -1,10 +1,21 @@
-# Last session state - 2026-10-05 10:13 (Winter ball daily reports)
+# Last session state - 2026-10-06 08:05 (HireHou hiring app: panels, rankings, itinerary, Panel Matrix)
+- **Project / cwd:** `C:/Users/Owner/hiring` (BridgerBSB/hiring, branch `main`, Railway deploys `cage-sandbox/`)
+- **What we were doing:** Building the Director of Pitching / Hitting process tools in HireHou for Sam: live panel names, DoP Questionnaire Review, Ranking round 2, DoP deck slides 5 + 14, In-Person Itinerary, and the Panel Matrix (scheduling the Teams Panel calls).
+- **Shipped this session:** panel names `d483386`; DoP questionnaire + Ranking round 2 `cf2cb53`, re-send = reminder `4307bcb`, Ranking 2 over In Person Presentation `5dcf8b1`, "Questionnaire Review" `8f9a230`; deck slide 14 Velocity Scalability `5e04f62`; Itinerary `c66ea1e`; Panel Matrix `584d865` -> named chips `ab81a7b` -> candidate blocks + Randomize `f3327fb` -> panel availability `482a6b2` -> rows at bottom + schedule PDFs `b814eed` -> day/time bar `373d40c`. LINEAGE (t)-(y). Recall checkpoint `a713fb0aad4bbea2`, session `1136`.
+- **EXACT next step:** Ask Zac what he found testing the live Panel Matrix (Randomize, blocks, schedule PDFs) and which feature add is next; after any change run `python tools/drive_panel_matrix.py` from `C:/Users/Owner/hiring/cage-sandbox` (30 checks).
+- **Blockers / waiting on:** Zac's live testing + next feature list. Open: candidate PDF shows no panel topics (his call).
+- **Uncommitted work:** hiring: 3 sample PDFs in docs/renders (untracked on purpose).
+
+---
+
+## ALSO OPEN - 2026-10-05 10:13 (Winter ball daily reports)
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` + `bsb-wt-hitting` (feature/barrelsville), `bsb-wt-bullpen` (feature/bullpen-reports), `bsb-wt-intangibles` (feature/astros-intangibles)
 - **What we were doing:** Making the daily per-player postgames send for winter-ball games (level_code 'win': AFL, LIDOM, LVBP, LMP, ABL) for our HOU guys, plus a Scorpions run that sends every Scorpions hitter (any org) to the AFL channel.
 - **Shipped this session:** hitting `c69e9ecb`, pitching `5350b06f`, BR runner + catcher `7c62323c` + `b4efa648`, cascade step `hit-pg-afl` `db4f6144`, probe `sql-queries/winter-postgame-readiness-probe.sql`, rule `.claude/rules/winter-ball-reports.md` in all 4 worktrees. Ran live in the daily Oct 5 - Zac: "worked pretty well". Recall checkpoint `cb49957599094c98`, session `350c`.
 - **EXACT next step:** PARKED by Zac "until further ado". On resume read `.claude/rules/winter-ball-reports.md` section 4 (NOT built) and ask which he wants: app pages, Scorpions pitcher/BR/catcher run, or Scorpions KPI reports.
 - **Blockers / waiting on:** Zac's call. Unverified: sv.year for January winter games, MLBAM.Teams org_abbrev for winter clubs, tracking coverage in LIDOM/LVBP/LMP/ABL.
 - **Uncommitted work:** none of this session's (pre-existing scratch only).
+
 
 ---
 
