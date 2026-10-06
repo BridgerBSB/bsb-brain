@@ -1,4 +1,14 @@
-# Last session state - 2026-10-06 13:47 (Goals map step 1: Opportunities bot)
+# Last session state - 2026-10-06 14:00 (Arm Farm Pitcher Dashboard + canonical pitcher pools)
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` - branch `feature/bullpen-reports` (+ bsb-resources `feature/pd-goals` for pin map, job-log tool, PD Engine EOY port)
+- **What we were doing:** Deleted the WAR Board, made Arm Farm open on one Pitcher Dashboard (mirrors the Catcher Dashboard), sped up slow Profiler pin reads, documented per-step pin timings, and put every pitcher percentile pool on the canonical 300/300/100/50 gates.
+- **Shipped this session:** a70a2f046 (WAR Board gone), 5d10fc9ef (router + 8 pills, Profiler), ac603a049 + 3a1789a4b (pin prewarm: first card 28.4s -> 10.1s), 265806e93 / 9051d7cb9 / 2ec407ab5 / b2d24182b (canonical pools: R2K, groups, per-type xstats, EOY extras/count, EOY Stuff L/R type x hand), 85f908a58 (tracker full precision), lineage 34b64062e. bsb-resources: diag_connect_job_log --rendered --timings, pin map per-step breakdown (acd8ed27e). Zac deployed v2-pools (ALL JOBS OK), Arm Farm app, tracker. Recall checkpoint 70bea6ee44ed467b, session 8b23.
+- **EXACT next step:** Ask Zac to decide item C: EOY season vs LHH/vs RHH rows -> (b) build vs-hand pools in the EOY pool job (recommended) or (a) reconcile tracker vs V2 first (MLB 590 vs 563 pitchers, Avg EV, Hard-Hit, FIP, V2 fb_velo gate) then cut from the tracker. Then deploy connect_pins_eoy + PD Engine once.
+- **Blockers / waiting on:** Zac's C decision; Connect check that Profiler R2K + vR/vL chips are coloured; EOY 2026 --refresh is Zac's call.
+- **Uncommitted work:** none of this session's (bullpen + bsb-resources clutter is pre-existing / other sessions).
+
+---
+
+## ALSO OPEN - 2026-10-06 13:47 (Goals map step 1: Opportunities bot)
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` · branch `feature/pd-goals`
 - **What we were doing:** Step 1 (Goal Establishment) of the Goals/Flagging map (`C:\Users\Owner\Downloads\goals-flagging-tree.png`) = run the Opportunities bot to find next year's goals. Made it one command with a `-Levels` flag. Zac is moving to a new laptop.
 - **Shipped this session:** `a8498bce7` `-Levels fcl,a,a+,aa,aaa,dsl` on `opportunities/run_opportunities.ps1` (dry-run verified). Gate audit: hitter/pitcher/catcher NetK+Framing/IF-OF match golden gates; baserunning (sprint 5 / SB 50 TOB / leads 10) and catcher quadrant NetK (300 vs 500) do not. Recall `d8f26ceb21956d27`, session `f0a4`.
