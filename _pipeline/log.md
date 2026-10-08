@@ -560,3 +560,12 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-07 04:36 discover tread-blog: ERROR 404 Client Error: Not Found for url: https://treadathletics.com/posts/page/-1/
 - 2026-10-07 04:39 fetch: 3 ok, 5 failed, 0 deferred; whisper 2 min
 - 2026-10-07 04:40 summarize: 1 ok, 0 failed (queue had room for 1)
+- 2026-10-07 04:40 run: done
+- 2026-10-08 06:39 run: start
+- 2026-10-08 06:39 discover driveline-yt (new): 30 seen, 1 new
+- 2026-10-08 06:39 discover tread-yt (new): 30 seen, 0 new
+- 2026-10-08 06:39 discover driveline-blog (new): 6 seen, 0 new
+- 2026-10-08 06:39 discover tread-blog (new): 10 seen, 0 new
+- 2026-10-08 06:48 fetch: 11 ok, 4 failed, 0 deferred; whisper 5 min
+- 2026-10-08 06:48 promote: 0 promoted, 0 rejected, 0 corrections
+- 2026-10-08 06:48 summarize: 0 ok, 0 failed (queue had room for 0)
