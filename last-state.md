@@ -1,4 +1,12 @@
-# Last session state - 2026-10-07 19:43 (tracker vs Profiler metric parity: IBB double-count fixed; Barrel% probe next)
+# Last session state - 2026-10-08 09:50 CT (fielding pin rebuild: Stage 1 done, Stage 2 spec'd)
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (+ bsb-resources `feature/pd-goals` pin map doc)
+- **What we were doing:** Replacing the 41h fielding pin job (336 heavy SQL queries) with one raw pull + Python. All 8 slices now match the old SQL same-day, 6/6 each; Stage 2 (shadow job writing a test pin) is specced, not built.
+- **Shipped this session:** intangibles 152d7f6f..67b79e41 (8 builders, A/B harness modes, 49-check DB-free test, raw queries + game_month/fielding_team_id, Stage 2 spec), lineage entry. bsb-resources a26d5e74 / 676d16cb (pin map: Barrelsville 12h24m, catcher 19h53m). Recall checkpoint 4270fa59203bef3b, session 3292.
+- **EXACT next step:** Fielding pin rebuild: Stage 1 complete (all 8 slices pass same-day A/B vs old SQL, 49 DB-free checks). Stage 2 shadow spec at bsb-wt-intangibles/astros-intangibles/intangibles/docs/plans/2026-10-08-fielding-rebuild-stage2-shadow-spec.md (67b79e41). Open decision for Zac: morning-check option A/B/C. Then build `scripts/pin_fielding_rebuild.py` (--dry-run first) per the spec.
+- **Blockers / waiting on:** Zac's A/B/C choice; whether the hung `-fielding` job was cancelled / its schedule turned off. Catcher fix (org work 3x) not started. Other session owns pitching pins.
+- **Uncommitted work:** none from this session (intangibles 28 synced-rule files + bsb-resources 81 pre-existing, not mine)
+
+## ALSO OPEN - 2026-10-07 19:43 (tracker vs Profiler metric parity: IBB double-count fixed; Barrel% probe next)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` - branch `feature/bullpen-reports` (+ bsb-resources `feature/pd-goals`)
 - **What we were doing:** Making every pitcher metric on both the Affiliate Tracker and the Profiler give the same number, with GC2 as referee. Found + fixed intentional walks counted twice in batters faced (K%/BB% low); gcERA kept identical. Started on postgame visual speed.
 - **Shipped this session:** bullpen 0cdce61aa (parity check CLOSE/diff), 06de8b86a (diag_kpct), 28dd6d76b (BF fix, 5 files + test_bf_ibb_once), 875fc64f2 (lineage); pd-goals 9972a9752 (EOY port), 93a78e200 (barrel probe); db-columns.md all 4 worktrees. Zac re-pinned + deployed: K%/BB%/K-BB% IDENTICAL MLB-FCL, gcERA unchanged. Recall checkpoint 154b08ca05a3bd53, session 2175.
