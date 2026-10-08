@@ -1,4 +1,14 @@
-# Last session state - 2026-10-06 14:00 (Arm Farm Pitcher Dashboard + canonical pitcher pools)
+# Last session state - 2026-10-08 12:35 (BR affiliate tracker - Mazzo layout)
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (+ rule doc synced to all 4 worktrees)
+- **What we were doing:** Rebuilt the Baserunning affiliate tracker to Mazzo's layout: every new/renamed column, all orgs and levels, all on at launch, grouped headers. Speed/read now split by run type (home to first vs steal attempts from 1B/2B), GC2 definitions.
+- **Shipped this session:** 19d7973f7 (build), f608469b1 (lineage), 8c583130b (DoubledUp probe), spec a0f7847d3/8d512f250, probe+results b78945215/f4c8d89d3, rule fix 8e0983a7e. 2026 re-pin DONE on work laptop (7858s measured). Recall checkpoint 2ca8861c545eb8c5, session bd89.
+- **EXACT next step:** On the work laptop: `.\connect_pins_br\deploy.ps1` in one terminal (ships new code to the nightly job, else it reverts the pin), and in a second terminal `rsconnect deploy manifest . --app-id 295a5205-5568-4fb6-a759-26dc63bc9439` from `bsb-wt-intangibles\intangibles`. Then run `sql-queriesr-doubled-up-pbp-probe-2026.sql` in SSMS and decide: drop DoubledUp or define it (0 rows at every level).
+- **Blockers / waiting on:** Zac's deploys + DoubledUp decision; older seasons 2025-2022 re-pin with `--skip-pools`; check ORP-BR populated in app.
+- **Uncommitted work:** none of this session's (intangibles worktree has 6 pre-existing rule-file mods from other syncs).
+
+---
+
+## ALSO OPEN - 2026-10-06 14:00 (Arm Farm Pitcher Dashboard + canonical pitcher pools)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-bullpen` - branch `feature/bullpen-reports` (+ bsb-resources `feature/pd-goals` for pin map, job-log tool, PD Engine EOY port)
 - **What we were doing:** Deleted the WAR Board, made Arm Farm open on one Pitcher Dashboard (mirrors the Catcher Dashboard), sped up slow Profiler pin reads, documented per-step pin timings, and put every pitcher percentile pool on the canonical 300/300/100/50 gates.
 - **Shipped this session:** a70a2f046 (WAR Board gone), 5d10fc9ef (router + 8 pills, Profiler), ac603a049 + 3a1789a4b (pin prewarm: first card 28.4s -> 10.1s), 265806e93 / 9051d7cb9 / 2ec407ab5 / b2d24182b (canonical pools: R2K, groups, per-type xstats, EOY extras/count, EOY Stuff L/R type x hand), 85f908a58 (tracker full precision), lineage 34b64062e. bsb-resources: diag_connect_job_log --rendered --timings, pin map per-step breakdown (acd8ed27e). Zac deployed v2-pools (ALL JOBS OK), Arm Farm app, tracker. Recall checkpoint 70bea6ee44ed467b, session 8b23.
