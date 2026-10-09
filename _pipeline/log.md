@@ -605,3 +605,14 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-09 01:45 fetch: 0 ok, 0 failed, 0 deferred; whisper 0 min
 - 2026-10-09 01:45 promote: 0 promoted, 0 rejected, 0 corrections
 - 2026-10-09 01:45 summarize: 0 ok, 0 failed (queue had room for 0)
+- 2026-10-09 01:45 run: done
+- 2026-10-09 08:35 run: start
+- 2026-10-09 08:35 discover driveline-yt: ERROR yt-dlp failed: ERROR: [youtube:tab] @drivelinebaseball/videos: Unable to download API page: HTTPSConnection(host='www.youtube.com', port=443): Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by TransportError("HTTPSConnection(host='www.youtube.com', port=443): Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed)"))
+
+- 2026-10-09 08:35 discover tread-yt: ERROR yt-dlp failed: ERROR: [youtube:tab] treadathletics/videos: Unable to download API page: HTTPSConnection(host='www.youtube.com', port=443): Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed) (caused by TransportError("HTTPSConnection(host='www.youtube.com', port=443): Failed to resolve 'www.youtube.com' ([Errno 11001] getaddrinfo failed)"))
+
+- 2026-10-09 08:35 discover driveline-blog: ERROR HTTPSConnectionPool(host='drivelinebaseball.com', port=443): Max retries exceeded with url: /blogs/blog?page=1 (Caused by NameResolutionError("HTTPSConnection(host='drivelinebaseball.com', port=443): Failed to resolve 'drivelinebaseball.com' ([Errno 11001] getaddrinfo failed)"))
+- 2026-10-09 08:35 discover tread-blog: ERROR HTTPSConnectionPool(host='treadathletics.com', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolutionError("HTTPSConnection(host='treadathletics.com', port=443): Failed to resolve 'treadathletics.com' ([Errno 11001] getaddrinfo failed)"))
+- 2026-10-09 08:35 fetch: 0 ok, 0 failed, 0 deferred; whisper 0 min
+- 2026-10-09 08:35 promote: 0 promoted, 0 rejected, 0 corrections
+- 2026-10-09 08:35 summarize: 0 ok, 0 failed (queue had room for 0)
