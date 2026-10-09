@@ -569,3 +569,4 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-08 06:48 fetch: 11 ok, 4 failed, 0 deferred; whisper 5 min
 - 2026-10-08 06:48 promote: 0 promoted, 0 rejected, 0 corrections
 - 2026-10-08 06:48 summarize: 0 ok, 0 failed (queue had room for 0)
+- 2026-10-08 06:48 run: done

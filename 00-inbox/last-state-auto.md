@@ -1,11 +1,11 @@
-# Crash breadcrumb (auto, rolling) — 2026-10-03 04:35 UTC
+# Crash breadcrumb (auto, rolling) — 2026-10-09 06:06 UTC
 
 If you are reading this at session start, the previous session likely
 ended without /wrap (crash or hard exit). Deleted on clean SessionEnd.
 
-- session: 97911e86 · cwd: `C:\Users\Owner\bsb-resources` · branch `feature/pd-goals`
+- session: 427f44aa · cwd: `C:\Users\Owner\bsb-resources` · branch `feature/pd-goals`
 
 Last user messages before this point:
-> ok claude - do you recall teh aa, hba, vba maximization we were exploring and attacking here or what not??
+> ok im tranferring computers and in teh middke of that process rn but run teh afl bullpen process and the tread/driveline process blog here... and have the bsb comman center here - what is the best way to ensure thsoe can be properly done on my new computer and disconinued here??
 
-> Okay, we're not quite done with this, and make a note that we're not finished, and we need to come back, but yeah, we're getting a new computer tomorrow, so yeah, we're just going to need to make that note, and yeah, so this project will be continued at a later date.
+> Another Claude session sent a message: <cross-session-message from="bridge:session_01Smo22FrD3Dbc9rfoudz6DH" from-name="desktop-pdg22nf-linear-crown" from-mode="prompting"> Scheduled-task move: the NEW laptop (DESKTOP-PDG22NF) is ready to take over; please do the old-laptop half now, in this order. 
