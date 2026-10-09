@@ -87,7 +87,10 @@ function Reg($name, $file, $wd, $triggers, $settings, $desc) {
     $arg = "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$file`""
     $a = if ($wd) { New-ScheduledTaskAction -Execute $ps -WorkingDirectory $wd -Argument $arg }
          else     { New-ScheduledTaskAction -Execute $ps -Argument $arg }
-    if (Get-ScheduledTask -TaskName $name -ErrorAction SilentlyContinue) { Unregister-ScheduledTask -TaskName $name -Confirm:$false }
+    $old = Get-ScheduledTask -TaskName $name -ErrorAction SilentlyContinue
+    # Re-running -Install (e.g. to add AFL later) must not cut off a live run.
+    if ($old -and $old.State -eq "Running") { "KEPT $name (running now; re-run -Install after it finishes to refresh it)"; return }
+    if ($old) { Unregister-ScheduledTask -TaskName $name -Confirm:$false }
     $p = @{ TaskName = $name; Action = $a; Trigger = $triggers; Settings = $settings }
     if ($desc) { $p.Description = $desc }
     Register-ScheduledTask @p | Out-Null
