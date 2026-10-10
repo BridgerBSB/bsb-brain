@@ -634,3 +634,6 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-10 13:37 fetch: 1 ok, 0 failed, 0 deferred; whisper 0 min
 - 2026-10-10 13:37 promote: 0 promoted, 0 rejected, 0 corrections
 - 2026-10-10 13:37 summarize: 0 ok, 0 failed (queue had room for 0)
+- 2026-10-10 13:37 run: done
+- 2026-10-10 14:25 model: trained on 126 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.37
+- 2026-10-10 14:26 lessons: 26 rejection lesson(s) backfilled
