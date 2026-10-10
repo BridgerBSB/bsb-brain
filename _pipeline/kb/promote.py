@@ -199,6 +199,112 @@ def _record_example(paths: VaultPaths, item: dict, meta: dict, body: str, change
     return p
 
 
+LESSON_VALUES = ("high", "med")   # a reject of a low note agrees with the writer: nothing to learn
+
+
+def is_lesson(item: dict) -> bool:
+    return (item.get("proposal") or {}).get("value") in LESSON_VALUES
+
+
+def record_rejection(paths: VaultPaths, item: dict, meta: dict, body: str, zac: str = "") -> Path:
+    """A note Zac rejected, written where the summarizer reads its examples
+    (`kind: rejection`, loaded beside the corrections, never instead of them)."""
+    stem = Path(item["note"]).stem
+    prop = item.get("proposal") or {}
+    tldr = re.search(r"## TL;DR\n(.*?)(?:\n## |\Z)", body, re.S)
+    lines = [f"# Rejected: {meta.get('title') or stem}", "",
+             f"Source: {item['source']} ({item['medium']}). The writer proposed value {prop.get('value')}, "
+             f"kind {prop.get('kind')}, domain {prop.get('domain')}.",
+             "Zac REJECTED the whole note: content like this does not belong in the knowledge base. "
+             "Rate similar content low.", ""]
+    if zac:
+        lines += ["Zac:", "", zac, ""]
+    lines += ["What the writer said it covered:", "", (tldr.group(1).strip() if tldr else "(no TL;DR)")]
+    ex_meta = dict(type="example", kind="rejection", source=item["source"], note=stem, pin=False,
+                   created=datetime.now(timezone.utc).strftime("%Y-%m-%d"))
+    p = paths.examples / f"{date.today()}-rejected-{stem}.md"
+    write_note(p, ex_meta, "\n".join(lines) + "\n")
+    return p
+
+
+def file_into_library(paths: VaultPaths, item: dict, meta: dict, body: str, stem: str) -> tuple[Path, list[Path], list[str], list[str]]:
+    """Wire cues/drills/concepts/MOCs and write the note to sources/<source>/.
+    Shared by Zac's approve and the model's auto-approve, so the two can never
+    file a note differently. Returns (dest, touched, cue_slugs, drill_slugs);
+    the caller removes the old file and updates state."""
+    touched: list[Path] = []
+    primary = (meta.get("domain") or ["pitching"])[0]
+    cue_slugs, drill_slugs = [], []
+    if meta.get("value") in ("high", "med"):
+        for cue in parse_cues(body):
+            cue_slugs.append(_upsert_cue(paths, cue, primary, stem))
+            touched.append(paths.cues / f"{cue_slugs[-1]}.md")
+        meta["cues"] = cue_slugs
+        for drill in parse_drills(body):
+            drill_slugs.append(_upsert_drill(paths, drill, primary, stem))
+            touched.append(paths.drills / f"{drill_slugs[-1]}.md")
+        meta["drills"] = drill_slugs
+        for c in meta.get("concepts") or []:
+            if _link_concept(paths, str(c), stem, meta.get("title", stem)):
+                touched.append(paths.concepts / f"{c}.md")
+    if meta.get("value") == "high":
+        for d in meta.get("domain") or []:
+            _link_moc(paths, d, stem, meta.get("title", stem), cue_slugs, drill_slugs)
+            mp = paths.root / f"{_MOC_FOR.get(d, '')}.md"
+            if mp.exists():
+                touched.append(mp)
+    dest = paths.sources / item["source"] / f"{stem}.md"
+    write_note(dest, meta, body)
+    touched.append(dest)
+    return dest, touched, cue_slugs, drill_slugs
+
+
+def _drop_link_lines(text: str, link: str) -> str:
+    return "\n".join(l for l in text.split("\n") if link not in l)
+
+
+def unwire_from_library(paths: VaultPaths, meta: dict, stem: str) -> list[Path]:
+    """Undo file_into_library for one note (an auto-approve Zac overturned):
+    take its [[stem]] out of every cue / drill / concept / MOC, and delete a cue
+    or drill note that is left with no source at all. Returns files touched
+    (deleted ones included, so git stages the deletion)."""
+    link = f"[[{stem}]]"
+    touched: list[Path] = []
+    gone: list[str] = []
+    for folder, slugs in ((paths.cues, meta.get("cues") or []), (paths.drills, meta.get("drills") or [])):
+        for slug in slugs:
+            p = folder / f"{slug}.md"
+            if not p.exists():
+                continue
+            m, b = read_note(p)
+            srcs = [str(s) for s in (m.get("sources") or []) if str(s) != link]
+            if not srcs:
+                p.unlink()
+                gone.append(str(slug))
+            else:
+                m["sources"] = srcs
+                write_note(p, m, _drop_link_lines(b, link))
+            touched.append(p)
+    for c in meta.get("concepts") or []:
+        p = paths.concepts / f"{c}.md"
+        if p.exists():
+            m, b = read_note(p)
+            write_note(p, m, _drop_link_lines(b, link))
+            touched.append(p)
+    for name in _MOC_FOR.values():
+        p = paths.root / f"{name}.md"
+        if not p.exists():
+            continue
+        text = p.read_text(encoding="utf-8")
+        new = _drop_link_lines(text, link)
+        for slug in gone:
+            new = _drop_link_lines(new, f"[[{slug}]]")
+        if new != text:
+            p.write_text(new, encoding="utf-8", newline="\n")
+            touched.append(p)
+    return touched
+
+
 def _log(paths: VaultPaths, line: str) -> None:
     with open(paths.log, "a", encoding="utf-8", newline="\n") as f:
         f.write(f"- {datetime.now().strftime('%Y-%m-%d %H:%M')} {line}\n")
@@ -208,9 +314,16 @@ def _log(paths: VaultPaths, line: str) -> None:
 
 def git_commit_and_push(root: Path, paths_to_add: list[Path], message: str) -> bool:
     rel = [str(Path(p).resolve().relative_to(root.resolve())) for p in paths_to_add if Path(p).exists()]
-    if not rel:
+    # A file this run DELETED (a note moved out of _review/, a cue an overturn
+    # left with no source) is staged as a removal; skipping it would leave the
+    # deletion uncommitted. --ignore-unmatch: never-tracked paths are a no-op.
+    gone = [str(Path(p).resolve().relative_to(root.resolve())) for p in paths_to_add if not Path(p).exists()]
+    if gone:
+        subprocess.run(["git", "rm", "-q", "--cached", "--ignore-unmatch", "--"] + gone, cwd=root, capture_output=True)
+    if not rel and not gone:
         return False
-    subprocess.run(["git", "add", "--"] + rel, cwd=root, check=True, capture_output=True)
+    if rel:
+        subprocess.run(["git", "add", "--"] + rel, cwd=root, check=True, capture_output=True)
     r = subprocess.run(["git", "commit", "-q", "-m", message], cwd=root, capture_output=True, text=True)
     if r.returncode != 0:
         return False
@@ -258,7 +371,13 @@ def promote_all(paths: VaultPaths, state: State, git: bool = True) -> dict:
                    drills=[drill_slug(d["name"]) for d in parse_drills(body)])
         changes = diff_proposal(item.get("proposal") or {}, now)
         zac = zac_section(body)
-        if changes or zac:
+        if meta["status"] == "rejected" and is_lesson(item):
+            # A plain reject used to teach the writer nothing (99 approves and 42
+            # rejects -> 1 correction, Oct 2026). A reject of a note the writer
+            # rated high/med is exactly the disagreement it needs to see.
+            touched.append(record_rejection(paths, item, meta, body, zac))
+            res["examples"] += 1
+        elif changes or zac:
             ex = _record_example(paths, item, meta, body, changes, zac)
             touched += [ex, paths.taxonomy]
             res["examples"] += 1
@@ -276,35 +395,12 @@ def promote_all(paths: VaultPaths, state: State, git: bool = True) -> dict:
             res["touched"] += touched
             continue
 
-        # cues + concepts + MOCs
-        primary = (meta.get("domain") or ["pitching"])[0]
-        cue_slugs, drill_slugs = [], []
-        if meta.get("value") in ("high", "med"):
-            for cue in parse_cues(body):
-                cue_slugs.append(_upsert_cue(paths, cue, primary, stem))
-                touched.append(paths.cues / f"{cue_slugs[-1]}.md")
-            meta["cues"] = cue_slugs
-            for drill in parse_drills(body):
-                drill_slugs.append(_upsert_drill(paths, drill, primary, stem))
-                touched.append(paths.drills / f"{drill_slugs[-1]}.md")
-            meta["drills"] = drill_slugs
-            for c in meta.get("concepts") or []:
-                if _link_concept(paths, str(c), stem, meta.get("title", stem)):
-                    touched.append(paths.concepts / f"{c}.md")
-        if meta.get("value") == "high":
-            for d in meta.get("domain") or []:
-                _link_moc(paths, d, stem, meta.get("title", stem), cue_slugs, drill_slugs)
-                mp = paths.root / f"{_MOC_FOR.get(d, '')}.md"
-                if mp.exists():
-                    touched.append(mp)
-
-        dest = paths.sources / item["source"] / note.name
-        write_note(dest, meta, body)
+        dest, wired, cue_slugs, drill_slugs = file_into_library(paths, item, meta, body, stem)
         note.unlink()
         state.update(item["id"], note=paths.rel(dest))
         state.set_status(item["id"], "promoted")
         res["promoted"] += 1
-        touched.append(dest)
+        touched += wired
         _log(paths, f"promoted {stem} ({meta.get('kind')}/{meta.get('value')}, {len(cue_slugs)} cues, {len(drill_slugs)} drills"
                     + (", corrected" if changes or zac else "") + ")")
         res["touched"] += touched

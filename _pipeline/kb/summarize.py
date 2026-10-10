@@ -71,9 +71,11 @@ def concept_index(paths: VaultPaths) -> str:
     return "\n".join(lines)
 
 
-def load_examples(paths: VaultPaths, source: str, n: int = 15) -> str:
-    """Newest n correction examples for the source, plus any pinned."""
-    picked, pinned = [], []
+def load_examples(paths: VaultPaths, source: str, n: int = 15, n_rejected: int = 10) -> str:
+    """Newest n correction examples for the source, plus any pinned, then the
+    newest n_rejected notes Zac rejected outright. Separate budgets: rejections
+    arrive several times faster than corrections and must not push them out."""
+    picked, pinned, rejected = [], [], []
     files = sorted(paths.examples.glob("*.md"), reverse=True)
     for f in files:
         try:
@@ -84,12 +86,19 @@ def load_examples(paths: VaultPaths, source: str, n: int = 15) -> str:
             continue
         if meta.get("pin"):
             pinned.append((f, body))
+        elif meta.get("kind") == "rejection":
+            if len(rejected) < n_rejected:
+                rejected.append((f, body))
         elif len(picked) < n:
             picked.append((f, body))
     chosen = pinned + picked
-    if not chosen:
+    if not chosen and not rejected:
         return "(no corrections recorded yet for this source)"
-    return "\n\n".join(f"### {f.stem}\n{body.strip()}" for f, body in chosen)
+    out = "\n\n".join(f"### {f.stem}\n{body.strip()}" for f, body in chosen) if chosen else "(no corrections yet)"
+    if rejected:
+        out += ("\n\n## Notes Zac rejected outright (rate content like this low)\n\n"
+                + "\n\n".join(f"### {f.stem}\n{body.strip()}" for f, body in rejected))
+    return out
 
 
 def _split_raw(raw_text: str) -> tuple[dict, str, str]:

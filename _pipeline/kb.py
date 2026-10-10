@@ -10,6 +10,8 @@
   python kb.py rescue    --id=ID                  re-summarize an auto-filed low item as a FULL note into _review
   python kb.py retry     --id=ID                  failed item -> fetched (raw exists) or new. Use --id= : YouTube ids can start with "-"
   python kb.py status
+  python kb.py decide    [--dry-run] [--no-git]   overturn sweep + train on Zac's grades + auto-approve/reject the queue
+  python kb.py lessons   [--no-git]               one-time: rejection lessons for rejects made before lessons existed
 
 All verbs are idempotent against _pipeline/state.json. Nothing is deleted.
 """
@@ -245,6 +247,55 @@ def cmd_promote(paths, state, args):
     return res
 
 
+def cmd_decide(paths, state, args, sweep: bool = True):
+    """Overturn sweep, train on Zac's grades, auto-decide what the cutoffs allow.
+    Never takes the nightly down: any failure is logged and the run continues."""
+    from kb import model as M
+    try:
+        touched = []
+        if sweep:
+            sw = M.sweep_overturns(paths, state)
+            touched += sw["touched"]
+            if sw["overturned"] or sw["confirmed"]:
+                log(paths, f"model sweep: {sw['overturned']} overturned, {sw['confirmed']} confirmed")
+            state.save()
+        embed = M.make_embedder(paths)
+        model, why = M.train(M.training_rows(paths, state), embed)
+        tonight = dict(approved=0, rejected=0, left=0)
+        if model is None:
+            log(paths, f"model: not trained ({why})")
+        else:
+            r = model.report
+            log(paths, f"model: trained on {r['n']} grades, ranks right {M._pct(r['auc'])} (writer {M._pct(r['auc_writer'])}), "
+                       f"approve p>={M._num(r['t_approve'])}, reject p<={M._num(r['t_reject'])}")
+            tonight = M.decide_pending(paths, state, model, embed, dry_run=getattr(args, "dry_run", False))
+            touched += tonight["touched"]
+            if getattr(args, "dry_run", False):
+                for verdict, p, value, title, like in sorted(tonight["rows"], key=lambda z: -z[1]):
+                    print(f"  {verdict:7} p {p:.2f} {value:4} {title}")
+                print(f"dry run: would approve {tonight['approved']}, reject {tonight['rejected']}, leave {tonight['left']}")
+                return tonight
+            log(paths, f"model: auto-approved {tonight['approved']}, auto-rejected {tonight['rejected']}, left {tonight['left']}")
+        state.save()
+        page = M.write_page(paths, state, model, why, tonight)
+        if not args.no_git and touched:
+            P.git_commit_and_push(paths.root, touched + [page, paths.state, paths.log, paths.examples],
+                                  f"kb: model auto-approved {tonight['approved']}, auto-rejected {tonight['rejected']}")
+        return tonight
+    except Exception as e:
+        log(paths, f"model: ERROR {type(e).__name__}: {str(e)[:200]}")
+        traceback.print_exc(limit=3)
+        return None
+
+
+def cmd_lessons(paths, state, args):
+    from kb import model as M
+    made = M.backfill_lessons(paths, state)
+    log(paths, f"lessons: {len(made)} rejection lesson(s) backfilled")
+    if made and not args.no_git:
+        P.git_commit_and_push(paths.root, made + [paths.log], f"kb: backfill {len(made)} rejection lessons")
+
+
 def cmd_lint(paths, state, args):
     rep = L.lint_vault(paths, state)
     print(L.format_report(rep))
@@ -255,7 +306,19 @@ def cmd_run(paths, state, args):
     log(paths, "run: start")
     cmd_discover(paths, state, args, mode="new")
     cmd_fetch(paths, state, args)
+    from kb import model as M
+    try:   # Zac's overturns become grades BEFORE promote, so an un-rejected note is filed this run
+        sw = M.sweep_overturns(paths, state)
+        state.save()
+        if sw["overturned"] or sw["confirmed"]:
+            log(paths, f"model sweep: {sw['overturned']} overturned, {sw['confirmed']} confirmed")
+            if not args.no_git:
+                P.git_commit_and_push(paths.root, sw["touched"] + [paths.state, paths.log, paths.examples],
+                                      f"kb: model sweep, {sw['overturned']} overturned, {sw['confirmed']} confirmed")
+    except Exception as e:
+        log(paths, f"model sweep: ERROR {type(e).__name__}: {str(e)[:200]}")
     cmd_promote(paths, state, args)
+    cmd_decide(paths, state, args, sweep=False)     # clears what it can BEFORE the queue-cap check below
     rep = L.lint_vault(paths, state)
     if rep["pending"] < QUEUE_CAP:
         args.frm = "oldest"
@@ -263,7 +326,8 @@ def cmd_run(paths, state, args):
         cmd_discover(paths, state, args, mode="backfill")
         cmd_fetch(paths, state, args)
     args.limit = None
-    cmd_summarize(paths, state, args)
+    if cmd_summarize(paths, state, args):
+        cmd_decide(paths, state, args, sweep=False)  # tonight's new notes
     rep = cmd_lint(paths, state, args)
     if not args.no_git:
         P.git_commit_and_push(paths.root, [paths.raw, paths.assets, paths.review, paths.state, paths.log, paths.failed],
@@ -333,7 +397,8 @@ def cmd_status(paths, state, args):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("verb", choices=["discover", "backfill", "fetch", "summarize", "promote", "lint", "run", "retry", "rescue", "status", "faults"])
+    ap.add_argument("verb", choices=["discover", "backfill", "fetch", "summarize", "promote", "lint", "run", "retry", "rescue", "status", "faults",
+                                     "decide", "lessons"])
     ap.add_argument("--source", help="driveline | tread | bpc")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--from", dest="frm", choices=["newest", "oldest"], default="oldest")
@@ -345,6 +410,7 @@ def main(argv=None):
     ap.add_argument("--domain", help="faults: comma-separated domains (default: all found). "
                                      "One model call PER domain, never mixed.")
     ap.add_argument("--model", default="sonnet", help="faults: model for the grouping pass")
+    ap.add_argument("--dry-run", action="store_true", help="decide: print what the model would do, change nothing")
     args = ap.parse_args(argv)
 
     paths = VaultPaths(args.vault)
@@ -373,6 +439,10 @@ def main(argv=None):
         cmd_status(paths, state, args)
     elif args.verb == "faults":
         cmd_faults(paths, state, args)
+    elif args.verb == "decide":
+        cmd_decide(paths, state, args)
+    elif args.verb == "lessons":
+        cmd_lessons(paths, state, args)
 
 
 if __name__ == "__main__":

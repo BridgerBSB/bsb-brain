@@ -23,3 +23,5 @@ _pipeline/**/__pycache__/
 _pipeline/.pytest_cache/
 _pipeline/*.log
 _pipeline/failed_outputs/
+# auto-decide model: ONNX weights + embedding cache (rebuildable, ~70 MB)
+_pipeline/model/cache/

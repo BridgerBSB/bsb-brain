@@ -1,6 +1,6 @@
 """Per-item pipeline state, persisted as one JSON file.
 
-Statuses: new -> fetched -> summarized -> (promoted | rejected)
+Statuses: new -> fetched -> summarized -> (promoted | rejected | auto-promoted | auto-rejected)
           any -> failed (retries += 1, error kept)
 Nothing is ever deleted from state; an item that keeps failing is surfaced
 by `lint`, not dropped.
@@ -13,7 +13,8 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-STATUSES = ("new", "fetched", "summarized", "promoted", "rejected", "skipped", "failed", "duplicate", "filed-low")
+STATUSES = ("new", "fetched", "summarized", "promoted", "rejected", "skipped", "failed", "duplicate", "filed-low",
+            "auto-promoted", "auto-rejected")   # auto-* = the model decided, never a training label
 
 
 def _now() -> str:
