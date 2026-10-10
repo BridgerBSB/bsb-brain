@@ -637,3 +637,33 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-10 13:37 run: done
 - 2026-10-10 14:25 model: trained on 126 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.37
 - 2026-10-10 14:26 lessons: 26 rejection lesson(s) backfilled
+- 2026-10-10 14:26 model: trained on 126 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.37
+- 2026-10-10 14:26 model auto-approved 2010-04-06-pitching-decelerator-exercises (p 0.64)
+- 2026-10-10 14:26 model auto-approved 2010-05-26-our-stance-on-nutrition (p 0.60)
+- 2026-10-10 14:26 model auto-approved 2010-08-09-closed-chain-vs-open-chain-motion (p 0.75)
+- 2026-10-10 14:26 model auto-approved 2010-08-26-supplements-for-baseball-part-two (p 0.62)
+- 2026-10-10 14:26 model auto-approved 2010-08-27-elbow-injuries-and-what-causes-tommy-john-surgery (p 0.68)
+- 2026-10-10 14:26 model auto-approved 2010-09-03-the-inverted-w-and-pitching-mechanics (p 0.68)
+- 2026-10-10 14:26 model auto-approved 2010-09-15-myth-strength-training-is-not-specific-to-baseball-pitching (p 0.60)
+- 2026-10-10 14:26 model auto-approved 2010-10-04-nutrition-pre-post-workout-guidelines-alan-aragon (p 0.60)
+- 2026-10-10 14:26 model auto-approved 2014-03-07-voodoo-flossing-the-elbow-for-baseball-pitchers-driveline (p 0.65)
+- 2026-10-10 14:26 model auto-approved 2014-05-02-glove-side-elevation-drill-w-overload (p 0.71)
+- 2026-10-10 14:26 model auto-approved 2014-07-19-brady-aiken-s-elbow-change-up-grips-youth-pitching-q-a-w (p 0.61)
+- 2026-10-10 14:26 model auto-approved 2014-11-01-how-do-weighted-baseballs-work-total-vs-peak-force (p 0.62)
+- 2026-10-10 14:26 model auto-approved 2016-08-19-wrist-weight-drills (p 0.71)
+- 2026-10-10 14:26 model auto-approved 2018-02-28-the-top-12-reasons-for-velocity-fluctuations-part-1 (p 0.58)
+- 2026-10-10 14:26 model auto-approved 2018-05-10-problem-solving-your-lower-half-pitching-mechanics-to-throw (p 0.66)
+- 2026-10-10 14:26 model auto-approved 2018-12-28-rethinking-periodization-principles-of-energy-in-training (p 0.70)
+- 2026-10-10 14:26 model auto-approved 2019-01-09-3-new-ways-to-use-j-bands-for-arm-health-and-velocity (p 0.71)
+- 2026-10-10 14:26 model auto-approved 2019-01-17-how-to-fix-a-pushing-arm-action-7-causes-and-solutions (p 0.67)
+- 2026-10-10 14:26 model auto-approved 2019-01-23-the-3-types-of-muscling-up-and-how-it-s-hurting-your (p 0.71)
+- 2026-10-10 14:26 model auto-approved 2019-01-30-how-does-hip-anatomy-affect-your-mechanics (p 0.69)
+- 2026-10-10 14:26 model auto-approved 2019-02-19-the-top-10-do-s-and-don-ts-for-optimal-recovery (p 0.68)
+- 2026-10-10 14:26 model auto-approved 2019-02-20-all-about-tempo-is-it-a-key-to-unlocking-velocity (p 0.61)
+- 2026-10-10 14:26 model auto-approved 2019-02-26-do-different-arm-slots-different-mechanics (p 0.61)
+- 2026-10-10 14:26 model auto-approved 2019-03-07-how-to-sync-the-arm-into-the-plane-of-shoulder-rotation (p 0.72)
+- 2026-10-10 14:26 model auto-approved 2019-03-13-is-playing-video-games-linked-to-arm-pain (p 0.63)
+- 2026-10-10 14:26 model auto-approved 2019-03-14-the-theory-behind-the-yips-in-baseball (p 0.58)
+- 2026-10-10 14:26 model auto-approved 2020-01-23-the-tennis-racket-drill-a-simple-arm-action-fix (p 0.73)
+- 2026-10-10 14:26 model auto-approved 2020-05-26-us-vs-korean-baseball-are-there-mechanical-differences (p 0.61)
+- 2026-10-10 14:26 model: auto-approved 28, auto-rejected 0, left 12

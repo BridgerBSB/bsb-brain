@@ -42,3 +42,10 @@ versa). Source of truth is the brain; Astro World renders it. See [[astro-world]
 - [[2019-08-15-tread-athletics-q-a-episode-1]] - Tread Athletics - Q&A Episode 1
 - [[2019-12-22-q-a-episode-4]] - Q & A Episode 4
 - [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]] - The Best And Worst Lower Half Pitching Drills [Ranked]
+- [[2010-08-09-closed-chain-vs-open-chain-motion]] - Closed-Chain vs. Open-Chain Motion
+- [[2014-07-19-brady-aiken-s-elbow-change-up-grips-youth-pitching-q-a-w]] - Brady Aiken's Elbow, Change-Up Grips, Youth Pitching | Q&A w/ Driveline Baseball
+- [[2014-11-01-how-do-weighted-baseballs-work-total-vs-peak-force]] - How Do Weighted Baseballs Work? Total vs. Peak Force | Driveline Baseball
+- [[2018-02-28-the-top-12-reasons-for-velocity-fluctuations-part-1]] - The Top 12 Reasons For Velocity Fluctuations (part 1)
+- [[2019-01-30-how-does-hip-anatomy-affect-your-mechanics]] - How Does Hip Anatomy Affect Your Mechanics?
+- [[2019-02-20-all-about-tempo-is-it-a-key-to-unlocking-velocity]] - All About Tempo: Is It A Key To Unlocking Velocity?
+- [[2019-03-07-how-to-sync-the-arm-into-the-plane-of-shoulder-rotation]] - How to Sync the Arm into the Plane of Shoulder Rotation

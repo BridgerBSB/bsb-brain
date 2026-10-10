@@ -74,6 +74,22 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[2020-06-11-jordan-hicks-pre-vs-post-surgery-mechanical-breakdown]] - Jordan Hicks: Pre vs Post Surgery Mechanical Breakdown
 - [[2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown]] - How Does Dustin May Throw 100 MPH? A Breakdown
 - [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]] - The Best And Worst Lower Half Pitching Drills [Ranked]
+- [[2010-08-27-elbow-injuries-and-what-causes-tommy-john-surgery]] - Elbow Injuries and What Causes Tommy John Surgery
+- [[2010-09-03-the-inverted-w-and-pitching-mechanics]] - The Inverted W and Pitching Mechanics
+- [[2014-07-19-brady-aiken-s-elbow-change-up-grips-youth-pitching-q-a-w]] - Brady Aiken's Elbow, Change-Up Grips, Youth Pitching | Q&A w/ Driveline Baseball
+- [[2014-11-01-how-do-weighted-baseballs-work-total-vs-peak-force]] - How Do Weighted Baseballs Work? Total vs. Peak Force | Driveline Baseball
+- [[2018-02-28-the-top-12-reasons-for-velocity-fluctuations-part-1]] - The Top 12 Reasons For Velocity Fluctuations (part 1)
+- [[2018-05-10-problem-solving-your-lower-half-pitching-mechanics-to-throw]] - Problem Solving Your Lower Half Pitching Mechanics to Throw Harder
+- [[2019-01-09-3-new-ways-to-use-j-bands-for-arm-health-and-velocity]] - 3 New Ways to Use J-Bands for Arm Health and Velocity
+- [[2019-01-17-how-to-fix-a-pushing-arm-action-7-causes-and-solutions]] - How to Fix a Pushing Arm Action - 7 Causes and Solutions
+- [[2019-01-23-the-3-types-of-muscling-up-and-how-it-s-hurting-your]] - The 3 Types of "Muscling Up" and How it's Hurting Your Velocity
+- [[2019-01-30-how-does-hip-anatomy-affect-your-mechanics]] - How Does Hip Anatomy Affect Your Mechanics?
+- [[2019-02-20-all-about-tempo-is-it-a-key-to-unlocking-velocity]] - All About Tempo: Is It A Key To Unlocking Velocity?
+- [[2019-02-26-do-different-arm-slots-different-mechanics]] - Do Different Arm Slots = Different Mechanics?
+- [[2019-03-07-how-to-sync-the-arm-into-the-plane-of-shoulder-rotation]] - How to Sync the Arm into the Plane of Shoulder Rotation
+- [[2019-03-14-the-theory-behind-the-yips-in-baseball]] - The Theory Behind the Yips in Baseball
+- [[2020-01-23-the-tennis-racket-drill-a-simple-arm-action-fix]] - The Tennis Racket Drill | A Simple Arm Action Fix?
+- [[2020-05-26-us-vs-korean-baseball-are-there-mechanical-differences]] - US vs. Korean Baseball - Are There Mechanical Differences?
 
 ## Cues
 <!-- the pipeline appends approved pitching cues here -->
@@ -141,6 +157,23 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[cue-press-the-gas-pedal-late]]
 - [[cue-fight-it-fight-it-fight-it-fight-it]]
 - [[cue-use-the-towel-as-a-whip-to-unravel-out]]
+- [[cue-feel-where-your-hand-is-in-the-constrained-pivot-pick]]
+- [[cue-the-ball-is-throwing-itself-the-arm-is-along-for-the]]
+- [[cue-try-to-feel-smooth-and-fluid-going-through-these-drills]]
+- [[cue-take-the-tricep-out-of-it-and-pull-into-release-via]]
+- [[cue-think-about-rotating-your-back-shoulder-through-the]]
+- [[cue-relax-the-back-hip-into-landing]]
+- [[cue-hang-the-back-knee-down-and-in-to-landing]]
+- [[cue-imagine-the-ball-is-on-a-string-and-that-string-is-your]]
+- [[cue-feel-the-rear-hip-holding-external-rotation-as-he-moves]]
+- [[cue-let-the-arm-spiral-its-way-up-before-beginning-to-yank]]
+- [[cue-wait-until-the-arm-gets-to-the-top-of-the-staircase-and]]
+- [[cue-throw-through-the-center-of-the-catcher]]
+- [[cue-throw-the-pitch-with-conviction-and-intensity]]
+- [[cue-don-t-focus-on-the-exact-spot-you-want-to-hit]]
+- [[cue-flush-the-result-of-the-pitch-good-or-bad-and-repeat]]
+- [[cue-step-and-throw-hands-together-imagine-you-got-to-hit-a]]
+- [[cue-close-the-figure-8-open-the-figure-8]]
 
 ## Drills
 <!-- the pipeline appends approved pitching drills here -->
@@ -225,6 +258,33 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[drill-balance-point-drill]]
 - [[drill-walking-windup]]
 - [[drill-core-velocity-belt-band]]
+- [[drill-constrained-pivot-pick-offs]]
+- [[drill-catcher-drill]]
+- [[drill-changeup-grip-progression]]
+- [[drill-grip-strength-circuit]]
+- [[drill-heavy-ball-and-wrist-weight-throws]]
+- [[drill-step-back-roll-ins]]
+- [[drill-properly-done-rocker-drills]]
+- [[drill-step-back-wind-ups]]
+- [[drill-j-band-assisted-concentric-ys-ts-external-rotations]]
+- [[drill-j-band-eccentric-only-ys-ts-face-pull-w-external]]
+- [[drill-j-band-hip-rotation-patterning-4-progressions]]
+- [[drill-band-throws-pulling-into-release]]
+- [[drill-j-band-low-load-isometrics-4-positions-er-90-t-90-y]]
+- [[drill-plyo-wall-target-tape-drill]]
+- [[drill-roll-in]]
+- [[drill-barbell-pec-minor-release]]
+- [[drill-pulldowns-turn-and-burn-footwork]]
+- [[drill-javelin-rocker-drill]]
+- [[drill-med-ball-hip-pop-throw]]
+- [[drill-roll-ins]]
+- [[drill-walking-wind-up-throws]]
+- [[drill-long-toss-on-a-line]]
+- [[drill-intent-bullpens-with-stand-in-hitters]]
+- [[drill-sharpie-spin-line-marked-ball]]
+- [[drill-tennis-racket-step-and-throw]]
+- [[drill-rhythm-rocker-with-tennis-racket-and-figure-8]]
+- [[drill-tennis-racket-full-delivery-step-back-step-in]]
 
 ## Related
 [[MOC-hitting]] · [[MOC-strength]] · [[MOC-anatomy]]

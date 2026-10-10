@@ -77,3 +77,5 @@ and the broader Astros pitcher-workload + injury-tracking work.
 - [[2026-07-21-antones-return-from-a-third-tjs-is-providing-hope-and-a]] - Antone’s return from a third TJS is providing hope and a road map for arms
 - [[2026-07-21-how-pros-use-pulse-and-what-it-means-for-the-rest-of]] - How pros use PULSE and what it means for the rest of baseball
 - [[2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands]] - The Ultimate Pitcher's Guide To J-Bands
+- [[2010-04-06-pitching-decelerator-exercises]] - Pitching Decelerator Exercises
+- [[2019-01-09-3-new-ways-to-use-j-bands-for-arm-health-and-velocity]] - 3 New Ways to Use J-Bands for Arm Health and Velocity
