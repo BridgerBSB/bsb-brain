@@ -1,12 +1,20 @@
-# Last session state - 2026-10-08 12:35 (BR affiliate tracker - Mazzo layout)
+# Last session state - 2026-10-10 01:52 (Owner PD deck for Sam)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals` (deck itself is a claude.ai Slides artifact, not in git)
+- **What we were doing:** Built the owner-facing deck "What Player Development Means to the Astros Organization" for Sam: purpose, Sam's Core Pillars, scope (DSL to AAA, 42 staff, 230 players), plus two slides proving PD value with Lucas Spence ($150K undrafted 2024) and Miguel Ullola ($75K intl 2021): bonus vs GC2 Asset Value, class rank across 30 orgs, 0.4 rookie bWAR each.
+- **Shipped this session:** Deck https://claude.ai/artifact/UVm5wbrjeuh7nbwArw2Lyd (8 slides). Query 385c1b67b `sql-queries/owner-deck-av-spence-ullola.sql` (ran on work laptop, results in vault note). Research note `projects/owner-pd-deck-mlb-value-research.md`. Recall checkpoint 8cc02cce6a053c9a, session 62c6.
+- **EXACT next step:** Owner PD deck (What Player Development Means to the Astros Organization) built; waiting on Sam's feedback. On resume: apply Sam's revisions to the artifact (read `project/deck.json` + the slide files first). If Zac sends Ullola's/Spence's GC2-displayed AV, update slide `developed` (AV value, bar width on the shared 740px scale, AV/bonus multiple, speaker notes).
+- **Blockers / waiting on:** Sam's feedback. Ullola AV UNVERIFIED vs GC2 (our max-per-season rollup $56.0M; pitcher formula read ~80% high on Mayer). Keep/cut the Approach slide (overlaps Core Pillars). Maybe add "HOU holds 3 of the top 4 hitters in the 2024 undrafted class".
+- **Uncommitted work:** none from this session (bsb-resources 81 pre-existing, not mine)
+
+---
+
+## ALSO OPEN - 2026-10-08 12:35 (BR affiliate tracker - Mazzo layout)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (+ rule doc synced to all 4 worktrees)
 - **What we were doing:** Rebuilt the Baserunning affiliate tracker to Mazzo's layout: every new/renamed column, all orgs and levels, all on at launch, grouped headers. Speed/read now split by run type (home to first vs steal attempts from 1B/2B), GC2 definitions.
 - **Shipped this session:** 19d7973f7 (build), f608469b1 (lineage), 8c583130b (DoubledUp probe), spec a0f7847d3/8d512f250, probe+results b78945215/f4c8d89d3, rule fix 8e0983a7e. 2026 re-pin DONE on work laptop (7858s measured). Recall checkpoint 2ca8861c545eb8c5, session bd89.
 - **EXACT next step:** On the work laptop: `.\connect_pins_br\deploy.ps1` in one terminal (ships new code to the nightly job, else it reverts the pin), and in a second terminal `rsconnect deploy manifest . --app-id 295a5205-5568-4fb6-a759-26dc63bc9439` from `bsb-wt-intangibles\intangibles`. Then run `sql-queriesr-doubled-up-pbp-probe-2026.sql` in SSMS and decide: drop DoubledUp or define it (0 rows at every level).
 - **Blockers / waiting on:** Zac's deploys + DoubledUp decision; older seasons 2025-2022 re-pin with `--skip-pools`; check ORP-BR populated in app.
 - **Uncommitted work:** none of this session's (intangibles worktree has 6 pre-existing rule-file mods from other syncs).
-
----
 
 ## ALSO OPEN - 2026-10-08 09:50 CT (fielding pin rebuild: Stage 1 done, Stage 2 spec'd)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (+ bsb-resources `feature/pd-goals` pin map doc)
