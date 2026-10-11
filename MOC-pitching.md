@@ -90,6 +90,8 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[2019-03-14-the-theory-behind-the-yips-in-baseball]] - The Theory Behind the Yips in Baseball
 - [[2020-01-23-the-tennis-racket-drill-a-simple-arm-action-fix]] - The Tennis Racket Drill | A Simple Arm Action Fix?
 - [[2020-05-26-us-vs-korean-baseball-are-there-mechanical-differences]] - US vs. Korean Baseball - Are There Mechanical Differences?
+- [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] - Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball
+- [[2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2]] - The Top 12 Reasons For Velocity Fluctuations (part 2)
 
 ## Cues
 <!-- the pipeline appends approved pitching cues here -->
@@ -174,6 +176,7 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[cue-flush-the-result-of-the-pitch-good-or-bad-and-repeat]]
 - [[cue-step-and-throw-hands-together-imagine-you-got-to-hit-a]]
 - [[cue-close-the-figure-8-open-the-figure-8]]
+- [[cue-think-about-pronating-pulling-the-side-down]]
 
 ## Drills
 <!-- the pipeline appends approved pitching drills here -->
@@ -285,6 +288,9 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[drill-tennis-racket-step-and-throw]]
 - [[drill-rhythm-rocker-with-tennis-racket-and-figure-8]]
 - [[drill-tennis-racket-full-delivery-step-back-step-in]]
+- [[drill-heavy-ball-med-ball-throws]]
+- [[drill-wrist-weight-and-rebounder-throws]]
+- [[drill-pre-pitch-routine-rehearsal]]
 
 ## Related
 [[MOC-hitting]] · [[MOC-strength]] · [[MOC-anatomy]]

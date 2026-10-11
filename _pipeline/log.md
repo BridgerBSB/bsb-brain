@@ -667,3 +667,13 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-10 14:26 model auto-approved 2020-01-23-the-tennis-racket-drill-a-simple-arm-action-fix (p 0.73)
 - 2026-10-10 14:26 model auto-approved 2020-05-26-us-vs-korean-baseball-are-there-mechanical-differences (p 0.61)
 - 2026-10-10 14:26 model: auto-approved 28, auto-rejected 0, left 12
+- 2026-10-11 06:30 run: start
+- 2026-10-11 06:30 discover driveline-yt (new): 30 seen, 0 new
+- 2026-10-11 06:30 discover tread-yt (new): 30 seen, 0 new
+- 2026-10-11 06:30 discover driveline-blog (new): 6 seen, 0 new
+- 2026-10-11 06:30 discover tread-blog (new): 10 seen, 0 new
+- 2026-10-11 06:30 fetch: 0 ok, 0 failed, 0 deferred; whisper 0 min
+- 2026-10-11 06:30 promoted 2010-03-13-in-season-training-a-difficult-task (instruction/high, 0 cues, 3 drills)
+- 2026-10-11 06:30 promoted 2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w (interview/high, 1 cues, 3 drills)
+- 2026-10-11 06:30 promoted 2014-11-17-max-velocity-pulldowns-105-8-mph-driveline-baseball (instruction/med, 0 cues, 1 drills)
+- 2026-10-11 06:30 promoted 2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2 (philosophy/high, 0 cues, 1 drills)

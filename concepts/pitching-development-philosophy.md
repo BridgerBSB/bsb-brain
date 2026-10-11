@@ -49,3 +49,5 @@ versa). Source of truth is the brain; Astro World renders it. See [[astro-world]
 - [[2019-01-30-how-does-hip-anatomy-affect-your-mechanics]] - How Does Hip Anatomy Affect Your Mechanics?
 - [[2019-02-20-all-about-tempo-is-it-a-key-to-unlocking-velocity]] - All About Tempo: Is It A Key To Unlocking Velocity?
 - [[2019-03-07-how-to-sync-the-arm-into-the-plane-of-shoulder-rotation]] - How to Sync the Arm into the Plane of Shoulder Rotation
+- [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] - Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball
+- [[2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2]] - The Top 12 Reasons For Velocity Fluctuations (part 2)

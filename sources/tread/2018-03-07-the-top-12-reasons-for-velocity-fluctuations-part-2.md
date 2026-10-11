@@ -4,17 +4,17 @@ source: tread
 medium: blog
 title: The Top 12 Reasons For Velocity Fluctuations (part 2)
 url: "https://treadathletics.com/velocity-fluctuation-pt2"
-published: '2018-03-07'
+published: 2018-03-07
 author: Ben Brewster
 domain: [pitching, anatomy-movement, mental]
 kind: philosophy
 value: high
-status: pending
+status: approved
 raw: sources/_raw/tread/tread-blog-velocity-fluctuation-pt2.md
 cues: []
 drills: [drill-pre-pitch-routine-rehearsal]
 concepts: [pitching-development-philosophy]
-confidence: agent
+confidence: zac
 ---
 # The Top 12 Reasons For Velocity Fluctuations (part 2)
 

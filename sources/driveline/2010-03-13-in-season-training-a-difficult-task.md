@@ -4,17 +4,17 @@ source: driveline
 medium: blog
 title: "In-Season Training: A Difficult Task"
 url: "https://drivelinebaseball.com/blogs/blog/in-season-training-a-difficult-task"
-published: '2010-03-13'
+published: 2010-03-13
 author: Admin
 domain: [strength]
 kind: instruction
 value: high
-status: pending
+status: approved
 raw: sources/_raw/driveline/dl-blog-in-season-training-a-difficult-task.md
 cues: []
 drills: [drill-heavy-triples-squat-deadlift, drill-kettlebell-swings, drill-med-ball-throws]
 concepts: []
-confidence: agent
+confidence: zac
 ---
 # In-Season Training: A Difficult Task
 

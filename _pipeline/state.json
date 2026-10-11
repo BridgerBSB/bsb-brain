@@ -3375,7 +3375,7 @@
    "feed": "youtube",
    "id": "MJJg9zZOo5M",
    "medium": "video",
-   "note": "_review/2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w.md",
+   "note": "sources/driveline/2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w.md",
    "proposal": {
     "cues": [
      "cue-think-about-pronating-pulling-the-side-down"
@@ -3397,9 +3397,9 @@
    "raw": "sources/_raw/driveline/MJJg9zZOo5M.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball",
-   "updated": "2026-09-26T12:04:43Z",
+   "updated": "2026-10-11T11:30:18Z",
    "url": "https://www.youtube.com/watch?v=MJJg9zZOo5M"
   },
   "MRTSaYjcbiA": {
@@ -5801,7 +5801,7 @@
    "feed": "youtube",
    "id": "d-a0CKlF8sQ",
    "medium": "video",
-   "note": "_review/2014-11-17-max-velocity-pulldowns-105-8-mph-driveline-baseball.md",
+   "note": "sources/driveline/2014-11-17-max-velocity-pulldowns-105-8-mph-driveline-baseball.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -5817,9 +5817,9 @@
    "raw": "sources/_raw/driveline/d-a0CKlF8sQ.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "Max Velocity Pulldowns - 105.8 MPH | Driveline Baseball",
-   "updated": "2026-09-26T12:14:27Z",
+   "updated": "2026-10-11T11:30:18Z",
    "url": "https://www.youtube.com/watch?v=d-a0CKlF8sQ"
   },
   "dFoqfDEpkio": {
@@ -6580,7 +6580,7 @@
    "feed": "blog-pages",
    "id": "dl-blog-in-season-training-a-difficult-task",
    "medium": "blog",
-   "note": "_review/2010-03-13-in-season-training-a-difficult-task.md",
+   "note": "sources/driveline/2010-03-13-in-season-training-a-difficult-task.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -6598,9 +6598,9 @@
    "raw": "sources/_raw/driveline/dl-blog-in-season-training-a-difficult-task.md",
    "retries": 0,
    "source": "driveline",
-   "status": "summarized",
+   "status": "promoted",
    "title": "In-Season Training: A Difficult Task",
-   "updated": "2026-09-26T11:37:15Z",
+   "updated": "2026-10-11T11:30:18Z",
    "url": "https://drivelinebaseball.com/blogs/blog/in-season-training-a-difficult-task"
   },
   "dl-blog-interview-at-texasleaguers-com": {
@@ -12326,7 +12326,7 @@
    "feed": "blog-rss",
    "id": "tread-blog-velocity-fluctuation-pt2",
    "medium": "blog",
-   "note": "_review/2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2.md",
+   "note": "sources/tread/2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2.md",
    "proposal": {
     "cues": [],
     "domain": [
@@ -12344,9 +12344,9 @@
    "raw": "sources/_raw/tread/tread-blog-velocity-fluctuation-pt2.md",
    "retries": 0,
    "source": "tread",
-   "status": "summarized",
+   "status": "promoted",
    "title": "The Top 12 Reasons For Velocity Fluctuations (part 2)",
-   "updated": "2026-09-27T11:50:14Z",
+   "updated": "2026-10-11T11:30:18Z",
    "url": "https://treadathletics.com/velocity-fluctuation-pt2"
   },
   "tread-blog-yips": {

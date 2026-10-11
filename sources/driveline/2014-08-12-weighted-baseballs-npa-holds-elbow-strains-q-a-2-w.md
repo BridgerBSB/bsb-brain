@@ -4,18 +4,18 @@ source: driveline
 medium: video
 title: "Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball"
 url: "https://www.youtube.com/watch?v=MJJg9zZOo5M"
-published: '2014-08-12'
+published: 2014-08-12
 author: Driveline Baseball
 duration_s: 1168
 domain: [pitching, anatomy-movement, strength]
 kind: interview
 value: high
-status: pending
+status: approved
 raw: sources/_raw/driveline/MJJg9zZOo5M.md
 cues: [cue-think-about-pronating-pulling-the-side-down]
-drills: [drill-heavy-ball-med-ball-throws, drill-wrist-weight-and-rebounder-throws, drill-long-toss-in-season]
+drills: [drill-heavy-ball-med-ball-throws, drill-wrist-weight-and-rebounder-throws, drill-long-toss]
 concepts: [pitching-development-philosophy, ltad]
-confidence: agent
+confidence: zac
 ---
 # Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball
 

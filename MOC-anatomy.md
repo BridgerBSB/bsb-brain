@@ -76,6 +76,8 @@ constantly; this is where it lands.
 - [[2019-03-07-how-to-sync-the-arm-into-the-plane-of-shoulder-rotation]] - How to Sync the Arm into the Plane of Shoulder Rotation
 - [[2020-01-23-the-tennis-racket-drill-a-simple-arm-action-fix]] - The Tennis Racket Drill | A Simple Arm Action Fix?
 - [[2020-05-26-us-vs-korean-baseball-are-there-mechanical-differences]] - US vs. Korean Baseball - Are There Mechanical Differences?
+- [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] - Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball
+- [[2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2]] - The Top 12 Reasons For Velocity Fluctuations (part 2)
 
 ## Cues
 <!-- appended by the pipeline -->
@@ -178,6 +180,7 @@ constantly; this is where it lands.
 - [[cue-throw-through-the-center-of-the-catcher]]
 - [[cue-step-and-throw-hands-together-imagine-you-got-to-hit-a]]
 - [[cue-close-the-figure-8-open-the-figure-8]]
+- [[cue-think-about-pronating-pulling-the-side-down]]
 
 ## Drills
 <!-- appended by the pipeline -->
@@ -325,6 +328,9 @@ constantly; this is where it lands.
 - [[drill-tennis-racket-step-and-throw]]
 - [[drill-rhythm-rocker-with-tennis-racket-and-figure-8]]
 - [[drill-tennis-racket-full-delivery-step-back-step-in]]
+- [[drill-heavy-ball-med-ball-throws]]
+- [[drill-wrist-weight-and-rebounder-throws]]
+- [[drill-pre-pitch-routine-rehearsal]]
 
 ## Related
 [[MOC-pitching]] · [[MOC-hitting]] · [[MOC-strength]]

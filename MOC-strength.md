@@ -48,6 +48,8 @@ and Tread both publish heavily here.
 - [[2018-12-28-rethinking-periodization-principles-of-energy-in-training]] - Rethinking Periodization: Principles of Energy in Training Organization
 - [[2019-01-09-3-new-ways-to-use-j-bands-for-arm-health-and-velocity]] - 3 New Ways to Use J-Bands for Arm Health and Velocity
 - [[2019-02-19-the-top-10-do-s-and-don-ts-for-optimal-recovery]] - The Top 10 Do's and Don'ts for Optimal Recovery
+- [[2010-03-13-in-season-training-a-difficult-task]] - In-Season Training: A Difficult Task
+- [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] - Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball
 
 ## Cues
 <!-- appended by the pipeline -->
@@ -76,6 +78,7 @@ and Tread both publish heavily here.
 - [[cue-pull-yourself-down-into-the-hole-and-then-explode-as]]
 - [[cue-steer-lis-sic-tilt-the-pelvis-squeeze-the-glutes-and]]
 - [[cue-take-the-tricep-out-of-it-and-pull-into-release-via]]
+- [[cue-think-about-pronating-pulling-the-side-down]]
 
 ## Drills
 <!-- appended by the pipeline -->
@@ -148,6 +151,11 @@ and Tread both publish heavily here.
 - [[drill-band-throws-pulling-into-release]]
 - [[drill-j-band-low-load-isometrics-4-positions-er-90-t-90-y]]
 - [[drill-active-recovery-interval-protocol]]
+- [[drill-heavy-triples-squat-deadlift]]
+- [[drill-kettlebell-swings]]
+- [[drill-med-ball-throws]]
+- [[drill-heavy-ball-med-ball-throws]]
+- [[drill-wrist-weight-and-rebounder-throws]]
 
 ## Related
 [[MOC-pitching]] · [[MOC-hitting]] · [[MOC-anatomy]]

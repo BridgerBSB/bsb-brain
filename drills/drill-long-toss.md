@@ -10,6 +10,7 @@ sources:
 - "[[2019-08-15-tread-athletics-q-a-episode-1]]"
 - "[[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]]"
 - "[[2019-01-17-how-to-fix-a-pushing-arm-action-7-causes-and-solutions]]"
+- "[[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]]"
 status: pending
 created: '2026-09-09'
 ---
@@ -24,6 +25,7 @@ created: '2026-09-09'
 - extended-distance throwing used as a drill, not velocity training (builds backspin/arm-slot efficiency through visual ball-flight feedback) - [[2019-08-15-tread-athletics-q-a-episode-1]]
 - graduated-distance throws (120 ft+) for ball-flight/velocity feedback (builds direction, athleticism, and pitch-shape variability across arm slots) - [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]]
 - distance-constrained throws (builds a rotational, high-intent finish while directional feedback keeps the throw on line) - [[2019-01-17-how-to-fix-a-pushing-arm-action-7-causes-and-solutions]]
+- thrown at increasing distance, 2 to 7 sessions per week in-season; builds/maintains arm strength as the primary in-season stimulus - [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]]
 
 ## Notes
 

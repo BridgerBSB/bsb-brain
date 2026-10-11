@@ -4,18 +4,18 @@ source: driveline
 medium: video
 title: Max Velocity Pulldowns - 105.8 MPH | Driveline Baseball
 url: "https://www.youtube.com/watch?v=d-a0CKlF8sQ"
-published: '2014-11-17'
+published: 2014-11-17
 author: Driveline Baseball
 duration_s: 65
 domain: [pitching]
 kind: instruction
 value: med
-status: pending
+status: approved
 raw: sources/_raw/driveline/d-a0CKlF8sQ.md
 cues: []
-drills: [drill-pull-downs]
+drills: [drill-max-velocity-pulldowns-overload-underload-ball-circuit]
 concepts: []
-confidence: agent
+confidence: zac
 ---
 # Max Velocity Pulldowns - 105.8 MPH | Driveline Baseball
 
