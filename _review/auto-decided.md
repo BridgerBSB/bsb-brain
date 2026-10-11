@@ -1,23 +1,31 @@
 # Auto-decided notes
 
-Written by `kb.py decide` 2026-10-10 14:26.
+Written by `kb.py decide` 2026-10-11 06:41.
 
 **To overturn:** open the note and change `status:` to `rejected` (on an auto-approved note) or `approved` (on an auto-rejected one). The next nightly run files it and the model learns from it.
 
 ## Model
 
-- Trained on **126** of your grades (100 approved / 26 rejected), high and med notes only.
-- Tested on your past grades (each note scored by a model that never saw it): agrees with you **83%** of the time; passing every note as approvable would agree 79%.
-- Ranks your approves above your rejects 82% of the time (the writer's high/med rating: 77%; on med notes alone, the model: 74%).
-- Auto-approves at p >= 0.57: on your past grades that zone held 64 notes, 3 of which you rejected (budget: 1 in 20).
-- Auto-rejects at p <= 0.37: that zone held 4 notes, 0 of which you approved (budget: 1 in 50).
+- Trained on **130** of your grades (104 approved / 26 rejected), high and med notes only.
+- Tested on your past grades (each note scored by a model that never saw it): agrees with you **82%** of the time; passing every note as approvable would agree 80%.
+- Ranks your approves above your rejects 82% of the time (the writer's high/med rating: 77%; on med notes alone, the model: 73%).
+- Auto-approves at p >= 0.57: on your past grades that zone held 67 notes, 3 of which you rejected (budget: 1 in 20).
+- Auto-rejects at p <= 0.35: that zone held 3 notes, 0 of which you approved (budget: 1 in 50).
 
-**Last run:** auto-approved 28, auto-rejected 0, left for you 12.
+**Last run:** auto-approved 8, auto-rejected 0, left for you 10.
 
 Overturned by you so far: 0.
 
-## Auto-approved (28)
+## Auto-approved (36)
 
+- [[2010-10-11-back-squat-vs-front-squat-for-baseball-pitchers]] p 0.63 - like [[2010-02-11-link-should-pitchers-bench-press]] (approved), [[2009-12-01-free-weight-squats-smith-machine-squats]] (approved), [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]] (approved)
+- [[2010-11-03-link-the-truth-about-quick-feet]] p 0.64 - like [[2019-02-11-the-drift-how-to-shift-your-weight-like-a-pro]] (approved), [[2026-08-28-6-drills-to-improve-your-posture-easy]] (approved), [[2019-01-28-the-3-types-of-muscling-up-how-it-s-hurting-your-pitching]] (approved)
+- [[2010-11-16-managing-volume-and-intensity-in-off-season-workouts]] p 0.61 - like [[2010-03-13-in-season-training-a-difficult-task]] (approved), [[2018-03-05-how-to-manage-in-season-lifting]] (approved), [[2010-01-15-compound-movements-use-them]] (approved)
+- [[2010-11-29-recovery-from-training-part-one]] p 0.64 - like [[2009-12-15-overtraining-a-serious-problem]] (approved), [[2010-03-13-in-season-training-a-difficult-task]] (approved), [[2016-02-12-strength-training-for-baseball-and-isolation-exercises]] (approved)
+- [[2011-01-19-recovery-from-training-part-two]] p 0.64 - like [[2010-03-02-p90x-for-baseball]] (approved), [[2016-02-12-strength-training-for-baseball-and-isolation-exercises]] (approved), [[2010-03-13-in-season-training-a-difficult-task]] (approved)
+- [[2010-10-29-strength-for-baseball-hitters-why-it-s-important]] p 0.62 - like [[2026-07-29-these-6-lifts-are-non-negotiable-for-pitchers]] (approved), [[2010-03-13-in-season-training-a-difficult-task]] (approved), [[2010-03-02-p90x-for-baseball]] (approved)
+- [[2011-01-28-study-strength-training-make-you-a-better-baseball-player]] p 0.62 - like [[2018-02-08-the-case-for-lifting-weights-a-declaration-for-the-youth]] (approved), [[2015-07-30-gain-muscle-to-pitch-harder-and-increase-velocity]] (approved), [[2010-03-02-p90x-for-baseball]] (approved)
+- [[2011-02-25-velocity-development-program-speed-and-agility]] p 0.68 - like [[2010-01-15-compound-movements-use-them]] (approved), [[2010-02-08-proper-warmups-for-weight-training]] (approved), [[2026-07-19-which-plyos-should-you-use-with-drills]] (approved)
 - [[2020-01-23-the-tennis-racket-drill-a-simple-arm-action-fix]] p 0.73 - like [[2026-06-30-how-to-fix-your-pushy-arm-action-pushy-arm-action-part-two]] (approved), [[2018-02-12-how-i-cue-my-arm-action]] (approved), [[2019-01-13-upgrading-your-j-band-routine-part-2b-patterning-fixing-a]] (rejected)
 - [[2020-05-26-us-vs-korean-baseball-are-there-mechanical-differences]] p 0.61 - like [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] (approved), [[2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation]] (approved), [[2016-11-10-customized-mechanics-lateral-power]] (approved)
 - [[2019-03-14-the-theory-behind-the-yips-in-baseball]] p 0.58 - like [[2017-04-06-why-dominicans-are-dominating-baseball]] (approved), [[2026-03-28-his-bat-path-is-costing-him]] (approved), [[2012-07-30-supramaximal-training-with-weighted-baseballs]] (approved)

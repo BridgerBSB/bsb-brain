@@ -78,6 +78,7 @@ constantly; this is where it lands.
 - [[2020-05-26-us-vs-korean-baseball-are-there-mechanical-differences]] - US vs. Korean Baseball - Are There Mechanical Differences?
 - [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] - Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball
 - [[2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2]] - The Top 12 Reasons For Velocity Fluctuations (part 2)
+- [[2010-10-11-back-squat-vs-front-squat-for-baseball-pitchers]] - Back Squat vs. Front Squat for Baseball Pitchers
 
 ## Cues
 <!-- appended by the pipeline -->

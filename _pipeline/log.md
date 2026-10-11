@@ -677,3 +677,22 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-11 06:30 promoted 2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w (interview/high, 1 cues, 3 drills)
 - 2026-10-11 06:30 promoted 2014-11-17-max-velocity-pulldowns-105-8-mph-driveline-baseball (instruction/med, 0 cues, 1 drills)
 - 2026-10-11 06:30 promoted 2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2 (philosophy/high, 0 cues, 1 drills)
+- 2026-10-11 06:30 promote: 4 promoted, 0 rejected, 0 corrections
+- 2026-10-11 06:30 model: trained on 130 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.35
+- 2026-10-11 06:30 model: auto-approved 0, auto-rejected 0, left 8
+- 2026-10-11 06:30 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-10-11 06:30 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-10-11 06:30 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-10-11 06:30 discover tread-blog: ERROR 404 Client Error: Not Found for url: https://treadathletics.com/posts/page/-1/
+- 2026-10-11 06:33 fetch: 2 ok, 6 failed, 0 deferred; whisper 0 min
+- 2026-10-11 06:41 summarize: 32 ok, 0 failed (queue had room for 32)
+- 2026-10-11 06:41 model: trained on 130 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.35
+- 2026-10-11 06:41 model auto-approved 2010-10-11-back-squat-vs-front-squat-for-baseball-pitchers (p 0.63)
+- 2026-10-11 06:41 model auto-approved 2010-10-29-strength-for-baseball-hitters-why-it-s-important (p 0.62)
+- 2026-10-11 06:41 model auto-approved 2010-11-03-link-the-truth-about-quick-feet (p 0.64)
+- 2026-10-11 06:41 model auto-approved 2010-11-16-managing-volume-and-intensity-in-off-season-workouts (p 0.61)
+- 2026-10-11 06:41 model auto-approved 2010-11-29-recovery-from-training-part-one (p 0.64)
+- 2026-10-11 06:41 model auto-approved 2011-01-19-recovery-from-training-part-two (p 0.64)
+- 2026-10-11 06:41 model auto-approved 2011-01-28-study-strength-training-make-you-a-better-baseball-player (p 0.62)
+- 2026-10-11 06:41 model auto-approved 2011-02-25-velocity-development-program-speed-and-agility (p 0.68)
+- 2026-10-11 06:41 model: auto-approved 8, auto-rejected 0, left 10

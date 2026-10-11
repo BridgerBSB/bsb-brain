@@ -4,14 +4,14 @@
   "bpc-yt:pos:oldest": 8,
   "bpc-yt:total": 42,
   "driveline-blog:page:newest": 2,
-  "driveline-blog:page:oldest": 120,
+  "driveline-blog:page:oldest": 119,
   "driveline-yt:pos:newest": 10,
-  "driveline-yt:pos:oldest": 160,
+  "driveline-yt:pos:oldest": 168,
   "driveline-yt:total": 510,
   "tread-blog:page:newest": 2,
   "tread-blog:page:oldest": -1,
   "tread-yt:pos:newest": 10,
-  "tread-yt:pos:oldest": 160,
+  "tread-yt:pos:oldest": 168,
   "tread-yt:total": 755
  },
  "items": {
@@ -196,6 +196,23 @@
    "updated": "2026-09-26T11:59:14Z",
    "url": "https://www.youtube.com/watch?v=-Ri-PVv4Urk"
   },
+  "-VV15_WoJJs": {
+   "added": "2026-10-11T11:30:36Z",
+   "duration_s": 15,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
+   "feed": "youtube",
+   "id": "-VV15_WoJJs",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Steven Talbert",
+   "updated": "2026-10-11T11:31:06Z",
+   "url": "https://www.youtube.com/watch?v=-VV15_WoJJs"
+  },
   "-zjNdGLVJ7k": {
    "added": "2026-09-05T00:34:56Z",
    "duration_s": 231,
@@ -276,6 +293,23 @@
    "title": "Quick Tour of the Driveline Baseball Facility - October 2013",
    "updated": "2026-09-13T11:47:04Z",
    "url": "https://www.youtube.com/watch?v=04DVpGkDXNw"
+  },
+  "08N2VY2E1Sk": {
+   "added": "2026-10-11T11:30:36Z",
+   "duration_s": 20,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
+   "feed": "youtube",
+   "id": "08N2VY2E1Sk",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "J P  Sharon",
+   "updated": "2026-10-11T11:31:23Z",
+   "url": "https://www.youtube.com/watch?v=08N2VY2E1Sk"
   },
   "0IOtRAI-8qk": {
    "added": "2026-09-10T11:30:13Z",
@@ -440,6 +474,23 @@
    "title": "Herbie Good 5",
    "updated": "2026-10-05T13:32:48Z",
    "url": "https://www.youtube.com/watch?v=0gjIIJuoA-Y"
+  },
+  "0p0wPSxxkBU": {
+   "added": "2026-10-11T11:30:36Z",
+   "duration_s": 26,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
+   "feed": "youtube",
+   "id": "0p0wPSxxkBU",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Eric Jagers",
+   "updated": "2026-10-11T11:31:40Z",
+   "url": "https://www.youtube.com/watch?v=0p0wPSxxkBU"
   },
   "0pljFGlzUYw": {
    "added": "2026-09-05T00:34:56Z",
@@ -780,6 +831,23 @@
    "updated": "2026-10-07T11:36:38Z",
    "url": "https://www.youtube.com/watch?v=2JCx_3hF0ko"
   },
+  "2JEy6Fl5b3c": {
+   "added": "2026-10-11T11:30:36Z",
+   "duration_s": 31,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
+   "feed": "youtube",
+   "id": "2JEy6Fl5b3c",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Logan Zavada",
+   "updated": "2026-10-11T11:31:57Z",
+   "url": "https://www.youtube.com/watch?v=2JEy6Fl5b3c"
+  },
   "2TWmeQ8R1A4": {
    "added": "2026-09-28T12:07:30Z",
    "duration_s": 1288,
@@ -908,6 +976,23 @@
    "updated": "2026-09-09T11:36:36Z",
    "url": "https://www.youtube.com/watch?v=2k_Cqprgvpw"
   },
+  "2lrbizLGnso": {
+   "added": "2026-10-11T11:30:36Z",
+   "duration_s": 38,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
+   "feed": "youtube",
+   "id": "2lrbizLGnso",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Nick Senika",
+   "updated": "2026-10-11T11:32:14Z",
+   "url": "https://www.youtube.com/watch?v=2lrbizLGnso"
+  },
   "2qMD82rncgQ": {
    "added": "2026-09-05T20:37:41Z",
    "duration_s": 13,
@@ -958,6 +1043,23 @@
    "title": "Are Flat Grounds Ruining Your Pitching Mechanics?",
    "updated": "2026-10-03T14:34:49Z",
    "url": "https://www.youtube.com/watch?v=306t3m6hXC4"
+  },
+  "32QHDqnIXog": {
+   "added": "2026-10-11T11:30:36Z",
+   "duration_s": 16,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
+   "feed": "youtube",
+   "id": "32QHDqnIXog",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 1,
+   "source": "driveline",
+   "status": "failed",
+   "title": "Andrew Wilkinson",
+   "updated": "2026-10-11T11:32:31Z",
+   "url": "https://www.youtube.com/watch?v=32QHDqnIXog"
   },
   "39XXnEmO9hE": {
    "added": "2026-09-05T20:37:36Z",
@@ -1161,6 +1263,23 @@
    "updated": "2026-09-08T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=4GjWsy7y65I"
   },
+  "4MAvG_WhTq8": {
+   "added": "2026-10-11T11:30:45Z",
+   "duration_s": 4670,
+   "error": null,
+   "feed": "youtube",
+   "id": "4MAvG_WhTq8",
+   "medium": "video",
+   "note": null,
+   "published": "2022-07-15",
+   "raw": "sources/_raw/tread/4MAvG_WhTq8.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Alan Jaeger: Change-Ups | The Tread Podcast #4",
+   "updated": "2026-10-11T11:32:46Z",
+   "url": "https://www.youtube.com/watch?v=4MAvG_WhTq8"
+  },
   "4UeoreDGRE8": {
    "added": "2026-09-05T20:39:26Z",
    "duration_s": 74,
@@ -1325,6 +1444,23 @@
    "title": "What 1,000 Bullpen Days Told Us About Pitch Counts",
    "updated": "2026-10-10T18:37:20Z",
    "url": "https://www.youtube.com/watch?v=5OZjHuvBtiY"
+  },
+  "5Q3Bpyh1Xdk": {
+   "added": "2026-10-11T11:30:45Z",
+   "duration_s": 843,
+   "error": null,
+   "feed": "youtube",
+   "id": "5Q3Bpyh1Xdk",
+   "medium": "video",
+   "note": null,
+   "published": "2022-07-22",
+   "raw": "sources/_raw/tread/5Q3Bpyh1Xdk.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "3 Drills To Fix Your Late Arm | Drill Progression",
+   "updated": "2026-10-11T11:33:02Z",
+   "url": "https://www.youtube.com/watch?v=5Q3Bpyh1Xdk"
   },
   "5iPjkEFV-NM": {
    "added": "2026-10-06T11:30:13Z",
@@ -3334,6 +3470,22 @@
    "updated": "2026-09-29T11:38:50Z",
    "url": "https://www.youtube.com/watch?v=Lc_eyerk_hA"
   },
+  "LehTgdEAzk4": {
+   "added": "2026-10-11T11:30:45Z",
+   "duration_s": 2434,
+   "error": null,
+   "feed": "youtube",
+   "id": "LehTgdEAzk4",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Breaking Down YOUR Mechanics",
+   "url": "https://www.youtube.com/watch?v=LehTgdEAzk4"
+  },
   "M8dblYo2u2c": {
    "added": "2026-09-14T11:36:53Z",
    "duration_s": 19,
@@ -3617,6 +3769,22 @@
    "title": "Building the 90+ MPH Fastball: Medball Tosses and Waiter Walks",
    "updated": "2026-09-10T11:33:00Z",
    "url": "https://www.youtube.com/watch?v=NmCsKiww_aM"
+  },
+  "NmKkYaVotdA": {
+   "added": "2026-10-11T11:30:45Z",
+   "duration_s": 289,
+   "error": null,
+   "feed": "youtube",
+   "id": "NmKkYaVotdA",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "How A Seam Shift Demon Sinker Helped Change This Pitcher's Arsenal",
+   "url": "https://www.youtube.com/watch?v=NmKkYaVotdA"
   },
   "Nu8kJD4q9os": {
    "added": "2026-09-17T11:36:59Z",
@@ -4593,6 +4761,22 @@
    "title": "Ben Joyce Breaks Down His 105 MPH Mechanics",
    "updated": "2026-10-06T11:31:15Z",
    "url": "https://www.youtube.com/watch?v=Ugb6jcmQZPY"
+  },
+  "UqcjfeW5NvI": {
+   "added": "2026-10-11T11:30:45Z",
+   "duration_s": 187,
+   "error": null,
+   "feed": "youtube",
+   "id": "UqcjfeW5NvI",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "From 92 to 97 MPH and Drafted | The Dylan Tebrake Story",
+   "url": "https://www.youtube.com/watch?v=UqcjfeW5NvI"
   },
   "Ury29iTiTxo": {
    "added": "2026-09-05T00:34:42Z",
@@ -5988,14 +6172,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-a-hypothetical-training-question",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-02-21-a-hypothetical-training-question.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2011-02-21",
    "raw": "sources/_raw/driveline/dl-blog-a-hypothetical-training-question.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "A Hypothetical Training Question...",
-   "updated": "2026-10-06T11:31:44Z",
+   "updated": "2026-10-11T11:39:25Z",
    "url": "https://drivelinebaseball.com/blogs/blog/a-hypothetical-training-question"
   },
   "dl-blog-adjusting-stance-on-the-rubber-based-on-batters-handedness": {
@@ -6048,14 +6241,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-advanced-injury-database",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-02-16-advanced-baseball-injury-database-and-pitchf-x-data.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2011-02-16",
    "raw": "sources/_raw/driveline/dl-blog-advanced-injury-database.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Advanced Baseball Injury Database (and PITCHf/x data)",
-   "updated": "2026-10-06T11:31:48Z",
+   "updated": "2026-10-11T11:39:12Z",
    "url": "https://drivelinebaseball.com/blogs/blog/advanced-injury-database"
   },
   "dl-blog-appropriate-energy-system-development": {
@@ -6120,14 +6323,25 @@
    "feed": "blog-pages",
    "id": "dl-blog-back-squat-vs-front-squat-for-baseball-pitchers",
    "medium": "blog",
-   "note": null,
+   "model_p": 0.6250797032936537,
+   "note": "sources/driveline/2010-10-11-back-squat-vs-front-squat-for-baseball-pitchers.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "high"
+   },
    "published": "2010-10-11",
    "raw": "sources/_raw/driveline/dl-blog-back-squat-vs-front-squat-for-baseball-pitchers.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Back Squat vs. Front Squat for Baseball Pitchers",
-   "updated": "2026-10-01T11:30:47Z",
+   "updated": "2026-10-11T11:41:10Z",
    "url": "https://drivelinebaseball.com/blogs/blog/back-squat-vs-front-squat-for-baseball-pitchers"
   },
   "dl-blog-basic-supplements-for-baseball": {
@@ -6180,14 +6394,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-biomechanics-control-object-completed",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2010-10-20-biomechanics-control-object-completed.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2010-10-20",
    "raw": "sources/_raw/driveline/dl-blog-biomechanics-control-object-completed.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Biomechanics: Control Object Completed!",
-   "updated": "2026-10-01T11:30:52Z",
+   "updated": "2026-10-11T11:34:31Z",
    "url": "https://drivelinebaseball.com/blogs/blog/biomechanics-control-object-completed"
   },
   "dl-blog-bluffton-high-school-hitting-development": {
@@ -6363,14 +6587,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-finishing-up-off-season-training-some-results",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-03-02-finishing-up-off-season-training-some-results.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "strength"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2011-03-02",
    "raw": "sources/_raw/driveline/dl-blog-finishing-up-off-season-training-some-results.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Finishing Up Off-Season Training: Some Results",
-   "updated": "2026-10-08T13:44:17Z",
+   "updated": "2026-10-11T11:40:51Z",
    "url": "https://drivelinebaseball.com/blogs/blog/finishing-up-off-season-training-some-results"
   },
   "dl-blog-free-baseball-training-research-studies": {
@@ -6424,14 +6658,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-happy-holidays-and-new-year",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2010-12-30-happy-holidays-and-new-year.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2010-12-30",
    "raw": "sources/_raw/driveline/dl-blog-happy-holidays-and-new-year.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Happy Holidays and New Year!",
-   "updated": "2026-10-03T14:23:38Z",
+   "updated": "2026-10-11T11:37:39Z",
    "url": "https://drivelinebaseball.com/blogs/blog/happy-holidays-and-new-year"
   },
   "dl-blog-happy-thanksgiving": {
@@ -6458,14 +6701,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-high-bar-back-squat-vs-low-bar-back-squat-stupid-minutiae",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2010-11-27-high-bar-back-squat-vs-low-bar-back-squat-stupid-minutiae.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "low"
+   },
    "published": "2010-11-27",
    "raw": "sources/_raw/driveline/dl-blog-high-bar-back-squat-vs-low-bar-back-squat-stupid-minutiae.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "High-Bar Back Squat vs. Low-Bar Back Squat - Stupid Minutiae",
-   "updated": "2026-10-02T11:30:22Z",
+   "updated": "2026-10-11T11:37:09Z",
    "url": "https://drivelinebaseball.com/blogs/blog/high-bar-back-squat-vs-low-bar-back-squat-stupid-minutiae"
   },
   "dl-blog-hiring-biomechanics-kinesiology-interns": {
@@ -6610,14 +6862,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-interview-at-texasleaguers-com",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-02-21-interview-at-texasleaguers-com.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [],
+    "kind": "interview",
+    "value": "low"
+   },
    "published": "2011-02-21",
    "raw": "sources/_raw/driveline/dl-blog-interview-at-texasleaguers-com.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Interview at TexasLeaguers.com",
-   "updated": "2026-10-06T11:31:51Z",
+   "updated": "2026-10-11T11:39:37Z",
    "url": "https://drivelinebaseball.com/blogs/blog/interview-at-texasleaguers-com"
   },
   "dl-blog-interview-with-trip-somers-of-texasleaguers-com": {
@@ -6627,14 +6888,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-interview-with-trip-somers-of-texasleaguers-com",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-02-24-interview-with-trip-somers-of-texasleaguers-com.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [],
+    "kind": "interview",
+    "value": "low"
+   },
    "published": "2011-02-24",
    "raw": "sources/_raw/driveline/dl-blog-interview-with-trip-somers-of-texasleaguers-com.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Interview with Trip Somers of TexasLeaguers.com",
-   "updated": "2026-10-07T11:33:04Z",
+   "updated": "2026-10-11T11:40:08Z",
    "url": "https://drivelinebaseball.com/blogs/blog/interview-with-trip-somers-of-texasleaguers-com"
   },
   "dl-blog-interview-with-umd-pitcher-ben-brewster": {
@@ -6644,14 +6914,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-interview-with-umd-pitcher-ben-brewster",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-03-05-interview-with-umd-pitcher-ben-brewster.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "strength"
+    ],
+    "drills": [],
+    "kind": "interview",
+    "value": "low"
+   },
    "published": "2011-03-05",
    "raw": "sources/_raw/driveline/dl-blog-interview-with-umd-pitcher-ben-brewster.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Interview with UMD Pitcher Ben Brewster",
-   "updated": "2026-10-08T13:44:22Z",
+   "updated": "2026-10-11T11:41:08Z",
    "url": "https://drivelinebaseball.com/blogs/blog/interview-with-umd-pitcher-ben-brewster"
   },
   "dl-blog-keeping-strength-in-the-strength-program": {
@@ -6706,6 +6986,22 @@
    "title": "Kinematic Analysis: Wrist to Elbow Relationship",
    "updated": "2026-09-26T11:30:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/kinematic-analysis-wrist-to-elbow-relationship"
+  },
+  "dl-blog-lack-of-fitness-in-season-programming-gone-wrong": {
+   "added": "2026-10-11T11:30:48Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-lack-of-fitness-in-season-programming-gone-wrong",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/lack-of-fitness-in-season-programming-gone-wrong"
   },
   "dl-blog-link-absolute-strength-vs-absolute-speed": {
    "added": "2026-09-26T11:31:09Z",
@@ -6789,14 +7085,25 @@
    "feed": "blog-pages",
    "id": "dl-blog-link-the-truth-about-quick-feet",
    "medium": "blog",
-   "note": null,
+   "model_p": 0.6366367353581398,
+   "note": "sources/driveline/2010-11-03-link-the-truth-about-quick-feet.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "med"
+   },
    "published": "2010-11-03",
    "raw": "sources/_raw/driveline/dl-blog-link-the-truth-about-quick-feet.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Link: The Truth About \"Quick Feet\"",
-   "updated": "2026-10-02T11:30:26Z",
+   "updated": "2026-10-11T11:41:10Z",
    "url": "https://drivelinebaseball.com/blogs/blog/link-the-truth-about-quick-feet"
   },
   "dl-blog-link-unstable-surface-training": {
@@ -6859,14 +7166,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-managing-volume-and-intensity-in-off-season-workouts",
    "medium": "blog",
-   "note": null,
+   "model_p": 0.6057362238052819,
+   "note": "sources/driveline/2010-11-16-managing-volume-and-intensity-in-off-season-workouts.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [],
+    "kind": "instruction",
+    "value": "med"
+   },
    "published": "2010-11-16",
    "raw": "sources/_raw/driveline/dl-blog-managing-volume-and-intensity-in-off-season-workouts.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Managing Volume and Intensity in Off-Season Workouts",
-   "updated": "2026-10-02T11:30:29Z",
+   "updated": "2026-10-11T11:41:10Z",
    "url": "https://drivelinebaseball.com/blogs/blog/managing-volume-and-intensity-in-off-season-workouts"
   },
   "dl-blog-matt-antonelli-theres-no-magic-potion": {
@@ -7157,14 +7474,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-new-hitting-testimonial",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-02-19-new-hitting-testimonial.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "hitting"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2011-02-19",
    "raw": "sources/_raw/driveline/dl-blog-new-hitting-testimonial.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "New Hitting Testimonial",
-   "updated": "2026-10-06T11:31:55Z",
+   "updated": "2026-10-11T11:39:19Z",
    "url": "https://drivelinebaseball.com/blogs/blog/new-hitting-testimonial"
   },
   "dl-blog-news-debut-article-at-tht-website-redesign": {
@@ -7191,14 +7517,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-news-driveline-baseball-101510",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2010-10-15-news-driveline-baseball-10-15-10.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2010-10-15",
    "raw": "sources/_raw/driveline/dl-blog-news-driveline-baseball-101510.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "News @ Driveline Baseball - 10/15/10",
-   "updated": "2026-10-01T11:30:56Z",
+   "updated": "2026-10-11T11:34:26Z",
    "url": "https://drivelinebaseball.com/blogs/blog/news-driveline-baseball-101510"
   },
   "dl-blog-news-our-new-coaching-facility": {
@@ -7314,14 +7649,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-news-website-problems",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2010-11-04-news-website-problems.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2010-11-04",
    "raw": "sources/_raw/driveline/dl-blog-news-website-problems.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "News: Website Problems",
-   "updated": "2026-10-02T11:30:32Z",
+   "updated": "2026-10-11T11:36:07Z",
    "url": "https://drivelinebaseball.com/blogs/blog/news-website-problems"
   },
   "dl-blog-news-wptouch-theme-installed": {
@@ -7357,14 +7701,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-not-using-high-speed-video-youre-missing-5-mph",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2010-11-01-not-using-high-speed-video-you-re-missing-5-mph.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2010-11-01",
    "raw": "sources/_raw/driveline/dl-blog-not-using-high-speed-video-youre-missing-5-mph.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Not Using High-Speed Video? You're Missing 5 MPH.",
-   "updated": "2026-10-01T11:31:00Z",
+   "updated": "2026-10-11T11:35:35Z",
    "url": "https://drivelinebaseball.com/blogs/blog/not-using-high-speed-video-youre-missing-5-mph"
   },
   "dl-blog-nutrition-prepost-workout-guidelines-alan-aragon": {
@@ -7444,14 +7798,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-open-workouts-for-the-puget-sound-senior-baseball-league",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-02-15-open-workouts-for-the-puget-sound-senior-baseball-league.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2011-02-15",
    "raw": "sources/_raw/driveline/dl-blog-open-workouts-for-the-puget-sound-senior-baseball-league.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Open Workouts for the Puget Sound Senior Baseball League",
-   "updated": "2026-10-06T11:31:59Z",
+   "updated": "2026-10-11T11:39:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/open-workouts-for-the-puget-sound-senior-baseball-league"
   },
   "dl-blog-optimal-shoulder-performance": {
@@ -7655,15 +8018,40 @@
    "feed": "blog-pages",
    "id": "dl-blog-pitching-mechanics-whats-the-one-thing-i-need-to-do-to-throw-harder",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2010-10-06-pitching-mechanics-what-s-the-one-thing-i-need-to-do-to.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2010-10-06",
    "raw": "sources/_raw/driveline/dl-blog-pitching-mechanics-whats-the-one-thing-i-need-to-do-to-throw-harder.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Pitching Mechanics: \"What's the One Thing I Need To Do To Throw Harder?\"",
-   "updated": "2026-09-30T11:37:48Z",
+   "updated": "2026-10-11T11:33:40Z",
    "url": "https://drivelinebaseball.com/blogs/blog/pitching-mechanics-whats-the-one-thing-i-need-to-do-to-throw-harder"
+  },
+  "dl-blog-product-recommendation-vs-athletics-weightlifting-shoes": {
+   "added": "2026-10-11T11:30:48Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-product-recommendation-vs-athletics-weightlifting-shoes",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/product-recommendation-vs-athletics-weightlifting-shoes"
   },
   "dl-blog-programming-mistake-doing-too-much": {
    "added": "2026-09-28T12:07:34Z",
@@ -7829,14 +8217,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-rant-why-i-cant-stand-doctors",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2010-10-05-rant-why-i-can-t-stand-doctors.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "low"
+   },
    "published": "2010-10-05",
    "raw": "sources/_raw/driveline/dl-blog-rant-why-i-cant-stand-doctors.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Rant: Why I Can't Stand Doctors",
-   "updated": "2026-09-30T11:37:52Z",
+   "updated": "2026-10-11T11:33:33Z",
    "url": "https://drivelinebaseball.com/blogs/blog/rant-why-i-cant-stand-doctors"
   },
   "dl-blog-rate-of-force-development": {
@@ -7874,14 +8272,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-recovery-from-training-part-one",
    "medium": "blog",
-   "note": null,
+   "model_p": 0.6386784196469137,
+   "note": "sources/driveline/2010-11-29-recovery-from-training-part-one.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "high"
+   },
    "published": "2010-11-29",
    "raw": "sources/_raw/driveline/dl-blog-recovery-from-training-part-one.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Recovery From Training: Part One",
-   "updated": "2026-10-03T14:23:43Z",
+   "updated": "2026-10-11T11:41:10Z",
    "url": "https://drivelinebaseball.com/blogs/blog/recovery-from-training-part-one"
   },
   "dl-blog-recovery-from-training-part-two": {
@@ -7891,14 +8299,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-recovery-from-training-part-two",
    "medium": "blog",
-   "note": null,
+   "model_p": 0.6411049940522671,
+   "note": "sources/driveline/2011-01-19-recovery-from-training-part-two.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "med"
+   },
    "published": "2011-01-19",
    "raw": "sources/_raw/driveline/dl-blog-recovery-from-training-part-two.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Recovery From Training: Part Two",
-   "updated": "2026-10-03T14:23:47Z",
+   "updated": "2026-10-11T11:41:10Z",
    "url": "https://drivelinebaseball.com/blogs/blog/recovery-from-training-part-two"
   },
   "dl-blog-rob-dibbles-comments-on-stephen-strasburg": {
@@ -8023,14 +8441,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-some-new-testimonials-driveline-baseball",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-01-24-some-new-testimonials-for-driveline-baseball.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2011-01-24",
    "raw": "sources/_raw/driveline/dl-blog-some-new-testimonials-driveline-baseball.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Some New Testimonials for Driveline Baseball",
-   "updated": "2026-10-03T14:23:52Z",
+   "updated": "2026-10-11T11:38:20Z",
    "url": "https://drivelinebaseball.com/blogs/blog/some-new-testimonials-driveline-baseball"
   },
   "dl-blog-some-results-from-the-velocity-development-program": {
@@ -8107,14 +8534,25 @@
    "feed": "blog-pages",
    "id": "dl-blog-strength-for-baseball-hitters-why-its-important",
    "medium": "blog",
-   "note": null,
+   "model_p": 0.6175232513012104,
+   "note": "sources/driveline/2010-10-29-strength-for-baseball-hitters-why-it-s-important.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "hitting",
+     "strength"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "med"
+   },
    "published": "2010-10-29",
    "raw": "sources/_raw/driveline/dl-blog-strength-for-baseball-hitters-why-its-important.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Strength for Baseball Hitters: Why It's Important",
-   "updated": "2026-10-01T11:31:03Z",
+   "updated": "2026-10-11T11:41:10Z",
    "url": "https://drivelinebaseball.com/blogs/blog/strength-for-baseball-hitters-why-its-important"
   },
   "dl-blog-strength-training-for-youth-athletes": {
@@ -8151,14 +8589,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-strength-training-make-you-a-better-baseball-player-really",
    "medium": "blog",
-   "note": null,
+   "model_p": 0.6248799514128405,
+   "note": "sources/driveline/2011-01-28-study-strength-training-make-you-a-better-baseball-player.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [],
+    "kind": "research",
+    "value": "med"
+   },
    "published": "2011-01-28",
    "raw": "sources/_raw/driveline/dl-blog-strength-training-make-you-a-better-baseball-player-really.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Study: Strength Training Make You a Better Baseball Player (really?)",
-   "updated": "2026-10-03T14:23:57Z",
+   "updated": "2026-10-11T11:41:10Z",
    "url": "https://drivelinebaseball.com/blogs/blog/strength-training-make-you-a-better-baseball-player-really"
   },
   "dl-blog-stuff-to-read-22511": {
@@ -8168,15 +8616,73 @@
    "feed": "blog-pages",
    "id": "dl-blog-stuff-to-read-22511",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-02-25-stuff-to-read-2-25-11.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "strength"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "low"
+   },
    "published": "2011-02-25",
    "raw": "sources/_raw/driveline/dl-blog-stuff-to-read-22511.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Stuff to Read: 2/25/11",
-   "updated": "2026-10-07T11:33:15Z",
+   "updated": "2026-10-11T11:40:23Z",
    "url": "https://drivelinebaseball.com/blogs/blog/stuff-to-read-22511"
+  },
+  "dl-blog-stuff-to-read-32311": {
+   "added": "2026-10-11T11:30:48Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-stuff-to-read-32311",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/stuff-to-read-32311"
+  },
+  "dl-blog-stuff-to-read-4142011": {
+   "added": "2026-10-11T11:30:48Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-stuff-to-read-4142011",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/stuff-to-read-4142011"
+  },
+  "dl-blog-stuff-to-read-452011-tim-collins": {
+   "added": "2026-10-11T11:30:48Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-stuff-to-read-452011-tim-collins",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/stuff-to-read-452011-tim-collins"
   },
   "dl-blog-stuff-to-read-92110": {
    "added": "2026-09-28T12:07:34Z",
@@ -8292,14 +8798,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-the-dreaded-radar-gun",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2010-11-22-the-dreaded-radar-gun.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "med"
+   },
    "published": "2010-11-22",
    "raw": "sources/_raw/driveline/dl-blog-the-dreaded-radar-gun.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "summarized",
    "title": "The Dreaded Radar Gun",
-   "updated": "2026-10-02T11:30:36Z",
+   "updated": "2026-10-11T11:36:53Z",
    "url": "https://drivelinebaseball.com/blogs/blog/the-dreaded-radar-gun"
   },
   "dl-blog-things-to-read-2911": {
@@ -8402,6 +8917,22 @@
    "updated": "2026-09-28T12:13:31Z",
    "url": "https://drivelinebaseball.com/blogs/blog/tim-lincecum-what-changed"
   },
+  "dl-blog-training-at-driveline-baseball-not-just-for-baseball-players": {
+   "added": "2026-10-11T11:30:48Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-training-at-driveline-baseball-not-just-for-baseball-players",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/training-at-driveline-baseball-not-just-for-baseball-players"
+  },
   "dl-blog-velocity-development-program-speed-and-agility": {
    "added": "2026-10-06T11:33:43Z",
    "duration_s": null,
@@ -8409,14 +8940,32 @@
    "feed": "blog-pages",
    "id": "dl-blog-velocity-development-program-speed-and-agility",
    "medium": "blog",
-   "note": null,
+   "model_p": 0.6802278282062865,
+   "note": "sources/driveline/2011-02-25-velocity-development-program-speed-and-agility.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength",
+     "pitching"
+    ],
+    "drills": [
+     "drill-speed-box-squat",
+     "drill-speed-deadlift-against-bands",
+     "drill-max-broad-jump-and-vertical-leap",
+     "drill-farmer-s-walk",
+     "drill-yoke-walk",
+     "drill-weight-sled-push-pull-sprint"
+    ],
+    "kind": "instruction",
+    "value": "med"
+   },
    "published": "2011-02-25",
    "raw": "sources/_raw/driveline/dl-blog-velocity-development-program-speed-and-agility.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Velocity Development Program: Speed and Agility",
-   "updated": "2026-10-07T11:33:19Z",
+   "updated": "2026-10-11T11:41:10Z",
    "url": "https://drivelinebaseball.com/blogs/blog/velocity-development-program-speed-and-agility"
   },
   "dl-blog-velocity-development-program-strength-and-power": {
@@ -8443,14 +8992,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-velocity-development-program-throwing-related-work",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-01-21-velocity-program-throwing-related-work.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2011-01-21",
    "raw": "sources/_raw/driveline/dl-blog-velocity-development-program-throwing-related-work.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Velocity Program: Throwing-Related Work",
-   "updated": "2026-10-03T14:24:06Z",
+   "updated": "2026-10-11T11:38:14Z",
    "url": "https://drivelinebaseball.com/blogs/blog/velocity-development-program-throwing-related-work"
   },
   "dl-blog-vertical-slider-pitch-design": {
@@ -8563,14 +9121,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-video-purpose-of-the-stride-dr-yeager",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2010-10-09-video-purpose-of-the-stride-dr-yeager.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "hitting"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2010-10-09",
    "raw": "sources/_raw/driveline/dl-blog-video-purpose-of-the-stride-dr-yeager.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Video: Purpose of the Stride (Dr. Yeager)",
-   "updated": "2026-09-30T11:37:58Z",
+   "updated": "2026-10-11T11:33:48Z",
    "url": "https://drivelinebaseball.com/blogs/blog/video-purpose-of-the-stride-dr-yeager"
   },
   "dl-blog-video-should-pitchers-overhead-press": {
@@ -8607,14 +9174,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-video-tethered-resistance-band-cycle",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-02-14-video-tethered-resistance-band-cycle.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength"
+    ],
+    "drills": [],
+    "kind": "instruction",
+    "value": "low"
+   },
    "published": "2011-02-14",
    "raw": "sources/_raw/driveline/dl-blog-video-tethered-resistance-band-cycle.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Video: Tethered Resistance Band Cycle",
-   "updated": "2026-10-06T11:32:02Z",
+   "updated": "2026-10-11T11:39:01Z",
    "url": "https://drivelinebaseball.com/blogs/blog/video-tethered-resistance-band-cycle"
   },
   "dl-blog-weighted-baseball-training-a-get-started-guide": {
@@ -8624,14 +9200,26 @@
    "feed": "blog-pages",
    "id": "dl-blog-weighted-baseball-training-a-get-started-guide",
    "medium": "blog",
-   "note": null,
+   "note": "_review/2010-10-27-weighted-baseball-training-for-pitchers-a-get-started-guide.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [
+     "drill-pivot-pickoff",
+     "drill-weighted-baseball-progression-3-7-oz"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2010-10-27",
    "raw": "sources/_raw/driveline/dl-blog-weighted-baseball-training-a-get-started-guide.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "summarized",
    "title": "Weighted Baseball Training for Pitchers - A Get Started Guide",
-   "updated": "2026-10-01T11:31:08Z",
+   "updated": "2026-10-11T11:35:01Z",
    "url": "https://drivelinebaseball.com/blogs/blog/weighted-baseball-training-a-get-started-guide"
   },
   "dl-blog-welcome-matthew-wagshol": {
@@ -8713,14 +9301,24 @@
    "feed": "blog-pages",
    "id": "dl-blog-what-it-takes-to-compete-at-the-highest-level-strength-training",
    "medium": "blog",
-   "note": null,
+   "note": "sources/driveline/_low/2011-02-23-what-it-takes-to-compete-at-the-highest-level-strength.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength",
+     "business"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "low"
+   },
    "published": "2011-02-23",
    "raw": "sources/_raw/driveline/dl-blog-what-it-takes-to-compete-at-the-highest-level-strength-training.md",
    "retries": 0,
    "source": "driveline",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "What it Takes to Compete at the Highest Level - Strength Training!",
-   "updated": "2026-10-07T11:33:22Z",
+   "updated": "2026-10-11T11:39:53Z",
    "url": "https://drivelinebaseball.com/blogs/blog/what-it-takes-to-compete-at-the-highest-level-strength-training"
   },
   "dl-blog-whats-a-good-workout-kyle": {
@@ -8931,6 +9529,22 @@
    "title": "Pivot Pickoff Throws - Slow Motion / High-Speed",
    "updated": "2026-09-14T11:34:36Z",
    "url": "https://www.youtube.com/watch?v=espdyF-BEUU"
+  },
+  "exoKjSwa2f0": {
+   "added": "2026-10-11T11:30:45Z",
+   "duration_s": 277,
+   "error": null,
+   "feed": "youtube",
+   "id": "exoKjSwa2f0",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Not Getting Enough Swings With Your Nastiest Pitch?",
+   "url": "https://www.youtube.com/watch?v=exoKjSwa2f0"
   },
   "f14EtNaK63Q": {
    "added": "2026-10-06T11:33:28Z",
@@ -9359,6 +9973,22 @@
    "title": "What Makes a Plus Cutter? | Pitch Design for Dummies Ep. 3",
    "updated": "2026-10-03T14:24:17Z",
    "url": "https://www.youtube.com/watch?v=i-kKr5fla5g"
+  },
+  "ieeMfrv1LHc": {
+   "added": "2026-10-11T11:30:45Z",
+   "duration_s": 62,
+   "error": null,
+   "feed": "youtube",
+   "id": "ieeMfrv1LHc",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Draft Prospect Carves at 94 MPH | Matt Bollenbacher",
+   "url": "https://www.youtube.com/watch?v=ieeMfrv1LHc"
   },
   "ijWv1e7W4E4": {
    "added": "2026-09-30T11:43:48Z",
@@ -10341,6 +10971,22 @@
    "updated": "2026-09-07T01:23:52Z",
    "url": "https://www.youtube.com/watch?v=oReGvYrrvNk"
   },
+  "odk4yDxaWZ4": {
+   "added": "2026-10-11T11:30:36Z",
+   "duration_s": 50,
+   "error": null,
+   "feed": "youtube",
+   "id": "odk4yDxaWZ4",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Seth Brenner 1",
+   "url": "https://www.youtube.com/watch?v=odk4yDxaWZ4"
+  },
   "oiK-Kpw7Beo": {
    "added": "2026-09-27T11:36:22Z",
    "duration_s": 2134,
@@ -10670,6 +11316,22 @@
    "title": "Overlooked Concepts in Shoulder Pain for Pitchers | #AsktheDoc Episode 5",
    "updated": "2026-09-18T11:36:23Z",
    "url": "https://www.youtube.com/watch?v=rlsbKyE3Xns"
+  },
+  "rpYaIs8YGmY": {
+   "added": "2026-10-11T11:30:36Z",
+   "duration_s": 31,
+   "error": null,
+   "feed": "youtube",
+   "id": "rpYaIs8YGmY",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Eric Jagers 5",
+   "url": "https://www.youtube.com/watch?v=rpYaIs8YGmY"
   },
   "rroYrqBO1MQ": {
    "added": "2026-09-27T11:36:09Z",
@@ -13190,6 +13852,22 @@
    "title": "Michael Fairchild Overhead High-Speed Pitching Mechanics (MaxVelo)",
    "updated": "2026-09-09T11:35:22Z",
    "url": "https://www.youtube.com/watch?v=yQW41XvAStQ"
+  },
+  "ya3oGDGNUu0": {
+   "added": "2026-10-11T11:30:45Z",
+   "duration_s": 297,
+   "error": null,
+   "feed": "youtube",
+   "id": "ya3oGDGNUu0",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Pitches So Nasty That Hitters Don't Swing?",
+   "url": "https://www.youtube.com/watch?v=ya3oGDGNUu0"
   },
   "ybqSLyOJ6G0": {
    "added": "2026-09-17T11:36:59Z",

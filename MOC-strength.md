@@ -50,6 +50,8 @@ and Tread both publish heavily here.
 - [[2019-02-19-the-top-10-do-s-and-don-ts-for-optimal-recovery]] - The Top 10 Do's and Don'ts for Optimal Recovery
 - [[2010-03-13-in-season-training-a-difficult-task]] - In-Season Training: A Difficult Task
 - [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] - Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball
+- [[2010-10-11-back-squat-vs-front-squat-for-baseball-pitchers]] - Back Squat vs. Front Squat for Baseball Pitchers
+- [[2010-11-29-recovery-from-training-part-one]] - Recovery From Training: Part One
 
 ## Cues
 <!-- appended by the pipeline -->
