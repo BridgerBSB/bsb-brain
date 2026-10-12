@@ -1,6 +1,6 @@
 # Auto-decided notes
 
-Written by `kb.py decide` 2026-10-11 06:41.
+Written by `kb.py decide` 2026-10-12 08:36.
 
 **To overturn:** open the note and change `status:` to `rejected` (on an auto-approved note) or `approved` (on an auto-rejected one). The next nightly run files it and the model learns from it.
 
@@ -12,12 +12,15 @@ Written by `kb.py decide` 2026-10-11 06:41.
 - Auto-approves at p >= 0.57: on your past grades that zone held 67 notes, 3 of which you rejected (budget: 1 in 20).
 - Auto-rejects at p <= 0.35: that zone held 3 notes, 0 of which you approved (budget: 1 in 50).
 
-**Last run:** auto-approved 8, auto-rejected 0, left for you 10.
+**Last run:** auto-approved 3, auto-rejected 0, left for you 12.
 
 Overturned by you so far: 0.
 
-## Auto-approved (36)
+## Auto-approved (39)
 
+- [[2017-10-11-what-are-pulldowns-run-and-guns-facets-of-driveline-baseball]] p 0.59 - like [[2014-11-17-max-velocity-pulldowns-105-8-mph-driveline-baseball]] (approved), [[2026-07-28-what-s-the-next-sweeper]] (approved), [[2012-05-01-weighted-baseballs-wrist-weights-and-arm-injuries-q-a-with]] (approved)
+- [[2011-03-16-olympic-lifts-for-baseball-players-is-power-planar]] p 0.60 - like [[2010-03-02-p90x-for-baseball]] (approved), [[2010-03-13-in-season-training-a-difficult-task]] (approved), [[2016-02-12-strength-training-for-baseball-and-isolation-exercises]] (approved)
+- [[2011-03-08-stephen-strasburg-mechanics-and-his-timing-flaw]] p 0.62 - like [[2010-03-07-mechanics-the-effects-of-loading-rate]] (approved), [[2013-12-14-advanced-pitching-mechanics-pronation-in-the-delivery]] (approved), [[2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation]] (approved)
 - [[2010-10-11-back-squat-vs-front-squat-for-baseball-pitchers]] p 0.63 - like [[2010-02-11-link-should-pitchers-bench-press]] (approved), [[2009-12-01-free-weight-squats-smith-machine-squats]] (approved), [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]] (approved)
 - [[2010-11-03-link-the-truth-about-quick-feet]] p 0.64 - like [[2019-02-11-the-drift-how-to-shift-your-weight-like-a-pro]] (approved), [[2026-08-28-6-drills-to-improve-your-posture-easy]] (approved), [[2019-01-28-the-3-types-of-muscling-up-how-it-s-hurting-your-pitching]] (approved)
 - [[2010-11-16-managing-volume-and-intensity-in-off-season-workouts]] p 0.61 - like [[2010-03-13-in-season-training-a-difficult-task]] (approved), [[2018-03-05-how-to-manage-in-season-lifting]] (approved), [[2010-01-15-compound-movements-use-them]] (approved)

@@ -696,3 +696,24 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-11 06:41 model auto-approved 2011-01-28-study-strength-training-make-you-a-better-baseball-player (p 0.62)
 - 2026-10-11 06:41 model auto-approved 2011-02-25-velocity-development-program-speed-and-agility (p 0.68)
 - 2026-10-11 06:41 model: auto-approved 8, auto-rejected 0, left 10
+- 2026-10-11 06:41 run: done
+- 2026-10-12 08:24 run: start
+- 2026-10-12 08:24 discover driveline-yt (new): 30 seen, 0 new
+- 2026-10-12 08:24 discover tread-yt (new): 30 seen, 1 new
+- 2026-10-12 08:24 discover driveline-blog (new): 6 seen, 0 new
+- 2026-10-12 08:24 discover tread-blog (new): 10 seen, 0 new
+- 2026-10-12 08:27 fetch: 12 ok, 3 failed, 0 deferred; whisper 0 min
+- 2026-10-12 08:27 promote: 0 promoted, 0 rejected, 0 corrections
+- 2026-10-12 08:27 model: trained on 130 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.35
+- 2026-10-12 08:27 model: auto-approved 0, auto-rejected 0, left 10
+- 2026-10-12 08:27 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-10-12 08:28 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-10-12 08:28 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-10-12 08:28 discover tread-blog: ERROR 404 Client Error: Not Found for url: https://treadathletics.com/posts/page/-1/
+- 2026-10-12 08:30 fetch: 4 ok, 4 failed, 0 deferred; whisper 0 min
+- 2026-10-12 08:36 summarize: 30 ok, 0 failed (queue had room for 30)
+- 2026-10-12 08:36 model: trained on 130 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.35
+- 2026-10-12 08:36 model auto-approved 2011-03-08-stephen-strasburg-mechanics-and-his-timing-flaw (p 0.62)
+- 2026-10-12 08:36 model auto-approved 2011-03-16-olympic-lifts-for-baseball-players-is-power-planar (p 0.60)
+- 2026-10-12 08:36 model auto-approved 2017-10-11-what-are-pulldowns-run-and-guns-facets-of-driveline-baseball (p 0.59)
+- 2026-10-12 08:36 model: auto-approved 3, auto-rejected 0, left 12
