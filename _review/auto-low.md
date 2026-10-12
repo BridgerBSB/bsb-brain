@@ -1,6 +1,6 @@
 # Auto-filed as low value (not reviewed)
 
-Written by `kb.py lint` 2026-10-11 06:41. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
+Written by `kb.py lint` 2026-10-12 08:36. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
 
 - 2026-08-26 tread marketing: Is Tread's Remote Coaching Worth It? A Parent Perspective. - https://www.youtube.com/watch?v=y1gPpzn5DMw - id `y1gPpzn5DMw`
 - 2026-07-23 tread marketing: He Went D1 After Throwing 97 MPH In This Showcase - https://www.youtube.com/watch?v=5-N9m4A7BWY - id `5-N9m4A7BWY`
@@ -16,6 +16,24 @@ Written by `kb.py lint` 2026-10-11 06:41. Marketing and low-value items skip the
 - 2024-03-06 bpc marketing: BPC Remote Training - https://www.youtube.com/watch?v=r-yW4Fk6hnA - id `r-yW4Fk6hnA`
 - 2021-03-17 bpc athlete-story: A Day in the Life: BPC Offseason 2021 - https://www.youtube.com/watch?v=NMd52BXwqYY - id `NMd52BXwqYY`
 - 2020-01-01 tread marketing: Tread Athletics 2019 Year in Review - https://treadathletics.com/2019-year-in-review - id `tread-blog-2019-year-in-review`
+- 2017-11-18 driveline philosophy: Evolution of Research at Driveline Baseball - https://www.youtube.com/watch?v=-MCz-3VMHwA - id `-MCz-3VMHwA`
+- 2017-08-17 driveline athlete-story: Day in the Life of a Driveline Baseball Athlete - https://www.youtube.com/watch?v=Q3FCZDszVis - id `Q3FCZDszVis`
+- 2017-06-13 driveline marketing: WA State High School Softball Homerun Derby | Presented by Axe Bat/WIAA - https://www.youtube.com/watch?v=BTUVIM0o_fo - id `BTUVIM0o_fo`
+- 2017-05-16 driveline athlete-story: Troy Rallings | Fighting Tommy - Data-Driven Rehabilitation of UCL Reconstruction - https://www.youtube.com/watch?v=_JZQgwy2VEc - id `_JZQgwy2VEc`
+- 2017-04-10 driveline marketing: 2 Dingers | Driveline Games: Live At Bats Pt. 18 (Driveline Baseball) - https://www.youtube.com/watch?v=rxixi6FYz8w - id `rxixi6FYz8w`
+- 2017-03-26 driveline marketing: Driveline Games: Dinger Derby PT. 2 - https://www.youtube.com/watch?v=mCLN6rs_7Ds - id `mCLN6rs_7Ds`
+- 2017-02-23 driveline marketing: Driveline Games: Axe Bat Dinger Derby - https://www.youtube.com/watch?v=5u3oztvkevs - id `5u3oztvkevs`
+- 2017-02-12 driveline marketing: Driveline Games: Live At Bats Pt. 14 | Gunner Goes Deep (Driveline Baseball) - https://www.youtube.com/watch?v=9GtHSr7qZLM - id `9GtHSr7qZLM`
+- 2017-02-12 driveline marketing: Driveline Baseball: Leather Wrist Weights - https://www.youtube.com/watch?v=3BUrMWU_Md0 - id `3BUrMWU_Md0`
+- 2017-02-09 driveline marketing: Driveline Games: Live At Bat Pt. 13 | Buckel, Hackimer, Mann vs. Driveline Pro Hitters - https://www.youtube.com/watch?v=YtszhxbT04g - id `YtszhxbT04g`
+- 2017-02-02 driveline marketing: Driveline Games Special Edition: HS Senior Vs. Pro Hitter - https://www.youtube.com/watch?v=a8WzM9Tk8Kc - id `a8WzM9Tk8Kc`
+- 2017-01-29 driveline marketing: Driveline Games: Live At Bats Pt. 10 | Buckel/Mann/Stirewalt vs. Lucas Erceg and the Pro Hitters - https://www.youtube.com/watch?v=_PfJaQJKHvU - id `_PfJaQJKHvU`
+- 2017-01-24 driveline marketing: Driveline Games: Live At Bats Pt. 8 | Buckel/Stirewalt Vs. Driveline Pro Hitters - https://www.youtube.com/watch?v=ZuFNGolhdyk - id `ZuFNGolhdyk`
+- 2017-01-19 driveline marketing: Driveline Games: Live At Bats Pt. 6 | McNutt Vs. Driveline Hitters - https://www.youtube.com/watch?v=6pBgDAy3Hqc - id `6pBgDAy3Hqc`
+- 2016-11-28 driveline athlete-story: Casey Weathers Velocity Work (Driveline Baseball) - https://www.youtube.com/watch?v=n2UD6sX2tpo - id `n2UD6sX2tpo`
+- 2016-11-18 driveline marketing: The Truth Behind Pitching Mechanics | Driveline Baseball - https://www.youtube.com/watch?v=p5D1kmLgPQw - id `p5D1kmLgPQw`
+- 2016-09-09 driveline marketing: The Westmont Project - The Alternative to College Summer Ball | Driveline Baseball - https://www.youtube.com/watch?v=ekozXUQuebI - id `ekozXUQuebI`
+- 2016-08-21 driveline athlete-story: Trey McNutt: The Road to 99 MPH - https://www.youtube.com/watch?v=twcWnmsKqNY - id `twcWnmsKqNY`
 - 2016-07-25 driveline marketing: Driveline | Australia - https://www.youtube.com/watch?v=8Sem7c9t400 - id `8Sem7c9t400`
 - 2016-06-17 driveline athlete-story: Herbie Good: The Good Project - https://www.youtube.com/watch?v=EPvZVAcGExQ - id `EPvZVAcGExQ`
 - 2016-06-08 driveline athlete-story: Herbie Good 6'8" RHP | 91-94 MPH, Seattle Studs 6/7/2016 - https://www.youtube.com/watch?v=sqNKp9n6fNA - id `sqNKp9n6fNA`
@@ -36,6 +54,13 @@ Written by `kb.py lint` 2026-10-11 06:41. Marketing and low-value items skip the
 - 2013-10-05 driveline marketing: EMG Sensor Testing at Driveline Baseball - https://www.youtube.com/watch?v=gmK0tbTCC8E - id `gmK0tbTCC8E`
 - 2013-03-17 driveline instruction: Speed Training for Baseball - Prowler Pushes - https://www.youtube.com/watch?v=Yg3YznNU1yY - id `Yg3YznNU1yY`
 - 2013-01-06 driveline instruction: Pitching Arm Care: Heavy Deceleration Throws (drivelinebaseball.com) - https://www.youtube.com/watch?v=5rkW2BF8Ahs - id `5rkW2BF8Ahs`
+- 2011-04-14 driveline research: Stuff to Read: 4/14/2011 - https://drivelinebaseball.com/blogs/blog/stuff-to-read-4142011 - id `dl-blog-stuff-to-read-4142011`
+- 2011-04-05 driveline athlete-story: Stuff to Read: 4/5/2011 (Tim Collins) - https://drivelinebaseball.com/blogs/blog/stuff-to-read-452011-tim-collins - id `dl-blog-stuff-to-read-452011-tim-collins`
+- 2011-03-31 driveline marketing: Product Recommendation: VS Athletics Weightlifting Shoes - https://drivelinebaseball.com/blogs/blog/product-recommendation-vs-athletics-weightlifting-shoes - id `dl-blog-product-recommendation-vs-athletics-weightlifting-shoes`
+- 2011-03-25 driveline marketing: Training at Driveline Baseball: Not just for baseball players! - https://drivelinebaseball.com/blogs/blog/training-at-driveline-baseball-not-just-for-baseball-players - id `dl-blog-training-at-driveline-baseball-not-just-for-baseball-players`
+- 2011-03-23 driveline marketing: Stuff to Read, 3/23/11 - https://drivelinebaseball.com/blogs/blog/stuff-to-read-32311 - id `dl-blog-stuff-to-read-32311`
+- 2011-03-21 driveline marketing: Biomechanics and Me? - https://drivelinebaseball.com/blogs/blog/biomechanics-and-me - id `dl-blog-biomechanics-and-me`
+- 2011-03-13 driveline marketing: Advanced Baseball Injury Database: Release Point Corrections Implemented - https://drivelinebaseball.com/blogs/blog/advanced-baseball-injury-database-release-point-corrections-implemented - id `dl-blog-advanced-baseball-injury-database-release-point-corrections-implemented`
 - 2011-03-05 driveline interview: Interview with UMD Pitcher Ben Brewster - https://drivelinebaseball.com/blogs/blog/interview-with-umd-pitcher-ben-brewster - id `dl-blog-interview-with-umd-pitcher-ben-brewster`
 - 2011-03-02 driveline marketing: Finishing Up Off-Season Training: Some Results - https://drivelinebaseball.com/blogs/blog/finishing-up-off-season-training-some-results - id `dl-blog-finishing-up-off-season-training-some-results`
 - 2011-02-25 driveline philosophy: Stuff to Read: 2/25/11 - https://drivelinebaseball.com/blogs/blog/stuff-to-read-22511 - id `dl-blog-stuff-to-read-22511`
