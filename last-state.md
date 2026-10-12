@@ -1,4 +1,14 @@
-# Last session state - 2026-10-11 21:50 CT (Command CV miss-distance pilot)
+# Last session state - 2026-10-12 10:13 CT (BR tracker closed out + Mazzo wishlist + stolen-base matchup visuals)
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (+ rule copies in bsb-resources / bullpen / hitting)
+- **What we were doing:** Finished the BR affiliate tracker (Zac deployed, "looks great", loads fast), then took in Mazzo's six OF + BR asks and built item 6's visuals: his grade pyramids and five matchup-grid layouts, on sample data.
+- **Shipped this session:** d96cb7480 (1-3 wash respects L/R + H/A splits), 322bdf156 (ties to best: best value = 100th + rank 1; best-first sort), 656ce255d + siblings (AgGrid `update_on=[]`, sorting no longer re-runs the page, all 5 trackers), 322011d72 (wishlist intake doc `intangibles/docs/plans/2026-10-12-mazzo-of-br-wishlist.md`), c7fc4c46f (`src/sb_matchup_visuals.py` + renders `docs/mocks/sb-matchup-renders/` + `scripts/test_sb_matchup_engine.py`), lineage ea074cdd7. Sample PDF `C:/Users/Owner/Desktop/sb-matchup-visuals-SAMPLE.pdf`. Rules: gc2-metrics.md percentile section, tracker-aggrid-stat-rank.md gotchas 4+5, br-advance-3rd-out-wash.md. Recall checkpoint 0f4cd1ed97238b10, session d37c.
+- **EXACT next step:** Zac: "here where we are at and then ill have to guide u in more specifc here you know". Waiting on Zac's guidance for item 6 (stolen-base matchups, REGULAR SEASON): (1) runner-time method from a stock 12 ft / 16 ft lead (recommended: reaction + speed-profile estimate for every runner, checked vs his real steals), (2) which matchups first (one affiliate vs a specific opponent, or level-wide). Then build the data layer feeding `sb_matchup_visuals.py`: TTP + pop from `Astros.CatcherDefense_SBA_Metrics`, runner times from `Baserun_Tracking_Speeds`.
+- **Blockers / waiting on:** Zac's guidance above; confirm 3 pyramid label changes with Mazzo (pop 2B G1 >1.92 not >1.93, pop 3B G1 >1.58 not >1.59, G5 uses <=); Mazzo was promised cards "this week" (Oct 11). BR back years 2025-2022 re-pin `--skip-pools` on the work laptop. Wishlist items 1-5 undecided.
+- **Uncommitted work:** intangibles 33 pre-existing (none of this session's); bsb-resources 81 pre-existing.
+
+---
+
+## ALSO OPEN - 2026-10-11 21:50 CT (Command CV miss-distance pilot)
 - **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` - branch `feature/pd-goals`
 - **What we were doing:** Zac's steps 1-2 for 2026 miss distances: solved and graded the Sugar Land and Corpus home cameras in inches, built a per-pitcher miss board for Houston pitchers, made the glove step 4x faster. Fayetteville (SEGRA) camera not passed yet.
 - **Shipped this session:** commits aadd50cc0 07ec7cc1c (glove 4x), 560f783c6 ae0d9efdf (miss_new_park.py --ours-only, command_board_org.py, ledger), 82f882c76 (fit_park_pose basin re-search), 9080b6447 ec23d81b9 6c6864f76 cd07d7e4a 4bfbeff49, lineage 0d7449c75; PROGRESS-LOG 121-125. Cameras ADMITTED (command-cv/docs/miss_camera_admission.csv): Sugar Land 0.45 / 0.26 in, Corpus 0.28 / 0.29 in held out. Board: 830 pitches, 27 Houston pitchers -> `C:/Users/Owner/Desktop/command-cv-miss-pilot/`. Season pull file `C:/Users/Owner/Desktop/command-cv-season-pull-2026.js` (469 of 546 games to pull). Recall session acc0.
@@ -28,14 +38,6 @@
 - **Uncommitted work:** bsb-resources 82 (pre-existing, none of this session's); sibling worktrees hold synced copies of db-columns.md + video-angles.md (as the sync hook leaves them).
 
 ---
-
-## ALSO OPEN - 2026-10-08 12:35 (BR affiliate tracker - Mazzo layout)
-- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (+ rule doc synced to all 4 worktrees)
-- **What we were doing:** Rebuilt the Baserunning affiliate tracker to Mazzo's layout: every new/renamed column, all orgs and levels, all on at launch, grouped headers. Speed/read now split by run type (home to first vs steal attempts from 1B/2B), GC2 definitions.
-- **Shipped this session:** 19d7973f7 (build), f608469b1 (lineage), 8c583130b (DoubledUp probe), spec a0f7847d3/8d512f250, probe+results b78945215/f4c8d89d3, rule fix 8e0983a7e. 2026 re-pin DONE on work laptop (7858s measured). Recall checkpoint 2ca8861c545eb8c5, session bd89.
-- **EXACT next step:** On the work laptop: `.\connect_pins_br\deploy.ps1` in one terminal (ships new code to the nightly job, else it reverts the pin), and in a second terminal `rsconnect deploy manifest . --app-id 295a5205-5568-4fb6-a759-26dc63bc9439` from `bsb-wt-intangibles\intangibles`. Then run `sql-queriesr-doubled-up-pbp-probe-2026.sql` in SSMS and decide: drop DoubledUp or define it (0 rows at every level).
-- **Blockers / waiting on:** Zac's deploys + DoubledUp decision; older seasons 2025-2022 re-pin with `--skip-pools`; check ORP-BR populated in app.
-- **Uncommitted work:** none of this session's (intangibles worktree has 6 pre-existing rule-file mods from other syncs).
 
 ## ALSO OPEN - 2026-10-08 09:50 CT (fielding pin rebuild: Stage 1 done, Stage 2 spec'd)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (+ bsb-resources `feature/pd-goals` pin map doc)
