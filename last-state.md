@@ -1,4 +1,14 @@
-# Last session state - 2026-10-11 13:14 (DoP assessment bad-pitch videos + hiring Sandbox + Astro World IT)
+# Last session state - 2026-10-11 16:47 CT (Owner PD deck: one-pager + GC2 Asset Value fix)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals` (deck + one-pager are claude.ai artifacts)
+- **What we were doing:** Sam's owner deck. Added Needs + What We Look For slides, built a one-page version for Jim, then fixed both players' Asset Values to match GC2 and worked out how GC2 computes Asset Value (hitters = plain sum; pitchers under 1 year of service = SP-probability blend of starter and reliever totals).
+- **Shipped this session:** Deck https://claude.ai/artifact/UVm5wbrjeuh7nbwArw2Lyd v17; one-pager https://claude.ai/artifact/Vd3zPUEpanyDn1J6No88Sn v4 + `C:/Users/Owner/Desktop/Player-Development-One-Pager.pdf`. Spence $12.9M, #3 of 54 hitters in the 2024 undrafted class (exact); Ullola $16.5M, top 15 of 849 (worst case; true #10-15). Commits 51ce43cdb, b5b96c8f8 (queries), 87730e228 (rule `asset-value-canonical.md`, synced to 4 worktrees), ad5c51336 (lineage). Vault: `projects/owner-pd-deck-needs-research.md`. Recall checkpoint 733c485fa22bcb5a, session 3099.
+- **EXACT next step:** Make both class ranks exact: ask the GC2/R&D owner where the AV tooltip's "SP Probability" lives (it is not in GroundControl2), OR read GC2-page AV for 9 pitchers. Spence: Beck, Veach, Chandler M. (BAL), Mallitz (each above $12.9M moves him down from #4 of 131). Ullola: Urena, Y. Rivera, L. De Leon, S. Garcia, L. Serna (each above $16.5M moves him down from #10 of 849). Then edit the `developed` slide + one-pager and rebuild the Desktop PDF.
+- **Blockers / waiting on:** the SP Probability source; GC2 rule for pitchers with 1+ year of service is unknown. `promotion_velocity_data.py` still uses the old season-max rollup (STILL-WIRED). `sync-rules.sh` fails ("Python was not found").
+- **Uncommitted work:** bsb-resources 81 pre-existing (none of this session's); sibling worktrees hold synced copies of asset-value-canonical.md + blocking-rules.md.
+
+---
+
+## ALSO OPEN - 2026-10-11 13:14 (DoP assessment bad-pitch videos + hiring Sandbox + Astro World IT)
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals` (+ `C:/Users/Owner/hiring` main; astroworld read-only)
 - **What we were doing:** New Director of Pitching assessment section (Sam): four below-average pitches shown on Edgertronic, "how would you fix it". Picked and profiled them vs their level and found where the video lives. Earlier: shipped the hiring-app Sandbox time boxes; worked the Astro World offboarding / permissions thread with IT (Matt).
 - **The four:** John Carver FF 1291664 (A, SRV pctile 2) / Colby Langford SL 235206 (A+, 20) / Luis Rodriguez CH 234504 (A+, 33) / Kellan Oakes CU 268175 (A+, 26).
@@ -6,16 +16,6 @@
 - **EXACT next step:** DoP assessment bad-pitch videos: Carver FF 1291664, Langford SL 235206, Rodriguez CH 234504, Oakes CU 268175. Zac grabbing bullpen videos manually and running dop-bullpen-grade-coverage.sql. Also: hiring app Sandbox time boxes shipped 44380c1; Astro World offboarding SCIM ask to Peter 10-12. -> On resume: read his grade-coverage result (any B-row column above 0 = a bullpen grade exists, a different model from StuffRelVel), take the clips he feeds, then design the section in `C:/Users/Owner/hiring/cage-sandbox`.
 - **Blockers / waiting on:** Zac's bullpen video pulls + grade-coverage run; Sam on where the section sits. Bullpen edgers are NOT in GC2 (0 clips, 0 SRV on B pitches); in-game edgers judged unusable. Caveat: Oakes's bullpen "CU" is a different shape than his game CU (73.8 vs 80.0 mph), and only 16 game CUs. Astro World: SCIM ask to Peter (back 10-12), 1Password invite pending.
 - **Uncommitted work:** bsb-resources 82 (pre-existing, none of this session's); sibling worktrees hold synced copies of db-columns.md + video-angles.md (as the sync hook leaves them).
-
----
-
-## ALSO OPEN - 2026-10-10 01:52 (Owner PD deck for Sam)
-- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals` (deck itself is a claude.ai Slides artifact, not in git)
-- **What we were doing:** Built the owner-facing deck "What Player Development Means to the Astros Organization" for Sam: purpose, Sam's Core Pillars, scope (DSL to AAA, 42 staff, 230 players), plus two slides proving PD value with Lucas Spence ($150K undrafted 2024) and Miguel Ullola ($75K intl 2021): bonus vs GC2 Asset Value, class rank across 30 orgs, 0.4 rookie bWAR each.
-- **Shipped this session:** Deck https://claude.ai/artifact/UVm5wbrjeuh7nbwArw2Lyd (8 slides). Query 385c1b67b `sql-queries/owner-deck-av-spence-ullola.sql` (ran on work laptop, results in vault note). Research note `projects/owner-pd-deck-mlb-value-research.md`. Recall checkpoint 8cc02cce6a053c9a, session 62c6.
-- **EXACT next step:** Owner PD deck (What Player Development Means to the Astros Organization) built; waiting on Sam's feedback. On resume: apply Sam's revisions to the artifact (read `project/deck.json` + the slide files first). If Zac sends Ullola's/Spence's GC2-displayed AV, update slide `developed` (AV value, bar width on the shared 740px scale, AV/bonus multiple, speaker notes).
-- **Blockers / waiting on:** Sam's feedback. Ullola AV UNVERIFIED vs GC2 (our max-per-season rollup $56.0M; pitcher formula read ~80% high on Mayer). Keep/cut the Approach slide (overlaps Core Pillars). Maybe add "HOU holds 3 of the top 4 hitters in the 2024 undrafted class".
-- **Uncommitted work:** none from this session (bsb-resources 81 pre-existing, not mine)
 
 ---
 
