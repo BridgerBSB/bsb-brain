@@ -1,4 +1,14 @@
-# Last session state - 2026-10-13 09:31 CT (Command CV: every 2026 game's misses, season run live)
+# Last session state - 2026-10-13 13:01 CT (GC2 Asset Value: SP probability found, exact owner-deck ranks)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
+- **What we were doing:** Hunted down how GC2 computes Asset Value for young pitchers. Zac pulled GC2's page SQL: the blend weight is `Player_Val.SP_Prob` (our login could not see it; SELECT granted 10-13). Documented GC2's full formula and got exact class ranks for the owner deck.
+- **Shipped this session:** rule `asset-value-canonical.md` (final e10c95f65, synced to 4 worktrees); `sql-queries/gc2-asset-value-reference.sql` (GC2 verbatim) + `owner-deck-av-gc2-exact.sql` (replica + ranks) 4a3fd856a; discovery/check queries 456e647d6 eaac98ffc 42097ff7f 137711afe 83ae2e00c; lineage 84b023ffe. Exact ranks: Spence #3 of 54 hitters / #5 of 131; Ullola #12 of 849 / #6 of 459 P, $16.72M (sp_prob 0.155120). Recall checkpoint ec285a1c2fd40047, session 69aa.
+- **EXACT next step:** Topic closed by Zac. If reopened: (1) ask Zac whether the deck + one-pager should swap "Top 15 of 849" -> "#12 of 849" and $16.5M -> ~$16.7M (deck already delivered, his call); (2) promotion-velocity BUG 1: replace the `per_season` `MAX(mkt_sv)` CTE at `pd-goals/src/promotion_velocity_data.py:190` with GC2's formula from `sql-queries/owner-deck-av-gc2-exact.sql`.
+- **Blockers / waiting on:** Zac's deck decision only.
+- **Uncommitted work:** bsb-resources 83 pre-existing (none of this session's).
+
+---
+
+## ALSO OPEN - 2026-10-13 09:31 CT (Command CV: every 2026 game's misses, season run live)
 - **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` - branch `feature/pd-goals`
 - **What we were doing:** Running Zac's "misses for every game of 2026": built `scripts/miss_season.py` (runs each game end to end, gates each game's camera, deletes the video), drove the Chrome pull myself (466 of 469 games), and fixed what the first real runs exposed (orphaned job collision, detect windows clipping the pitch, a no-video game stopping the pull).
 - **Shipped this session:** 45c24cc6b 7845a608f c468e2cd4 3ef1c079c bec9b7862 3af8c316e f08fdf8c9 d3e3312a1 8569e69d9 f4df8e0d0, lineage 7910586f7. Parks READY (11): Sugar Land, Corpus, Asheville, AdventHealth, Nelson Wolff, Salt Lake, Truist, Augusta, Arkansas, Wilmington, Greenville; BLOCKED: Fayetteville SEGRA, Greensboro. Window ladder (`f4df8e0d0`): 814868 1.56 FAIL -> 0.42 PASS. Rule `windows-toolchain.md`: venv python.exe is a launcher, kill the tree. Recall checkpoint 37670deddd782b7b, session c9a7.
@@ -15,16 +25,6 @@
 - **EXACT next step:** Zac: "here where we are at and then ill have to guide u in more specifc here you know". Waiting on Zac's guidance for item 6 (stolen-base matchups, REGULAR SEASON): (1) runner-time method from a stock 12 ft / 16 ft lead (recommended: reaction + speed-profile estimate for every runner, checked vs his real steals), (2) which matchups first (one affiliate vs a specific opponent, or level-wide). Then build the data layer feeding `sb_matchup_visuals.py`: TTP + pop from `Astros.CatcherDefense_SBA_Metrics`, runner times from `Baserun_Tracking_Speeds`.
 - **Blockers / waiting on:** Zac's guidance above; confirm 3 pyramid label changes with Mazzo (pop 2B G1 >1.92 not >1.93, pop 3B G1 >1.58 not >1.59, G5 uses <=); Mazzo was promised cards "this week" (Oct 11). BR back years 2025-2022 re-pin `--skip-pools` on the work laptop. Wishlist items 1-5 undecided.
 - **Uncommitted work:** intangibles 33 pre-existing (none of this session's); bsb-resources 81 pre-existing.
-
----
-
-## ALSO OPEN - 2026-10-11 16:47 CT (Owner PD deck: one-pager + GC2 Asset Value fix)
-- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals` (deck + one-pager are claude.ai artifacts)
-- **What we were doing:** Sam's owner deck. Added Needs + What We Look For slides, built a one-page version for Jim, then fixed both players' Asset Values to match GC2 and worked out how GC2 computes Asset Value (hitters = plain sum; pitchers under 1 year of service = SP-probability blend of starter and reliever totals).
-- **Shipped this session:** Deck https://claude.ai/artifact/UVm5wbrjeuh7nbwArw2Lyd v17; one-pager https://claude.ai/artifact/Vd3zPUEpanyDn1J6No88Sn v4 + `C:/Users/Owner/Desktop/Player-Development-One-Pager.pdf`. Spence $12.9M, #3 of 54 hitters in the 2024 undrafted class (exact); Ullola $16.5M, top 15 of 849 (worst case; true #10-15). Commits 51ce43cdb, b5b96c8f8 (queries), 87730e228 (rule `asset-value-canonical.md`, synced to 4 worktrees), ad5c51336 (lineage). Vault: `projects/owner-pd-deck-needs-research.md`. Recall checkpoint 733c485fa22bcb5a, session 3099.
-- **EXACT next step:** Make both class ranks exact: ask the GC2/R&D owner where the AV tooltip's "SP Probability" lives (it is not in GroundControl2), OR read GC2-page AV for 9 pitchers. Spence: Beck, Veach, Chandler M. (BAL), Mallitz (each above $12.9M moves him down from #4 of 131). Ullola: Urena, Y. Rivera, L. De Leon, S. Garcia, L. Serna (each above $16.5M moves him down from #10 of 849). Then edit the `developed` slide + one-pager and rebuild the Desktop PDF.
-- **Blockers / waiting on:** the SP Probability source; GC2 rule for pitchers with 1+ year of service is unknown. `promotion_velocity_data.py` still uses the old season-max rollup (STILL-WIRED). `sync-rules.sh` fails ("Python was not found").
-- **Uncommitted work:** bsb-resources 81 pre-existing (none of this session's); sibling worktrees hold synced copies of asset-value-canonical.md + blocking-rules.md.
 
 ---
 
@@ -54,3 +54,5 @@
 - **EXACT next step:** "and then we will contjnue on what we were all woring on" - Zac runs `C:\Users\zbridger\bsb-resources\sql-queries\barrel-definition-probe-2026.sql` in SSMS (git pull first, <1 min), pastes the 3 grids (cast round vs truncate, column types, MLB barrels tracker/V2/GC2). Fix whichever side does not match GC2. Then: Profiler card with `?diag=1` -> paste timing table -> decide postgame season-frame pin.
 - **Blockers / waiting on:** Zac's probe output + diag table. Open: R2K% grain, gcERA tracker vs V2 (0.08), small gaps, DSL +2, hitting-side IBB double-count (own step), pitcher_kpi_snapshot gcERA.
 - **Uncommitted work:** none from this session (pre-existing untracked files untouched)
+
+---
