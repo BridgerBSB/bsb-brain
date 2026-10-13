@@ -717,3 +717,34 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-12 08:36 model auto-approved 2011-03-16-olympic-lifts-for-baseball-players-is-power-planar (p 0.60)
 - 2026-10-12 08:36 model auto-approved 2017-10-11-what-are-pulldowns-run-and-guns-facets-of-driveline-baseball (p 0.59)
 - 2026-10-12 08:36 model: auto-approved 3, auto-rejected 0, left 12
+- 2026-10-12 08:36 run: done
+- 2026-10-13 08:39 run: start
+- 2026-10-13 08:39 discover driveline-yt (new): 30 seen, 0 new
+- 2026-10-13 08:39 discover tread-yt (new): 30 seen, 0 new
+- 2026-10-13 08:39 discover driveline-blog (new): 6 seen, 0 new
+- 2026-10-13 08:40 discover tread-blog (new): 10 seen, 0 new
+- 2026-10-13 08:43 fetch: 2 ok, 12 failed, 0 deferred; whisper 0 min
+- 2026-10-13 08:43 promote: 0 promoted, 0 rejected, 0 corrections
+- 2026-10-13 08:43 model: trained on 130 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.35
+- 2026-10-13 08:43 model: auto-approved 0, auto-rejected 0, left 12
+- 2026-10-13 08:43 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-10-13 08:43 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-10-13 08:43 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-10-13 08:43 discover tread-blog: ERROR 404 Client Error: Not Found for url: https://treadathletics.com/posts/page/-1/
+- 2026-10-13 08:46 fetch: 4 ok, 4 failed, 0 deferred; whisper 0 min
+- 2026-10-13 08:58 summarize: 28 ok, 0 failed (queue had room for 28)
+- 2026-10-13 08:58 model: trained on 130 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.35
+- 2026-10-13 08:58 model auto-approved 2020-08-27-improving-shoulder-stability-for-pitchers-kettlebell-waiter (p 0.68)
+- 2026-10-13 08:58 model auto-approved 2020-10-06-how-does-sixto-sanchez-throw-100-mph-a-closer-look (p 0.62)
+- 2026-10-13 08:58 model auto-approved 2020-10-08-struggling-to-feel-your-lower-half-when-pitching-try-this (p 0.68)
+- 2026-10-13 08:58 model auto-approved 2020-10-12-brusdar-graterol-pitching-mechanics-100-mph-sinker (p 0.62)
+- 2026-10-13 08:58 model auto-approved 2020-10-12-fixing-early-torso-rotation-in-pitchers (p 0.70)
+- 2026-10-13 08:58 model auto-approved 2020-10-13-james-karinchak-what-makes-him-so-unhittable-mechanical (p 0.64)
+- 2026-10-13 08:58 model auto-approved 2020-10-19-how-to-fix-a-tense-or-stiff-arm-action-pitching-q-a (p 0.74)
+- 2026-10-13 08:58 model auto-approved 2020-10-21-how-does-walker-buehler-throw-100-mph-mechanics-breakdown (p 0.62)
+- 2026-10-13 08:58 model auto-approved 2020-10-28-tyler-glasnow-mechanics-how-he-went-from-94-to-100-mph (p 0.61)
+- 2026-10-13 08:58 model auto-approved 2020-11-02-diego-castillo-mechanics-how-does-he-throw-100-mph (p 0.66)
+- 2026-10-13 08:58 model auto-approved 2020-11-04-how-to-feel-the-hinge-pitching-drills (p 0.70)
+- 2026-10-13 08:58 model auto-approved 2020-11-09-pitchers-do-this-for-a-healthy-shoulder (p 0.71)
+- 2026-10-13 08:58 model auto-approved 2020-11-10-should-pitchers-use-voodoo-floss-bands-ask-the-doc-episode-2 (p 0.62)
+- 2026-10-13 08:58 model: auto-approved 13, auto-rejected 0, left 17

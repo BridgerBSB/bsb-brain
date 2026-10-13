@@ -92,6 +92,15 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[2020-05-26-us-vs-korean-baseball-are-there-mechanical-differences]] - US vs. Korean Baseball - Are There Mechanical Differences?
 - [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] - Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball
 - [[2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2]] - The Top 12 Reasons For Velocity Fluctuations (part 2)
+- [[2020-10-06-how-does-sixto-sanchez-throw-100-mph-a-closer-look]] - How Does Sixto Sanchez Throw 100 MPH? A Closer Look
+- [[2020-10-08-struggling-to-feel-your-lower-half-when-pitching-try-this]] - Struggling to Feel Your Lower Half When Pitching? Try This! | TRX Drift Drill
+- [[2020-10-12-brusdar-graterol-pitching-mechanics-100-mph-sinker]] - Brusdar Graterol Pitching Mechanics | 100 MPH Sinker
+- [[2020-10-12-fixing-early-torso-rotation-in-pitchers]] - Fixing Early Torso Rotation in Pitchers
+- [[2020-10-19-how-to-fix-a-tense-or-stiff-arm-action-pitching-q-a]] - How to Fix a Tense or "Stiff" Arm Action | Pitching Q&A
+- [[2020-10-21-how-does-walker-buehler-throw-100-mph-mechanics-breakdown]] - How does Walker Buehler throw 100 MPH? | Mechanics Breakdown
+- [[2020-10-28-tyler-glasnow-mechanics-how-he-went-from-94-to-100-mph]] - Tyler Glasnow Mechanics | How He Went From 94 to 100+ mph
+- [[2020-11-02-diego-castillo-mechanics-how-does-he-throw-100-mph]] - Diego Castillo Mechanics | How Does He Throw 100 mph?
+- [[2020-11-04-how-to-feel-the-hinge-pitching-drills]] - How to Feel the "Hinge" | Pitching Drills
 
 ## Cues
 <!-- the pipeline appends approved pitching cues here -->
@@ -177,6 +186,34 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[cue-step-and-throw-hands-together-imagine-you-got-to-hit-a]]
 - [[cue-close-the-figure-8-open-the-figure-8]]
 - [[cue-think-about-pronating-pulling-the-side-down]]
+- [[cue-rotating-the-pelvis-down-into-landing]]
+- [[cue-think-of-it-much-more-like-a-ferris-wheel]]
+- [[cue-throw-on-the-line]]
+- [[cue-the-inside-of-the-back-heel]]
+- [[cue-lean-and-turn]]
+- [[cue-feel-my-head-stay-stacked-over-my-pelvis]]
+- [[cue-feel-that-back-foot-stay-anchored-and-stable-into-the]]
+- [[cue-allow-the-arm-to-work]]
+- [[cue-puppet-master]]
+- [[cue-show-your-numbers-to-the-target-as-long-as-possible]]
+- [[cue-holding-internal-rotation-torque]]
+- [[cue-break-with-the-thumb-down]]
+- [[cue-capturing-the-momentum-of-the-downswing]]
+- [[cue-floating-the-arm-up-the-spiral-staircase]]
+- [[cue-the-infinity-loop]]
+- [[cue-relax-the-face-relax-the-tongue]]
+- [[cue-relax-into-layback]]
+- [[cue-hands-over-the-head]]
+- [[cue-release-into-rotation]]
+- [[cue-dancing-down-the-mountain]]
+- [[cue-keeping-that-stacked-pelvis-as-you-move-forward]]
+- [[cue-sitting-in-a-chair]]
+- [[cue-weight-on-the-inside-of-the-back-heel]]
+- [[cue-rotate-down-into-landing]]
+- [[cue-directing-intensity-through-the-tip-of-the-whip]]
+- [[cue-find-your-back-leg-find-your-hinge-ride-it-forward]]
+- [[cue-pelvis-stacked-underneath-you-torso-over-top-of-your]]
+- [[cue-allow-that-foot-to-start-sliding]]
 
 ## Drills
 <!-- the pipeline appends approved pitching drills here -->
@@ -291,6 +328,22 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[drill-heavy-ball-med-ball-throws]]
 - [[drill-wrist-weight-and-rebounder-throws]]
 - [[drill-pre-pitch-routine-rehearsal]]
+- [[drill-trx-drift-drill-leg-lift-shift]]
+- [[drill-trx-drift-drill-guided-descent]]
+- [[drill-dissociation-feels]]
+- [[drill-swiss-ball-rotations]]
+- [[drill-medicine-ball-throws-holding-torso-back]]
+- [[drill-figure-eight-drill]]
+- [[drill-abbreviated-arm-action-variants]]
+- [[drill-ten-toes-slow-motion-build]]
+- [[drill-modified-starting-position-with-backwards-chain]]
+- [[drill-hands-over-the-head-walking-wind-up]]
+- [[drill-figure-eight-arm-path-variant]]
+- [[drill-back-foot-toe-in-split-test]]
+- [[drill-standing-hip-ir-belt-buckle-feel]]
+- [[drill-sliding-rotational-hinge]]
+- [[drill-hover-rotational-hinge]]
+- [[drill-center-of-mass-monster-walks]]
 
 ## Related
 [[MOC-hitting]] · [[MOC-strength]] · [[MOC-anatomy]]

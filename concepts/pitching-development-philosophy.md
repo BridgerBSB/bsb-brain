@@ -51,3 +51,4 @@ versa). Source of truth is the brain; Astro World renders it. See [[astro-world]
 - [[2019-03-07-how-to-sync-the-arm-into-the-plane-of-shoulder-rotation]] - How to Sync the Arm into the Plane of Shoulder Rotation
 - [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] - Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball
 - [[2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2]] - The Top 12 Reasons For Velocity Fluctuations (part 2)
+- [[2020-10-28-tyler-glasnow-mechanics-how-he-went-from-94-to-100-mph]] - Tyler Glasnow Mechanics | How He Went From 94 to 100+ mph

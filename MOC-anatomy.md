@@ -79,6 +79,13 @@ constantly; this is where it lands.
 - [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] - Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball
 - [[2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2]] - The Top 12 Reasons For Velocity Fluctuations (part 2)
 - [[2010-10-11-back-squat-vs-front-squat-for-baseball-pitchers]] - Back Squat vs. Front Squat for Baseball Pitchers
+- [[2020-08-27-improving-shoulder-stability-for-pitchers-kettlebell-waiter]] - Improving Shoulder Stability For Pitchers : Kettlebell Waiter Walk
+- [[2020-10-06-how-does-sixto-sanchez-throw-100-mph-a-closer-look]] - How Does Sixto Sanchez Throw 100 MPH? A Closer Look
+- [[2020-10-12-brusdar-graterol-pitching-mechanics-100-mph-sinker]] - Brusdar Graterol Pitching Mechanics | 100 MPH Sinker
+- [[2020-10-12-fixing-early-torso-rotation-in-pitchers]] - Fixing Early Torso Rotation in Pitchers
+- [[2020-10-19-how-to-fix-a-tense-or-stiff-arm-action-pitching-q-a]] - How to Fix a Tense or "Stiff" Arm Action | Pitching Q&A
+- [[2020-10-21-how-does-walker-buehler-throw-100-mph-mechanics-breakdown]] - How does Walker Buehler throw 100 MPH? | Mechanics Breakdown
+- [[2020-11-02-diego-castillo-mechanics-how-does-he-throw-100-mph]] - Diego Castillo Mechanics | How Does He Throw 100 mph?
 
 ## Cues
 <!-- appended by the pipeline -->
@@ -182,6 +189,23 @@ constantly; this is where it lands.
 - [[cue-step-and-throw-hands-together-imagine-you-got-to-hit-a]]
 - [[cue-close-the-figure-8-open-the-figure-8]]
 - [[cue-think-about-pronating-pulling-the-side-down]]
+- [[cue-rotating-the-pelvis-down-into-landing]]
+- [[cue-think-of-it-much-more-like-a-ferris-wheel]]
+- [[cue-throw-on-the-line]]
+- [[cue-allow-the-arm-to-work]]
+- [[cue-puppet-master]]
+- [[cue-show-your-numbers-to-the-target-as-long-as-possible]]
+- [[cue-holding-internal-rotation-torque]]
+- [[cue-break-with-the-thumb-down]]
+- [[cue-capturing-the-momentum-of-the-downswing]]
+- [[cue-floating-the-arm-up-the-spiral-staircase]]
+- [[cue-the-infinity-loop]]
+- [[cue-relax-the-face-relax-the-tongue]]
+- [[cue-relax-into-layback]]
+- [[cue-hands-over-the-head]]
+- [[cue-release-into-rotation]]
+- [[cue-rotate-down-into-landing]]
+- [[cue-directing-intensity-through-the-tip-of-the-whip]]
 
 ## Drills
 <!-- appended by the pipeline -->
@@ -332,6 +356,20 @@ constantly; this is where it lands.
 - [[drill-heavy-ball-med-ball-throws]]
 - [[drill-wrist-weight-and-rebounder-throws]]
 - [[drill-pre-pitch-routine-rehearsal]]
+- [[drill-kettlebell-waiter-walk]]
+- [[drill-banded-plate-kettlebell-waiter-walk]]
+- [[drill-skipping-banded-waiter-walk]]
+- [[drill-dissociation-feels]]
+- [[drill-swiss-ball-rotations]]
+- [[drill-medicine-ball-throws-holding-torso-back]]
+- [[drill-figure-eight-drill]]
+- [[drill-abbreviated-arm-action-variants]]
+- [[drill-ten-toes-slow-motion-build]]
+- [[drill-modified-starting-position-with-backwards-chain]]
+- [[drill-hands-over-the-head-walking-wind-up]]
+- [[drill-figure-eight-arm-path-variant]]
+- [[drill-back-foot-toe-in-split-test]]
+- [[drill-standing-hip-ir-belt-buckle-feel]]
 
 ## Related
 [[MOC-pitching]] · [[MOC-hitting]] · [[MOC-strength]]

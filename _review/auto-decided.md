@@ -1,6 +1,6 @@
 # Auto-decided notes
 
-Written by `kb.py decide` 2026-10-12 08:36.
+Written by `kb.py decide` 2026-10-13 08:58.
 
 **To overturn:** open the note and change `status:` to `rejected` (on an auto-approved note) or `approved` (on an auto-rejected one). The next nightly run files it and the model learns from it.
 
@@ -12,12 +12,25 @@ Written by `kb.py decide` 2026-10-12 08:36.
 - Auto-approves at p >= 0.57: on your past grades that zone held 67 notes, 3 of which you rejected (budget: 1 in 20).
 - Auto-rejects at p <= 0.35: that zone held 3 notes, 0 of which you approved (budget: 1 in 50).
 
-**Last run:** auto-approved 3, auto-rejected 0, left for you 12.
+**Last run:** auto-approved 13, auto-rejected 0, left for you 17.
 
 Overturned by you so far: 0.
 
-## Auto-approved (39)
+## Auto-approved (52)
 
+- [[2020-10-21-how-does-walker-buehler-throw-100-mph-mechanics-breakdown]] p 0.62 - like [[2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown]] (approved), [[2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw]] (approved), [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] (approved)
+- [[2020-10-12-fixing-early-torso-rotation-in-pitchers]] p 0.70 - like [[2018-02-21-throwing-concept-syncing-arms-into-the-plane-of-rotation]] (approved), [[2019-01-28-the-3-types-of-muscling-up-how-it-s-hurting-your-pitching]] (approved), [[2026-08-30-6-upper-body-lifts-for-pitchers]] (approved)
+- [[2020-11-10-should-pitchers-use-voodoo-floss-bands-ask-the-doc-episode-2]] p 0.62 - like [[2019-01-13-upgrading-your-j-band-routine-part-2a-patterning-front-leg]] (approved), [[2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands]] (approved), [[2019-01-13-upgrading-your-j-band-routine-part-2b-patterning-fixing-a]] (rejected)
+- [[2020-11-09-pitchers-do-this-for-a-healthy-shoulder]] p 0.71 - like [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] (approved), [[2019-01-17-barbell-smash-series-trap-tricep-bicep-and-pec]] (approved), [[2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation]] (approved)
+- [[2020-11-04-how-to-feel-the-hinge-pitching-drills]] p 0.70 - like [[2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design]] (approved), [[2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown]] (approved), [[2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw]] (approved)
+- [[2020-10-13-james-karinchak-what-makes-him-so-unhittable-mechanical]] p 0.64 - like [[2026-08-06-the-rotational-cue-that-got-him-to-98-mph-and-signed]] (approved), [[2026-08-21-is-the-vertical-slider-the-next-big-thing-in-pitch-design]] (rejected), [[2026-03-28-his-bat-path-is-costing-him]] (approved)
+- [[2020-10-19-how-to-fix-a-tense-or-stiff-arm-action-pitching-q-a]] p 0.74 - like [[2026-06-09-throw-harder-by-fixing-your-pushy-arm-action]] (approved), [[2026-06-30-how-to-fix-your-pushy-arm-action-pushy-arm-action-part-two]] (approved), [[2013-12-14-advanced-pitching-mechanics-pronation-in-the-delivery]] (approved)
+- [[2020-11-02-diego-castillo-mechanics-how-does-he-throw-100-mph]] p 0.66 - like [[2026-05-09-the-rangers-signed-him-after-4-mph-bat-speed-in-6-weeks]] (approved), [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] (approved), [[2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown]] (approved)
+- [[2020-10-08-struggling-to-feel-your-lower-half-when-pitching-try-this]] p 0.68 - like [[2019-02-11-the-drift-how-to-shift-your-weight-like-a-pro]] (approved), [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]] (approved), [[2018-02-02-roll-ins-variations]] (approved)
+- [[2020-10-06-how-does-sixto-sanchez-throw-100-mph-a-closer-look]] p 0.62 - like [[2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown]] (approved), [[2026-07-26-from-88-to-96-mph-in-10-weeks-the-luis-patino-story]] (approved), [[2015-08-01-simple-hacks-to-throw-faster]] (approved)
+- [[2020-10-28-tyler-glasnow-mechanics-how-he-went-from-94-to-100-mph]] p 0.61 - like [[2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown]] (approved), [[2026-08-21-is-the-vertical-slider-the-next-big-thing-in-pitch-design]] (rejected), [[2026-07-23-the-incredible-development-gains-of-parker-eastwood-lilles]] (approved)
+- [[2020-08-27-improving-shoulder-stability-for-pitchers-kettlebell-waiter]] p 0.68 - like [[2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands]] (approved), [[2018-05-28-reverse-throw-our-favorite-cues]] (approved), [[2019-01-13-upgrading-your-j-band-routine-part-3-low-load-isometrics]] (approved)
+- [[2020-10-12-brusdar-graterol-pitching-mechanics-100-mph-sinker]] p 0.62 - like [[2019-02-11-the-drift-how-to-shift-your-weight-like-a-pro]] (approved), [[2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown]] (approved), [[2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw]] (approved)
 - [[2017-10-11-what-are-pulldowns-run-and-guns-facets-of-driveline-baseball]] p 0.59 - like [[2014-11-17-max-velocity-pulldowns-105-8-mph-driveline-baseball]] (approved), [[2026-07-28-what-s-the-next-sweeper]] (approved), [[2012-05-01-weighted-baseballs-wrist-weights-and-arm-injuries-q-a-with]] (approved)
 - [[2011-03-16-olympic-lifts-for-baseball-players-is-power-planar]] p 0.60 - like [[2010-03-02-p90x-for-baseball]] (approved), [[2010-03-13-in-season-training-a-difficult-task]] (approved), [[2016-02-12-strength-training-for-baseball-and-isolation-exercises]] (approved)
 - [[2011-03-08-stephen-strasburg-mechanics-and-his-timing-flaw]] p 0.62 - like [[2010-03-07-mechanics-the-effects-of-loading-rate]] (approved), [[2013-12-14-advanced-pitching-mechanics-pronation-in-the-delivery]] (approved), [[2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation]] (approved)
