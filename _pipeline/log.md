@@ -748,3 +748,4 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-13 08:58 model auto-approved 2020-11-09-pitchers-do-this-for-a-healthy-shoulder (p 0.71)
 - 2026-10-13 08:58 model auto-approved 2020-11-10-should-pitchers-use-voodoo-floss-bands-ask-the-doc-episode-2 (p 0.62)
 - 2026-10-13 08:58 model: auto-approved 13, auto-rejected 0, left 17
+- 2026-10-13 08:58 run: done

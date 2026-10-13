@@ -1,11 +1,13 @@
-# Crash breadcrumb (auto, rolling) — 2026-10-09 06:06 UTC
+# Crash breadcrumb (auto, rolling) — 2026-10-13 14:30 UTC
 
 If you are reading this at session start, the previous session likely
 ended without /wrap (crash or hard exit). Deleted on clean SessionEnd.
 
-- session: 427f44aa · cwd: `C:\Users\Owner\bsb-resources` · branch `feature/pd-goals`
+- session: 0ce88331 · cwd: `C:\Users\Owner\bsb-resources` · branch `feature/pd-goals`
 
 Last user messages before this point:
-> ok im tranferring computers and in teh middke of that process rn but run teh afl bullpen process and the tread/driveline process blog here... and have the bsb comman center here - what is the best way to ensure thsoe can be properly done on my new computer and disconinued here??
+> is this still being worked on and cooked on???
 
-> Another Claude session sent a message: <cross-session-message from="bridge:session_01Smo22FrD3Dbc9rfoudz6DH" from-name="desktop-pdg22nf-linear-crown" from-mode="prompting"> Scheduled-task move: the NEW laptop (DESKTOP-PDG22NF) is ready to take over; please do the old-laptop half now, in this order. 
+> <task-notification> <task-id>bgsiya30h</task-id> <tool-use-id>toolu_01SGcmg22BxtohLzpiPTF2hM</tool-use-id> <output-file>C:\Users\Owner\AppData\Local\Temp\claude\C--Users-Owner-bsb-resources\7c7ecf2f-d58c-45a0-919d-cd3f465a5da3\tasks\bgsiya30h.output</output-file> <status>completed</status> <summary>
+
+> i closed teh cmputer - lets start up againa nd cook t up afetr we /wrap here - you know for what we are cooking up here -
