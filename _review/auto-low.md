@@ -1,6 +1,6 @@
 # Auto-filed as low value (not reviewed)
 
-Written by `kb.py lint` 2026-10-12 08:36. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
+Written by `kb.py lint` 2026-10-13 08:58. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
 
 - 2026-08-26 tread marketing: Is Tread's Remote Coaching Worth It? A Parent Perspective. - https://www.youtube.com/watch?v=y1gPpzn5DMw - id `y1gPpzn5DMw`
 - 2026-07-23 tread marketing: He Went D1 After Throwing 97 MPH In This Showcase - https://www.youtube.com/watch?v=5-N9m4A7BWY - id `5-N9m4A7BWY`
@@ -15,7 +15,17 @@ Written by `kb.py lint` 2026-10-12 08:36. Marketing and low-value items skip the
 - 2025-07-27 bpc marketing: The Lefty Velo-Off  🔥 - https://www.youtube.com/watch?v=o3m2JNbG_cw - id `o3m2JNbG_cw`
 - 2024-03-06 bpc marketing: BPC Remote Training - https://www.youtube.com/watch?v=r-yW4Fk6hnA - id `r-yW4Fk6hnA`
 - 2021-03-17 bpc athlete-story: A Day in the Life: BPC Offseason 2021 - https://www.youtube.com/watch?v=NMd52BXwqYY - id `NMd52BXwqYY`
+- 2020-11-04 tread interview: What is Fascia? Why is it Important for Pitchers? | Ask the Doc Episode 1 - https://www.youtube.com/watch?v=uhVsQvjnIUE - id `uhVsQvjnIUE`
+- 2020-10-20 tread marketing: From 87-90 to 91-95 MPH and Pro Ball | Carter Loewen - https://www.youtube.com/watch?v=mg6wIW8ITh4 - id `mg6wIW8ITh4`
+- 2020-10-20 tread athlete-story: From 88 to 98 MPH and 2nd Round Draft Pick | Antoine Kelly - https://www.youtube.com/watch?v=kTvGFMGufPY - id `kTvGFMGufPY`
+- 2020-10-15 tread instruction: Pitching Drills To Throw Harder | The Lasso Drill - https://www.youtube.com/watch?v=-FIM13IkkJw - id `-FIM13IkkJw`
+- 2020-10-14 tread athlete-story: PitchingNinja | How His Son Went From 76 to 95 MPH | The Jack Friedman Story - https://www.youtube.com/watch?v=nbpYLSnf0rs - id `nbpYLSnf0rs`
+- 2020-10-09 tread athlete-story: How I went from 89 to 95 MPH with Remote Training | MLB Draft Story - https://www.youtube.com/watch?v=sqqb_Tkyk80 - id `sqqb_Tkyk80`
 - 2020-01-01 tread marketing: Tread Athletics 2019 Year in Review - https://treadathletics.com/2019-year-in-review - id `tread-blog-2019-year-in-review`
+- 2017-12-11 driveline marketing: On Site Implementation | Driveline Baseball - https://www.youtube.com/watch?v=x93-8obEIJA - id `x93-8obEIJA`
+- 2017-12-07 driveline marketing: Driveline Baseball Remote Hitting Program - https://www.youtube.com/watch?v=U6B85Ni3tXc - id `U6B85Ni3tXc`
+- 2017-12-06 driveline marketing: Keeping Tradition | Evolution of Training At Driveline Baseball - https://www.youtube.com/watch?v=0bVsYrzknTA - id `0bVsYrzknTA`
+- 2017-11-21 driveline philosophy: How to Implement a Driveline Program at Your School - https://www.youtube.com/watch?v=E3K7sTrZiX4 - id `E3K7sTrZiX4`
 - 2017-11-18 driveline philosophy: Evolution of Research at Driveline Baseball - https://www.youtube.com/watch?v=-MCz-3VMHwA - id `-MCz-3VMHwA`
 - 2017-08-17 driveline athlete-story: Day in the Life of a Driveline Baseball Athlete - https://www.youtube.com/watch?v=Q3FCZDszVis - id `Q3FCZDszVis`
 - 2017-06-13 driveline marketing: WA State High School Softball Homerun Derby | Presented by Axe Bat/WIAA - https://www.youtube.com/watch?v=BTUVIM0o_fo - id `BTUVIM0o_fo`
