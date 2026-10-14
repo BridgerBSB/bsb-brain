@@ -1,4 +1,14 @@
-# Last session state - 2026-10-13 13:01 CT (GC2 Asset Value: SP probability found, exact owner-deck ranks)
+# Last session state - 2026-10-13 20:20 CT (hiring: Manager/Dev Coach FIELD assessment built, deploy pending; itineraries; DoP Pitch Design deck)
+- **Project / cwd:** `C:/Users/Owner/hiring-wt-field` - branch `feature/field-assessment` (+ `C:/Users/Owner/hiring` main, `C:/Users/Owner/hiring-wt-deck` director-deck-philosophy)
+- **What we were doing:** Built the Manager / Dev Coach Assessment as a third hiring-app track on a full baseball field (Sam's equipment, OF 45 min / 13, IF 45 min / 12, Open Practice 90 min / 18, 4 coaches + 1 S&C). Earlier: candidate itineraries (Gargas, Clayton Thompson, Spencer Medick), the DoP Pitch Design deck, DoP case deck Scaling slide.
+- **Shipped this session:** hiring `11c6a6a` on feature/field-assessment (app/tracks.py one track table; app/field_surface.py field shapes drawn by page, evaluator and PDF; readable 20 ft symbols; /admin/field/*; 14 palette items; suite 1221 pass / 7 skip; renders cage-sandbox/docs/renders/field-assessment/). hiring main `21f36cf` (DoP case deck slide 5 four topic boxes, LIVE). hiring-wt-deck `e87941e` (Pitching_Pitch_Design.pptx, 5 slides, name-covered edgers, Wells replaces Oakes). Itinerary PDFs in C:/Users/zbrid/Downloads (== C:/Users/Owner/Downloads), scripts on C:/Users/zbrid/OneDrive/Desktop/*_itinerary.py. Recall checkpoint ca1c4398a2a40b28, session e514.
+- **EXACT next step:** DEPLOY the field assessment (my push to main was blocked by the auto-mode classifier as a production deploy). Zac runs: `! cd /c/Users/Owner/hiring && git merge --ff-only feature/field-assessment && git push origin main` (Railway redeploys), then opens the new tile, runs its Sandbox, and Sam edits brief wording in `cage-sandbox/constraints/field-*.json`. Zac: "we will reconvene on such and attack this".
+- **Blockers / waiting on:** Zac's deploy push; Medick's assessment Wed 10-14 3:45-5:45 PM (do not deploy mid-assessment). Sam feedback: Pitch Design deck (drop blurry Wells Capture (8)? order? add to app stage_docs?). Deck generator content/pitching.json is behind the app's dop-case-assessment.pptx (slides 5, 14).
+- **Uncommitted work:** hiring 3 pre-existing untracked renders; hiring-wt-field clean; bsb-resources pre-existing only.
+
+---
+
+## ALSO OPEN - 2026-10-13 13:01 CT (GC2 Asset Value: SP probability found, exact owner-deck ranks)
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
 - **What we were doing:** Hunted down how GC2 computes Asset Value for young pitchers. Zac pulled GC2's page SQL: the blend weight is `Player_Val.SP_Prob` (our login could not see it; SELECT granted 10-13). Documented GC2's full formula and got exact class ranks for the owner deck.
 - **Shipped this session:** rule `asset-value-canonical.md` (final e10c95f65, synced to 4 worktrees); `sql-queries/gc2-asset-value-reference.sql` (GC2 verbatim) + `owner-deck-av-gc2-exact.sql` (replica + ranks) 4a3fd856a; discovery/check queries 456e647d6 eaac98ffc 42097ff7f 137711afe 83ae2e00c; lineage 84b023ffe. Exact ranks: Spence #3 of 54 hitters / #5 of 131; Ullola #12 of 849 / #6 of 459 P, $16.72M (sp_prob 0.155120). Recall checkpoint ec285a1c2fd40047, session 69aa.
@@ -28,17 +38,6 @@
 
 ---
 
-## ALSO OPEN - 2026-10-11 13:14 (DoP assessment bad-pitch videos + hiring Sandbox + Astro World IT)
-- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals` (+ `C:/Users/Owner/hiring` main; astroworld read-only)
-- **What we were doing:** New Director of Pitching assessment section (Sam): four below-average pitches shown on Edgertronic, "how would you fix it". Picked and profiled them vs their level and found where the video lives. Earlier: shipped the hiring-app Sandbox time boxes; worked the Astro World offboarding / permissions thread with IT (Matt).
-- **The four:** John Carver FF 1291664 (A, SRV pctile 2) / Colby Langford SL 235206 (A+, 20) / Luis Rodriguez CH 234504 (A+, 33) / Kellan Oakes CU 268175 (A+, 26).
-- **Shipped this session:** hiring 44380c1 (Sandbox per-prompt minutes + back to the start screen, LIVE). bsb-resources: hou-milb-below-avg-stuff-by-pitch-type-2026.sql, dop-assessment-four-pitches-2026.sql (f50c6a0ee, 7ae066619), dop-assessment-four-pitches-bullpen-2026.sql (f2c500ba6), dop-bullpen-grade-coverage.sql (da98df67b); one angle-code table in video-angles.md built from the DB lookup LK_Video_Angles_Char, db-columns.md points to it (synced to 4 worktrees); lineage 2543a33c7. Workbook `C:/Users/zbrid/OneDrive/Desktop/DoP Pitch Pull List.xlsx`. Recall checkpoints session 683b (3 domains).
-- **EXACT next step:** DoP assessment bad-pitch videos: Carver FF 1291664, Langford SL 235206, Rodriguez CH 234504, Oakes CU 268175. Zac grabbing bullpen videos manually and running dop-bullpen-grade-coverage.sql. Also: hiring app Sandbox time boxes shipped 44380c1; Astro World offboarding SCIM ask to Peter 10-12. -> On resume: read his grade-coverage result (any B-row column above 0 = a bullpen grade exists, a different model from StuffRelVel), take the clips he feeds, then design the section in `C:/Users/Owner/hiring/cage-sandbox`.
-- **Blockers / waiting on:** Zac's bullpen video pulls + grade-coverage run; Sam on where the section sits. Bullpen edgers are NOT in GC2 (0 clips, 0 SRV on B pitches); in-game edgers judged unusable. Caveat: Oakes's bullpen "CU" is a different shape than his game CU (73.8 vs 80.0 mph), and only 16 game CUs. Astro World: SCIM ask to Peter (back 10-12), 1Password invite pending.
-- **Uncommitted work:** bsb-resources 82 (pre-existing, none of this session's); sibling worktrees hold synced copies of db-columns.md + video-angles.md (as the sync hook leaves them).
-
----
-
 ## ALSO OPEN - 2026-10-08 09:50 CT (fielding pin rebuild: Stage 1 done, Stage 2 spec'd)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (+ bsb-resources `feature/pd-goals` pin map doc)
 - **What we were doing:** Replacing the 41h fielding pin job (336 heavy SQL queries) with one raw pull + Python. All 8 slices now match the old SQL same-day, 6/6 each; Stage 2 (shadow job writing a test pin) is specced, not built.
@@ -54,5 +53,3 @@
 - **EXACT next step:** "and then we will contjnue on what we were all woring on" - Zac runs `C:\Users\zbridger\bsb-resources\sql-queries\barrel-definition-probe-2026.sql` in SSMS (git pull first, <1 min), pastes the 3 grids (cast round vs truncate, column types, MLB barrels tracker/V2/GC2). Fix whichever side does not match GC2. Then: Profiler card with `?diag=1` -> paste timing table -> decide postgame season-frame pin.
 - **Blockers / waiting on:** Zac's probe output + diag table. Open: R2K% grain, gcERA tracker vs V2 (0.08), small gaps, DSL +2, hitting-side IBB double-count (own step), pitcher_kpi_snapshot gcERA.
 - **Uncommitted work:** none from this session (pre-existing untracked files untouched)
-
----
