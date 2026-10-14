@@ -52,3 +52,6 @@ versa). Source of truth is the brain; Astro World renders it. See [[astro-world]
 - [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] - Weighted Baseballs, NPA Holds, Elbow Strains | Q&A #2 w/ Driveline Baseball
 - [[2018-03-07-the-top-12-reasons-for-velocity-fluctuations-part-2]] - The Top 12 Reasons For Velocity Fluctuations (part 2)
 - [[2020-10-28-tyler-glasnow-mechanics-how-he-went-from-94-to-100-mph]] - Tyler Glasnow Mechanics | How He Went From 94 to 100+ mph
+- [[2020-11-23-throwing-drills-to-throw-harder-arm-action-freestyle]] - Throwing Drills to Throw Harder | Arm Action Freestyle
+- [[2020-11-28-devin-williams-mechanics-a-breakdown]] - Devin Williams Mechanics | A Breakdown
+- [[2020-12-04-why-does-kyle-hendricks-throw-87-mph]] - Why Does Kyle Hendricks Throw 87 MPH?

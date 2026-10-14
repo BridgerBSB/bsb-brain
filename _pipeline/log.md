@@ -749,3 +749,32 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-13 08:58 model auto-approved 2020-11-10-should-pitchers-use-voodoo-floss-bands-ask-the-doc-episode-2 (p 0.62)
 - 2026-10-13 08:58 model: auto-approved 13, auto-rejected 0, left 17
 - 2026-10-13 08:58 run: done
+- 2026-10-14 06:30 run: start
+- 2026-10-14 06:30 discover driveline-yt (new): 30 seen, 1 new
+- 2026-10-14 06:30 discover tread-yt (new): 30 seen, 0 new
+- 2026-10-14 06:30 discover driveline-blog (new): 6 seen, 0 new
+- 2026-10-14 06:30 discover tread-blog (new): 10 seen, 0 new
+- 2026-10-14 06:34 fetch: 11 ok, 3 failed, 0 deferred; whisper 0 min
+- 2026-10-14 06:34 promote: 0 promoted, 0 rejected, 0 corrections
+- 2026-10-14 06:34 model: trained on 130 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.35
+- 2026-10-14 06:34 model: auto-approved 0, auto-rejected 0, left 17
+- 2026-10-14 06:34 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-10-14 06:35 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-10-14 06:35 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-10-14 06:35 discover tread-blog: ERROR 404 Client Error: Not Found for url: https://treadathletics.com/posts/page/-1/
+- 2026-10-14 06:37 fetch: 8 ok, 0 failed, 0 deferred; whisper 0 min
+- 2026-10-14 06:46 summarize: 23 ok, 0 failed (queue had room for 23)
+- 2026-10-14 06:46 model: trained on 130 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.35
+- 2026-10-14 06:46 model auto-approved 2011-05-16-is-grip-strength-important-for-hitters (p 0.66)
+- 2026-10-14 06:46 model auto-approved 2011-05-19-flat-curve-ball-stop-throwing-strikes (p 0.58)
+- 2026-10-14 06:46 model auto-approved 2011-06-01-3-great-ways-to-increase-shoulder-strength-and-flexibility (p 0.69)
+- 2026-10-14 06:46 model auto-approved 2011-06-03-improving-shoulder-internal-rotation-with-the-rotater (p 0.65)
+- 2026-10-14 06:46 model auto-approved 2020-11-21-how-to-throw-harder-improving-layback (p 0.66)
+- 2026-10-14 06:46 model auto-approved 2020-11-23-throwing-drills-to-throw-harder-arm-action-freestyle (p 0.68)
+- 2026-10-14 06:46 model auto-approved 2020-11-24-hip-rotation-lower-half-mechanics-understanding-ir-dominance (p 0.70)
+- 2026-10-14 06:46 model auto-approved 2020-11-28-devin-williams-mechanics-a-breakdown (p 0.59)
+- 2026-10-14 06:46 model auto-approved 2020-12-02-i-stretch-all-the-time-and-still-feel-tight-ask-the-doc-ep-3 (p 0.74)
+- 2026-10-14 06:46 model auto-approved 2020-12-04-why-does-kyle-hendricks-throw-87-mph (p 0.63)
+- 2026-10-14 06:46 model auto-approved 2020-12-08-pelvic-dissociations-learning-hip-shoulder-separation (p 0.70)
+- 2026-10-14 06:46 model auto-approved 2020-12-10-throw-harder-with-the-figure-8-drill-pitching-drills (p 0.64)
+- 2026-10-14 06:46 model: auto-approved 12, auto-rejected 0, left 21

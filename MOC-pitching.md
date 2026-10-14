@@ -101,6 +101,9 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[2020-10-28-tyler-glasnow-mechanics-how-he-went-from-94-to-100-mph]] - Tyler Glasnow Mechanics | How He Went From 94 to 100+ mph
 - [[2020-11-02-diego-castillo-mechanics-how-does-he-throw-100-mph]] - Diego Castillo Mechanics | How Does He Throw 100 mph?
 - [[2020-11-04-how-to-feel-the-hinge-pitching-drills]] - How to Feel the "Hinge" | Pitching Drills
+- [[2020-11-21-how-to-throw-harder-improving-layback]] - How to Throw Harder | Improving Layback
+- [[2020-12-08-pelvic-dissociations-learning-hip-shoulder-separation]] - Pelvic Dissociations | Learning Hip/Shoulder Separation
+- [[2020-12-10-throw-harder-with-the-figure-8-drill-pitching-drills]] - Throw Harder with the Figure 8 Drill | Pitching Drills
 
 ## Cues
 <!-- the pipeline appends approved pitching cues here -->
@@ -214,6 +217,10 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[cue-find-your-back-leg-find-your-hinge-ride-it-forward]]
 - [[cue-pelvis-stacked-underneath-you-torso-over-top-of-your]]
 - [[cue-allow-that-foot-to-start-sliding]]
+- [[cue-rotate-that-bowl-which-is-my-pelvis-down-into-landing]]
+- [[cue-it-s-a-pelvic-driven-movement-not-a-knee-driven-movement]]
+- [[cue-cheat-that-foot-open]]
+- [[cue-slow-is-smooth-smooth-is-fast]]
 
 ## Drills
 <!-- the pipeline appends approved pitching drills here -->
@@ -344,6 +351,8 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[drill-sliding-rotational-hinge]]
 - [[drill-hover-rotational-hinge]]
 - [[drill-center-of-mass-monster-walks]]
+- [[drill-pseudo-throwing-med-ball-phase]]
+- [[drill-pelvic-dissociation-pole-drill]]
 
 ## Related
 [[MOC-hitting]] · [[MOC-strength]] · [[MOC-anatomy]]

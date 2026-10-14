@@ -352,3 +352,4 @@ phases) and the Astros attack-angle / bat-speed / PoC tracking work.
 - [[2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball]] - Cues & Drills to Let Your Body Deliver the Barrel to the Ball
 - [[2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design]] - Drills to Fix Your Timing and Hinge | Swing Design
 - [[2026-06-15-the-royals-just-recalled-this-28-year-old-slugger-john-rave]] - The Royals Just Recalled This 28-Year-Old Slugger | John Rave Cage Session
+- [[2011-05-16-is-grip-strength-important-for-hitters]] - Is Grip Strength Important for Hitters?

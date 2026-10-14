@@ -86,6 +86,8 @@ constantly; this is where it lands.
 - [[2020-10-19-how-to-fix-a-tense-or-stiff-arm-action-pitching-q-a]] - How to Fix a Tense or "Stiff" Arm Action | Pitching Q&A
 - [[2020-10-21-how-does-walker-buehler-throw-100-mph-mechanics-breakdown]] - How does Walker Buehler throw 100 MPH? | Mechanics Breakdown
 - [[2020-11-02-diego-castillo-mechanics-how-does-he-throw-100-mph]] - Diego Castillo Mechanics | How Does He Throw 100 mph?
+- [[2020-11-21-how-to-throw-harder-improving-layback]] - How to Throw Harder | Improving Layback
+- [[2020-12-08-pelvic-dissociations-learning-hip-shoulder-separation]] - Pelvic Dissociations | Learning Hip/Shoulder Separation
 
 ## Cues
 <!-- appended by the pipeline -->
@@ -206,6 +208,9 @@ constantly; this is where it lands.
 - [[cue-release-into-rotation]]
 - [[cue-rotate-down-into-landing]]
 - [[cue-directing-intensity-through-the-tip-of-the-whip]]
+- [[cue-rotate-that-bowl-which-is-my-pelvis-down-into-landing]]
+- [[cue-it-s-a-pelvic-driven-movement-not-a-knee-driven-movement]]
+- [[cue-cheat-that-foot-open]]
 
 ## Drills
 <!-- appended by the pipeline -->
@@ -370,6 +375,8 @@ constantly; this is where it lands.
 - [[drill-figure-eight-arm-path-variant]]
 - [[drill-back-foot-toe-in-split-test]]
 - [[drill-standing-hip-ir-belt-buckle-feel]]
+- [[drill-pseudo-throwing-med-ball-phase]]
+- [[drill-pelvic-dissociation-pole-drill]]
 
 ## Related
 [[MOC-pitching]] · [[MOC-hitting]] · [[MOC-strength]]
