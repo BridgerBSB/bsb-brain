@@ -1,6 +1,6 @@
 # Auto-filed as low value (not reviewed)
 
-Written by `kb.py lint` 2026-10-13 08:58. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
+Written by `kb.py lint` 2026-10-14 06:46. Marketing and low-value items skip the queue. Skim the titles; if one deserves a full note, run `python _pipeline\kb.py rescue --id=<id>`.
 
 - 2026-08-26 tread marketing: Is Tread's Remote Coaching Worth It? A Parent Perspective. - https://www.youtube.com/watch?v=y1gPpzn5DMw - id `y1gPpzn5DMw`
 - 2026-07-23 tread marketing: He Went D1 After Throwing 97 MPH In This Showcase - https://www.youtube.com/watch?v=5-N9m4A7BWY - id `5-N9m4A7BWY`
@@ -15,6 +15,8 @@ Written by `kb.py lint` 2026-10-13 08:58. Marketing and low-value items skip the
 - 2025-07-27 bpc marketing: The Lefty Velo-Off  🔥 - https://www.youtube.com/watch?v=o3m2JNbG_cw - id `o3m2JNbG_cw`
 - 2024-03-06 bpc marketing: BPC Remote Training - https://www.youtube.com/watch?v=r-yW4Fk6hnA - id `r-yW4Fk6hnA`
 - 2021-03-17 bpc athlete-story: A Day in the Life: BPC Offseason 2021 - https://www.youtube.com/watch?v=NMd52BXwqYY - id `NMd52BXwqYY`
+- 2020-12-09 tread interview: Common Oversights of Tommy John Rehab | #AsktheDoc Episode 4 - https://www.youtube.com/watch?v=4wQ84z36kpM - id `4wQ84z36kpM`
+- 2020-11-18 tread athlete-story: I Stopped Strength Training and Went From 96 to 99 MPH at 31 years old - https://treadathletics.com/high-velocity-training - id `tread-blog-high-velocity-training`
 - 2020-11-04 tread interview: What is Fascia? Why is it Important for Pitchers? | Ask the Doc Episode 1 - https://www.youtube.com/watch?v=uhVsQvjnIUE - id `uhVsQvjnIUE`
 - 2020-10-20 tread marketing: From 87-90 to 91-95 MPH and Pro Ball | Carter Loewen - https://www.youtube.com/watch?v=mg6wIW8ITh4 - id `mg6wIW8ITh4`
 - 2020-10-20 tread athlete-story: From 88 to 98 MPH and 2nd Round Draft Pick | Antoine Kelly - https://www.youtube.com/watch?v=kTvGFMGufPY - id `kTvGFMGufPY`
@@ -22,6 +24,8 @@ Written by `kb.py lint` 2026-10-13 08:58. Marketing and low-value items skip the
 - 2020-10-14 tread athlete-story: PitchingNinja | How His Son Went From 76 to 95 MPH | The Jack Friedman Story - https://www.youtube.com/watch?v=nbpYLSnf0rs - id `nbpYLSnf0rs`
 - 2020-10-09 tread athlete-story: How I went from 89 to 95 MPH with Remote Training | MLB Draft Story - https://www.youtube.com/watch?v=sqqb_Tkyk80 - id `sqqb_Tkyk80`
 - 2020-01-01 tread marketing: Tread Athletics 2019 Year in Review - https://treadathletics.com/2019-year-in-review - id `tread-blog-2019-year-in-review`
+- 2018-02-06 driveline marketing: Andrew Moore | Driveline Pro Testimonials - https://www.youtube.com/watch?v=A-rsOTLTwr0 - id `A-rsOTLTwr0`
+- 2018-01-25 driveline instruction: Driveline Safety Video - Mandatory for New Trainees - https://www.youtube.com/watch?v=XQjL7tu6qDM - id `XQjL7tu6qDM`
 - 2017-12-11 driveline marketing: On Site Implementation | Driveline Baseball - https://www.youtube.com/watch?v=x93-8obEIJA - id `x93-8obEIJA`
 - 2017-12-07 driveline marketing: Driveline Baseball Remote Hitting Program - https://www.youtube.com/watch?v=U6B85Ni3tXc - id `U6B85Ni3tXc`
 - 2017-12-06 driveline marketing: Keeping Tradition | Evolution of Training At Driveline Baseball - https://www.youtube.com/watch?v=0bVsYrzknTA - id `0bVsYrzknTA`
@@ -64,6 +68,9 @@ Written by `kb.py lint` 2026-10-13 08:58. Marketing and low-value items skip the
 - 2013-10-05 driveline marketing: EMG Sensor Testing at Driveline Baseball - https://www.youtube.com/watch?v=gmK0tbTCC8E - id `gmK0tbTCC8E`
 - 2013-03-17 driveline instruction: Speed Training for Baseball - Prowler Pushes - https://www.youtube.com/watch?v=Yg3YznNU1yY - id `Yg3YznNU1yY`
 - 2013-01-06 driveline instruction: Pitching Arm Care: Heavy Deceleration Throws (drivelinebaseball.com) - https://www.youtube.com/watch?v=5rkW2BF8Ahs - id `5rkW2BF8Ahs`
+- 2011-06-13 driveline marketing: Can a Baseball Mouthpiece Increase Fastball Velocity? - https://drivelinebaseball.com/blogs/blog/can-a-mouthpiece-increase-fastball-velocity - id `dl-blog-can-a-mouthpiece-increase-fastball-velocity`
+- 2011-06-08 driveline marketing: Book Review: The Physics of Pitching - https://drivelinebaseball.com/blogs/blog/book-review-the-physics-of-pitching - id `dl-blog-book-review-the-physics-of-pitching`
+- 2011-05-31 driveline athlete-story: Doug Fister, Velocity, Strikeouts, and Hard Work - https://drivelinebaseball.com/blogs/blog/doug-fister-velocity-strikeouts-and-hard-work - id `dl-blog-doug-fister-velocity-strikeouts-and-hard-work`
 - 2011-04-14 driveline research: Stuff to Read: 4/14/2011 - https://drivelinebaseball.com/blogs/blog/stuff-to-read-4142011 - id `dl-blog-stuff-to-read-4142011`
 - 2011-04-05 driveline athlete-story: Stuff to Read: 4/5/2011 (Tim Collins) - https://drivelinebaseball.com/blogs/blog/stuff-to-read-452011-tim-collins - id `dl-blog-stuff-to-read-452011-tim-collins`
 - 2011-03-31 driveline marketing: Product Recommendation: VS Athletics Weightlifting Shoes - https://drivelinebaseball.com/blogs/blog/product-recommendation-vs-athletics-weightlifting-shoes - id `dl-blog-product-recommendation-vs-athletics-weightlifting-shoes`

@@ -1,6 +1,6 @@
 # Duplicates
 
-Written by `kb.py lint` 2026-10-13 08:58. Notes that cover the same raw file, url, or the same title from one source. Keep ONE (grade it), set the rest to `duplicate`.
+Written by `kb.py lint` 2026-10-14 06:46. Notes that cover the same raw file, url, or the same title from one source. Keep ONE (grade it), set the rest to `duplicate`.
 
 - **raw** `sources/_raw/tread/CxObu-w6cJw.md`
   - [[tread-CxObu-w6cJw]] (`sources/tread/tread-CxObu-w6cJw.md`)
@@ -12,5 +12,5 @@ Written by `kb.py lint` 2026-10-13 08:58. Notes that cover the same raw file, ur
 
 ## Caught before fetch (2)
 
-- `tread-blog-the-drift` The “Drift” – How to Shift Your Weight Like a Pro - duplicate of `NHt_fvKcXJ8`
 - `Qdui96x1bRs` Eric Jagers - duplicate of `0p0wPSxxkBU`
+- `tread-blog-the-drift` The “Drift” – How to Shift Your Weight Like a Pro - duplicate of `NHt_fvKcXJ8`
