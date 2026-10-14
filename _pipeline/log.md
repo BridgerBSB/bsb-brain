@@ -778,3 +778,4 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-14 06:46 model auto-approved 2020-12-08-pelvic-dissociations-learning-hip-shoulder-separation (p 0.70)
 - 2026-10-14 06:46 model auto-approved 2020-12-10-throw-harder-with-the-figure-8-drill-pitching-drills (p 0.64)
 - 2026-10-14 06:46 model: auto-approved 12, auto-rejected 0, left 21
+- 2026-10-14 06:46 run: done
