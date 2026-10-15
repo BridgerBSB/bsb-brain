@@ -1066,7 +1066,7 @@ function buildWorld(){
   scene.fog = new T.Fog(0x0a1630, 210, 380);
   const VIEW = 60;
   const cam = new T.OrthographicCamera(-VIEW * W() / H(), VIEW * W() / H(), VIEW, -VIEW, -600, 1200);
-  const HOME = {pos: new T.Vector3(100, 92, 100), target: new T.Vector3(-4, 0, -2), zoom: 1};
+  const HOME = {pos: new T.Vector3(94, 92, 94), target: new T.Vector3(-10, 0, -8), zoom: .96};
   cam.position.copy(HOME.pos); cam.zoom = HOME.zoom;
   const ctl = new T.OrbitControls(cam, renderer.domElement);
   ctl.enableDamping = true; ctl.dampingFactor = .08; ctl.screenSpacePanning = true;
