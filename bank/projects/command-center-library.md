@@ -8,7 +8,7 @@ owner:
 source: zac
 tag: Command Center
 stage: building
-next: 'Zac moves pd-command-center into Baseball-Operations (Pages needs an org repo), then add Cael'
+next: 'Cael has the shared repo (clone + open site/index.html); optional: move it to the org for a click-to-open link'
 repo: C:/Users/Owner/bsb-brain
 paths:
 - meta/generate_command_center_v2.py
@@ -25,8 +25,8 @@ updated: '2026-10-15'
 - [x] Cael card: building Mazzo #2a
 - [ ] Details layer pass with Zac
 - [x] Shared copy built + pushed (projects + ideas only)
-- [ ] Repo in Baseball-Operations + private Pages on
-- [ ] Cael added to the repo
+- [ ] Optional: repo in Baseball-Operations + private Pages link
+- [x] Cael added to the repo (direct, no invite)
 - [ ] Coach idea input (Astro World, later)
 
 ## Notes
