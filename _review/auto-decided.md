@@ -1,6 +1,6 @@
 # Auto-decided notes
 
-Written by `kb.py decide` 2026-10-14 06:46.
+Written by `kb.py decide` 2026-10-15 06:43.
 
 **To overturn:** open the note and change `status:` to `rejected` (on an auto-approved note) or `approved` (on an auto-rejected one). The next nightly run files it and the model learns from it.
 
@@ -12,12 +12,21 @@ Written by `kb.py decide` 2026-10-14 06:46.
 - Auto-approves at p >= 0.57: on your past grades that zone held 67 notes, 3 of which you rejected (budget: 1 in 20).
 - Auto-rejects at p <= 0.35: that zone held 3 notes, 0 of which you approved (budget: 1 in 50).
 
-**Last run:** auto-approved 12, auto-rejected 0, left for you 21.
+**Last run:** auto-approved 9, auto-rejected 0, left for you 22.
 
 Overturned by you so far: 0.
 
-## Auto-approved (64)
+## Auto-approved (73)
 
+- [[2021-01-15-drills-to-throw-harder-mastering-the-walking-windup]] p 0.64 - like [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]] (approved), [[2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path]] (approved), [[2018-05-28-reverse-throw-our-favorite-cues]] (approved)
+- [[2021-01-27-loading-the-hinge-how-to-improve-pelvic-loading]] p 0.67 - like [[2026-05-28-drills-to-fix-your-timing-and-hinge-swing-design]] (approved), [[2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball]] (approved), [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]] (approved)
+- [[2021-01-22-struggling-to-throw-strikes-5-tips-to-improve-command-in]] p 0.62 - like [[2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw]] (approved), [[2018-02-21-throwing-concept-syncing-arms-into-the-plane-of-rotation]] (approved), [[2026-06-09-throw-harder-by-fixing-your-pushy-arm-action]] (approved)
+- [[2021-01-06-how-does-triston-mckenzie-throw-97-mph-at-6-5-165-lbs]] p 0.62 - like [[2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown]] (approved), [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] (approved), [[2024-12-12-the-domezone-podcast-ep-5-the-chase-petty-story]] (rejected)
+- [[2021-01-05-what-is-the-true-role-of-soft-tissue-work-askthedoc-episode]] p 0.66 - like [[2010-02-08-proper-warmups-for-weight-training]] (approved), [[2016-01-17-grunting-to-improve-throwing-velociy]] (approved), [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] (approved)
+- [[2020-12-16-fixing-a-late-arm-for-pitchers-pitching-drills]] p 0.68 - like [[2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation]] (approved), [[2010-01-17-kinematic-analysis-wrist-to-elbow-relationship]] (approved), [[2026-06-09-throw-harder-by-fixing-your-pushy-arm-action]] (approved)
+- [[2011-06-09-roy-oswalt-and-the-glide-ideal-lower-half-mechanics]] p 0.59 - like [[2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw]] (approved), [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]] (approved), [[2018-02-21-throwing-concept-syncing-arms-into-the-plane-of-rotation]] (approved)
+- [[2020-12-17-long-toss-into-a-net-isn-t-long-toss-here-s-why]] p 0.61 - like [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] (approved), [[2012-05-01-weighted-baseballs-wrist-weights-and-arm-injuries-q-a-with]] (approved), [[2016-11-10-customized-mechanics-lateral-power]] (approved)
+- [[2020-12-23-overlooked-concepts-in-shoulder-pain-for-pitchers-askthedoc]] p 0.67 - like [[2018-02-21-throwing-concept-syncing-arms-into-the-plane-of-rotation]] (approved), [[2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw]] (approved), [[2012-05-01-weighted-baseballs-wrist-weights-and-arm-injuries-q-a-with]] (approved)
 - [[2020-12-08-pelvic-dissociations-learning-hip-shoulder-separation]] p 0.70 - like [[2016-02-12-strength-training-for-baseball-and-isolation-exercises]] (approved), [[2018-02-02-roll-ins-variations]] (approved), [[2016-01-17-grunting-to-improve-throwing-velociy]] (approved)
 - [[2020-11-23-throwing-drills-to-throw-harder-arm-action-freestyle]] p 0.68 - like [[2015-08-19-auto-regulation-for-baseball]] (approved), [[2026-06-09-throw-harder-by-fixing-your-pushy-arm-action]] (approved), [[2012-05-01-weighted-baseballs-wrist-weights-and-arm-injuries-q-a-with]] (approved)
 - [[2020-12-04-why-does-kyle-hendricks-throw-87-mph]] p 0.63 - like [[2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown]] (approved), [[2026-06-18-6-8-hs-vanderbilt-commit-goes-for-96mph-in-pre-draft]] (approved), [[2016-11-10-customized-mechanics-lateral-power]] (approved)
@@ -27,9 +36,9 @@ Overturned by you so far: 0.
 - [[2020-12-10-throw-harder-with-the-figure-8-drill-pitching-drills]] p 0.64 - like [[2019-01-13-upgrading-your-j-band-routine-part-2b-patterning-fixing-a]] (rejected), [[2026-05-16-cues-drills-to-let-your-body-deliver-the-barrel-to-the-ball]] (approved), [[2026-09-09-the-best-and-worst-lower-half-pitching-drills-ranked]] (approved)
 - [[2011-06-01-3-great-ways-to-increase-shoulder-strength-and-flexibility]] p 0.69 - like [[2014-08-12-weighted-baseballs-npa-holds-elbow-strains-q-a-2-w]] (approved), [[2026-07-29-these-6-lifts-are-non-negotiable-for-pitchers]] (approved), [[2012-05-01-weighted-baseballs-wrist-weights-and-arm-injuries-q-a-with]] (approved)
 - [[2011-05-19-flat-curve-ball-stop-throwing-strikes]] p 0.58 - like [[2026-03-21-stop-getting-greedy-on-your-pitch-swing-design]] (approved), [[2018-02-21-throwing-concept-syncing-arms-into-the-plane-of-rotation]] (approved), [[2026-08-21-swing-design-fixing-an-fsu-infielder-s-bat-path]] (approved)
+- [[2011-06-03-improving-shoulder-internal-rotation-with-the-rotater]] p 0.65 - like [[2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation]] (approved), [[2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw]] (approved), [[2010-01-17-kinematic-analysis-wrist-to-elbow-relationship]] (approved)
 - [[2011-05-16-is-grip-strength-important-for-hitters]] p 0.66 - like [[2010-03-07-mechanics-the-effects-of-loading-rate]] (approved), [[2025-12-09-why-swinging-faster-doesnt-mean-missing-more-how-the-blue]] (approved), [[2015-07-30-gain-muscle-to-pitch-harder-and-increase-velocity]] (approved)
 - [[2020-11-21-how-to-throw-harder-improving-layback]] p 0.66 - like [[2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation]] (approved), [[2026-06-09-throw-harder-by-fixing-your-pushy-arm-action]] (approved), [[2018-05-28-reverse-throw-our-favorite-cues]] (approved)
-- [[2011-06-03-improving-shoulder-internal-rotation-with-the-rotater]] p 0.65 - like [[2016-08-05-throw-harder-fastballs-by-improving-your-external-rotation]] (approved), [[2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw]] (approved), [[2010-01-17-kinematic-analysis-wrist-to-elbow-relationship]] (approved)
 - [[2020-10-21-how-does-walker-buehler-throw-100-mph-mechanics-breakdown]] p 0.62 - like [[2020-10-03-how-does-dustin-may-throw-100-mph-a-breakdown]] (approved), [[2026-06-23-the-plane-of-rotation-how-elite-throwers-use-it-to-throw]] (approved), [[2026-08-23-how-to-throw-hard-as-a-short-pitcher]] (approved)
 - [[2020-10-12-fixing-early-torso-rotation-in-pitchers]] p 0.70 - like [[2018-02-21-throwing-concept-syncing-arms-into-the-plane-of-rotation]] (approved), [[2019-01-28-the-3-types-of-muscling-up-how-it-s-hurting-your-pitching]] (approved), [[2026-08-30-6-upper-body-lifts-for-pitchers]] (approved)
 - [[2020-11-10-should-pitchers-use-voodoo-floss-bands-ask-the-doc-episode-2]] p 0.62 - like [[2019-01-13-upgrading-your-j-band-routine-part-2a-patterning-front-leg]] (approved), [[2026-05-21-the-ultimate-pitcher-s-guide-to-j-bands]] (approved), [[2019-01-13-upgrading-your-j-band-routine-part-2b-patterning-fixing-a]] (rejected)

@@ -104,6 +104,11 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[2020-11-21-how-to-throw-harder-improving-layback]] - How to Throw Harder | Improving Layback
 - [[2020-12-08-pelvic-dissociations-learning-hip-shoulder-separation]] - Pelvic Dissociations | Learning Hip/Shoulder Separation
 - [[2020-12-10-throw-harder-with-the-figure-8-drill-pitching-drills]] - Throw Harder with the Figure 8 Drill | Pitching Drills
+- [[2020-12-16-fixing-a-late-arm-for-pitchers-pitching-drills]] - Fixing a Late Arm for Pitchers | Pitching Drills
+- [[2020-12-17-long-toss-into-a-net-isn-t-long-toss-here-s-why]] - Long Toss into a Net Isn't Long Toss | Here's Why
+- [[2021-01-06-how-does-triston-mckenzie-throw-97-mph-at-6-5-165-lbs]] - How Does Triston McKenzie throw 97 MPH at 6'5" 165 lbs?
+- [[2021-01-22-struggling-to-throw-strikes-5-tips-to-improve-command-in]] - Struggling to Throw Strikes? | 5 Tips to Improve Command in Pitchers
+- [[2021-01-27-loading-the-hinge-how-to-improve-pelvic-loading]] - Loading the Hinge: How to Improve Pelvic Loading
 
 ## Cues
 <!-- the pipeline appends approved pitching cues here -->
@@ -221,6 +226,20 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[cue-it-s-a-pelvic-driven-movement-not-a-knee-driven-movement]]
 - [[cue-cheat-that-foot-open]]
 - [[cue-slow-is-smooth-smooth-is-fast]]
+- [[cue-let-the-arm-pendulum]]
+- [[cue-capture-the-momentum-of-the-downswing]]
+- [[cue-float-the-arm-up-the-spiral]]
+- [[cue-arm-on-a-cloud]]
+- [[cue-leave-the-arm-behind]]
+- [[cue-keep-the-back-ear-over-the-back-hip]]
+- [[cue-throw-the-crap-out-of-the-ball-as-far-as-you-can-get-it]]
+- [[cue-set-your-angle-laser-pointer-on-the-front-hip]]
+- [[cue-ride-the-hinge-as-long-as-you-can]]
+- [[cue-let-the-rest-of-the-throw-unfurl-and-unfold-downhill]]
+- [[cue-hold-the-hinge]]
+- [[cue-stay-back-over-the-back-foot]]
+- [[cue-blow-up-the-center-of-the-catcher]]
+- [[cue-hold-their-pelvis-over-their-back-leg-and-resist-the]]
 
 ## Drills
 <!-- the pipeline appends approved pitching drills here -->
@@ -353,6 +372,19 @@ what the org believes. Child of [[MOC-training-knowledge]] and
 - [[drill-center-of-mass-monster-walks]]
 - [[drill-pseudo-throwing-med-ball-phase]]
 - [[drill-pelvic-dissociation-pole-drill]]
+- [[drill-figure-eight-trigger]]
+- [[drill-pendulum-starting-trigger]]
+- [[drill-rhythm-rocker]]
+- [[drill-indian-club-pre-throw-warm-up]]
+- [[drill-step-back-slide-step-progression]]
+- [[drill-hands-over-the-head-wind-up]]
+- [[drill-jaeger-style-long-toss]]
+- [[drill-compression-throws-pull-downs]]
+- [[drill-net-patterning-with-internal-focus]]
+- [[drill-broad-jump-to-tape-target]]
+- [[drill-4-oz-vs-6-oz-ball-catch-play-check]]
+- [[drill-hard-easy-catch-play]]
+- [[drill-banded-step-back]]
 
 ## Related
 [[MOC-hitting]] · [[MOC-strength]] · [[MOC-anatomy]]

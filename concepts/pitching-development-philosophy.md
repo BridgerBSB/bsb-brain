@@ -55,3 +55,8 @@ versa). Source of truth is the brain; Astro World renders it. See [[astro-world]
 - [[2020-11-23-throwing-drills-to-throw-harder-arm-action-freestyle]] - Throwing Drills to Throw Harder | Arm Action Freestyle
 - [[2020-11-28-devin-williams-mechanics-a-breakdown]] - Devin Williams Mechanics | A Breakdown
 - [[2020-12-04-why-does-kyle-hendricks-throw-87-mph]] - Why Does Kyle Hendricks Throw 87 MPH?
+- [[2011-06-09-roy-oswalt-and-the-glide-ideal-lower-half-mechanics]] - Roy Oswalt and The Glide: Ideal Lower Half Mechanics
+- [[2020-12-17-long-toss-into-a-net-isn-t-long-toss-here-s-why]] - Long Toss into a Net Isn't Long Toss | Here's Why
+- [[2021-01-06-how-does-triston-mckenzie-throw-97-mph-at-6-5-165-lbs]] - How Does Triston McKenzie throw 97 MPH at 6'5" 165 lbs?
+- [[2021-01-22-struggling-to-throw-strikes-5-tips-to-improve-command-in]] - Struggling to Throw Strikes? | 5 Tips to Improve Command in Pitchers
+- [[2021-01-27-loading-the-hinge-how-to-improve-pelvic-loading]] - Loading the Hinge: How to Improve Pelvic Loading

@@ -8,6 +8,7 @@ population: pitchers being retrained toward a shorter, elbow-driven arm action
 sources:
 - "[[2026-06-09-throw-harder-by-fixing-your-pushy-arm-action]]"
 - "[[2020-10-19-how-to-fix-a-tense-or-stiff-arm-action-pitching-q-a]]"
+- "[[2020-12-16-fixing-a-late-arm-for-pitchers-pitching-drills]]"
 status: pending
 created: '2026-09-09'
 ---
@@ -20,6 +21,7 @@ created: '2026-09-09'
 ## Used in
 - abbreviated arm-action drill that forces the arm into position before it's allowed to lay back (builds elbow-driven timing) - [[2026-06-09-throw-harder-by-fixing-your-pushy-arm-action]]
 - start at landing with shoulders closed and arm up, rotate and let the arm lag then whip (builds relaxed layback and acceleration) - [[2020-10-19-how-to-fix-a-tense-or-stiff-arm-action-pitching-q-a]]
+- abbreviated start with the arm already up at landing (builds feel of the landing position and acceleration from it) - [[2020-12-16-fixing-a-late-arm-for-pitchers-pitching-drills]]
 
 ## Notes
 

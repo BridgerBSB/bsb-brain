@@ -4,14 +4,14 @@
   "bpc-yt:pos:oldest": 8,
   "bpc-yt:total": 42,
   "driveline-blog:page:newest": 2,
-  "driveline-blog:page:oldest": 116,
+  "driveline-blog:page:oldest": 115,
   "driveline-yt:pos:newest": 10,
-  "driveline-yt:pos:oldest": 192,
+  "driveline-yt:pos:oldest": 200,
   "driveline-yt:total": 510,
   "tread-blog:page:newest": 2,
   "tread-blog:page:oldest": -1,
   "tread-yt:pos:newest": 10,
-  "tread-yt:pos:oldest": 192,
+  "tread-yt:pos:oldest": 200,
   "tread-yt:total": 755
  },
  "items": {
@@ -345,6 +345,32 @@
    "title": "J P  Sharon",
    "updated": "2026-10-11T11:31:23Z",
    "url": "https://www.youtube.com/watch?v=08N2VY2E1Sk"
+  },
+  "0D8t_ZnNw0Q": {
+   "added": "2026-10-15T11:34:41Z",
+   "duration_s": 186,
+   "error": null,
+   "feed": "youtube",
+   "id": "0D8t_ZnNw0Q",
+   "medium": "video",
+   "note": "sources/driveline/_low/2018-02-06-brandon-becker-driveline-pro-testimonials.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2018-02-06",
+   "raw": "sources/_raw/driveline/0D8t_ZnNw0Q.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "filed-low",
+   "title": "Brandon Becker | Driveline Pro Testimonials",
+   "updated": "2026-10-15T11:38:24Z",
+   "url": "https://www.youtube.com/watch?v=0D8t_ZnNw0Q"
   },
   "0IOtRAI-8qk": {
    "added": "2026-09-10T11:30:13Z",
@@ -748,14 +774,28 @@
    "feed": "youtube",
    "id": "1bwvha23-Fc",
    "medium": "video",
-   "note": null,
+   "model_p": 0.6429399483750255,
+   "note": "sources/tread/2021-01-15-drills-to-throw-harder-mastering-the-walking-windup.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [
+     "drill-walking-windup",
+     "drill-walking-windup-45-degree-entry",
+     "drill-walking-windup-hands-over-head"
+    ],
+    "kind": "instruction",
+    "value": "med"
+   },
    "published": "2021-01-15",
    "raw": "sources/_raw/tread/1bwvha23-Fc.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Drills to Throw Harder | Mastering the Walking Windup",
-   "updated": "2026-09-17T11:37:12Z",
+   "updated": "2026-10-15T11:43:36Z",
    "url": "https://www.youtube.com/watch?v=1bwvha23-Fc"
   },
   "1d-ZclIQH-0": {
@@ -843,6 +883,34 @@
    "title": "6 Drills To Help Fix Your Front Leg",
    "updated": "2026-10-12T13:28:54Z",
    "url": "https://www.youtube.com/watch?v=1uv6ZhZ4vOo"
+  },
+  "25UbM3Ojm5w": {
+   "added": "2026-10-15T11:34:41Z",
+   "duration_s": 57,
+   "error": null,
+   "feed": "youtube",
+   "id": "25UbM3Ojm5w",
+   "medium": "video",
+   "note": "_review/2018-07-14-driveline-command-training-balls.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [
+     "drill-command-ball-progression"
+    ],
+    "kind": "instruction",
+    "value": "med"
+   },
+   "published": "2018-07-14",
+   "raw": "sources/_raw/driveline/25UbM3Ojm5w.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "summarized",
+   "title": "Driveline Command Training Balls",
+   "updated": "2026-10-15T11:39:35Z",
+   "url": "https://www.youtube.com/watch?v=25UbM3Ojm5w"
   },
   "26ZUPvbx5No": {
    "added": "2026-09-28T12:07:16Z",
@@ -1778,14 +1846,29 @@
    "feed": "youtube",
    "id": "5qJB9tIWXIw",
    "medium": "video",
-   "note": null,
+   "model_p": 0.6652589620267638,
+   "note": "sources/tread/2021-01-27-loading-the-hinge-how-to-improve-pelvic-loading.md",
+   "proposal": {
+    "cues": [
+     "cue-hold-their-pelvis-over-their-back-leg-and-resist-the"
+    ],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [
+     "drill-banded-step-back"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2021-01-27",
    "raw": "sources/_raw/tread/5qJB9tIWXIw.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Loading the Hinge: How to Improve Pelvic Loading",
-   "updated": "2026-09-17T11:37:47Z",
+   "updated": "2026-10-15T11:43:36Z",
    "url": "https://www.youtube.com/watch?v=5qJB9tIWXIw"
   },
   "5rkW2BF8Ahs": {
@@ -2847,6 +2930,32 @@
    "updated": "2026-10-13T13:58:10Z",
    "url": "https://www.youtube.com/watch?v=CGawW4bnssU"
   },
+  "CNIaITzo3lE": {
+   "added": "2026-10-15T11:34:41Z",
+   "duration_s": 127,
+   "error": null,
+   "feed": "youtube",
+   "id": "CNIaITzo3lE",
+   "medium": "video",
+   "note": "sources/driveline/_low/2018-07-14-traq.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2018-07-14",
+   "raw": "sources/_raw/driveline/CNIaITzo3lE.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "filed-low",
+   "title": "TRAQ",
+   "updated": "2026-10-15T11:39:41Z",
+   "url": "https://www.youtube.com/watch?v=CNIaITzo3lE"
+  },
   "CxObu-w6cJw": {
    "added": "2026-09-05T00:34:18Z",
    "duration_s": 3436,
@@ -3774,6 +3883,32 @@
    "updated": "2026-10-06T11:38:59Z",
    "url": "https://www.youtube.com/watch?v=HuQnc8255X8"
   },
+  "I4uLOBmHRfo": {
+   "added": "2026-10-15T11:34:41Z",
+   "duration_s": 55,
+   "error": null,
+   "feed": "youtube",
+   "id": "I4uLOBmHRfo",
+   "medium": "video",
+   "note": "sources/driveline/_low/2018-02-06-michael-mccormick-driveline-pro-testimonials.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2018-02-06",
+   "raw": "sources/_raw/driveline/I4uLOBmHRfo.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "filed-low",
+   "title": "Michael McCormick | Driveline Pro Testimonials",
+   "updated": "2026-10-15T11:38:42Z",
+   "url": "https://www.youtube.com/watch?v=I4uLOBmHRfo"
+  },
   "I5fENjQ01uc": {
    "added": "2026-10-12T13:27:57Z",
    "duration_s": 23,
@@ -3923,6 +4058,32 @@
    "updated": "2026-10-13T13:41:22Z",
    "url": "https://www.youtube.com/watch?v=J0oKK3LQ74A"
   },
+  "JZPXp8M4UzU": {
+   "added": "2026-10-15T11:34:41Z",
+   "duration_s": 109,
+   "error": null,
+   "feed": "youtube",
+   "id": "JZPXp8M4UzU",
+   "medium": "video",
+   "note": "sources/driveline/_low/2018-02-06-jackson-sigman-driveline-pro-testimonials.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2018-02-06",
+   "raw": "sources/_raw/driveline/JZPXp8M4UzU.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "filed-low",
+   "title": "Jackson Sigman | Driveline Pro Testimonials",
+   "updated": "2026-10-15T11:39:01Z",
+   "url": "https://www.youtube.com/watch?v=JZPXp8M4UzU"
+  },
   "JibvHbHz3Ak": {
    "added": "2026-09-05T20:39:31Z",
    "duration_s": 109,
@@ -4031,6 +4192,33 @@
    "title": "Keiran Casey",
    "updated": "2026-10-13T13:41:58Z",
    "url": "https://www.youtube.com/watch?v=KM7-zxoVCx8"
+  },
+  "KQk48FRNoK8": {
+   "added": "2026-10-15T11:34:41Z",
+   "duration_s": 109,
+   "error": null,
+   "feed": "youtube",
+   "id": "KQk48FRNoK8",
+   "medium": "video",
+   "note": "sources/driveline/_low/2018-02-06-max-dutto-driveline-pro-testimonials.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "hitting",
+     "mental"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2018-02-06",
+   "raw": "sources/_raw/driveline/KQk48FRNoK8.md",
+   "retries": 0,
+   "source": "driveline",
+   "status": "filed-low",
+   "title": "Max Dutto | Driveline Pro Testimonials",
+   "updated": "2026-10-15T11:39:17Z",
+   "url": "https://www.youtube.com/watch?v=KQk48FRNoK8"
   },
   "KbV7Wn9V7pQ": {
    "added": "2026-10-14T11:35:02Z",
@@ -4220,6 +4408,23 @@
    "title": "The Ultimate Cheat Sheet for Lefty 4-Seams, Sinkers, and Cutters",
    "updated": "2026-10-13T13:42:14Z",
    "url": "https://www.youtube.com/watch?v=Lg4eqhnDrqo"
+  },
+  "M5VQHu-8Ivo": {
+   "added": "2026-10-15T11:34:52Z",
+   "duration_s": 225,
+   "error": null,
+   "feed": "youtube",
+   "id": "M5VQHu-8Ivo",
+   "medium": "video",
+   "note": null,
+   "published": "2022-10-17",
+   "raw": "sources/_raw/tread/M5VQHu-8Ivo.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Slider And Change Up Pitch Design Session",
+   "updated": "2026-10-15T11:36:39Z",
+   "url": "https://www.youtube.com/watch?v=M5VQHu-8Ivo"
   },
   "M8dblYo2u2c": {
    "added": "2026-09-14T11:36:53Z",
@@ -4504,6 +4709,23 @@
    "title": "A Day in the Life: BPC Offseason 2021",
    "updated": "2026-09-07T01:47:37Z",
    "url": "https://www.youtube.com/watch?v=NMd52BXwqYY"
+  },
+  "NS3AFuKE89c": {
+   "added": "2026-10-15T11:34:52Z",
+   "duration_s": 262,
+   "error": null,
+   "feed": "youtube",
+   "id": "NS3AFuKE89c",
+   "medium": "video",
+   "note": null,
+   "published": "2022-10-14",
+   "raw": "sources/_raw/tread/NS3AFuKE89c.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Our Top 3 Sinkers From The 2022 MLB Season",
+   "updated": "2026-10-15T11:36:57Z",
+   "url": "https://www.youtube.com/watch?v=NS3AFuKE89c"
   },
   "NmCsKiww_aM": {
    "added": "2026-09-09T11:36:03Z",
@@ -5257,6 +5479,22 @@
    "updated": "2026-09-26T11:34:55Z",
    "url": "https://www.youtube.com/watch?v=SPo50ugFM6Q"
   },
+  "SQTWtLinBZk": {
+   "added": "2026-10-15T11:34:52Z",
+   "duration_s": 126,
+   "error": null,
+   "feed": "youtube",
+   "id": "SQTWtLinBZk",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "From 92-94 In Games To 95-97 In Bullpens And Drafted | RJ Petit",
+   "url": "https://www.youtube.com/watch?v=SQTWtLinBZk"
+  },
   "SV4Ow4fvkTU": {
    "added": "2026-09-28T12:07:30Z",
    "duration_s": 873,
@@ -5349,14 +5587,24 @@
    "feed": "youtube",
    "id": "T8nQANoNjUY",
    "medium": "video",
-   "note": null,
+   "model_p": 0.6611514780542707,
+   "note": "sources/tread/2021-01-05-what-is-the-true-role-of-soft-tissue-work-askthedoc-episode.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "interview",
+    "value": "med"
+   },
    "published": "2021-01-05",
    "raw": "sources/_raw/tread/T8nQANoNjUY.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "What is the TRUE Role of Soft Tissue Work? | #AsktheDoc Episode 6",
-   "updated": "2026-09-17T11:39:19Z",
+   "updated": "2026-10-15T11:43:35Z",
    "url": "https://www.youtube.com/watch?v=T8nQANoNjUY"
   },
   "TCkfOmonu_s": {
@@ -6536,6 +6784,22 @@
    "updated": "2026-09-27T11:33:47Z",
    "url": "https://www.youtube.com/watch?v=ZuzX87h6K6A"
   },
+  "_5BEUF9XX_s": {
+   "added": "2026-10-15T11:34:52Z",
+   "duration_s": 184,
+   "error": null,
+   "feed": "youtube",
+   "id": "_5BEUF9XX_s",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "7 Drills To Increase Hip To Shoulder Separation",
+   "url": "https://www.youtube.com/watch?v=_5BEUF9XX_s"
+  },
   "_6m6W6RAWhY": {
    "added": "2026-10-07T11:35:57Z",
    "duration_s": 29,
@@ -6569,6 +6833,22 @@
    "title": "BPC Challenge Draft 2024",
    "updated": "2026-09-05T22:11:17Z",
    "url": "https://www.youtube.com/watch?v=_7DtDIibxUQ"
+  },
+  "_AWw1Aaf1L0": {
+   "added": "2026-10-15T11:34:52Z",
+   "duration_s": 273,
+   "error": null,
+   "feed": "youtube",
+   "id": "_AWw1Aaf1L0",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "100% Bullpen With Seth Nightingale | In House Mondays",
+   "url": "https://www.youtube.com/watch?v=_AWw1Aaf1L0"
   },
   "_EilR25ydwY": {
    "added": "2026-09-25T13:48:16Z",
@@ -7013,14 +7293,40 @@
    "feed": "youtube",
    "id": "cDEYVs_wLAw",
    "medium": "video",
-   "note": null,
+   "model_p": 0.675766253024113,
+   "note": "sources/tread/2020-12-16-fixing-a-late-arm-for-pitchers-pitching-drills.md",
+   "proposal": {
+    "cues": [
+     "cue-let-the-arm-pendulum",
+     "cue-capture-the-momentum-of-the-downswing",
+     "cue-float-the-arm-up-the-spiral",
+     "cue-arm-on-a-cloud",
+     "cue-leave-the-arm-behind",
+     "cue-keep-the-back-ear-over-the-back-hip"
+    ],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [
+     "drill-lasso-drill",
+     "drill-figure-eight-trigger",
+     "drill-pendulum-starting-trigger",
+     "drill-rhythm-rocker",
+     "drill-10-toes-drill",
+     "drill-indian-club-pre-throw-warm-up",
+     "drill-step-back-slide-step-progression",
+     "drill-hands-over-the-head-wind-up"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2020-12-16",
    "raw": "sources/_raw/tread/cDEYVs_wLAw.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Fixing a Late Arm for Pitchers | Pitching Drills",
-   "updated": "2026-09-17T11:30:51Z",
+   "updated": "2026-10-15T11:43:35Z",
    "url": "https://www.youtube.com/watch?v=cDEYVs_wLAw"
   },
   "cGV1WBQKvhk": {
@@ -7273,6 +7579,22 @@
    "title": "3 Great Ways to Increase Shoulder Strength and Flexibility",
    "updated": "2026-10-14T11:46:16Z",
    "url": "https://drivelinebaseball.com/blogs/blog/3-great-ways-to-increase-shoulder-strength-and-flexibility"
+  },
+  "dl-blog-4-great-reasons-to-throw-weighted-baseballs": {
+   "added": "2026-10-15T11:34:55Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-4-great-reasons-to-throw-weighted-baseballs",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/4-great-reasons-to-throw-weighted-baseballs"
   },
   "dl-blog-a-few-pictures-of-the-facility": {
    "added": "2026-09-10T11:37:47Z",
@@ -8142,6 +8464,22 @@
    "title": "How pros use PULSE and what it means for the rest of baseball",
    "updated": "2026-09-07T00:56:06Z",
    "url": "https://drivelinebaseball.com/blogs/blog/how-pros-use-pulse-and-what-it-means-for-baseball"
+  },
+  "dl-blog-how-research-plays-a-role-at-driveline-baseball": {
+   "added": "2026-10-15T11:34:55Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-how-research-plays-a-role-at-driveline-baseball",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/how-research-plays-a-role-at-driveline-baseball"
   },
   "dl-blog-humor-post-workout-nutrition": {
    "added": "2026-09-16T11:36:32Z",
@@ -9354,13 +9692,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-our-motion-capture-lab-the-overview",
    "medium": "blog",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "sources/driveline/_low/2011-06-06-our-motion-capture-lab-the-overview.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2011-06-06",
+   "raw": "sources/_raw/driveline/dl-blog-our-motion-capture-lab-the-overview.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "filed-low",
+   "title": "Our Motion Capture Lab: The Overview",
+   "updated": "2026-10-15T11:37:22Z",
    "url": "https://drivelinebaseball.com/blogs/blog/our-motion-capture-lab-the-overview"
   },
   "dl-blog-our-stance-on-nutrition": {
@@ -9874,13 +10222,26 @@
    "feed": "blog-pages",
    "id": "dl-blog-roy-oswalts-glide-ideal-lower-half-mechanics",
    "medium": "blog",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "model_p": 0.5870694460413851,
+   "note": "sources/driveline/2011-06-09-roy-oswalt-and-the-glide-ideal-lower-half-mechanics.md",
+   "proposal": {
+    "cues": [
+     "cue-getting-the-butt-down-the-hill-quickly"
+    ],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [],
+    "kind": "philosophy",
+    "value": "med"
+   },
+   "published": "2011-06-09",
+   "raw": "sources/_raw/driveline/dl-blog-roy-oswalts-glide-ideal-lower-half-mechanics.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "auto-promoted",
+   "title": "Roy Oswalt and The Glide: Ideal Lower Half Mechanics",
+   "updated": "2026-10-15T11:43:35Z",
    "url": "https://drivelinebaseball.com/blogs/blog/roy-oswalts-glide-ideal-lower-half-mechanics"
   },
   "dl-blog-should-you-wear-a-weight-belt": {
@@ -10397,6 +10758,38 @@
    "updated": "2026-10-11T11:36:53Z",
    "url": "https://drivelinebaseball.com/blogs/blog/the-dreaded-radar-gun"
   },
+  "dl-blog-the-fallacy-of-hard-work": {
+   "added": "2026-10-15T11:34:55Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-the-fallacy-of-hard-work",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/the-fallacy-of-hard-work"
+  },
+  "dl-blog-the-limitations-of-two-dimensional-kinematic-analysis": {
+   "added": "2026-10-15T11:34:55Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-the-limitations-of-two-dimensional-kinematic-analysis",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/the-limitations-of-two-dimensional-kinematic-analysis"
+  },
   "dl-blog-things-to-read-2911": {
    "added": "2026-10-03T14:34:12Z",
    "duration_s": null,
@@ -10413,6 +10806,38 @@
    "title": null,
    "updated": "2026-10-04T11:31:02Z",
    "url": "https://drivelinebaseball.com/blogs/blog/things-to-read-2911"
+  },
+  "dl-blog-things-to-read-6242011": {
+   "added": "2026-10-15T11:34:55Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-things-to-read-6242011",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/things-to-read-6242011"
+  },
+  "dl-blog-things-to-read-752011": {
+   "added": "2026-10-15T11:34:55Z",
+   "duration_s": null,
+   "error": null,
+   "feed": "blog-pages",
+   "id": "dl-blog-things-to-read-752011",
+   "medium": "blog",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": null,
+   "url": "https://drivelinebaseball.com/blogs/blog/things-to-read-752011"
   },
   "dl-blog-this-week-in-workouts-9-2": {
    "added": "2026-09-29T11:36:52Z",
@@ -10477,13 +10902,23 @@
    "feed": "blog-pages",
    "id": "dl-blog-tht-article-the-velocity-loss-phenomenon",
    "medium": "blog",
-   "note": null,
-   "published": null,
-   "raw": null,
+   "note": "sources/driveline/_low/2011-06-07-tht-article-the-velocity-loss-phenomenon.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
+   "published": "2011-06-07",
+   "raw": "sources/_raw/driveline/dl-blog-tht-article-the-velocity-loss-phenomenon.md",
    "retries": 0,
    "source": "driveline",
-   "status": "new",
-   "title": null,
+   "status": "filed-low",
+   "title": "THT Article: The Velocity Loss Phenomenon",
+   "updated": "2026-10-15T11:37:28Z",
    "url": "https://drivelinebaseball.com/blogs/blog/tht-article-the-velocity-loss-phenomenon"
   },
   "dl-blog-tim-lincecum-what-changed": {
@@ -11179,28 +11614,30 @@
    "id": "eohgZChTZW0",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2022-09-21",
+   "raw": "sources/_raw/tread/eohgZChTZW0.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Do Curveballs lead to Tommy John? | The Tread Podcast #5 w/ Jimmy Buffi",
+   "updated": "2026-10-15T11:30:37Z",
    "url": "https://www.youtube.com/watch?v=eohgZChTZW0"
   },
   "erAUuSxPaWw": {
    "added": "2026-10-14T11:34:43Z",
    "duration_s": 21,
-   "error": null,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
    "feed": "youtube",
    "id": "erAUuSxPaWw",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Dan Herrman 1",
+   "updated": "2026-10-15T11:31:16Z",
    "url": "https://www.youtube.com/watch?v=erAUuSxPaWw"
   },
   "espdyF-BEUU": {
@@ -11554,17 +11991,18 @@
   "gYuHyfLrkgM": {
    "added": "2026-10-14T11:34:43Z",
    "duration_s": 16,
-   "error": null,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
    "feed": "youtube",
    "id": "gYuHyfLrkgM",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Eric Jagers 3",
+   "updated": "2026-10-15T11:31:34Z",
    "url": "https://www.youtube.com/watch?v=gYuHyfLrkgM"
   },
   "gmK0tbTCC8E": {
@@ -11669,14 +12107,31 @@
    "feed": "youtube",
    "id": "hgFHVHLAjpo",
    "medium": "video",
-   "note": null,
+   "model_p": 0.6097357352962511,
+   "note": "sources/tread/2020-12-17-long-toss-into-a-net-isn-t-long-toss-here-s-why.md",
+   "proposal": {
+    "cues": [
+     "cue-throw-the-crap-out-of-the-ball-as-far-as-you-can-get-it"
+    ],
+    "domain": [
+     "pitching"
+    ],
+    "drills": [
+     "drill-jaeger-style-long-toss",
+     "drill-compression-throws-pull-downs",
+     "drill-net-patterning-with-internal-focus",
+     "drill-broad-jump-to-tape-target"
+    ],
+    "kind": "philosophy",
+    "value": "high"
+   },
    "published": "2020-12-17",
    "raw": "sources/_raw/tread/hgFHVHLAjpo.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Long Toss into a Net Isn't Long Toss | Here's Why",
-   "updated": "2026-09-17T11:34:44Z",
+   "updated": "2026-10-15T11:43:35Z",
    "url": "https://www.youtube.com/watch?v=hgFHVHLAjpo"
   },
   "i-kKr5fla5g": {
@@ -11695,6 +12150,22 @@
    "title": "What Makes a Plus Cutter? | Pitch Design for Dummies Ep. 3",
    "updated": "2026-10-03T14:24:17Z",
    "url": "https://www.youtube.com/watch?v=i-kKr5fla5g"
+  },
+  "iCpXR--5Bvc": {
+   "added": "2026-10-15T11:34:41Z",
+   "duration_s": 190,
+   "error": null,
+   "feed": "youtube",
+   "id": "iCpXR--5Bvc",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "driveline",
+   "status": "new",
+   "title": "Dan Straily | Driveline Pro Testimonials",
+   "url": "https://www.youtube.com/watch?v=iCpXR--5Bvc"
   },
   "ieeMfrv1LHc": {
    "added": "2026-10-11T11:30:45Z",
@@ -11934,13 +12405,30 @@
    "id": "k6rodumMr7Q",
    "medium": "video",
    "note": null,
+   "published": "2022-09-23",
+   "raw": "sources/_raw/tread/k6rodumMr7Q.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "One Arm Push Up Progression",
+   "updated": "2026-10-15T11:31:52Z",
+   "url": "https://www.youtube.com/watch?v=k6rodumMr7Q"
+  },
+  "kJYpTL9_M4g": {
+   "added": "2026-10-15T11:34:52Z",
+   "duration_s": 171,
+   "error": null,
+   "feed": "youtube",
+   "id": "kJYpTL9_M4g",
+   "medium": "video",
+   "note": null,
    "published": null,
    "raw": null,
    "retries": 0,
    "source": "tread",
    "status": "new",
-   "title": "One Arm Push Up Progression",
-   "url": "https://www.youtube.com/watch?v=k6rodumMr7Q"
+   "title": "How To Move Faster Down The Mound | Try These 6 Drills",
+   "url": "https://www.youtube.com/watch?v=kJYpTL9_M4g"
   },
   "kNNaWcvnkaM": {
    "added": "2026-10-06T11:33:40Z",
@@ -12437,17 +12925,18 @@
   "mh1YiOowIxA": {
    "added": "2026-10-14T11:34:43Z",
    "duration_s": 18,
-   "error": null,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
    "feed": "youtube",
    "id": "mh1YiOowIxA",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Matt Mercer",
+   "updated": "2026-10-15T11:32:10Z",
    "url": "https://www.youtube.com/watch?v=mh1YiOowIxA"
   },
   "mpmMAMKsQnc": {
@@ -12827,12 +13316,13 @@
    "id": "ofXIA8NPUq4",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2022-10-07",
+   "raw": "sources/_raw/tread/ofXIA8NPUq4.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "Our Top 4 Fastballs From The 2022 MLB Season | Data Friday",
+   "updated": "2026-10-15T11:32:28Z",
    "url": "https://www.youtube.com/watch?v=ofXIA8NPUq4"
   },
   "oiK-Kpw7Beo": {
@@ -12966,14 +13456,36 @@
    "feed": "youtube",
    "id": "pNT7f_JYIQU",
    "medium": "video",
-   "note": null,
+   "model_p": 0.6217108241340302,
+   "note": "sources/tread/2021-01-22-struggling-to-throw-strikes-5-tips-to-improve-command-in.md",
+   "proposal": {
+    "cues": [
+     "cue-set-your-angle-laser-pointer-on-the-front-hip",
+     "cue-ride-the-hinge-as-long-as-you-can",
+     "cue-let-the-rest-of-the-throw-unfurl-and-unfold-downhill",
+     "cue-hold-the-hinge",
+     "cue-stay-back-over-the-back-foot",
+     "cue-blow-up-the-center-of-the-catcher",
+     "cue-throw-hard-easy"
+    ],
+    "domain": [
+     "pitching",
+     "mental"
+    ],
+    "drills": [
+     "drill-4-oz-vs-6-oz-ball-catch-play-check",
+     "drill-hard-easy-catch-play"
+    ],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2021-01-22",
    "raw": "sources/_raw/tread/pNT7f_JYIQU.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Struggling to Throw Strikes? | 5 Tips to Improve Command in Pitchers",
-   "updated": "2026-09-18T11:35:38Z",
+   "updated": "2026-10-15T11:43:36Z",
    "url": "https://www.youtube.com/watch?v=pNT7f_JYIQU"
   },
   "pmyMinUFL9o": {
@@ -13053,6 +13565,22 @@
    "updated": "2026-10-06T11:32:11Z",
    "url": "https://www.youtube.com/watch?v=q_BLGv74bPk"
   },
+  "qcg_K-RPUtA": {
+   "added": "2026-10-15T11:34:52Z",
+   "duration_s": 61,
+   "error": null,
+   "feed": "youtube",
+   "id": "qcg_K-RPUtA",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "6 Drills To Increase Your Speed Down The Mound",
+   "url": "https://www.youtube.com/watch?v=qcg_K-RPUtA"
+  },
   "qnX3bbAPBLU": {
    "added": "2026-10-07T11:36:10Z",
    "duration_s": 301,
@@ -13073,17 +13601,18 @@
   "qp8KBc_sXlU": {
    "added": "2026-10-14T11:34:43Z",
    "duration_s": 25,
-   "error": null,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
    "feed": "youtube",
    "id": "qp8KBc_sXlU",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Tyler Hunt",
+   "updated": "2026-10-15T11:32:47Z",
    "url": "https://www.youtube.com/watch?v=qp8KBc_sXlU"
   },
   "qtXjHhIDa5A": {
@@ -13157,6 +13686,22 @@
    "updated": "2026-10-14T11:33:36Z",
    "url": "https://www.youtube.com/watch?v=r3tPjz7sG7M"
   },
+  "r8YRdZYDBVc": {
+   "added": "2026-10-15T11:34:52Z",
+   "duration_s": 374,
+   "error": null,
+   "feed": "youtube",
+   "id": "r8YRdZYDBVc",
+   "medium": "video",
+   "note": null,
+   "published": null,
+   "raw": null,
+   "retries": 0,
+   "source": "tread",
+   "status": "new",
+   "title": "Should Pitchers Finish In A Fielding Position?",
+   "url": "https://www.youtube.com/watch?v=r8YRdZYDBVc"
+  },
   "rDgE2lbF8ac": {
    "added": "2026-10-01T11:35:48Z",
    "duration_s": 25,
@@ -13198,14 +13743,25 @@
    "feed": "youtube",
    "id": "rlsbKyE3Xns",
    "medium": "video",
-   "note": null,
+   "model_p": 0.665884745527935,
+   "note": "sources/tread/2020-12-23-overlooked-concepts-in-shoulder-pain-for-pitchers-askthedoc.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "interview",
+    "value": "med"
+   },
    "published": "2020-12-23",
    "raw": "sources/_raw/tread/rlsbKyE3Xns.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "Overlooked Concepts in Shoulder Pain for Pitchers | #AsktheDoc Episode 5",
-   "updated": "2026-09-18T11:36:23Z",
+   "updated": "2026-10-15T11:43:35Z",
    "url": "https://www.youtube.com/watch?v=rlsbKyE3Xns"
   },
   "rpYaIs8YGmY": {
@@ -13660,14 +14216,23 @@
    "feed": "blog-rss",
    "id": "tread-blog-2020-year-in-review",
    "medium": "blog",
-   "note": null,
+   "note": "sources/tread/_low/2020-12-31-2020-year-in-review.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "business"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2020-12-31",
    "raw": "sources/_raw/tread/tread-blog-2020-year-in-review.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "2020 Year in Review",
-   "updated": "2026-09-16T11:35:58Z",
+   "updated": "2026-10-15T11:41:32Z",
    "url": "https://treadathletics.com/2020-year-in-review"
   },
   "tread-blog-2021-year-in-review": {
@@ -15279,13 +15844,30 @@
    "id": "v8B1vuvsIR8",
    "medium": "video",
    "note": null,
+   "published": "2022-09-27",
+   "raw": "sources/_raw/tread/v8B1vuvsIR8.md",
+   "retries": 0,
+   "source": "tread",
+   "status": "fetched",
+   "title": "Spencer Strider Breakdown | How Does He Throw 102 mph?",
+   "updated": "2026-10-15T11:33:03Z",
+   "url": "https://www.youtube.com/watch?v=v8B1vuvsIR8"
+  },
+  "vHyuRyllRmQ": {
+   "added": "2026-10-15T11:34:41Z",
+   "duration_s": 203,
+   "error": null,
+   "feed": "youtube",
+   "id": "vHyuRyllRmQ",
+   "medium": "video",
+   "note": null,
    "published": null,
    "raw": null,
    "retries": 0,
-   "source": "tread",
+   "source": "driveline",
    "status": "new",
-   "title": "Spencer Strider Breakdown | How Does He Throw 102 mph?",
-   "url": "https://www.youtube.com/watch?v=v8B1vuvsIR8"
+   "title": "Tommy Milone | Driveline Pro Testimonials",
+   "url": "https://www.youtube.com/watch?v=vHyuRyllRmQ"
   },
   "vOmOY9wJHOY": {
    "added": "2026-09-05T20:37:36Z",
@@ -15337,14 +15919,26 @@
    "feed": "youtube",
    "id": "vti59tFtQy8",
    "medium": "video",
-   "note": null,
+   "model_p": 0.6189851500787115,
+   "note": "sources/tread/2021-01-06-how-does-triston-mckenzie-throw-97-mph-at-6-5-165-lbs.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "pitching",
+     "anatomy-movement",
+     "strength"
+    ],
+    "drills": [],
+    "kind": "instruction",
+    "value": "high"
+   },
    "published": "2021-01-06",
    "raw": "sources/_raw/tread/vti59tFtQy8.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "auto-promoted",
    "title": "How Does Triston McKenzie throw 97 MPH at 6'5\" 165 lbs?",
-   "updated": "2026-09-18T11:36:41Z",
+   "updated": "2026-10-15T11:43:36Z",
    "url": "https://www.youtube.com/watch?v=vti59tFtQy8"
   },
   "vtjuHCr-wqo": {
@@ -15418,17 +16012,18 @@
   "w1j626ypRUw": {
    "added": "2026-10-14T11:34:43Z",
    "duration_s": 26,
-   "error": null,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
    "feed": "youtube",
    "id": "w1j626ypRUw",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Joe Beimel 2",
+   "updated": "2026-10-15T11:33:22Z",
    "url": "https://www.youtube.com/watch?v=w1j626ypRUw"
   },
   "w2hU2n_I-0o": {
@@ -15602,17 +16197,18 @@
   "wuFRDZ4JZMo": {
    "added": "2026-10-14T11:34:43Z",
    "duration_s": 37,
-   "error": null,
+   "error": "TypeError: open() got an unexpected keyword argument 'metadata_errors'",
    "feed": "youtube",
    "id": "wuFRDZ4JZMo",
    "medium": "video",
    "note": null,
    "published": null,
    "raw": null,
-   "retries": 0,
+   "retries": 1,
    "source": "driveline",
-   "status": "new",
+   "status": "failed",
    "title": "Matt Boyd 1",
+   "updated": "2026-10-15T11:33:40Z",
    "url": "https://www.youtube.com/watch?v=wuFRDZ4JZMo"
   },
   "wxLGnVhzCh4": {
@@ -15962,14 +16558,24 @@
    "feed": "youtube",
    "id": "ybqSLyOJ6G0",
    "medium": "video",
-   "note": null,
+   "note": "sources/tread/_low/2020-12-23-level-up-your-arm-care-with-these-5-exercises.md",
+   "proposal": {
+    "cues": [],
+    "domain": [
+     "strength",
+     "anatomy-movement"
+    ],
+    "drills": [],
+    "kind": "marketing",
+    "value": "low"
+   },
    "published": "2020-12-23",
    "raw": "sources/_raw/tread/ybqSLyOJ6G0.md",
    "retries": 0,
    "source": "tread",
-   "status": "fetched",
+   "status": "filed-low",
    "title": "Level Up Your Arm Care With These 5 Exercises",
-   "updated": "2026-09-18T11:37:00Z",
+   "updated": "2026-10-15T11:41:25Z",
    "url": "https://www.youtube.com/watch?v=ybqSLyOJ6G0"
   },
   "ydsKAs49hzk": {
@@ -16172,12 +16778,13 @@
    "id": "zoM5cP7tRqU",
    "medium": "video",
    "note": null,
-   "published": null,
-   "raw": null,
+   "published": "2022-09-16",
+   "raw": "sources/_raw/tread/zoM5cP7tRqU.md",
    "retries": 0,
    "source": "tread",
-   "status": "new",
+   "status": "fetched",
    "title": "How To Use A Hitter's Attack Angle Against Them",
+   "updated": "2026-10-15T11:33:58Z",
    "url": "https://www.youtube.com/watch?v=zoM5cP7tRqU"
   },
   "zpTIBcAofDo": {

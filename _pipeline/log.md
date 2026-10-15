@@ -779,3 +779,29 @@ One line per run and per promoted note. Written by `_pipeline/kb.py`; never edit
 - 2026-10-14 06:46 model auto-approved 2020-12-10-throw-harder-with-the-figure-8-drill-pitching-drills (p 0.64)
 - 2026-10-14 06:46 model: auto-approved 12, auto-rejected 0, left 21
 - 2026-10-14 06:46 run: done
+- 2026-10-15 06:30 run: start
+- 2026-10-15 06:30 discover driveline-yt (new): 30 seen, 0 new
+- 2026-10-15 06:30 discover tread-yt (new): 30 seen, 0 new
+- 2026-10-15 06:30 discover driveline-blog (new): 6 seen, 0 new
+- 2026-10-15 06:30 discover tread-blog (new): 10 seen, 0 new
+- 2026-10-15 06:34 fetch: 8 ok, 6 failed, 0 deferred; whisper 0 min
+- 2026-10-15 06:34 promote: 0 promoted, 0 rejected, 0 corrections
+- 2026-10-15 06:34 model: trained on 130 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.35
+- 2026-10-15 06:34 model: auto-approved 0, auto-rejected 0, left 21
+- 2026-10-15 06:34 discover driveline-yt (backfill): 8 seen, 8 new
+- 2026-10-15 06:34 discover tread-yt (backfill): 8 seen, 8 new
+- 2026-10-15 06:34 discover driveline-blog (backfill): 6 seen, 6 new
+- 2026-10-15 06:34 discover tread-blog: ERROR 404 Client Error: Not Found for url: https://treadathletics.com/posts/page/-1/
+- 2026-10-15 06:37 fetch: 8 ok, 0 failed, 0 deferred; whisper 0 min
+- 2026-10-15 06:43 summarize: 19 ok, 0 failed (queue had room for 19)
+- 2026-10-15 06:43 model: trained on 130 grades, ranks right 82% (writer 77%), approve p>=0.57, reject p<=0.35
+- 2026-10-15 06:43 model auto-approved 2011-06-09-roy-oswalt-and-the-glide-ideal-lower-half-mechanics (p 0.59)
+- 2026-10-15 06:43 model auto-approved 2020-12-16-fixing-a-late-arm-for-pitchers-pitching-drills (p 0.68)
+- 2026-10-15 06:43 model auto-approved 2020-12-17-long-toss-into-a-net-isn-t-long-toss-here-s-why (p 0.61)
+- 2026-10-15 06:43 model auto-approved 2020-12-23-overlooked-concepts-in-shoulder-pain-for-pitchers-askthedoc (p 0.67)
+- 2026-10-15 06:43 model auto-approved 2021-01-05-what-is-the-true-role-of-soft-tissue-work-askthedoc-episode (p 0.66)
+- 2026-10-15 06:43 model auto-approved 2021-01-06-how-does-triston-mckenzie-throw-97-mph-at-6-5-165-lbs (p 0.62)
+- 2026-10-15 06:43 model auto-approved 2021-01-15-drills-to-throw-harder-mastering-the-walking-windup (p 0.64)
+- 2026-10-15 06:43 model auto-approved 2021-01-22-struggling-to-throw-strikes-5-tips-to-improve-command-in (p 0.62)
+- 2026-10-15 06:43 model auto-approved 2021-01-27-loading-the-hinge-how-to-improve-pelvic-loading (p 0.67)
+- 2026-10-15 06:43 model: auto-approved 9, auto-rejected 0, left 22
