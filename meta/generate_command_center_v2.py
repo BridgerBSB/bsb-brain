@@ -575,12 +575,19 @@ def publish(data, min_gap_min=60):
     if fp == state.get("fp") and (full == state.get("full") or age_min < min_gap_min):
         print("publish: no change")
         return
-    os.makedirs(os.path.join(PUBLISH_REPO, "site"), exist_ok=True)
-    write_page(d, os.path.join(PUBLISH_REPO, "site", "index.html"))
-
     def g(*a):
         return subprocess.run(["git", "-C", PUBLISH_REPO] + list(a), capture_output=True, text=True,
                               timeout=120, creationflags=NOWIN)
+    # Cael has write access: start from whatever is on GitHub so a push of his never makes ours
+    # bounce (a rejected push here would stop publishing silently). The clone holds nothing of
+    # its own except the generated page and the gitignored state file, so this loses nothing.
+    r = g("fetch", "-q", "origin")
+    if r.returncode != 0:
+        print("publish: FETCH FAILED", r.stderr[-300:])
+        return
+    g("reset", "-q", "--hard", "origin/main")
+    os.makedirs(os.path.join(PUBLISH_REPO, "site"), exist_ok=True)
+    write_page(d, os.path.join(PUBLISH_REPO, "site", "index.html"))
     g("add", "site/index.html")
     r = g("commit", "-m", "publish: " + data["generated"])
     if r.returncode != 0:
