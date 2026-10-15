@@ -1,4 +1,14 @@
-# Last session state - 2026-10-15 16:50 CT (Manager Game Card guide for MT; winter catching probe)
+# Last session state - 2026-10-15 17:06 CT (Baseball Command Center v2: Houston world + Cael's shared copy)
+- **Project / cwd:** `C:/Users/Owner/bsb-brain` - branch `master` (+ new repo `C:/Users/Owner/pd-command-center` main)
+- **What we were doing:** Recovered last night's Twitter research (all 15 links already filed, `07df173`), then built the one-stop Baseball Command Center Zac asked for: projects with progress bars, jobs, idea bank, library, as a Houston / Daikin Park isometric world, plus a shared copy for Cael.
+- **Shipped this session:** vault `5b050d0`..`53f06df` (generator v2, `bank/projects` 18 cards, `bank/processes` 7 jobs, design doc, LINEAGE). Repo `zbridger_astros/pd-command-center` (Cael = cmagill_astros added). Scheduled task = pyw v2 `--open-once-daily --publish` every 15 min. `~/.claude/commands/wrap.md` step 6 -> v2. Recall checkpoints 54e9b32b6fd769e2 + 3606d906ededaf7a, session 947c.
+- **EXACT next step:** Nothing active ("the dash is at a solid point"). When Zac reports progress (Cael, Mazzo details, Monday/daily cascade ran), edit the matching `bsb-brain/bank/projects/*.md` / `bank/processes/*.md` note; the 15-min run republishes both copies.
+- **Blockers / waiting on:** Optional repo transfer to Baseball-Operations for a click-to-open link (Zac's command). Mazzo details on the Outfield Daily Review Dash; whether "Accuracy or Useless React" = Mazzo #3.
+- **Uncommitted work:** vault: pre-existing inbox/digest files only; pd-command-center clean.
+
+---
+
+## ALSO OPEN - 2026-10-15 16:50 CT (Manager Game Card guide for MT; winter catching probe)
 - **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
 - **What we were doing:** Found Camden's Manager Game Card docs (cq/* branches only), re-verified the guide against live code and shipped a corrected PDF that Zac sent to MT. Then MT asked about winter catcher postgames: probed winter catching data coverage.
 - **Shipped this session:** `09c861ff8` corrected guide (`pd-goals/docs/mgr-card-guide/` + `C:/Users/zbrid/OneDrive/Desktop/Manager_Game_Card_Guide.pdf`). `790ec57a4` `sql-queries/winter-catching-coverage-probe.sql`, run by Zac (cwin1-7.csv in Downloads). Recall checkpoint session 0e40.
