@@ -70,6 +70,9 @@ SHELVES = [
 ]
 LIBRARY_DIRS = [("concepts", "concept"), ("drills", "drill"), ("cues", "cue"), ("sources", "source")]
 HIDDEN_SOURCE_STATUS = {"rejected", "duplicate"}
+# Zac's hiring work (hire-hou, candidates, itineraries) never leaves his own copy. Applied to research,
+# ideas and commit subjects on the shared copy; the KB library is public coaching content and exempt.
+HIRING = re.compile(r"hir(e|es|ed|ing)\b|hire-hou|candidate|interview|itinerar|field assessment|director (search|of)", re.I)
 
 
 # ---------------------------------------------------------------- helpers
@@ -232,6 +235,27 @@ TASK_NEVER_RAN = 267011    # SCHED_S_TASK_HAS_NOT_RUN
 
 # ---------------------------------------------------------------- git
 
+def git_filters(fm):
+    """The card's commit filter (grep / author / branch / paths) as git arguments: (revs+opts, paths)."""
+    opts = []
+    if fm.get("grep"):
+        opts += ["-i", "-E", f"--grep={fm['grep']}"]
+    if fm.get("author"):
+        opts += [f"--author={fm['author']}"]
+    paths = [str(p) for p in as_list(fm.get("paths"))]
+    return opts, str(fm.get("branch") or "HEAD"), (["--"] + paths if paths else [])
+
+
+def git_week(fm):
+    """Commits matching this card's filter in the last 7 days (the home-run pump in left-center)."""
+    repo = fm.get("repo")
+    if not repo or not os.path.isdir(repo):
+        return 0
+    opts, rev, paths = git_filters(fm)
+    out = v1.run_git(repo, "rev-list", "--count", "--since=7.days.ago", *opts, rev, *paths)
+    return int(out) if out.isdigit() else 0
+
+
 def git_commits(fm, n=5):
     repo = fm.get("repo")
     if not repo or not os.path.isdir(repo):
@@ -287,6 +311,7 @@ def load_projects():
             "uri": obsidian_uri(path),
             "updated": fmt_ct(parse_dt(fm.get("updated"))) if fm.get("updated") else "",
             "commits": git_commits(fm),
+            "week": git_week(fm),
         }
         if fm.get("counter") in COUNTERS:
             p["counter"] = COUNTERS[fm["counter"]]()
@@ -430,7 +455,7 @@ def load_research(days=60):
     out = []
     for folder in ("meta", "projects"):
         for path in glob.glob(os.path.join(VAULT, folder, "*.md")):
-            fm, body = read_note(path, head_only=True)
+            fm, body = read_note(path)
             if str(fm.get("type", "")).lower() not in ("research", "meta"):
                 continue
             created = parse_dt(fm.get("created") or fm.get("date"))
@@ -439,7 +464,8 @@ def load_research(days=60):
             out.append({"title": h1(body) or os.path.basename(path)[:-3],
                         "created": created.strftime("%Y-%m-%d"), "folder": folder,
                         "topic": str(fm.get("topic") or fm.get("project") or ""),
-                        "uri": obsidian_uri(path)})
+                        "private": bool(fm.get("private")) or bool(HIRING.search(path + " " + h1(body))),
+                        "b": body.strip(), "uri": obsidian_uri(path)})
     out.sort(key=lambda r: r["created"], reverse=True)
     return out[:14]
 
@@ -462,7 +488,9 @@ def load_library():
         for path in glob.glob(os.path.join(VAULT, folder, "**", "*.md"), recursive=True):
             if os.sep + "_raw" in path or os.sep + "_assets" in path:
                 continue
-            fm, body = read_note(path, head_only=True)
+            fm, body = read_note(path)
+            if fm.get("private"):
+                continue
             status = str(fm.get("status") or "").lower()
             if kind == "source" and status in HIDDEN_SOURCE_STATUS:
                 continue
@@ -476,12 +504,12 @@ def load_library():
                           "pend": status == "pending",
                           "c": (created or added).strftime("%Y-%m-%d"),
                           "a": added.strftime("%Y-%m-%d %H:%M"),
-                          "u": obsidian_uri(path)})
+                          "b": body.strip(), "u": obsidian_uri(path)})
     for path in glob.glob(os.path.join(VAULT, "MOC-*.md")):
-        fm, body = read_note(path, head_only=True)
+        fm, body = read_note(path)
         items.append({"t": h1(body) or os.path.basename(path)[:-3], "k": "moc",
                       "s": [shelf_of(fm.get("domain"))], "low": False, "pend": False,
-                      "c": str(fm.get("created") or ""), "a": "", "u": obsidian_uri(path)})
+                      "c": str(fm.get("created") or ""), "a": "", "b": body.strip(), "u": obsidian_uri(path)})
     return items
 
 
@@ -537,13 +565,36 @@ def write_page(data, out):
         fh.write(TEMPLATE.replace("__DATA__", blob))
 
 
+def hiring_leaks(x, path=""):
+    """Every string anywhere in the shared data that matches HIRING, as (path, match)."""
+    if isinstance(x, dict):
+        return [h for k, v in x.items() for h in hiring_leaks(v, path + "." + k)]
+    if isinstance(x, list):
+        return [h for v in x for h in hiring_leaks(v, path)]
+    m = HIRING.search(x) if isinstance(x, str) else None
+    return [(path, m.group(0))] if m else []
+
+
+def _redact(text):
+    return "\n".join(line for line in text.splitlines() if not HIRING.search(line))
+
+
 def shared_view(data):
-    """The copy Cael sees (Zac, Oct 15): projects marked share: true + the idea bank. No library,
-    processes, research, last-state or git triage, and no obsidian:// links (they only open here)."""
+    """The copy Cael sees (Zac, Oct 15): projects marked share: true, the idea bank, the library (with
+    note text, so he can read it), the jobs scoreboard and research. Hiring stays on Zac's copy only:
+    the hiring card is not share: true, and HIRING drops matching research, ideas and commit lines.
+    No last-state, no git triage, no obsidian:// links (they only open on Zac's laptop)."""
     d = dict(data)
-    d["projects"] = [dict(p, uri="") for p in data["projects"] if p.get("share")]
-    d["ideas"] = [dict(i, uri=i["link"] if i["link"].startswith("http") else "") for i in data["ideas"]]
-    d.update(shared=True, today={}, attention=[], chronic=0, processes=[], research=[], library=[], tasks_ok=True)
+    d["projects"] = [dict(p, uri="", commits=[c for c in p["commits"] if not HIRING.search(c["subj"])])
+                     for p in data["projects"] if p.get("share")]
+    d["ideas"] = [dict(i, uri=i["link"] if i["link"].startswith("http") else "") for i in data["ideas"]
+                  if not HIRING.search(i["title"])]
+    d["projects"] = [p for p in d["projects"] if not HIRING.search(p["title"] + " " + p["tag"])]
+    # note text: drop any note whose TITLE is hiring, and strip every hiring line from the rest
+    d["library"] = [dict(x, u="", b=_redact(x["b"])) for x in data["library"] if not HIRING.search(x["t"])]
+    d["research"] = [dict(r, uri="", b=_redact(r["b"])) for r in data["research"]
+                     if not r.get("private") and not HIRING.search(r["title"])]
+    d.update(shared=True, today={}, attention=[], chronic=0)
     return d
 
 
@@ -552,6 +603,9 @@ def _fingerprint(d, with_counters):
                    p["due"], p["tag"], [[s["done"], s["text"]] for s in p["steps"]], [c["sha"] for c in p["commits"]],
                    (p.get("counter") or {}).get("done") if with_counters else None] for p in d["projects"]],
             "i": [[i["title"], i["status"], i["source"], i["created"]] for i in d["ideas"]],
+            "l": [len(d["library"]), max([x["a"] for x in d["library"]] or [""])],
+            "r": [r["title"] for r in d["research"]],
+            "j": [[x["title"], x["state"], x["label"]] for x in d["processes"]],
             "tpl": hashlib.sha1(TEMPLATE.encode("utf-8")).hexdigest()}  # a page-code change publishes too
     return hashlib.sha1(json.dumps(core, sort_keys=True, default=str).encode("utf-8")).hexdigest()
 
@@ -564,6 +618,10 @@ def publish(data, min_gap_min=60):
         print(f"publish: no clone at {PUBLISH_REPO}")
         return
     d = shared_view(data)
+    leaks = hiring_leaks(d)
+    if leaks:  # last gate before anything leaves the laptop: hiring stays on Zac's copy
+        print(f"publish: REFUSED - {len(leaks)} hiring matches in the shared copy, e.g. {leaks[:3]}")
+        return
     state_p = os.path.join(PUBLISH_REPO, "publish_state.json")  # gitignored
     try:
         with open(state_p, encoding="utf-8") as fh:
@@ -810,6 +868,16 @@ a{color:inherit}
 .wdrawer .ds{color:var(--ink3);font-size:12.5px;margin-bottom:14px}
 .wdrawer .card{cursor:default}
 .wdrawer .card:hover{transform:none}
+.note{font-size:13.5px;line-height:1.62;color:var(--ink2)}
+.note p{margin:0 0 9px}
+.note h3,.note h4,.note h5,.note h6{color:var(--ink);font-family:"Space Grotesk",Inter,sans-serif;margin:16px 0 6px}
+.note ul{margin:0 0 10px;padding-left:20px}
+.note li{margin:2px 0}
+.note b{color:var(--ink)}
+.note code{font-family:"JetBrains Mono",monospace;font-size:12px;background:rgba(255,255,255,.06);padding:1px 5px;border-radius:5px}
+.note pre{font-family:"JetBrains Mono",monospace;font-size:11.5px;background:rgba(0,0,0,.32);padding:10px 12px;border-radius:9px;overflow:auto;white-space:pre}
+.note a,.ds a{color:var(--run)}
+.note .mdt{font-family:"JetBrains Mono",monospace;font-size:11px;white-space:pre;overflow-x:auto;color:var(--ink2)}
 .wdrawer .card.open .drawer{grid-template-columns:1fr}
 .wdrawer .cm{flex-wrap:wrap}
 body.worldmode .wrap{padding:14px 16px}
@@ -840,16 +908,16 @@ body.shared .local-only{display:none}
     <div id="wtoast" class="wtoast"></div>
     <div id="wtip" class="wtip"></div>
     <div class="whud">
-      <div class="wt">PD Campus</div>
-      <div class="wk"><i style="background:var(--orange)"></i>Project Yard: lit floors = progress, orange frame = still to build</div>
-      <div class="wk local-only"><i style="background:#ffd38a"></i>Library towers: one per shelf, lit windows = notes</div>
-      <div class="wk local-only"><i style="background:var(--ok)"></i>Scoreboard = automated jobs &middot; Port = research batches</div>
+      <div class="wt">Houston</div>
+      <div class="wk"><i style="background:var(--orange)"></i>EaDo yard: a building per project, lit floors = progress</div>
+      <div class="wk"><i style="background:#ffd38a"></i>Downtown skyline = the library, one landmark per shelf</div>
+      <div class="wk"><i style="background:var(--ok)"></i>Daikin Park = the jobs &middot; the train runs on a fresh commit</div>
+      <div class="wk"><i style="background:var(--run)"></i>Port of Houston = research batches</div>
       <div class="wk dim">drag to pan &middot; scroll to zoom &middot; right-drag to turn &middot; click anything</div>
     </div>
     <button id="wreset" class="wbtn">Reset view</button>
     <div id="wfallback" class="wfallback">The 3D campus needs WebGL and an internet connection (three.js loads from cdnjs). The Command and Library tabs work offline.</div>
   </div>
-  <aside id="wdrawer" class="wdrawer"><button id="wclose" class="wbtn wclose">Close</button><div id="wbody"></div></aside>
 </section>
 
 <section id="sec-cmd">
@@ -882,6 +950,7 @@ body.shared .local-only{display:none}
 </section>
 </div>
 
+<aside id="wdrawer" class="wdrawer"><button id="wclose" class="wbtn wclose">Close</button><div id="wbody"></div></aside>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script id="data" type="application/json">__DATA__</script>
@@ -975,18 +1044,49 @@ $('#prsub').textContent = `${okish} of ${PR.length} OK`;
 $('#attn').innerHTML = D.attention.length ? D.attention.map(a => `<li class="sev${a.sev}">${a.html}</li>`).join('') : '<li>All clear.</li>';
 $('#atsub').textContent = D.chronic ? `${D.chronic} chronic drift hidden` : '';
 
+/* ---------- note reader: library + research rows open their text in the side drawer */
+function md(src){
+  const out = []; let list = false, pre = false;
+  const inline = s => esc(s).replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, '$2').replace(/\[\[([^\]]+)\]\]/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>').replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+  String(src || '').split(/\r?\n/).forEach(line => {
+    if (/^\s*```/.test(line)){ if (list){ out.push('</ul>'); list = false; } out.push(pre ? '</pre>' : '<pre>'); pre = !pre; return; }
+    if (pre){ out.push(esc(line)); return; }
+    if (/^\s*[-*]\s+/.test(line)){ if (!list){ out.push('<ul>'); list = true; } out.push('<li>' + inline(line.replace(/^\s*[-*]\s+/, '')) + '</li>'); return; }
+    if (list){ out.push('</ul>'); list = false; }
+    const h = /^(#{1,4})\s+(.*)$/.exec(line);
+    if (h){ const n = h[1].length + 2; out.push(`<h${n}>${inline(h[2])}</h${n}>`); return; }
+    if (/^\s*\|/.test(line)){ out.push('<div class="mdt">' + esc(line) + '</div>'); return; }
+    if (line.trim()) out.push('<p>' + inline(line) + '</p>');
+  });
+  if (list) out.push('</ul>'); if (pre) out.push('</pre>');
+  return out.join('\n');
+}
+let prevDrawer = null;
+function openNote(x, kind){
+  const drawer = $('#wdrawer');
+  prevDrawer = drawer.classList.contains('on') ? $('#wbody').innerHTML : null;
+  const uri = x.u || x.uri, meta = kind === 'library' ? `${x.k} &middot; ${esc(x.c)}` : `research &middot; ${esc(x.created)}`;
+  $('#wbody').innerHTML = `${prevDrawer ? '<div class="ds"><a href="#" id="wback">&larr; Back</a></div>' : ''}<h2>${esc(x.t || x.title)}</h2>
+    <div class="ds">${meta}${uri ? ` &middot; <a href="${esc(uri)}">open in Obsidian</a>` : ''}</div><div class="note">${md(x.b) || '<p>(empty note)</p>'}</div>`;
+  drawer.classList.add('on'); drawer.scrollTop = 0;
+  const back = $('#wback'); if (back) back.onclick = e => { e.preventDefault(); $('#wbody').innerHTML = prevDrawer; prevDrawer = null; };
+}
+document.addEventListener('click', e => { const a = e.target.closest('[data-li],[data-ri]'); if (!a) return; e.preventDefault();
+  if (a.dataset.li != null) openNote(D.library[+a.dataset.li], 'library'); else openNote(D.research[+a.dataset.ri], 'research'); });
+$('#wclose').onclick = () => $('#wdrawer').classList.remove('on');
+
 /* ---------- shared copy (Cael): projects + ideas only */
 if (D.shared){
   document.body.classList.add('shared');
-  document.querySelector('.brand small').textContent = 'Projects \u00b7 Ideas';
+  document.querySelector('.brand small').textContent = 'Projects \u00b7 Ideas \u00b7 Library';
   $('#strip').style.gridTemplateColumns = 'repeat(3,minmax(0,1fr))';
   $('#strip').innerHTML = `
    <div class="panel kpi"><div class="n">${P.filter(p => p.lane === 'now').length}</div><div class="l">Projects in Now</div><div class="s">${P.filter(p => p.lane === 'next').length} in Next &middot; ${P.filter(p => p.lane === 'later').length} not started</div></div>
    <div class="panel kpi"><div class="n">${P.filter(p => p.owner.includes('cael')).length}</div><div class="l">Cael&#39;s projects</div><div class="s">${P.filter(p => p.owner.includes('zac')).length} Zac&#39;s</div></div>
    <div class="panel kpi"><div class="n">${D.ideas.length}</div><div class="l">Ideas banked</div><div class="s">${D.ideas_new} new this week</div></div>`;
-  const lt = document.querySelector('.tab[data-tab="lib"]'); if (lt) lt.remove();
-  const rc = $('#procs').closest('.panel').parentElement; if (rc) rc.remove();
-  document.querySelector('#sec-cmd .grid').classList.add('solo');
+  const at = document.querySelector('.panel.attn'); if (at) at.remove();
 }
 
 /* ---------- idea bank */
@@ -1012,6 +1112,7 @@ $('#isub').textContent = `${D.ideas.length} ideas, newest first`;
 drawIdeas();
 
 /* ---------- library */
+D.library.forEach((x, i) => { x.i = i; });
 const L = D.library, KINDS = [['all','All'],['concept','Concepts'],['drill','Drills'],['cue','Cues'],['source','Sources'],['moc','Maps']];
 let lShelf = null, lKind = 'all';
 $('#ltot').textContent = L.length.toLocaleString();
@@ -1032,12 +1133,12 @@ function drawRows(){
   if (q){ xs = xs.filter(x => x.t.toLowerCase().includes(q)); $('#lh').textContent = 'Search results'; }
   else { xs = xs.slice().sort((a, b) => (b.c + b.a).localeCompare(a.c + a.a)); $('#lh').textContent = 'Recently added'; }
   $('#lsub').textContent = (shelfName ? shelfName + ' &middot; ' : '').replace('&middot;', '-') + `${xs.length} notes`;
-  $('#lrows').innerHTML = xs.slice(0, 60).map(x => `<a class="row" href="${esc(x.u)}"><span class="k k-${x.k}">${x.k}</span><span class="t">${esc(x.t)}</span><span class="d">${esc(x.c)}</span></a>`).join('')
+  $('#lrows').innerHTML = xs.slice(0, 60).map(x => `<a class="row" href="javascript:void(0)" data-li="${x.i}"><span class="k k-${x.k}">${x.k}</span><span class="t">${esc(x.t)}</span><span class="d">${esc(x.c)}</span></a>`).join('')
     || '<div class="empty">Nothing matches.</div>';
 }
 $('#lq').addEventListener('input', drawRows);
 drawShelves(); drawRows();
-$('#rrows').innerHTML = D.research.map(r => `<a class="row" href="${esc(r.uri)}"><span class="k k-source">${esc(r.folder)}</span><span class="t">${esc(r.title)}</span><span class="d">${esc(r.created)}</span></a>`).join('')
+$('#rrows').innerHTML = D.research.map((r, i) => `<a class="row" href="javascript:void(0)" data-ri="${i}"><span class="k k-source">${esc(r.folder)}</span><span class="t">${esc(r.title)}</span><span class="d">${esc(r.created)}</span></a>`).join('')
   || '<div class="empty">No research captured in the last 60 days.</div>';
 
 /* ================= WORLD: the isometric PD campus (three.js r128) ================= */
@@ -1073,6 +1174,10 @@ function buildWorld(){
   ctl.minZoom = .6; ctl.maxZoom = 3.5; ctl.minPolarAngle = .5; ctl.maxPolarAngle = 1.12;
   ctl.mouseButtons = {LEFT: T.MOUSE.PAN, MIDDLE: T.MOUSE.DOLLY, RIGHT: T.MOUSE.ROTATE};
   ctl.target.copy(HOME.target); ctl.update();
+  /* ?focus=x,z,zoom: start the camera on one spot (screenshots / sharing a district) */
+  const fq = /[?&]focus=(-?[\d.]+),(-?[\d.]+),([\d.]+)/.exec(location.search);
+  if (fq){ const fx = +fq[1], fz = +fq[2]; cam.position.add(new T.Vector3(fx - HOME.target.x, 0, fz - HOME.target.z));
+    ctl.target.set(fx, 0, fz); cam.zoom = +fq[3]; cam.updateProjectionMatrix(); ctl.update(); }
 
   scene.add(new T.HemisphereLight(0x9bb8ff, 0x0d1424, .62));
   scene.add(new T.AmbientLight(0x2c4378, .45));
@@ -1084,7 +1189,7 @@ function buildWorld(){
   const mat = (c, o) => new T.MeshStandardMaterial(Object.assign({color: c, roughness: .88, metalness: 0, flatShading: true}, o || {}));
   const add = (geo, m, x, y, z, shadow) => { const me = new T.Mesh(geo, m); me.position.set(x, y, z);
     if (shadow !== false){ me.castShadow = true; me.receiveShadow = true; } scene.add(me); return me; };
-  const picks = [], labels = [];
+  const picks = [], labels = [], anim = [];
   const pick = (obj, info) => { obj.userData.pick = info; picks.push(obj); return obj; };
 
   /* ---------- ground */
@@ -1188,23 +1293,77 @@ function buildWorld(){
     const post = add(new T.BoxGeometry(.15, 2.4, .15), mat(0xdedede), x + 2.1, 1.8, z + 1.7); pick(post, info);
     const sign = add(new T.BoxGeometry(1.8, .9, .1), mat(0xeb6e1f), x + 1.4, 2.7, z + 1.7); pick(sign, info);
   });
-  label('Project Yard', new T.Vector3(-35, .6, 48.5), 'big', () => showTab('cmd'));
+  label('EaDo \u00b7 Project Yard', new T.Vector3(-35, .6, 48.5), 'big', () => showTab('cmd'));
   bubble(`${yard.filter(p => p.lane === 'now').length} now &middot; ${yard.filter(p => p.lane === 'next').length} next &middot; <em>${later.length} lots waiting</em>`,
     new T.Vector3(-35, 6, 48.5), () => showTab('cmd'));
 
-  /* ---------- THE LIBRARY: one tower per shelf */
-  const shelfData = D.shelves.map(s => ({...s, n: D.library.filter(x => x.s.includes(s.key)).length})).filter(s => s.n)
-    .sort((a, b) => b.n - a.n);
-  const back = [[-54, -40], [-44, -41], [-34, -41], [-24, -40], [-15, -39]], front = [[-51, -26], [-41, -25], [-31, -25], [-21, -24], [-14, -15]];
-  const slots = back.concat(front), shelfPos = {};
-  const tints = ['#2a3760', '#2d3560', '#28405a', '#30395c', '#2b3b52', '#33365a', '#283a55', '#2f3a58', '#2a3450', '#2c3a5a'];
-  shelfData.slice(0, slots.length).forEach((s, i) => {
-    const [x, z] = slots[i], h = 3 + 2.2 * Math.log2(1 + s.n), info = {kind: 'shelf', key: s.key};
-    tower(x, z, 7, 7, h, {y: .6, lit: .82, seed: hashStr(s.key), base: tints[i % tints.length], glow: '#ffe3a8', cap: 0x51608a, info});
-    shelfPos[s.key] = new T.Vector3(x, .6 + h + 1.2, z);
-    label(`${s.name}  ${s.n}`, new T.Vector3(x, .6 + h + 1, z), 'small', () => openInfo(info), '#ffd38a');
+  /* ---------- DOWNTOWN HOUSTON: the library skyline, one landmark per shelf */
+  const shelfData = D.shelves.map(s => ({...s, n: D.library.filter(x => x.s.includes(s.key)).length})).filter(s => s.n);
+  const LANDMARK = {pitching: 'chase', strength: 'wells', hitting: 'bofa', body: 'heritage', pd: 'pennzoilA',
+    mental: 'pennzoilB', analytics: 'gulf', defense: 'glass', other: 'glass2'};
+  const LM_NAME = {chase: 'JPMorgan Chase Tower', bofa: 'Bank of America Center', wells: 'Wells Fargo Plaza',
+    heritage: 'Heritage Plaza', pennzoilA: 'Pennzoil Place (north)', pennzoilB: 'Pennzoil Place (south)',
+    gulf: 'Gulf Building', glass: 'Downtown glass tower', glass2: 'Downtown glass tower'};
+  const LM_SLOT = {chase: [-35, -37], wells: [-50, -38], bofa: [-22, -40], heritage: [-52, -23], pennzoilA: [-41, -22],
+    pennzoilB: [-36, -26], gulf: [-27, -22], glass: [-16, -31], glass2: [-16, -15]};
+  const shelfLandmark = {}, Y = .6;
+  const winMat = (cols, rows, seed, base, glowC, lit) => { const [ta, te] = winTex(cols, Math.max(2, rows), lit, seed, base, glowC);
+    return new T.MeshStandardMaterial({map: ta, emissive: 0xffffff, emissiveMap: te, emissiveIntensity: 1, roughness: .7}); };
+  const block = (x, y0, z, w, h, d, base, glowC, lit, seed, info, roof) => {
+    const sm = winMat(Math.max(2, Math.round(Math.max(w, d) / 1.4)), Math.round(h / 1.8), seed, base, glowC, lit), rm = mat(roof || 0x2a3142);
+    return pick(add(new T.BoxGeometry(w, h, d), [sm, sm, rm, rm, sm, sm], x, y0 + h / 2, z), info); };
+  const prism = (pts, depth, color, x, y, z, info) => { const s = new T.Shape(); s.moveTo(pts[0][0], pts[0][1]);
+    pts.slice(1).forEach(p => s.lineTo(p[0], p[1])); const geo = new T.ExtrudeGeometry(s, {depth, bevelEnabled: false});
+    geo.translate(0, 0, -depth / 2); return pick(add(geo, mat(color), x, y, z), info); };
+  const LM = {
+    chase(x, z, h, info, seed){        // five-sided granite tower, the city's tallest
+      const r = 4.6, sm = winMat(15, Math.round(h / 1.6), seed, '#3a4152', '#ffe0a0', .8), rm = mat(0x262c38);
+      const m = pick(add(new T.CylinderGeometry(r, r, h, 5), [sm, rm, rm], x, Y + h / 2, z), info); m.rotation.y = Math.PI / 10;
+      const c = pick(add(new T.CylinderGeometry(r * .8, r, 1, 5), mat(0x20252f), x, Y + h + .5, z), info); c.rotation.y = Math.PI / 10;
+      return Y + h + 1; },
+    wells(x, z, h, info, seed){        // curved green glass
+      const sm = winMat(16, Math.round(h / 1.7), seed, '#1d4b42', '#c9f7dd', .55), rm = mat(0x1a3a33);
+      const m = pick(add(new T.CylinderGeometry(3.3, 3.5, h, 28), [sm, rm, rm], x, Y + h / 2, z), info); m.scale.x = 1.45;
+      const c = pick(add(new T.CylinderGeometry(2.6, 3.3, 1.4, 28), mat(0x24584d), x, Y + h + .7, z), info); c.scale.x = 1.45;
+      return Y + h + 1.4; },
+    bofa(x, z, h, info, seed){         // red granite, three stepped Dutch-gothic gables with spires
+      let top = 0;
+      [[0, .62], [2.9, .82], [5.8, 1]].forEach(([dx, f], k) => {
+        const hh = h * f, bx = x - 2.9 + dx;
+        block(bx, Y, z, 2.9, hh, 6, '#6a2d29', '#ffd9a0', .72, seed + k, info, 0x5a2622);
+        prism([[-1.45, 0], [1.45, 0], [0, 2.4]], 6, 0x7d3530, bx, Y + hh, z, info);
+        pick(add(new T.ConeGeometry(.16, 1.6, 6), mat(0xc9a77a), bx, Y + hh + 3.2, z), info);
+        top = Math.max(top, Y + hh + 4); });
+      return top; },
+    heritage(x, z, h, info, seed){     // granite tower with a Mayan stepped-pyramid cap
+      const body = h * .82; block(x, Y, z, 6, body, 6, '#4d4740', '#ffe2a6', .75, seed, info, 0x3d3832);
+      let y = Y + body; [5.6, 4.4, 3.2, 2].forEach(w => { pick(add(new T.BoxGeometry(w, .95, w), mat(0x8a8072), x, y + .47, z), info); y += .95; });
+      pick(add(new T.BoxGeometry(1.1, 1.3, 1.1), mat(0x9c927f), x, y + .65, z), info);
+      return y + 1.6; },
+    pennzoil(x, z, h, info, seed, flip){ // twin dark bronze towers with 45-degree sloped tops
+      const body = h - 2.6; block(x, Y, z, 4.4, body, 4.4, '#2a231b', '#ffcf8a', .62, seed, info, 0x1f1a14);
+      const s = flip ? -1 : 1; prism([[-2.2, 0], [2.2, 0], [-2.2 * s, 2.6]], 4.4, 0x3a3127, x, Y + body, z, info);
+      return Y + h + .4; },
+    pennzoilA(x, z, h, info, seed){ return LM.pennzoil(x, z, h, info, seed, false); },
+    pennzoilB(x, z, h, info, seed){ return LM.pennzoil(x, z, h, info, seed, true); },
+    gulf(x, z, h, info, seed){         // 1929 art deco setbacks with a crown
+      let y = Y; [[6, .58], [4.6, .24], [3.2, .14]].forEach(([w, f], k) => { const hh = h * f;
+        block(x, y, z, w, hh, w, '#5c4c3b', '#ffd690', .7, seed + k, info, 0x4a3d30); y += hh; });
+      pick(add(new T.ConeGeometry(.5, 2.2, 8), mat(0xc8a46a), x, y + 1.1, z), info);
+      return y + 2.4; },
+    glass(x, z, h, info, seed){        // modern blue glass
+      block(x, Y, z, 5, h, 5, '#223a58', '#bfe3ff', .6, seed, info, 0x1a2d45);
+      prism([[-2.5, 0], [2.5, 0], [2.5, 1.6]], 5, 0x2c4a6e, x, Y + h, z, info);
+      return Y + h + 2; },
+    glass2(x, z, h, info, seed){ return LM.glass(x, z, h, info, seed); },
+  };
+  shelfData.forEach(s => {
+    const lm = LANDMARK[s.key] || 'glass2', [x, z] = LM_SLOT[lm], h = 4 + 2.4 * Math.log2(1 + s.n), info = {kind: 'shelf', key: s.key};
+    shelfLandmark[s.key] = LM_NAME[lm];
+    const top = LM[lm](x, z, h, info, hashStr(s.key));
+    label(`${s.name}  ${s.n}`, new T.Vector3(x, top + .4, z), 'small', () => openInfo(info), '#ffd38a');
   });
-  if (D.library.length) label('The Library', new T.Vector3(-35, .6, -0.8), 'big', () => showTab('lib'), '#ffd38a');
+  if (D.library.length) label('Downtown · The Library', new T.Vector3(-35, .6, -0.8), 'big', () => showTab('lib'), '#ffd38a');
   if (D.library.length) bubble(`${D.library.length.toLocaleString()} notes on the shelves`, new T.Vector3(-35, 5.5, -0.8), () => showTab('lib'));
 
   /* ---------- IDEA BANK */
@@ -1223,57 +1382,185 @@ function buildWorld(){
     bubble(`${D.ideas.length} ideas &middot; <em>${D.ideas_new} new this week</em>`, new T.Vector3(bx, 13.6, bz), () => openInfo(info));
   }
 
-  /* ---------- BALLPARK + SCOREBOARD (the processes) */
-  const HP = new T.Vector3(40, 0, 36);
-  {
-    const g = new T.Group(); g.position.copy(HP); scene.add(g);
-    const flat = (geo, color, y) => { const m = new T.Mesh(geo, mat(color, {flatShading: false})); m.rotation.x = -Math.PI / 2; m.position.y = y; m.receiveShadow = true; g.add(m); return m; };
-    flat(new T.CircleGeometry(25, 40, Math.PI / 2, Math.PI / 2), 0x2f8a48, .32);
-    flat(new T.CircleGeometry(10.5, 30, Math.PI / 2, Math.PI / 2), 0x9a6a3e, .36);
-    const inf = flat(new T.PlaneGeometry(6.2, 6.2), 0x37944f, .4); inf.position.set(-3.6, .4, -3.6);
-    const mound = new T.Mesh(new T.CylinderGeometry(.9, 1.1, .25, 16), mat(0x9a6a3e)); mound.position.set(-3.6, .5, -3.6); g.add(mound);
-    [[0, -7.2], [-7.2, -7.2], [-7.2, 0], [0, 0]].forEach(([bx, bz]) => { const b = new T.Mesh(new T.BoxGeometry(.6, .12, .6), mat(0xffffff)); b.position.set(bx, .48, bz); g.add(b); });
-    const wall = new T.Mesh(new T.CylinderGeometry(25, 25, 1.4, 40, 1, true, Math.PI, Math.PI / 2), mat(0x1c4a2e, {side: T.DoubleSide}));
-    wall.position.y = 1; g.add(wall);
-    const seat = mat(0x24427e), seat2 = mat(0x2f5aa6), conc = mat(0x59647f);
-    for (let k = 0; k < 3; k++){
-      const off = 1.6 + k * 1.7, hh = 1 + k * 1.15;
-      const a = new T.Mesh(new T.BoxGeometry(1.7, hh, 22), k === 2 ? seat2 : seat); a.position.set(off, hh / 2, -11); a.castShadow = a.receiveShadow = true; g.add(a);
-      const b = new T.Mesh(new T.BoxGeometry(22, hh, 1.7), k === 2 ? seat2 : seat); b.position.set(-11, hh / 2, off); b.castShadow = b.receiveShadow = true; g.add(b);
-      const c = new T.Mesh(new T.BoxGeometry(1.7, hh, 1.7 + off), conc); c.position.set(off, hh / 2, (1.7 + off) / 2 - .85); c.castShadow = true; g.add(c);
-    }
-    [[6.5, 6.5], [7, -24], [-24, 7]].forEach(([lx, lz]) => {
-      const pole = new T.Mesh(new T.CylinderGeometry(.18, .25, 15, 6), mat(0x8b93a8)); pole.position.set(lx, 7.5, lz); pole.castShadow = true; g.add(pole);
-      const pan = new T.Mesh(new T.BoxGeometry(2.6, 1.4, .3), new T.MeshBasicMaterial({color: 0xfff6dc})); pan.position.set(lx, 15.2, lz); pan.lookAt(g.position.x - 12, 0, g.position.z - 12); g.add(pan);
-      glow(HP.x + lx, 15.2, HP.z + lz, 8, 0xfff0c8, .75);
-    });
+  /* ---------- DAIKIN PARK: the automated jobs. Real fence distances (315 / 366 / 399 / 409 / 408 / 370 / 326 ft),
+     tall LF wall + hand-run out-of-town board (the jobs), Crawford Boxes, El Grande in right field, the
+     home-run pump in left-center, the roof's three panels stacked beyond right field, Union Station on the
+     left-field side and the 4-4-0 on its track beyond left field (it runs when a fresh commit lands). */
+  const HP = new T.Vector3(35, 0, 33), FT = 26 / 409;
+  const park = new T.Group(); park.position.copy(HP); scene.add(park);
+  const padd = (geo, m, x, y, z, info) => { const me = new T.Mesh(geo, m); me.position.set(x, y, z); me.castShadow = true; me.receiveShadow = true;
+    park.add(me); if (info) pick(me, info); return me; };
+  const jobs = {kind: 'processes'}, okN = D.processes.filter(p => ['ok', 'running', 'manual'].includes(p.state)).length;
+  const fenceFt = [[0, 315], [22.5, 366], [33, 399], [45, 409], [57, 408], [67.5, 370], [90, 326]];
+  const fenceAt = deg => { for (let i = 1; i < fenceFt.length; i++){ const [a0, d0] = fenceFt[i - 1], [a1, d1] = fenceFt[i];
+    if (deg <= a1) return (d0 + (d1 - d0) * (deg - a0) / (a1 - a0)) * FT; } return 326 * FT; };
+  const dirOf = deg => [-Math.cos(deg * Math.PI / 180), -Math.sin(deg * Math.PI / 180)];   // 0 = LF line (-x), 90 = RF line (-z)
+  const fence = []; for (let a = 0; a <= 90; a += 3){ const r = fenceAt(a), [dx, dz] = dirOf(a); fence.push([dx * r, dz * r, a, r]); }
+  const fieldShape = k => { const s = new T.Shape(); s.moveTo(0, 0); fence.forEach(([x, z]) => s.lineTo(x * k, -z * k)); s.lineTo(0, 0); return s; };
+  const ground = (geo, color, y) => { geo.rotateX(-Math.PI / 2); const m = new T.Mesh(geo, mat(color, {flatShading: false})); m.position.y = y; m.receiveShadow = true; park.add(m); return m; };
+  ground(new T.ShapeGeometry(fieldShape(1)), 0x8b6040, .3);                      // warning track
+  ground(new T.ShapeGeometry(fieldShape(.955)), 0x2f8a48, .33);                  // outfield grass
+  for (let k = 1; k <= 3; k++) ground(new T.RingGeometry(k * 4.6, k * 4.6 + 2.3, 40, 1, Math.PI / 2, Math.PI / 2), 0x37974f, .34);  // mow rings
+  ground(new T.CircleGeometry(95 * FT, 30, Math.PI / 2, Math.PI / 2), 0x9a6a3e, .36);   // infield dirt
+  const ig = ground(new T.PlaneGeometry(90 * FT * .8, 90 * FT * .8), 0x37944f, .38); ig.position.set(-45 * FT, .38, -45 * FT);
+  padd(new T.CylinderGeometry(.75, .95, .22, 16), mat(0x9a6a3e), -60.5 * FT * .7071, .45, -60.5 * FT * .7071);
+  [[0, -90], [-90, -90], [-90, 0], [0, 0]].forEach(([bx, bz]) => padd(new T.BoxGeometry(.5, .1, .5), mat(0xffffff), bx * FT, .44, bz * FT));
+  padd(new T.BoxGeometry(315 * FT, .04, .08), mat(0xffffff), -315 * FT / 2, .4, 0);
+  padd(new T.BoxGeometry(.08, .04, 326 * FT), mat(0xffffff), 0, .4, -326 * FT / 2);
+  for (let i = 1; i < fence.length; i++){                                         // outfield wall: 19 ft in left, padded navy
+    const [x1, z1, a1] = fence[i - 1], [x2, z2] = fence[i], L = Math.hypot(x2 - x1, z2 - z1), hgt = a1 < 15 ? 2.5 : 1.1;
+    const w = padd(new T.BoxGeometry(L + .05, hgt, .35), mat(0x172c4f), (x1 + x2) / 2, hgt / 2 + .3, (z1 + z2) / 2);
+    w.rotation.y = -Math.atan2(z2 - z1, x2 - x1);
+    const cap = padd(new T.BoxGeometry(L + .05, .14, .4), mat(0xeb6e1f), (x1 + x2) / 2, hgt + .37, (z1 + z2) / 2); cap.rotation.y = w.rotation.y;
   }
-  if (D.processes.length) {
+  for (let i = 1; i < fence.length && fence[i][2] <= 15; i++){                  // Crawford Boxes above the LF wall
+    const [x1, z1] = fence[i - 1], [x2, z2] = fence[i], mx = (x1 + x2) / 2, mz = (z1 + z2) / 2, r = Math.hypot(mx, mz), ux = mx / r, uz = mz / r;
+    [1.1, 2.1, 3.1].forEach((o, k) => { const s = padd(new T.BoxGeometry(Math.hypot(x2 - x1, z2 - z1) + .1, 2.8 + k * .8, 1), mat(k === 2 ? 0x2a4f97 : 0x1f3c78),
+      mx + ux * o, (2.8 + k * .8) / 2, mz + uz * o); s.rotation.y = -Math.atan2(z2 - z1, x2 - x1); });
+  }
+  const seat = mat(0x1f3c78), seat2 = mat(0x2a4f97), conc = mat(0x5a6480), stripe = mat(0xeb6e1f);
+  [[1.4, 1.1], [2.9, 2.2], [4.4, 3.3], [6.2, 5.6]].forEach(([off, hh], k) => {    // grandstands, upper deck last
+    const m = k >= 2 ? seat2 : seat, L3 = 18.5 + off + 1.15, c3 = (off + .8 - 18.85) / 2;   // LF arm runs on round the corner
+    padd(new T.BoxGeometry(L3, hh, 1.6), m, c3, hh / 2, off); padd(new T.BoxGeometry(1.6, hh, 19.6), m, off, hh / 2, -10.2);
+    if (k === 3){ padd(new T.BoxGeometry(L3, .25, 1.7), stripe, c3, hh + .1, off); padd(new T.BoxGeometry(1.7, .25, 19.6), stripe, off, hh + .1, -10.2); }
+  });
+  // out-of-town scoreboard on the LF wall, hand-operated: the job lights
+  const jobColor = {ok: '#3ddc97', running: '#4cc9f0', late: '#f2b84b', failed: '#ff5c6c', manual: '#8fa3bf', none: '#56657c', ended: '#56657c'};
+  if (D.processes.length){
+    const c = document.createElement('canvas'); c.width = 512; c.height = 200; const x = c.getContext('2d');
+    x.fillStyle = '#0d2a1f'; x.fillRect(0, 0, 512, 200); x.fillStyle = '#e8e2c8'; x.font = '700 22px "JetBrains Mono", monospace'; x.fillText('OUT OF TOWN', 18, 30);
+    D.processes.slice(0, 7).forEach((p, i) => { const col = i < 4 ? 0 : 1, row = i % 4, xx = 18 + col * 250, yy = 64 + row * 34;
+      x.fillStyle = '#e8e2c8'; x.font = '600 17px "JetBrains Mono", monospace'; x.fillText(p.title.replace(/[()]/g, '').slice(0, 15).toUpperCase(), xx, yy);
+      x.fillStyle = jobColor[p.state] || '#56657c'; x.fillRect(xx + 200, yy - 15, 20, 20); });
+    const tex = new T.CanvasTexture(c); tex.encoding = T.sRGBEncoding;
+    const a = 6, r = fenceAt(a) * .985, [dx, dz] = dirOf(a);
+    const board = new T.Mesh(new T.PlaneGeometry(5.6, 2.2), new T.MeshBasicMaterial({map: tex})); board.position.set(dx * r, 1.45, dz * r);
+    park.add(board); board.lookAt(HP.x, 1.45, HP.z); pick(board, jobs);
+  }
+  // El Grande in right field: the full job list
+  if (D.processes.length){
     const c = document.createElement('canvas'); c.width = 512; c.height = 256; const x = c.getContext('2d');
     x.fillStyle = '#071022'; x.fillRect(0, 0, 512, 256); x.strokeStyle = '#eb6e1f'; x.lineWidth = 6; x.strokeRect(3, 3, 506, 250);
-    x.fillStyle = '#eb6e1f'; x.font = '700 26px "Space Grotesk", Inter, sans-serif'; x.fillText('PROCESSES', 22, 40);
-    const col = {ok: '#3ddc97', running: '#4cc9f0', late: '#f2b84b', failed: '#ff5c6c', manual: '#8fa3bf', none: '#56657c', ended: '#56657c'};
+    x.fillStyle = '#eb6e1f'; x.font = '700 26px "Space Grotesk", Inter, sans-serif'; x.fillText('JOBS', 22, 40);
+    x.fillStyle = '#9fb0c8'; x.font = '600 16px Inter, sans-serif'; x.fillText(`${okN} of ${D.processes.length} OK`, 400, 38);
     D.processes.slice(0, 8).forEach((p, i) => { const yy = 74 + i * 23;
-      x.fillStyle = col[p.state] || '#56657c'; x.beginPath(); x.arc(30, yy - 6, 7, 0, 7); x.fill();
+      x.fillStyle = jobColor[p.state] || '#56657c'; x.beginPath(); x.arc(30, yy - 6, 7, 0, 7); x.fill();
       x.fillStyle = '#dfe8f5'; x.font = '600 17px Inter, sans-serif'; x.fillText(p.title.slice(0, 30), 46, yy);
-      x.fillStyle = col[p.state] || '#8fa3bf'; x.font = '600 15px "JetBrains Mono", monospace'; x.fillText(p.label.toUpperCase().slice(0, 14), 360, yy); });
+      x.fillStyle = jobColor[p.state] || '#8fa3bf'; x.font = '600 15px "JetBrains Mono", monospace'; x.fillText(p.label.toUpperCase().slice(0, 14), 360, yy); });
     const tex = new T.CanvasTexture(c); tex.encoding = T.sRGBEncoding;
-    const face = new T.MeshBasicMaterial({map: tex}), body = mat(0x1a2236), info = {kind: 'processes'};
-    const sb = new T.Group(); sb.position.set(HP.x - 21, 0, HP.z - 21); sb.rotation.y = Math.PI / 4; scene.add(sb);
-    const board = new T.Mesh(new T.BoxGeometry(13, 6.5, .6), [body, body, body, body, face, body]); board.position.y = 8.6; board.castShadow = true; sb.add(board);
-    [-4.5, 4.5].forEach(px => { const post = new T.Mesh(new T.BoxGeometry(.6, 5.4, .6), body); post.position.set(px, 2.7, -.1); sb.add(post); pick(post, info); });
-    pick(board, info);
-    const okN = D.processes.filter(p => ['ok', 'running', 'manual'].includes(p.state)).length;
-    label('Ballpark', new T.Vector3(HP.x + 4, .6, HP.z + 6), 'big', () => openInfo(info), 'var(--ok)');
-    bubble(`${okN} of ${D.processes.length} jobs OK`, new T.Vector3(HP.x - 21, 13.4, HP.z - 21), () => openInfo(info));
+    const a = 78, r = fenceAt(a) + 3.2, [dx, dz] = dirOf(a), body = mat(0x1a2236);
+    const eg = new T.Group(); eg.position.set(dx * r, 0, dz * r); park.add(eg);
+    const board = new T.Mesh(new T.BoxGeometry(12, 5.4, .6), [body, body, body, body, new T.MeshBasicMaterial({map: tex}), body]);
+    board.position.y = 7.4; board.castShadow = true; eg.add(board); pick(board, jobs);
+    [-4, 4].forEach(px => { const post = new T.Mesh(new T.BoxGeometry(.6, 4.8, .6), body); post.position.set(px, 2.4, -.1); eg.add(post); pick(post, jobs); });
+    eg.lookAt(HP.x, 0, HP.z);
+    bubble(`${okN} of ${D.processes.length} jobs OK`, new T.Vector3(HP.x + dx * r, 11.4, HP.z + dz * r), () => openInfo(jobs));
   }
+  // home-run pump in left-center: commits on the yard's cards this week
+  const weekCommits = D.projects.reduce((s, p) => s + (p.week || 0), 0);
+  {
+    const a = 28, r = fenceAt(a) + .9, [dx, dz] = dirOf(a), info = {kind: 'pump'};
+    const c = document.createElement('canvas'); c.width = 128; c.height = 96; const x = c.getContext('2d');
+    x.fillStyle = '#101820'; x.fillRect(0, 0, 128, 96); x.fillStyle = '#ffd27a'; x.font = '700 54px "JetBrains Mono", monospace';
+    x.textAlign = 'center'; x.fillText(String(weekCommits), 64, 66);
+    const tex = new T.CanvasTexture(c); tex.encoding = T.sRGBEncoding;
+    const pg = new T.Group(); pg.position.set(dx * r, 0, dz * r); park.add(pg);
+    const bodyM = mat(0xf2f2f2), face = new T.MeshBasicMaterial({map: tex});
+    const pb = new T.Mesh(new T.BoxGeometry(1.4, 2.6, .9), [bodyM, bodyM, mat(0xeb6e1f), bodyM, face, bodyM]); pb.position.y = 1.6; pb.castShadow = true; pg.add(pb); pick(pb, info);
+    const tp = new T.Mesh(new T.BoxGeometry(1.6, .5, 1), mat(0xeb6e1f)); tp.position.y = 3.15; pg.add(tp); pick(tp, info);
+    const hose = new T.Mesh(new T.CylinderGeometry(.06, .06, 1.4, 6), mat(0x222222)); hose.position.set(.85, 1.2, 0); pg.add(hose);
+    pg.lookAt(HP.x, 0, HP.z);
+  }
+  // the retractable roof: two rails and three panels stacked beyond right field (open)
+  {
+    const rg = new T.Group(); rg.rotation.y = Math.PI / 4; park.add(rg);
+    const dk = mat(0x3c4658), RH = 9;
+    const rad = (geo, m, x, y, z) => { const me = new T.Mesh(geo, m); me.position.set(x, y, z); me.castShadow = true; rg.add(me); return me; };
+    rad(new T.BoxGeometry(39, .9, .9), dk, 2.5, RH, -29); [-16, -4, 8, 21].forEach(rx => rad(new T.BoxGeometry(.7, RH, .7), dk, rx, RH / 2, -29));
+    rad(new T.BoxGeometry(14, .9, .9), dk, 16.5, RH, -5); [10.5, 22].forEach(rx => rad(new T.BoxGeometry(.7, RH, .7), dk, rx, RH / 2, -5));
+    [[13.5, 11.6, .5], [16.5, 12, .52], [19.5, 12.4, .54]].forEach(([px, R, sy]) => {
+      const geo = new T.CylinderGeometry(R, R, 8.6, 26, 1, true, 0, Math.PI); geo.rotateZ(Math.PI / 2);
+      const pnl = rad(geo, mat(0xd2dcec, {side: T.DoubleSide, roughness: .4, transparent: true, opacity: .42, depthWrite: false}), px, RH + .5, -17); pnl.scale.y = sy; pnl.castShadow = false;
+      const tr = new T.LineSegments(new T.EdgesGeometry(geo, 1), new T.LineBasicMaterial({color: 0xa9bad6, transparent: true, opacity: .85}));
+      tr.position.copy(pnl.position); tr.scale.y = sy; rg.add(tr);
+    });
+    [[-14, -29], [4, -29], [12, -5]].forEach(([lx, lz]) => {
+      const pan = rad(new T.BoxGeometry(3, 1.2, .3), new T.MeshBasicMaterial({color: 0xfff6dc}), lx, RH + 1.2, lz);
+      const w = new T.Vector3(); pan.getWorldPosition(w); glow(w.x, w.y, w.z, 9, 0xfff0c8, .7);
+    });
+  }
+  // Union Station (1911, brick + limestone) on the left-field side, and the glass wall + train track beyond left field
+  {
+    const ux = -21, uz = 12, info = {kind: 'processes'};
+    const sm = winMat(12, 5, 1911, '#7a3a2a', '#ffd9a0', .78), rm = mat(0x4a2a22), lime = mat(0xd9d0bd);
+    const us = new T.Mesh(new T.BoxGeometry(17, 9, 6.5), [sm, sm, rm, rm, sm, sm]); us.position.set(ux, 4.5, uz); us.castShadow = us.receiveShadow = true; park.add(us); pick(us, info);
+    [3.1, 9.2].forEach(y => padd(new T.BoxGeometry(17.4, .45, 6.9), lime, ux, y, uz, info));
+    const c = document.createElement('canvas'); c.width = 512; c.height = 64; const x = c.getContext('2d');
+    x.fillStyle = '#d9d0bd'; x.fillRect(0, 0, 512, 64); x.fillStyle = '#5a2a1e'; x.font = '700 38px Georgia, serif'; x.textAlign = 'center'; x.fillText('UNION  STATION', 256, 46);
+    const st = new T.CanvasTexture(c); st.encoding = T.sRGBEncoding;
+    const sign = new T.Mesh(new T.PlaneGeometry(11, 1.35), new T.MeshBasicMaterial({map: st})); sign.position.set(ux, 7.7, uz + 3.27); park.add(sign);
+    label('Union Station', new T.Vector3(HP.x + ux, 10.4, HP.z + uz), 'small', () => openInfo(info), '#d9d0bd');
+  }
+  const TX = -24.2, TY = 9.3;
+  {
+    const glass = new T.Mesh(new T.PlaneGeometry(19, 9), new T.MeshStandardMaterial({color: 0x9fd2ff, transparent: true, opacity: .28, roughness: .1, metalness: .4, side: T.DoubleSide}));
+    glass.rotation.y = Math.PI / 2; glass.position.set(TX + .1, 4.5, -3); park.add(glass);
+    const mull = new T.LineSegments(new T.EdgesGeometry(new T.PlaneGeometry(19, 9, 8, 3)), new T.LineBasicMaterial({color: 0x6b7a95}));
+    mull.rotation.y = Math.PI / 2; mull.position.copy(glass.position); park.add(mull);
+    padd(new T.BoxGeometry(1.4, .35, 21), mat(0x2b2f38), TX, TY - .2, -3);
+    padd(new T.BoxGeometry(.12, .12, 21), mat(0x9aa3b5), TX - .45, TY, -3); padd(new T.BoxGeometry(.12, .12, 21), mat(0x9aa3b5), TX + .45, TY, -3);
+  }
+  // the train: a 4-4-0 like the General, tender full of giant baseballs
+  const train = new T.Group(); park.add(train);
+  {
+    const blk = mat(0x1b1d22), org = mat(0xeb6e1f), brass = mat(0xd9a441), red = mat(0x9c2a22), wht = mat(0xf5f3ee);
+    const tp = (geo, m, x, y, z) => { const me = new T.Mesh(geo, m); me.position.set(x, y, z); me.castShadow = true; train.add(me); pick(me, {kind: 'train'}); return me; };
+    tp(new T.BoxGeometry(1.1, .28, 4.4), blk, 0, .5, .2);
+    const boiler = tp(new T.CylinderGeometry(.55, .55, 3, 14), blk, 0, 1.05, .5); boiler.rotation.x = Math.PI / 2;
+    tp(new T.BoxGeometry(1.14, .14, 2.9), org, 0, .72, .5);
+    tp(new T.CylinderGeometry(.48, .16, 1, 10), blk, 0, 2, 1.65);
+    tp(new T.SphereGeometry(.3, 10, 8), brass, 0, 1.65, .5);
+    tp(new T.BoxGeometry(1.35, 1.4, 1.2), red, 0, 1.3, -1.5); tp(new T.BoxGeometry(1.6, .14, 1.45), blk, 0, 2.06, -1.5);
+    const cc = tp(new T.ConeGeometry(.62, .8, 4), org, 0, .42, 2.45); cc.rotation.x = Math.PI / 2;
+    tp(new T.BoxGeometry(.3, .3, .2), brass, 0, 1.35, 2.05);
+    [[-.55, .45, -.6], [.55, .45, -.6], [-.55, .45, .35], [.55, .45, .35], [-.5, .27, 1.2], [.5, .27, 1.2], [-.5, .27, 1.75], [.5, .27, 1.75]]
+      .forEach(([x, r, z]) => { const w = tp(new T.CylinderGeometry(r, r, .12, 14), red, x, r, z); w.rotation.z = Math.PI / 2; });
+    tp(new T.BoxGeometry(1.3, .9, 2), blk, 0, .95, -3.2); tp(new T.BoxGeometry(1.32, .16, 2.02), org, 0, 1.2, -3.2);
+    [[-.3, -2.7], [.3, -2.7], [0, -3.2], [-.3, -3.7], [.3, -3.7]].forEach(([x, z]) => tp(new T.SphereGeometry(.34, 12, 10), wht, x, 1.62, z));
+    const hl = glow(0, 0, 0, 2.2, 0xfff2c0, .9); scene.remove(hl); hl.position.set(0, 1.35, 2.3); train.add(hl);
+  }
+  const TR = {z0: 4, z1: -10, z: 4, dir: -1, run: 0, puffT: 0}, puffs = [];
+  for (let i = 0; i < 14; i++){ const p = glow(0, -50, 0, 1, 0xc9ced8, 0); p.material.blending = T.NormalBlending; p.material.needsUpdate = true; puffs.push({s: p, life: 0}); }
+  window.__runTrain = () => { TR.run = 6.5; };
+  anim.push((t, dt) => {
+    if (TR.run > 0){
+      TR.run -= dt; TR.z += TR.dir * dt * 3.4;
+      if (TR.z < TR.z1){ TR.z = TR.z1; TR.dir = 1; } if (TR.z > TR.z0){ TR.z = TR.z0; TR.dir = -1; }
+      TR.puffT -= dt;
+      if (TR.puffT <= 0){ TR.puffT = .16; const p = puffs.find(q => q.life <= 0);
+        if (p){ const w = new T.Vector3(0, 2.6, 1.65); train.localToWorld(w); p.s.position.copy(w); p.life = 1.6; } }
+    }
+    train.position.set(TX, TY, TR.z); train.rotation.y = TR.dir < 0 ? Math.PI : 0;
+    puffs.forEach(p => { if (p.life > 0){ p.life -= dt; p.s.position.y += dt * 1.6; const k = 1 - p.life / 1.6;
+      p.s.scale.set(1 + k * 2.6, 1 + k * 2.6, 1); p.s.material.opacity = .55 * (1 - k); if (p.life <= 0) p.s.material.opacity = 0; } });
+  });
+  setTimeout(() => window.__runTrain(), 1200);   // the train runs when the team takes the field
+  label('Daikin Park', new T.Vector3(HP.x + 5, .6, HP.z + 9), 'big', () => openInfo(jobs), 'var(--ok)');
 
-  /* ---------- THE PORT: research batches dock as ships */
+  /* ---------- PORT OF HOUSTON: research batches dock as ships */
   const ships = [];
   {
     const info = {kind: 'port'}, wood = mat(0x6b5240), px = 53;
     [-8, 4].forEach(pz => { const pier = add(new T.BoxGeometry(16, .5, 2.4), wood, px + 6, -.2, pz); if (D.research.length) pick(pier, info); });
     tower(46, -2, 6, 8, 5, {y: .3, lit: .5, seed: 9, base: '#33405e', cap: 0x6b7aa0, info: D.research.length ? info : null});
+    [[0xc8452c, 57, -8], [0x2f6db5, 63, 4]].forEach(([col, gx, gz]) => {     // container gantry cranes
+      const cm = mat(col);
+      [[-1.3, -1.3], [1.3, -1.3], [-1.3, 1.3], [1.3, 1.3]].forEach(([lx, lz]) => add(new T.BoxGeometry(.35, 7, .35), cm, gx + lx, 3.3, gz + lz));
+      add(new T.BoxGeometry(3, .5, 3), cm, gx, 6.9, gz); add(new T.BoxGeometry(11, .4, .6), cm, gx + 2.5, 7.4, gz);
+      add(new T.BoxGeometry(1.2, .7, 1), mat(0x2b2f38), gx + 5.5, 6.7, gz); });
+    const boxCols = [0xb4472f, 0x2f6db5, 0x3d8c5a, 0xd19a2b, 0x7a4fa0, 0x2a8f9b];
+    for (let i = 0; i < 9; i++){ const cx = 49 + (i % 3) * 2.7, cz = 9 + Math.floor(i / 3) * 1.2, stack = 1 + (i * 7) % 3;
+      for (let k = 0; k < stack; k++) add(new T.BoxGeometry(2.5, 1, 1.05), mat(boxCols[(i + k) % boxCols.length]), cx, .8 + k, cz); }
     const hulls = [0x2a4d8f, 0x8f2a3a, 0x2a8f6b, 0x8f6b2a, 0x5a2a8f, 0x2a7f8f, 0x8f4f2a];
     D.research.slice(0, 6).forEach((r, i) => {
       const sx = px + 3 + (i % 3) * 4.6, sz = i < 3 ? -4.6 : 7.6, sg = new T.Group(); sg.position.set(sx, -1.1, sz); scene.add(sg);
@@ -1283,17 +1570,17 @@ function buildWorld(){
       const sinfo = {kind: 'ship', i}; [hull, cab, win].forEach(m => pick(m, sinfo));
       sg.userData.y0 = -1.1; ships.push(sg);
     });
-    if (D.research.length) label('The Port', new T.Vector3(px + 4, .4, 13), 'big', () => openInfo(info), 'var(--run)');
+    if (D.research.length) label('Port of Houston', new T.Vector3(px + 4, .4, 14), 'big', () => openInfo(info), 'var(--run)');
     if (D.research.length) bubble(`${D.research.length} research batches`, new T.Vector3(46, 8, -2), () => openInfo(info));
   }
 
   /* ---------- trees */
   {
     const taken = [[-61, 6, -10, 49], ...(D.library.length ? [[-61, -49, -10, 0]] : []), [-9.5, -55, -4.5, 55], [-65, 1, 58, 5.5], [10, -46, 34, -15],
-      [14, 8, 52, 50], [44, -12, 60, 16], [12, 6, 30, 22]];
+      [4, -8, 58, 52], [44, -12, 64, 16]];
     const r = rng(42), leaf = [mat(0x2f6b3f), mat(0x3d7d47), mat(0x2a5c3a)], trunk = mat(0x4a3628);
     let n = 0, tries = 0;
-    while (n < 90 && tries < 3000){ tries++;
+    while (n < 80 && tries < 3000){ tries++;
       const x = -62 + r() * 116, z = -50 + r() * 100;
       if (taken.some(([a, b, c, d]) => x > a && x < c && z > b && z < d)) continue;
       if ((x / 60) ** 2 + (z / 52) ** 2 > 1.05) continue;
@@ -1326,7 +1613,7 @@ function buildWorld(){
   function nextToast(){ if (!recent.length) return; const e = recent[ti++ % recent.length], m = /Merge pull request #(\d+)/.exec(e.c.subj);
     $('#wtoast').innerHTML = `<div class="t">${m ? 'Merged #' + m[1] : 'Commit ' + esc(e.c.sha)}</div><div class="sj">${esc(m ? (e.p.title) : e.c.subj.slice(0, 90))}</div>
       <div class="r"><div>Project<b>${esc(e.p.tag || e.p.title.slice(0, 16))}</b></div><div>When<b>${esc(ago(e.c.ts))}</b></div><div>By<b>${esc(e.c.author.split(/[ _]/)[0])}</b></div></div>`;
-    toast = projPos[e.p.id]; }
+    toast = projPos[e.p.id]; if (Date.now() / 1000 - e.c.ts < 86400 && window.__runTrain) window.__runTrain(); }
   nextToast(); setInterval(nextToast, 5200);
 
   /* ---------- hover + click */
@@ -1347,7 +1634,9 @@ function buildWorld(){
         ${p.next ? `<div class="c">Next: ${esc(p.next)}</div>` : ''}`; }
     if (info.kind === 'shelf'){ const s = D.shelves.find(x => x.key === info.key), xs = D.library.filter(x => x.s.includes(info.key));
       const by = k => xs.filter(x => x.k === k).length;
-      return `<div class="h">${esc(s.name)}</div><div class="s">${xs.length} notes: ${by('concept')} concepts, ${by('drill')} drills, ${by('cue')} cues, ${by('source')} sources</div><div class="c">Click to browse the shelf</div>`; }
+      return `<div class="h">${esc(s.name)}</div><div class="s">${esc(shelfLandmark[info.key] || '')}</div><div class="s">${xs.length} notes: ${by('concept')} concepts, ${by('drill')} drills, ${by('cue')} cues, ${by('source')} sources</div><div class="c">Click to browse the shelf</div>`; }
+    if (info.kind === 'pump') return `<div class="h">Home-run pump</div><div class="s">${P.reduce((s, p) => s + (p.week || 0), 0)} commits this week on the project cards</div><div class="c">Click for the latest ones</div>`;
+    if (info.kind === 'train') return `<div class="h">The train</div><div class="s">Runs when a commit from the last 24 hours comes up on the board, like the real one after a home run</div><div class="c">Click for this week's commits</div>`;
     if (info.kind === 'ideas') return `<div class="h">Idea Bank</div><div class="s">${D.ideas.length} ideas, ${D.ideas_new} new this week</div>${D.ideas[0] ? `<div class="c">Newest: ${esc(D.ideas[0].title)}</div>` : ''}`;
     if (info.kind === 'processes'){ const bad = PR.filter(p => p.state === 'failed' || p.state === 'late');
       return `<div class="h">Scoreboard: automated jobs</div><div class="s">${PR.length} jobs, ${bad.length} need a look</div>${bad.map(p => `<div class="c">${esc(p.title)}: ${esc(p.label)}</div>`).join('')}`; }
@@ -1365,9 +1654,13 @@ function buildWorld(){
     else if (info.kind === 'shelf'){ const s = D.shelves.find(x => x.key === info.key);
       const xs = D.library.filter(x => x.s.includes(info.key)).sort((a, b) => (b.c + b.a).localeCompare(a.c + a.a));
       h = `<h2>${esc(s.name)} shelf</h2><div class="ds">${xs.length} notes, newest first &middot; <a href="#" id="wtolib">open in the Library tab</a></div>` +
-        xs.slice(0, 60).map(x => `<a class="row" href="${esc(x.u)}"><span class="k k-${x.k}">${x.k}</span><span class="t">${esc(x.t)}</span><span class="d">${esc(x.c)}</span></a>`).join(''); }
+        xs.slice(0, 60).map(x => `<a class="row" href="javascript:void(0)" data-li="${x.i}"><span class="k k-${x.k}">${x.k}</span><span class="t">${esc(x.t)}</span><span class="d">${esc(x.c)}</span></a>`).join(''); }
     else if (info.kind === 'ideas') h = `<h2>Idea Bank</h2><div class="ds">${D.ideas.length} ideas, newest first</div><div class="igrid" style="grid-template-columns:1fr 1fr">` +
         D.ideas.map(i => `<a class="idea" href="${esc(i.uri || 'javascript:void(0)')}"><div class="t">${esc(i.title)}</div><div class="m"><span class="chip">${esc(i.status)}</span>${i.source !== 'unlabeled' ? `<span class="chip tag">${esc(i.source)}</span>` : ''}</div></a>`).join('') + '</div>';
+    else if (info.kind === 'pump' || info.kind === 'train'){ const wk = Date.now() / 1000 - 7 * 86400, rows = [];
+      P.forEach(p => p.commits.forEach(c => { if (c.ts >= wk) rows.push({p, c}); })); rows.sort((x, y) => y.c.ts - x.c.ts);
+      h = `<h2>This week&#39;s commits</h2><div class="ds">${P.reduce((s, p) => s + (p.week || 0), 0)} on the project cards in the last 7 days; the latest few per card are listed</div>` +
+        (rows.map(({p, c}) => `<div class="cm"><span class="mono">${esc(c.sha)}</span><span style="flex:1">${esc(c.subj)}</span><span class="a">${esc(p.tag || p.title.slice(0, 18))} &middot; ${esc(ago(c.ts))}</span></div>`).join('') || '<div class="empty">No commits on the cards this week.</div>'); }
     else if (info.kind === 'processes') h = `<h2>Automated jobs</h2><div class="ds">laptop jobs are read live; Posit rows are your manual entries</div>` + $('#procs').innerHTML;
     else if (info.kind === 'port' || info.kind === 'ship') h = `<h2>The Port: research</h2><div class="ds">link batches and research notes, newest first</div>` + $('#rrows').innerHTML;
     else if (info.kind === 'person'){ const mine = P.filter(p => p.owner.includes(info.who));
@@ -1401,7 +1694,7 @@ function buildWorld(){
   function loop(){
     requestAnimationFrame(loop);
     if ($('#sec-world').style.display === 'none') return;
-    const t = clock.getElapsedTime(); ctl.update();
+    const t = clock.getElapsedTime(), dt = Math.min(.1, t - (loop.last || t)); loop.last = t; ctl.update(); anim.forEach(f => f(t, dt));
     cranes.forEach(c => { c.g.rotation.y += c.s; if (c.tip) c.tip.material.opacity = .45 + .45 * Math.abs(Math.sin(t * 2.2)); });
     ships.forEach((s, i) => { s.position.y = s.userData.y0 + Math.sin(t * 1.3 + i * 1.7) * .14; s.rotation.z = Math.sin(t * .9 + i) * .03; });
     renderer.render(scene, cam);
@@ -1425,7 +1718,7 @@ showTab(START_TAB);
 /* ?selftest: open every kind of building once and log the verdict (headless check, no clicking) */
 if (/[?&]selftest/.test(location.search)) setTimeout(() => {
   /* every building kind that is DRAWN on this copy (the shared copy has no shelves, jobs or ships) */
-  const kinds = [{kind: 'project', id: P[0].id}, {kind: 'ideas'}, {kind: 'person', who: 'zac', pid: P[0].id}]
+  const kinds = [{kind: 'project', id: P[0].id}, {kind: 'ideas'}, {kind: 'person', who: 'zac', pid: P[0].id}, {kind: 'pump'}, {kind: 'train'}]
     .concat(D.library.length ? [{kind: 'shelf', key: 'pitching'}] : [], D.processes.length ? [{kind: 'processes'}] : [],
             D.research.length ? [{kind: 'port'}, {kind: 'ship', i: 0}] : []);
   let bad = 0;
