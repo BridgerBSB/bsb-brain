@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: 'Launch: an outfield jump metric'
 lane: now
 owner:

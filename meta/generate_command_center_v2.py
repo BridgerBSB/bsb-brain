@@ -24,12 +24,14 @@ import csv
 import datetime
 import fnmatch
 import glob
+import hashlib
 import html
 import json
 import os
 import re
 import subprocess
 import sys
+import time
 import urllib.parse
 
 import yaml
@@ -47,6 +49,8 @@ VAULT = v1.VAULT
 BANK = os.path.join(VAULT, "bank")
 OUT = os.path.join(VAULT, "Command-Center.html")
 VAULT_NAME = os.path.basename(VAULT)
+PUBLISH_REPO = r"C:\Users\Owner\pd-command-center"  # clone of zbridger_astros/pd-command-center (shared copy)
+NOWIN = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 REFRESH_MIN = 15  # the scheduled task's repeat interval; the page reloads on this beat
 
 STAGES = ["idea", "scoping", "building", "review", "shipped"]
@@ -267,6 +271,7 @@ def load_projects():
         stage = str(fm.get("stage") or "idea").lower()
         p = {
             "id": os.path.splitext(os.path.basename(path))[0],
+            "share": bool(fm.get("share")),  # opt-in: only these go to the shared work copy
             "title": fm.get("title") or h1(body) or os.path.basename(path)[:-3],
             "lane": str(fm.get("lane") or "next").lower(),
             "owner": [str(o).lower() for o in as_list(fm.get("owner")) or ["?"]],
@@ -516,16 +521,78 @@ def build():
         "lanes": [{"key": k, "name": n} for k, n in LANES],
         "tasks_ok": tasks is not None,
     }
-    blob = json.dumps(data, ensure_ascii=False, default=str).replace("</", "<\\/")
-    page = TEMPLATE.replace("__DATA__", blob)
-    with open(OUT, "w", encoding="utf-8") as fh:
-        fh.write(page)
+    write_page(data, OUT)
     secs = (datetime.datetime.now() - t0).total_seconds()
     states = {}
     for p in processes:
         states[p["state"]] = states.get(p["state"], 0) + 1
     print(f"wrote {OUT} in {secs:.1f}s: {len(projects)} projects, {len(processes)} processes {states}, "
           f"{len(ideas)} ideas, {len(library)} library notes, {len(attn)} attention items")
+    return data
+
+
+def write_page(data, out):
+    blob = json.dumps(data, ensure_ascii=False, default=str).replace("</", "<\\/")
+    with open(out, "w", encoding="utf-8") as fh:
+        fh.write(TEMPLATE.replace("__DATA__", blob))
+
+
+def shared_view(data):
+    """The copy Cael sees (Zac, Oct 15): projects marked share: true + the idea bank. No library,
+    processes, research, last-state or git triage, and no obsidian:// links (they only open here)."""
+    d = dict(data)
+    d["projects"] = [dict(p, uri="") for p in data["projects"] if p.get("share")]
+    d["ideas"] = [dict(i, uri=i["link"] if i["link"].startswith("http") else "") for i in data["ideas"]]
+    d.update(shared=True, today={}, attention=[], chronic=0, processes=[], research=[], library=[], tasks_ok=True)
+    return d
+
+
+def _fingerprint(d, with_counters):
+    core = {"p": [[p["id"], p["title"], p["lane"], p["owner"], p["stage"], p["status"], p["waiting_on"], p["next"],
+                   p["due"], p["tag"], [[s["done"], s["text"]] for s in p["steps"]], [c["sha"] for c in p["commits"]],
+                   (p.get("counter") or {}).get("done") if with_counters else None] for p in d["projects"]],
+            "i": [[i["title"], i["status"], i["source"], i["created"]] for i in d["ideas"]],
+            "tpl": hashlib.sha1(TEMPLATE.encode("utf-8")).hexdigest()}  # a page-code change publishes too
+    return hashlib.sha1(json.dumps(core, sort_keys=True, default=str).encode("utf-8")).hexdigest()
+
+
+def publish(data, min_gap_min=60):
+    """Write the shared page into the pd-command-center clone and push it when it changed.
+    A structural change (steps, lanes, commits, ideas) pushes right away; a live counter alone
+    (Command CV games graded) pushes at most once an hour, so the repo is not one commit per game."""
+    if not os.path.isdir(os.path.join(PUBLISH_REPO, ".git")):
+        print(f"publish: no clone at {PUBLISH_REPO}")
+        return
+    d = shared_view(data)
+    state_p = os.path.join(PUBLISH_REPO, "publish_state.json")  # gitignored
+    try:
+        with open(state_p, encoding="utf-8") as fh:
+            state = json.load(fh)
+    except (OSError, ValueError):
+        state = {}
+    fp, full = _fingerprint(d, False), _fingerprint(d, True)
+    age_min = (time.time() - state.get("at", 0)) / 60
+    if fp == state.get("fp") and (full == state.get("full") or age_min < min_gap_min):
+        print("publish: no change")
+        return
+    os.makedirs(os.path.join(PUBLISH_REPO, "site"), exist_ok=True)
+    write_page(d, os.path.join(PUBLISH_REPO, "site", "index.html"))
+
+    def g(*a):
+        return subprocess.run(["git", "-C", PUBLISH_REPO] + list(a), capture_output=True, text=True,
+                              timeout=120, creationflags=NOWIN)
+    g("add", "site/index.html")
+    r = g("commit", "-m", "publish: " + data["generated"])
+    if r.returncode != 0:
+        print("publish: nothing committed", (r.stdout + r.stderr)[-200:])
+        return
+    r = g("push", "-q", "origin", "HEAD")
+    if r.returncode != 0:
+        print("publish: PUSH FAILED", r.stderr[-300:])  # state not saved, so the next run retries
+        return
+    with open(state_p, "w", encoding="utf-8") as fh:
+        json.dump({"fp": fp, "full": full, "at": time.time()}, fh)
+    print(f"publish: pushed {len(d['projects'])} projects, {len(d['ideas'])} ideas")
 
 
 TEMPLATE = r"""<!doctype html>
@@ -738,6 +805,17 @@ a{color:inherit}
 .wdrawer .card:hover{transform:none}
 .wdrawer .card.open .drawer{grid-template-columns:1fr}
 .wdrawer .cm{flex-wrap:wrap}
+body.worldmode .wrap{padding:14px 16px}
+body.worldmode #world{height:calc(100vh - 28px);min-height:600px}
+body.worldmode .top{position:absolute;z-index:6;top:28px;left:30px;right:30px;margin:0;pointer-events:none}
+body.worldmode .top > *{pointer-events:auto}
+body.worldmode .brand{background:rgba(8,14,28,.72);border:1px solid var(--line2);border-radius:14px;padding:7px 15px 7px 8px;backdrop-filter:blur(8px)}
+body.worldmode .stamp{background:rgba(8,14,28,.72);border:1px solid var(--line2);border-radius:12px;padding:6px 12px;backdrop-filter:blur(8px)}
+body.worldmode .tabs{background:rgba(8,14,28,.72);backdrop-filter:blur(8px)}
+body.worldmode #wreset{top:auto;bottom:16px}
+body.worldmode .wtoast{top:96px}
+.grid.solo{grid-template-columns:minmax(0,1fr)}
+body.shared .local-only{display:none}
 @media (max-width:1100px){.grid,.libgrid{grid-template-columns:minmax(0,1fr)}.strip{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.next{grid-column:1/-1}}
 @media (max-width:640px){.wrap{padding:16px}.panel{padding:14px}.strip{grid-template-columns:minmax(0,1fr)}.card.open .drawer{grid-template-columns:1fr}.stamp{margin-left:0;text-align:left}}
 </style></head>
@@ -757,8 +835,8 @@ a{color:inherit}
     <div class="whud">
       <div class="wt">PD Campus</div>
       <div class="wk"><i style="background:var(--orange)"></i>Project Yard: lit floors = progress, orange frame = still to build</div>
-      <div class="wk"><i style="background:#ffd38a"></i>Library towers: one per shelf, lit windows = notes</div>
-      <div class="wk"><i style="background:var(--ok)"></i>Scoreboard = automated jobs &middot; Port = research batches</div>
+      <div class="wk local-only"><i style="background:#ffd38a"></i>Library towers: one per shelf, lit windows = notes</div>
+      <div class="wk local-only"><i style="background:var(--ok)"></i>Scoreboard = automated jobs &middot; Port = research batches</div>
       <div class="wk dim">drag to pan &middot; scroll to zoom &middot; right-drag to turn &middot; click anything</div>
     </div>
     <button id="wreset" class="wbtn">Reset view</button>
@@ -804,13 +882,15 @@ a{color:inherit}
 const D = JSON.parse(document.getElementById('data').textContent);
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function ago(ts){ if (!ts) return ''; const s = Date.now() / 1000 - ts; if (s < 90) return 'just now'; const m = s / 60; if (m < 60) return Math.floor(m) + 'm ago';
+  const h = m / 60; return h < 36 ? Math.floor(h) + 'h ago' : Math.floor(h / 24) + 'd ago'; }
 const OWN = {zac:['Z','var(--zac)','Zac'], cael:['C','var(--cael)','Cael'], both:['B','var(--both)','Both']};
 $('#gen').textContent = D.generated; $('#rf').textContent = D.refresh_min;
 
 /* ---------- tabs (remembered in the URL hash so the auto-reload keeps your tab) */
 const HASH = {world: '#campus', cmd: '#command', lib: '#library'};
 function showTab(t){ document.querySelectorAll('.tab').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
-  $('#sec-world').style.display = t === 'world' ? 'block' : 'none';
+  $('#sec-world').style.display = t === 'world' ? 'block' : 'none'; document.body.classList.toggle('worldmode', t === 'world');
   $('#sec-cmd').style.display = t === 'cmd' ? '' : 'none'; $('#sec-lib').style.display = t === 'lib' ? 'block' : 'none';
   history.replaceState(null, '', HASH[t]); window.scrollTo(0, 0);
   if (t === 'world' && window.worldShown) window.worldShown(); }
@@ -854,7 +934,7 @@ function card(p, compact){
     p.due ? `<span class="chip due">due ${esc(p.due)}</span>` : ''].join('');
   const steps = p.steps.length ? '<ul class="steps">' + p.steps.map(s => `<li class="${s.done ? 'd' : ''}"><span class="bx"></span><span>${esc(s.text)}</span></li>`).join('') + '</ul>'
     : '<div class="empty">No steps yet. Tell Claude the steps and the bar starts counting.</div>';
-  const cms = p.commits.length ? p.commits.map(c => `<div class="cm"><span class="mono">${esc(c.sha)}</span><span style="flex:1">${esc(c.subj)}</span><span class="a">${esc(c.author.split(' ')[0])} &middot; ${esc(c.age)}</span></div>`).join('')
+  const cms = p.commits.length ? p.commits.map(c => `<div class="cm"><span class="mono">${esc(c.sha)}</span><span style="flex:1">${esc(c.subj)}</span><span class="a">${esc(c.author.split(' ')[0])} &middot; ${esc(ago(c.ts))}</span></div>`).join('')
     : '<div class="empty">No commit hook on this card.</div>';
   const link = p.link ? (/^https?:/.test(p.link) ? `<a href="${esc(p.link)}" target="_blank">${esc(p.link)}</a>` : esc(p.link)) : '';
   const extra = p.counter ? (p.counter.error ? `<div class="dl">counter: ${esc(p.counter.error)}</div>` : `<div class="dl">${esc(p.counter.detail || '')}</div>`) : '';
@@ -863,9 +943,9 @@ function card(p, compact){
     <div class="chips">${chips}</div>
     ${compact ? '' : progress(p)}
     ${p.next && !compact ? `<div class="nx"><b>Next:</b> ${esc(p.next)}</div>` : ''}
-    ${c && !compact ? `<div class="lt">last touched ${esc(c.age)} &middot; ${esc(c.subj)}</div>` : ''}
+    ${c && !compact ? `<div class="lt">last touched ${esc(ago(c.ts))} &middot; ${esc(c.subj)}</div>` : ''}
     <div class="drawer"><div><h4>Steps</h4>${steps}${extra}</div>
-      <div><h4>Recent commits</h4>${cms}<div class="dl">${link ? 'Link: ' + link + '<br>' : ''}<a href="${esc(p.uri)}">Open the card note in Obsidian</a></div></div></div>
+      <div><h4>Recent commits</h4>${cms}<div class="dl">${link ? 'Link: ' + link + '<br>' : ''}${p.uri ? `<a href="${esc(p.uri)}">Open the card note in Obsidian</a>` : ''}</div></div></div>
   </div>`;
 }
 $('#lanes').innerHTML = D.lanes.map(l => { const ps = P.filter(p => p.lane === l.key); if (!ps.length) return '';
@@ -888,6 +968,20 @@ $('#prsub').textContent = `${okish} of ${PR.length} OK`;
 $('#attn').innerHTML = D.attention.length ? D.attention.map(a => `<li class="sev${a.sev}">${a.html}</li>`).join('') : '<li>All clear.</li>';
 $('#atsub').textContent = D.chronic ? `${D.chronic} chronic drift hidden` : '';
 
+/* ---------- shared copy (Cael): projects + ideas only */
+if (D.shared){
+  document.body.classList.add('shared');
+  document.querySelector('.brand small').textContent = 'Projects \u00b7 Ideas';
+  $('#strip').style.gridTemplateColumns = 'repeat(3,minmax(0,1fr))';
+  $('#strip').innerHTML = `
+   <div class="panel kpi"><div class="n">${P.filter(p => p.lane === 'now').length}</div><div class="l">Projects in Now</div><div class="s">${P.filter(p => p.lane === 'next').length} in Next &middot; ${P.filter(p => p.lane === 'later').length} not started</div></div>
+   <div class="panel kpi"><div class="n">${P.filter(p => p.owner.includes('cael')).length}</div><div class="l">Cael&#39;s projects</div><div class="s">${P.filter(p => p.owner.includes('zac')).length} Zac&#39;s</div></div>
+   <div class="panel kpi"><div class="n">${D.ideas.length}</div><div class="l">Ideas banked</div><div class="s">${D.ideas_new} new this week</div></div>`;
+  const lt = document.querySelector('.tab[data-tab="lib"]'); if (lt) lt.remove();
+  const rc = $('#procs').closest('.panel').parentElement; if (rc) rc.remove();
+  document.querySelector('#sec-cmd .grid').classList.add('solo');
+}
+
 /* ---------- idea bank */
 const week = new Date(Date.now() - 7 * 864e5).toISOString().slice(0, 10);
 let iSrc = 'all', iQ = '';
@@ -902,7 +996,7 @@ function drawIdeas(){
 function drawGrid(){
   const q = iQ.trim().toLowerCase();
   const xs = D.ideas.filter(i => (iSrc === 'all' || i.source === iSrc) && (!q || (i.title + ' ' + i.domain + ' ' + i.source).toLowerCase().includes(q)));
-  $('#igrid').innerHTML = xs.map(i => `<a class="idea" href="${esc(i.uri)}">
+  $('#igrid').innerHTML = xs.map(i => `<a class="idea" href="${esc(i.uri || 'javascript:void(0)')}">
     ${i.created >= week ? '<div class="new">NEW</div>' : ''}<div class="t">${esc(i.title)}</div>
     <div class="m"><span class="chip">${esc(i.status)}</span>${i.domain ? `<span class="chip">${esc(i.domain)}</span>` : ''}${i.source !== 'unlabeled' ? `<span class="chip tag">${esc(i.source)}</span>` : ''}${i.effort ? `<span class="chip">effort ${esc(i.effort)}</span>` : ''}</div></a>`).join('')
     || '<div class="empty">No ideas match.</div>';
@@ -997,7 +1091,7 @@ function buildWorld(){
   slab(-66, -54, 58, 54, 13, 1.4, 0x27304a, -.7);           // shoreline
   slab(-64, -52, 56, 52, 12, 2.6, 0x3b4664, 0);              // island
   slab(-60, 7, -11, 48, 3, .3, 0x4b5675, .3);                // project yard pad
-  slab(-60, -48, -11, -1, 3, .3, 0x434e6c, .3);              // library pad
+  if (D.library.length) slab(-60, -48, -11, -1, 3, .3, 0x434e6c, .3);   // library pad (absent on the shared copy)
   slab(-3, -46, 50, -12, 4, .2, 0x2d5236, .2);               // bank lawn
   slab(-2, -6, 52, 48, 5, .15, 0x2b4c33, .15);               // park grounds
   const roadM = mat(0x1f2638);
@@ -1103,8 +1197,8 @@ function buildWorld(){
     shelfPos[s.key] = new T.Vector3(x, .6 + h + 1.2, z);
     label(`${s.name}  ${s.n}`, new T.Vector3(x, .6 + h + 1, z), 'small', () => openInfo(info), '#ffd38a');
   });
-  label('The Library', new T.Vector3(-35, .6, -0.8), 'big', () => showTab('lib'), '#ffd38a');
-  bubble(`${D.library.length.toLocaleString()} notes on the shelves`, new T.Vector3(-35, 5.5, -0.8), () => showTab('lib'));
+  if (D.library.length) label('The Library', new T.Vector3(-35, .6, -0.8), 'big', () => showTab('lib'), '#ffd38a');
+  if (D.library.length) bubble(`${D.library.length.toLocaleString()} notes on the shelves`, new T.Vector3(-35, 5.5, -0.8), () => showTab('lib'));
 
   /* ---------- IDEA BANK */
   {
@@ -1147,7 +1241,7 @@ function buildWorld(){
       glow(HP.x + lx, 15.2, HP.z + lz, 8, 0xfff0c8, .75);
     });
   }
-  {
+  if (D.processes.length) {
     const c = document.createElement('canvas'); c.width = 512; c.height = 256; const x = c.getContext('2d');
     x.fillStyle = '#071022'; x.fillRect(0, 0, 512, 256); x.strokeStyle = '#eb6e1f'; x.lineWidth = 6; x.strokeRect(3, 3, 506, 250);
     x.fillStyle = '#eb6e1f'; x.font = '700 26px "Space Grotesk", Inter, sans-serif'; x.fillText('PROCESSES', 22, 40);
@@ -1171,8 +1265,8 @@ function buildWorld(){
   const ships = [];
   {
     const info = {kind: 'port'}, wood = mat(0x6b5240), px = 53;
-    [-8, 4].forEach(pz => pick(add(new T.BoxGeometry(16, .5, 2.4), wood, px + 6, -.2, pz), info));
-    tower(46, -2, 6, 8, 5, {y: .3, lit: .5, seed: 9, base: '#33405e', cap: 0x6b7aa0, info});
+    [-8, 4].forEach(pz => { const pier = add(new T.BoxGeometry(16, .5, 2.4), wood, px + 6, -.2, pz); if (D.research.length) pick(pier, info); });
+    tower(46, -2, 6, 8, 5, {y: .3, lit: .5, seed: 9, base: '#33405e', cap: 0x6b7aa0, info: D.research.length ? info : null});
     const hulls = [0x2a4d8f, 0x8f2a3a, 0x2a8f6b, 0x8f6b2a, 0x5a2a8f, 0x2a7f8f, 0x8f4f2a];
     D.research.slice(0, 6).forEach((r, i) => {
       const sx = px + 3 + (i % 3) * 4.6, sz = i < 3 ? -4.6 : 7.6, sg = new T.Group(); sg.position.set(sx, -1.1, sz); scene.add(sg);
@@ -1182,13 +1276,13 @@ function buildWorld(){
       const sinfo = {kind: 'ship', i}; [hull, cab, win].forEach(m => pick(m, sinfo));
       sg.userData.y0 = -1.1; ships.push(sg);
     });
-    label('The Port', new T.Vector3(px + 4, .4, 13), 'big', () => openInfo(info), 'var(--run)');
-    bubble(`${D.research.length} research batches`, new T.Vector3(46, 8, -2), () => openInfo(info));
+    if (D.research.length) label('The Port', new T.Vector3(px + 4, .4, 13), 'big', () => openInfo(info), 'var(--run)');
+    if (D.research.length) bubble(`${D.research.length} research batches`, new T.Vector3(46, 8, -2), () => openInfo(info));
   }
 
   /* ---------- trees */
   {
-    const taken = [[-61, 6, -10, 49], [-61, -49, -10, 0], [-9.5, -55, -4.5, 55], [-65, 1, 58, 5.5], [10, -46, 34, -15],
+    const taken = [[-61, 6, -10, 49], ...(D.library.length ? [[-61, -49, -10, 0]] : []), [-9.5, -55, -4.5, 55], [-65, 1, 58, 5.5], [10, -46, 34, -15],
       [14, 8, 52, 50], [44, -12, 60, 16], [12, 6, 30, 22]];
     const r = rng(42), leaf = [mat(0x2f6b3f), mat(0x3d7d47), mat(0x2a5c3a)], trunk = mat(0x4a3628);
     let n = 0, tries = 0;
@@ -1224,7 +1318,7 @@ function buildWorld(){
   const ping = glow(0, -60, 0, 9, 0xeb6e1f, 0), ring = glow(0, -60, 0, 4, 0xffd0a8, 0);
   function nextToast(){ if (!recent.length) return; const e = recent[ti++ % recent.length], m = /Merge pull request #(\d+)/.exec(e.c.subj);
     $('#wtoast').innerHTML = `<div class="t">${m ? 'Merged #' + m[1] : 'Commit ' + esc(e.c.sha)}</div><div class="sj">${esc(m ? (e.p.title) : e.c.subj.slice(0, 90))}</div>
-      <div class="r"><div>Project<b>${esc(e.p.tag || e.p.title.slice(0, 16))}</b></div><div>When<b>${esc(e.c.age)}</b></div><div>By<b>${esc(e.c.author.split(/[ _]/)[0])}</b></div></div>`;
+      <div class="r"><div>Project<b>${esc(e.p.tag || e.p.title.slice(0, 16))}</b></div><div>When<b>${esc(ago(e.c.ts))}</b></div><div>By<b>${esc(e.c.author.split(/[ _]/)[0])}</b></div></div>`;
     toast = projPos[e.p.id]; }
   nextToast(); setInterval(nextToast, 5200);
 
@@ -1253,7 +1347,7 @@ function buildWorld(){
     if (info.kind === 'port') return `<div class="h">The Port</div><div class="s">${D.research.length} research batches docked (last 60 days)</div><div class="c">Click to see them</div>`;
     if (info.kind === 'ship'){ const r = D.research[info.i]; return `<div class="h">${esc(r.title)}</div><div class="s">docked ${esc(r.created)} &middot; ${esc(r.folder)}</div><div class="c">Click to open the notes</div>`; }
     if (info.kind === 'person'){ const p = P.find(q => q.id === info.pid), c = p.commits[0];
-      return `<div class="h">${esc(ownerName(info.who))}</div><div class="s">on ${esc(p.title)}</div>${c ? `<div class="c">active ${esc(c.age)}: ${esc(c.subj.slice(0, 70))}</div>` : ''}`; }
+      return `<div class="h">${esc(ownerName(info.who))}</div><div class="s">on ${esc(p.title)}</div>${c ? `<div class="c">active ${esc(ago(c.ts))}: ${esc(c.subj.slice(0, 70))}</div>` : ''}`; }
     return '';
   }
   window.openInfo = openInfo; window.tipHtml = tipHtml;
@@ -1266,7 +1360,7 @@ function buildWorld(){
       h = `<h2>${esc(s.name)} shelf</h2><div class="ds">${xs.length} notes, newest first &middot; <a href="#" id="wtolib">open in the Library tab</a></div>` +
         xs.slice(0, 60).map(x => `<a class="row" href="${esc(x.u)}"><span class="k k-${x.k}">${x.k}</span><span class="t">${esc(x.t)}</span><span class="d">${esc(x.c)}</span></a>`).join(''); }
     else if (info.kind === 'ideas') h = `<h2>Idea Bank</h2><div class="ds">${D.ideas.length} ideas, newest first</div><div class="igrid" style="grid-template-columns:1fr 1fr">` +
-        D.ideas.map(i => `<a class="idea" href="${esc(i.uri)}"><div class="t">${esc(i.title)}</div><div class="m"><span class="chip">${esc(i.status)}</span>${i.source !== 'unlabeled' ? `<span class="chip tag">${esc(i.source)}</span>` : ''}</div></a>`).join('') + '</div>';
+        D.ideas.map(i => `<a class="idea" href="${esc(i.uri || 'javascript:void(0)')}"><div class="t">${esc(i.title)}</div><div class="m"><span class="chip">${esc(i.status)}</span>${i.source !== 'unlabeled' ? `<span class="chip tag">${esc(i.source)}</span>` : ''}</div></a>`).join('') + '</div>';
     else if (info.kind === 'processes') h = `<h2>Automated jobs</h2><div class="ds">laptop jobs are read live; Posit rows are your manual entries</div>` + $('#procs').innerHTML;
     else if (info.kind === 'port' || info.kind === 'ship') h = `<h2>The Port: research</h2><div class="ds">link batches and research notes, newest first</div>` + $('#rrows').innerHTML;
     else if (info.kind === 'person'){ const mine = P.filter(p => p.owner.includes(info.who));
@@ -1323,8 +1417,10 @@ window.worldShown = () => { if (!WORLD) WORLD = buildWorld(); else if (WORLD.res
 showTab(START_TAB);
 /* ?selftest: open every kind of building once and log the verdict (headless check, no clicking) */
 if (/[?&]selftest/.test(location.search)) setTimeout(() => {
-  const kinds = [{kind: 'project', id: P[0].id}, {kind: 'shelf', key: 'pitching'}, {kind: 'ideas'}, {kind: 'processes'},
-    {kind: 'port'}, {kind: 'ship', i: 0}, {kind: 'person', who: 'zac', pid: P[0].id}];
+  /* every building kind that is DRAWN on this copy (the shared copy has no shelves, jobs or ships) */
+  const kinds = [{kind: 'project', id: P[0].id}, {kind: 'ideas'}, {kind: 'person', who: 'zac', pid: P[0].id}]
+    .concat(D.library.length ? [{kind: 'shelf', key: 'pitching'}] : [], D.processes.length ? [{kind: 'processes'}] : [],
+            D.research.length ? [{kind: 'port'}, {kind: 'ship', i: 0}] : []);
   let bad = 0;
   kinds.forEach(k => { try { window.openInfo(k); if (!window.tipHtml(k)) throw new Error('empty tooltip');
     if (!$('#wbody').innerHTML.trim()) throw new Error('empty drawer'); } catch (e){ bad++; console.log('SELFTEST FAIL ' + k.kind + ': ' + e.message); } });
@@ -1350,6 +1446,8 @@ def open_once_daily():
 
 
 if __name__ == "__main__":
-    build()
+    DATA = build()
+    if "--publish" in sys.argv:
+        publish(DATA)
     if "--open-once-daily" in sys.argv:
         open_once_daily()

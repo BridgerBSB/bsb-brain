@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: OF directional metrics + when React beats accuracy
 lane: later
 source: mazzo

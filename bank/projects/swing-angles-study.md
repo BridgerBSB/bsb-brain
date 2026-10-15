@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: AA / VBA / HBA optimal swing angles study
 lane: later
 owner:

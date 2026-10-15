@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: 'Pitcher metric parity: tracker vs Profiler vs GC2'
 lane: next
 owner:

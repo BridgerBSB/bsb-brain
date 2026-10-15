@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: Steal times + matchup cards
 lane: now
 owner:

@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: 'Fielding pin: raw pull + Python rebuild'
 lane: next
 owner:

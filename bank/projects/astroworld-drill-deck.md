@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: 'Astro World: drill deck as one document card'
 lane: now
 owner:

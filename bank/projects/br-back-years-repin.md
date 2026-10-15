@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: 'BR tracker: back years re-pin'
 lane: next
 owner:

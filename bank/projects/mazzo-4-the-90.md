@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: The 90 BR leaderboard + weekly outcome reports + BR page cleanup
 lane: later
 source: mazzo

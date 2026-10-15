@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: Pitch tipping / tells for baserunners (last priority)
 lane: later
 source: mazzo

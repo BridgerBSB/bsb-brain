@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: 'Promotion models: re-pin, history reset, redeploy'
 lane: next
 owner:

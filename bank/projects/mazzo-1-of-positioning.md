@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: 'OF positioning: take a larger stance'
 lane: later
 source: mazzo

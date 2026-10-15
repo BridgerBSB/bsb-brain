@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: 'Pre-pitch timestamps: Takeoff / Hop / Landing / Read'
 lane: later
 source: mazzo

@@ -1,5 +1,6 @@
 ---
 type: project
+share: true
 title: 'Command CV: season card for every in-org pitcher'
 lane: now
 owner:
