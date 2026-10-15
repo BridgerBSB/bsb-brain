@@ -6,9 +6,8 @@ owner:
 - cael
 source: mazzo
 tag: 'Mazzo #2a'
-stage: scoping
-waiting_on: zac
-next: Confirm Cael owns this (his MLB Stats API context notes point at it)
+stage: building
+next: Cael building it (Zac confirmed Oct 15); his mlb-statsapi repo is not in the work org yet, so no live commit feed
 link: projects/mlb-stats-api-cael-context-2026-10.md
 updated: '2026-10-15'
 ---
