@@ -912,7 +912,7 @@ body.shared .local-only{display:none}
       <div class="wk"><i style="background:var(--orange)"></i>EaDo yard: a building per project, lit floors = progress</div>
       <div class="wk"><i style="background:#ffd38a"></i>Downtown skyline = the library, one landmark per shelf</div>
       <div class="wk"><i style="background:var(--ok)"></i>Daikin Park = the jobs &middot; the train runs on a fresh commit</div>
-      <div class="wk"><i style="background:var(--run)"></i>Port of Houston = research batches</div>
+      <div class="wk"><i style="background:var(--run)"></i>Port of Galveston = research batches</div>
       <div class="wk dim">drag to pan &middot; scroll to zoom &middot; right-drag to turn &middot; click anything</div>
     </div>
     <button id="wreset" class="wbtn">Reset view</button>
@@ -1547,7 +1547,7 @@ function buildWorld(){
   setTimeout(() => window.__runTrain(), 1200);   // the train runs when the team takes the field
   label('Daikin Park', new T.Vector3(HP.x + 5, .6, HP.z + 9), 'big', () => openInfo(jobs), 'var(--ok)');
 
-  /* ---------- PORT OF HOUSTON: research batches dock as ships */
+  /* ---------- PORT OF GALVESTON: research batches dock as ships */
   const ships = [];
   {
     const info = {kind: 'port'}, wood = mat(0x6b5240), px = 53;
@@ -1570,7 +1570,7 @@ function buildWorld(){
       const sinfo = {kind: 'ship', i}; [hull, cab, win].forEach(m => pick(m, sinfo));
       sg.userData.y0 = -1.1; ships.push(sg);
     });
-    if (D.research.length) label('Port of Houston', new T.Vector3(px + 4, .4, 14), 'big', () => openInfo(info), 'var(--run)');
+    if (D.research.length) label('Port of Galveston', new T.Vector3(px + 4, .4, 14), 'big', () => openInfo(info), 'var(--run)');
     if (D.research.length) bubble(`${D.research.length} research batches`, new T.Vector3(46, 8, -2), () => openInfo(info));
   }
 

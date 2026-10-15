@@ -70,7 +70,7 @@ Zac: "make this look like Houston / Daikin Park". The World is now a Houston cam
 | EaDo Project Yard | projects (floors = progress, cranes = building now) | East Downtown, next to the ballpark |
 | Downtown skyline | the library, one landmark per shelf | Pitching = JPMorgan Chase Tower (5-sided, tallest); Strength = Wells Fargo Plaza (curved green glass); Hitting = Bank of America Center (red granite Dutch-gothic gables + spires); Body = Heritage Plaza (Mayan stepped-pyramid top); PD + Mental = Pennzoil Place twins (dark bronze, sloped tops); Analytics = Gulf Building (1929 art deco setbacks) |
 | Daikin Park | the jobs | Fence 315 / 366 / 399 / 409 / 408 / 370 / 326 ft; 19 ft LF wall with the hand-run out-of-town board (= job lights); Crawford Boxes; El Grande in right field (= full job list); home-run pump in left-center (= card commits this week); three roof panels stacked beyond right field; Union Station (1911) on the left-field side; 4-4-0 "General" replica on the 800 ft track beyond LF (runs when a commit from the last 24 h shows, and at load) |
-| Port of Houston | research batches as ships | container cranes + boxes |
+| Port of Galveston (renamed from Houston, Zac 10-15) | research batches as ships | container cranes + boxes |
 
 Sources: [Daikin Park (Wikipedia)](https://en.wikipedia.org/wiki/Daikin_Park) ·
 [MLB facts and figures](https://www.mlb.com/astros/ballpark/information/facts-and-figures) ·
