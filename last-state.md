@@ -1,4 +1,14 @@
-# Last session state - 2026-10-13 21:40 CT (Astro World: drill deck as one document card; prod disk full)
+# Last session state - 2026-10-15 10:31 CT (Command CV: season run recovered after a reboot; failure diagnosis handed to the CV session)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` - now its OWN repo BridgerBSB/command-cv (moved 10-14, history kept; bsb-resources ignores `command-cv/`). The CV thread is OWNED by session `bsb-resources-21` (laptop workers + Hostinger GPU server).
+- **What we were doing:** Windows Update force-restarted the laptop 10-14 04:29 CT and killed the 3 season workers. Relaunched them, eye-checked 7 waiting parks, then dug into why so many games fail.
+- **Shipped this session:** `e6708ede7` (bsb-resources, carried into the new repo as `0e318ab`): Momentum Bank, Isotopes, Arvest, L.P. Frans, Pelicans, Las Vegas, Nymeo ready (35 parks). Run at 10:00: 260 graded (171 PASS / 89 FAIL), 192 left, 69/95 pitchers carded, 24% of pitches. Findings sent to `bsb-resources-21` (SendMessage 66f28ba9): (1) the 0.47 in gate is a coin flip near the line - near-miss FAILs pass on 13-49% of bootstrap resamples; propose ~0.75 in (broken cameras start 1.13); (2) Asheville HomeTrust window opens ~20 frames late (ball f177-186 vs lo 203) and the ladder moved it LATER to 323-390, where all 7 games failed 59-2,284 in; propose ~175-260. Recall checkpoint 318615999f2bd1f9, session 0e82.
+- **EXACT next step:** Nothing here. In `bsb-resources-21`: Zac decides `GATE_BOK_IN` (`command-cv/scripts/miss_season.py:79`, 0.47 -> ~0.75) and Asheville's window (`docs/miss_park_registry.csv` venue 2807 -> lo 175 / hi 260, and check the window ladder's shift direction), then `python scripts/miss_season.py --retry-failed`.
+- **Blockers / waiting on:** Zac's gate + Asheville calls. Laptop battery fell to 16% while plugged in (charging at 10:00). Windows Update can reboot again (pausing offered, not done). 5 finished `cv-detached-*` tasks in Task Scheduler (harmless; delete offered).
+- **Uncommitted work:** command-cv 3 files (ledger/landmarks, written by the running workers); bsb-resources pre-existing only.
+
+---
+
+## ALSO OPEN - 2026-10-13 21:40 CT (Astro World: drill deck as one document card; prod disk full)
 - **Project / cwd:** `C:/Users/Owner/astroworld` - branch `main` (feature branches merged) (+ `bsb-wt-hitting` feature/barrelsville, `bsb-resources` feature/pd-goals)
 - **What we were doing:** Putting the Catcher Plyo Exercises drill deck (6 slides + 4 videos) on Astro World as ONE square on the Practice Design grid that opens as a scrolling, PDF-like document with the videos playing inline. Built and merged it; 9 of 10 files uploaded, then every upload started failing "The server has run out of disk space".
 - **Shipped this session:** astroworld-dev PRs #91 (SectionLayout table, batch filename order + "Put every file under"), #92 (section on catching/drills), #93 (8 in-app-deleted pages -> RETIRED_SLUGS so Load structure stops recreating them), #94 `6b8f041` (document card: "Show as one card"). Barrelsville `59110dd07` (AFL column reorder for Kyle) + `ecfd9e960` (AFL lookup of any MiLB/MLB pitcher under a picked club). bsb-resources `0b02c6198` (Staff ID "Building a Player Plan" slide). gh CLI signed in on the ASUS. Recall checkpoints e50df0377079651f / 335949153a86e551 / 3b14fc2fb9d01f42, session aa2f.
@@ -25,16 +35,6 @@
 - **EXACT next step:** Topic closed by Zac. If reopened: (1) ask Zac whether the deck + one-pager should swap "Top 15 of 849" -> "#12 of 849" and $16.5M -> ~$16.7M (deck already delivered, his call); (2) promotion-velocity BUG 1: replace the `per_season` `MAX(mkt_sv)` CTE at `pd-goals/src/promotion_velocity_data.py:190` with GC2's formula from `sql-queries/owner-deck-av-gc2-exact.sql`.
 - **Blockers / waiting on:** Zac's deck decision only.
 - **Uncommitted work:** bsb-resources 83 pre-existing (none of this session's).
-
----
-
-## ALSO OPEN - 2026-10-13 09:31 CT (Command CV: every 2026 game's misses, season run live)
-- **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` - branch `feature/pd-goals`
-- **What we were doing:** Running Zac's "misses for every game of 2026": built `scripts/miss_season.py` (runs each game end to end, gates each game's camera, deletes the video), drove the Chrome pull myself (466 of 469 games), and fixed what the first real runs exposed (orphaned job collision, detect windows clipping the pitch, a no-video game stopping the pull).
-- **Shipped this session:** 45c24cc6b 7845a608f c468e2cd4 3ef1c079c bec9b7862 3af8c316e f08fdf8c9 d3e3312a1 8569e69d9 f4df8e0d0, lineage 7910586f7. Parks READY (11): Sugar Land, Corpus, Asheville, AdventHealth, Nelson Wolff, Salt Lake, Truist, Augusta, Arkansas, Wilmington, Greenville; BLOCKED: Fayetteville SEGRA, Greensboro. Window ladder (`f4df8e0d0`): 814868 1.56 FAIL -> 0.42 PASS. Rule `windows-toolchain.md`: venv python.exe is a launcher, kill the tree. Recall checkpoint 37670deddd782b7b, session c9a7.
-- **EXACT next step:** Job `cv-season4` is ALIVE (~262 games queued, log `command-cv/output/detached/cv-season4.log`). Check it with `.\scripts\run_detached.ps1 -Status -Name cv-season4`; then `python scripts/miss_season.py --refs-sheet` and eye-check new trial PASSes (`--eye-ok`, `--ready <venue_id>`); if Sugar Land keeps failing (~40%, 814873 = 12-in sideways bias, not clipping) add the FAIL fallback through the park's admitted camera (`stabilize_park --ref-clip`, proven at Sugar Land row 124); then `python scripts/miss_season.py --board` and send Zac the per-pitcher board.
-- **Blockers / waiting on:** Zac: delete ~24 GB of older clips? (disk 9-17 GB free, floor 6). Laptop plugged in + lid open (it slept twice; standby drops the network). v8r default + track_px<=5 gate still his calls. 162 games sit at trial parks that failed; Sutter Health Park has no boxes.
-- **Uncommitted work:** bsb-resources 83 pre-existing (none of this session's); sibling worktrees hold synced `windows-toolchain.md` copies.
 
 ---
 
