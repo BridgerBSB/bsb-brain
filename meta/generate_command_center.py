@@ -93,7 +93,8 @@ YELLOW, GREEN, RED = "#f2c94c", "#22f59a", "#ff5c5c"
 def run_git(path, *args, strip=True):
     try:
         out = subprocess.run(["git", "-C", path] + list(args),
-                             capture_output=True, text=True, timeout=15).stdout
+                             capture_output=True, text=True, timeout=15,
+                             creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0)).stdout
         return out.strip() if strip else out
     except Exception:
         return ""

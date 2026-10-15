@@ -1,8 +1,10 @@
 # BSB Brain Command Center - scheduled refresh.
 # Regenerates the dashboard, and ONCE per calendar day opens it in the default
 # browser. Any extra triggers the same day just refresh the data silently (no
-# tab-spam). Driven by the "BSB Command Center" scheduled task.
-py "C:\Users\Owner\bsb-brain\meta\generate_command_center.py"
+# tab-spam). NO LONGER the scheduled action (Oct 15 2026): the task now runs
+# pyw.exe generate_command_center_v2.py --open-once-daily, which does both steps
+# without a console window. Kept for running by hand.
+py "C:\Users\Owner\bsb-brain\meta\generate_command_center_v2.py"
 
 $marker = Join-Path $env:TEMP ("bsb_cc_opened_" + (Get-Date -Format 'yyyyMMdd'))
 if (-not (Test-Path $marker)) {
