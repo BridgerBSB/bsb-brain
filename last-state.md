@@ -1,4 +1,14 @@
-# Last session state - 2026-10-15 17:06 CT (Baseball Command Center v2: Houston world + Cael's shared copy)
+# Last session state - 2026-10-15 18:40 CT (BR item 6 steal matchups + BR definitions PDF for Mazzo + tracker fixes)
+- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (+ rule copy in bsb-resources / bullpen / hitting)
+- **What we were doing:** Steal matchup cards research (what each colour means on 50,321 real 2021-26 steals; 3-colour split; 3B ~1 tier too red), BR tracker fixes from Zac's questions, a coach-facing definitions PDF answering Mazzo's questionnaire, and a 1->H video list.
+- **Shipped this session:** intangibles `4fe38d02d` (0 SB/CS judged by attempts, leads combine by lead count, full precision, guard test_br_zero_attempts.py), `0213dc7b4` (GRD text filter removed: probe showed 0 GRDs in 1->H chances), `5038f89aa`/`322b397aa` (one_to_home_video_list.py), `8837fd7d0`+ (docs/glossary/br-metrics-definitions.html + Desktop Baserunning-Metrics-Definitions.pdf), `f70f586ab`/`fb9ab6818` (2021-26 curves, plain labels), `080c5daed` (WAITING ON table), lineage `94c813e61`. R&D SQL sql-queries/sb-matchup-inputs-for-rnd.sql (sent to JJ). Recall checkpoint 9c4804e829bbce2b, session 347a.
+- **EXACT next step:** BR item 6 + BR definitions session. Next session: Zac flagged the waiting list is a lot - split it into what Claude can take without him (audit bug fixes once approved, 3B shift if approved, back-year re-pin commands) vs Zac-only decisions; still waiting on JJ (R&D) for the 6 steal-timing answers. Start by re-sorting the WAITING ON table in `intangibles/docs/plans/2026-10-12-mazzo-of-br-wishlist.md` (item 6) into Claude-can-do vs Zac-only.
+- **Blockers / waiting on:** JJ (R&D) answers. Zac: `connect_pins_br\deploy.ps1` (~2h50m) + Intangibles redeploy `295a5205-5568-4fb6-a759-26dc63bc9439`, THEN forward the definitions PDF to Mazzo; 3-colour call; 3B shift; rule-16 + 4 audit bugs; send glossary R&D questions. Cael: Stats API 1006/1040-1042 MiLB probe.
+- **Uncommitted work:** intangibles clean (tracked); untracked output/ pre-existing.
+
+---
+
+## ALSO OPEN - 2026-10-15 17:06 CT (Baseball Command Center v2: Houston world + Cael's shared copy)
 - **Project / cwd:** `C:/Users/Owner/bsb-brain` - branch `master` (+ new repo `C:/Users/Owner/pd-command-center` main)
 - **What we were doing:** Recovered last night's Twitter research (all 15 links already filed, `07df173`), then built the one-stop Baseball Command Center Zac asked for: projects with progress bars, jobs, idea bank, library, as a Houston / Daikin Park isometric world, plus a shared copy for Cael.
 - **Shipped this session:** vault `5b050d0`..`53f06df` (generator v2, `bank/projects` 18 cards, `bank/processes` 7 jobs, design doc, LINEAGE). Repo `zbridger_astros/pd-command-center` (Cael = cmagill_astros added). Scheduled task = pyw v2 `--open-once-daily --publish` every 15 min. `~/.claude/commands/wrap.md` step 6 -> v2. Recall checkpoints 54e9b32b6fd769e2 + 3606d906ededaf7a, session 947c.
@@ -55,16 +65,6 @@
 - **EXACT next step:** Topic closed by Zac. If reopened: (1) ask Zac whether the deck + one-pager should swap "Top 15 of 849" -> "#12 of 849" and $16.5M -> ~$16.7M (deck already delivered, his call); (2) promotion-velocity BUG 1: replace the `per_season` `MAX(mkt_sv)` CTE at `pd-goals/src/promotion_velocity_data.py:190` with GC2's formula from `sql-queries/owner-deck-av-gc2-exact.sql`.
 - **Blockers / waiting on:** Zac's deck decision only.
 - **Uncommitted work:** bsb-resources 83 pre-existing (none of this session's).
-
----
-
-## ALSO OPEN - 2026-10-12 10:13 CT (BR tracker closed out + Mazzo wishlist + stolen-base matchup visuals)
-- **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (+ rule copies in bsb-resources / bullpen / hitting)
-- **What we were doing:** Finished the BR affiliate tracker (Zac deployed, "looks great", loads fast), then took in Mazzo's six OF + BR asks and built item 6's visuals: his grade pyramids and five matchup-grid layouts, on sample data.
-- **Shipped this session:** d96cb7480 (1-3 wash respects L/R + H/A splits), 322bdf156 (ties to best: best value = 100th + rank 1; best-first sort), 656ce255d + siblings (AgGrid `update_on=[]`, sorting no longer re-runs the page, all 5 trackers), 322011d72 (wishlist intake doc `intangibles/docs/plans/2026-10-12-mazzo-of-br-wishlist.md`), c7fc4c46f (`src/sb_matchup_visuals.py` + renders `docs/mocks/sb-matchup-renders/` + `scripts/test_sb_matchup_engine.py`), lineage ea074cdd7. Sample PDF `C:/Users/Owner/Desktop/sb-matchup-visuals-SAMPLE.pdf`. Rules: gc2-metrics.md percentile section, tracker-aggrid-stat-rank.md gotchas 4+5, br-advance-3rd-out-wash.md. Recall checkpoint 0f4cd1ed97238b10, session d37c.
-- **EXACT next step:** Zac: "here where we are at and then ill have to guide u in more specifc here you know". Waiting on Zac's guidance for item 6 (stolen-base matchups, REGULAR SEASON): (1) runner-time method from a stock 12 ft / 16 ft lead (recommended: reaction + speed-profile estimate for every runner, checked vs his real steals), (2) which matchups first (one affiliate vs a specific opponent, or level-wide). Then build the data layer feeding `sb_matchup_visuals.py`: TTP + pop from `Astros.CatcherDefense_SBA_Metrics`, runner times from `Baserun_Tracking_Speeds`.
-- **Blockers / waiting on:** Zac's guidance above; confirm 3 pyramid label changes with Mazzo (pop 2B G1 >1.92 not >1.93, pop 3B G1 >1.58 not >1.59, G5 uses <=); Mazzo was promised cards "this week" (Oct 11). BR back years 2025-2022 re-pin `--skip-pools` on the work laptop. Wishlist items 1-5 undecided.
-- **Uncommitted work:** intangibles 33 pre-existing (none of this session's); bsb-resources 81 pre-existing.
 
 ---
 
