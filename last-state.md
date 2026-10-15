@@ -1,4 +1,14 @@
-# Last session state - 2026-10-15 10:31 CT (Command CV: season run recovered after a reboot; failure diagnosis handed to the CV session)
+# Last session state - 2026-10-15 16:50 CT (Manager Game Card guide for MT; winter catching probe)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` - branch `feature/pd-goals`
+- **What we were doing:** Found Camden's Manager Game Card docs (cq/* branches only), re-verified the guide against live code and shipped a corrected PDF that Zac sent to MT. Then MT asked about winter catcher postgames: probed winter catching data coverage.
+- **Shipped this session:** `09c861ff8` corrected guide (`pd-goals/docs/mgr-card-guide/` + `C:/Users/zbrid/OneDrive/Desktop/Manager_Game_Card_Guide.pdf`). `790ec57a4` `sql-queries/winter-catching-coverage-probe.sql`, run by Zac (cwin1-7.csv in Downloads). Recall checkpoint session 0e40.
+- **EXACT next step:** Nothing active. Winter catching parked by Zac ("no catching reports for winter ball is chill"). Findings: only HOU catcher this winter = Cesar Salazar (1 LMP game); AFL full tracking, LIDOM 79% framing-only, LMP/LVBP/ABL/CS 0% tracked, PWL no pitch rows; "Unknowns" = NULL pitch types in untracked games. If MT wants card fixes in the offseason, start with the 3 code issues in LINEAGE 2026-10-15.
+- **Blockers / waiting on:** MT offseason refinement asks.
+- **Uncommitted work:** bsb-resources 9 pre-existing untracked items only.
+
+---
+
+## ALSO OPEN - 2026-10-15 10:31 CT (Command CV: season run recovered after a reboot; failure diagnosis handed to the CV session)
 - **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` - now its OWN repo BridgerBSB/command-cv (moved 10-14, history kept; bsb-resources ignores `command-cv/`). The CV thread is OWNED by session `bsb-resources-21` (laptop workers + Hostinger GPU server).
 - **What we were doing:** Windows Update force-restarted the laptop 10-14 04:29 CT and killed the 3 season workers. Relaunched them, eye-checked 7 waiting parks, then dug into why so many games fail.
 - **Shipped this session:** `e6708ede7` (bsb-resources, carried into the new repo as `0e318ab`): Momentum Bank, Isotopes, Arvest, L.P. Frans, Pelicans, Las Vegas, Nymeo ready (35 parks). Run at 10:00: 260 graded (171 PASS / 89 FAIL), 192 left, 69/95 pitchers carded, 24% of pitches. Findings sent to `bsb-resources-21` (SendMessage 66f28ba9): (1) the 0.47 in gate is a coin flip near the line - near-miss FAILs pass on 13-49% of bootstrap resamples; propose ~0.75 in (broken cameras start 1.13); (2) Asheville HomeTrust window opens ~20 frames late (ball f177-186 vs lo 203) and the ladder moved it LATER to 323-390, where all 7 games failed 59-2,284 in; propose ~175-260. Recall checkpoint 318615999f2bd1f9, session 0e82.
