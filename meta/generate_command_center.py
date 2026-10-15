@@ -638,4 +638,8 @@ def build():
 
 
 if __name__ == "__main__":
-    build()
+    # Oct 15 2026: v2 (World / Command / Library) replaced this page. Anything still calling this
+    # script (an old /wrap, a shortcut) builds v2 instead, so it can never revert the dashboard.
+    # This module stays as v2's helper library (git triage, last-state parsing).
+    import generate_command_center_v2 as v2
+    v2.build()
