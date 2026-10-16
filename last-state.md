@@ -1,4 +1,14 @@
-# Last session state - 2026-10-16 00:00 CT (Command CV: own repo, GPU box, target review)
+# Last session state - 2026-10-16 15:05 CT (C: drive cleanup + storage structure)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources` (no repo code changed) + vault `C:/Users/Owner/bsb-brain` branch `master`
+- **What we were doing:** C: was at 30 GB free of 445. Found what really uses disk (OneDrive online-only files = 0 bytes), deleted the Geek Squad staging folder, set one storage/backup structure, indexed Zac's personal docs privately in the vault.
+- **Shipped this session:** DELETED `C:\0291-261003-30945` (Geek Squad staging incl. 62 CapCut recordings, Zac's OK; old Surface is the fallback): C: 28.4 -> **159.1 GB free (+130.7 GB)**. Vault `meta/storage-and-backup.md` (policy + cleanup log). Gitignored `projects/private-archive/grad-school-applications.md` + `job-search-pre-2026.md` (+ README rows). Memory `laptop-storage-layout` (new) + `laptop-migration-2026-10` updated. Recall checkpoint 481b9efec4d7ff1d, session 99be.
+- **EXACT next step:** C: cleanup session 10-16: deleted Geek Squad staging (+130.7 GB, 28.4 -> 159.1 GB free); storage policy written to meta/storage-and-backup.md; private-archive notes (grad school apps + job search); command-cv data storage (clips 35 GB + ~20 GB old datasets) is a FUTURE conversation, keep as-is for now. Nothing to resume. Optional for Zac: Storage Sense on, delete `C:\eSupport` by hand (3.6 GB, Claude's delete was blocked), external SSD when `command-cv/data/clips` nears 100 GB.
+- **Blockers / waiting on:** none. Deferred by Zac: command-cv storage plan (SSD vs cloud, retire old yolo datasets via `command-cv/docs/retired_datasets/` process). Noted gaps: private-archive is laptop-only; vault `personal/` pushes to PUBLIC BridgerBSB/bsb-brain.
+- **Uncommitted work:** vault `meta/storage-and-backup.md` (committed by this wrap); bsb-resources pre-existing untracked only.
+
+---
+
+## ALSO OPEN - 2026-10-16 00:00 CT (Command CV: own repo, GPU box, target review)
 - **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` - its OWN repo now, `github.com/BridgerBSB/command-cv` branch `main` (bsb-resources untracks it)
 - **What we were doing:** got Command CV off the laptop (CPU VPS too slow; Hostinger RTX 4090 box matches the laptop), moved the repo to personal GitHub, and found why games/targets fail.
 - **Shipped this session:** command-cv `073f745` (--device auto), `a157965` (glove FP16 GPU-only), `b1557ce` (Asheville window 175-260; 822469 then PASSED), `3b60fb6` (scripts/gpu_box), `e5861cc` (target_review), `4bfc001` (lineage). bsb-resources `f69e7ca54` (untrack command-cv), `7e62e542e` + 4 sibling repos (replication commits), compute plan `docs/2026-10-14-compute-storage-backup-plan.md`. Target review: charted targets 26% wrong, 27 of 30 WRONG MOMENT. Recall checkpoints b47a7723162356f8 / 4a37a278e671b4d9, session f1e7.
