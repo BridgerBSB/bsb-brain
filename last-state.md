@@ -1,4 +1,14 @@
-# Last session state - 2026-10-15 18:40 CT (BR item 6 steal matchups + BR definitions PDF for Mazzo + tracker fixes)
+# Last session state - 2026-10-16 00:00 CT (Command CV: own repo, GPU box, target review)
+- **Project / cwd:** `C:/Users/Owner/bsb-resources/command-cv` - its OWN repo now, `github.com/BridgerBSB/command-cv` branch `main` (bsb-resources untracks it)
+- **What we were doing:** got Command CV off the laptop (CPU VPS too slow; Hostinger RTX 4090 box matches the laptop), moved the repo to personal GitHub, and found why games/targets fail.
+- **Shipped this session:** command-cv `073f745` (--device auto), `a157965` (glove FP16 GPU-only), `b1557ce` (Asheville window 175-260; 822469 then PASSED), `3b60fb6` (scripts/gpu_box), `e5861cc` (target_review), `4bfc001` (lineage). bsb-resources `f69e7ca54` (untrack command-cv), `7e62e542e` + 4 sibling repos (replication commits), compute plan `docs/2026-10-14-compute-storage-backup-plan.md`. Target review: charted targets 26% wrong, 27 of 30 WRONG MOMENT. Recall checkpoints b47a7723162356f8 / 4a37a278e671b4d9, session f1e7.
+- **EXACT next step:** build + test a release-anchored catcher set-up in `command-cv/src/auto_glove.py` (glove hold that ENDS just before the ball's release from detect_tracks; replaces the longest-hold rule at src/auto_glove.py:32). Test against `output/target_review/key.csv` + `Downloads/target_review_results.json`: must move the 27 wrong_time items, leave the 87 ok items within a few px. Zac: start this with fresh context.
+- **Blockers / waiting on:** GPU box (ubuntu@69.162.73.23 -p 30674) holds 25 Asheville reruns, likely idle-billing - on home Wi-Fi/hotspot run `python scripts/gpu_box/pull_box.py 69.162.73.23 30674 --apply`, then Zac DESTROYS it. Stadium Wi-Fi blocks Hostinger. Zac: OK to change the live set-up rule mid-season; staging folder; external SSD.
+- **Uncommitted work:** command-cv 4 (live ledger/landmarks, the workers' own); bsb-resources 9 (intentional skips).
+
+---
+
+## ALSO OPEN - 2026-10-15 18:40 CT (BR item 6 steal matchups + BR definitions PDF for Mazzo + tracker fixes)
 - **Project / cwd:** `C:/Users/Owner/bsb-wt-intangibles/astros-intangibles` - branch `feature/astros-intangibles` (+ rule copy in bsb-resources / bullpen / hitting)
 - **What we were doing:** Steal matchup cards research (what each colour means on 50,321 real 2021-26 steals; 3-colour split; 3B ~1 tier too red), BR tracker fixes from Zac's questions, a coach-facing definitions PDF answering Mazzo's questionnaire, and a 1->H video list.
 - **Shipped this session:** intangibles `4fe38d02d` (0 SB/CS judged by attempts, leads combine by lead count, full precision, guard test_br_zero_attempts.py), `0213dc7b4` (GRD text filter removed: probe showed 0 GRDs in 1->H chances), `5038f89aa`/`322b397aa` (one_to_home_video_list.py), `8837fd7d0`+ (docs/glossary/br-metrics-definitions.html + Desktop Baserunning-Metrics-Definitions.pdf), `f70f586ab`/`fb9ab6818` (2021-26 curves, plain labels), `080c5daed` (WAITING ON table), lineage `94c813e61`. R&D SQL sql-queries/sb-matchup-inputs-for-rnd.sql (sent to JJ). Recall checkpoint 9c4804e829bbce2b, session 347a.
