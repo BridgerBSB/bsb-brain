@@ -23,4 +23,5 @@ updated: '2026-10-16'
 - [x] Profiler ?diag=1 timing table, then the postgame pin decision (pinned 7f571dc9e Oct 10; Profiler 2.9s / 5.0s; Postgame Visuals confirmed fast on Connect by Zac Oct 16)
 
 ## Notes
+- Oct 16: R2K% V1 copies fixed (48dc5f033): compute_statline, compute_pbp_results, pitcher_analysis now read ab_pitch_number = 3 like V2/tracker/GC2. Chirinos 3/7 probe (r2k1-3): GC2 100% = ours 100%, March case closed.
 - Oct 16: Postgame Visuals load closed. Side note, not acted on: zero_count_report.py builds with plt.figure (blocking rule #24); low risk, nothing else in the file uses pyplot global state.
